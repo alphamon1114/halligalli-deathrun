@@ -24,6 +24,7 @@ namespace HalliGalli.Movement
                 DrawMatchState();
                 if(!p.IsSeated&&!p.IsRespawning){
                     if(Cursor.lockState==CursorLockMode.Locked)DrawTools();
+                    DrawRaceItems();
                     if(session.roster&&session.roster.surf){
                         BellUI.Text(new Rect(26,h-73,85,35),p.Motor.HorizontalSpeed.ToString("F1"),25,BellUI.Paper,true,shadow:true);
                         BellUI.Text(new Rect(102,h-66,40,25),"m/s",12,BellUI.Muted,shadow:true);

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace HalliGalli.Movement
 {
-    public enum CourseMapStyle { Jump, Climb, Surf, Factory }
+    public enum CourseMapStyle { Jump, Climb, Surf, Factory, Race }
 
     [CreateAssetMenu(menuName="HalliGalli/Course Map",fileName="CourseMap")]
     public sealed class CourseMapDefinition:ScriptableObject
@@ -16,7 +16,7 @@ namespace HalliGalli.Movement
         public string scenePath;
         public string thumbnail;
         public SourceMovementProfile movementProfile;
-        public string StyleLabel=>style==CourseMapStyle.Factory?"기계실":style==CourseMapStyle.Climb?"등산":style==CourseMapStyle.Surf?"서프":"점프";
+        public string StyleLabel=>style==CourseMapStyle.Race?"아이템 달리기":style==CourseMapStyle.Factory?"기계실":style==CourseMapStyle.Climb?"등산":style==CourseMapStyle.Surf?"서프":"점프";
         public string DifficultyLabel=>difficulty==1?"입문":difficulty==2?"보통":difficulty==3?"어려움":difficulty==4?"매우 어려움":"전문가";
     }
 }

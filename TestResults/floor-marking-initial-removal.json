@@ -1,0 +1,3247 @@
+{
+    "utc": "2026-10-30T06:32:38.8261287Z",
+    "error": "",
+    "success": true,
+    "scenes": [
+        {
+            "scenePath": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+            "mapIds": [
+                "first-steps"
+            ],
+            "enabledInBuild": true,
+            "containsFerry": true,
+            "changed": true,
+            "saved": true,
+            "invariantsPreserved": true,
+            "before": {
+                "transforms": 1504,
+                "colliders": 41,
+                "enabledColliders": 41,
+                "routeRoots": 6,
+                "routeAnchors": 42,
+                "surfSections": 0,
+                "checkpointPoints": 1,
+                "checkpointOutlines": 1,
+                "checkpointRenderers": 1,
+                "floorMarkings": 36,
+                "lineRenderers": 1
+            },
+            "after": {
+                "transforms": 1468,
+                "colliders": 41,
+                "enabledColliders": 41,
+                "routeRoots": 6,
+                "routeAnchors": 42,
+                "surfSections": 0,
+                "checkpointPoints": 1,
+                "checkpointOutlines": 1,
+                "checkpointRenderers": 1,
+                "floorMarkings": 0,
+                "lineRenderers": 1
+            },
+            "removed": [
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1877225287-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-389466264-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -7.940000057220459
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1846846537-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1641401772-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -0.059999942779541016
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1627739988-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.6399999856948853,
+                        "y": 0.35600000619888306,
+                        "z": 9.100000381469727
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-335335171-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 8.110000610351563
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-774448605-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.6399999856948853,
+                        "y": 0.35600000619888306,
+                        "z": 9.100000381469727
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-649076531-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 10.09000015258789
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1296163795-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-151917258-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1217791187-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1951440713-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1124846185-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1511409318-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1208948789-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-526564340-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1715622005-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-376366821-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1572222910-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-790011945-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-873625428-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-620789319-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-931397643-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-990758147-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-2080849707-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-712514594-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1580713225-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-87797650-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1651834054-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-899415734-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1093198125-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1903080971-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-925043619-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 6.739999771118164
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1810830545-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 4.659999847412109
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1481951118-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.440000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1603731338-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.440000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                }
+            ],
+            "retainedCP": [
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-8f6fc49e04b23a4439ec8dc5472d2776-1920895579-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "scenePath": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+            "mapIds": [
+                "summit"
+            ],
+            "enabledInBuild": true,
+            "containsFerry": false,
+            "changed": true,
+            "saved": true,
+            "invariantsPreserved": true,
+            "before": {
+                "transforms": 1177,
+                "colliders": 39,
+                "enabledColliders": 39,
+                "routeRoots": 6,
+                "routeAnchors": 84,
+                "surfSections": 0,
+                "checkpointPoints": 1,
+                "checkpointOutlines": 1,
+                "checkpointRenderers": 2,
+                "floorMarkings": 45,
+                "lineRenderers": 14
+            },
+            "after": {
+                "transforms": 1132,
+                "colliders": 39,
+                "enabledColliders": 39,
+                "routeRoots": 6,
+                "routeAnchors": 84,
+                "surfSections": 0,
+                "checkpointPoints": 1,
+                "checkpointOutlines": 1,
+                "checkpointRenderers": 2,
+                "floorMarkings": 0,
+                "lineRenderers": 1
+            },
+            "removed": [
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1877225287-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-389466264-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -7.940000057220459
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1846846537-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1641401772-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -0.059999942779541016
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1296163795-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-151917258-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1217791187-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1951440713-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1124846185-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1511409318-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1208948789-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-526564340-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1715622005-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-376366821-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1572222910-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-790011945-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-873625428-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-620789319-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-931397643-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-990758147-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-2080849707-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-712514594-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1580713225-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-87797650-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1651834054-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-899415734-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1093198125-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1903080971-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-925043619-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 6.739999771118164
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1810830545-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 4.659999847412109
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1481951118-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.440000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1603731338-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.440000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M01/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-511102510-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.875,
+                        "z": 9.0
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M02/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-737990353-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.338491439819336,
+                        "y": 1.4249999523162842,
+                        "z": 10.157297134399414
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M03/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1925534818-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.702441692352295,
+                        "y": 1.8749998807907104,
+                        "z": 12.594460487365723
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M04/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-207544114-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.651346683502197,
+                        "y": 2.575000047683716,
+                        "z": 16.804716110229492
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M05/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1840235988-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.242640495300293,
+                        "y": 2.825000047683716,
+                        "z": 19.74264144897461
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M06/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-937147432-0",
+                    "checkpointSurface": "Summit climbing course/Climb landing M06",
+                    "position": {
+                        "x": -0.18845704197883606,
+                        "y": 3.375,
+                        "z": 20.896709442138672
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M07/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1990152649-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.678197145462036,
+                        "y": 4.075000286102295,
+                        "z": 19.9572696685791
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M08/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-366631406-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.970726013183594,
+                        "y": 4.425000190734863,
+                        "z": 17.609949111938477
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M09/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1650753538-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.5881476402282715,
+                        "y": 5.075000286102295,
+                        "z": 14.270609855651855
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M10/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1391648723-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.880147933959961,
+                        "y": 5.525000095367432,
+                        "z": 11.53581714630127
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing M11/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-852266478-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -7.693204224779038e-7,
+                        "y": 5.925000190734863,
+                        "z": 11.100000381469727
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing Shortcut 1/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-626358285-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.276444435119629,
+                        "y": 2.2750000953674316,
+                        "z": 15.050527572631836
+                    }
+                },
+                {
+                    "name": "Rock lip",
+                    "hierarchy": "Summit climbing course/Climb landing Shortcut 5/Rock lip",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1902412012-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.8750874996185303,
+                        "y": 4.425000190734863,
+                        "z": 17.666534423828125
+                    }
+                }
+            ],
+            "retainedCP": [
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-602475672-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.18845704197883606,
+                        "y": 3.6600000858306885,
+                        "z": 21.136709213256836
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-ce1a60d567e7d5d458605521d4b33a11-1788910921-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "scenePath": "Assets/HalliGalliMovement/Demo/CombatPractice.unity",
+            "mapIds": [],
+            "enabledInBuild": true,
+            "containsFerry": false,
+            "changed": true,
+            "saved": true,
+            "invariantsPreserved": true,
+            "before": {
+                "transforms": 1662,
+                "colliders": 111,
+                "enabledColliders": 76,
+                "routeRoots": 6,
+                "routeAnchors": 42,
+                "surfSections": 0,
+                "checkpointPoints": 0,
+                "checkpointOutlines": 1,
+                "checkpointRenderers": 2,
+                "floorMarkings": 52,
+                "lineRenderers": 1
+            },
+            "after": {
+                "transforms": 1610,
+                "colliders": 111,
+                "enabledColliders": 76,
+                "routeRoots": 6,
+                "routeAnchors": 42,
+                "surfSections": 0,
+                "checkpointPoints": 0,
+                "checkpointOutlines": 1,
+                "checkpointRenderers": 2,
+                "floorMarkings": 0,
+                "lineRenderers": 1
+            },
+            "removed": [
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1877225287-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-389466264-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -7.940000057220459
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1846846537-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1641401772-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -0.059999942779541016
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1627739988-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.6399999856948853,
+                        "y": 0.35600000619888306,
+                        "z": 9.100000381469727
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-335335171-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 8.110000610351563
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-774448605-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.6399999856948853,
+                        "y": 0.35600000619888306,
+                        "z": 9.100000381469727
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-649076531-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 10.09000015258789
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-2137504504-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.3400001525878906,
+                        "y": 0.5559999942779541,
+                        "z": 12.300000190734863
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1916900650-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.2999999523162842,
+                        "y": 0.5559999942779541,
+                        "z": 11.360000610351563
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-893219797-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.2599998712539673,
+                        "y": 0.5559999942779541,
+                        "z": 12.300000190734863
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1154479956-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.2999999523162842,
+                        "y": 0.5559999942779541,
+                        "z": 13.239999771118164
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-435523085-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.2599998712539673,
+                        "y": 0.4560000002384186,
+                        "z": 15.699999809265137
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-606445217-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.2999999523162842,
+                        "y": 0.4560000002384186,
+                        "z": 14.760000228881836
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1072255115-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.3400001525878906,
+                        "y": 0.4560000002384186,
+                        "z": 15.699999809265137
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-439479761-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.2999999523162842,
+                        "y": 0.4560000002384186,
+                        "z": 16.639999389648438
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1149211310-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.840000033378601,
+                        "y": 0.25600001215934753,
+                        "z": 19.100000381469727
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-991268996-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.25600001215934753,
+                        "z": 18.059999465942383
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-296196371-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.840000033378601,
+                        "y": 0.25600001215934753,
+                        "z": 19.100000381469727
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-199945675-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.25600001215934753,
+                        "z": 20.14000129699707
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1457987095-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.940000057220459,
+                        "y": 0.25600001215934753,
+                        "z": 22.100000381469727
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1223025290-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.25600001215934753,
+                        "z": 20.65999984741211
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1809705980-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.940000057220459,
+                        "y": 0.25600001215934753,
+                        "z": 22.100000381469727
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1281592038-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.25600001215934753,
+                        "z": 23.540000915527344
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1296163795-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-151917258-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1217791187-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1951440713-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1124846185-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1511409318-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1208948789-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-526564340-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1715622005-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-376366821-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1572222910-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-790011945-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-873625428-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-620789319-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-931397643-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-990758147-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-2080849707-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-712514594-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1580713225-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-87797650-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1651834054-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-899415734-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1093198125-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1903080971-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-925043619-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 6.739999771118164
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1810830545-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 4.659999847412109
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1481951118-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.440000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-1603731338-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.440000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                }
+            ],
+            "retainedCP": [
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-859815588-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.2999999523162842,
+                        "y": 0.6100000143051147,
+                        "z": 12.780000686645508
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-d0640b25ae6428844a2ad9b391156233-128222149-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "scenePath": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+            "mapIds": [
+                "factory"
+            ],
+            "enabledInBuild": true,
+            "containsFerry": false,
+            "changed": true,
+            "saved": true,
+            "invariantsPreserved": true,
+            "before": {
+                "transforms": 1535,
+                "colliders": 37,
+                "enabledColliders": 37,
+                "routeRoots": 6,
+                "routeAnchors": 90,
+                "surfSections": 0,
+                "checkpointPoints": 1,
+                "checkpointOutlines": 1,
+                "checkpointRenderers": 1,
+                "floorMarkings": 52,
+                "lineRenderers": 1
+            },
+            "after": {
+                "transforms": 1483,
+                "colliders": 37,
+                "enabledColliders": 37,
+                "routeRoots": 6,
+                "routeAnchors": 90,
+                "surfSections": 0,
+                "checkpointPoints": 1,
+                "checkpointOutlines": 1,
+                "checkpointRenderers": 1,
+                "floorMarkings": 0,
+                "lineRenderers": 1
+            },
+            "removed": [
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1877225287-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-389466264-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -7.940000057220459
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1846846537-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1641401772-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -0.059999942779541016
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1296163795-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-151917258-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1217791187-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1951440713-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1124846185-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1511409318-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1208948789-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-526564340-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1715622005-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-376366821-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1572222910-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-790011945-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-873625428-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-620789319-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-931397643-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-990758147-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-2080849707-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-712514594-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1580713225-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-87797650-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1651834054-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-899415734-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1093198125-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1903080971-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-925043619-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 6.739999771118164
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1810830545-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 4.659999847412109
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1481951118-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.440000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1603731338-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.440000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Cross conveyor/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1187654789-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.3500001430511475,
+                        "y": 0.3619999885559082,
+                        "z": 8.399999618530273
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Cross conveyor/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-264338511-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.3500001430511475,
+                        "y": 0.3619999885559082,
+                        "z": 8.399999618530273
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Loading dock/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-237666738-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.450000047683716,
+                        "y": 0.3619999885559082,
+                        "z": 12.300000190734863
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Loading dock/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1069234966-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.450000047683716,
+                        "y": 0.3619999885559082,
+                        "z": 12.300000190734863
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Shuttle A/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1316046555-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.25,
+                        "y": 0.3619999885559082,
+                        "z": 13.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Shuttle A/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1716190558-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 6.350000381469727,
+                        "y": 0.3619999885559082,
+                        "z": 13.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Turn dock/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1432993576-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 7.849999904632568,
+                        "y": 0.7120000123977661,
+                        "z": 13.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Turn dock/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-902335782-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 12.149999618530273,
+                        "y": 0.7120000123977661,
+                        "z": 13.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Press conveyor/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1138212363-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 7.449999809265137,
+                        "y": 0.7120000123977661,
+                        "z": 18.200000762939453
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Press conveyor/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-996898130-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 12.550000190734863,
+                        "y": 0.7120000123977661,
+                        "z": 18.200000762939453
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Maintenance landing/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-574306586-0",
+                    "checkpointSurface": "Factory machinery/Maintenance landing",
+                    "position": {
+                        "x": 7.550000190734863,
+                        "y": 0.7120000123977661,
+                        "z": 23.5
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Maintenance landing/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-647760514-0",
+                    "checkpointSurface": "Factory machinery/Maintenance landing",
+                    "position": {
+                        "x": 12.449999809265137,
+                        "y": 0.7120000123977661,
+                        "z": 23.5
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Upper ledge A/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1140254128-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.25,
+                        "y": 1.1619999408721924,
+                        "z": 25.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Upper ledge A/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-489255551-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 7.350000381469727,
+                        "y": 1.1619999408721924,
+                        "z": 25.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Upper ledge B/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-177607404-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.3500000238418579,
+                        "y": 1.6119999885559082,
+                        "z": 25.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Upper ledge B/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-225082735-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.75,
+                        "y": 1.6119999885559082,
+                        "z": 25.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Shuttle B/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1470824261-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.75,
+                        "y": 1.6119999885559082,
+                        "z": 25.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Shuttle B/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-573280403-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.649999976158142,
+                        "y": 1.6119999885559082,
+                        "z": 25.0
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Bell catwalk/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-1690480708-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -9.75,
+                        "y": 1.6119999885559082,
+                        "z": 27.100000381469727
+                    }
+                },
+                {
+                    "name": "Amber edge",
+                    "hierarchy": "Factory machinery/Bell catwalk/Amber edge",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-2032354761-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.850000381469727,
+                        "y": 1.6119999885559082,
+                        "z": 27.100000381469727
+                    }
+                }
+            ],
+            "retainedCP": [
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-0374f9eac7aaad548911420a8b177394-711796870-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "scenePath": "Assets/HalliGalliMovement/Demo/MovementLab.unity",
+            "mapIds": [],
+            "enabledInBuild": true,
+            "containsFerry": false,
+            "changed": false,
+            "saved": false,
+            "invariantsPreserved": true,
+            "before": {
+                "transforms": 350,
+                "colliders": 34,
+                "enabledColliders": 22,
+                "routeRoots": 0,
+                "routeAnchors": 0,
+                "surfSections": 0,
+                "checkpointPoints": 0,
+                "checkpointOutlines": 0,
+                "checkpointRenderers": 0,
+                "floorMarkings": 0,
+                "lineRenderers": 0
+            },
+            "after": {
+                "transforms": 350,
+                "colliders": 34,
+                "enabledColliders": 22,
+                "routeRoots": 0,
+                "routeAnchors": 0,
+                "surfSections": 0,
+                "checkpointPoints": 0,
+                "checkpointOutlines": 0,
+                "checkpointRenderers": 0,
+                "floorMarkings": 0,
+                "lineRenderers": 0
+            },
+            "removed": [],
+            "retainedCP": []
+        },
+        {
+            "scenePath": "Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity",
+            "mapIds": [
+                "pyramid"
+            ],
+            "enabledInBuild": true,
+            "containsFerry": false,
+            "changed": true,
+            "saved": true,
+            "invariantsPreserved": true,
+            "before": {
+                "transforms": 1535,
+                "colliders": 115,
+                "enabledColliders": 115,
+                "routeRoots": 6,
+                "routeAnchors": 30,
+                "surfSections": 25,
+                "checkpointPoints": 4,
+                "checkpointOutlines": 4,
+                "checkpointRenderers": 8,
+                "floorMarkings": 32,
+                "lineRenderers": 4
+            },
+            "after": {
+                "transforms": 1503,
+                "colliders": 115,
+                "enabledColliders": 115,
+                "routeRoots": 6,
+                "routeAnchors": 30,
+                "surfSections": 25,
+                "checkpointPoints": 4,
+                "checkpointOutlines": 4,
+                "checkpointRenderers": 8,
+                "floorMarkings": 0,
+                "lineRenderers": 4
+            },
+            "removed": [
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1877225287-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-389466264-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -7.940000057220459
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1846846537-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1641401772-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -0.059999942779541016
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1296163795-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-151917258-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1217791187-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1951440713-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1124846185-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1511409318-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1208948789-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-526564340-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1715622005-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-376366821-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1572222910-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-790011945-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-873625428-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-620789319-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-931397643-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-990758147-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-2080849707-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-712514594-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1580713225-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-87797650-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1651834054-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-899415734-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1093198125-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1903080971-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-925043619-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 6.739999771118164
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1810830545-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 4.659999847412109
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1481951118-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.190000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1603731338-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 5.190000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                }
+            ],
+            "retainedCP": [
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-81308072-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 51.68772888183594,
+                        "y": -20.040000915527344,
+                        "z": 111.37347412109375
+                    }
+                },
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-583140120-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 119.68772888183594,
+                        "y": -50.63999938964844,
+                        "z": 207.3734893798828
+                    }
+                },
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1865560714-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 52.68772888183594,
+                        "y": -78.23999786376953,
+                        "z": 335.37347412109375
+                    }
+                },
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-763361267-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 51.980621337890625,
+                        "y": -105.33999633789063,
+                        "z": 534.1343994140625
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1911111679-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-2046845440-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1892721310-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-08115bd927cd6254d82eebbe209d9da7-1084430127-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "scenePath": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+            "mapIds": [
+                "surf"
+            ],
+            "enabledInBuild": true,
+            "containsFerry": false,
+            "changed": true,
+            "saved": true,
+            "invariantsPreserved": true,
+            "before": {
+                "transforms": 3072,
+                "colliders": 51,
+                "enabledColliders": 51,
+                "routeRoots": 6,
+                "routeAnchors": 30,
+                "surfSections": 11,
+                "checkpointPoints": 3,
+                "checkpointOutlines": 3,
+                "checkpointRenderers": 6,
+                "floorMarkings": 32,
+                "lineRenderers": 27
+            },
+            "after": {
+                "transforms": 3040,
+                "colliders": 51,
+                "enabledColliders": 51,
+                "routeRoots": 6,
+                "routeAnchors": 30,
+                "surfSections": 11,
+                "checkpointPoints": 3,
+                "checkpointOutlines": 3,
+                "checkpointRenderers": 6,
+                "floorMarkings": 0,
+                "lineRenderers": 27
+            },
+            "removed": [
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1877225287-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-389466264-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -7.940000057220459
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1846846537-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 5.940000057220459,
+                        "y": 0.006000000052154064,
+                        "z": -4.0
+                    }
+                },
+                {
+                    "name": "Edge stripe",
+                    "hierarchy": "Edge stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1641401772-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.006000000052154064,
+                        "z": -0.059999942779541016
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1296163795-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-151917258-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1217791187-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 1/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1951440713-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1124846185-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1511409318-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1208948789-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 2/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-526564340-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1715622005-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-376366821-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1572222910-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 3/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-790011945-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-873625428-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-620789319-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-931397643-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.1600000262260437,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 4/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-990758147-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.3399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-2080849707-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-712514594-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.25,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1580713225-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 1.6600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 5/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-87797650-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 2.8399999141693115,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1651834054-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 3.240000009536743
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-899415734-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.75,
+                        "y": 0.15600000321865082,
+                        "z": 1.3599998950958252
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1093198125-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.1600000858306885,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/First platform 6/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1903080971-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 4.340000152587891,
+                        "y": 0.15600000321865082,
+                        "z": 2.299999952316284
+                    }
+                },
+                {
+                    "name": "Front stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Front stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-925043619-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 6.739999771118164
+                    }
+                },
+                {
+                    "name": "Back stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Back stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1810830545-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.35600000619888306,
+                        "z": 4.659999847412109
+                    }
+                },
+                {
+                    "name": "Left stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Left stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1481951118-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -5.190000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                },
+                {
+                    "name": "Right stripe",
+                    "hierarchy": "Player row and lanes/Wide merge platform/Right stripe",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1603731338-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 5.190000057220459,
+                        "y": 0.35600000619888306,
+                        "z": 5.699999809265137
+                    }
+                }
+            ],
+            "retainedCP": [
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1569208208-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 3.200000047683716,
+                        "y": -11.140000343322754,
+                        "z": 34.900001525878906
+                    }
+                },
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1622485936-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -26.0,
+                        "y": -17.139999389648438,
+                        "z": -8.300000190734863
+                    }
+                },
+                {
+                    "name": "Checkpoint marker",
+                    "hierarchy": "Course checkpoints/Checkpoint marker",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-1867724822-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": -48.0,
+                        "y": -32.13999938964844,
+                        "z": 58.10000228881836
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-194603557-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-728574307-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "name": "Checkpoint outline",
+                    "hierarchy": "Course checkpoints/Checkpoint outline",
+                    "objectId": "GlobalObjectId_V1-2-d9910df42b4f58144892f726c76f1bd7-252393877-0",
+                    "checkpointSurface": "",
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        }
+    ]
+}

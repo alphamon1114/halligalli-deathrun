@@ -1,0 +1,163 @@
+{
+  "utc": "2026-10-30T08:05:57.360Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793347536015",
+  "small": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793347536015\\cleared-small.bellmap",
+  "large": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793347536015\\cleared-large.bellmap",
+  "ownedMaps": [
+    "7397927f6c784518971b785fef698189",
+    "7d5f3c1700b9487d8b34e79896890206",
+    "98e40fc04a6446cd91e41336f55892bf"
+  ],
+  "passed": 37,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Player starts",
+      "passed": true
+    },
+    {
+      "name": "Editor opens",
+      "passed": true
+    },
+    {
+      "name": "Uncleared default cannot create a saved map",
+      "passed": true
+    },
+    {
+      "name": "Uncleared default cannot export",
+      "passed": true
+    },
+    {
+      "name": "Imported map opens as a fresh uncertified draft",
+      "passed": true
+    },
+    {
+      "name": "Import does not auto-save an uncleared file",
+      "passed": true
+    },
+    {
+      "name": "Solo clear starts at central departure point",
+      "passed": true
+    },
+    {
+      "name": "Player physically walks over checkpoint",
+      "passed": true
+    },
+    {
+      "name": "Checkpoint does not grant clear or save progress during verification",
+      "passed": true
+    },
+    {
+      "name": "R restarts at departure instead of checkpoint",
+      "passed": true
+    },
+    {
+      "name": "Player enters course again",
+      "passed": true
+    },
+    {
+      "name": "Walking off course causes an actual fall",
+      "passed": true
+    },
+    {
+      "name": "Fall retries from the central start without certification",
+      "passed": true
+    },
+    {
+      "name": "Real movement reaches bell approach",
+      "passed": true
+    },
+    {
+      "name": "Reaching bell vicinity alone does not certify",
+      "passed": true
+    },
+    {
+      "name": "Ringing the bell certifies the exact map",
+      "passed": true
+    },
+    {
+      "name": "Clear proof survives return to editing",
+      "passed": true
+    },
+    {
+      "name": "Cleared map can be saved",
+      "passed": true
+    },
+    {
+      "name": "Cleared map exports as one portable file",
+      "passed": true
+    },
+    {
+      "name": "Editing immediately invalidates clearance",
+      "passed": true
+    },
+    {
+      "name": "Uncleared edit cannot overwrite last cleared saved map",
+      "passed": true
+    },
+    {
+      "name": "Uncleared edit cannot be exported",
+      "passed": true
+    },
+    {
+      "name": "Undo does not manufacture a fresh clear attempt",
+      "passed": true
+    },
+    {
+      "name": "Imported map opens as a fresh uncertified draft",
+      "passed": true
+    },
+    {
+      "name": "Portable file does not import its author local proof",
+      "passed": true
+    },
+    {
+      "name": "Imported map opens as a fresh uncertified draft",
+      "passed": true
+    },
+    {
+      "name": "Solo clear starts at central departure point",
+      "passed": true
+    },
+    {
+      "name": "Real movement reaches bell approach",
+      "passed": true
+    },
+    {
+      "name": "Ringing the bell certifies the exact map",
+      "passed": true
+    },
+    {
+      "name": "Clear proof survives return to editing",
+      "passed": true
+    },
+    {
+      "name": "Large cleared course saves",
+      "passed": true
+    },
+    {
+      "name": "Large cleared course exports",
+      "passed": true
+    },
+    {
+      "name": "Editor exits cleanly after cleared save",
+      "passed": true
+    },
+    {
+      "name": "Fresh player process starts",
+      "passed": true
+    },
+    {
+      "name": "Fresh editor opens",
+      "passed": true
+    },
+    {
+      "name": "Unchanged local saved map retains clearance after restart",
+      "passed": true
+    },
+    {
+      "name": "No probe execution errors",
+      "passed": true
+    }
+  ]
+}

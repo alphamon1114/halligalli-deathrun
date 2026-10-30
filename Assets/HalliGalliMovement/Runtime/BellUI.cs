@@ -29,9 +29,16 @@ namespace HalliGalli.Movement
         }
         public static void Text(Rect rect,string text,int size=18,Color? color=null,bool bold=false,TextAnchor align=TextAnchor.MiddleLeft,bool shadow=false)
         {
-            var old=GUI.color;
-            if(shadow){GUI.color=new Color(0,0,0,.75f);GUI.Label(new Rect(rect.x+1,rect.y+2,rect.width,rect.height),text,Style(size,bold,align));}
-            GUI.color=color??Paper;GUI.Label(rect,text,Style(size,bold,align));GUI.color=old;
+            var old=GUI.color;var contentColor=GUI.contentColor;bool enabled=GUI.enabled;
+            var style=Style(size,bold,align);var textColor=style.normal.textColor;
+            // Labels carry their own color; Unity's disabled tint must not dim it again.
+            // Buttons choose their muted label explicitly while their hit target stays disabled.
+            GUI.color=Color.white;GUI.contentColor=Color.white;GUI.enabled=true;
+            try{
+                if(shadow){style.normal.textColor=new Color(0,0,0,.75f);GUI.Label(new Rect(rect.x+1,rect.y+2,rect.width,rect.height),text,style);}
+                style.normal.textColor=color??Paper;GUI.Label(rect,text,style);
+            }
+            finally{style.normal.textColor=textColor;GUI.enabled=enabled;GUI.contentColor=contentColor;GUI.color=old;}
         }
         public static void Round(Rect rect,Color color,float radius=18,float border=0)
         {

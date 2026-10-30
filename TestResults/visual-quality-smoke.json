@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-30T06:56:59.756Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\visual-quality-1793343399060",
+  "fixtureId": "8e8dcd07cb234b60b6bfbc82e535826c",
+  "passed": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "All ten part types render with supported player shaders",
+      "passed": true
+    },
+    {
+      "name": "Every solid part retains a collider",
+      "passed": true
+    },
+    {
+      "name": "Minimum and elongated parts retain supported rendering and one collider",
+      "passed": true
+    },
+    {
+      "name": "Moving platform still animates during actual play",
+      "passed": true
+    },
+    {
+      "name": "Player stands on unchanged platform top",
+      "passed": true
+    },
+    {
+      "name": "first-steps: no legacy floor rectangles, checkpoints remain",
+      "passed": true
+    },
+    {
+      "name": "summit: no legacy floor rectangles, checkpoints remain",
+      "passed": true
+    },
+    {
+      "name": "surf: no legacy floor rectangles, checkpoints remain",
+      "passed": true
+    },
+    {
+      "name": "factory: no legacy floor rectangles, checkpoints remain",
+      "passed": true
+    },
+    {
+      "name": "pyramid: no legacy floor rectangles, checkpoints remain",
+      "passed": true
+    },
+    {
+      "name": "No runtime probe errors",
+      "passed": true
+    }
+  ]
+}

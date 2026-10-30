@@ -79,6 +79,7 @@ namespace HalliGalli.Movement
             bool interact=ControlBindings.Pressed(GameAction.Interact),reset=ControlBindings.Pressed(GameAction.Respawn);
             bool reveal=ControlBindings.Pressed(GameAction.Primary);
             ProcessActions(interact,reveal,reset);
+            if(!interact&&!reset&&ControlBindings.Pressed(GameAction.UseItem))UseRaceItem();
         }
         public void ProcessActions(bool interact,bool reveal,bool reset)
         {
@@ -96,6 +97,15 @@ namespace HalliGalli.Movement
             if(session.practiceRoom)return;
             var p=session.Local;if(p.IsRespawning)return;
             if(p.IsSeated)p.Stand();else if(session.CanRing(p))session.Ring(p);else if(p.CanSit)p.Sit();
+        }
+        public void UseRaceItem()
+        {
+            if(!RaceCourse.Active||RaceCourse.Active.session!=session||MapMenuOpen||MatchFinished||
+                ControlSettings.BlocksInput||CourseNetwork.CapturesPointer||session.maps&&session.maps.Loading)return;
+            var actor=session.Local;
+            var aim=actor.GetComponent<SourcePlayerController>().AimRotation*Vector3.forward;
+            if(CourseNetwork.Active)CourseNetwork.Instance.LocalAction(NetworkAction.UseItem,aim:aim);
+            else RaceCourse.Active.UseItem(actor,aim);
         }
         string SeatName(int seat)=>CourseNetwork.Active?CourseNetwork.Instance.SeatName(seat):session.participants[seat].localPlayer?"나 (1번)":"AI "+(seat+1);
         public string StatusText

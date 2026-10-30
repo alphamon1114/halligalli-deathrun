@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-30T08:05:36.012Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\race-1793347408374",
+  "passed": 18,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Final official race loads on both peers with identical box placement",
+      "passed": true
+    },
+    {
+      "name": "Seated player cannot create an item attack",
+      "passed": true
+    },
+    {
+      "name": "First-place racer receives a shield on both peers",
+      "passed": true
+    },
+    {
+      "name": "Holding an item leaves other boxes available",
+      "passed": true
+    },
+    {
+      "name": "Missile without a forward lock preserves inventory",
+      "passed": true
+    },
+    {
+      "name": "Remote shield blocks homing missile without somersault",
+      "passed": true
+    },
+    {
+      "name": "Homing hit forces victim into airborne somersault",
+      "passed": true
+    },
+    {
+      "name": "Victim first-person camera never rolls with the somersault",
+      "passed": true
+    },
+    {
+      "name": "In-flight missile cannot hit a new target life",
+      "passed": true
+    },
+    {
+      "name": "Placed banana causes authoritative sliding on both peers",
+      "passed": true
+    },
+    {
+      "name": "Temporary shield also blocks banana sliding",
+      "passed": true
+    },
+    {
+      "name": "Bell award preserves card rules and clears all round item effects",
+      "passed": true
+    },
+    {
+      "name": "Entire continuous course can be run with normal movement",
+      "passed": true
+    },
+    {
+      "name": "AI races along the same track and collects live boxes",
+      "passed": true
+    },
+    {
+      "name": "AI activates its shield against a nearby follower",
+      "passed": true
+    },
+    {
+      "name": "AI can complete the track and ring the original bell",
+      "passed": true
+    },
+    {
+      "name": "Switching to an existing map removes race state on both peers",
+      "passed": true
+    },
+    {
+      "name": "No runtime probe errors",
+      "passed": true
+    }
+  ]
+}

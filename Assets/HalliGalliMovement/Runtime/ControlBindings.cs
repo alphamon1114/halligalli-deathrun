@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HalliGalli.Movement
 {
-    public enum GameAction { Forward, Back, Left, Right, Jump, Crouch, Primary, Kick, Lasso, Interact, Respawn, BodyView }
+    public enum GameAction { Forward, Back, Left, Right, Jump, Crouch, Primary, Kick, Lasso, Interact, Respawn, BodyView, UseItem }
 
     // The project uses Unity's legacy input backend. Store physical controls, never translated labels.
     public static class ControlBindings
@@ -12,7 +12,7 @@ namespace HalliGalli.Movement
         public const int WheelUp=-1, WheelDown=-2, Slots=3;
         public const string PreferenceKey="HalliGalli.Controls.v1";
         public static readonly GameAction[] Actions=(GameAction[])Enum.GetValues(typeof(GameAction));
-        public static readonly string[] Names={"앞으로","뒤로","왼쪽으로","오른쪽으로","점프","웅크리기","주먹 / 카드 공개","발차기","밧줄 / 당기기","일어나기 / 앉기 / 종","체크포인트 복귀","전신 보기"};
+        public static readonly string[] Names={"앞으로","뒤로","왼쪽으로","오른쪽으로","점프","웅크리기","주먹 / 카드 공개","발차기","밧줄 / 당기기","일어나기 / 앉기 / 종","체크포인트 복귀","전신 보기","레이스 아이템 사용"};
         static readonly KeyCode[] keys=((KeyCode[])Enum.GetValues(typeof(KeyCode))).Distinct().Where(k=>(int)k>0&&(int)k<(int)KeyCode.JoystickButton0).ToArray();
         static int[][] bindings;
         [Serializable] sealed class Saved { public int version=1; public Row[] rows; }
@@ -34,7 +34,7 @@ namespace HalliGalli.Movement
         public static void Defaults(bool save=true)
         {
             bindings=Actions.Select(a=>new int[Slots]).ToArray();
-            var defaults=new[]{KeyCode.W,KeyCode.S,KeyCode.A,KeyCode.D,KeyCode.Space,KeyCode.LeftControl,KeyCode.Mouse0,KeyCode.F,KeyCode.Q,KeyCode.E,KeyCode.R,KeyCode.V};
+            var defaults=new[]{KeyCode.W,KeyCode.S,KeyCode.A,KeyCode.D,KeyCode.Space,KeyCode.LeftControl,KeyCode.Mouse0,KeyCode.F,KeyCode.Q,KeyCode.E,KeyCode.R,KeyCode.V,KeyCode.C};
             for(int i=0;i<defaults.Length;i++)bindings[i][0]=(int)defaults[i];
             bindings[(int)GameAction.Jump][1]=WheelDown;
             bindings[(int)GameAction.Crouch][1]=(int)KeyCode.RightControl;
@@ -47,15 +47,18 @@ namespace HalliGalli.Movement
             try{
                 var saved=JsonUtility.FromJson<Saved>(PlayerPrefs.GetString(PreferenceKey,""));
                 if(saved==null||saved.version!=1||saved.rows==null)return;
-                var candidate=Actions.Select(a=>new int[Slots]).ToArray();var seen=new System.Collections.Generic.HashSet<int>();
-                if(saved.rows.Length!=Actions.Length)return;
-                for(int i=0;i<Actions.Length;i++){
+                var candidate=bindings.Select(row=>(int[])row.Clone()).ToArray();var seen=new System.Collections.Generic.HashSet<int>();
+                if(saved.rows.Length!=Actions.Length&&saved.rows.Length!=(int)GameAction.UseItem)return;
+                for(int i=0;i<saved.rows.Length;i++){
                     var row=saved.rows[i];if(row==null||row.action!=i||row.codes==null||row.codes.Length!=Slots)return;
                     for(int s=0;s<Slots;s++){
                         int code=row.codes[s];if(!Valid(code)||code<0&&!AllowsWheel((GameAction)i)||code!=0&&!seen.Add(code))return;
                         candidate[i][s]=code;
                     }
                 }
+                // Preserve existing custom controls; never steal a key for the newly added action.
+                for(int i=saved.rows.Length;i<Actions.Length;i++)
+                    for(int s=0;s<Slots;s++)if(candidate[i][s]!=0&&!seen.Add(candidate[i][s]))candidate[i][s]=0;
                 bindings=candidate;
             }catch(ArgumentException){ }
         }

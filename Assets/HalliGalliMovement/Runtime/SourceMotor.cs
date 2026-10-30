@@ -28,6 +28,7 @@ namespace HalliGalli.Movement
         public float StunRemaining {get;private set;}
         public float StunImmuneRemaining {get;private set;}
         public bool Stunned => StunRemaining>0;
+        public float RaceSlipRemaining {get;private set;}
         public bool Surfing { get; private set; }
         public Vector3 SurfNormal { get; private set; }
         public int SurfContactTicks { get; private set; }
@@ -49,13 +50,13 @@ namespace HalliGalli.Movement
         public struct NetworkState : Unity.Netcode.INetworkSerializeByMemcpy
         {
             public Vector3 position,velocity,normal,surfNormal;
-            public float yaw,height,stagger,buffer,stun,stunImmunity;
+            public float yaw,height,stagger,buffer,stun,stunImmunity,raceSlip;
             public int jumps,surfTicks;
             public bool grounded,surfing;
         }
         public NetworkState CaptureNetworkState()=>new NetworkState{
             position=transform.position,velocity=Velocity,normal=groundNormal,surfNormal=SurfNormal,yaw=transform.eulerAngles.y,
-            height=body.height,stagger=StaggerRemaining,buffer=jumpBuffer,stun=StunRemaining,stunImmunity=StunImmuneRemaining,jumps=JumpCount,surfTicks=SurfContactTicks,
+            height=body.height,stagger=StaggerRemaining,buffer=jumpBuffer,stun=StunRemaining,stunImmunity=StunImmuneRemaining,raceSlip=RaceSlipRemaining,jumps=JumpCount,surfTicks=SurfContactTicks,
             grounded=Grounded,surfing=Surfing
         };
         public void RestoreNetworkState(NetworkState state)
@@ -64,7 +65,7 @@ namespace HalliGalli.Movement
             transform.SetPositionAndRotation(state.position,Quaternion.Euler(0,state.yaw,0));
             body.height=state.height;body.center=Vector3.up*body.height*.5f;body.enabled=mobile;
             Velocity=state.velocity;Grounded=state.grounded;StaggerRemaining=state.stagger;
-            StunRemaining=state.stun;StunImmuneRemaining=state.stunImmunity;
+            StunRemaining=state.stun;StunImmuneRemaining=state.stunImmunity;RaceSlipRemaining=state.raceSlip;
             groundNormal=state.normal;SurfNormal=state.surfNormal;Surfing=state.surfing;SurfContactTicks=state.surfTicks;
             jumpBuffer=state.buffer;JumpCount=state.jumps;CurrentEyePosition=PreviousEyePosition=transform.position+Vector3.up*EyeHeight;
         }
@@ -102,7 +103,7 @@ namespace HalliGalli.Movement
         {
             Initialize();
             if (dt <= 0 || !body.enabled) return;
-            bool stunned=Stunned;
+            bool stunned=Stunned,sliding=RaceSlipRemaining>0;
             AdvanceStun(dt);
             if(stunned){command.move=Vector2.zero;command.jumpPressed=command.jumpHeld=false;command.crouch=IsCrouched;jumpBuffer=-1;}
             if(Staggered) {
@@ -126,7 +127,7 @@ namespace HalliGalli.Movement
             bool wantsJump = jumpBuffer >= 0 || (profile.autoBunnyHop && command.jumpHeld);
             bool jumped = Grounded && wantsJump;
             Vector3 velocity = Velocity;
-            if(stunned&&Grounded){velocity.x=velocity.z=0;}
+            if(stunned&&Grounded&&!sliding){velocity.x=velocity.z=0;}
             if (jumped)
             {
                 velocity.y = Mathf.Sqrt(2 * profile.gravity * profile.jumpHeight);
@@ -136,7 +137,7 @@ namespace HalliGalli.Movement
             }
             else if (Grounded)
             {
-                velocity = ApplyGroundFriction(velocity, profile.groundFriction, profile.stopSpeed, dt);
+                velocity = ApplyGroundFriction(velocity, sliding?.45f:profile.groundFriction, profile.stopSpeed, dt);
                 velocity.y = -profile.groundStickSpeed;
             }
 
@@ -200,7 +201,7 @@ namespace HalliGalli.Movement
                 Grounded = false;
                 velocity.y = Mathf.Max(velocity.y - profile.gravity * dt * 0.5f, -profile.terminalFallSpeed);
             }
-            if(stunned&&Grounded){velocity.x=velocity.z=0;}
+            if(stunned&&Grounded&&!sliding){velocity.x=velocity.z=0;}
             Velocity = velocity;
             if (Grounded) Surfing = false;
             if (Surfing) SurfContactTicks++;
@@ -300,8 +301,15 @@ namespace HalliGalli.Movement
             if(Grounded)Velocity=new Vector3(0,Velocity.y,0);
             return true;
         }
-        public void AdvanceStun(float dt){StunRemaining=Mathf.Max(0,StunRemaining-dt);StunImmuneRemaining=Mathf.Max(0,StunImmuneRemaining-dt);}
-        public void ClearStun(){StunRemaining=StunImmuneRemaining=0;}
+        public void ApplyRaceSlip(Vector3 velocity,float duration)
+        {
+            RaceSlipRemaining=Mathf.Max(0,duration);StunRemaining=Mathf.Max(StunRemaining,RaceSlipRemaining);
+            StunImmuneRemaining=Mathf.Max(StunImmuneRemaining,StunRemaining+.2f);jumpBuffer=-1;
+            Velocity=new Vector3(velocity.x,Velocity.y,velocity.z);
+        }
+        public void ClearRaceSlip(){RaceSlipRemaining=0;}
+        public void AdvanceStun(float dt){StunRemaining=Mathf.Max(0,StunRemaining-dt);StunImmuneRemaining=Mathf.Max(0,StunImmuneRemaining-dt);RaceSlipRemaining=Mathf.Max(0,RaceSlipRemaining-dt);}
+        public void ClearStun(){StunRemaining=StunImmuneRemaining=RaceSlipRemaining=0;}
 
         public void Teleport(Vector3 feetPosition)
         {
@@ -312,6 +320,7 @@ namespace HalliGalli.Movement
             Physics.SyncTransforms();
             Velocity = Vector3.zero;
             StaggerRemaining=0;
+            RaceSlipRemaining=0;
             Grounded = false;
             Surfing = false;
             SurfNormal = Vector3.zero;

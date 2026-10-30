@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-30T03:30:32.175Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\studio-1793331021736",
+  "passed": 18,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Player starts",
+      "passed": true
+    },
+    {
+      "name": "Studio loads editable course",
+      "passed": true
+    },
+    {
+      "name": "Placed geometry changes draft and marks it unsaved",
+      "passed": true
+    },
+    {
+      "name": "Undo restores exact pre-placement draft",
+      "passed": true
+    },
+    {
+      "name": "Redo restores same placed object",
+      "passed": true
+    },
+    {
+      "name": "Duplicate has independent object identity",
+      "passed": true
+    },
+    {
+      "name": "Deleting duplicate preserves original geometry",
+      "passed": true
+    },
+    {
+      "name": "Single portable map file exported",
+      "passed": true
+    },
+    {
+      "name": "Transform editing updates draft",
+      "passed": true
+    },
+    {
+      "name": "Draft saves without losing transforms",
+      "passed": true
+    },
+    {
+      "name": "Test play starts from current draft",
+      "passed": true
+    },
+    {
+      "name": "Returning from test preserves exact authored draft",
+      "passed": true
+    },
+    {
+      "name": "Imported file becomes independent editable map",
+      "passed": true
+    },
+    {
+      "name": "Imported map exports again",
+      "passed": true
+    },
+    {
+      "name": "File handoff preserves all authored object properties",
+      "passed": true
+    },
+    {
+      "name": "Closing dirty draft requires explicit choice",
+      "passed": true
+    },
+    {
+      "name": "Discard exits to official home scene",
+      "passed": true
+    },
+    {
+      "name": "No probe execution errors",
+      "passed": true
+    }
+  ]
+}

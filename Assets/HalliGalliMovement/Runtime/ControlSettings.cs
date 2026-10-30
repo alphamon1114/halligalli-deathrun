@@ -62,7 +62,7 @@ namespace HalliGalli.Movement
             for(int s=0;s<3;s++)BellUI.Text(new Rect(x+275+s*212,y+100,184,25),s==0?"기본":"추가 "+s,13,BellUI.Muted);
             GUI.enabled=row<0;
             for(int a=0;a<ControlBindings.Actions.Length;a++){
-                float cy=y+130+a*34;
+                float cy=y+130+a*32;
                 BellUI.Text(new Rect(x+28,cy,240,30),ControlBindings.Names[a],15);
                 for(int s=0;s<3;s++){
                     float cx=x+275+s*212;

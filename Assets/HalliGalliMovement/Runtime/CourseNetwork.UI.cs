@@ -7,9 +7,10 @@ namespace HalliGalli.Movement
         public enum EntryScreen { Home, Create, Join }
         EntryScreen entryScreen;
         public EntryScreen CurrentEntryScreen=>entryScreen;
-        public bool OverlayVisible=>menu||online&&!Playing;
+        public bool OverlayVisible=>UserMapStudio.IsOpen?!UserMapStudio.IsTesting:menu||online&&!Playing;
         public void ShowMenu()
         {
+            if(UserMapStudio.IsOpen)return;
             if(!online){ShowStartScreen();return;}
             menu=true;
             if(game){var controller=game.Local.GetComponent<SourcePlayerController>();controller.SetCursorCaptured(false);controller.suppressCursorCapture=true;}
@@ -19,13 +20,13 @@ namespace HalliGalli.Movement
         public void ShowJoinRoom(){OpenEntry(EntryScreen.Join);}
         void OpenEntry(EntryScreen screen)
         {
-            if(online||Busy||leaving||!game)return;
+            if(online||Busy||leaving||!game||UserMapStudio.IsOpen)return;
             if(game.practiceRoom)game.practiceRoom.Exit();
             entryScreen=screen;menu=true;FreezeWorld();GUIUtility.keyboardControl=0;
         }
         public void StartTraining()
         {
-            if(online||Busy||leaving||!game)return;
+            if(online||Busy||leaving||!game||UserMapStudio.IsOpen)return;
             StartCoroutine(LoadTraining());
         }
         System.Collections.IEnumerator LoadTraining()
@@ -39,17 +40,17 @@ namespace HalliGalli.Movement
         // Offline authoring/validation helper. Player-facing games are created from the room menu.
         public void StartPractice()
         {
-            if(online||Busy||leaving||!game)return;
+            if(online||Busy||leaving||!game||UserMapStudio.IsOpen)return;
             menu=false;Status="";entryScreen=EntryScreen.Home;game.ResetPractice();game.cardGame.botEnabled=true;
             foreach(var p in game.roster.allParticipants){var bot=p.GetComponent<CourseRival>();if(bot)bot.enabled=true;p.Combat.simulateAutomatically=true;}
             var controller=game.Local.GetComponent<SourcePlayerController>();controller.controlsEnabled=true;controller.suppressCursorCapture=false;
             if(!Application.isBatchMode)controller.SetCursorCaptured(true);
         }
 #endif
-        public static bool CapturesPointer=>ControlSettings.BlocksInput||Instance&&Instance.OverlayVisible;
+        public static bool CapturesPointer=>ControlSettings.BlocksInput||UserMapStudio.IsOpen&&!UserMapStudio.IsTesting||Instance&&Instance.OverlayVisible;
         void OnGUI()
         {
-            if(ControlSettings.IsOpen||!game||!OverlayVisible)return;
+            if(UserMapStudio.IsOpen||ControlSettings.IsOpen||!game||!OverlayVisible)return;
             var matrix=GUI.matrix;var color=GUI.color;bool enabled=GUI.enabled;int depth=GUI.depth;GUI.depth=-30;BellUI.Begin();
             float w=BellUI.W,h=BellUI.H,x=(w-1040)*.5f,y=(h-640)*.5f;
             if(!online){DrawEntryScreen(x,y);GUI.enabled=enabled;GUI.matrix=matrix;GUI.color=color;GUI.depth=depth;return;}
@@ -82,7 +83,8 @@ namespace HalliGalli.Movement
                 BellUI.Text(new Rect(right,y+160,456,30),"어떻게 시작할까?",18,BellUI.Muted);
                 if(EntryChoice(new Rect(right,y+216,456,92),"person","방 만들기","친구 또는 AI와 · 2–6인",true))ShowCreateRoom();
                 if(EntryChoice(new Rect(right,y+342,456,92),"arrow","초대코드로 참가","친구의 방으로"))ShowJoinRoom();
-                if(BellUI.Button(new Rect(right,y+457,456,48),"연습실",size:18))StartTraining();
+                if(BellUI.Button(new Rect(right,y+457,221,48),"연습실",size:18))StartTraining();
+                if(BellUI.Button(new Rect(right+235,y+457,221,48),"맵 만들기",size:18))UserMapStudio.Open();
                 if(BellUI.Button(new Rect(right+342,y+574,114,40),"종료",size:15))QuitFromHome();
             }else{
                 bool create=entryScreen==EntryScreen.Create;
@@ -140,25 +142,14 @@ namespace HalliGalli.Movement
                         if(BellUI.Button(new Rect(x+348,row,84,31),"빼기",size:13)){RemoveBot(m.id);GUI.enabled=true;break;}
                         GUI.enabled=true;
                     }else BellUI.Text(new Rect(x+324,row,108,31),"AI",13,BellUI.Cool,false,TextAnchor.MiddleRight);
-                }else BellUI.Text(new Rect(x+324,row,108,31),m.id==0?"방장":m.ready?"준비 완료":"대기",13,c,false,TextAnchor.MiddleRight);
+                }else BellUI.Text(new Rect(x+324,row,108,31),MapPeerLabel(m),13,c,false,TextAnchor.MiddleRight);
             }
             for(int i=members.Count;i<capacity;i++){
                 float row=y+266+i*45;BellUI.Round(new Rect(x,row,31,31),new Color(.16f,.17f,.15f),16);
                 BellUI.Text(new Rect(x,row,31,31),(i+1).ToString(),13,BellUI.Muted,false,TextAnchor.MiddleCenter);
                 BellUI.Text(new Rect(x+47,row,267,31),"빈자리",15,new Color(.44f,.46f,.42f));
             }
-            float right=x+600;BellUI.Text(new Rect(right,y+128,440,30),"맵",16,BellUI.Muted);
-            int mapCount=0;foreach(var map in game.maps.catalog.maps)if(map&&map.playable)mapCount++;
-            float mapStep=Mathf.Min(66,264f/Mathf.Max(1,mapCount)),mapHeight=mapStep-6;
-            int index=0;foreach(var map in game.maps.catalog.maps){
-                if(!map||!map.playable)continue;float row=y+170+index*mapStep;index++;
-                GUI.enabled=IsHost&&!Playing&&!loading;
-                if(BellUI.Button(new Rect(right,row,440,mapHeight),"",selected:map.id==mapId))SelectMap(map.id);
-                BellUI.MapPicture(new Rect(right+9,row+5,83,mapHeight-10),map,12);
-                BellUI.Text(new Rect(right+110,row,310,mapHeight*.55f),map.displayName,17,BellUI.Paper,true);
-                BellUI.Text(new Rect(right+110,row+mapHeight*.55f,310,mapHeight*.45f),map.StyleLabel+" · "+map.DifficultyLabel,12,BellUI.Muted);
-            }
-            GUI.enabled=true;
+            float right=x+600;DrawMapSelection(right,y);
             if(Playing){
                 if(BellUI.Button(new Rect(right,y+444,440,49),"계속하기",true)){menu=false;EnablePlay();}
                 if(IsHost&&BellUI.Button(new Rect(right,y+506,440,40),"대기방으로"))ReturnToRoom();
@@ -166,11 +157,11 @@ namespace HalliGalli.Movement
                 GUI.enabled=CanStart;
                 if(BellUI.Button(new Rect(right,y+444,440,52),loading?"맵 불러오는 중…":members.Count+"명으로 시작",true))StartMatch();
                 GUI.enabled=true;
-                if(!CanStart)BellUI.Text(new Rect(right,y+505,440,30),members.Count<2?"친구를 초대하거나 AI를 추가해요":"모두 준비하면 시작",14,BellUI.Muted);
+                if(!CanStart)BellUI.Text(new Rect(right,y+505,440,30),members.Count<2?"친구를 초대하거나 AI를 추가해요":!AllUserMapsReady?"모두 맵을 받은 뒤 시작할 수 있어요":"모두 준비하면 시작",14,BellUI.Muted);
             }else{
-                GUI.enabled=!loading&&!Busy;
+                GUI.enabled=!loading&&!Busy&&UserMapReady;
                 bool ready=LocalSeat>=0&&members[LocalSeat].ready;
-                if(BellUI.Button(new Rect(right,y+444,440,52),loading?"맵 불러오는 중…":ready?"준비 취소":"준비 완료",!ready))LocalAction(NetworkAction.Ready);
+                if(BellUI.Button(new Rect(right,y+444,440,52),loading?"맵 불러오는 중…":!UserMapReady?"맵을 받는 중…":ready?"준비 취소":"준비 완료",!ready))LocalAction(NetworkAction.Ready);
                 GUI.enabled=true;
             }
             GUI.enabled=!Busy&&!leaving;

@@ -1,0 +1,117 @@
+{
+  "utc": "2026-10-30T04:29:01.888Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\downloads-1793334521275",
+  "cacheFile": "C:\\Users\\mbc\\AppData\\LocalLow\\HalliGalli Prototype\\HalliGalli Deathrun - Bell Run\\DownloadedMaps\\38a3482adacd68331dc5022f86c35a90fbc48acfa336690a75ed56ab3e9164ed.bellmap",
+  "passed": 27,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Receiver player starts",
+      "passed": true
+    },
+    {
+      "name": "Import editor opens",
+      "passed": true
+    },
+    {
+      "name": "Command applied: manual",
+      "passed": true
+    },
+    {
+      "name": "Import confirms discarding initial draft",
+      "passed": true
+    },
+    {
+      "name": "Imported editable copy remains uncertified",
+      "passed": true
+    },
+    {
+      "name": "Close preserves explicit discard choice",
+      "passed": true
+    },
+    {
+      "name": "Returns home",
+      "passed": true
+    },
+    {
+      "name": "Recipient creates a room",
+      "passed": true
+    },
+    {
+      "name": "Imported original can host without recipient solo clear",
+      "passed": true
+    },
+    {
+      "name": "Shared original is persistently stored",
+      "passed": true
+    },
+    {
+      "name": "Joining guest downloads and verifies selected map",
+      "passed": true
+    },
+    {
+      "name": "Recipient hosting does not fabricate solo-clear proof",
+      "passed": true
+    },
+    {
+      "name": "First guest did not use a cache",
+      "passed": true
+    },
+    {
+      "name": "Downloaded original survives on disk",
+      "passed": true
+    },
+    {
+      "name": "Download completion permits ready and start",
+      "passed": true
+    },
+    {
+      "name": "Both players actually load downloaded geometry",
+      "passed": true
+    },
+    {
+      "name": "Both return to room",
+      "passed": true
+    },
+    {
+      "name": "Original room closes",
+      "passed": true
+    },
+    {
+      "name": "Fresh process creates new room",
+      "passed": true
+    },
+    {
+      "name": "Previously downloaded map can be rehosted after restart",
+      "passed": true
+    },
+    {
+      "name": "Command applied: host",
+      "passed": true
+    },
+    {
+      "name": "Edited download cannot inherit original hosting permission",
+      "passed": true
+    },
+    {
+      "name": "Next guest reuses matching cache",
+      "passed": true
+    },
+    {
+      "name": "Cached-map ACK permits new host to start",
+      "passed": true
+    },
+    {
+      "name": "Command applied: host",
+      "passed": true
+    },
+    {
+      "name": "Rehosted cached map actually plays",
+      "passed": true
+    },
+    {
+      "name": "No player probe errors",
+      "passed": true
+    }
+  ]
+}

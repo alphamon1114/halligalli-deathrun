@@ -36,7 +36,7 @@ namespace HalliGalli.EditorTools
                     if(i>1){p.seatAnchor=Anchor(parent,"Seat "+(i+1),Vector3.zero);p.standAnchor=Anchor(parent,"Start "+(i+1),Vector3.zero);p.retryAnchor=Anchor(parent,"Retry "+(i+1),Vector3.zero);}
                     var color=SeatMaterial(i);roster.chairs[i]=Chair(parent,i,color,dark);
                     roster.firstPlatforms[i]=new GameObject("First platform "+(i+1)).transform;roster.firstPlatforms[i].SetParent(parent);
-                    Platform(roster.firstPlatforms[i],1.3f,2,deck,color,dark);
+                    Platform(roster.firstPlatforms[i],1.3f,2,deck,dark);
                     var route=new GameObject("Route seat "+(i+1)).transform;route.SetParent(parent);roster.routeRoots[i]=route;
                     Vector3[] nodes={new Vector3(0,.175f,2.3f),new Vector3(0,.375f,5.7f),new Vector3(0,.375f,9.1f),new Vector3(-1.3f,.575f,12.3f),new Vector3(1.3f,.475f,15.7f),new Vector3(0,.275f,19.1f),new Vector3(0,.275f,21.95f)};
                     for(int n=0;n<nodes.Length;n++)Anchor(route,"Landing "+n,nodes[n]);
@@ -45,7 +45,7 @@ namespace HalliGalli.EditorTools
                     var bot=p.GetComponent<CourseRival>();if(bot)bot.participant=p;
                 }
                 var mergeRoot=new GameObject("Wide merge platform").transform;mergeRoot.SetParent(parent);mergeRoot.position=new Vector3(0,.35f,5.7f);
-                var parts=Platform(mergeRoot,9,2.2f,deck,SeatMaterial(0),dark);roster.mergeSurface=parts[0];roster.mergeFront=parts[1];roster.mergeBack=parts[2];roster.mergeLeft=parts[3];roster.mergeRight=parts[4];
+                roster.mergeSurface=Platform(mergeRoot,9,2.2f,deck,dark);
                 var top=GameObject.Find("Table top").transform;top.position=new Vector3(0,.79f,-5.1f);top.localScale=new Vector3(5.5f,.15f,5.2f);
                 var felt=GameObject.Find("Table felt").transform;felt.position=new Vector3(0,.875f,-5.1f);felt.localScale=new Vector3(5.28f,.025f,4.98f);
                 int leg=0;foreach(var t in Object.FindObjectsByType<Transform>().Where(t=>t.name=="Table leg")){t.position=new Vector3(leg%2==0?-2.5f:2.5f,.37f,leg<2?-7.4f:-2.8f);leg++;}
@@ -70,11 +70,9 @@ namespace HalliGalli.EditorTools
         static Transform Anchor(Transform parent,string name,Vector3 position){var t=new GameObject(name).transform;t.SetParent(parent);t.position=position;return t;}
         static Transform Box(Transform parent,string name,Vector3 pos,Vector3 size,Material material,bool solid=true){var go=GameObject.CreatePrimitive(PrimitiveType.Cube);go.name=name;go.transform.SetParent(parent,false);go.transform.localPosition=pos;go.transform.localScale=size;go.GetComponent<Renderer>().sharedMaterial=material;if(!solid)Object.DestroyImmediate(go.GetComponent<Collider>());return go.transform;}
         static Transform Chair(Transform parent,int seat,Material material,Material dark){var root=new GameObject("Chair "+(seat+1)).transform;root.SetParent(parent);Box(root,"Seat",new Vector3(0,.48f,0),new Vector3(.62f,.1f,.62f),material,false);Box(root,"Back",new Vector3(0,.88f,-.28f),new Vector3(.62f,.75f,.08f),material,false);foreach(float x in new[]{-.24f,.24f})foreach(float z in new[]{-.24f,.24f})Box(root,"Leg",new Vector3(x,.23f,z),new Vector3(.055f,.46f,.055f),dark,false);return root;}
-        static Transform[] Platform(Transform parent,float width,float depth,Material material,Material stripe,Material dark){
+        static Transform Platform(Transform parent,float width,float depth,Material material,Material dark){
             var floor=Box(parent,"Landing surface",Vector3.down*.22f,new Vector3(width,.44f,depth),material);
-            var front=Box(parent,"Front stripe",new Vector3(0,.006f,depth/2-.06f),new Vector3(width,.012f,.1f),stripe,false);var back=Box(parent,"Back stripe",new Vector3(0,.006f,-depth/2+.06f),new Vector3(width,.012f,.1f),stripe,false);
-            var left=Box(parent,"Left stripe",new Vector3(-width/2+.06f,.006f,0),new Vector3(.1f,.012f,depth),stripe,false);var right=Box(parent,"Right stripe",new Vector3(width/2-.06f,.006f,0),new Vector3(.1f,.012f,depth),stripe,false);
-            Box(parent,"Support",Vector3.down*2.9f,new Vector3(.6f,5.3f,.6f),dark,false);return new[]{floor,front,back,left,right};
+            Box(parent,"Support",Vector3.down*2.9f,new Vector3(.6f,5.3f,.6f),dark,false);return floor;
         }
         static Transform Label(Transform parent,string text,Color color,float size){var label=new GameObject("Label "+text).AddComponent<TextMesh>();label.transform.SetParent(parent);label.transform.rotation=Quaternion.Euler(90,0,0);label.text=text;label.fontSize=80;label.characterSize=size*.1f;label.anchor=TextAnchor.MiddleCenter;label.alignment=TextAlignment.Center;label.color=color;label.GetComponent<Renderer>().sharedMaterial=Mat("CourseText");return label.transform;}
         [MenuItem("HalliGalli/Players/Validate 2-6 Players")]

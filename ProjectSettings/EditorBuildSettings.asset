@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HalliGalliMovement/Demo/CombatPractice.unity
     guid: d0640b25ae6428844a2ad9b391156233
+  - enabled: 1
+    path: Assets/HalliGalliMovement/Demo/UserMapCourse.unity
+    guid: f0b43841aa6911b42a00e2847f7ed098
+  - enabled: 1
+    path: Assets/HalliGalliMovement/Demo/RaceCourse.unity
+    guid: e19f8e71a6641f9469b01b382a324d67
   m_configObjects: {}

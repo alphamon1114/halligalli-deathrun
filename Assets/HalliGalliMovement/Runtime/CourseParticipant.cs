@@ -40,6 +40,7 @@ namespace HalliGalli.Movement
         }
         void SetMobility(bool mobile)
         {
+            if(!mobile&&RaceCourse.Active&&RaceCourse.Active.session==session)RaceCourse.Active.ClearParticipant(this);
             if(!mobile&&Lasso){Lasso.CancelConnection();if(session&&session.participants!=null)foreach(var p in session.participants)if(p&&p.Lasso)p.Lasso.ReleaseIfTarget(this);}
             if(controller){controller.movementEnabled=controller.actionsEnabled=mobile;controller.cameraHeightOffset=IsSeated?-.42f:0;}
             if(driver)driver.seated=IsSeated;if(bodyAnimator)bodyAnimator.seated=IsSeated;

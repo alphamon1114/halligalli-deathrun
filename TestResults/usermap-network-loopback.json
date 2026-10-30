@@ -1,0 +1,117 @@
+{
+  "utc": "2026-10-30T08:06:10.442Z",
+  "transport": "loopback",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\usermaps-1793347557364",
+  "passed": 27,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Host room starts",
+      "passed": true
+    },
+    {
+      "name": "Host processes an unverified map request",
+      "passed": true
+    },
+    {
+      "name": "Unverified map cannot replace the official room course",
+      "passed": true
+    },
+    {
+      "name": "Host snapshots its custom map",
+      "passed": true
+    },
+    {
+      "name": "Two peers finish joining room",
+      "passed": true
+    },
+    {
+      "name": "Late joining guest receives validated current map",
+      "passed": true
+    },
+    {
+      "name": "Map selection alone never auto-readies guest",
+      "passed": true
+    },
+    {
+      "name": "Current map and both participants ready",
+      "passed": true
+    },
+    {
+      "name": "Both peers build identical custom course and start",
+      "passed": true
+    },
+    {
+      "name": "Checkpoint layout agrees across peers",
+      "passed": true
+    },
+    {
+      "name": "Exposed card state replicates",
+      "passed": true
+    },
+    {
+      "name": "Both players legally leave their seats on custom map",
+      "passed": true
+    },
+    {
+      "name": "Custom checkpoint records on host and guest",
+      "passed": true
+    },
+    {
+      "name": "Guest respawns at custom checkpoint",
+      "passed": true
+    },
+    {
+      "name": "Custom bell awards cards and reseats participants",
+      "passed": true
+    },
+    {
+      "name": "Custom match returns to room",
+      "passed": true
+    },
+    {
+      "name": "New map remains unready while its contents transfer",
+      "passed": true
+    },
+    {
+      "name": "Starting is blocked while new map transfers",
+      "passed": true
+    },
+    {
+      "name": "Official selection cancels pending map transfer",
+      "passed": true
+    },
+    {
+      "name": "Large map reaches both peers after cancellation",
+      "passed": true
+    },
+    {
+      "name": "Current map and both participants ready",
+      "passed": true
+    },
+    {
+      "name": "Large custom map loads with the exact acknowledged snapshot",
+      "passed": true
+    },
+    {
+      "name": "Second custom match returns to room",
+      "passed": true
+    },
+    {
+      "name": "Official course selected after custom play",
+      "passed": true
+    },
+    {
+      "name": "Current map and both participants ready",
+      "passed": true
+    },
+    {
+      "name": "Official map still loads after custom maps",
+      "passed": true
+    },
+    {
+      "name": "No probe execution errors",
+      "passed": true
+    }
+  ]
+}

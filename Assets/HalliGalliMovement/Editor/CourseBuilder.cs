@@ -23,7 +23,7 @@ namespace HalliGalli.EditorTools
             RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogColor=new Color(.055f,.09f,.14f);RenderSettings.fogStartDistance=45;RenderSettings.fogEndDistance=90;
             Light("Key",new Vector3(0,9,8),new Vector3(48,-35,0),1.15f,Color.white,LightType.Directional);
             Light("Warm rim",new Vector3(4,8,20),new Vector3(30,160,0),.55f,new Color(1,.72f,.45f),LightType.Directional);
-            Platform("Table deck",new Vector3(0,0,-4),new Vector2(12,8),deck,cyan);
+            Platform("Table deck",new Vector3(0,0,-4),new Vector2(12,8),deck);
             Box("Pit floor",new Vector3(0,-6.5f,8),new Vector3(28,1,42),dark);
             for(int i=0;i<12;i++){float z=-8+i*3;Box("Pit warning",new Vector3(-7,-5.97f,z),new Vector3(.2f,.02f,1.2f),orange,false);Box("Pit warning",new Vector3(7,-5.97f,z),new Vector3(.2f,.02f,1.2f),orange,false);}
             Box("Left arena wall",new Vector3(-13,0,9),new Vector3(.4f,9,42),dark);Box("Right arena wall",new Vector3(13,0,9),new Vector3(.4f,9,42),dark);Box("Far arena wall",new Vector3(0,0,28),new Vector3(26,9,.4f),dark);
@@ -40,8 +40,8 @@ namespace HalliGalli.EditorTools
             var session=new GameObject("Course session").AddComponent<CourseSession>();
             Vector3[] nodes={new Vector3(0,.35f,5.7f),new Vector3(0,.35f,9.1f),new Vector3(-1.3f,.55f,12.3f),new Vector3(1.3f,.45f,15.7f),new Vector3(0,.25f,19.1f),new Vector3(0,.25f,22.1f)};
             Vector2[] sizes={new Vector2(4.6f,2.2f),new Vector2(1.4f,2.1f),new Vector2(2.2f,2),new Vector2(2.2f,2),new Vector2(3.8f,2.2f),new Vector2(6,3)};
-            for(int i=0;i<nodes.Length;i++){Platform("Shared pad "+(i+2),nodes[i],sizes[i],deck,i==1?orange:cyan);Label((i+2).ToString("00"),nodes[i]+new Vector3(0,.02f,-sizes[i].y*.25f),.36f,white.color,true);}
-            foreach(int side in new[]{-1,1})Platform("Lane pad "+side,new Vector3(side*1.8f,.15f,2.3f),new Vector2(2.4f,2),deck,side<0?cyan:orange);
+            for(int i=0;i<nodes.Length;i++){Platform("Shared pad "+(i+2),nodes[i],sizes[i],deck);Label((i+2).ToString("00"),nodes[i]+new Vector3(0,.02f,-sizes[i].y*.25f),.36f,white.color,true);}
+            foreach(int side in new[]{-1,1})Platform("Lane pad "+side,new Vector3(side*1.8f,.15f,2.3f),new Vector2(2.4f,2),deck);
             Box("Bell plinth",new Vector3(0,.6f,22.8f),new Vector3(.65f,.7f,.65f),dark);
             var bell=Bell(new Vector3(0,.95f,22.8f));session.bellTarget=bell.transform;session.bellButton=bell.transform.Find("Button");
             var audio=bell.AddComponent<AudioSource>();audio.clip=AssetDatabase.LoadAssetAtPath<AudioClip>(Root+"/Audio/ServiceBell.wav");audio.playOnAwake=false;audio.spatialBlend=1;audio.minDistance=3;audio.maxDistance=45;audio.dopplerLevel=0;session.bellAudio=audio;
@@ -82,10 +82,9 @@ namespace HalliGalli.EditorTools
         static Transform Anchor(string name,Vector3 position){var t=new GameObject(name).transform;t.position=position;return t;}
         static Material Mat(string name,Color color,float metal=0,float smooth=.25f){string path=Root+"/Materials/"+name+".mat";var m=AssetDatabase.LoadAssetAtPath<Material>(path);if(!m){m=new Material(Shader.Find("Standard"));AssetDatabase.CreateAsset(m,path);}m.color=color;m.SetFloat("_Metallic",metal);m.SetFloat("_Glossiness",smooth);EditorUtility.SetDirty(m);return m;}
         static GameObject Box(string name,Vector3 pos,Vector3 size,Material mat,bool solid=true){var go=GameObject.CreatePrimitive(PrimitiveType.Cube);go.name=name;go.transform.position=pos;go.transform.localScale=size;go.GetComponent<Renderer>().sharedMaterial=mat;if(!solid)UnityEngine.Object.DestroyImmediate(go.GetComponent<Collider>());return go;}
-        static void Platform(string name,Vector3 top,Vector2 size,Material mat,Material edge)
+        static void Platform(string name,Vector3 top,Vector2 size,Material mat)
         {
             Box(name,top-Vector3.up*.22f,new Vector3(size.x,.44f,size.y),mat);
-            foreach(int s in new[]{-1,1}){Box("Edge stripe",top+new Vector3(s*(size.x/2-.06f),.006f,0),new Vector3(.1f,.012f,size.y),edge,false);Box("Edge stripe",top+new Vector3(0,.006f,s*(size.y/2-.06f)),new Vector3(size.x,.012f,.1f),edge,false);}
             Box("Platform support",top-Vector3.up*2.9f,new Vector3(Mathf.Min(.8f,size.x*.5f),5.3f,Mathf.Min(.8f,size.y*.5f)),dark,false);
         }
         static void Chair(float x,float z,Material mat)

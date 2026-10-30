@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-30T05:39:48.060Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\menu-1793338782066",
+  "passed": 8,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Parts drawer starts closed",
+      "passed": true
+    },
+    {
+      "name": "Menu opens a reserved panel without covering placement area",
+      "passed": true
+    },
+    {
+      "name": "Choosing a part automatically closes menu and restores map width",
+      "passed": true
+    },
+    {
+      "name": "Menu selection does not place an object or alter map content",
+      "passed": true
+    },
+    {
+      "name": "Menu toggles retain camera focus",
+      "passed": true
+    },
+    {
+      "name": "Menu can be dismissed without selecting a part",
+      "passed": true
+    },
+    {
+      "name": "Test return preserves compact editor and map",
+      "passed": true
+    },
+    {
+      "name": "No runtime probe errors",
+      "passed": true
+    }
+  ]
+}

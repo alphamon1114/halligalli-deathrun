@@ -77,6 +77,7 @@ namespace HalliGalli.Movement
             inputs.Clear();predicted.Clear();remote=null;
             inputSequence=poseSequence=lastPose=0;sentRevision=receivedRevision=-1;nextPose=0;
             returnToRoomAt=-1;
+            ResetRaceNetwork();
         }
         public void LocalMovement(MovementCommand command,float pitch)
         {
@@ -133,7 +134,7 @@ namespace HalliGalli.Movement
                     p.Combat.networkAim=Quaternion.Euler(input.pitch,command.yaw,0)*Vector3.forward;
                     if(!p.IsSeated&&!p.IsRespawning)p.Motor.Simulate(command,Time.fixedDeltaTime);
                 }
-                if(Time.unscaledTime>=nextPose){nextPose=Time.unscaledTime+.05f;BroadcastPoses();}
+                if(Time.unscaledTime>=nextPose){nextPose=Time.unscaledTime+.05f;BroadcastPoses();BroadcastRace();}
             }else if(remote!=null){
                 for(int i=0;i<remote.Length;i++){
                     var p=game.participants[i];if(p.localPlayer)continue;
@@ -215,7 +216,10 @@ namespace HalliGalli.Movement
         {
             if(!pressed||!online||Busy)return;
             if(action!=NetworkAction.Ready&&(!Playing||!bound||menu))return;
-            var message=new ActionMessage{epoch=epoch,action=action,respawn=game?game.Local.RespawnSequence:0,toolSequence=game?game.Local.Lasso.Casts:0,
+            if(action==NetworkAction.Ready&&(Playing||loading||!UserMapReady))return;
+            var race=RaceCourse.Active;
+            var message=new ActionMessage{epoch=epoch,mapRevision=mapRevision,action=action,respawn=game?game.Local.RespawnSequence:0,toolSequence=game?game.Local.Lasso.Casts:0,
+                raceRound=race?race.Round:0,itemSequence=race&&game?race.ItemSequence(game.Local):0,
                 aim=aim??(game?game.Local.GetComponent<SourcePlayerController>().AimRotation*Vector3.forward:Vector3.forward)};
             if(IsHost)ReceiveAction(manager.LocalClientId,message);else Send("HG.action",message,0);
         }
@@ -233,7 +237,7 @@ namespace HalliGalli.Movement
             if(actionTimes.TryGetValue(sender,out float at)&&Time.realtimeSinceStartup-at<.06f)return;
             actionTimes[sender]=Time.realtimeSinceStartup;
             if(message.action==NetworkAction.Ready){
-                if(!Playing&&!loading&&sender!=0){members[seat].ready=!members[seat].ready;BroadcastRoom();}
+                if(!Playing&&!loading&&sender!=0&&message.mapRevision==mapRevision&&IsMapPeerReady(sender)){members[seat].ready=!members[seat].ready;BroadcastRoom();}
                 return;
             }
             if(!Playing||!bound)return;
@@ -250,6 +254,11 @@ namespace HalliGalli.Movement
                 case NetworkAction.Respawn:if(message.respawn==p.RespawnSequence)p.RequestRespawn();break;
                 case NetworkAction.LassoThrow:if(message.respawn==p.RespawnSequence)p.Lasso.TryThrow(message.aim);break;
                 case NetworkAction.LassoPull:if(message.respawn==p.RespawnSequence&&message.toolSequence==p.Lasso.Casts)p.Lasso.TryPull(message.aim);break;
+                case NetworkAction.UseItem:
+                    var race=RaceCourse.Active;
+                    if(race&&race.session==game&&message.mapRevision==mapRevision&&message.respawn==p.RespawnSequence&&message.raceRound==race.Round&&message.itemSequence==race.ItemSequence(p))
+                        race.UseItem(p,message.aim);
+                    break;
                 case NetworkAction.Restart:
                     if(sender!=0)break;
                     ReturnToRoom();break;

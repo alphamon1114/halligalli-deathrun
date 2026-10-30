@@ -14,6 +14,7 @@ namespace HalliGalli.Movement
         public CombatPracticeRoom practiceRoom;
         public FactoryCourse factory;
         public TutorialFerryCourse ferry;
+        public UserMapRuntime userMap;
         public bool HasCardRules=>cardGame&&cardGame.enabled&&cardGame.Match!=null;
         public Transform bellTarget,bellButton;
         public AudioSource bellAudio;
@@ -32,7 +33,12 @@ namespace HalliGalli.Movement
             if(bellCount>BellCount){bellAt=Time.time;if(bellAudio&&bellAudio.clip)bellAudio.Play();onBellRung.Invoke();if(cardGame.tableView)cardGame.tableView.Focus();}
             BellCount=bellCount;
         }
-        void Start(){buttonRest=bellButton.localPosition;ResetPractice();}
+        public void SetBell(Transform target,Transform button,AudioSource audio)
+        {
+            bellTarget=target;bellButton=button;bellAudio=audio;
+            buttonRest=bellButton?bellButton.localPosition:Vector3.zero;bellAt=-100;
+        }
+        void Start(){buttonRest=bellButton?bellButton.localPosition:Vector3.zero;ResetPractice();}
         void Update(){if(bellButton)bellButton.localPosition=buttonRest-Vector3.up*.045f*Mathf.Exp(-(Time.time-bellAt)*12);}
         public bool CanStand(CourseParticipant participant)=>!HasCardRules||cardGame.CanStand(participant);
         public bool MustReturn(CourseParticipant participant)=>BellRung||(HasCardRules&&cardGame.MustReturn(participant));

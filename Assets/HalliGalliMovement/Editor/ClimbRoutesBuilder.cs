@@ -42,10 +42,9 @@ namespace HalliGalli.EditorTools
                 var point=PeakCenter+radial*radius+Vector3.up*heights[i];
                 var tangent=new Vector3(-Mathf.Cos(angle),0,-Mathf.Sin(angle));
                 var rotation=i==0||i==count-1?Quaternion.identity:Quaternion.LookRotation(tangent)*Quaternion.Euler(0,twists[i],0);
-                var surface=Landing(root,"M"+(i+1).ToString("00"),point,new Vector3(widths[i],.45f,depths[i]),rotation,rock);
+                Landing(root,"M"+(i+1).ToString("00"),point,new Vector3(widths[i],.45f,depths[i]),rotation,rock);
                 route[i]=Node(root,"M"+(i+1).ToString("00"),point+Vector3.up*.025f);
                 route[i].gameObject.AddComponent<ClimbStep>().arrivalRadius=Mathf.Min(.65f,depths[i]*.4f);
-                Edge(surface,new Color(.48f,.52f,.46f));
             }
             course.left=course.right=route;
             var passing=new List<CourseBranchRoutes.Shortcut>();
@@ -55,8 +54,7 @@ namespace HalliGalli.EditorTools
                 var point=PeakCenter+radial*(entry==1?4.3f:3.6f)+Vector3.up*(entry==1?2.5f:4.65f);
                 // The first shortcut needs a longer takeoff/landing strip at walking speed;
                 // its narrow width still exposes the racer to missed landings and kicks.
-                var surface=Landing(root,"Shortcut "+entry,point,new Vector3(1.35f,.45f,entry==1?3f:1.8f),Quaternion.LookRotation(Vector3.Cross(radial,Vector3.up)),rock);
-                Edge(surface,new Color(.85f,.74f,.46f));
+                Landing(root,"Shortcut "+entry,point,new Vector3(1.35f,.45f,entry==1?3f:1.8f),Quaternion.LookRotation(Vector3.Cross(radial,Vector3.up)),rock);
                 var node=Node(root,"Shortcut ledge "+entry,point+Vector3.up*.025f);
                 var hint=node.gameObject.AddComponent<ClimbStep>();hint.arrivalRadius=.5f;hint.jump=ClimbJump.Duck;
                 passing.Add(new CourseBranchRoutes.Shortcut{entryWaypoint=entry+2,exitWaypoint=entry+5,landing=node});
@@ -111,16 +109,9 @@ namespace HalliGalli.EditorTools
             var model=EnvironmentAssetImporter.Prefab("MountainRock");
             core.GetComponent<Renderer>().sharedMaterial=model?model.GetComponentInChildren<Renderer>().sharedMaterial:fallback;
         }
-        static Transform Landing(Transform parent,string id,Vector3 point,Vector3 size,Quaternion rotation,Material material)
+        static void Landing(Transform parent,string id,Vector3 point,Vector3 size,Quaternion rotation,Material material)
         {
-            var go=GameObject.CreatePrimitive(PrimitiveType.Cube);go.name="Climb landing "+id;go.transform.SetParent(parent);go.transform.SetPositionAndRotation(point-Vector3.up*size.y*.5f,rotation);go.transform.localScale=size;go.GetComponent<Renderer>().sharedMaterial=material;return go.transform;
-        }
-        static void Edge(Transform surface,Color color)
-        {
-            string path=MovementProjectBuilder.Root+"/Materials/SummitTrail.mat";var material=AssetDatabase.LoadAssetAtPath<Material>(path);
-            if(!material){material=new Material(Shader.Find("Sprites/Default"));AssetDatabase.CreateAsset(material,path);}
-            var line=new GameObject("Rock lip").AddComponent<LineRenderer>();line.transform.SetParent(surface,false);line.useWorldSpace=false;line.loop=true;line.positionCount=4;line.widthMultiplier=.025f;line.sharedMaterial=material;line.startColor=line.endColor=color;
-            line.SetPositions(new[]{new Vector3(-.46f,.515f,-.46f),new Vector3(.46f,.515f,-.46f),new Vector3(.46f,.515f,.46f),new Vector3(-.46f,.515f,.46f)});
+            var go=GameObject.CreatePrimitive(PrimitiveType.Cube);go.name="Climb landing "+id;go.transform.SetParent(parent);go.transform.SetPositionAndRotation(point-Vector3.up*size.y*.5f,rotation);go.transform.localScale=size;go.GetComponent<Renderer>().sharedMaterial=material;
         }
         static Transform Node(Transform parent,string name,Vector3 p){var t=new GameObject(name).transform;t.SetParent(parent);t.position=p;return t;}
         public static void RefreshLabels(){CourseMapsBuilder.BuildFork();}

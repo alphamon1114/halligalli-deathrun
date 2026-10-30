@@ -102,7 +102,6 @@ namespace HalliGalli.EditorTools
             var go=new GameObject(name);go.transform.SetParent(root);go.transform.position=top-Vector3.up*.2f;
             go.AddComponent<BoxCollider>().size=new Vector3(size.x,.4f,size.y);
             Place("LandingPlatform",go.transform,Vector3.zero,new Vector3(size.x,.4f,size.y));
-            foreach(float side in new[]{-1f,1f})Box(go.transform,"Amber edge",top+new Vector3(side*(size.x/2-.05f),.012f,0),new Vector3(.055f,.02f,size.y),amber);
             return go.transform;
         }
         static FactorySurface Belt(string name,Vector3 top,Vector2 size,Vector3 velocity)

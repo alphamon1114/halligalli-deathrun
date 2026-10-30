@@ -1,0 +1,106 @@
+{
+  "utc": "2026-10-30T05:26:26.554Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\camera-1793337977884",
+  "width": "1440",
+  "height": "900",
+  "passed": 24,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Player starts",
+      "passed": true
+    },
+    {
+      "name": "Editor opens",
+      "passed": true
+    },
+    {
+      "name": "Beginner view looks vertically down without fly mode",
+      "passed": true
+    },
+    {
+      "name": "Screen drag changes viewing location",
+      "passed": true
+    },
+    {
+      "name": "View stops immediately without inertia",
+      "passed": true
+    },
+    {
+      "name": "Zoom brings view closer without moving its focus",
+      "passed": true
+    },
+    {
+      "name": "Angled preset has downward and forward components",
+      "passed": true
+    },
+    {
+      "name": "Side preset looks horizontally",
+      "passed": true
+    },
+    {
+      "name": "Start button frames the departure deck",
+      "passed": true
+    },
+    {
+      "name": "Bell button finds finish beyond course",
+      "passed": true
+    },
+    {
+      "name": "Extreme zoom-in stays finite and positive",
+      "passed": true
+    },
+    {
+      "name": "Extreme zoom-out stays finite and bounded",
+      "passed": true
+    },
+    {
+      "name": "Navigation leaves map data unchanged",
+      "passed": true
+    },
+    {
+      "name": "Selected-object button finds distant new part",
+      "passed": true
+    },
+    {
+      "name": "Single-click selects without moving the object or camera",
+      "passed": true
+    },
+    {
+      "name": "Double-click frames the clicked part without editing it",
+      "passed": true
+    },
+    {
+      "name": "Changing preset preserves selected object focus",
+      "passed": true
+    },
+    {
+      "name": "Fly camera is explicitly opt-in",
+      "passed": true
+    },
+    {
+      "name": "Returning to beginner mode restores orthographic navigation",
+      "passed": true
+    },
+    {
+      "name": "Solo play starts normally",
+      "passed": true
+    },
+    {
+      "name": "Editing returns",
+      "passed": true
+    },
+    {
+      "name": "Test return preserves camera focus zoom and preset",
+      "passed": true
+    },
+    {
+      "name": "Test return preserves map content",
+      "passed": true
+    },
+    {
+      "name": "No probe errors",
+      "passed": true
+    }
+  ]
+}

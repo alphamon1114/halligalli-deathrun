@@ -10,6 +10,7 @@ namespace HalliGalli.Movement
         public Renderer warning;
         public Vector3 raised;
         public float stroke=3.25f,period=4.8f,phase;
+        public bool orientedContact;
         MaterialPropertyBlock tint;
         public float Cycle(double time)=>Mathf.Repeat((float)(time/period)+phase,1);
         // Long open interval, amber warning, fast downward stroke, then slow retraction.
@@ -42,10 +43,28 @@ namespace HalliGalli.Movement
             if(area.min.y<previous.min.y)area.Encapsulate(previous);
             var course=GetComponentInParent<FactoryCourse>();
             if(!CourseNetwork.Authority||!course||!course.session.RunActive)return;
-            foreach(var p in course.session.participants)if(p.Racing&&Intersects(p,area))p.BeginFall();
+            foreach(var p in course.session.participants)
+                if(p.Racing&&(orientedContact?IntersectsRotated(p,Mathf.Max(0,previous.max.y-headCollider.bounds.max.y)):Intersects(p,area)))p.BeginFall();
         }
         public bool Intersects(CourseParticipant p)
-            =>Intersects(p,headCollider.bounds);
+            =>orientedContact?IntersectsRotated(p,0):Intersects(p,headCollider.bounds);
+        bool IntersectsRotated(CourseParticipant participant,float upwardSweep)
+        {
+            // User presses rotate around Y. Test the upright capsule against that oriented box,
+            // extending its vertical interval through the downward stroke without an AABB corner kill.
+            Vector3 scale=head.lossyScale;
+            Vector3 half=Vector3.Scale(headCollider.size,new Vector3(Mathf.Abs(scale.x),Mathf.Abs(scale.y),Mathf.Abs(scale.z)))*.5f;
+            Vector3 centre=head.TransformPoint(headCollider.center)+Vector3.up*(upwardSweep*.5f);
+            half.y+=upwardSweep*.5f;
+            Vector3 feet=Quaternion.Inverse(head.rotation)*(participant.transform.position-centre);
+            if(feet.y>=half.y-.01f)return false;
+            float radius=participant.Motor.profile.radius;
+            float contactRadius=radius+participant.Motor.profile.skinWidth+.01f;
+            float lower=feet.y+radius,upper=feet.y+participant.Motor.BodyHeight-radius;
+            float dx=Mathf.Max(Mathf.Abs(feet.x)-half.x,0),dz=Mathf.Max(Mathf.Abs(feet.z)-half.z,0);
+            float dy=Mathf.Max(Mathf.Max(-half.y-upper,lower-half.y),0);
+            return dx*dx+dy*dy+dz*dz<=contactRadius*contactRadius;
+        }
         static bool Intersects(CourseParticipant p,Bounds b)
         {
             var feet=p.transform.position;float r=p.Motor.profile.radius;

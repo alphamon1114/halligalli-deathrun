@@ -36,6 +36,11 @@ namespace HalliGalli.EditorTools
             };
             var catalog=Catalog;if(!catalog){catalog=ScriptableObject.CreateInstance<CourseMapCatalog>();catalog.maps=defaults;AssetDatabase.CreateAsset(catalog,CatalogPath);}
             else {catalog.maps=(catalog.maps??Array.Empty<CourseMapDefinition>()).Concat(defaults).Distinct().ToArray();EditorUtility.SetDirty(catalog);}
+            // The item race is the final official course, including after another map builder installs its entry.
+            if(catalog.maps.Any(map=>map&&map.id==RaceCourseBuilder.Id)){
+                catalog.maps=catalog.maps.Where(map=>!map||map.id!=RaceCourseBuilder.Id).Concat(catalog.maps.Where(map=>map&&map.id==RaceCourseBuilder.Id)).ToArray();
+                EditorUtility.SetDirty(catalog);
+            }
             return catalog;
         }
         public static void InstallInCurrentScene(string id="first-steps")
@@ -86,10 +91,10 @@ namespace HalliGalli.EditorTools
         }
         public static string[] BuildScenePaths()
         {
-            var catalog=Catalog;if(!catalog)return new[]{CourseBuilder.ScenePath,MovementProjectBuilder.ScenePath};
+            var catalog=Catalog;if(!catalog)return new[]{CourseBuilder.ScenePath,MovementProjectBuilder.ScenePath}.Concat(File.Exists(UserMapRuntime.ScenePath)?new[]{UserMapRuntime.ScenePath}:Array.Empty<string>()).ToArray();
             var maps=catalog.maps.Where(m=>m).ToArray();if(maps.Select(m=>m.id).Distinct().Count()!=maps.Length)throw new InvalidOperationException("Map IDs must be unique.");
             foreach(var map in maps.Where(m=>m.playable))if(!map.movementProfile||!AssetDatabase.LoadAssetAtPath<SceneAsset>(map.scenePath))throw new InvalidOperationException("Playable map has no movement profile or scene: "+map.id);
-            return new[]{CourseBuilder.ScenePath}.Concat(maps.Where(m=>m.playable).Select(m=>m.scenePath)).Concat(new[]{MovementProjectBuilder.ScenePath}).Concat(System.IO.File.Exists(CombatPracticeRoom.ScenePath)?new[]{CombatPracticeRoom.ScenePath}:new string[0]).Distinct().ToArray();
+            return new[]{CourseBuilder.ScenePath}.Concat(maps.Where(m=>m.playable).Select(m=>m.scenePath)).Concat(new[]{MovementProjectBuilder.ScenePath}).Concat(System.IO.File.Exists(CombatPracticeRoom.ScenePath)?new[]{CombatPracticeRoom.ScenePath}:new string[0]).Concat(File.Exists(UserMapRuntime.ScenePath)?new[]{UserMapRuntime.ScenePath}:Array.Empty<string>()).Distinct().ToArray();
         }
         [MenuItem("HalliGalli/Maps/Validate Map Switching and Climb")]
         public static void Validate(){EditorSceneManager.OpenScene(CourseBuilder.ScenePath);new GameObject("Maps validation").AddComponent<MapsValidationRunner>();PlayerSettings.runInBackground=true;EditorWindow.GetWindow(Type.GetType("UnityEditor.GameView,UnityEditor")).Focus();EditorApplication.isPaused=false;EditorApplication.isPlaying=true;}

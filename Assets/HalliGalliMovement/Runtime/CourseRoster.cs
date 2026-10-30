@@ -11,7 +11,7 @@ namespace HalliGalli.Movement
         [Range(2,6)] public int playerCount=6;
         public CourseParticipant[] allParticipants;
         public Transform[] chairs,firstPlatforms,routeRoots,drawAnchors,openAnchors,cardLabels,startLabels;
-        public Transform mergeSurface,mergeFront,mergeBack,mergeLeft,mergeRight;
+        public Transform mergeSurface;
         public Transform startLine;
         public CourseBranchRoutes branches;
         public SurfCourse surf;
@@ -26,6 +26,7 @@ namespace HalliGalli.Movement
             if(count<2||count>6)throw new ArgumentOutOfRangeException(nameof(count));
             playerCount=count;
             if(startLine){startLine.position=new Vector3(0,.013f,StartZ);startLine.localScale=new Vector3(count*SeatSpacing,.012f,.07f);}
+            bool itemRace=session.maps&&session.maps.current&&session.maps.current.style==CourseMapStyle.Race;
             for(int i=0;i<6;i++){
                 bool active=i<count;var p=allParticipants[i];
                 p.gameObject.SetActive(active);chairs[i].gameObject.SetActive(active);firstPlatforms[i].gameObject.SetActive(active);routeRoots[i].gameObject.SetActive(active);cardLabels[i].gameObject.SetActive(active);startLabels[i].gameObject.SetActive(active);
@@ -38,9 +39,13 @@ namespace HalliGalli.Movement
                 p.retryAnchor.SetPositionAndRotation(p.standAnchor.position,Quaternion.identity);
                 firstPlatforms[i].position=new Vector3(x,.15f,FirstZ);
                 startLabels[i].position=new Vector3(x,.03f,-.25f);
-                var route=RouteForSeat(i);route[0].position=new Vector3(x,.175f,FirstZ);route[1].position=new Vector3(x,.375f,5.7f);
-                if(branches)branches.Apply(route,i,count);
-                if(surf)surf.Apply(route,i,count);
+                var route=RouteForSeat(i);
+                if(!session.userMap&&!itemRace){
+                    if(route.Length>0)route[0].position=new Vector3(x,.175f,FirstZ);
+                    if(route.Length>1)route[1].position=new Vector3(x,.375f,5.7f);
+                    if(branches)branches.Apply(route,i,count);
+                    if(surf)surf.Apply(route,i,count);
+                }
                 var bot=p.GetComponent<CourseRival>();if(bot)bot.route=route;
                 float angle=(count==2?180:270)+i*360f/count;
                 Vector3 direction=new Vector3(Mathf.Cos(angle*Mathf.Deg2Rad),0,Mathf.Sin(angle*Mathf.Deg2Rad));
@@ -53,8 +58,7 @@ namespace HalliGalli.Movement
             session.cardGame.display.drawAnchors=drawAnchors.Take(count).ToArray();session.cardGame.display.openAnchors=openAnchors.Take(count).ToArray();
             float width=surf?10.5f:Mathf.Max(4.6f,(count-1)*SeatSpacing+1.5f);
             mergeSurface.localScale=new Vector3(width,.44f,2.2f);
-            mergeFront.localScale=mergeBack.localScale=new Vector3(width,.012f,.1f);
-            mergeLeft.localPosition=new Vector3(-width/2+.06f,.006f,0);mergeRight.localPosition=new Vector3(width/2-.06f,.006f,0);
+            if(session.userMap)session.userMap.ApplyRoster(this);
         }
     }
 }

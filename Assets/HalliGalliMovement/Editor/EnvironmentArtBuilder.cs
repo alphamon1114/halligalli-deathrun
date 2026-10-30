@@ -80,7 +80,7 @@ namespace HalliGalli.EditorTools
                 Replace(t, mountain ? "RockLedge" : "LandingPlatform");
             foreach (var t in All<Transform>().Where(t => t.name == "Tower core")) Replace(t, "MountainRock");
 
-            string[] strips = { "Edge stripe", "Amber edge", "Front stripe", "Back stripe", "Left stripe", "Right stripe", "Pit warning", "Wall light", "Cliff support" };
+            string[] strips = { "Pit warning", "Wall light", "Cliff support" };
             foreach (var t in All<Transform>().Where(t => strips.Contains(t.name))) Hide(t, false);
             foreach (var t in All<Transform>().Where(t => t.name == "Platform support" || t.name == "Support")) {
                 if (mountain) Hide(t, false);
