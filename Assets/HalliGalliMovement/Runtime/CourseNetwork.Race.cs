@@ -20,7 +20,7 @@ namespace HalliGalli.Movement
             if(!race||race.session!=game||Time.unscaledTime<nextRaceSnapshot)return;
             nextRaceSnapshot=Time.unscaledTime+.1f;
             // Box timers and projectiles can exceed one MTU. Keep them off the small unreliable pose channel.
-            using(var writer=new FastBufferWriter(8192,Allocator.Temp)){
+            using(var writer=new FastBufferWriter(race.NetworkCapacity,Allocator.Temp)){
                 writer.WriteValueSafe(epoch);writer.WriteValueSafe(++raceSequence);writer.WriteValueSafe(game.cardGame.Match.Revision);
                 race.WriteNetwork(writer);
                 foreach(var member in members)if(!member.bot&&member.id!=manager.LocalClientId)

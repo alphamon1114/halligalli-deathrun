@@ -38,6 +38,7 @@ namespace HalliGalli.Movement
                 case UserMapPart.Hazard: scale = new Vector3(4, .2f, 4); break;
                 case UserMapPart.Bell: scale = Vector3.one; break;
                 case UserMapPart.Waypoint: scale = Vector3.one; break;
+                case UserMapPart.ItemBox: scale = Vector3.one; break;
             }
             return new UserMapObject { kind = kind, position = position,
                 rotation = Vector3.zero, scale = scale, color = 0, travel = travel, period = 4, speed = 2 };
@@ -129,7 +130,11 @@ namespace HalliGalli.Movement
                     if (Input.GetKeyDown(KeyCode.Delete)) DeleteSelected();
                     if (Input.GetKeyDown(KeyCode.W)) transformTool = TransformTool.Move;
                     if (Input.GetKeyDown(KeyCode.E)) transformTool = TransformTool.Rotate;
-                    if (Input.GetKeyDown(KeyCode.R)) transformTool = TransformTool.Scale;
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        if (FindObject(selectedId)?.kind == UserMapPart.ItemBox) Status = "아이템 박스 크기는 (1, 1, 1)로 고정되어 있어요.";
+                        else transformTool = TransformTool.Scale;
+                    }
                     if (Input.GetKeyDown(KeyCode.G)) snap = !snap;
                     if (Input.GetKeyDown(KeyCode.F)) FocusSelected();
                     if (Input.GetKeyDown(KeyCode.F1)) helpOpen = true;
@@ -194,7 +199,7 @@ namespace HalliGalli.Movement
             }
             if (placementTemplate == null) placementTemplate = DefaultObject(palettePart, Vector3.zero);
             var item = placementTemplate;
-            bool anchored = palettePart == UserMapPart.Bell || palettePart == UserMapPart.Press || palettePart == UserMapPart.Waypoint;
+            bool anchored = palettePart == UserMapPart.Bell || palettePart == UserMapPart.Press || palettePart == UserMapPart.Waypoint || palettePart == UserMapPart.ItemBox;
             if (snap)
             {
                 point.x = Snap(point.x, snapSize);
@@ -203,9 +208,16 @@ namespace HalliGalli.Movement
             if (!anchored) point.y += item.scale.y * .5f;
             else if (palettePart == UserMapPart.Waypoint) point.y += .025f;
             // The protected starting area ends at z=0. Keep the whole default footprint in front of it.
-            point.z = Mathf.Max(point.z, item.scale.z * .5f + .05f);
+            float halfDepth = palettePart == UserMapPart.ItemBox ? UserMapObject.ItemBoxBoundsSize.z * .5f : item.scale.z * .5f;
+            point.z = Mathf.Max(point.z, halfDepth + .05f);
             placementPoint = point;
-            placementValid = point.z <= 998 && Mathf.Abs(point.x) <= 498 && point.y >= -99 && point.y <= 299;
+            if (palettePart == UserMapPart.ItemBox)
+            {
+                var bounds = new Bounds(point + UserMapObject.ItemBoxBoundsCenter, UserMapObject.ItemBoxBoundsSize);
+                placementValid = bounds.min.x >= -500 && bounds.max.x <= 500 && bounds.min.y >= -100 && bounds.max.y <= 300
+                    && bounds.min.z >= 0 && bounds.max.z <= 1000 && bounds.max.y > draft.fallHeight + .25f;
+            }
+            else placementValid = point.z <= 998 && Mathf.Abs(point.x) <= 498 && point.y >= -99 && point.y <= 299;
         }
 
         void RefreshSelectionRoot()
@@ -217,14 +229,24 @@ namespace HalliGalli.Movement
 
         string ObjectAt(Ray ray)
         {
-            if (!Physics.Raycast(ray, out var hit, studioCamera.farClipPlane, ~0, QueryTriggerInteraction.Collide)) return null;
             if (!UserMapRuntime.Current) return null;
+            bool hitSurface = Physics.Raycast(ray, out var hit, studioCamera.farClipPlane, ~0, QueryTriggerInteraction.Collide);
+            float nearest = hitSurface ? hit.distance : studioCamera.farClipPlane;
+            string selected = null;
             foreach (var item in draft.objects)
             {
                 var root = UserMapRuntime.Current.RootFor(item.id);
-                if (root && (hit.transform == root.transform || hit.transform.IsChildOf(root.transform))) return item.id;
+                if (!root) continue;
+                if (hitSurface && hit.distance <= nearest && (hit.transform == root.transform || hit.transform.IsChildOf(root.transform)))
+                    selected = item.id;
+                // Pickups have no physical collider; their visible bounds still participate in selection.
+                if (item.kind == UserMapPart.ItemBox && ObjectBounds(item).IntersectRay(ray, out float distance) && distance < nearest)
+                {
+                    nearest = distance;
+                    selected = item.id;
+                }
             }
-            return null;
+            return selected;
         }
 
         // Selection uses physical screen coordinates and the same click timing as live input.
@@ -354,7 +376,7 @@ namespace HalliGalli.Movement
         static bool YawOnly(UserMapPart part)
         {
             return part == UserMapPart.Checkpoint || part == UserMapPart.MovingPlatform || part == UserMapPart.Conveyor
-                || part == UserMapPart.Press || part == UserMapPart.Bell || part == UserMapPart.Waypoint;
+                || part == UserMapPart.Press || part == UserMapPart.Bell || part == UserMapPart.Waypoint || part == UserMapPart.ItemBox;
         }
 
         static float Snap(float value, float increment) => Mathf.Round(value / increment) * increment;
@@ -368,11 +390,15 @@ namespace HalliGalli.Movement
 
         int PickAxis(Vector3 origin)
         {
+            var item = FindObject(selectedId);
+            bool itemBox = item != null && item.kind == UserMapPart.ItemBox;
+            if (itemBox && transformTool == TransformTool.Scale) return -1;
             if (!Project(origin, out Vector2 start)) return -1;
             float length = AxisLength(origin), best = 12;
             int chosen = -1;
             for (int i = 0; i < 3; i++)
             {
+                if (itemBox && transformTool == TransformTool.Rotate && i != 1) continue;
                 if (!Project(origin + Axes[i] * length, out Vector2 end)) continue;
                 Vector2 line = end - start;
                 if (line.sqrMagnitude < 100) continue;
@@ -403,12 +429,16 @@ namespace HalliGalli.Movement
             }
             var selected = dragging ? dragPreview : FindObject(selectedId);
             if (selected == null) return;
-            var bounds = dragging ? new Bounds(selected.position, selected.scale) : selectedBounds;
+            var bounds = selected.kind == UserMapPart.ItemBox
+                ? new Bounds(selected.position + UserMapObject.ItemBoxBoundsCenter, UserMapObject.ItemBoxBoundsSize)
+                : dragging ? new Bounds(selected.position, selected.scale) : selectedBounds;
             DrawWireBox(bounds.center, bounds.size + Vector3.one * .05f, Quaternion.identity, BellUI.Cool);
+            if (selected.kind == UserMapPart.ItemBox && transformTool == TransformTool.Scale) return;
             float length = AxisLength(selected.position);
             if (!Project(selected.position, out Vector2 start)) return;
             for (int i = 0; i < 3; i++)
             {
+                if (selected.kind == UserMapPart.ItemBox && transformTool == TransformTool.Rotate && i != 1) continue;
                 if (!Project(selected.position + Axes[i] * length, out Vector2 end)) continue;
                 if ((end - start).sqrMagnitude < 100) continue;
                 BellUI.Line(start, end, AxisColors[i], 3);
@@ -438,6 +468,7 @@ namespace HalliGalli.Movement
             }
             if (item.kind == UserMapPart.Bell) { size = Vector3.Scale(size, new Vector3(.76f, 1.1f, .76f)); center.y += size.y * .5f; }
             if (item.kind == UserMapPart.Press) { size += new Vector3(.8f, 1, 0); center.y += size.y * .5f; }
+            if (item.kind == UserMapPart.ItemBox) { size = UserMapObject.ItemBoxBoundsSize; center += UserMapObject.ItemBoxBoundsCenter; }
             DrawWireBox(center, size, Quaternion.identity, BellUI.Gold);
             if (item.kind == UserMapPart.MovingPlatform)
             {

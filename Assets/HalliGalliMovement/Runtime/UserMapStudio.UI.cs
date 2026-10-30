@@ -32,9 +32,9 @@ namespace HalliGalli.Movement
         string cameraHint;
         int colorIndex;
         GUIStyle compactField;
-        static readonly string[] PartNames = { "기본 발판", "경사로", "삼각 서프", "체크포인트", "이동 발판", "컨베이어", "프레스", "위험 구역", "도착 종", "AI 경로점" };
+        static readonly string[] PartNames = { "기본 발판", "경사로", "삼각 서프", "체크포인트", "이동 발판", "컨베이어", "프레스", "위험 구역", "도착 종", "AI 경로점", "아이템 박스" };
         static readonly string[] ToolNames = { "이동 W", "회전 E", "크기 R" };
-        static readonly string[] PartHints = { "자유롭게 쌓는 바닥과 벽", "+Z 방향으로 올라가는 경사", "양쪽을 탈 수 있는 삼각 기둥", "추락 시 돌아오는 발판", "두 지점을 왕복하는 발판", "진행 방향으로 밀어주는 바닥", "위에서 내려오는 압착 장애물", "닿으면 체크포인트로 복귀", "코스마다 하나 · 손잡이로 이동", "목록 순서대로 AI가 이동" };
+        static readonly string[] PartHints = { "자유롭게 쌓는 바닥과 벽", "+Z 방향으로 올라가는 경사", "양쪽을 탈 수 있는 삼각 기둥", "추락 시 돌아오는 발판", "두 지점을 왕복하는 발판", "진행 방향으로 밀어주는 바닥", "위에서 내려오는 압착 장애물", "닿으면 체크포인트로 복귀", "코스마다 하나 · 손잡이로 이동", "목록 순서대로 AI가 이동", "닿으면 5종 중 하나 획득 · C 사용" };
         static readonly Color[] Swatches = UserMapRuntime.PaletteColors;
         static readonly Color HintColor = new Color(.78f, .81f, .77f);
         const float LeftWidth = 228, RightWidth = 320, TopHeight = 178, BottomHeight = 98;
@@ -64,6 +64,7 @@ namespace HalliGalli.Movement
         {
             var item = FindObject(selectedId);
             if (item == null) return;
+            if (item.kind == UserMapPart.ItemBox && transformTool == TransformTool.Scale) transformTool = TransformTool.Move;
             for (int axis = 0; axis < 3; axis++)
             {
                 transformFields[axis] = Number(item.position[axis]);
@@ -200,9 +201,15 @@ namespace HalliGalli.Movement
             if (BellUI.Button(new Rect(width - 144, 18, 54, 40), "도움말", size: 13)) helpOpen = true;
             if (BellUI.Button(new Rect(width - 82, 18, 64, 40), "홈으로", size: 14)) Close();
             if (BellUI.Button(new Rect(18, 12, 218, 30), "선택 / 배치 취소", selected: !placementMode, size: 14)) placementMode = false;
+            bool fixedScale = FindObject(selectedId)?.kind == UserMapPart.ItemBox;
             for (int i = 0; i < 3; i++)
-                if (BellUI.Button(new Rect(244 + i * 87, 76, 80, 32), ToolNames[i], selected: !placementMode && transformTool == (TransformTool)i, size: 14))
+            {
+                GUI.enabled = interactive && !(fixedScale && i == (int)TransformTool.Scale);
+                if (BellUI.Button(new Rect(244 + i * 87, 76, 80, 32), fixedScale && i == (int)TransformTool.Scale ? "크기 고정" : ToolNames[i],
+                    selected: !placementMode && transformTool == (TransformTool)i, size: 14))
                 { placementMode = false; transformTool = (TransformTool)i; }
+            }
+            GUI.enabled = interactive;
             if (BellUI.Button(new Rect(517, 76, 110, 32), snap ? "격자 맞춤 ON" : "격자 맞춤 OFF", selected: snap, size: 13)) snap = !snap;
             if (BellUI.Button(new Rect(635, 76, 65, 32), Number(snapSize) + " m", size: 14)) snapSize = snapSize < .5f ? .5f : snapSize < 1 ? 1 : snapSize < 2 ? 2 : .25f;
             BellUI.Text(new Rect(714, 76, 84, 32), "빈 공간 높이", 13, BellUI.Paper);
@@ -317,10 +324,16 @@ namespace HalliGalli.Movement
         void DrawObjectFields(UserMapObject item, float width)
         {
             BellUI.Text(new Rect(4, 0, width, 28), PartName(item.kind), 19, BellUI.Gold, true);
-            BellUI.Text(new Rect(4, 31, width, 42), item.kind == UserMapPart.Bell || item.kind == UserMapPart.Press ? "위치는 바닥 높이 기준이에요." : item.kind == UserMapPart.Waypoint ? "발이 닿을 위치예요. 목록 순서가 AI 경로예요." : "위치는 중심, 크기는 실제 가로·높이·깊이예요.", 13, HintColor);
+            bool fixedScale = item.kind == UserMapPart.ItemBox;
+            BellUI.Text(new Rect(4, 31, width, 42), fixedScale ? "위치는 바닥 기준 · 닿으면 획득 · C 사용\n공식 레이스와 같은 5종 아이템이에요."
+                : item.kind == UserMapPart.Bell || item.kind == UserMapPart.Press ? "위치는 바닥 높이 기준이에요."
+                : item.kind == UserMapPart.Waypoint ? "발이 닿을 위치예요. 목록 순서가 AI 경로예요." : "위치는 중심, 크기는 실제 가로·높이·깊이예요.", 13, HintColor);
             DrawVectorFields("위치", transformFields, 0, 84, width, "Position");
-            DrawVectorFields("회전 (도)", transformFields, 3, 160, width, "Rotation");
-            DrawVectorFields("크기 (m)", transformFields, 6, 236, width, "Scale");
+            DrawVectorFields("회전 (도)", transformFields, 3, 160, width, "Rotation", fixedScale);
+            bool scaleEditable = GUI.enabled;
+            GUI.enabled = scaleEditable && !fixedScale;
+            DrawVectorFields(fixedScale ? "크기 배율 (1 × 1 × 1 고정)" : "크기 (m)", transformFields, 6, 236, width, "Scale");
+            GUI.enabled = scaleEditable;
             if (YawOnly(item.kind)) BellUI.Text(new Rect(4, 306, width, 26), "이 부품은 Y 회전만 지원해요 (X/Z=0).", 12, HintColor);
             BellUI.Text(new Rect(4, 338, width, 24), "색상", 14, BellUI.Paper, true);
             for (int i = 0; i < Swatches.Length; i++)
@@ -356,19 +369,24 @@ namespace HalliGalli.Movement
             GUI.enabled = interactive; y += 44;
             if (BellUI.Button(new Rect(4, y, width * .5f - 4, 34), "목록 위로", size: 13)) MoveSelectedInList(-1);
             if (BellUI.Button(new Rect(width * .5f + 6, y, width * .5f - 2, 34), "목록 아래로", size: 13)) MoveSelectedInList(1); y += 43;
-            BellUI.Text(new Rect(4, y, width, 80), "클릭은 선택만, 두 번 클릭은 가까이 보기.\n이동·회전·크기는 축 손잡이를 드래그해요.\n개체 자체를 드래그해도 바뀌지 않아요.\n빈 바닥 드래그: 화면 이동 · 격자 G · 취소 Esc", 13, HintColor);
+            BellUI.Text(new Rect(4, y, width, 80), fixedScale
+                ? "클릭은 선택만, 두 번 클릭은 가까이 보기.\n이동·Y 회전은 축 손잡이를 드래그해요.\n크기는 고정이며 바닥 기준으로 배치해요.\n빈 바닥 드래그: 화면 이동 · 격자 G · 취소 Esc"
+                : "클릭은 선택만, 두 번 클릭은 가까이 보기.\n이동·회전·크기는 축 손잡이를 드래그해요.\n개체 자체를 드래그해도 바뀌지 않아요.\n빈 바닥 드래그: 화면 이동 · 격자 G · 취소 Esc", 13, HintColor);
         }
 
-        void DrawVectorFields(string label, string[] fields, int offset, float y, float width, string prefix)
+        void DrawVectorFields(string label, string[] fields, int offset, float y, float width, string prefix, bool yawOnly = false)
         {
             BellUI.Text(new Rect(4, y, width, 24), label, 14, BellUI.Paper, true);
             float cell = (width - 12) / 3;
+            bool interactive = GUI.enabled;
             for (int i = 0; i < 3; i++)
             {
                 float x = 4 + i * (cell + 6);
                 BellUI.Text(new Rect(x, y + 30, 15, 32), i == 0 ? "X" : i == 1 ? "Y" : "Z", 13, AxisColors[i], true);
+                GUI.enabled = interactive && (!yawOnly || i == 1);
                 fields[offset + i] = Field(new Rect(x + 17, y + 30, cell - 17, 32), fields[offset + i] ?? "", prefix + i, 12);
             }
+            GUI.enabled = interactive;
         }
 
         string Field(Rect rect, string value, string name, int max, bool multiline = false)

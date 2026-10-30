@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uC544\uC774\uD15C \uB808\uC774\uC2A4"
   style: 4
   difficulty: 2
-  description: "220m \uC774\uC5B4\uC9C4 \uB113\uC740 \uD2B8\uB799. \uB79C\uB364 \uC0C1\uC790\uC758 \uC720\uB3C4 \uBBF8\uC0AC\uC77C\uACFC \uBC14\uB098\uB098\uB85C \uCD94\uC6D4\uD558\uACE0, \uC120\uB450\uB294 \uBC29\uC5B4\uB9C9\uC73C\uB85C \uC885\uAE4C\uC9C0 \uBC84\uD2F0\uC138\uC694."
+  description: "220m 연속 트랙. 선두는 바나나·방어막·후방 큰 공, 추격자는 미사일·직선 레이저 중심의 랜덤 아이템으로 경쟁합니다."
   playable: 1
   scenePath: Assets/HalliGalliMovement/Demo/RaceCourse.unity
   thumbnail: Race

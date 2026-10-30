@@ -1,7 +1,7 @@
 {
-  "utc": "2026-10-30T08:05:36.012Z",
-  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\race-1793347408374",
-  "passed": 18,
+  "utc": "2026-10-30T08:41:58.646Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\race-1793349553567",
+  "passed": 26,
   "failed": 0,
   "checks": [
     {
@@ -49,6 +49,38 @@
       "passed": true
     },
     {
+      "name": "Backward rolling ball pushes the pursuing player backward",
+      "passed": true
+    },
+    {
+      "name": "Straight laser hits and pushes the player ahead",
+      "passed": true
+    },
+    {
+      "name": "Laser beam display cannot repeatedly damage the victim",
+      "passed": true
+    },
+    {
+      "name": "Shield blocks a straight laser",
+      "passed": true
+    },
+    {
+      "name": "Shield blocks the backward rolling ball",
+      "passed": true
+    },
+    {
+      "name": "Unhoming laser misses off-axis opponent and stops at track wall",
+      "passed": true
+    },
+    {
+      "name": "Leader live pickups cover banana, shield and ball only",
+      "passed": true
+    },
+    {
+      "name": "Trailing live pickups cover missile, laser and occasional banana only",
+      "passed": true
+    },
+    {
       "name": "Bell award preserves card rules and clears all round item effects",
       "passed": true
     },
@@ -57,11 +89,11 @@
       "passed": true
     },
     {
-      "name": "AI races along the same track and collects live boxes",
+      "name": "AI races along the same track and collects a leader item",
       "passed": true
     },
     {
-      "name": "AI activates its shield against a nearby follower",
+      "name": "AI uses its defensive item against a nearby follower",
       "passed": true
     },
     {

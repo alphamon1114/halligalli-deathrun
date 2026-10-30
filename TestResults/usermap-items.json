@@ -1,0 +1,109 @@
+{
+  "utc": "2026-10-30T08:38:44.303Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\usermap-items-1793349499613",
+  "shared": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\usermap-items-1793349499613\\shared.bellmap",
+  "maximumFile": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\usermap-items-1793349499613\\maximum.bellmap",
+  "ownedMaps": [
+    "39d079711c994e60a9a7e759a4bf29f2",
+    "5eeec44bc83c4f369dee111ff2383c19",
+    "018613780c624864ba61e2a271e1e78e",
+    "0229d363e3354e559e44a39f906c326e",
+    "2b056d81d32c482a82ae0691c8d6add6"
+  ],
+  "passed": 23,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Resized pickup rejected",
+      "passed": true
+    },
+    {
+      "name": "Tilted pickup rejected",
+      "passed": true
+    },
+    {
+      "name": "Animated pickup bounds outside map rejected",
+      "passed": true
+    },
+    {
+      "name": "Item box duplicates as a distinct editable part",
+      "passed": true
+    },
+    {
+      "name": "Deleting an item box can be undone",
+      "passed": true
+    },
+    {
+      "name": "Boxes coexist with terrain and bell",
+      "passed": true
+    },
+    {
+      "name": "Collider-free item box can be selected through its visible shape",
+      "passed": true
+    },
+    {
+      "name": "Picking item-box component closes the compact menu",
+      "passed": true
+    },
+    {
+      "name": "Adding boxes does not bypass required solo clearance",
+      "passed": true
+    },
+    {
+      "name": "Walking into creator box grants a live solo item",
+      "passed": true
+    },
+    {
+      "name": "Solo verification uses the real item action",
+      "passed": true
+    },
+    {
+      "name": "Cleared portable file retains exact box placements",
+      "passed": true
+    },
+    {
+      "name": "Editing a cleared box invalidates the clear proof",
+      "passed": true
+    },
+    {
+      "name": "Imported editable copy does not inherit solo clearance",
+      "passed": true
+    },
+    {
+      "name": "Full 512-object map accepts 510 item boxes",
+      "passed": true
+    },
+    {
+      "name": "Joining guest downloads the full box map without cache",
+      "passed": true
+    },
+    {
+      "name": "Last box in maximum map replicates pickup and cooldown",
+      "passed": true
+    },
+    {
+      "name": "User-map leader follows bell distance, not increasing Z",
+      "passed": true
+    },
+    {
+      "name": "Trailing player receives an offensive item on a shared map",
+      "passed": true
+    },
+    {
+      "name": "Shared user-map attack applies and replicates to the opponent",
+      "passed": true
+    },
+    {
+      "name": "Changing to an item-free map removes all item state",
+      "passed": true
+    },
+    {
+      "name": "Five-player official race starts with seated local player",
+      "passed": true
+    },
+    {
+      "name": "No runtime probe errors",
+      "passed": true
+    }
+  ]
+}

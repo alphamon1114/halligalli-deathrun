@@ -186,9 +186,8 @@ namespace HalliGalli.EditorTools
                 foreach (int side in new[] { -1, 1 })
                     Prop("MountainRock", art, new Vector3(side * 24, -7.8f, z), new Vector3(35, 8, 38), i * 31);
             }
-            Prop("ConcreteFloor", art, new Vector3(0, 4.8f, -5), new Vector3(13.5f, .35f, 7.5f));
-            foreach (int side in new[] { -1, 1 })
-                Prop("ConcreteColumn", art, new Vector3(side * 6.5f, 2.3f, -6.8f), new Vector3(.6f, 4.6f, .6f));
+            // Keep the start table open to the sky: the card camera rises above 6m for larger rosters.
+            // A low ConcreteFloor canopy hides the cards behind its road texture during table focus.
         }
 
         static void Gate(Transform parent, float z, string title, string subtitle, Palette p, bool finish)
@@ -270,7 +269,7 @@ namespace HalliGalli.EditorTools
                 AssetDatabase.CreateAsset(map, path);
             }
             map.id = Id; map.displayName = "아이템 레이스"; map.style = CourseMapStyle.Race; map.difficulty = 2;
-            map.description = "220m 이어진 넓은 트랙. 랜덤 상자의 유도 미사일과 바나나로 추월하고, 선두는 방어막으로 종까지 버티세요.";
+            map.description = "220m 연속 트랙. 선두는 바나나·방어막·후방 큰 공, 추격자는 미사일·직선 레이저 중심의 랜덤 아이템으로 경쟁합니다.";
             map.scenePath = ScenePath; map.movementProfile = profile; map.playable = true; map.thumbnail = "Race";
             var catalog = CourseMapsBuilder.Catalog;
             catalog.maps = (catalog.maps ?? Array.Empty<CourseMapDefinition>()).Where(existing => existing && existing.id != Id).Append(map).ToArray();

@@ -16,10 +16,12 @@ namespace HalliGalli.Movement
         readonly BodyVisual[] bodies=new BodyVisual[MaxActors];
         readonly Transform[] entityVisuals=new Transform[MaxEntities];
         readonly int[] visualIds=new int[MaxEntities];
+        readonly Transform[] laserBeams=new Transform[MaxEntities-BallEnd];
+        readonly Transform[] laserImpacts=new Transform[MaxEntities-BallEnd];
         readonly Transform[] shields=new Transform[MaxActors];
         Transform visualsRoot;
-        Material metal,red,yellow,peelInner,flame,shieldMaterial,shieldEdge;
-        Mesh coneMesh,ringMesh;
+        Material metal,red,yellow,peelInner,flame,shieldMaterial,shieldEdge,laserMaterial;
+        Mesh coneMesh,ringMesh,ballStripeMesh;
         void InitializeVisuals()
         {
             visualsRoot=new GameObject("Race items (visuals only)").transform;visualsRoot.SetParent(transform,false);
@@ -30,12 +32,14 @@ namespace HalliGalli.Movement
             flame=Material("Missile exhaust",new Color(1,.42f,.03f),0,true);
             shieldEdge=Material("Shield rings",new Color(.18f,1,.88f),.35f,true);
             shieldMaterial=Material("Shield shell",new Color(.14f,.86f,.94f,.12f),.05f,true);
+            laserMaterial=Material("Laser beam",new Color(1,.12f,.48f),0,true);
+            laserMaterial.SetColor("_EmissionColor",new Color(1,.12f,.48f)*3);
             shieldMaterial.SetFloat("_Mode",3);shieldMaterial.SetInt("_SrcBlend",(int)BlendMode.SrcAlpha);shieldMaterial.SetInt("_DstBlend",(int)BlendMode.OneMinusSrcAlpha);
             shieldMaterial.SetInt("_ZWrite",0);shieldMaterial.EnableKeyword("_ALPHABLEND_ON");shieldMaterial.renderQueue=3000;
-            coneMesh=BuildCone();ringMesh=BuildRing();
+            coneMesh=BuildCone();ringMesh=BuildRing();ballStripeMesh=BuildBallStripes();
             for(int i=0;i<MaxEntities;i++){
-                var root=new GameObject(i<MaxMissiles?"Homing missile":"Banana peel").transform;root.SetParent(visualsRoot,false);entityVisuals[i]=root;
-                if(i<MaxMissiles)BuildMissile(root);else BuildBanana(root);
+                var root=new GameObject(i<MaxMissiles?"Homing missile":i<BananaEnd?"Banana peel":i<BallEnd?"Rolling metal ball":"Straight laser").transform;root.SetParent(visualsRoot,false);entityVisuals[i]=root;
+                if(i<MaxMissiles)BuildMissile(root);else if(i<BananaEnd)BuildBanana(root);else if(i<BallEnd)BuildRollingBall(root);else BuildLaser(root,i-BallEnd);
                 root.gameObject.SetActive(false);
             }
             for(int i=0;i<MaxActors;i++){
@@ -87,6 +91,33 @@ namespace HalliGalli.Movement
             }
             var stem=Shape(root,"Banana stem",PrimitiveType.Capsule,new Vector3(.025f,.29f,0),new Vector3(.075f,.14f,.075f),yellow);stem.localRotation=Quaternion.Euler(0,0,-18);
         }
+        void BuildRollingBall(Transform root)
+        {
+            Shape(root,"Large metal ball",PrimitiveType.Sphere,Vector3.zero,Vector3.one*1.5f,metal);
+            MeshPart(root,"Yellow rolling stripes",ballStripeMesh,Vector3.zero,Vector3.one,yellow);
+            MeshPart(root,"Red equator",ringMesh,Vector3.zero,Vector3.one*.755f,red);
+        }
+        void BuildLaser(Transform root,int index)
+        {
+            var beam=Shape(root,"Thin laser beam",PrimitiveType.Cylinder,Vector3.zero,new Vector3(.065f,0,.065f),laserMaterial);
+            beam.localRotation=Quaternion.Euler(90,0,0);laserBeams[index]=beam;
+            Shape(root,"Laser origin",PrimitiveType.Sphere,Vector3.zero,Vector3.one*.18f,laserMaterial);
+            laserImpacts[index]=Shape(root,"Laser impact",PrimitiveType.Sphere,Vector3.zero,Vector3.one*.24f,laserMaterial);
+        }
+        static Mesh BuildBallStripes()
+        {
+            const int sides=40,rows=3;var vertices=new Vector3[2*sides*rows];var triangles=new int[2*sides*(rows-1)*6];
+            for(int band=0;band<2;band++)for(int row=0;row<rows;row++)for(int side=0;side<sides;side++){
+                float latitude=(band==0?-.46f:.46f)+(row/(float)(rows-1)-.5f)*.24f;
+                float angle=side*Mathf.PI*2/sides;int v=(band*rows+row)*sides+side;
+                float radius=Mathf.Cos(latitude)*.754f;
+                vertices[v]=new Vector3(Mathf.Cos(angle)*radius,Mathf.Sin(latitude)*.754f,Mathf.Sin(angle)*radius);
+                if(row==rows-1)continue;
+                int next=(band*rows+row)*sides+(side+1)%sides,above=v+sides,corner=next+sides,k=((band*(rows-1)+row)*sides+side)*6;
+                triangles[k]=v;triangles[k+1]=above;triangles[k+2]=next;triangles[k+3]=next;triangles[k+4]=above;triangles[k+5]=corner;
+            }
+            var mesh=new Mesh{name="Race rolling ball stripes",vertices=vertices,triangles=triangles};mesh.RecalculateNormals();mesh.RecalculateBounds();return mesh;
+        }
         static Mesh BuildCone()
         {
             const int sides=16;var vertices=new Vector3[sides+2];var triangles=new int[sides*6];vertices[sides]=Vector3.up;vertices[sides+1]=Vector3.zero;
@@ -115,6 +146,15 @@ namespace HalliGalli.Movement
                 if(body.model){body.model.localPosition=body.position;body.model.localRotation=body.rotation;}body.applied=false;
             }
         }
+        void RestoreBoxVisuals()
+        {
+            for(int i=0;i<itemBoxes.Length;i++){
+                var box=itemBoxes[i];if(!box)continue;
+                box.SetPositionAndRotation(boxRest[i],boxRotation[i]);box.gameObject.SetActive(true);
+            }
+            for(int i=0;i<entityVisuals.Length;i++)if(entityVisuals[i])entityVisuals[i].gameObject.SetActive(false);
+            for(int i=0;i<shields.Length;i++)if(shields[i])shields[i].gameObject.SetActive(false);
+        }
         void LateUpdate()
         {
             if(!initialized)return;double now=Clock;
@@ -127,8 +167,24 @@ namespace HalliGalli.Movement
             for(int i=0;i<entities.Length;i++){
                 var e=entities[i];var visual=entityVisuals[i];bool visible=e.item!=RaceItem.None&&e.expires>now&&Live;
                 if(visual.gameObject.activeSelf!=visible)visual.gameObject.SetActive(visible);if(!visible)continue;
-                if(visualIds[i]!=e.id||CourseNetwork.Authority||e.item==RaceItem.Banana)visual.position=e.position;else visual.position=Vector3.Lerp(visual.position,e.position,blend);
-                visualIds[i]=e.id;visual.rotation=Quaternion.LookRotation(e.direction.sqrMagnitude>.01f?e.direction:Vector3.forward,Vector3.up);
+                bool fresh=visualIds[i]!=e.id;Vector3 previous=visual.position;
+                if(fresh||CourseNetwork.Authority||e.item==RaceItem.Banana||e.item==RaceItem.Laser)visual.position=e.position;else visual.position=Vector3.Lerp(visual.position,e.position,blend);
+                Vector3 direction=e.direction.sqrMagnitude>.01f?e.direction:Vector3.forward;
+                if(e.item==RaceItem.RollingBall){
+                    if(fresh)visual.rotation=Quaternion.LookRotation(direction,Vector3.up);
+                    else{
+                        Vector3 travel=visual.position-previous;travel.y=0;float distance=travel.magnitude;
+                        if(distance>.0001f)visual.rotation=Quaternion.AngleAxis(distance/.75f*Mathf.Rad2Deg,Vector3.Cross(Vector3.up,travel)/distance)*visual.rotation;
+                    }
+                }else{
+                    visual.rotation=Quaternion.LookRotation(direction,e.item==RaceItem.Laser&&Mathf.Abs(direction.y)>.99f?Vector3.forward:Vector3.up);
+                    if(e.item==RaceItem.Laser){
+                        int index=i-BallEnd;float distance=Mathf.Clamp(e.distance,0,45);
+                        var beam=laserBeams[index];beam.localPosition=new Vector3(0,0,distance*.5f);beam.localScale=new Vector3(.065f,distance*.5f,.065f);
+                        laserImpacts[index].localPosition=new Vector3(0,0,distance);
+                    }
+                }
+                visualIds[i]=e.id;
             }
             for(int i=0;i<MaxActors;i++){
                 var p=Participant(i);ref var body=ref bodies[i];var shield=shields[i];bool eligible=Eligible(p);
@@ -140,7 +196,7 @@ namespace HalliGalli.Movement
                 if(!body.model)continue;
                 body.position=body.model.localPosition;body.rotation=body.model.localRotation;body.applied=true;
                 float duration=(float)(actors[i].effectUntil-actors[i].effectAt),t=Mathf.Clamp01((float)(now-actors[i].effectAt)/Mathf.Max(.01f,duration));
-                Quaternion tumble=actors[i].effect==RaceEffect.Flip?Quaternion.AngleAxis(360*t,p.transform.right):Quaternion.AngleAxis(-65*Mathf.Sin(t*Mathf.PI),p.transform.right)*Quaternion.AngleAxis(13*Mathf.Sin(t*Mathf.PI*2),p.transform.forward);
+                Quaternion tumble=actors[i].effect==RaceEffect.Flip?Quaternion.AngleAxis(360*t,p.transform.right):actors[i].effect==RaceEffect.Push?Quaternion.AngleAxis(-18*Mathf.Sin(t*Mathf.PI),p.transform.right):Quaternion.AngleAxis(-65*Mathf.Sin(t*Mathf.PI),p.transform.right)*Quaternion.AngleAxis(13*Mathf.Sin(t*Mathf.PI*2),p.transform.forward);
                 Vector3 centre=body.model.position+Vector3.up*.9f;
                 body.model.position=centre+tumble*(body.model.position-centre);body.model.rotation=tumble*body.model.rotation;
             }
@@ -149,7 +205,8 @@ namespace HalliGalli.Movement
         {
             if(visualsRoot)Destroy(visualsRoot.gameObject);
             if(metal)Destroy(metal);if(red)Destroy(red);if(yellow)Destroy(yellow);if(peelInner)Destroy(peelInner);if(flame)Destroy(flame);if(shieldMaterial)Destroy(shieldMaterial);if(shieldEdge)Destroy(shieldEdge);
-            if(coneMesh)Destroy(coneMesh);if(ringMesh)Destroy(ringMesh);
+            if(laserMaterial)Destroy(laserMaterial);
+            if(coneMesh)Destroy(coneMesh);if(ringMesh)Destroy(ringMesh);if(ballStripeMesh)Destroy(ballStripeMesh);
         }
     }
 }

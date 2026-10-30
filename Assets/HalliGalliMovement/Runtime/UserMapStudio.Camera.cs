@@ -215,6 +215,8 @@ namespace HalliGalli.Movement
                 boundsRenderers.Clear();
             }
             if (found) return bounds;
+            if (item.kind == UserMapPart.ItemBox)
+                return new Bounds(item.position + UserMapObject.ItemBoxBoundsCenter, UserMapObject.ItemBoxBoundsSize);
             Quaternion inverseRotation = Quaternion.Inverse(Quaternion.Euler(item.rotation));
             Vector3 half = item.scale * .5f;
             return new Bounds(item.position, new Vector3(

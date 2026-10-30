@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HalliGalli.Movement
@@ -16,6 +17,9 @@ namespace HalliGalli.Movement
         MaterialPropertyBlock surfaceProperties;
         Texture2D surfaceGrain;
         Mesh boxMesh, lampMesh;
+        Mesh itemBoxMesh;
+        Material itemBoxSteel, itemBoxDark;
+        Material[][] itemBoxPalettes;
 
         void EnsureCraftedResources()
         {
@@ -56,6 +60,77 @@ namespace HalliGalli.Movement
             else direction.Normalize();
             surfaceProperties.SetVector(DirectionId, new Vector4(direction.x, direction.y, 0, 0));
             renderer.SetPropertyBlock(surfaceProperties);
+        }
+
+        Transform MakeItemBox(Transform root, UserMapObject item)
+        {
+            if (!itemBoxMesh) {
+                itemBoxMesh = MakeItemBoxMesh();
+                itemBoxSteel = MakeItemBoxMaterial("Item crate steel", new Color(.42f, .5f, .56f), .65f, false);
+                itemBoxDark = MakeItemBoxMaterial("Item crate panels", new Color(.045f, .065f, .08f), .2f, false);
+                itemBoxPalettes = new Material[PaletteColors.Length][];
+            }
+            if (itemBoxPalettes[item.color] == null)
+                itemBoxPalettes[item.color] = new[] { itemBoxSteel, itemBoxDark, MakeItemBoxMaterial("Item crate accent " + item.color, PaletteColors[item.color], .3f, true) };
+            // Same metal core, dark question panels and colored trim as the official race crate.
+            // The mesh and materials are shared across all boxes; no gameplay or selection collider.
+            var crate = new GameObject("Question crate", typeof(MeshFilter), typeof(MeshRenderer)).transform;
+            crate.SetParent(root, false);
+            crate.localPosition = Vector3.up * UserMapObject.ItemBoxCenterHeight;
+            crate.localRotation = Quaternion.Euler(0, 18, 0);
+            crate.GetComponent<MeshFilter>().sharedMesh = itemBoxMesh;
+            crate.GetComponent<MeshRenderer>().sharedMaterials = itemBoxPalettes[item.color];
+            return crate;
+        }
+
+        static Material MakeItemBoxMaterial(string name, Color color, float metallic, bool glow)
+        {
+            var material = new Material(Shader.Find("Standard")) { name = name, color = color, hideFlags = HideFlags.DontSave, enableInstancing = true };
+            material.SetFloat("_Metallic", metallic); material.SetFloat("_Glossiness", .45f);
+            if (glow) { material.EnableKeyword("_EMISSION"); material.SetColor("_EmissionColor", color * .45f); }
+            return material;
+        }
+
+        Mesh MakeItemBoxMesh()
+        {
+            var vertices = new List<Vector3>(2048);
+            var normals = new List<Vector3>(2048);
+            var uv = new List<Vector2>(2048);
+            var triangles = new[] { new List<int>(36), new List<int>(72), new List<int>(2048) };
+            var sourceVertices = boxMesh.vertices; var sourceNormals = boxMesh.normals;
+            var sourceUV = boxMesh.uv; var sourceTriangles = boxMesh.triangles;
+            void AddBox(int material, Vector3 position, Vector3 size)
+            {
+                int start = vertices.Count;
+                for (int i = 0; i < sourceVertices.Length; i++) {
+                    vertices.Add(position + Vector3.Scale(sourceVertices[i], size));
+                    normals.Add(sourceNormals[i]); uv.Add(sourceUV[i]);
+                }
+                foreach (int index in sourceTriangles) triangles[material].Add(start + index);
+            }
+            AddBox(0, Vector3.zero, Vector3.one * .76f);
+            // A mesh question mark remains legible without runtime font/atlas dependencies.
+            string[] glyph = { "01110", "11011", "00011", "00110", "00100", "00000", "00100" };
+            for (int side = -1; side <= 1; side += 2) {
+                AddBox(1, new Vector3(0, 0, side * .39f), new Vector3(.64f, .64f, .025f));
+                for (int corner = -1; corner <= 1; corner += 2) {
+                    AddBox(2, new Vector3(0, corner * .4f, side * .4f), new Vector3(.87f, .09f, .09f));
+                    AddBox(2, new Vector3(corner * .4f, 0, side * .4f), new Vector3(.09f, .87f, .09f));
+                    AddBox(2, new Vector3(corner * .4f, side * .4f, 0), new Vector3(.09f, .09f, .87f));
+                }
+                for (int y = 0; y < glyph.Length; y++) for (int x = 0; x < glyph[y].Length;) {
+                    if (glyph[y][x] == '0') { x++; continue; }
+                    int start = x;
+                    while (x < glyph[y].Length && glyph[y][x] == '1') x++;
+                    float center = (start + (x - start - 1) * .5f - 2) * .072f;
+                    AddBox(2, new Vector3(-side * center, (3 - y) * .072f, side * .415f), new Vector3((x - start) * .072f, .072f, .02f));
+                }
+            }
+            var mesh = new Mesh { name = "Shared question crate", hideFlags = HideFlags.DontSave, subMeshCount = triangles.Length };
+            mesh.SetVertices(vertices); mesh.SetNormals(normals); mesh.SetUVs(0, uv);
+            for (int i = 0; i < triangles.Length; i++) mesh.SetTriangles(triangles[i], i, false);
+            mesh.RecalculateBounds();
+            return mesh;
         }
 
         void MakePlatformVisual(Transform root, UserMapObject item)
@@ -155,6 +230,9 @@ namespace HalliGalli.Movement
             if (surfaceGrain) Destroy(surfaceGrain);
             if (boxMesh) Destroy(boxMesh);
             if (lampMesh) Destroy(lampMesh);
+            if (itemBoxPalettes != null) foreach (var palette in itemBoxPalettes) if (palette != null && palette[2]) Destroy(palette[2]);
+            if (itemBoxSteel) Destroy(itemBoxSteel); if (itemBoxDark) Destroy(itemBoxDark);
+            if (itemBoxMesh) Destroy(itemBoxMesh);
         }
     }
 }

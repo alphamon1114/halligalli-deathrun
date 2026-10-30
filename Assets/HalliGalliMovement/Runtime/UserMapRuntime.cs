@@ -24,6 +24,7 @@ namespace HalliGalli.Movement
         Mesh rampMesh, surfMesh;
         Transform generated;
         FactoryCourse machinery;
+        RaceCourse items;
         CourseMapDefinition definition;
         bool editing;
 
@@ -33,6 +34,7 @@ namespace HalliGalli.Movement
         {
             Current = this;
             session.userMap = this;
+            editing = UserMapStudio.IsOpen && !UserMapStudio.IsTesting;
             var pending = Pending; Pending = null;
             Rebuild(pending ?? UserMapStorage.CreateDefault());
         }
@@ -51,10 +53,12 @@ namespace HalliGalli.Movement
             machinery.session = session; machinery.presses = Array.Empty<FactoryPress>(); machinery.movingPlatforms = Array.Empty<FactorySurface>();
             session.factory = machinery; session.fallHeight = snapshot.fallHeight;
             var checkpoints = new List<CourseCheckpoints.Point>();
+            var itemBoxes = new List<Transform>();
             UserMapObject bell = null;
             foreach (var item in snapshot.objects) {
                 var root = new GameObject(item.kind + " " + item.id).transform;
-                root.SetParent(generated, false); root.SetPositionAndRotation(item.position, Quaternion.Euler(item.rotation));
+                root.SetParent(generated, false);
+                root.SetPositionAndRotation(item.position, Quaternion.Euler(item.kind == UserMapPart.ItemBox ? new Vector3(0, item.rotation.y, 0) : item.rotation));
                 roots.Add(item.id, root.gameObject);
                 switch (item.kind) {
                     case UserMapPart.Block: MakeBlock(root, item); break;
@@ -85,6 +89,8 @@ namespace HalliGalli.Movement
                         break;
                     case UserMapPart.Bell:
                         bell = item; MakeBell(root, item); break;
+                    case UserMapPart.ItemBox:
+                        itemBoxes.Add(MakeItemBox(root, item)); break;
                     case UserMapPart.Waypoint:
                         var marker = Box(root, "AI waypoint (editor only)", Vector3.zero, item.scale, Finish.Waypoint, item.color, true);
                         waypointVisuals.Add(marker.gameObject); routePositions.Add(item.position);
@@ -94,6 +100,12 @@ namespace HalliGalli.Movement
             BuildRoutes(bell, checkpoints);
             session.checkpoints.points = checkpoints.ToArray();
             machinery.presses = presses.ToArray(); machinery.movingPlatforms = surfaces.ToArray();
+            if (itemBoxes.Count > 0) {
+                var itemRoot = new GameObject("User map race items");
+                itemRoot.SetActive(false); itemRoot.transform.SetParent(generated, false);
+                items = itemRoot.AddComponent<RaceCourse>();
+                items.ConfigureUserMap(session, itemBoxes.ToArray());
+            }
             if (!definition) {
                 definition = ScriptableObject.CreateInstance<CourseMapDefinition>();
                 definition.hideFlags = HideFlags.DontSave;
@@ -160,6 +172,7 @@ namespace HalliGalli.Movement
             editing = value;
             if (!generated) return;
             machinery.enabled = !value; session.checkpoints.enabled = !value;
+            if (items) items.gameObject.SetActive(!value);
             foreach (var surface in surfaces) {
                 surface.enabled = !value;
                 if (value) surface.transform.position = surface.origin;
@@ -249,6 +262,7 @@ namespace HalliGalli.Movement
         void ClearCourse()
         {
             if (generated) Retire(generated.gameObject);
+            items = null;
             roots.Clear(); surfaces.Clear(); presses.Clear(); hazards.Clear(); waypointVisuals.Clear(); routePositions.Clear();
             session.checkpoints.points = Array.Empty<CourseCheckpoints.Point>();
         }

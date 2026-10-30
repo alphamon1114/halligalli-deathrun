@@ -64,15 +64,17 @@ namespace HalliGalli.Movement
                 if (item == null) Fail("비어 있는 부품이 있습니다.");
                 CheckId(item.id);
                 if (!ids.Add(item.id)) Fail("부품 ID가 중복됩니다.");
-                if ((int)item.kind < 0 || (int)item.kind > (int)UserMapPart.Waypoint) Fail("알 수 없는 부품 종류입니다.");
+                if ((int)item.kind < 0 || (int)item.kind > (int)UserMapPart.ItemBox) Fail("알 수 없는 부품 종류입니다.");
                 if (!VectorRange(item.position, new Vector3(-500, -100, 0), new Vector3(500, 300, 1000))) Fail("부품 위치가 제작 영역 밖입니다.");
                 if (!VectorRange(item.rotation, Vector3.one * -360, Vector3.one * 360)) Fail("회전은 -360 ~ 360도 범위여야 합니다.");
                 if (!VectorRange(item.scale, Vector3.one * .1f, new Vector3(100, 60, 100))) Fail("부품 크기는 0.1 ~ 100m (높이 최대 60m)여야 합니다.");
+                if (item.kind == UserMapPart.ItemBox && (item.scale.x != 1 || item.scale.y != 1 || item.scale.z != 1))
+                    Fail("아이템 박스 크기는 (1, 1, 1)로 고정되어 있습니다.");
                 if (!VectorRange(item.travel, Vector3.one * -80, Vector3.one * 80)) Fail("이동 거리는 축마다 -80 ~ 80m 범위여야 합니다.");
                 if (!InRange(item.period, .5f, 120) || !InRange(item.speed, -20, 20)) Fail("주기는 0.5 ~ 120초, 속도는 -20 ~ 20m/s 범위여야 합니다.");
                 if (item.color < 0 || item.color > 7) Fail("부품 색상 번호가 올바르지 않습니다.");
                 bool yawOnly = item.kind == UserMapPart.Checkpoint || item.kind == UserMapPart.MovingPlatform || item.kind == UserMapPart.Conveyor
-                    || item.kind == UserMapPart.Press || item.kind == UserMapPart.Bell || item.kind == UserMapPart.Waypoint;
+                    || item.kind == UserMapPart.Press || item.kind == UserMapPart.Bell || item.kind == UserMapPart.Waypoint || item.kind == UserMapPart.ItemBox;
                 if (yawOnly && (Mathf.Abs(Mathf.DeltaAngle(0, item.rotation.x)) > .001f || Mathf.Abs(Mathf.DeltaAngle(0, item.rotation.z)) > .001f))
                     Fail("이 부품은 수평 회전(Y축)만 지원합니다.");
                 if (item.kind == UserMapPart.Bell) {
@@ -90,7 +92,9 @@ namespace HalliGalli.Movement
             Vector3 extent = item.scale * .5f, centre = item.position;
             if (item.kind == UserMapPart.Bell) { extent = Vector3.Scale(item.scale, new Vector3(.38f, .55f, .38f)); centre.y += extent.y; }
             if (item.kind == UserMapPart.Press) { extent = new Vector3(item.scale.x * .5f + .4f, item.scale.y * .5f + .5f, item.scale.z * .5f); centre.y += extent.y; }
-            var rotation = Quaternion.Euler(item.rotation);
+            if (item.kind == UserMapPart.ItemBox) { extent = UserMapObject.ItemBoxBoundsSize * .5f; centre += UserMapObject.ItemBoxBoundsCenter; }
+            // The box envelope already includes every spin angle, independently of its authored yaw.
+            var rotation = item.kind == UserMapPart.ItemBox ? Quaternion.identity : Quaternion.Euler(item.rotation);
             var right = rotation * new Vector3(extent.x, 0, 0);
             var up = rotation * new Vector3(0, extent.y, 0);
             var forward = rotation * new Vector3(0, 0, extent.z);

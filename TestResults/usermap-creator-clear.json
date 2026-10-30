@@ -1,12 +1,12 @@
 {
-  "utc": "2026-10-30T08:05:57.360Z",
-  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793347536015",
-  "small": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793347536015\\cleared-small.bellmap",
-  "large": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793347536015\\cleared-large.bellmap",
+  "utc": "2026-10-30T08:42:20.514Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793349718651",
+  "small": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793349718651\\cleared-small.bellmap",
+  "large": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\creator-clear-1793349718651\\cleared-large.bellmap",
   "ownedMaps": [
-    "7397927f6c784518971b785fef698189",
-    "7d5f3c1700b9487d8b34e79896890206",
-    "98e40fc04a6446cd91e41336f55892bf"
+    "810e289f23ea42b7a176809e61d7ef79",
+    "593e02b65e65456795e1ae2659cf1513",
+    "a30dfa5107424a37a2521f85bba7dd17"
   ],
   "passed": 37,
   "failed": 0,
