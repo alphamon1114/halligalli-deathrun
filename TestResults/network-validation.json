@@ -1,0 +1,233 @@
+{
+  "environment": "Separate Windows player processes on one PC; not separate physical machines",
+  "groups": [
+    {
+      "passed": 22,
+      "name": "relaySixPlayers",
+      "failed": 0,
+      "checks": [
+        {
+          "name": "All seated resumes the shared six-person turn",
+          "passed": true
+        },
+        {
+          "name": "All six agree on every public card state",
+          "passed": true
+        },
+        {
+          "name": "All six load the host-selected map",
+          "passed": true
+        },
+        {
+          "name": "All six members see the ready roster",
+          "passed": true
+        },
+        {
+          "name": "Card turn 0 replicates to every player",
+          "passed": true
+        },
+        {
+          "name": "Card turn 1 replicates to every player",
+          "passed": true
+        },
+        {
+          "name": "Card turn 2 replicates to every player",
+          "passed": true
+        },
+        {
+          "name": "Card turn 3 replicates to every player",
+          "passed": true
+        },
+        {
+          "name": "Card turn 4 replicates to every player",
+          "passed": true
+        },
+        {
+          "name": "Card turn 5 replicates to every player",
+          "passed": true
+        },
+        {
+          "name": "Closing the host ends the room for all five guests",
+          "passed": true
+        },
+        {
+          "name": "Each client owns a distinct seat at the same starting depth",
+          "passed": true
+        },
+        {
+          "name": "Host cannot start before guests are ready",
+          "passed": true
+        },
+        {
+          "name": "Invalid invite code shows an error without joining",
+          "passed": true
+        },
+        {
+          "name": "Multiplayer wrong-stand penalty gives one card to each of five opponents",
+          "passed": true
+        },
+        {
+          "name": "Real Relay host created a six-seat private room",
+          "passed": true
+        },
+        {
+          "name": "Relay guest 1 joined and received its seat",
+          "passed": true
+        },
+        {
+          "name": "Relay guest 2 joined and received its seat",
+          "passed": true
+        },
+        {
+          "name": "Relay guest 3 joined and received its seat",
+          "passed": true
+        },
+        {
+          "name": "Relay guest 4 joined and received its seat",
+          "passed": true
+        },
+        {
+          "name": "Relay guest 5 joined and received its seat",
+          "passed": true
+        },
+        {
+          "name": "Seventh player cannot enter a six-person room",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "passed": 30,
+      "name": "relayGameplay",
+      "failed": 0,
+      "checks": [
+        {
+          "name": "Bell landing is grounded",
+          "passed": true
+        },
+        {
+          "name": "Both clients load summit",
+          "passed": true
+        },
+        {
+          "name": "Both clients load surf",
+          "passed": true
+        },
+        {
+          "name": "Both clients loaded the same match",
+          "passed": true
+        },
+        {
+          "name": "Both players can race on a valid five",
+          "passed": true
+        },
+        {
+          "name": "Client movement is simulated on the host",
+          "passed": true
+        },
+        {
+          "name": "Connection setup completed before accepting ready",
+          "passed": true
+        },
+        {
+          "name": "Crouching replicated to the host",
+          "passed": true
+        },
+        {
+          "name": "Everyone seated resumes cards",
+          "passed": true
+        },
+        {
+          "name": "Exposed-card fixture synchronized",
+          "passed": true
+        },
+        {
+          "name": "Falling guest respawns consistently",
+          "passed": true
+        },
+        {
+          "name": "Guest bell awards cards and instantly seats everyone",
+          "passed": true
+        },
+        {
+          "name": "Guest can ready after a match summit",
+          "passed": true
+        },
+        {
+          "name": "Guest can ready after a match surf",
+          "passed": true
+        },
+        {
+          "name": "Guest departure returns host to a room without ghosts",
+          "passed": true
+        },
+        {
+          "name": "Guest punch hits on the host and replicates feedback",
+          "passed": true
+        },
+        {
+          "name": "Guest reveal advances the turn on both clients",
+          "passed": true
+        },
+        {
+          "name": "Host reveal advances the turn on both clients",
+          "passed": true
+        },
+        {
+          "name": "Host room cleanup completed",
+          "passed": true
+        },
+        {
+          "name": "Jump input reaches the authoritative motor",
+          "passed": true
+        },
+        {
+          "name": "Kick adds authoritative knockback",
+          "passed": true
+        },
+        {
+          "name": "Kick feedback reaches the other peer",
+          "passed": true
+        },
+        {
+          "name": "No reveal while anyone stands",
+          "passed": true
+        },
+        {
+          "name": "Out-of-turn reveal rejected",
+          "passed": true
+        },
+        {
+          "name": "Punched player can still move",
+          "passed": true
+        },
+        {
+          "name": "Ready state synchronized",
+          "passed": true
+        },
+        {
+          "name": "Return to room summit",
+          "passed": true
+        },
+        {
+          "name": "Return to room surf",
+          "passed": true
+        },
+        {
+          "name": "Two independent clients joined the same room",
+          "passed": true
+        },
+        {
+          "name": "Wrong stand freezes cards and pays one opponent",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "transport": "Unity Lobby + Relay (real public service, DTLS)",
+  "sdk": {
+    "netcode": "2.13.3",
+    "multiplayerServices": "2.4.1"
+  },
+  "verifiedAt": "2026-10-20T18:30:14.0377227+09:00"
+}

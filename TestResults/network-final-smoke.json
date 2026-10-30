@@ -1,0 +1,15 @@
+{
+  "started": true,
+  "relayRoomCreated": true,
+  "roomClosed": true,
+  "error": "",
+  "runtimeErrorMatches": 0,
+  "authProfile": "compacthost / compactclient1",
+  "gameplayChecks": 35,
+  "pointerRoutingChecksIncluded": true,
+  "punchBlinkChecksIncluded": true,
+  "protocol": 6,
+  "verifiedAt": "2026-10-23T09:41:12.4487131+09:00",
+  "previousStunChecks": 36,
+  "previousStunVerifiedAt": "2026-10-21T11:17:33.5527773+09:00"
+}

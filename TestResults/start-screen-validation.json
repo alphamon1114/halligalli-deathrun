@@ -1,0 +1,62 @@
+{
+    "passed": 14,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Normal launch opens home automatically",
+            "passed": true
+        },
+        {
+            "name": "Home releases cursor and blocks player input",
+            "passed": true
+        },
+        {
+            "name": "Home stops AI card decisions and rival movement",
+            "passed": true
+        },
+        {
+            "name": "Waiting on home does not advance the match",
+            "passed": true
+        },
+        {
+            "name": "Create choice opens its form without connecting",
+            "passed": true
+        },
+        {
+            "name": "Invite choice opens its form without connecting",
+            "passed": true
+        },
+        {
+            "name": "Back returns to home without starting gameplay",
+            "passed": true
+        },
+        {
+            "name": "Practice immediately dismisses home and restores controls",
+            "passed": true
+        },
+        {
+            "name": "Practice click cannot reveal a card in the same frame",
+            "passed": true
+        },
+        {
+            "name": "Practice restores the AI and combat simulation",
+            "passed": true
+        },
+        {
+            "name": "Practice starts seated with a legal card turn",
+            "passed": true
+        },
+        {
+            "name": "Practice can return to home and freeze again",
+            "passed": true
+        },
+        {
+            "name": "Scene reload while in home keeps simulation and cursor paused",
+            "passed": true
+        },
+        {
+            "name": "Practice scene change does not reopen the start screen",
+            "passed": true
+        }
+    ]
+}

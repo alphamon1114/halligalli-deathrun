@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7131167ff63c9c4429bfa71d7e40071a, type: 3}
+  m_Name: Strawberry_3
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Cards.FruitCardDefinition
+  cardId: strawberry_3
+  fruit: 0
+  fruitCount: 3
+  copiesInDeck: 3
+  faceTexture: {fileID: 2800000, guid: af9cdc6003c39924e9ea5d1304bb05a4, type: 3}
+  faceMaterial: {fileID: 2100000, guid: b0b1d4dfc9f1d904b9a933ba70473980, type: 2}

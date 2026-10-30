@@ -1,0 +1,80 @@
+{
+  "key": "MountainRock",
+  "sourceSha256": "b2f5f04920cf1b3788d393ee7adbcf2a924ebef7c310b726ce0073b036b27624",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "0a9505fb-c6b5-434c-ae79-9bfdd4d242cd",
+  "sourceDimensionsBlenderXYZ": [
+    0.9008508324623108,
+    0.9910547733306885,
+    0.9979346394538879
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.9027152061462402,
+    0.9931058287620544,
+    0.9999999403953552
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 20565,
+  "triangles": 20302,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "MountainRock_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "MountainRock_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "MountainRock_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "MountainRock_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "MountainRock_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

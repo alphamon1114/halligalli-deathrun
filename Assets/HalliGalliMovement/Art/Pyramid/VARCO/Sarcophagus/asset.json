@@ -1,0 +1,80 @@
+{
+  "key": "Sarcophagus",
+  "sourceSha256": "260b8757daf1d5d990722515d720e4b279fa85908f9328a463f5194f69faa2b6",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "dafe6e99-594f-4506-82ac-f09b8964e71a",
+  "sourceDimensionsBlenderXYZ": [
+    0.2721819579601288,
+    0.21815082430839539,
+    0.999685525894165
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.27226758003234863,
+    0.21821945905685425,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 8342,
+  "triangles": 12000,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "Sarcophagus_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "Sarcophagus_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "Sarcophagus_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "Sarcophagus_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "Sarcophagus_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

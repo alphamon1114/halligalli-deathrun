@@ -1,0 +1,61 @@
+{
+  "provider": "VARCO Sound",
+  "project": "https://sound.varco.ai/app/editor/cce95bc2-0bf5-4eb2-ac27-54c67c8f495a",
+  "title": "HalliGalli · Lasso SFX",
+  "generatedAt": "2026-10-23",
+  "pointsUsed": 150,
+  "pointsPerGeneration": 50,
+  "balanceBefore": 100000,
+  "balanceAfter": 99850,
+  "prompts": {
+    "Throw": "HalliGalli Lasso THROW. Single dry game Foley: thick braided hemp cowboy rope thrown straight forward once. Fast airy swish, crisp natural fiber friction, quick onset, about 0.5 seconds, short clean tail, close microphone. Isolated rope throw only. No music, speech, footsteps, gunshot, whip crack, rubber squeak, impact or ambience. Silence before and after.",
+    "Latch": "LASSO LATCH. Single dry game Foley: a thick braided hemp lasso lands around a clothed torso and cinches once. Brief coarse rope scrape, soft fabric slap, then a small taut fiber creak. Clear onset, about 0.35 seconds, intimate close microphone, isolated. No voice, grunt, punch, rubber squeak, metal, music, reverb or background ambience.",
+    "Pull": "LASSO YANK. One forceful dry game Foley: a thick hemp rope is gripped and sharply yanked once, pulling a heavy load. Fast coarse fiber rasp rising into a tight low creak and short firm tension snap, then a quick rope swish. About 0.55 seconds, close microphone, isolated. No gunshot, whip crack, rubber squeak, metal, voice, music, reverb or ambience."
+  },
+  "clips": [
+    {
+      "key": "Throw",
+      "sourceSha256": "f9692e59bae57d04ba5c8d65b63a008c97e165bcf75ed0981c027a3036821383",
+      "sourceSeconds": 0.84,
+      "seconds": 0.282,
+      "trimStartSeconds": 0.138,
+      "trimEndSeconds": 0.42,
+      "selection": "first isolated event; later repetitions removed",
+      "gain": 0.6458443990331413,
+      "peak": 0.5138037316514752,
+      "rms": 0.11999945334229921,
+      "source": "VARCO Sound",
+      "synthesized": false
+    },
+    {
+      "key": "Latch",
+      "sourceSha256": "81cbc96d56780e8d514ed56010ab97efdce4c40b23531b4c9261a03c428e8240",
+      "sourceSeconds": 2.54,
+      "seconds": 0.452,
+      "trimStartSeconds": 0.068,
+      "trimEndSeconds": 0.52,
+      "selection": "first isolated event; later repetitions removed",
+      "gain": 1.0321343665048872,
+      "peak": 0.82,
+      "rms": 0.07008717872580165,
+      "source": "VARCO Sound",
+      "synthesized": false
+    },
+    {
+      "key": "Pull",
+      "sourceSha256": "7c8d6f1974b702c264753f07c952475660ab8966e9510f37f1fa172f51873ba5",
+      "sourceSeconds": 7.62,
+      "seconds": 0.362,
+      "trimStartSeconds": 0.068,
+      "trimEndSeconds": 0.43,
+      "selection": "first isolated event; later repetitions removed",
+      "gain": 1.0322394418850585,
+      "peak": 0.82,
+      "rms": 0.11216586070270491,
+      "source": "VARCO Sound",
+      "synthesized": false
+    }
+  ],
+  "processing": "First isolated performance selected; silent repeats removed; DC removal, level matching, 2ms/12ms edge fades. No generated substitute or resynthesis.",
+  "verification": "PCM data and Unity playback events verified. No subjective listening assessment by agent."
+}

@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-26T16:59:54.906351+09:00",
+  "controls": {
+    "defaultJump": [
+      "Space",
+      "WheelDown"
+    ],
+    "slots": 3,
+    "wheelIsPulse": true,
+    "automaticBunnyhop": false,
+    "escapeReserved": true,
+    "savedLocally": true,
+    "keyboardMouseWheel": true,
+    "gameplayBlockedWhileEditing": true,
+    "editorValidation": {
+      "passed": 23,
+      "failed": 0
+    },
+    "bindingLogic": {
+      "passed": 18,
+      "failed": 0
+    },
+    "visualReview": [
+      "1920x1080",
+      "1024x768",
+      "duplicate binding choice"
+    ]
+  },
+  "surf": {
+    "entrySideAndRearWalls": true,
+    "expandedElectricalDivider": true,
+    "earlyLateSectorWall": true,
+    "normalCurveOpening": true,
+    "validation": {
+      "passed": 57,
+      "failed": 0
+    },
+    "relayValidation": {
+      "passed": 26,
+      "failed": 0
+    },
+    "protocol": 21
+  },
+  "finalBuild": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 0,
+    "report": "TestResults/windows-build.txt",
+    "relayValidatedBeforeFinalTextSpacingChange": true
+  }
+}

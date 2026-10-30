@@ -1,0 +1,150 @@
+{
+  "passed": 36,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Two Relay clients joined for stun validation",
+      "passed": true
+    },
+    {
+      "name": "first-steps: ready",
+      "passed": true
+    },
+    {
+      "name": "first-steps: clean weapon state on both peers",
+      "passed": true
+    },
+    {
+      "name": "first-steps: legal five fixture",
+      "passed": true
+    },
+    {
+      "name": "first-steps: both racers receive one shot",
+      "passed": true
+    },
+    {
+      "name": "Holding right aim is visible on both peers without firing",
+      "passed": true
+    },
+    {
+      "name": "Host can shoot backward and stun the trailing guest",
+      "passed": true
+    },
+    {
+      "name": "Stunned guest cannot move, jump, crouch, kick or fire",
+      "passed": true
+    },
+    {
+      "name": "Two second stun ends with immunity synchronized",
+      "passed": true
+    },
+    {
+      "name": "Guest movement resumes after stun",
+      "passed": true
+    },
+    {
+      "name": "Host cannot fire a second shot in the same race or punch while aiming empty",
+      "passed": true
+    },
+    {
+      "name": "Guest shot stuns an opponent ahead on the authoritative host",
+      "passed": true
+    },
+    {
+      "name": "A stunned player can fall",
+      "passed": true
+    },
+    {
+      "name": "Respawn preserves remaining stun and spent ammunition",
+      "passed": true
+    },
+    {
+      "name": "Guest cannot fire a second shot",
+      "passed": true
+    },
+    {
+      "name": "Guest fall also preserves empty ammunition",
+      "passed": true
+    },
+    {
+      "name": "Stun immunity expires normally",
+      "passed": true
+    },
+    {
+      "name": "Bell clears stun, charges and immunity on both peers",
+      "passed": true
+    },
+    {
+      "name": "summit: returned to lobby",
+      "passed": true
+    },
+    {
+      "name": "summit: ready",
+      "passed": true
+    },
+    {
+      "name": "summit: clean weapon state on both peers",
+      "passed": true
+    },
+    {
+      "name": "summit: legal five fixture",
+      "passed": true
+    },
+    {
+      "name": "summit: both racers receive one shot",
+      "passed": true
+    },
+    {
+      "name": "summit: remote stun replicates on this map too",
+      "passed": true
+    },
+    {
+      "name": "summit: stun expires",
+      "passed": true
+    },
+    {
+      "name": "surf: returned to lobby",
+      "passed": true
+    },
+    {
+      "name": "surf: ready",
+      "passed": true
+    },
+    {
+      "name": "surf: clean weapon state on both peers",
+      "passed": true
+    },
+    {
+      "name": "surf: legal five fixture",
+      "passed": true
+    },
+    {
+      "name": "surf: both racers receive one shot",
+      "passed": true
+    },
+    {
+      "name": "surf: remote stun replicates on this map too",
+      "passed": true
+    },
+    {
+      "name": "surf: stun expires",
+      "passed": true
+    },
+    {
+      "name": "Releasing right aim lowers the remote weapon",
+      "passed": true
+    },
+    {
+      "name": "Primary without right aim punches instead of shooting online",
+      "passed": true
+    },
+    {
+      "name": "Guest leaves cleanly",
+      "passed": true
+    },
+    {
+      "name": "Stun test room closes cleanly",
+      "passed": true
+    }
+  ]
+}

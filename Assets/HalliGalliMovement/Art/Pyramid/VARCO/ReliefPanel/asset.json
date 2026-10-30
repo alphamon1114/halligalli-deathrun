@@ -1,0 +1,80 @@
+{
+  "key": "ReliefPanel",
+  "sourceSha256": "95684c23e7d30b0b3bbd2735e1c6d6e7a168a5183c720bfb306bb5c8be4fc1cb",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "7f5246b3-34b3-419d-8fbd-ed901c696825",
+  "sourceDimensionsBlenderXYZ": [
+    0.9981132745742798,
+    1.000014305114746,
+    0.7275903820991516
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.9980989694595337,
+    1.0,
+    0.7275799512863159
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 7097,
+  "triangles": 12000,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "ReliefPanel_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "ReliefPanel_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "ReliefPanel_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "ReliefPanel_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "ReliefPanel_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

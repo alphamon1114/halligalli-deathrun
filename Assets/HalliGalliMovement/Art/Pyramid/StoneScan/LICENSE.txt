@@ -1,0 +1,9 @@
+Sandstone Blocks 05 by Rob Tuytel / Poly Haven
+https://polyhaven.com/a/sandstone_blocks_05
+Asset license: CC0 1.0 Universal (public domain)
+https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+Downloaded 2026-10-26: 4K diffuse, OpenGL normal, ARM, displacement.
+Source textures are unmodified. Unity material uses tint, world-scale projection,
+normal relief and height offset. Decorative surface only; collision is unchanged.
+Commercial use and redistribution permitted by CC0.

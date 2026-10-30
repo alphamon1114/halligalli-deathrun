@@ -1,0 +1,34 @@
+{
+    "passed": 7,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Ongoing match has no victory banner",
+            "passed": true
+        },
+        {
+            "name": "Local win uses nickname without seat or self suffix",
+            "passed": true
+        },
+        {
+            "name": "Heading and offline restart action describe the result",
+            "passed": true
+        },
+        {
+            "name": "Maximum length Korean nickname is retained",
+            "passed": true
+        },
+        {
+            "name": "New match removes the result",
+            "passed": true
+        },
+        {
+            "name": "Opponent win names the opponent",
+            "passed": true
+        },
+        {
+            "name": "Six-player result resolves the final seat",
+            "passed": true
+        }
+    ]
+}

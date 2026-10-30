@@ -1,0 +1,79 @@
+{
+  "key": "ConcreteColumn",
+  "sourceSha256": "d65d130cd4669c7b9a21a34d729177becf702be8193a2614810c03fbbcba113e",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "535521ab-33da-4398-b88f-a4dda8d42e0b",
+  "sourceDimensionsBlenderXYZ": [
+    0.32081112265586853,
+    0.32019978761672974,
+    1.0003201961517334
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.32070842385292053,
+    0.32009729743003845,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 7464,
+  "triangles": 12000,
+  "meshes": [
+    {
+      "name": "ConcreteColumn_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "ConcreteColumn_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "ConcreteColumn_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "ConcreteColumn_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "ConcreteColumn_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

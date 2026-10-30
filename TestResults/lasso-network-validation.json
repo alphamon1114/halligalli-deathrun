@@ -1,0 +1,190 @@
+{
+  "passed": 46,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Two Relay clients joined",
+      "passed": true
+    },
+    {
+      "name": "first-steps: ready",
+      "passed": true
+    },
+    {
+      "name": "first-steps: clean rope state",
+      "passed": true
+    },
+    {
+      "name": "first-steps: legal five fixture",
+      "passed": true
+    },
+    {
+      "name": "first-steps: both racers standing",
+      "passed": true
+    },
+    {
+      "name": "Guest straight throw latches the host on both peers",
+      "passed": true
+    },
+    {
+      "name": "Guest throw and latch sounds reach both peers once",
+      "passed": true
+    },
+    {
+      "name": "The attached host can still walk",
+      "passed": true
+    },
+    {
+      "name": "Guest current mouse swing applies the moderated sideways pull",
+      "passed": true
+    },
+    {
+      "name": "Guest sees the same moderated pull and detached rope",
+      "passed": true
+    },
+    {
+      "name": "Guest pull sound reaches both peers once",
+      "passed": true
+    },
+    {
+      "name": "Server rejects immediate recast during cooldown",
+      "passed": true
+    },
+    {
+      "name": "Rejected recast does not replay audio",
+      "passed": true
+    },
+    {
+      "name": "Cooldown expires on both peers",
+      "passed": true
+    },
+    {
+      "name": "A miss spends cooldown and creates no hit",
+      "passed": true
+    },
+    {
+      "name": "A miss adds only throw audio on both peers",
+      "passed": true
+    },
+    {
+      "name": "Host can latch a trailing guest",
+      "passed": true
+    },
+    {
+      "name": "Host throw and latch sounds reach both peers once",
+      "passed": true
+    },
+    {
+      "name": "Host current mouse swing applies the moderated pull to the predicted guest",
+      "passed": true
+    },
+    {
+      "name": "Host pull sound reaches both peers once",
+      "passed": true
+    },
+    {
+      "name": "Host cooldown expires",
+      "passed": true
+    },
+    {
+      "name": "A second connection can be made without ammo refill",
+      "passed": true
+    },
+    {
+      "name": "Falling clears both peers tether without cooldown refund",
+      "passed": true
+    },
+    {
+      "name": "Guest returns from checkpoint",
+      "passed": true
+    },
+    {
+      "name": "Guest R request starts host-authoritative recovery",
+      "passed": true
+    },
+    {
+      "name": "Guest R recovers without restarting cards or room",
+      "passed": true
+    },
+    {
+      "name": "Throw ready again",
+      "passed": true
+    },
+    {
+      "name": "Attached before room transition",
+      "passed": true
+    },
+    {
+      "name": "Returning to room clears all active ropes",
+      "passed": true
+    },
+    {
+      "name": "summit: ready",
+      "passed": true
+    },
+    {
+      "name": "summit: clean rope state",
+      "passed": true
+    },
+    {
+      "name": "summit: legal five fixture",
+      "passed": true
+    },
+    {
+      "name": "summit: both racers standing",
+      "passed": true
+    },
+    {
+      "name": "summit: remote rope attaches",
+      "passed": true
+    },
+    {
+      "name": "summit: default pull brings host toward guest on both peers",
+      "passed": true
+    },
+    {
+      "name": "summit: all three sounds are delivered once after map change",
+      "passed": true
+    },
+    {
+      "name": "surf: returned to lobby",
+      "passed": true
+    },
+    {
+      "name": "surf: ready",
+      "passed": true
+    },
+    {
+      "name": "surf: clean rope state",
+      "passed": true
+    },
+    {
+      "name": "surf: legal five fixture",
+      "passed": true
+    },
+    {
+      "name": "surf: both racers standing",
+      "passed": true
+    },
+    {
+      "name": "surf: remote rope attaches",
+      "passed": true
+    },
+    {
+      "name": "surf: default pull brings host toward guest on both peers",
+      "passed": true
+    },
+    {
+      "name": "surf: all three sounds are delivered once after map change",
+      "passed": true
+    },
+    {
+      "name": "Guest leaves and active ropes clear",
+      "passed": true
+    },
+    {
+      "name": "Room closes cleanly",
+      "passed": true
+    }
+  ]
+}

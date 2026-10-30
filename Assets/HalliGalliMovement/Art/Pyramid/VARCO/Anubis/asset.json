@@ -1,0 +1,80 @@
+{
+  "key": "Anubis",
+  "sourceSha256": "047c93390eb1e819d7999fd93a5e3d296edd0cc6540cd0cc205f4c4b6edbadd9",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "4f32b2cc-180d-4c1d-887d-3fee4e813e99",
+  "sourceDimensionsBlenderXYZ": [
+    0.29623955488204956,
+    0.4387097656726837,
+    1.001631259918213
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.29575711488723755,
+    0.4379952847957611,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 8171,
+  "triangles": 12000,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "Anubis_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "Anubis_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "Anubis_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "Anubis_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "Anubis_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

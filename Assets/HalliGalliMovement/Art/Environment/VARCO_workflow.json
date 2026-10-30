@@ -1,0 +1,337 @@
+{
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "status": "all_12_models_generated",
+  "approvedAdditionalPoints": 2460,
+  "assets": [
+    {
+      "key": "WorkshopChair",
+      "label": "01 공용 의자",
+      "polys": 12000,
+      "prompt": "A single armless old institutional workshop chair, four sturdy thin tubular dark steel legs, slightly curved worn plywood seat and curved plywood backrest with faded olive green finish. Visible bolts and realistic joints. Seat at 0.48 m, total height 0.95 m, width 0.60 m. Front of chair facing camera. No upholstered cushion. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "3f910a8a-00a2-494a-ac3d-82775fc7bd2f"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "c3f64102-b49c-4792-a5db-4a37ff0043c0"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "afe33e81-18be-4575-a00c-4ab134ebb6d9"
+      },
+      "referenceImage": "/api/objects/7072a5749b4c6a83cb407d338911ee51.png",
+      "download": {
+        "nodeId": "afe33e81-18be-4575-a00c-4ab134ebb6d9",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/e99c6c22588f31dca3f8557e4d90ee4c.glb",
+        "taskId": "992cf334-0ef3-426d-9f84-677daf972322",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "CardTable",
+      "label": "02 카드 테이블",
+      "polys": 20000,
+      "prompt": "A single large low SQUARE communal card table. Entire broad unobstructed perfectly flat tabletop visible, dark worn brown wood perimeter with subtly rounded edges and an inset matte desaturated dark green surface flush with the wood. Chunky steel underframe and four low steel corner legs. Very broad tabletop compared with height, like a massive industrial meeting table, square not round, no objects on top, no drawers. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "b041e0ba-d97b-43f7-a9ee-e3f4cf3ee5f1"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "d56dcbf1-7971-4962-9c26-cefc73c4e480"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "2de706bf-04b6-4234-9ca2-c08e153d3940"
+      },
+      "referenceImage": "/api/objects/7611f9b657456c56aeb99c6ac91b317e.png",
+      "download": {
+        "nodeId": "2de706bf-04b6-4234-9ca2-c08e153d3940",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/54dbc271246be308464bba69df6bbd86.glb",
+        "taskId": "47fe1771-e5ec-428b-9fce-19960c481c88",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "ServiceBell",
+      "label": "03 종",
+      "polys": 10000,
+      "prompt": "A single realistic small old mechanical hotel service desk bell, low rounded tarnished brass dome, small brass push button at top, circular dark cast iron base, stable flat bottom. Recognizable press-to-ring desk bell, no handle, no mounting pole. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "f9cf0455-8e2e-46c8-96f8-d5c2fbf614aa"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "592ef28d-8f94-492a-901c-2e21d8390137"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "2a860c83-82b1-462b-8410-20db91ff2222"
+      },
+      "referenceImage": "/api/objects/1e5d2b9c4f224eb733116331739c5cfd.png",
+      "download": {
+        "nodeId": "2a860c83-82b1-462b-8410-20db91ff2222",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/af172b485cca8007d01454654865451c.glb",
+        "taskId": "13494397-bb54-4412-b215-b768522bb05d",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "LandingPlatform",
+      "label": "04 발판",
+      "polys": 14000,
+      "prompt": "A single square thin industrial maintenance landing platform module, perfectly flat solid gray metal checker plate walking surface, weathered dark steel perimeter channel frame, clipped reinforced corners, subtle faded ochre warning paint ONLY at perimeter, bolts and ribbed underside. Width and depth 2 m, total thickness 0.35 m. NO legs, NO railings, NO staircase, NO grating holes, no loose debris. The top is a continuous clear walkable plane. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "2ede1380-5b2c-46f5-a886-1ed87ee99dab"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "f466b29d-69c6-4ca5-9dfb-10b8dd0851ec"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "0000b685-98fb-4fc1-bd6b-8979e68a0b5a"
+      },
+      "referenceImage": "/api/objects/5ef1b3976c5686e2e60d4e110477515d.png",
+      "download": {
+        "nodeId": "0000b685-98fb-4fc1-bd6b-8979e68a0b5a",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/6c35730cf9f1d6f90642db2866ffe827.glb",
+        "taskId": "ee88af89-8cc3-4989-86da-557a4d6e964b",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "ConcreteWall",
+      "label": "05 벽 패널",
+      "polys": 16000,
+      "prompt": "A single rectangular tall solid industrial interior wall panel module about 4 m wide 5 m tall 0.25 m thick. Weathered pale gray poured concrete upper half, faded desaturated gray-green painted lower half, dark baseboard, subtle vertical concrete formwork joints, small shallow cracks and water streaks. Solid wall with no windows and no door, front and narrow side visible, nearly flat rectangular architectural surface. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "91700297-8be1-4e2f-86a6-ea736ba54d66"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "1e507706-cad4-4b01-a919-625f082b4c52"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "89cff7b5-cd76-479e-b564-eef172eaf820"
+      },
+      "referenceImage": "/api/objects/25dda4cb8eca2b42994cc2344f4c0b08.png",
+      "download": {
+        "nodeId": "89cff7b5-cd76-479e-b564-eef172eaf820",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/ef32ef7f339614e60185746951339a5e.glb",
+        "taskId": "cba55d7f-ce2c-4a1a-b9b7-c36de1751d40",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "ConcreteFloor",
+      "label": "06 바닥 패널",
+      "polys": 10000,
+      "prompt": "A single very thin square concrete factory floor slab module, broad flat solid walkable surface, 4 m by 4 m only 0.15 m thick, subtle large inset concrete tile seams, old shoe scuffs, minor hairline cracks and weathering, gray with low contrast irregular staining. No rocks, no rubble, no pedestal, no raised obstacles. Seen from above at a three quarter angle so the entire surface is clearly visible. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "164eca1f-55b2-4834-b2e6-9cf085bb3e68"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "9c9e0ee1-5101-4b92-afb5-714a28ef3bc0"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "5fcd99c0-57bb-4e21-a237-83cf395ea7dd"
+      },
+      "referenceImage": "/api/objects/1fb4f754bc281c846cd0780c97938435.png",
+      "download": {
+        "nodeId": "5fcd99c0-57bb-4e21-a237-83cf395ea7dd",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/5617e16352d3480cb80b0c35f71fa6ca.glb",
+        "taskId": "4f083b04-cebf-4856-81c1-28ae8ad717a9",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "ConcreteColumn",
+      "label": "07 기둥·지지대",
+      "polys": 12000,
+      "prompt": "A single tall square-section industrial concrete support column, height 4 m width 0.65 m, weathered gray concrete with faded gray-green paint around lower quarter, dark oxidized steel baseplate with four anchor bolts and thin reinforced steel corner strips. Plain structural pillar with subtle chipped corners and realistic aggregate, no decoration, no capital, no floor. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "f58db45b-deea-4796-bd82-de90a910c1a4"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "c938b4ee-c224-4a9c-8b70-e6cd1d409a89"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "535521ab-33da-4398-b88f-a4dda8d42e0b"
+      },
+      "referenceImage": "/api/objects/f15be0316e1e6d436708323148ccf9e8.png",
+      "download": {
+        "nodeId": "535521ab-33da-4398-b88f-a4dda8d42e0b",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/35686ba11140d6b2371a9bde0f6a7ef8.glb",
+        "taskId": "8756d0c7-0bc1-4b4a-a680-ace724ceab15",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "CeilingLight",
+      "label": "08 형광등",
+      "polys": 10000,
+      "prompt": "A single long rectangular old factory fluorescent ceiling light fixture, two parallel pale warm-white tubes in a dirty cream metal trough, yellowed translucent protective diffuser and dark steel cage, compact shallow body about 1.2 m long. Three quarter underside view showing light-emitting face. Physically realistic fixture, switched off diffuse studio render without bloom or light rays, no hanging wire, no ceiling. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "c9657d4e-1174-4223-ba64-15a2a9bed9e1"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "c2d38d90-e6e5-4df4-b249-729ad712a1cf"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "7851214e-57c5-4605-89b3-3a89e6c385e0"
+      },
+      "referenceImage": "/api/objects/d59879d118d48098da71ea57ffb23b5a.png",
+      "download": {
+        "nodeId": "7851214e-57c5-4605-89b3-3a89e6c385e0",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/1d6a9da9fd27147f73c60d52b3deb63e.glb",
+        "taskId": "265a3b9f-a5fa-4cca-97ac-a178c2c4a4b9",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "UtilityPipes",
+      "label": "09 설비 배관",
+      "polys": 14000,
+      "prompt": "A single wall-mounted industrial utility pipe assembly: three parallel vertical weathered dark steel pipes held by horizontal mounting brackets, one elbow bending sideways at top, one small old red-brown valve handwheel on the outer pipe, flange bolts and natural rust. Tall narrow modular assembly, approximately 3 m high by 0.8 m wide, NO wall behind, NO floor, no gauges with writing. Photorealistic game environment prop for a worn, slightly gloomy late-20th-century industrial building interior. Subdued concrete gray, faded gray-green paint, oxidized dark steel, convincing small scratches, edge wear and dirt, physically plausible proportions and construction. One isolated complete object, three-quarter product view, neutral plain light gray background, even diffuse studio lighting for 3D reconstruction. No people, no characters, no text, no labels, no logos, no other objects, no floor scenery, no diorama. Full object in frame.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "09ea86e8-c5b1-4038-af41-c4c85eda6b9e"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "39bf26b1-69c4-42b4-92c2-bb861b4e7daa"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "b6bbacfb-41af-40bf-95ac-99b03d6456b5"
+      },
+      "referenceImage": "/api/objects/1c0e92fe7b403b97210094a2eb7af226.png",
+      "download": {
+        "nodeId": "b6bbacfb-41af-40bf-95ac-99b03d6456b5",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/145c769bea7100b4ccec5d3eeb1e6dfa.glb",
+        "taskId": "3140ded0-5490-462f-9dee-568b4dd06f8c",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "RockLedge",
+      "polys": 14000,
+      "label": "10 산 바위턱",
+      "prompt": "Photorealistic natural gray granite cliff ledge for a mountain climbing game, one isolated broad low rock shelf, roughly rectangular silhouette, broad nearly flat upper walkable stone face with shallow weathering, craggy fractured sides with visible geological strata, small patches of dark moss only at the side edges. About 2 meters wide 2 meters deep and 0.4 meters thick. Natural stone, no metal, no railings, no snow, no grass blocking the top. Full asset in frame, three-quarter view above the top, neutral pale gray background, even diffuse studio lighting. No people, no text, no other objects.",
+      "input": {
+        "nodeId": "069de91e-8e4c-4161-a0e9-cd9cd1970fb7"
+      },
+      "image": {
+        "nodeId": "594af725-e42a-4426-9e67-8f102632a24e"
+      },
+      "mesh": {
+        "nodeId": "acf892e5-acbc-4e42-9d73-93e3d8852467"
+      },
+      "referenceImage": "/api/objects/a48c9e4763b76f8a9ac92e523363bcce.png",
+      "download": {
+        "nodeId": "acf892e5-acbc-4e42-9d73-93e3d8852467",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/cbfda73dd66df3c7e696326779bd7b0d.glb",
+        "taskId": "925c5754-d866-4b72-ab63-2582e028ecf5",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "MountainRock",
+      "polys": 20000,
+      "label": "11 산 암봉",
+      "prompt": "Photorealistic tall weathered granite mountain rock outcrop, steep irregular vertically fractured crag, several asymmetrical layered peaks with one main tall ridge, muted gray natural granite and dark crevices, subtle moss near the lower edges, recognizable natural Korean rocky mountain geology. A single isolated complete 5 meter high boulder formation with broad stable base, no ground plane, no plants, no trees, no snow. Full asset in frame, three-quarter view, plain pale gray background, even diffuse lighting for 3D reconstruction. No people, no text.",
+      "input": {
+        "nodeId": "fac4fbd6-3896-40e7-8be8-bc0f1895573c"
+      },
+      "image": {
+        "nodeId": "0e142437-9017-49e2-b4fe-cee4f21d17e8"
+      },
+      "mesh": {
+        "nodeId": "0a9505fb-c6b5-434c-ae79-9bfdd4d242cd"
+      },
+      "referenceImage": "/api/objects/52ee194e281ec82d5b59f8825ad0b3ab.png",
+      "download": {
+        "nodeId": "0a9505fb-c6b5-434c-ae79-9bfdd4d242cd",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/262608bf8ce49f7b61fc3a7dd10aac15.glb",
+        "taskId": "34418bf7-cf63-449c-83a3-394662ed2380",
+        "exportType": "glb",
+        "error": null
+      }
+    },
+    {
+      "key": "MountainPine",
+      "label": "12 산 소나무",
+      "polys": 16000,
+      "prompt": "Photorealistic single Korean mountain pine tree, 4 meters tall, rugged weathered reddish brown bark, gently curved trunk, angular spreading windswept branches and sparse dark green needle clusters. Recognizable elegant pine silhouette, trunk visible between branches, natural asymmetry. Isolated complete tree including short visible roots, no ground plane, no pot, no other plants, no rocks. Full tree in frame, three-quarter view, neutral pale gray background and even diffuse studio lighting for 3D reconstruction. No people, no text.",
+      "input": {
+        "kind": "nodeCreated",
+        "nodeId": "ff16cf12-2daf-4055-8fb8-25e911dc15fb"
+      },
+      "image": {
+        "kind": "nodeCreated",
+        "nodeId": "6fe863d8-c6a5-4bb5-9e48-481290be2907"
+      },
+      "mesh": {
+        "kind": "nodeCreated",
+        "nodeId": "91df10d8-9adb-4f96-832a-ae8afc3a6080"
+      },
+      "referenceImage": "/api/objects/c3183346cde59648e872b226fac8af10.png",
+      "download": {
+        "nodeId": "91df10d8-9adb-4f96-832a-ae8afc3a6080",
+        "outputIndex": 0,
+        "type": "3d",
+        "url": "https://3d.varco.ai/api/objects/ddbaf469ba7bd7a51dd568e918b700b2.glb",
+        "taskId": "60730d8d-e6c1-4edd-bc67-67fc25802ff5",
+        "exportType": "glb",
+        "error": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+    "passed": 59,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Easy map remains the entry difficulty and three real maps are selectable",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Planned maps and invalid player counts cannot reset or load a game",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Only registered maps can be selected",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Map menu captures the cursor and prevents game actions underneath",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Restarting the current map applies the chosen roster",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Tutorial reference lane 1 reaches the bell without a fall",
+            "passed": true,
+            "detail": "seconds=5.90 distance=25.71"
+        },
+        {
+            "name": "Tutorial reference lane 6 reaches the bell without a fall",
+            "passed": true,
+            "detail": "seconds=5.95 distance=25.71"
+        },
+        {
+            "name": "Switch to climb loads its scene, six players and all 56 cards",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Climb retains the original movement, kicks and equal entry distances",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "One shared spiral replaces difficulty branches and includes two local shortcuts",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "The compact path completes a full rising turn around one solid peak",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 players have identical shared waypoints after equal entrances",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 players, climb lane 1 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.69 tutorialRatio=2.14 jumps=14 peakSpeed=4.769553 duckTicks=450 immediateJumps=0"
+        },
+        {
+            "name": "2 players, climb lane 2 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.71 tutorialRatio=2.14 jumps=14 peakSpeed=4.758269 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "2 players: starting lanes have comparable travel times",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 players have identical shared waypoints after equal entrances",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 players, climb lane 1 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.72 tutorialRatio=2.15 jumps=14 peakSpeed=4.791663 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "3 players, climb lane 2 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.72 tutorialRatio=2.15 jumps=14 peakSpeed=4.762263 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "3 players, climb lane 3 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.77 tutorialRatio=2.15 jumps=14 peakSpeed=4.799319 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "3 players: starting lanes have comparable travel times",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 players have identical shared waypoints after equal entrances",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 players, climb lane 1 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.75 tutorialRatio=2.15 jumps=14 peakSpeed=4.675429 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "4 players, climb lane 2 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.68 tutorialRatio=2.14 jumps=14 peakSpeed=4.894669 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "4 players, climb lane 3 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.70 tutorialRatio=2.14 jumps=14 peakSpeed=4.758269 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "4 players, climb lane 4 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.78 tutorialRatio=2.16 jumps=14 peakSpeed=4.86162 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "4 players: starting lanes have comparable travel times",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 players have identical shared waypoints after equal entrances",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 players, climb lane 1 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.73 tutorialRatio=2.15 jumps=14 peakSpeed=4.792649 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "5 players, climb lane 2 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.72 tutorialRatio=2.15 jumps=14 peakSpeed=4.791663 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "5 players, climb lane 3 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.72 tutorialRatio=2.15 jumps=14 peakSpeed=4.762263 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "5 players, climb lane 4 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.77 tutorialRatio=2.15 jumps=14 peakSpeed=4.799319 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "5 players, climb lane 5 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.84 tutorialRatio=2.17 jumps=14 peakSpeed=4.685983 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "5 players: starting lanes have comparable travel times",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 players have identical shared waypoints after equal entrances",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 players, climb lane 1 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.75 tutorialRatio=2.15 jumps=14 peakSpeed=4.795808 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "6 players, climb lane 2 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.75 tutorialRatio=2.15 jumps=14 peakSpeed=4.675429 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "6 players, climb lane 3 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.68 tutorialRatio=2.14 jumps=14 peakSpeed=4.894669 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "6 players, climb lane 4 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.70 tutorialRatio=2.14 jumps=14 peakSpeed=4.758269 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "6 players, climb lane 5 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.78 tutorialRatio=2.16 jumps=14 peakSpeed=4.86162 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "6 players, climb lane 6 reaches summit with real jumps and no fall",
+            "passed": true,
+            "detail": "seconds=12.91 tutorialRatio=2.18 jumps=14 peakSpeed=4.720894 duckTicks=455 immediateJumps=0"
+        },
+        {
+            "name": "6 players: starting lanes have comparable travel times",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Shortcut 3 physically passes a blocking opponent and rejoins the summit route",
+            "passed": true,
+            "detail": "seconds=12.30 jumps=13 waypoint=13 position=(0.07, 6.93, 14.75)"
+        },
+        {
+            "name": "Shortcut 3 saves a jump and reaches the bell faster than the shared path",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Shortcut 7 physically passes a blocking opponent and rejoins the summit route",
+            "passed": true,
+            "detail": "seconds=11.98 jumps=13 waypoint=13 position=(0.07, 6.93, 14.72)"
+        },
+        {
+            "name": "Shortcut 7 saves a jump and reaches the bell faster than the shared path",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A racer can physically pass a central blocker on ledge side -1",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A racer can physically pass a central blocker on ledge side 1",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Missing the jump on exposed ledge M03 causes a real fall",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "An outward kick on exposed ledge M03 causes a real fall",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Missing the jump on exposed ledge M08 causes a real fall",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "An outward kick on exposed ledge M08 causes a real fall",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Summit bell collects the pile and immediately seats all six",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All five AI compete with attacks enabled and finish a six-person climb race",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "The simultaneous race climbs around both sides of the peak",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Participants can physically attack on the summit",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Switching back preserves four players and restores the easy course",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Loading surf preserves four players, card rules and selects surf physics",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Leaving surf restores the ordinary movement profile",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Only one validation runner survives returning to the original editor scene",
+            "passed": true,
+            "detail": "passed"
+        }
+    ]
+}

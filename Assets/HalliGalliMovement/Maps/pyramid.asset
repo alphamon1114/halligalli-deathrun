@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec28677467a0aea4e84d6c543cf8c8a5, type: 3}
+  m_Name: pyramid
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Movement.CourseMapDefinition
+  id: pyramid
+  displayName: "\uC655\uC758 \uD68C\uB791"
+  style: 2
+  difficulty: 4
+  description: "\uC591\uBA74 \uC0BC\uAC01 \uC11C\uD504. \uD3B8\uD55C \uBA74\uC744 \uACE8\uB77C \uAE09\uAC15\uD558\uC640 \uB098\uC120 \uD68C\uB791\uC744 \uC9C0\uB098 \uC655\uC758 \uBB18\uC2E4\uB85C."
+  playable: 1
+  scenePath: Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity
+  thumbnail: Pyramid
+  movementProfile: {fileID: 11400000, guid: 34a29c0383e67c64f9cfa796da97e953, type: 2}

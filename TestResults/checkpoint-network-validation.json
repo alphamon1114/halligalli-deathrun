@@ -1,0 +1,142 @@
+{
+  "passed": 34,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Two Relay peers joined for checkpoint validation",
+      "passed": true
+    },
+    {
+      "name": "first-steps: guest ready synchronized",
+      "passed": true
+    },
+    {
+      "name": "first-steps: both peers load checkpoints with clean state",
+      "passed": true
+    },
+    {
+      "name": "first-steps: exposed-card fixture synchronized",
+      "passed": true
+    },
+    {
+      "name": "first-steps: guest stands for a valid race",
+      "passed": true
+    },
+    {
+      "name": "first-steps: landing saves the same personal checkpoint on host and guest",
+      "passed": true
+    },
+    {
+      "name": "first-steps: fall delay and saved checkpoint replicate",
+      "passed": true
+    },
+    {
+      "name": "first-steps: guest respawns at the checkpoint instead of the entrance",
+      "passed": true
+    },
+    {
+      "name": "first-steps: guest camera and motor face the next section",
+      "passed": true
+    },
+    {
+      "name": "first-steps: bell seats everyone and clears all saved checkpoints on both peers",
+      "passed": true
+    },
+    {
+      "name": "summit: returned to lobby",
+      "passed": true
+    },
+    {
+      "name": "summit: guest ready synchronized",
+      "passed": true
+    },
+    {
+      "name": "summit: both peers load checkpoints with clean state",
+      "passed": true
+    },
+    {
+      "name": "summit: exposed-card fixture synchronized",
+      "passed": true
+    },
+    {
+      "name": "summit: guest stands for a valid race",
+      "passed": true
+    },
+    {
+      "name": "summit: landing saves the same personal checkpoint on host and guest",
+      "passed": true
+    },
+    {
+      "name": "summit: fall delay and saved checkpoint replicate",
+      "passed": true
+    },
+    {
+      "name": "summit: guest respawns at the checkpoint instead of the entrance",
+      "passed": true
+    },
+    {
+      "name": "summit: guest camera and motor face the next section",
+      "passed": true
+    },
+    {
+      "name": "summit: bell seats everyone and clears all saved checkpoints on both peers",
+      "passed": true
+    },
+    {
+      "name": "surf: returned to lobby",
+      "passed": true
+    },
+    {
+      "name": "surf: guest ready synchronized",
+      "passed": true
+    },
+    {
+      "name": "surf: both peers load checkpoints with clean state",
+      "passed": true
+    },
+    {
+      "name": "surf: exposed-card fixture synchronized",
+      "passed": true
+    },
+    {
+      "name": "surf: guest stands for a valid race",
+      "passed": true
+    },
+    {
+      "name": "surf: landing saves the same personal checkpoint on host and guest",
+      "passed": true
+    },
+    {
+      "name": "surf: fall delay and saved checkpoint replicate",
+      "passed": true
+    },
+    {
+      "name": "surf: guest respawns at the checkpoint instead of the entrance",
+      "passed": true
+    },
+    {
+      "name": "surf: guest camera and motor face the next section",
+      "passed": true
+    },
+    {
+      "name": "surf: both peers roll progress back to the checkpoint gate",
+      "passed": true
+    },
+    {
+      "name": "surf: a checkpoint cannot grant an early bell",
+      "passed": true
+    },
+    {
+      "name": "surf: bell seats everyone and clears all saved checkpoints on both peers",
+      "passed": true
+    },
+    {
+      "name": "Checkpoint guest leaves cleanly",
+      "passed": true
+    },
+    {
+      "name": "Checkpoint Relay room closes cleanly",
+      "passed": true
+    }
+  ]
+}

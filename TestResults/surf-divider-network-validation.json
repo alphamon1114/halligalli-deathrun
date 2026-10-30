@@ -1,0 +1,136 @@
+{
+  "passed": 26,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Two peers joined",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Surf room ready",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Surf loaded on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Legal five synchronized",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Both racers standing",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Guest falls to horizontal separator on the right",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Horizontal contact starts recovery above lower route",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Guest returns to start with no unearned gate",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Turn landing still saves valid checkpoint",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Guest crosses the open 180-degree turn",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "R recovers to turn checkpoint with valid progress",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Guest drops far to the right of the upper lane",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Wide separator catches the right-hand skip with one recovery",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Contact restores latest checkpoint and gates without changing cards",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Expanded course and all three checkpoints match on peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "New bank-switch checkpoint synchronizes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "R recovers guest at new checkpoint with seven earned banks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Guest reaches the early-to-late sector wall",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Sector wall physically blocks host and predicted guest",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Start-side fall touches electricity before lower bank",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Start-side contact restores earned checkpoint without changing cards",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Old seven-bank completion cannot skip the new final sector",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Completed route still awards bell and reseats everyone",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Cards remain synchronized",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Guest leaves cleanly",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Host closes room",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

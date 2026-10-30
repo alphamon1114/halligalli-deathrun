@@ -1,0 +1,13 @@
+Bell Run UI
+
+Original line icons: created for this project from geometric paths.
+Editable source: outputs/ui-polish/build_icons.py in the working project workspace.
+No third-party icon pack or font file is redistributed.
+Typography: the existing operating-system Malgun Gothic / Arial fallback.
+
+Map images: captures of this game's first-steps, summit and surf scenes.
+The underlying VARCO environment assets retain their existing provenance.
+
+Runtime skin: BellUI.cs; charcoal, warm ivory and brass, with red for danger
+and muted teal for stun / checkpoint states. HUD uses uniform scaling and
+edge anchoring rather than stretching to the display's aspect ratio.

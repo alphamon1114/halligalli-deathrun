@@ -1,0 +1,79 @@
+{
+  "key": "WorkshopChair",
+  "sourceSha256": "34cda73f3a944c322ec011630eef4d2f9fae12f34e0712917cba68180754c3d3",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "afe33e81-18be-4575-a00c-4ab134ebb6d9",
+  "sourceDimensionsBlenderXYZ": [
+    0.6409682035446167,
+    0.6525416970252991,
+    1.0023406744003296
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.6394714117050171,
+    0.6510179042816162,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 9216,
+  "triangles": 12000,
+  "meshes": [
+    {
+      "name": "WorkshopChair_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "WorkshopChair_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "WorkshopChair_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "WorkshopChair_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "WorkshopChair_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

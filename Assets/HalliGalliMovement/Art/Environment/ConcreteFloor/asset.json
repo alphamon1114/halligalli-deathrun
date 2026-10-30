@@ -1,0 +1,80 @@
+{
+  "key": "ConcreteFloor",
+  "sourceSha256": "5561bcd358fea2519b16fd19369f73c9af7da16fccad35a554a16cedb54c435b",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "5fcd99c0-57bb-4e21-a237-83cf395ea7dd",
+  "sourceDimensionsBlenderXYZ": [
+    0.9442262649536133,
+    0.9885851144790649,
+    0.06177501380443573
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.9551289677619934,
+    1.0,
+    0.062488313764333725
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 5542,
+  "triangles": 10000,
+  "flattenedTopVertices": 2420,
+  "meshes": [
+    {
+      "name": "ConcreteFloor_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "ConcreteFloor_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "ConcreteFloor_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "ConcreteFloor_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "ConcreteFloor_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

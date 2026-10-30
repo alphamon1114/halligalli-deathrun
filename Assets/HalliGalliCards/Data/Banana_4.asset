@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7131167ff63c9c4429bfa71d7e40071a, type: 3}
+  m_Name: Banana_4
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Cards.FruitCardDefinition
+  cardId: banana_4
+  fruit: 1
+  fruitCount: 4
+  copiesInDeck: 2
+  faceTexture: {fileID: 2800000, guid: 2de82e79ff0b46446ad81e9bc3dd9878, type: 3}
+  faceMaterial: {fileID: 2100000, guid: dd09e5d90a0ccb54bb7e497b529ebd3d, type: 2}

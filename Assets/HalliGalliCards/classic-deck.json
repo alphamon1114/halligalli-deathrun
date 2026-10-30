@@ -1,0 +1,146 @@
+{
+  "edition": "Halli Galli Classic",
+  "totalCards": 56,
+  "types": [
+    {
+      "id": "strawberry_1",
+      "fruit": "Strawberry",
+      "count": 1,
+      "copies": 5,
+      "texture": "Strawberry_1.png"
+    },
+    {
+      "id": "strawberry_2",
+      "fruit": "Strawberry",
+      "count": 2,
+      "copies": 3,
+      "texture": "Strawberry_2.png"
+    },
+    {
+      "id": "strawberry_3",
+      "fruit": "Strawberry",
+      "count": 3,
+      "copies": 3,
+      "texture": "Strawberry_3.png"
+    },
+    {
+      "id": "strawberry_4",
+      "fruit": "Strawberry",
+      "count": 4,
+      "copies": 2,
+      "texture": "Strawberry_4.png"
+    },
+    {
+      "id": "strawberry_5",
+      "fruit": "Strawberry",
+      "count": 5,
+      "copies": 1,
+      "texture": "Strawberry_5.png"
+    },
+    {
+      "id": "banana_1",
+      "fruit": "Banana",
+      "count": 1,
+      "copies": 5,
+      "texture": "Banana_1.png"
+    },
+    {
+      "id": "banana_2",
+      "fruit": "Banana",
+      "count": 2,
+      "copies": 3,
+      "texture": "Banana_2.png"
+    },
+    {
+      "id": "banana_3",
+      "fruit": "Banana",
+      "count": 3,
+      "copies": 3,
+      "texture": "Banana_3.png"
+    },
+    {
+      "id": "banana_4",
+      "fruit": "Banana",
+      "count": 4,
+      "copies": 2,
+      "texture": "Banana_4.png"
+    },
+    {
+      "id": "banana_5",
+      "fruit": "Banana",
+      "count": 5,
+      "copies": 1,
+      "texture": "Banana_5.png"
+    },
+    {
+      "id": "lime_1",
+      "fruit": "Lime",
+      "count": 1,
+      "copies": 5,
+      "texture": "Lime_1.png"
+    },
+    {
+      "id": "lime_2",
+      "fruit": "Lime",
+      "count": 2,
+      "copies": 3,
+      "texture": "Lime_2.png"
+    },
+    {
+      "id": "lime_3",
+      "fruit": "Lime",
+      "count": 3,
+      "copies": 3,
+      "texture": "Lime_3.png"
+    },
+    {
+      "id": "lime_4",
+      "fruit": "Lime",
+      "count": 4,
+      "copies": 2,
+      "texture": "Lime_4.png"
+    },
+    {
+      "id": "lime_5",
+      "fruit": "Lime",
+      "count": 5,
+      "copies": 1,
+      "texture": "Lime_5.png"
+    },
+    {
+      "id": "plum_1",
+      "fruit": "Plum",
+      "count": 1,
+      "copies": 5,
+      "texture": "Plum_1.png"
+    },
+    {
+      "id": "plum_2",
+      "fruit": "Plum",
+      "count": 2,
+      "copies": 3,
+      "texture": "Plum_2.png"
+    },
+    {
+      "id": "plum_3",
+      "fruit": "Plum",
+      "count": 3,
+      "copies": 3,
+      "texture": "Plum_3.png"
+    },
+    {
+      "id": "plum_4",
+      "fruit": "Plum",
+      "count": 4,
+      "copies": 2,
+      "texture": "Plum_4.png"
+    },
+    {
+      "id": "plum_5",
+      "fruit": "Plum",
+      "count": 5,
+      "copies": 1,
+      "texture": "Plum_5.png"
+    }
+  ]
+}

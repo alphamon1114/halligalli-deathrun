@@ -1,0 +1,62 @@
+[
+  {
+    "suite": "maps-validation",
+    "passed": 59,
+    "failed": 0,
+    "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+  },
+  {
+    "suite": "surf-validation",
+    "passed": 40,
+    "failed": 0,
+    "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+  },
+  {
+    "suite": "checkpoint-validation",
+    "passed": 97,
+    "failed": 0,
+    "verifiedAt": "2026-10-23T10:46:23.0636930+09:00"
+  },
+  {
+    "suite": "compact-network-validation",
+    "passed": 36,
+    "failed": 0,
+    "verifiedAt": "2026-10-23T10:47:59.9564447+09:00"
+  },
+  {
+    "suite": "checkpoint-network-validation",
+    "passed": 34,
+    "failed": 0,
+    "verifiedAt": "2026-10-23T10:25:21.5649660+09:00"
+  },
+  {
+    "suite": "stun-validation",
+    "passed": 39,
+    "failed": 0,
+    "verifiedAt": "2026-10-23T12:27:01.5207653+09:00"
+  },
+  {
+    "suite": "stun-network-validation",
+    "passed": 36,
+    "failed": 0,
+    "verifiedAt": "2026-10-21T11:17:33.5527773+09:00"
+  },
+  {
+    "suite": "movement-validation",
+    "passed": 68,
+    "failed": 0,
+    "verifiedAt": "2026-10-23T12:32:12.1752151+09:00"
+  },
+  {
+    "suite": "match-validation",
+    "passed": 67,
+    "failed": 0,
+    "verifiedAt": "2026-10-20T18:29:27.1248414+09:00"
+  },
+  {
+    "suite": "roster-validation",
+    "passed": 46,
+    "failed": 0,
+    "verifiedAt": "2026-10-20T17:34:05.8113743+09:00"
+  }
+]

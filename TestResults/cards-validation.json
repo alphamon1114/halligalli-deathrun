@@ -1,0 +1,101 @@
+{
+    "passed": 19,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Exactly 20 face definitions and 56 physical cards",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Strawberry has 14 cards in 5,3,3,2,1 distribution",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Banana has 14 cards in 5,3,3,2,1 distribution",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Lime has 14 cards in 5,3,3,2,1 distribution",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Plum has 14 cards in 5,3,3,2,1 distribution",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All 56 card instances have unique identities",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Shuffle is reproducible and preserves all identities",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Round-robin deal for 2 players uses all 56",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Round-robin deal for 3 players uses all 56",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Round-robin deal for 4 players uses all 56",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Round-robin deal for 5 players uses all 56",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Round-robin deal for 6 players uses all 56",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Rotating first recipient rotates the remainder",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Invalid player counts are rejected",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Every face contains exactly the intended number of icons",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All face textures use 56:87 proportions and full resolution",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Card mesh has distinct front, common back, and edges",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Course table contains the complete deck and correct initial faces",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Face-down view points the front away from the viewer",
+            "passed": true,
+            "detail": "passed"
+        }
+    ]
+}

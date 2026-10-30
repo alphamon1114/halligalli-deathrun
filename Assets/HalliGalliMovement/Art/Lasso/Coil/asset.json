@@ -1,0 +1,80 @@
+{
+  "key": "Coil",
+  "sourceSha256": "9c0270aca8d51f7be49f75e81eeee3c7f67cb0d10cb98cbfbbd7052ef75f2a8c",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "07fcacd5-3dc9-4cae-9222-52e73a09d937",
+  "sourceDimensionsBlenderXYZ": [
+    1.0040819644927979,
+    0.33950215578079224,
+    1.0022149085998535
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.4300000071525574,
+    0.14539244771003723,
+    0.4292004406452179
+  ],
+  "pivot": "center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 13781,
+  "triangles": 12900,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "Coil_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "Coil_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "Coil_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "Coil_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "Coil_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

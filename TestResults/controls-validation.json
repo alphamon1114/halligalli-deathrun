@@ -1,0 +1,121 @@
+{
+    "passed": 23,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Defaults retain space and add wheel down",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Wheel down presses jump",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Wheel never counts as held jump",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Zero scroll gives no repeated pulse",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Keyboard and mouse wheel coexist",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Either wheel direction can trigger",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Cannot bind a pulse to a held action",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Escape remains reserved for menus",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Duplicate key does not silently replace another action",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Explicit swap keeps both actions usable",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Bindings survive a fresh load",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Card and interact hints follow bindings",
+            "detail": "[ G ]  일어나기",
+            "passed": true
+        },
+        {
+            "name": "Malformed save safely restores defaults",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Settings blocks gameplay actions",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Capture applies and saves selected key",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Captured binding persists",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Capture accepts wheel as secondary binding",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Conflicting capture waits for explicit choice",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Close does not leak its input frame",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "One wheel pulse produces exactly one physical jump",
+            "detail": "jumps=1",
+            "passed": true
+        },
+        {
+            "name": "Landing-time wheel input uses the existing jump buffer",
+            "detail": "jumps=3",
+            "passed": true
+        },
+        {
+            "name": "Opening menu clears buffered jump",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Restore defaults restores combat and interaction",
+            "detail": "",
+            "passed": true
+        }
+    ]
+}

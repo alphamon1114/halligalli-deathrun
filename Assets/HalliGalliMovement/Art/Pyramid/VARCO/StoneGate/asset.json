@@ -1,0 +1,80 @@
+{
+  "key": "StoneGate",
+  "sourceSha256": "1b78f5e22f19db0d87bed741d6f97e76ac50f7473b4275dc70263d2be7faf66a",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "52ab1e5a-2ef2-4463-b735-60f20cedcc53",
+  "sourceDimensionsBlenderXYZ": [
+    0.9431740045547485,
+    0.26704269647598267,
+    1.001115322113037
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.9421232342720032,
+    0.2667451798915863,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 7763,
+  "triangles": 12000,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "StoneGate_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "StoneGate_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "StoneGate_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "StoneGate_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "StoneGate_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

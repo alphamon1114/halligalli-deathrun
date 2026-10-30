@@ -1,0 +1,218 @@
+{
+  "passed": 53,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Two humans join the real Relay room",
+      "passed": true
+    },
+    {
+      "name": "Guest cannot add bots",
+      "passed": true
+    },
+    {
+      "name": "One AI added and replicated at seat 2",
+      "passed": true
+    },
+    {
+      "name": "Guest cannot remove a bot",
+      "passed": true
+    },
+    {
+      "name": "Bot removal cannot remove a human",
+      "passed": true
+    },
+    {
+      "name": "One AI added and replicated at seat 3",
+      "passed": true
+    },
+    {
+      "name": "One AI added and replicated at seat 4",
+      "passed": true
+    },
+    {
+      "name": "One AI added and replicated at seat 5",
+      "passed": true
+    },
+    {
+      "name": "Two humans and four AI fill capacity without overflow",
+      "passed": true
+    },
+    {
+      "name": "Removing one AI replicates 5 seats",
+      "passed": true
+    },
+    {
+      "name": "Removing one AI replicates 4 seats",
+      "passed": true
+    },
+    {
+      "name": "Removing one AI replicates 3 seats",
+      "passed": true
+    },
+    {
+      "name": "A six-seat room can start with exactly two humans and one AI",
+      "passed": true
+    },
+    {
+      "name": "Unready human still blocks the start",
+      "passed": true
+    },
+    {
+      "name": "first-steps: invite connection is complete before pressing Ready",
+      "passed": true
+    },
+    {
+      "name": "first-steps: only human readiness is required",
+      "passed": true
+    },
+    {
+      "name": "first-steps: actual roster starts on both peers",
+      "passed": true
+    },
+    {
+      "name": "first-steps: only host simulates AI seats",
+      "passed": true
+    },
+    {
+      "name": "first-steps: identical public cards and correct 56-card deal",
+      "passed": true
+    },
+    {
+      "name": "AI roster is locked throughout gameplay",
+      "passed": true
+    },
+    {
+      "name": "Wrong stand pays both the human and AI opponent",
+      "passed": true
+    },
+    {
+      "name": "Reseating resumes the three-seat game",
+      "passed": true
+    },
+    {
+      "name": "Legal five is public on both peers",
+      "passed": true
+    },
+    {
+      "name": "AI stands and moves on the host and is replicated to the guest",
+      "passed": true
+    },
+    {
+      "name": "Human disconnect returns survivors and bots to the lobby",
+      "passed": true
+    },
+    {
+      "name": "A friend can join after an AI and owns the correct later seat",
+      "passed": true
+    },
+    {
+      "name": "summit: invite connection is complete before pressing Ready",
+      "passed": true
+    },
+    {
+      "name": "summit: only human readiness is required",
+      "passed": true
+    },
+    {
+      "name": "summit: actual roster starts on both peers",
+      "passed": true
+    },
+    {
+      "name": "summit: only host simulates AI seats",
+      "passed": true
+    },
+    {
+      "name": "summit: identical public cards and correct 56-card deal",
+      "passed": true
+    },
+    {
+      "name": "Return to lobby freezes and preserves AI roster",
+      "passed": true
+    },
+    {
+      "name": "surf: invite connection is complete before pressing Ready",
+      "passed": true
+    },
+    {
+      "name": "surf: only human readiness is required",
+      "passed": true
+    },
+    {
+      "name": "surf: actual roster starts on both peers",
+      "passed": true
+    },
+    {
+      "name": "surf: only host simulates AI seats",
+      "passed": true
+    },
+    {
+      "name": "surf: identical public cards and correct 56-card deal",
+      "passed": true
+    },
+    {
+      "name": "Return to lobby freezes and preserves AI roster",
+      "passed": true
+    },
+    {
+      "name": "Guest leaves without removing AI",
+      "passed": true
+    },
+    {
+      "name": "Solo host fills another AI seat 2",
+      "passed": true
+    },
+    {
+      "name": "Solo host fills another AI seat 3",
+      "passed": true
+    },
+    {
+      "name": "Solo host fills another AI seat 4",
+      "passed": true
+    },
+    {
+      "name": "Solo host fills another AI seat 5",
+      "passed": true
+    },
+    {
+      "name": "Bots count toward capacity when a real friend joins",
+      "passed": true
+    },
+    {
+      "name": "Host makes room by removing one AI",
+      "passed": true
+    },
+    {
+      "name": "Freed bot slot accepts a real friend",
+      "passed": true
+    },
+    {
+      "name": "first-steps: invite connection is complete before pressing Ready",
+      "passed": true
+    },
+    {
+      "name": "first-steps: only human readiness is required",
+      "passed": true
+    },
+    {
+      "name": "first-steps: actual roster starts on both peers",
+      "passed": true
+    },
+    {
+      "name": "first-steps: only host simulates AI seats",
+      "passed": true
+    },
+    {
+      "name": "first-steps: identical public cards and correct 56-card deal",
+      "passed": true
+    },
+    {
+      "name": "Return to lobby freezes and preserves AI roster",
+      "passed": true
+    },
+    {
+      "name": "Host closure clears human and bot membership for everyone",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "key": "Throw",
+    "sourceSha256": "f9692e59bae57d04ba5c8d65b63a008c97e165bcf75ed0981c027a3036821383",
+    "sourceSeconds": 0.84,
+    "seconds": 0.282,
+    "trimStartSeconds": 0.138,
+    "trimEndSeconds": 0.42,
+    "selection": "first isolated event; later repetitions removed",
+    "gain": 0.6458443990331413,
+    "peak": 0.5138037316514752,
+    "rms": 0.11999945334229921,
+    "source": "VARCO Sound",
+    "synthesized": false
+  },
+  {
+    "key": "Latch",
+    "sourceSha256": "81cbc96d56780e8d514ed56010ab97efdce4c40b23531b4c9261a03c428e8240",
+    "sourceSeconds": 2.54,
+    "seconds": 0.452,
+    "trimStartSeconds": 0.068,
+    "trimEndSeconds": 0.52,
+    "selection": "first isolated event; later repetitions removed",
+    "gain": 1.0321343665048872,
+    "peak": 0.82,
+    "rms": 0.07008717872580165,
+    "source": "VARCO Sound",
+    "synthesized": false
+  },
+  {
+    "key": "Pull",
+    "sourceSha256": "7c8d6f1974b702c264753f07c952475660ab8966e9510f37f1fa172f51873ba5",
+    "sourceSeconds": 7.62,
+    "seconds": 0.362,
+    "trimStartSeconds": 0.068,
+    "trimEndSeconds": 0.43,
+    "selection": "first isolated event; later repetitions removed",
+    "gain": 1.0322394418850585,
+    "peak": 0.82,
+    "rms": 0.11216586070270491,
+    "source": "VARCO Sound",
+    "synthesized": false
+  }
+]

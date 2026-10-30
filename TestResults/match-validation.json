@@ -1,0 +1,351 @@
+{
+    "passed": 69,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Network snapshots reveal no hidden card faces or shuffle identities",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Public network snapshots preserve 2 to 6 player rules through complete games",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Network snapshot rejects missing cards and invalid public faces",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Same fruit exactly five counts; six and mixed fruits do not",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Only the top card of each open pile contributes",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Three players can contribute to the same total",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "No automatic pause when a five appears",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Wrong out-of-turn stand pays each of three opponents once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All standing players must sit, including penalized players",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Valid claim gathers every open pile, once, below existing draw cards",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Seated and penalized participants cannot claim",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Duel ends immediately on the final reveal, even if it is a five",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Duel penalty ends the match when the draw pile empties despite an open card",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Three-player empty draw pile retains its chance to claim",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Insufficient penalty cards are paid clockwise without duplication",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Paying the final owned card eliminates a player with no exposed pile",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Eliminated players' exposed cards still contribute until collected",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 to 6 seats conserve all 56 identities across turns, penalties and claims",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats: hidden stack heights match ownership 4/52",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats, tallest pile 52: cards fit tilted view at 1.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats, tallest pile 52: cards fit tilted view at 1.78",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats, tallest pile 52: cards fit tilted view at 2.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 seats: hidden stack heights match ownership 1/15/40",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 seats, tallest pile 40: cards fit tilted view at 1.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 seats, tallest pile 40: cards fit tilted view at 1.78",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 seats, tallest pile 40: cards fit tilted view at 2.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 seats: hidden stack heights match ownership 1/5/14/36",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 seats, tallest pile 36: cards fit tilted view at 1.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 seats, tallest pile 36: cards fit tilted view at 1.78",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 seats, tallest pile 36: cards fit tilted view at 2.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 seats: hidden stack heights match ownership 1/4/8/15/28",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 seats, tallest pile 28: cards fit tilted view at 1.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 seats, tallest pile 28: cards fit tilted view at 1.78",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 seats, tallest pile 28: cards fit tilted view at 2.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: hidden stack heights match ownership 2/4/7/11/14/18",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats, tallest pile 18: cards fit tilted view at 1.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats, tallest pile 18: cards fit tilted view at 1.78",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats, tallest pile 18: cards fit tilted view at 2.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: hidden stack heights match ownership 0/0/0/0/0/56",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats, tallest pile 56: cards fit tilted view at 1.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats, tallest pile 56: cards fit tilted view at 1.78",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats, tallest pile 56: cards fit tilted view at 2.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Scene starts seated with 28 hidden cards each and 56 views",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Only local turn accepts left-click reveal",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Exposed card model and table view agree",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Revealing moves only the camera above the desk and hides obstructing hands",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All card corners visible at aspect 1.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All card corners visible at aspect 1.78",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All card corners visible at aspect 2.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "E immediately restores first-person view, hands and movement without a camera wait",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "E and left-click together freezes before a reveal",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Wrong stand transfers one card to rival and enables return movement",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Frozen reveal and repeated stand cannot advance or charge again",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Wrong stand waits for explicit sit; bot does not reveal or follow",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A penalized player cannot ring even when physically beside bell",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Falling preserves sit debt and respawns beside own chair",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "E at own seat resumes the pending turn without dealing again",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Bot reveals exactly one card on its own turn and also focuses the desk",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A valid total alone does not freeze or display a five hint",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Valid stand freezes both turns without penalty and allows other racer",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "One player seated is insufficient to resume",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Last seat resumes same reveal turn and same exposed cards",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Actual rival reaches bell, collects cards and instantly seats everybody",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Immediate reseating prevents duplicate collection and retains all card views",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Bell winner can reveal next without running back or another E press",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A local bell also cancels the other player's pending fall and seats both",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Cancelled fall cannot pull a seated player back onto the course",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Kick and punch movement tuning retained",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "New game resets physical seats, card turn, penalties and all 56 cards",
+            "passed": true,
+            "detail": "passed"
+        }
+    ]
+}

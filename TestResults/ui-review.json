@@ -1,0 +1,100 @@
+{
+  "feature": "Unified minimal gameplay HUD, contextual prompts, rounded menus and original line icons",
+  "reviewedAt": "2026-10-23T13:32:01.8726722+09:00",
+  "palette": "Charcoal, warm ivory, brass gold; red danger and muted teal feedback",
+  "visualReview": [
+    "1920x1080: table, race, cooldown, incoming rope, pause, controls, map selector, online menu",
+    "1024x768: race and controls; no clipping observed",
+    "2560x1080: race; UI keeps proportions and uses screen edges"
+  ],
+  "interactionScope": "Rendered in Unity play mode with actual match and combat state; menu button handlers retain existing game actions. Physical click-through of every button was not performed.",
+  "previews": [
+    {
+      "file": "Previews/UI_Controls_4x3.png",
+      "capturedAt": "2026-10-23T13:28:29.8011865+09:00"
+    },
+    {
+      "file": "Previews/UI_Controls.png",
+      "capturedAt": "2026-10-23T13:28:29.5788853+09:00"
+    },
+    {
+      "file": "Previews/UI_Cooldown.png",
+      "capturedAt": "2026-10-23T13:28:28.9286593+09:00"
+    },
+    {
+      "file": "Previews/UI_Lasso.png",
+      "capturedAt": "2026-10-23T13:28:29.2395781+09:00"
+    },
+    {
+      "file": "Previews/UI_Maps.png",
+      "capturedAt": "2026-10-23T13:28:29.723908+09:00"
+    },
+    {
+      "file": "Previews/UI_Online.png",
+      "capturedAt": "2026-10-23T13:28:30.2258312+09:00"
+    },
+    {
+      "file": "Previews/UI_Pause.png",
+      "capturedAt": "2026-10-23T13:28:29.4086195+09:00"
+    },
+    {
+      "file": "Previews/UI_Race_4x3.png",
+      "capturedAt": "2026-10-23T13:28:29.8757718+09:00"
+    },
+    {
+      "file": "Previews/UI_Race_Ultrawide.png",
+      "capturedAt": "2026-10-23T13:28:30.1138154+09:00"
+    },
+    {
+      "file": "Previews/UI_Race.png",
+      "capturedAt": "2026-10-23T13:28:28.7218423+09:00"
+    },
+    {
+      "file": "Previews/UI_Table.png",
+      "capturedAt": "2026-10-23T13:28:28.5448568+09:00"
+    }
+  ],
+  "validation": [
+    {
+      "suite": "match-validation",
+      "passed": 67,
+      "failed": 0,
+      "verifiedAt": "2026-10-23T13:26:52.6400653+09:00"
+    },
+    {
+      "suite": "lasso-validation",
+      "passed": 41,
+      "failed": 0,
+      "verifiedAt": "2026-10-23T13:19:52.0827048+09:00"
+    }
+  ],
+  "onlineRoom": {
+    "result": "PASSED: editor created a real Unity Relay room",
+    "verifiedAt": "2026-10-23T14:17:07.9935029+09:00",
+    "preview": "Previews/Online_Room.png",
+    "note": "Actual Unity Relay private room was created, rendered, and closed after capture; no two-client gameplay retest for this UI-only change."
+  },
+  "windowsBuild": {
+    "result": "Succeeded\nerrors=0\nwarnings=1",
+    "verifiedAt": "2026-10-23T14:54:35.1835998+09:00"
+  },
+  "assets": "Original supersampled line icons and existing in-game map captures; no external paid assets used.",
+  "startScreen": {
+    "feature": "Automatic home with Create Room / Invite Code choices. Host adds or removes individual AI in the room; start button shows actual human plus AI count.",
+    "passed": 14,
+    "failed": 0,
+    "verifiedAt": "2026-10-23T14:16:50.0448991+09:00",
+    "visualResolutions": [
+      "1920x1080",
+      "1024x768",
+      "2560x1080"
+    ],
+    "previews": [
+      "Previews/UI_Start.png",
+      "Previews/UI_Start_Create.png",
+      "Previews/UI_Start_Join.png",
+      "Previews/UI_Start_Practice.png"
+    ],
+    "validationScope": "Earlier entry-screen tests are historical. Current room and actual-roster validations are recorded in room-bots-review.json."
+  }
+}

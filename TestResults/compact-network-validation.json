@@ -1,0 +1,150 @@
+{
+  "passed": 36,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Two independent clients joined the same room",
+      "passed": true
+    },
+    {
+      "name": "Connection setup completed before accepting ready",
+      "passed": true
+    },
+    {
+      "name": "Ready state synchronized",
+      "passed": true
+    },
+    {
+      "name": "Both clients loaded the same match",
+      "passed": true
+    },
+    {
+      "name": "Wrong stand freezes cards and pays one opponent",
+      "passed": true
+    },
+    {
+      "name": "No reveal while anyone stands",
+      "passed": true
+    },
+    {
+      "name": "Everyone seated resumes cards",
+      "passed": true
+    },
+    {
+      "name": "Out-of-turn reveal rejected",
+      "passed": true
+    },
+    {
+      "name": "Host reveal advances the turn on both clients",
+      "passed": true
+    },
+    {
+      "name": "Guest reveal advances the turn on both clients",
+      "passed": true
+    },
+    {
+      "name": "Exposed-card fixture synchronized",
+      "passed": true
+    },
+    {
+      "name": "Both players can race on a valid five",
+      "passed": true
+    },
+    {
+      "name": "Guest and authoritative host both use 4.5 m/s normal movement",
+      "passed": true
+    },
+    {
+      "name": "Client movement is simulated on the host",
+      "passed": true
+    },
+    {
+      "name": "Crouching replicated to the host",
+      "passed": true
+    },
+    {
+      "name": "Jump input reaches the authoritative motor",
+      "passed": true
+    },
+    {
+      "name": "Guest punch hits on the host and replicates feedback",
+      "passed": true
+    },
+    {
+      "name": "Guest punch starts the victim blink on both peers",
+      "passed": true
+    },
+    {
+      "name": "Blink clears without blinding the attacker",
+      "passed": true
+    },
+    {
+      "name": "Punched player can still move",
+      "passed": true
+    },
+    {
+      "name": "Host punch starts the remote victim blink",
+      "passed": true
+    },
+    {
+      "name": "Remote victim regains clear vision after the blink",
+      "passed": true
+    },
+    {
+      "name": "Kick adds authoritative knockback",
+      "passed": true
+    },
+    {
+      "name": "Kick feedback reaches the other peer",
+      "passed": true
+    },
+    {
+      "name": "Kick does not trigger a punch blink",
+      "passed": true
+    },
+    {
+      "name": "Falling guest respawns consistently",
+      "passed": true
+    },
+    {
+      "name": "Bell landing is grounded",
+      "passed": true
+    },
+    {
+      "name": "Guest bell awards cards and instantly seats everyone",
+      "passed": true
+    },
+    {
+      "name": "Return to room summit",
+      "passed": true
+    },
+    {
+      "name": "Guest can ready after a match summit",
+      "passed": true
+    },
+    {
+      "name": "Both clients load summit",
+      "passed": true
+    },
+    {
+      "name": "Return to room surf",
+      "passed": true
+    },
+    {
+      "name": "Guest can ready after a match surf",
+      "passed": true
+    },
+    {
+      "name": "Both clients load surf",
+      "passed": true
+    },
+    {
+      "name": "Guest departure returns host to a room without ghosts",
+      "passed": true
+    },
+    {
+      "name": "Host room cleanup completed",
+      "passed": true
+    }
+  ]
+}

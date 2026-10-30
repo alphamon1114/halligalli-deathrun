@@ -1,0 +1,79 @@
+{
+  "key": "CeilingLight",
+  "sourceSha256": "8b39ed8829faa3df49969b2968ce2ee1c9ed990838046fc25580ee7de09c5c17",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "7851214e-57c5-4605-89b3-3a89e6c385e0",
+  "sourceDimensionsBlenderXYZ": [
+    0.2323267161846161,
+    1.0002071857452393,
+    0.16854289174079895
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.23227860033512115,
+    1.0,
+    0.16850797832012177
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 8424,
+  "triangles": 10000,
+  "meshes": [
+    {
+      "name": "CeilingLight_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "CeilingLight_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "CeilingLight_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "CeilingLight_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "CeilingLight_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

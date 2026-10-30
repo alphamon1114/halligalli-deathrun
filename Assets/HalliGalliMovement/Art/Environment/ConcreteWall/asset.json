@@ -1,0 +1,79 @@
+{
+  "key": "ConcreteWall",
+  "sourceSha256": "22f85195c77ed98bcbf0b89308ec1284c3f1819e4e179a2d61471ab53b77501b",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "89cff7b5-cd76-479e-b564-eef172eaf820",
+  "sourceDimensionsBlenderXYZ": [
+    0.8874937295913696,
+    0.12701939046382904,
+    0.9999598860740662
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.8875293731689453,
+    0.12702448666095734,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 13619,
+  "triangles": 16000,
+  "meshes": [
+    {
+      "name": "ConcreteWall_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "ConcreteWall_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "ConcreteWall_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "ConcreteWall_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "ConcreteWall_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

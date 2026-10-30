@@ -1,0 +1,110 @@
+{
+    "passed": 26,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Real Relay room starts with one human and no automatic bots",
+            "passed": true
+        },
+        {
+            "name": "One human alone cannot start",
+            "passed": true
+        },
+        {
+            "name": "Host can add exactly one AI",
+            "passed": true
+        },
+        {
+            "name": "One human and one ready AI can start",
+            "passed": true
+        },
+        {
+            "name": "Additional AI 2 is added individually",
+            "passed": true
+        },
+        {
+            "name": "Additional AI 3 is added individually",
+            "passed": true
+        },
+        {
+            "name": "Additional AI 4 is added individually",
+            "passed": true
+        },
+        {
+            "name": "Additional AI 5 is added individually",
+            "passed": true
+        },
+        {
+            "name": "Five bots and one human fill six seats",
+            "passed": true
+        },
+        {
+            "name": "Bot identities are unique",
+            "passed": true
+        },
+        {
+            "name": "Removing a human through bot controls is rejected",
+            "passed": true
+        },
+        {
+            "name": "Removing bots retains host and the selected opponent",
+            "passed": true
+        },
+        {
+            "name": "Roster edits are blocked while loading",
+            "passed": true
+        },
+        {
+            "name": "first-steps: starts without waiting for a fake AI connection (actual=first-steps)",
+            "passed": true
+        },
+        {
+            "name": "Only the host's AI seat runs a rival controller",
+            "passed": true
+        },
+        {
+            "name": "Human and AI receive a two-seat 56-card deck",
+            "passed": true
+        },
+        {
+            "name": "Roster edits are blocked during play",
+            "passed": true
+        },
+        {
+            "name": "AI reveals its own card after the human turn",
+            "passed": true
+        },
+        {
+            "name": "AI stands when the table contains a legal five",
+            "passed": true
+        },
+        {
+            "name": "AI moves along the obstacle course",
+            "passed": true
+        },
+        {
+            "name": "Returning to the room freezes AI and preserves its slot",
+            "passed": true
+        },
+        {
+            "name": "summit: starts without waiting for a fake AI connection (actual=summit)",
+            "passed": true
+        },
+        {
+            "name": "summit: all three AI controllers use this map's route",
+            "passed": true
+        },
+        {
+            "name": "surf: starts without waiting for a fake AI connection (actual=surf)",
+            "passed": true
+        },
+        {
+            "name": "surf: all three AI controllers use this map's route",
+            "passed": true
+        },
+        {
+            "name": "Closing the room clears bot slots and returns home",
+            "passed": true
+        }
+    ]
+}

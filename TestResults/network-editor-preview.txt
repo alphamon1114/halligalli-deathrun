@@ -1,0 +1,1 @@
+PASSED: editor created a real Unity Relay room

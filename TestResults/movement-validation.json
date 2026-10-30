@@ -1,0 +1,347 @@
+{
+    "unityVersion": "6000.6.0f1",
+    "passed": 68,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Project physics tick is 66.7 Hz",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Walk acceleration and ground contact",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Releasing crouch restores the normal walking speed",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Diagonal speed normalization",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Friction stops motion progressively",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Jump apex, landing, no held-key auto jump",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A fresh press permits a second jump",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Landing consumes a recently buffered jump",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Air momentum and directional air strafe",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Wall collision and sliding",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Ceiling cancels upward movement",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Crouch height, reduced speed and blocked uncrouch",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Trigger volumes do not prevent standing",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Air duck preserves head instead of adding jump velocity",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Climb 20 cm stairs without jumping",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Walkable slope ascent",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Steep slope cannot be walked up",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Leaving a ledge produces a fall",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A steep slope is not treated as a standing surface",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Jump height stable across simulation tick sizes",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Mouse yaw accumulates deltas independent of frame splits",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Character and realistic hands connected",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All custom animation curves resolve to model bones",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Custom poses remain finite and crouch fits tunnel",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Animation follows idle state",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Animation follows walking",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Sustained movement keeps the normal walk animation",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Animation follows jump without moving capsule",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Animation follows actual crouch height",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Air duck keeps the body compressed",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Punch alternates and rejected spam cannot skip a hand",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A recovery click buffers exactly one attack without automatic repeat",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Punch contacts only in its contact window and only once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Kick reaches farther and pushes harder than punch",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Solid wall blocks attack without pushing target",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Targets behind and beyond reach are not hit",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Trigger volumes do not block melee",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Long physics step cannot skip contact",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Movement continues during attack and impulse moves opponent",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Grounded kick lifts the target and travels about three metres",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Stronger kick still collides with walls",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Attack animation has priority over idle",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Runtime punch extends the actual wrist bones",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Hands return to movement after punch",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "First person kick shows character leg",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Runtime kick extends foot in both views",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Kick viewmodel hides after recovery",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Impact audio assigned on player and both opponents",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Punch allows immediate movement and jump without knockback",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Only kick briefly blocks attacks then restores control",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Hit cancels windup and a queued follow-up attack",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Punch directions select four authored reactions",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Punch preserves gravity and allows air steering",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Kick applies physical knockback and its own impact sound",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Runtime hit moves body and first-person hands",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Repeated hit restarts and redirects reaction",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Reaction returns to idle without a stuck pose",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Reaction returns to crouch and preserves capsule height",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Repeated punches do not reduce normal walking speed",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Punch narrows vision without rotating camera or movement heading",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Repeated hits do not restart or extend the blink",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Mouse look still responds while vision is narrowed",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Vision is fully restored after 0.3 seconds even under repeated hits",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Network hits also respect the clear-vision recovery window",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A new network punch can blink after recovery expires",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Blink finishes without camera drift",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Reset clears vision restriction immediately",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Kick keeps its knockback and does not trigger a blink",
+            "passed": true,
+            "detail": "passed"
+        }
+    ]
+}

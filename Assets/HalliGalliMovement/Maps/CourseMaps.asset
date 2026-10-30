@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adea7b8218875b641bd612043097ae34, type: 3}
+  m_Name: CourseMaps
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Movement.CourseMapCatalog
+  maps:
+  - {fileID: 11400000, guid: 5d81403689d65ae468a41e34e8960ee2, type: 2}
+  - {fileID: 11400000, guid: d201118bccd8a8745971a655a27f15e0, type: 2}
+  - {fileID: 11400000, guid: 940c07aca9434124f96d48f95cf46ca5, type: 2}
+  - {fileID: 11400000, guid: fe45410631aef234ba7f3e69d5c98d81, type: 2}
+  - {fileID: 11400000, guid: 79b1c0bf2967be54d823b3009fe66e9c, type: 2}
+  - {fileID: 11400000, guid: 7b7b59403fb5c504da096000692e0999, type: 2}

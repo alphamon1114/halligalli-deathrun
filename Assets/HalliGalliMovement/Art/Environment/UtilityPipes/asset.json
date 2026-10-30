@@ -1,0 +1,79 @@
+{
+  "key": "UtilityPipes",
+  "sourceSha256": "143143e3255845f3d214b06efb593ee1378a291cf5a4abc42e214436ff619260",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "b6bbacfb-41af-40bf-95ac-99b03d6456b5",
+  "sourceDimensionsBlenderXYZ": [
+    0.3437693119049072,
+    0.39554572105407715,
+    1.0015289783477783
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.3432444930076599,
+    0.39494186639785767,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 11856,
+  "triangles": 14000,
+  "meshes": [
+    {
+      "name": "UtilityPipes_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "UtilityPipes_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "UtilityPipes_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "UtilityPipes_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "UtilityPipes_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

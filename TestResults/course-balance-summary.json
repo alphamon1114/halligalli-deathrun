@@ -1,0 +1,365 @@
+{
+  "basis": "Actual SourceMotor traversal at 4.5 m/s normal movement, with physical air momentum and jump-duck. Varied exposed ledges, two local shortcuts and folded surf. Timing is internal QA only.",
+  "reference": {
+    "tutorialSeconds": 5.924999713897705,
+    "tutorialDistance": 25.708162307739258
+  },
+  "runs": [
+    {
+      "test": "2 players, climb lane 1 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.69,
+      "tutorialRatio": 2.14,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "2 players, climb lane 2 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.71,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "3 players, climb lane 1 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.72,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "3 players, climb lane 2 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.72,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "3 players, climb lane 3 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.77,
+      "tutorialRatio": 2.16,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "4 players, climb lane 1 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.75,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "4 players, climb lane 2 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.68,
+      "tutorialRatio": 2.14,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "4 players, climb lane 3 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.7,
+      "tutorialRatio": 2.14,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "4 players, climb lane 4 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.78,
+      "tutorialRatio": 2.16,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "5 players, climb lane 1 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.73,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "5 players, climb lane 2 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.72,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "5 players, climb lane 3 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.72,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "5 players, climb lane 4 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.77,
+      "tutorialRatio": 2.16,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "5 players, climb lane 5 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.84,
+      "tutorialRatio": 2.17,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "6 players, climb lane 1 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.75,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "6 players, climb lane 2 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.75,
+      "tutorialRatio": 2.15,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "6 players, climb lane 3 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.68,
+      "tutorialRatio": 2.14,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "6 players, climb lane 4 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.7,
+      "tutorialRatio": 2.14,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "6 players, climb lane 5 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.78,
+      "tutorialRatio": 2.16,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "6 players, climb lane 6 reaches summit with real jumps and no fall",
+      "route": "SHARED_CLIFF",
+      "seconds": 12.91,
+      "tutorialRatio": 2.18,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "Shortcut 3 physically passes a blocking opponent and rejoins the summit route",
+      "route": "SHORTCUT",
+      "seconds": 12.3,
+      "tutorialRatio": 2.08,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "Shortcut 7 physically passes a blocking opponent and rejoins the summit route",
+      "route": "SHORTCUT",
+      "seconds": 11.98,
+      "tutorialRatio": 2.02,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:44:26.0249490+09:00"
+    },
+    {
+      "test": "2 players, lane 1 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.14,
+      "tutorialRatio": 1.54,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "2 players, lane 2 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.71,
+      "tutorialRatio": 1.64,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "3 players, lane 1 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.06,
+      "tutorialRatio": 1.53,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "3 players, lane 2 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.31,
+      "tutorialRatio": 1.57,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "3 players, lane 3 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.58,
+      "tutorialRatio": 1.62,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "4 players, lane 1 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 8.76,
+      "tutorialRatio": 1.48,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "4 players, lane 2 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.13,
+      "tutorialRatio": 1.54,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "4 players, lane 3 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.71,
+      "tutorialRatio": 1.64,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "4 players, lane 4 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.36,
+      "tutorialRatio": 1.58,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "5 players, lane 1 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 8.78,
+      "tutorialRatio": 1.48,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "5 players, lane 2 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.06,
+      "tutorialRatio": 1.53,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "5 players, lane 3 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.32,
+      "tutorialRatio": 1.57,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "5 players, lane 4 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.58,
+      "tutorialRatio": 1.62,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "5 players, lane 5 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.36,
+      "tutorialRatio": 1.58,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "6 players, lane 1 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 8.84,
+      "tutorialRatio": 1.49,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "6 players, lane 2 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 8.76,
+      "tutorialRatio": 1.48,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "6 players, lane 3 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.14,
+      "tutorialRatio": 1.54,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "6 players, lane 4 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.7,
+      "tutorialRatio": 1.64,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "6 players, lane 5 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.36,
+      "tutorialRatio": 1.58,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    },
+    {
+      "test": "6 players, lane 6 physically surfs all three ramps and reaches the bell",
+      "route": "SURF",
+      "seconds": 9.34,
+      "tutorialRatio": 1.58,
+      "passed": true,
+      "verifiedAt": "2026-10-23T10:45:28.1728881+09:00"
+    }
+  ],
+  "summary": [
+    {
+      "route": "SHARED_CLIFF",
+      "runs": 20,
+      "minimumSeconds": 12.68,
+      "maximumSeconds": 12.91
+    },
+    {
+      "route": "SHORTCUT",
+      "runs": 2,
+      "minimumSeconds": 11.98,
+      "maximumSeconds": 12.3
+    },
+    {
+      "route": "SURF",
+      "runs": 20,
+      "minimumSeconds": 8.76,
+      "maximumSeconds": 9.71
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+    "passed": 9,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Training opens offline without a Relay room",
+            "passed": true
+        },
+        {
+            "name": "Five standing targets have no navigation or attack input",
+            "passed": true
+        },
+        {
+            "name": "Targets remain still until hit",
+            "passed": true
+        },
+        {
+            "name": "Kick moves a stationary training target",
+            "passed": true
+        },
+        {
+            "name": "Target automatically returns after being knocked away",
+            "passed": true
+        },
+        {
+            "name": "Stationary practice target can be roped",
+            "passed": true
+        },
+        {
+            "name": "Default rope pull moves target toward player",
+            "passed": true
+        },
+        {
+            "name": "R resets only local position and preserves cooldown",
+            "passed": true
+        },
+        {
+            "name": "Returning home stops practice simulation",
+            "passed": true
+        }
+    ]
+}

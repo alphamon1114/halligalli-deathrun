@@ -1,0 +1,80 @@
+{
+  "key": "Loop",
+  "sourceSha256": "ec204c0090ee630c2bc73654df11d1c8e000d6eab348ad69ce20139a584ede96",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "387605ef-6a97-4691-8852-40f1172fff96",
+  "sourceDimensionsBlenderXYZ": [
+    0.9710322618484497,
+    0.07423141598701477,
+    0.8826771974563599
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.5999999642372131,
+    0.04586752504110336,
+    0.5454054474830627
+  ],
+  "pivot": "center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 9933,
+  "triangles": 12522,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "Loop_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "Loop_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "Loop_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "Loop_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "Loop_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

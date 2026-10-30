@@ -1,0 +1,46 @@
+{
+  "feature": "Host adds and removes individual AI members; people plus AI determine the actual 2-6 participant match size",
+  "protocol": 12,
+  "updatedAt": "2026-10-23T14:57:35.2821143+09:00",
+  "changes": [
+    "Home offers create room and invite-code join; solo play uses a room with selected AI",
+    "Host-only add/remove controls in lobby; maximum capacity includes bots and pending human connections",
+    "Start button shows actual participant count; empty capacity is not auto-filled",
+    "Only host simulates AI cards, movement and combat; clients receive the same participant snapshots",
+    "AI automatically ready and omitted from transport recipients and human loading acknowledgements"
+  ],
+  "compilation": {
+    "editorRuntime": "PASSED: Roslyn compile with existing Unity editor references",
+    "editorTools": "PASSED: Roslyn compile against the newly compiled runtime",
+    "playerRuntime": "PASSED: Roslyn compile with existing Windows player references",
+    "networkTestScript": "PASSED: Node syntax check"
+  },
+  "runtimeValidation": "PASSED: real Unity editor Relay room and two Windows clients over Unity Relay; tutorial, climb, and surf maps.",
+  "windowsBuild": "Succeeded\nerrors=0\nwarnings=1",
+  "preparedValidation": [
+    "Editor: real Relay room, 1 human + 1 AI, six-seat cap, removal guards, card turns, movement, all three maps",
+    "Windows Relay: two real peers, guest permission checks, actual 3-seat match in 6-seat room, bot/human card penalty, mixed seat ordering, full-room rejection, freed bot slot, host closure"
+  ],
+  "validation": [
+    {
+      "suite": "room-bots-validation",
+      "passed": 26,
+      "failed": 0,
+      "verifiedAt": "2026-10-23T14:54:13.3228087+09:00"
+    },
+    {
+      "suite": "room-bots-network-validation",
+      "passed": 53,
+      "failed": 0,
+      "verifiedAt": "2026-10-23T14:57:08.0224372+09:00"
+    }
+  ],
+  "previews": [
+    "Previews/UI_Start.png",
+    "Previews/UI_Room_AI_One.png",
+    "Previews/UI_Room_AI.png",
+    "Previews/UI_Room_AI_Full.png",
+    "Previews/UI_Room_AI_4x3.png"
+  ],
+  "multiplayerRun": "outputs/network-tests/compact-20261023-145633"
+}

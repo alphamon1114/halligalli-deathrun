@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e278c444cfd382b43935bf23ef46372f, type: 3}
+  m_Name: Classic56
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Cards.ClassicFruitDeck
+  definitions:
+  - {fileID: 11400000, guid: 356d5fc4daa30e4479e4c6f1e94413c7, type: 2}
+  - {fileID: 11400000, guid: 87378a36bc4b335499b9268ae1463cf7, type: 2}
+  - {fileID: 11400000, guid: 1a56dc6fca0593940a1e656f442ea885, type: 2}
+  - {fileID: 11400000, guid: e2267db5cc9f9264d80502dd55d48deb, type: 2}
+  - {fileID: 11400000, guid: 50f486ae8e2e78d4cb7b234ab3ef25fd, type: 2}
+  - {fileID: 11400000, guid: 8e8d04fd96cf81049bf66c7d7d5dd2cd, type: 2}
+  - {fileID: 11400000, guid: 389bab434283dd948825592a54075ee2, type: 2}
+  - {fileID: 11400000, guid: 06a9ec7b23d17d041873e0015905cfbf, type: 2}
+  - {fileID: 11400000, guid: 981c415c39e3f15498eaf18b12f3bd32, type: 2}
+  - {fileID: 11400000, guid: 4f91fe4f29cfa984c9c3c31aed7c535d, type: 2}
+  - {fileID: 11400000, guid: 3c7912942e57a8147a610a584b50ad67, type: 2}
+  - {fileID: 11400000, guid: 160f68ac57da75747abb8c2d8ab029df, type: 2}
+  - {fileID: 11400000, guid: cf2382f09eff50e4596805bd3beb88a4, type: 2}
+  - {fileID: 11400000, guid: e161fdeb7a8149d4597cd0db9cff942e, type: 2}
+  - {fileID: 11400000, guid: 26f431b610f4c5249bf89a9580661ae9, type: 2}
+  - {fileID: 11400000, guid: 1e6deb5e1e8b15842a763b421805ca60, type: 2}
+  - {fileID: 11400000, guid: 4e75c417be1ab714a99278c75f2ac8a4, type: 2}
+  - {fileID: 11400000, guid: aff840507a5557d429821c73f7b3c165, type: 2}
+  - {fileID: 11400000, guid: 64434cf58777c4a4eadbc989721cbdb4, type: 2}
+  - {fileID: 11400000, guid: 3e9abbf00841e2042a0bb1da1c080bda, type: 2}
+  backTexture: {fileID: 2800000, guid: 7be224b5359571a48bccd78738ea3639, type: 3}
+  backMaterial: {fileID: 2100000, guid: 9cff8e7ccc9e5584cab1172f27f3231a, type: 2}
+  edgeMaterial: {fileID: 2100000, guid: d9c5706d00111954f96dd2869a8a54be, type: 2}
+  cardPrefab: {fileID: 6881346082753162357, guid: 642db40bd2a73494db2e746afef2b62a, type: 3}

@@ -1,0 +1,201 @@
+{
+    "passed": 39,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Seated players cannot shoot",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Wrong standing cannot shoot or spend ammunition",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "One charge for each of six racers",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A shot can stun an opponent behind the shooter",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "An empty gun cannot fire again",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Stun still blocks movement, jump and crouch at 1.9 seconds",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Stunned players cannot punch, kick, shoot or sit",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Stun ends after two seconds and grants two seconds immunity",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A protected player absorbs a shot without extending stun",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A new stun is possible after protection expires",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A shot can also stun an opponent ahead",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Solid walls consume the shot and block stun",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A missed shot is consumed",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Targets beyond twenty metres cannot be stunned",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Airborne stun preserves existing momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Gravity continues and air steering is disabled",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Prediction state preserves stun and immunity",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Falling does not reload an empty gun",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Respawn does not clear the remaining stun",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Sitting while others race does not refill a shot",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Everyone seated clears all weapon status",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A fresh competition grants exactly one charge again",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A stunned player on the bell landing cannot ring",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "The bell works after stun ends and clears status for everyone",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Stun cancels an attack already winding up",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Stunned players can still be knocked away",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Horizontal aim hits a standing rival near the actual starting table",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Primary click without aiming punches with the left hand",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Repeated primary clicks alternate hands",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Holding primary without a new press does not repeat punches",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Holding secondary raises the gun without attacking or spending ammo",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Primary while aiming fires the gun without punching",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Empty aimed primary does not fall through into melee",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Releasing secondary lowers the gun",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Primary after releasing aim returns to punching",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Kick takes priority without firing and held aim does not cancel the kick",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Falling clears aim immediately",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Seated primary reveals a card without punching, aiming or shooting",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "The click used to recapture the cursor cannot attack",
+            "detail": "passed",
+            "passed": true
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+Impact audio revision 2 — dry melee hits
+Source: "37 hits/punches" by Independent.nu, submitted by qubodup.
+Source page: https://opengameart.org/node/2558
+Source archive: https://opengameart.org/sites/default/files/independent_nu_ljudbank-hits_and_punches.7z
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+
+Punch_01 / 02 / 03: hit11 / hit12 / hit16.mp3.flac
+Kick_01 / 02 / 03: hit03 / hit06 / hit09.mp3.flac
+Modifications: mono downmix, 48 kHz resampling, onset trim, high/low-pass filtering,
+shorter decay, fade edges, level matching. No synthesized tone or pitch sweep.
+Outputs: 16-bit PCM WAV. Original sample quality is limited by the source MP3 encode.
+
+This revision replaces the temporary synthetic sounds. No VARCO Sound exports used.
+Production source and before/after previews are in outputs/impact_audio_v2.
+Replace these WAV files in place to preserve Unity asset references.

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec28677467a0aea4e84d6c543cf8c8a5, type: 3}
+  m_Name: precision
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Movement.CourseMapDefinition
+  id: precision
+  displayName: "\uC815\uBC00 \uC810\uD504"
+  style: 0
+  difficulty: 2
+  description: "\uC9E7\uC740 \uCC29\uC9C0 \uAD6C\uAC04\uACFC \uC5F0\uC18D \uBC29\uD5A5 \uC804\uD658\uC744 \uC911\uC2EC\uC73C\uB85C \uB9CC\uB4E4 \uC608\uC815\uC785\uB2C8\uB2E4."
+  playable: 0
+  scenePath: 
+  movementProfile: {fileID: 11400000, guid: cbd0b0853a4852c44a7cc48b90917ab8, type: 2}

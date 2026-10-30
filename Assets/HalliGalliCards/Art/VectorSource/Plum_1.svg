@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="870" viewBox="0 0 560 870"><rect x="2" y="2" width="556" height="866" rx="34" fill="#fffefb"/><rect x="15" y="15" width="530" height="840" rx="24" fill="none" stroke="#dfddd6" stroke-width="2"/><g class="fruit-instance" transform="translate(155 290) scale(2.5)"><path d="M49 27 C27 13 12 30 12 58 C12 83 30 107 51 108 C74 107 89 84 89 59 C89 32 71 15 49 27Z" fill="#8550a4" stroke="#4e2f69" stroke-width="3.2"/>
+    <path d="M36 31 C21 36 18 54 24 69 C26 51 33 41 42 37Z" fill="#b990ce"/>
+    <path d="M54 30 C42 51 61 70 50 100" fill="none" stroke="#663a88" stroke-width="3" stroke-linecap="round"/>
+    <path d="M50 27 Q47 14 56 6" fill="none" stroke="#71512c" stroke-width="5" stroke-linecap="round"/>
+    <path d="M52 17 Q64 0 83 9 Q74 26 52 17Z" fill="#479652" stroke="#2c693a" stroke-width="2.2"/></g></svg>

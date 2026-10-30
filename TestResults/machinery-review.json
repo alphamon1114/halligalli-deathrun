@@ -1,0 +1,84 @@
+{
+  "verifiedAt": "2026-10-23T17:48:47.902875+09:00",
+  "protocol": 16,
+  "maps": {
+    "factory": {
+      "scene": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+      "movingPlatforms": 2,
+      "presses": 2,
+      "conveyors": 2,
+      "checkpoints": 1,
+      "crushDetection": "Downward swept head contact before character movement, plus resting head contact; checkpoint/start recovery."
+    },
+    "first-steps": {
+      "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+      "ferryPeriod": 8.4,
+      "ferryWidth": 4.2,
+      "waitingDockWidth": 4.8,
+      "checkpoint": "waiting dock",
+      "sharedClock": true,
+      "ferries": 2,
+      "travelDistance": 5.6,
+      "phaseOffset": 0.5,
+      "bellZ": 33.8
+    },
+    "surf": {
+      "divider": "horizontal",
+      "bounds": {
+        "x": [
+          -8,
+          17.5
+        ],
+        "y": [
+          -5.54,
+          -5.26
+        ],
+        "z": [
+          -12,
+          30.25
+        ]
+      },
+      "touchRespawns": true,
+      "normalTurnOpen": true
+    }
+  },
+  "verification": {
+    "factory-validation": {
+      "passed": 29,
+      "failed": 0,
+      "modified": "2026-10-23T17:44:50.429479+09:00"
+    },
+    "ferry-validation": {
+      "passed": 26,
+      "failed": 0,
+      "modified": "2026-10-23T17:40:46.590397+09:00"
+    },
+    "surf-validation": {
+      "passed": 38,
+      "failed": 0,
+      "modified": "2026-10-23T17:43:22.148440+09:00"
+    },
+    "factory-network-validation": {
+      "passed": 38,
+      "failed": 0,
+      "modified": "2026-10-23T17:47:11.195914+09:00"
+    },
+    "surf-divider-network-validation": {
+      "passed": 18,
+      "failed": 0,
+      "modified": "2026-10-23T17:48:06.642125+09:00"
+    }
+  },
+  "build": "Succeeded\nerrors=0\nwarnings=2\n",
+  "previews": [
+    "Previews/Tutorial_Ferry.png",
+    "Previews/Tutorial_Transfer.png",
+    "Previews/Surf_Divider.png",
+    "Previews/Factory_Presses.png"
+  ],
+  "assets": "Existing VARCO environment models reused; machinery composed locally.",
+  "networkRuns": [
+    "outputs/network-tests/compact-20261023-174637",
+    "outputs/network-tests/compact-20261023-174746"
+  ]
+}

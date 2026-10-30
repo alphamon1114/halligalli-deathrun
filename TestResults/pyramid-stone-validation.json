@@ -1,0 +1,31 @@
+{
+    "passed": 5,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Stone shader compiles",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Wall has all four scanned maps",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Normal map imported as normal data",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Wall and ramp have different relief",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "CC0 attribution included",
+            "passed": true,
+            "detail": ""
+        }
+    ]
+}

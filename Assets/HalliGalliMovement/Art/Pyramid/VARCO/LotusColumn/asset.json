@@ -1,0 +1,80 @@
+{
+  "key": "LotusColumn",
+  "sourceSha256": "4201c4246104330ddbbb84bb444bf084d8ab40dc9c729a66a703106c92618b1a",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "d8379213-7c79-44e2-8f8b-182eb3eecde5",
+  "sourceDimensionsBlenderXYZ": [
+    0.34121769666671753,
+    0.3409527838230133,
+    0.9935334920883179
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.3434385359287262,
+    0.3431718945503235,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 8349,
+  "triangles": 12000,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "LotusColumn_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "LotusColumn_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "LotusColumn_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "LotusColumn_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "LotusColumn_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

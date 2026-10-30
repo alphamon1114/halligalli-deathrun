@@ -1,0 +1,2 @@
+BellRunCourse: PASS - original colliders, starts, cards and route anchors unchanged
+ClimbCourse: PASS - original colliders, starts, cards and route anchors unchanged

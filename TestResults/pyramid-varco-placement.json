@@ -1,0 +1,42 @@
+{
+    "flow": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+    "usedPoints": 1500,
+    "assets": [
+        {
+            "key": "StoneGate",
+            "instances": 9,
+            "textured": true,
+            "collidersAbsent": true
+        },
+        {
+            "key": "LotusColumn",
+            "instances": 60,
+            "textured": true,
+            "collidersAbsent": true
+        },
+        {
+            "key": "Anubis",
+            "instances": 12,
+            "textured": true,
+            "collidersAbsent": true
+        },
+        {
+            "key": "ReliefPanel",
+            "instances": 58,
+            "textured": true,
+            "collidersAbsent": true
+        },
+        {
+            "key": "Sarcophagus",
+            "instances": 1,
+            "textured": true,
+            "collidersAbsent": true
+        },
+        {
+            "key": "Brazier",
+            "instances": 20,
+            "textured": true,
+            "collidersAbsent": true
+        }
+    ]
+}

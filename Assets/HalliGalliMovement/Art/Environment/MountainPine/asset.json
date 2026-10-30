@@ -1,0 +1,80 @@
+{
+  "key": "MountainPine",
+  "sourceSha256": "1959c2c5676ce9446cefaba5dfcbb82184bc7ebdfb94c007f90ff006eb6f0deb",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "91df10d8-9adb-4f96-832a-ae8afc3a6080",
+  "sourceDimensionsBlenderXYZ": [
+    0.927523136138916,
+    0.7431825995445251,
+    0.9910908937454224
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.935860812664032,
+    0.7498632073402405,
+    1.0
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 76395,
+  "triangles": 50932,
+  "flattenedTopVertices": 0,
+  "meshes": [
+    {
+      "name": "MountainPine_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "MountainPine_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "MountainPine_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "MountainPine_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "MountainPine_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "passed": 46,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Two clients joined",
+      "passed": true
+    },
+    {
+      "name": "Different nicknames distinguish the two human winners",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: all ready",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: fresh match has no result or old timer",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: final winner and exact nickname agree on both peers",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: synchronized five-second countdown without R prompt",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: R from either player cannot skip the result",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: result stays visible while countdown decreases",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: everyone returns automatically without a return command",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: result duration is approximately five seconds",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: room, map, invite code and roster are preserved",
+      "passed": true
+    },
+    {
+      "name": "Guest victory: timer cleared and only humans need to ready again",
+      "passed": true
+    },
+    {
+      "name": "Host victory: all ready",
+      "passed": true
+    },
+    {
+      "name": "Host victory: fresh match has no result or old timer",
+      "passed": true
+    },
+    {
+      "name": "Host victory: previous deadline cannot end the next match",
+      "passed": true
+    },
+    {
+      "name": "Host victory: final winner and exact nickname agree on both peers",
+      "passed": true
+    },
+    {
+      "name": "Host victory: synchronized five-second countdown without R prompt",
+      "passed": true
+    },
+    {
+      "name": "Host victory: R from either player cannot skip the result",
+      "passed": true
+    },
+    {
+      "name": "Host victory: result stays visible while countdown decreases",
+      "passed": true
+    },
+    {
+      "name": "Host victory: everyone returns automatically without a return command",
+      "passed": true
+    },
+    {
+      "name": "Host victory: result duration is approximately five seconds",
+      "passed": true
+    },
+    {
+      "name": "Host victory: room, map, invite code and roster are preserved",
+      "passed": true
+    },
+    {
+      "name": "Host victory: timer cleared and only humans need to ready again",
+      "passed": true
+    },
+    {
+      "name": "Add bot for 3 seats",
+      "passed": true
+    },
+    {
+      "name": "Add bot for 4 seats",
+      "passed": true
+    },
+    {
+      "name": "Add bot for 5 seats",
+      "passed": true
+    },
+    {
+      "name": "Add bot for 6 seats",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: all ready",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: fresh match has no result or old timer",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: final winner and exact nickname agree on both peers",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: synchronized five-second countdown without R prompt",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: R from either player cannot skip the result",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: result stays visible while countdown decreases",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: everyone returns automatically without a return command",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: result duration is approximately five seconds",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: room, map, invite code and roster are preserved",
+      "passed": true
+    },
+    {
+      "name": "Six-player AI victory: timer cleared and only humans need to ready again",
+      "passed": true
+    },
+    {
+      "name": "Prepare another match",
+      "passed": true
+    },
+    {
+      "name": "Another match started",
+      "passed": true
+    },
+    {
+      "name": "Early manual return begins during countdown",
+      "passed": true
+    },
+    {
+      "name": "Explicit menu return cancels the countdown",
+      "passed": true
+    },
+    {
+      "name": "Prepare another match",
+      "passed": true
+    },
+    {
+      "name": "Another match started",
+      "passed": true
+    },
+    {
+      "name": "Cancelled countdown cannot end a later match",
+      "passed": true
+    },
+    {
+      "name": "Disconnect case begins during result",
+      "passed": true
+    },
+    {
+      "name": "Host closure during result clears both timers and membership",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "feature": "Q throws straight; Q pulls toward caster unless the mouse is actively swinging in the same frame. Moderated pull, retained momentum, five second cooldown, unlimited uses.",
+  "workflow": "https://3d.varco.ai/flow/f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "varcoPointsUsed": 500,
+  "networkProtocol": 18,
+  "networkTest": "Two Windows clients over Unity Relay, tutorial + climb + surf",
+  "validation": [
+    {
+      "suite": "lasso-validation",
+      "passed": 55,
+      "failed": 0,
+      "verifiedAt": "2026-10-26T09:53:49.8213917+09:00"
+    },
+    {
+      "suite": "lasso-network-validation",
+      "passed": 46,
+      "failed": 0,
+      "verifiedAt": "2026-10-26T09:55:46.6627564+09:00"
+    },
+    {
+      "suite": "movement-validation",
+      "passed": 68,
+      "failed": 0,
+      "verifiedAt": "2026-10-26T09:45:05.7624791+09:00"
+    }
+  ],
+  "soundProject": "https://sound.varco.ai/app/editor/cce95bc2-0bf5-4eb2-ac27-54c67c8f495a",
+  "varcoSoundPointsUsed": 150,
+  "soundEvents": "Three distinct VARCO clips; reliable throw/latch/pull events, spatial feedback, sequence deduplication and round cleanup",
+  "audioFiles": [
+    {
+      "key": "Throw",
+      "sourceSha256": "f9692e59bae57d04ba5c8d65b63a008c97e165bcf75ed0981c027a3036821383",
+      "sourceSeconds": 0.84,
+      "seconds": 0.282,
+      "trimStartSeconds": 0.138,
+      "trimEndSeconds": 0.42,
+      "selection": "first isolated event; later repetitions removed",
+      "gain": 0.6458443990331413,
+      "peak": 0.5138037316514752,
+      "rms": 0.11999945334229921,
+      "source": "VARCO Sound",
+      "synthesized": false
+    },
+    {
+      "key": "Latch",
+      "sourceSha256": "81cbc96d56780e8d514ed56010ab97efdce4c40b23531b4c9261a03c428e8240",
+      "sourceSeconds": 2.54,
+      "seconds": 0.452,
+      "trimStartSeconds": 0.068,
+      "trimEndSeconds": 0.52,
+      "selection": "first isolated event; later repetitions removed",
+      "gain": 1.0321343665048872,
+      "peak": 0.82,
+      "rms": 0.07008717872580165,
+      "source": "VARCO Sound",
+      "synthesized": false
+    },
+    {
+      "key": "Pull",
+      "sourceSha256": "7c8d6f1974b702c264753f07c952475660ab8966e9510f37f1fa172f51873ba5",
+      "sourceSeconds": 7.62,
+      "seconds": 0.362,
+      "trimStartSeconds": 0.068,
+      "trimEndSeconds": 0.43,
+      "selection": "first isolated event; later repetitions removed",
+      "gain": 1.0322394418850585,
+      "peak": 0.82,
+      "rms": 0.11216586070270491,
+      "source": "VARCO Sound",
+      "synthesized": false
+    }
+  ],
+  "incomingWarning": "Victim-only red X around crosshair with Korean label. Initial 0.18s size pop; remains while any incoming rope is latched; clears on detach, pull, seating or respawn. Uses replicated rope target state.",
+  "warningVisualReview": {
+    "caught": "Previews/Lasso_Caught.png",
+    "released": "Previews/Lasso_Released.png",
+    "reviewedAt": "2026-10-23T13:08:18.742199+09:00"
+  },
+  "pullTuning": {
+    "speed": 16,
+    "lift": 3.5,
+    "previousSpeed": 22,
+    "previousLift": 4.5,
+    "stationaryDistanceAtPoint3Seconds": 4.827,
+    "opposingInputDistanceAtPoint36Seconds": 2.182,
+    "gesture": "Only current-frame mouse movement at 90 degrees/second or faster; stopped or old movement pulls inward",
+    "networkRun": "outputs/network-tests/compact-20261026-095507"
+  }
+}

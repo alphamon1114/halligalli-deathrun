@@ -1,0 +1,281 @@
+{
+    "passed": 55,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Three distinct VARCO rope clips load",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Seated players cannot use a rope",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Wrong standing cannot spend cooldown",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Throw starts five second cooldown immediately",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "The projectile travels instead of instantly hitting",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Flight stays straight after the caster turns",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Latched victim can still walk",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Latched victim can still jump",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Second press uses the swing direction and retains existing momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "The same connection cannot pull twice",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A pulled rope cannot immediately cast again",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Targets behind the caster can be hit",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Upward aim launches the victim upward",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Gravity continues after the pull",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A pull can reverse order on a flat platform without a fall",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A wall blocks the projectile and still consumes cooldown",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A wall crossing an attached rope breaks it",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Targets farther than twelve metres are not reached",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Moving beyond sixteen metres breaks the connection",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A miss still cannot be recast at 4.99 seconds",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A miss can be recast after five seconds",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Repeated casts have no ammunition limit",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A stunned caster releases the rope and cannot pull",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A stunned victim can still be flung with momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Victim falling immediately releases the rope",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Caster falling releases without refunding cooldown",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Sitting during a race does not reset cooldown",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Everyone seated clears rope and cooldown",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Snapshots restore target and cooldown without duplicate impulses",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Switching to melee releases the tether",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Q input routes to the lasso",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "New game clears all live connections",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Default pull travels toward caster, not camera forward",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Default pull overcomes fast movement away from caster",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Default pull stays between 4.4 and 5.2 metres in 0.3 seconds",
+            "detail": "distance=4.827m in 0.3s",
+            "passed": true
+        },
+        {
+            "name": "Opposing movement limits the pull to 1.8-3 metres without cancelling it",
+            "detail": "distance=2.182m in 0.36s; movement remains enabled",
+            "passed": true
+        },
+        {
+            "name": "Sideways fling still collides with a solid wall",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Sideways mouse flick drives the pull",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Upward flick launches upward regardless of facing",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Stopping the mouse before pulling restores the default inward pull",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "An earlier frame's swing cannot steer a later pull",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Tiny aim adjustments keep the pull directed toward the caster",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Changing swing direction uses the current swing instead of old accumulated input",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "A stationary target near the reticle edge is forgiving",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Point blank overlap catches the target",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Leading a moving opponent intersects its future position",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Sidestepping out of the projectile path dodges it",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Original first and third person rope clips are installed",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Throw audio plays once on accepted cast",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Latch audio plays only when the rope reaches the victim",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Pull audio plays once on the second action",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Cooldown, duplicate events and pose reconciliation cannot replay sounds",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Missed ropes never play latch or pull audio",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "The local victim hears latch audio clearly",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "Round reset stops every rope sound",
+            "detail": "passed",
+            "passed": true
+        }
+    ]
+}

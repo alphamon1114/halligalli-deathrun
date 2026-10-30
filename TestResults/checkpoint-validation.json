@@ -1,0 +1,491 @@
+{
+    "passed": 97,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "first-steps: visible midcourse markers add no collision",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps: falling before the checkpoint still returns to the start",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps: passing above a marker does not save it",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 1: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 1: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 1: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 1: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 1: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 2: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 2: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 2: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 2: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 2p lane 2: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 1: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 1: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 1: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 1: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 1: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 6: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 6: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 6: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 6: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps 6p lane 6: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps: wrong standing cannot save a checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps: a penalized player still returns beside their chair",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps: a valid card race enables checkpoints",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps: ringing after a fall awards cards, seats all and clears checkpoints",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "first-steps: restarting with a different roster clears checkpoint state",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit: visible midcourse markers add no collision",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit: falling before the checkpoint still returns to the start",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit: passing above a marker does not save it",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 1: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 1: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 1: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 1: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 1: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 2: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 2: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 2: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 2: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 2p lane 2: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 1: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 1: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 1: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 1: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 1: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 6: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 6: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 6: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 6: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit 6p lane 6: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit: wrong standing cannot save a checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit: a penalized player still returns beside their chair",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit: a valid card race enables checkpoints",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit: ringing after a fall awards cards, seats all and clears checkpoints",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "summit: restarting with a different roster clears checkpoint state",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: visible midcourse markers add no collision",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: falling before the checkpoint still returns to the start",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: passing above a marker does not save it",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: reaching the checkpoint without the first surf gate is rejected",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 1: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 1: reached the second surf gate before falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 1: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 1: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 1: later gates are rolled back to the saved landing",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 1: checkpoint cannot bypass the remaining surf gates",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 1: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 1: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 2: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 2: reached the second surf gate before falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 2: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 2: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 2: later gates are rolled back to the saved landing",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 2: checkpoint cannot bypass the remaining surf gates",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 2: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 2p lane 2: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 1: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 1: reached the second surf gate before falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 1: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 1: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 1: later gates are rolled back to the saved landing",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 1: checkpoint cannot bypass the remaining surf gates",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 1: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 1: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 6: real traversal saves a personal checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 6: reached the second surf gate before falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 6: a fall still costs time and disables combat",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 6: respawn restores the checkpoint facing with zero momentum",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 6: later gates are rolled back to the saved landing",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 6: checkpoint cannot bypass the remaining surf gates",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 6: the racer physically completes the rest of the course after falling",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf 6p lane 6: sitting clears the saved point",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: wrong standing cannot save a checkpoint",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: a penalized player still returns beside their chair",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: a valid card race enables checkpoints",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: ringing after a fall awards cards, seats all and clears checkpoints",
+            "detail": "passed",
+            "passed": true
+        },
+        {
+            "name": "surf: restarting with a different roster clears checkpoint state",
+            "detail": "passed",
+            "passed": true
+        }
+    ]
+}

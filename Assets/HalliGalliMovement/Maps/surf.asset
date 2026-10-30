@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec28677467a0aea4e84d6c543cf8c8a5, type: 3}
+  m_Name: surf
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Movement.CourseMapDefinition
+  id: surf
+  displayName: "\uC11C\uD504 \uC218\uB85C"
+  style: 2
+  difficulty: 4
+  description: "\uB099\uD558 \uBC18\uC804, \uC88C\uC6B0 \uBC45\uD06C \uC804\uD658, \uB04A\uC5B4\uC9C4 \uACBD\uC0AC\uBA74. \uC18D\uB3C4\uB97C \uC0B4\uB824 \uB9C8\uC9C0\uB9C9 \uB3C4\uC57D\uAE4C\uC9C0."
+  playable: 1
+  scenePath: Assets/HalliGalliMovement/Demo/SurfCourse.unity
+  movementProfile: {fileID: 11400000, guid: 34a29c0383e67c64f9cfa796da97e953, type: 2}

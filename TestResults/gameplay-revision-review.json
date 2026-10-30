@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-23T15:42:32.8113916+09:00",
+  "protocol": 13,
+  "roomCapacity": 6,
+  "matchPlayers": "Actual joined humans plus explicitly added AI; no automatic filling",
+  "respawn": "R returns only the requesting player after the existing 0.7 s recovery delay, retaining cards/checkpoint progress/rope cooldown",
+  "gun": "Removed input, runtime component, visuals, AI firing and network actions",
+  "surf": {
+    "sections": 7,
+    "singleBank": true,
+    "checkpoints": 2,
+    "distanceMetres": 173.97,
+    "timersDisplayed": false
+  },
+  "rope": {
+    "cooldown": 5,
+    "flightSpeed": 28,
+    "playerHitRadius": 0.32,
+    "worldHitRadius": 0.06,
+    "homing": false,
+    "defaultPull": "Toward caster, overcoming opposing momentum",
+    "gesture": "Recent mouse flick determines lateral/upward throw direction"
+  },
+  "practice": "Offline standing AI targets, automatic return after displacement",
+  "duel": "Draw pile exhaustion immediately loses, including final reveal or penalty; original multiplayer rules preserved for matches begun with 3+ seats",
+  "build": "Succeeded\nerrors=0\nwarnings=1",
+  "validation": [
+    {
+      "report": "surf-validation",
+      "failed": 0,
+      "updated": "2026-10-23T15:28:55.6019627+09:00",
+      "passed": 16
+    },
+    {
+      "report": "practice-validation",
+      "failed": 0,
+      "updated": "2026-10-23T15:35:44.5817389+09:00",
+      "passed": 9
+    },
+    {
+      "report": "lasso-validation",
+      "failed": 0,
+      "updated": "2026-10-23T15:36:00.8243665+09:00",
+      "passed": 48
+    },
+    {
+      "report": "match-validation",
+      "failed": 0,
+      "updated": "2026-10-23T15:31:38.5423936+09:00",
+      "passed": 69
+    },
+    {
+      "report": "room-bots-network-validation",
+      "failed": 0,
+      "updated": "2026-10-23T15:38:11.9565807+09:00",
+      "passed": 53
+    },
+    {
+      "report": "lasso-network-validation",
+      "failed": 0,
+      "updated": "2026-10-23T15:41:06.8873760+09:00",
+      "passed": 46
+    }
+  ],
+  "previews": [
+    "Previews/UI_Practice.png",
+    "Previews/UI_Start_Create.png",
+    "Previews/Surf_Overview.png"
+  ]
+}

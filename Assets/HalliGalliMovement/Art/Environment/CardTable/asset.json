@@ -1,0 +1,80 @@
+{
+  "key": "CardTable",
+  "sourceSha256": "023d161b1722145cf4f1840bba286b59407a086b20d07627bebd32c1eeed1fde",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "2de706bf-04b6-4234-9ca2-c08e153d3940",
+  "sourceDimensionsBlenderXYZ": [
+    0.9999436736106873,
+    0.9985957145690918,
+    0.34699761867523193
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    1.0,
+    0.9986520409584045,
+    0.34701719880104065
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 11734,
+  "triangles": 20000,
+  "flattenedTopVertices": 3908,
+  "meshes": [
+    {
+      "name": "CardTable_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "CardTable_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "CardTable_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "CardTable_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "CardTable_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

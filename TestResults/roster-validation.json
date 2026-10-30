@@ -1,0 +1,244 @@
+{
+    "passed": 46,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "2 seats: active actors, chairs, decks and cards match",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats: straight row and equal approach, gap, height and launch direction",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats: evenly spaced circular open cards without pile overlaps",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats: wrong stand pays every other active seat once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 seats: active actors, chairs, decks and cards match",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 seats: straight row and equal approach, gap, height and launch direction",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 seats: evenly spaced circular open cards without pile overlaps",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "3 seats: wrong stand pays every other active seat once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 seats: active actors, chairs, decks and cards match",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 seats: straight row and equal approach, gap, height and launch direction",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 seats: evenly spaced circular open cards without pile overlaps",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "4 seats: wrong stand pays every other active seat once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 seats: active actors, chairs, decks and cards match",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 seats: straight row and equal approach, gap, height and launch direction",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 seats: evenly spaced circular open cards without pile overlaps",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "5 seats: wrong stand pays every other active seat once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: active actors, chairs, decks and cards match",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: straight row and equal approach, gap, height and launch direction",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: evenly spaced circular open cards without pile overlaps",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: wrong stand pays every other active seat once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats: active actors, chairs, decks and cards match",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats: straight row and equal approach, gap, height and launch direction",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats: evenly spaced circular open cards without pile overlaps",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "2 seats: wrong stand pays every other active seat once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: active actors, chairs, decks and cards match",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: straight row and equal approach, gap, height and launch direction",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: evenly spaced circular open cards without pile overlaps",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "6 seats: wrong stand pays every other active seat once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Six reveal turns reach each named seat exactly once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Six public cards readable clear of HUD at 1.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Six public cards readable clear of HUD at 1.78",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Six public cards readable clear of HUD at 2.33",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "AI reveal gives everybody a reaction window before any stand",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Reaction window remains open without automatic player departure",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All five bots can join a frozen valid race",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Six-person race collects the pile once and immediately seats all six",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Winner continues the six-person reveal order",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Lane 1 physically clears first pad and reaches bell without falling",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Lane 2 physically clears first pad and reaches bell without falling",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Lane 3 physically clears first pad and reaches bell without falling",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Lane 4 physically clears first pad and reaches bell without falling",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Lane 5 physically clears first pad and reaches bell without falling",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Lane 6 physically clears first pad and reaches bell without falling",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "First landing times are equal within one small physics tolerance",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "AI chooses nearby AI rather than targeting only the human",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "AI can actually hit another AI",
+            "passed": true,
+            "detail": "passed"
+        }
+    ],
+    "firstLandingSeconds": [
+        0.7057828903198242,
+        0.7199993133544922,
+        0.7199993133544922,
+        0.720001220703125,
+        0.720001220703125,
+        0.7199974060058594
+    ]
+}

@@ -1,0 +1,80 @@
+{
+  "key": "RockLedge",
+  "sourceSha256": "a935810ff9949fe92b94b73ef386e5acbba6f597ab463e5db3c5949497414c11",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "acf892e5-acbc-4e42-9d73-93e3d8852467",
+  "sourceDimensionsBlenderXYZ": [
+    0.8191994428634644,
+    0.9988251328468323,
+    0.2378367930650711
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.8201630115509033,
+    1.0,
+    0.2381165474653244
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 10091,
+  "triangles": 14000,
+  "flattenedTopVertices": 2506,
+  "meshes": [
+    {
+      "name": "RockLedge_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "RockLedge_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "RockLedge_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "RockLedge_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "RockLedge_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

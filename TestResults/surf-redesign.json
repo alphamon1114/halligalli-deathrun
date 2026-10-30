@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-26",
+  "target": "Intermediate and above; about 30 seconds on a clean run. Not a CS tier certification.",
+  "route": {
+    "banks": 11,
+    "bankPlanLengthMetres": 336.8712,
+    "rightTurnsDegrees": [
+      90,
+      90,
+      90
+    ],
+    "leftTurnsDegrees": [
+      70,
+      110
+    ],
+    "checkpointGates": [
+      1,
+      3,
+      7
+    ],
+    "finalTransferHorizontalMetres": 5,
+    "fullBankWidth": 6,
+    "finalBankWidth": 4.8,
+    "movementChanged": false,
+    "automatedBoosts": false,
+    "inGameTimeLabels": false
+  },
+  "references": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3073875025",
+      "name": "surf_utopia_njv",
+      "evidence": "Official port: linear, three checkpoints. Continuous momentum route as structural reference."
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3076153623",
+      "name": "surf_kitsune",
+      "evidence": "Official port: nine stages. Distinct section rhythms as structural reference."
+    },
+    {
+      "url": "https://ksf.surf/maps/surf_mesa_fixed",
+      "name": "surf_mesa_fixed",
+      "evidence": "KSF map record and screenshot: curved bank reference; no assets copied."
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3088413071",
+      "name": "surf_ace",
+      "evidence": "Official port listing: eight stages, Tier 2. Difficulty reference, not an equivalence claim."
+    }
+  ],
+  "assets": "Existing generated VARCO interior kit reused; original ramp meshes generated locally.",
+  "validation": {
+    "method": "Actual Unity SourceMotor/CharacterController steering simulation; no in-run teleport/boost; human playtest not claimed",
+    "passed": 57,
+    "failed": 0,
+    "seatRuns": 11,
+    "minimumSeconds": 33.855,
+    "maximumSeconds": 35.05502,
+    "checkpoints": "All three recover and finish through remaining gates",
+    "finalLaunch": "6 m/s rolls back before clearing; 24 m/s reaches bell",
+    "network": {
+      "transport": "Unity Relay",
+      "passed": 26,
+      "failed": 0,
+      "checks": "Two Relay clients: map load, checkpoints, electric start drop, physical sector wall collision, R, incomplete-route rejection, bell award and cards."
+    }
+  },
+  "build": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 0,
+    "note": "Final controls and barriers build succeeded without errors or warnings. Real Relay verification passed; final rebuild only adjusted room status text spacing."
+  }
+}

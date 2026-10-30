@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb310f0ac50ca4fa00421d6044fdac, type: 3}
+  m_Name: ImpactSounds
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Movement.ImpactAudioSet
+  punches:
+  - {fileID: 8300000, guid: 6cf20d00b73d7cf44afe04c7d35b128f, type: 3}
+  - {fileID: 8300000, guid: 5cec46981140f11478e550fb60ad775f, type: 3}
+  - {fileID: 8300000, guid: 7ad904d1b0145974aa71f24d45a39107, type: 3}
+  kicks:
+  - {fileID: 8300000, guid: a19c42bb1e66e244c9f873cefdf0eb85, type: 3}
+  - {fileID: 8300000, guid: 083ed7108d59a904282495e97bccd907, type: 3}
+  - {fileID: 8300000, guid: 2d381c1f539a19c49beae5ff3dc4174f, type: 3}
+  punchVolume: 0.8
+  kickVolume: 0.9

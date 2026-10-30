@@ -1,0 +1,96 @@
+{
+    "passed": 18,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Both players begin seated with attacks and movement disabled",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Standing enables movement and sends one departure event",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Bell cannot be rung from the table",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "One seated player does not resume table phase",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "All seated resets the run and resumes once",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Bell rings once, leaving movement and session active",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Returning to all seats allows another run",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Falling disables actions during the respawn delay",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Fall returns player standing at own course entrance",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "A real kick knocks the opponent off the shared platform",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Kicked opponent returns to their entrance",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Existing kick tuning remains 3 metre configuration",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Bell sound and custom seated clip are assigned",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Right lane reaches bell with physical jumps and no fall",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Right route returns to its seat",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Left lane reaches bell with physical jumps and no fall",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Left route returns to its seat",
+            "passed": true,
+            "detail": "passed"
+        },
+        {
+            "name": "Practice rival can strike the local player",
+            "passed": true,
+            "detail": "passed"
+        }
+    ]
+}

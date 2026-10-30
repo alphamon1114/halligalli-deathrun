@@ -1,0 +1,158 @@
+{
+  "passed": 38,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Two Relay clients joined",
+      "passed": true
+    },
+    {
+      "name": "factory: ready",
+      "passed": true
+    },
+    {
+      "name": "factory: clean rope state",
+      "passed": true
+    },
+    {
+      "name": "factory: legal five fixture",
+      "passed": true
+    },
+    {
+      "name": "factory: both racers standing",
+      "passed": true
+    },
+    {
+      "name": "Factory machinery exists on both peers",
+      "passed": true
+    },
+    {
+      "name": "Shuttle clock and positions agree",
+      "passed": true
+    },
+    {
+      "name": "Shuttle actually moves on both peers",
+      "passed": true
+    },
+    {
+      "name": "Guest conveyor movement is authoritative and predicted",
+      "passed": true
+    },
+    {
+      "name": "Guest remains aboard the moving shuttle",
+      "passed": true
+    },
+    {
+      "name": "Carried guest stays synchronized over multiple ticks",
+      "passed": true
+    },
+    {
+      "name": "Checkpoint is shared with guest",
+      "passed": true
+    },
+    {
+      "name": "Press approaches downward stroke",
+      "passed": true
+    },
+    {
+      "name": "Descending press crushes the guest on both peers",
+      "passed": true
+    },
+    {
+      "name": "Press victim returns to maintenance checkpoint",
+      "passed": true
+    },
+    {
+      "name": "Guest R request is synchronized",
+      "passed": true
+    },
+    {
+      "name": "R retains checkpoint and room",
+      "passed": true
+    },
+    {
+      "name": "Rope still attaches on the factory route",
+      "passed": true
+    },
+    {
+      "name": "Factory rope pull is replicated",
+      "passed": true
+    },
+    {
+      "name": "Guest wins bell and everyone immediately reseats",
+      "passed": true
+    },
+    {
+      "name": "Cards agree after factory bell",
+      "passed": true
+    },
+    {
+      "name": "Factory returns to same lobby",
+      "passed": true
+    },
+    {
+      "name": "first-steps: ready",
+      "passed": true
+    },
+    {
+      "name": "first-steps: clean rope state",
+      "passed": true
+    },
+    {
+      "name": "first-steps: legal five fixture",
+      "passed": true
+    },
+    {
+      "name": "first-steps: both racers standing",
+      "passed": true
+    },
+    {
+      "name": "Two tutorial ferries are synchronized on both peers",
+      "passed": true
+    },
+    {
+      "name": "Long-travel ferries move in opposite phase online",
+      "passed": true
+    },
+    {
+      "name": "Tutorial waiting dock saves guest checkpoint",
+      "passed": true
+    },
+    {
+      "name": "Remote racer boards the tutorial ferry",
+      "passed": true
+    },
+    {
+      "name": "Two racers can share the moving ferry",
+      "passed": true
+    },
+    {
+      "name": "Remote racer travels with ferry without sliding or desync",
+      "passed": true
+    },
+    {
+      "name": "R on tutorial ferry is host-authoritative",
+      "passed": true
+    },
+    {
+      "name": "R brings guest back to tutorial waiting dock",
+      "passed": true
+    },
+    {
+      "name": "Second ferry carries remote racer too",
+      "passed": true
+    },
+    {
+      "name": "Moved tutorial bell awards cards and reseats everyone",
+      "passed": true
+    },
+    {
+      "name": "Guest leaves factory room",
+      "passed": true
+    },
+    {
+      "name": "Room closes cleanly",
+      "passed": true
+    }
+  ]
+}

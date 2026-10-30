@@ -1,0 +1,1 @@
+ClimbCourse: PASS - original colliders, starts, cards and route anchors unchanged

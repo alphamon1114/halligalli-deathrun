@@ -1,0 +1,72 @@
+{
+  "mapId": "pyramid",
+  "name": "왕의 회랑",
+  "scene": "Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity",
+  "originalSurfMetres": 336.8712,
+  "pyramidSurfMetres": 882.1998291015625,
+  "lengthRatio": 2.6188045434028275,
+  "banks": 25,
+  "sharedCheckpoints": 4,
+  "layout": "Five individually authored chambers using 25 solid two-sided triangular prisms with a raised central ridge and outward-facing 55-degree slopes. Either face remains connected through turns and aligned gap transfers, with no compulsory left/right swaps. Broad shared landings, widened physical apertures, four recovery checkpoints, dives, spiral turns and aerial launches remain.",
+  "physics": "Unchanged original surf profile; 4.5 m/s ground movement, no sprint, no automatic bunny hop, no scripted player boost.",
+  "references": [
+    {
+      "title": "surf_utopia_njv authorized CS2 port",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3073875025",
+      "influence": "Continuous linear flow and periodic checkpoints"
+    },
+    {
+      "title": "surf_kitsune official CS2 port by Arblarg",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3076153623",
+      "influence": "Distinct staged spaces with clear landings"
+    },
+    {
+      "title": "surf_mesa_revo authorized CS2 port",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3076980482",
+      "influence": "Broad sweeping banks and readable transfers"
+    },
+    {
+      "title": "KSF surf_mesa_fixed map record",
+      "url": "https://ksf.surf/maps/surf_mesa_fixed",
+      "influence": "Established linear surf reference with three checkpoints"
+    }
+  ],
+  "art": {
+    "provider": "VARCO 3D",
+    "workflow": "https://3d.varco.ai/flow/f3bda240-6222-43a4-a214-a85fdffa8af1",
+    "approvedAndUsedGenerationPoints": 1500,
+    "models": [
+      "StoneGate",
+      "LotusColumn",
+      "Anubis",
+      "ReliefPanel",
+      "Sarcophagus",
+      "Brazier"
+    ],
+    "settings": "12000 triangles each, 2K PBR, Private",
+    "sourcePreservation": "Original GLBs retained; relief slab depth reduced for wall mounting; collision stays on the authored course geometry.",
+    "assetReuse": "No CS map geometry or textures copied. Reference structures were reinterpreted in original Unity geometry.",
+    "wallTexture": {
+      "asset": "Sandstone Blocks 05",
+      "provider": "Poly Haven",
+      "author": "Rob Tuytel",
+      "source": "https://polyhaven.com/a/sandstone_blocks_05",
+      "license": "CC0 1.0",
+      "resolution": 4096,
+      "maps": [
+        "Diffuse",
+        "Normal OpenGL",
+        "ARM",
+        "Height"
+      ]
+    }
+  },
+  "checkpointGates": [
+    4,
+    9,
+    14,
+    20
+  ],
+  "protocol": 24,
+  "revision": "2026-10-27 continuous two-sided triangular surf"
+}

@@ -1,0 +1,80 @@
+{
+  "key": "LandingPlatform",
+  "sourceSha256": "5bfc1568dadb3eb58cf3b63d157939e1d5d09614fa8e109fbce85bdf02968e35",
+  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
+  "meshNodeId": "0000b685-98fb-4fc1-bd6b-8979e68a0b5a",
+  "sourceDimensionsBlenderXYZ": [
+    0.9937970638275146,
+    0.9998805522918701,
+    0.1792147159576416
+  ],
+  "normalizedDimensionsBlenderXYZ": [
+    0.9939157962799072,
+    1.0,
+    0.17923612892627716
+  ],
+  "pivot": "bottom-center",
+  "colliders": "none; retain original Unity gameplay colliders",
+  "vertices": 8942,
+  "triangles": 14000,
+  "flattenedTopVertices": 3092,
+  "meshes": [
+    {
+      "name": "LandingPlatform_Mesh_0",
+      "materialSlots": [
+        "material_0"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material_0",
+      "baseColorFactor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallicFactor": 1,
+      "roughnessFactor": 1,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "baseColor": {
+        "file": "LandingPlatform_Texture_0.png",
+        "usage": "sRGB",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "metallicRoughness": {
+        "file": "LandingPlatform_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "normal": {
+        "file": "LandingPlatform_Texture_2.png",
+        "usage": "normal",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "occlusion": {
+        "file": "LandingPlatform_Texture_1.png",
+        "usage": "linear",
+        "uv": 0,
+        "scale": 1,
+        "strength": 1
+      },
+      "emissive": null
+    }
+  ]
+}

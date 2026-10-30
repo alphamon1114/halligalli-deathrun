@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45aee6fdb6e821f4681b8df7e81c88bb, type: 3}
+  m_Name: SurfMovement
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Movement.SourceMovementProfile
+  moveSpeed: 4.5
+  crouchSpeed: 2.2
+  groundAcceleration: 14
+  groundFriction: 7
+  stopSpeed: 2.5
+  airAcceleration: 80
+  airWishSpeedCap: 0.8
+  maximumAirSpeed: 0
+  surfEnabled: 1
+  gravity: 20
+  jumpHeight: 1
+  terminalFallSpeed: 40
+  autoBunnyHop: 0
+  jumpBufferSeconds: 0.08
+  radius: 0.3
+  standingHeight: 1.8
+  crouchingHeight: 1
+  standingEyeHeight: 1.65
+  crouchingEyeHeight: 0.85
+  crouchTransitionSeconds: 0.12
+  preserveHeadDuringAirDuck: 1
+  skinWidth: 0.025
+  stepHeight: 0.3
+  slopeLimit: 46
+  groundSnapDistance: 0.22
+  groundStickSpeed: 2
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  mouseSensitivity: 0.12
+  pitchLimit: 88
+  fieldOfView: 85
