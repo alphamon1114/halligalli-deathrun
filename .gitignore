@@ -37,3 +37,8 @@ Thumbs.db
 *.pfx
 *.keystore
 *.jks
+
+# Standalone launcher projects are source; their build outputs are local.
+!/Launcher/**/*.csproj
+/Launcher/**/bin/
+/Launcher/**/obj/

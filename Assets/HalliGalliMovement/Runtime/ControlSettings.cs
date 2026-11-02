@@ -20,7 +20,8 @@ namespace HalliGalli.Movement
             foreach(var controller in FindObjectsByType<SourcePlayerController>())if(controller.enabled)controller.SetCursorCaptured(false);
         }
         public static void Close(){IsOpen=false;blockedThrough=Time.frameCount+2;waitRelease=true;if(instance){instance.row=-1;instance.candidate=0;}}
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]static void Boot(){IsOpen=false;blockedThrough=-1;waitRelease=false;Ensure();ControlBindings.Reload();}
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]static void Boot(){GameReleaseGate.RunWhenAllowed(BootAfterReleaseCheck);}
+        static void BootAfterReleaseCheck(){IsOpen=false;blockedThrough=-1;waitRelease=false;Ensure();ControlBindings.Reload();}
         static void Ensure(){if(instance)return;instance=new GameObject("Control settings").AddComponent<ControlSettings>();DontDestroyOnLoad(instance.gameObject);}
         public void BeginCapture(GameAction action,int bindingSlot){row=(int)action;slot=bindingSlot;candidate=0;armedFrame=Time.frameCount+1;message="원하는 키·마우스 버튼·휠을 입력하세요.  ESC 취소";}
         void OnApplicationFocus(bool focus){focused=focus;if(!focus){row=-1;candidate=0;blockedThrough=Time.frameCount+2;waitRelease=true;}}

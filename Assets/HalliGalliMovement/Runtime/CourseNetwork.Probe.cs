@@ -108,7 +108,8 @@ namespace HalliGalli.Movement
         bool studioUI;
         bool shirtSelectionAccepted,shirtSelectionLoading;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        static void Boot()
+        static void Boot(){GameReleaseGate.RunWhenAllowed(BootAfterReleaseCheck);}
+        static void BootAfterReleaseCheck()
         {
             if(Arg("--net-probe")!=null){var go=new GameObject("Network test driver");DontDestroyOnLoad(go);go.AddComponent<CourseNetworkProbe>();}
         }

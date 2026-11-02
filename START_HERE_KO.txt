@@ -5,7 +5,8 @@ Unity 버전: 6000.6.0f1
 1. Unity Hub에 HalliGalliDeathrun 폴더를 추가합니다.
 2. Assets/HalliGalliMovement/Demo/BellRunCourse.unity를 엽니다.
 3. Play를 누르면 시작 화면이 열립니다. 방 만들기 / 초대코드로 참가 / 연습실 / 맵 만들기 중 하나를 고릅니다.
-Windows 버전은 압축을 풀고 HalliGalliMovement.exe를 실행합니다.
+Windows 플레이: https://github.com/alphamon1114/halligalli-deathrun/releases/latest 에서 BellRunLauncher.exe를 받아 실행 → 설치 / 업데이트 → 게임 실행. Unity와 별도 .NET 설치는 필요 없습니다.
+매 실행 시 최신 버전을 확인합니다. 구버전·인터넷/서버 확인 실패 시 실행하지 않으며, HalliGalliMovement.exe를 직접 열어도 검사합니다. 사용자 맵과 개인 설정은 업데이트 시 유지됩니다. 이미 실행 중인 게임은 종료한 뒤 업데이트하세요.
 혼자 하고 싶으면 방을 만든 뒤 "+ AI 추가"를 눌러 상대를 한 명씩 추가합니다. 방장 1명 + AI 1명부터 시작할 수 있습니다.
 정원은 항상 6명이며 친구와 AI를 합해 계산합니다. 방장은 AI 옆 "빼기"로 빈자리를 만들 수 있으며, 게임 중에는 구성을 변경할 수 없습니다. 내 차례에 좌클릭으로 카드를 공개합니다.
 정원은 6명으로 고정입니다. 시작 시 현재 방에 있는 사람과 AI만으로 카드와 자리를 배치하며, 빈자리를 자동으로 채우지 않습니다. 예: 정원 6명에 사람 2명 + AI 1명이면 "3명으로 시작"합니다.

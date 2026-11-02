@@ -69,7 +69,8 @@ namespace HalliGalli.Movement
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void ResetStatic(){Instance=null;}
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        static void Boot()
+        static void Boot(){GameReleaseGate.RunWhenAllowed(BootAfterReleaseCheck);}
+        static void BootAfterReleaseCheck()
         {
             if(!Instance&&FindAnyObjectByType<CourseSession>())new GameObject("Online rooms").AddComponent<CourseNetwork>();
         }
