@@ -87,6 +87,7 @@ Shift 달리기와 마비총은 제거된 상태입니다. 기본 이동은 4.5m
 
 ## 개발과 검증
 
+- 런처 배포 검증 **2026-11-02, v1.0.0 / 프로토콜 35**: [공식 Release](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.0) 게시, 실제 UI 다운로드·설치·홈 진입·손상 설치 복구, 구버전 직접 실행 및 네트워크 실패 차단 확인. 런처 경계 **31/31**, 게임 검사 계약 **32/32**, 검사 통과 후 실제 3인 게임플레이 **21/21**. 사용자 맵 데이터 24개 해시 유지. [검증 기록](TestResults/launcher-release.json).
 - 런처 개발: `.NET 10 SDK`에서 `dotnet run --project Launcher/BellRun.Launcher.Tests/BellRun.Launcher.Tests.csproj -c Release`로 설치/실행 차단 경계 검사를 수행합니다. Unity의 `HalliGalli.EditorTools.GameReleaseVerification.Run`은 게임 버전 검사 응답 계약을 확인합니다.
 - 새 배포: `Runtime/GameRelease.cs`의 `Version`을 새 `major.minor.patch`로 올리고 `powershell -ExecutionPolicy Bypass -File Tools/Release/Build-Release.ps1`을 실행합니다. 씬을 재생성하지 않고 게임·독립 실행 런처·ZIP·메타데이터를 `Build/Releases/<버전>`에 만듭니다. 해당 소스를 커밋·푸시한 뒤 `Tools/Release/Publish-Release.ps1 -Version <버전>`으로 게시합니다. 전체 에셋 업로드가 끝난 draft만 latest로 전환하며, 게시된 버전은 덮어쓰지 말고 새 버전을 발급하세요. 전체 ZIP 업데이트 방식이며 런처 자체의 변경은 최신 EXE를 다시 받습니다.
 - 최신 아이템 검증 **2026-11-02, 프로토콜 35**: 순위와 무관하게 세 아이템 각각 1/3, 선두 후방 미사일, 점프 중 실제 바닥 설치, 조준점 기준 실시간 락온을 적용했습니다. 최종 Windows 빌드 성공, 실제 공식 레이스 **34/34**, 사용자 맵 아이템 **38/38**, 3인 조준 전환·선택 대상 명중 **21/21**([결과](TestResults/missile-aim.json)). 실제 LOCK ON 화면을 확인했으며 씬·이동·모션 등 64개 해시 일치. 인터넷 Relay·인위적 지연은 이번에 검증하지 않았습니다.

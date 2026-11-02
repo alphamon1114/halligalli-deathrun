@@ -1,7 +1,7 @@
 {
-  "utc": "2026-11-02T08:27:09.609Z",
+  "utc": "2026-11-02T09:08:28.455Z",
   "protocol": 35,
-  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\missile-aim-1793608003309",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\missile-aim-1793610480304",
   "passed": 21,
   "failed": 0,
   "checks": [
@@ -147,7 +147,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -166,8 +166,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -418,7 +418,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 8.379467298276722,
+        "worldTime": 9.259425071086735,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -605,7 +605,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.6901566982269287
+              "cooldown": 3.810143232345581
             },
             {
               "index": 5,
@@ -614,7 +614,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.950273513793945
+              "cooldown": 5.190065383911133
             },
             {
               "index": 6,
@@ -623,7 +623,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.240084648132324
+              "cooldown": 6.4400715827941895
             },
             {
               "index": 7,
@@ -859,7 +859,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -878,8 +878,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -1130,7 +1130,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 8.379467298276722,
+        "worldTime": 9.259425071086735,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -1317,7 +1317,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.6901566982269287
+              "cooldown": 3.810143232345581
             },
             {
               "index": 5,
@@ -1326,7 +1326,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.950273513793945
+              "cooldown": 5.190065383911133
             },
             {
               "index": 6,
@@ -1335,7 +1335,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.240084648132324
+              "cooldown": 6.4400715827941895
             },
             {
               "index": 7,
@@ -1575,7 +1575,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -1594,8 +1594,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -1846,7 +1846,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 8.589569977400824,
+        "worldTime": 9.459432898378,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -2033,7 +2033,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.4800539016723633
+              "cooldown": 3.610135316848755
             },
             {
               "index": 5,
@@ -2042,7 +2042,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.740170478820801
+              "cooldown": 4.990057468414307
             },
             {
               "index": 6,
@@ -2051,7 +2051,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.029982089996338
+              "cooldown": 6.240063667297363
             },
             {
               "index": 7,
@@ -2287,7 +2287,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -2306,8 +2306,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -2558,7 +2558,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 8.589569977400824,
+        "worldTime": 9.459432898378,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -2745,7 +2745,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.4800539016723633
+              "cooldown": 3.610135316848755
             },
             {
               "index": 5,
@@ -2754,7 +2754,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.740170478820801
+              "cooldown": 4.990057468414307
             },
             {
               "index": 6,
@@ -2763,7 +2763,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.029982089996338
+              "cooldown": 6.240063667297363
             },
             {
               "index": 7,
@@ -3003,7 +3003,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -3022,8 +3022,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -3274,7 +3274,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 8.809556201603264,
+        "worldTime": 9.669273199075834,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -3461,7 +3461,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.2600677013397217
+              "cooldown": 3.4002950191497803
             },
             {
               "index": 5,
@@ -3470,7 +3470,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.520184516906738
+              "cooldown": 4.780217170715332
             },
             {
               "index": 6,
@@ -3479,7 +3479,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.809995651245117
+              "cooldown": 6.030223369598389
             },
             {
               "index": 7,
@@ -3715,7 +3715,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -3734,8 +3734,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -3986,7 +3986,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 8.809556201603264,
+        "worldTime": 9.669273199075834,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -4173,7 +4173,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.2600677013397217
+              "cooldown": 3.4002950191497803
             },
             {
               "index": 5,
@@ -4182,7 +4182,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.520184516906738
+              "cooldown": 4.780217170715332
             },
             {
               "index": 6,
@@ -4191,7 +4191,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.809995651245117
+              "cooldown": 6.030223369598389
             },
             {
               "index": 7,
@@ -4431,7 +4431,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -4450,8 +4450,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -4702,7 +4702,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 10.069458062946797,
+        "worldTime": 11.139292069151997,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -4889,7 +4889,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.0001659393310547
+              "cooldown": 1.9302761554718018
             },
             {
               "index": 5,
@@ -4898,7 +4898,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.260282516479492
+              "cooldown": 3.3101985454559326
             },
             {
               "index": 6,
@@ -4907,7 +4907,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.550094127655029
+              "cooldown": 4.56020450592041
             },
             {
               "index": 7,
@@ -5143,7 +5143,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -5162,8 +5162,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -5414,7 +5414,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 10.069458062946797,
+        "worldTime": 11.139292069151997,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -5601,7 +5601,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.0001659393310547
+              "cooldown": 1.9302761554718018
             },
             {
               "index": 5,
@@ -5610,7 +5610,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.260282516479492
+              "cooldown": 3.3101985454559326
             },
             {
               "index": 6,
@@ -5619,7 +5619,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.550094127655029
+              "cooldown": 4.56020450592041
             },
             {
               "index": 7,
@@ -5859,7 +5859,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -5878,8 +5878,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -6130,7 +6130,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 10.279331068927423,
+        "worldTime": 11.349215824827551,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -6317,7 +6317,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 1.7902928590774536
+              "cooldown": 1.7203524112701416
             },
             {
               "index": 5,
@@ -6326,7 +6326,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.0504095554351807
+              "cooldown": 3.1002748012542725
             },
             {
               "index": 6,
@@ -6335,7 +6335,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.340220928192139
+              "cooldown": 4.35028076171875
             },
             {
               "index": 7,
@@ -6571,7 +6571,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -6590,8 +6590,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -6842,7 +6842,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 10.279331068927423,
+        "worldTime": 11.349215824827551,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -7029,7 +7029,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 1.7902928590774536
+              "cooldown": 1.7203524112701416
             },
             {
               "index": 5,
@@ -7038,7 +7038,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.0504095554351807
+              "cooldown": 3.1002748012542725
             },
             {
               "index": 6,
@@ -7047,7 +7047,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.340220928192139
+              "cooldown": 4.35028076171875
             },
             {
               "index": 7,
@@ -7287,7 +7287,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -7306,8 +7306,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -7558,7 +7558,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 11.009390742713585,
+        "worldTime": 12.199222708716988,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -7745,7 +7745,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 1.060233235359192
+              "cooldown": 0.8703455328941345
             },
             {
               "index": 5,
@@ -7754,7 +7754,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.320349931716919
+              "cooldown": 2.250267744064331
             },
             {
               "index": 6,
@@ -7763,7 +7763,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.610161304473877
+              "cooldown": 3.5002739429473877
             },
             {
               "index": 7,
@@ -7999,7 +7999,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -8018,8 +8018,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -8270,7 +8270,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 11.009390742713585,
+        "worldTime": 12.199222708716988,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -8457,7 +8457,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 1.060233235359192
+              "cooldown": 0.8703455328941345
             },
             {
               "index": 5,
@@ -8466,7 +8466,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.320349931716919
+              "cooldown": 2.250267744064331
             },
             {
               "index": 6,
@@ -8475,7 +8475,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.610161304473877
+              "cooldown": 3.5002739429473877
             },
             {
               "index": 7,
@@ -8714,7 +8714,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -8733,8 +8733,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -8911,12 +8911,12 @@
           {
             "position": {
               "x": 0,
-              "y": 0.8312499523162842,
+              "y": 1.1222501993179321,
               "z": 185
             },
             "velocity": {
               "x": 0,
-              "y": 10.000003814697266,
+              "y": 9.400005340576172,
               "z": 0
             },
             "seated": false,
@@ -8940,10 +8940,10 @@
             "viewYaw": 0,
             "viewRoll": 0,
             "checkpointSide": 0,
-            "stun": 1.3250000476837158,
-            "immunity": 1.5250000953674316,
+            "stun": 1.2950000762939453,
+            "immunity": 1.4950001239776611,
             "stagger": 0,
-            "raceLaunch": 1.3250000476837158,
+            "raceLaunch": 1.2950000762939453,
             "pushProtection": 0,
             "attackElapsed": 0,
             "kickCooldown": 0,
@@ -8985,7 +8985,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 12.379226150205358,
+        "worldTime": 13.5791763523221,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -9125,7 +9125,7 @@
               "slips": 0,
               "item": 0,
               "effect": 1,
-              "effectRemaining": 1.310096025466919
+              "effectRemaining": 1.2799917459487915
             }
           ],
           "boxes": [
@@ -9181,7 +9181,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 0.9505144357681274
+              "cooldown": 0.8703141808509827
             },
             {
               "index": 6,
@@ -9190,7 +9190,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.240325927734375
+              "cooldown": 2.1203203201293945
             },
             {
               "index": 7,
@@ -9426,7 +9426,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -9445,8 +9445,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -9623,12 +9623,12 @@
           {
             "position": {
               "x": 0,
-              "y": 0.8312499523162842,
+              "y": 1.1222501993179321,
               "z": 185
             },
             "velocity": {
               "x": 0,
-              "y": 10.000003814697266,
+              "y": 9.400005340576172,
               "z": 0
             },
             "seated": false,
@@ -9652,10 +9652,10 @@
             "viewYaw": 0,
             "viewRoll": 0,
             "checkpointSide": 0,
-            "stun": 1.3250000476837158,
-            "immunity": 1.5250000953674316,
+            "stun": 1.2950000762939453,
+            "immunity": 1.4950001239776611,
             "stagger": 0,
-            "raceLaunch": 1.3250000476837158,
+            "raceLaunch": 1.2950000762939453,
             "pushProtection": 0,
             "attackElapsed": 0,
             "kickCooldown": 0,
@@ -9697,7 +9697,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 12.379226150205358,
+        "worldTime": 13.5791763523221,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -9837,7 +9837,7 @@
               "slips": 0,
               "item": 0,
               "effect": 1,
-              "effectRemaining": 1.310096025466919
+              "effectRemaining": 1.2799917459487915
             }
           ],
           "boxes": [
@@ -9893,7 +9893,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 0.9505144357681274
+              "cooldown": 0.8703141808509827
             },
             {
               "index": 6,
@@ -9902,7 +9902,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.240325927734375
+              "cooldown": 2.1203203201293945
             },
             {
               "index": 7,
@@ -10142,7 +10142,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -10161,8 +10161,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -10413,7 +10413,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 18.048759660283103,
+        "worldTime": 19.398804152254016,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -10600,7 +10600,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.800313711166382
+              "cooldown": 3.6802926063537598
             },
             {
               "index": 5,
@@ -10609,7 +10609,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.19027042388916
+              "cooldown": 5.060166835784912
             },
             {
               "index": 6,
@@ -10618,7 +10618,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.560308456420898
+              "cooldown": 6.440113544464111
             },
             {
               "index": 7,
@@ -10854,7 +10854,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -10873,8 +10873,8 @@
         "busy": false,
         "localSeat": 1,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -10924,7 +10924,7 @@
         "actors": [
           {
             "position": {
-              "x": 2.999999523162842,
+              "x": 2.999999761581421,
               "y": 0.02499988116323948,
               "z": 154.00001525878906
             },
@@ -11052,7 +11052,7 @@
             "position": {
               "x": 1.401298464324817e-45,
               "y": 0.02499987930059433,
-              "z": 135.00674438476562
+              "z": 135.0034942626953
             },
             "velocity": {
               "x": 0,
@@ -11125,7 +11125,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 18.037256802568834,
+        "worldTime": 19.400129187684506,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -11312,7 +11312,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.811816692352295
+              "cooldown": 3.6789674758911133
             },
             {
               "index": 5,
@@ -11321,7 +11321,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.201773166656494
+              "cooldown": 5.058841705322266
             },
             {
               "index": 6,
@@ -11330,7 +11330,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.571811199188232
+              "cooldown": 6.438788414001465
             },
             {
               "index": 7,
@@ -11570,7 +11570,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -11589,8 +11589,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -11729,8 +11729,8 @@
             "ammo": 0,
             "shots": 0,
             "stunHits": 0,
-            "yaw": 180,
-            "viewYaw": 180,
+            "yaw": 153.43495178222656,
+            "viewYaw": 153.43495178222656,
             "viewRoll": 0,
             "checkpointSide": 0,
             "stun": 0,
@@ -11841,7 +11841,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 18.14876555968076,
+        "worldTime": 19.49880303491838,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -12028,7 +12028,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.700307846069336
+              "cooldown": 3.580293655395508
             },
             {
               "index": 5,
@@ -12037,7 +12037,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.090264320373535
+              "cooldown": 4.96016788482666
             },
             {
               "index": 6,
@@ -12046,7 +12046,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.460302352905273
+              "cooldown": 6.340114593505859
             },
             {
               "index": 7,
@@ -12282,7 +12282,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -12301,8 +12301,8 @@
         "busy": false,
         "localSeat": 1,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -12480,7 +12480,7 @@
             "position": {
               "x": 1.401298464324817e-45,
               "y": 0.02499987930059433,
-              "z": 135.0006866455078
+              "z": 135.00025939941406
             },
             "velocity": {
               "x": 0,
@@ -12553,7 +12553,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 18.13825913120682,
+        "worldTime": 19.517179156430068,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -12740,7 +12740,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.7108142375946045
+              "cooldown": 3.561917543411255
             },
             {
               "index": 5,
@@ -12749,7 +12749,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.100770950317383
+              "cooldown": 4.941791534423828
             },
             {
               "index": 6,
@@ -12758,7 +12758,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.470808982849121
+              "cooldown": 6.321738243103027
             },
             {
               "index": 7,
@@ -12998,7 +12998,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -13017,8 +13017,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -13157,8 +13157,8 @@
             "ammo": 0,
             "shots": 0,
             "stunHits": 0,
-            "yaw": 180,
-            "viewYaw": 180,
+            "yaw": 153.43495178222656,
+            "viewYaw": 153.43495178222656,
             "viewRoll": 0,
             "checkpointSide": 0,
             "stun": 0,
@@ -13269,7 +13269,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 18.248750506285578,
+        "worldTime": 19.60868676904589,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -13456,7 +13456,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.600322961807251
+              "cooldown": 3.470409870147705
             },
             {
               "index": 5,
@@ -13465,7 +13465,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.990279674530029
+              "cooldown": 4.850284099578857
             },
             {
               "index": 6,
@@ -13474,7 +13474,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.360317707061768
+              "cooldown": 6.230230808258057
             },
             {
               "index": 7,
@@ -13710,7 +13710,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -13729,8 +13729,8 @@
         "busy": false,
         "localSeat": 1,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -13908,7 +13908,7 @@
             "position": {
               "x": 1.401298464324817e-45,
               "y": 0.02499987930059433,
-              "z": 135.0000457763672
+              "z": 135.00001525878906
             },
             "velocity": {
               "x": 0,
@@ -13981,7 +13981,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 18.256127341936033,
+        "worldTime": 19.633753581084314,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -14168,7 +14168,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.5929460525512695
+              "cooldown": 3.445343255996704
             },
             {
               "index": 5,
@@ -14177,7 +14177,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.982902526855469
+              "cooldown": 4.825217247009277
             },
             {
               "index": 6,
@@ -14186,7 +14186,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 6.352940559387207
+              "cooldown": 6.205163955688477
             },
             {
               "index": 7,
@@ -14426,7 +14426,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -14445,8 +14445,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -14697,7 +14697,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 19.52872206659056,
+        "worldTime": 20.858706199210136,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -14884,7 +14884,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.3203513622283936
+              "cooldown": 2.220390558242798
             },
             {
               "index": 5,
@@ -14893,7 +14893,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.710308074951172
+              "cooldown": 3.60026478767395
             },
             {
               "index": 6,
@@ -14902,7 +14902,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.08034610748291
+              "cooldown": 4.98021125793457
             },
             {
               "index": 7,
@@ -15138,7 +15138,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -15157,8 +15157,8 @@
         "busy": false,
         "localSeat": 1,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -15208,7 +15208,7 @@
         "actors": [
           {
             "position": {
-              "x": 2.997065782546997,
+              "x": 2.994323253631592,
               "y": 0.02499988116323948,
               "z": 154.00001525878906
             },
@@ -15334,9 +15334,9 @@
           },
           {
             "position": {
-              "x": 0.0000047824000830587465,
+              "x": 0.000009252997188013978,
               "y": 0.02499987930059433,
-              "z": 110.0000228881836
+              "z": 110.00004577636719
             },
             "velocity": {
               "x": 0,
@@ -15409,7 +15409,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 19.467453588793674,
+        "worldTime": 20.8719819563441,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -15596,7 +15596,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.381619930267334
+              "cooldown": 2.2071146965026855
             },
             {
               "index": 5,
@@ -15605,7 +15605,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.771576404571533
+              "cooldown": 3.586988925933838
             },
             {
               "index": 6,
@@ -15614,7 +15614,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.1416144371032715
+              "cooldown": 4.966935634613037
             },
             {
               "index": 7,
@@ -15854,7 +15854,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -15873,8 +15873,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -16125,7 +16125,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 19.52872206659056,
+        "worldTime": 20.96859393598512,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -16312,7 +16312,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.3203513622283936
+              "cooldown": 2.1105027198791504
             },
             {
               "index": 5,
@@ -16321,7 +16321,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.710308074951172
+              "cooldown": 3.4903769493103027
             },
             {
               "index": 6,
@@ -16330,7 +16330,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.08034610748291
+              "cooldown": 4.870323657989502
             },
             {
               "index": 7,
@@ -16566,7 +16566,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -16585,8 +16585,8 @@
         "busy": false,
         "localSeat": 1,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -16636,7 +16636,7 @@
         "actors": [
           {
             "position": {
-              "x": 2.999708652496338,
+              "x": 2.999216079711914,
               "y": 0.02499988116323948,
               "z": 154.00001525878906
             },
@@ -16762,7 +16762,7 @@
           },
           {
             "position": {
-              "x": 4.7470709318986337e-7,
+              "x": 0.0000012775544746546075,
               "y": 0.02499987930059433,
               "z": 110.00000762939453
             },
@@ -16837,7 +16837,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 19.567480219199012,
+        "worldTime": 20.973549942802638,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -17024,7 +17024,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.2815933227539062
+              "cooldown": 2.105546712875366
             },
             {
               "index": 5,
@@ -17033,7 +17033,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.6715497970581055
+              "cooldown": 3.4854209423065186
             },
             {
               "index": 6,
@@ -17042,7 +17042,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 5.041587829589844
+              "cooldown": 4.865367412567139
             },
             {
               "index": 7,
@@ -17282,7 +17282,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -17301,8 +17301,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -17441,8 +17441,8 @@
             "ammo": 0,
             "shots": 0,
             "stunHits": 0,
-            "yaw": 90,
-            "viewYaw": 90,
+            "yaw": 180,
+            "viewYaw": 180,
             "viewRoll": 0,
             "checkpointSide": 0,
             "stun": 0,
@@ -17553,7 +17553,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 20.26866707042791,
+        "worldTime": 21.70859247797169,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -17740,7 +17740,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 1.5804063081741333
+              "cooldown": 1.3705042600631714
             },
             {
               "index": 5,
@@ -17749,7 +17749,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.970362901687622
+              "cooldown": 2.750378370285034
             },
             {
               "index": 6,
@@ -17758,7 +17758,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.3404011726379395
+              "cooldown": 4.130324840545654
             },
             {
               "index": 7,
@@ -17994,7 +17994,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -18013,8 +18013,8 @@
         "busy": false,
         "localSeat": 1,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -18190,9 +18190,9 @@
           },
           {
             "position": {
-              "x": 6.269046696691372e-14,
+              "x": 1.6871557319622643e-13,
               "y": 0.02499987930059433,
-              "z": 134.99757385253906
+              "z": 134.99346923828125
             },
             "velocity": {
               "x": 0,
@@ -18265,7 +18265,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 20.283872043608376,
+        "worldTime": 21.701229695957156,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -18452,7 +18452,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 1.5652014017105103
+              "cooldown": 1.3778671026229858
             },
             {
               "index": 5,
@@ -18461,7 +18461,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 2.955157995223999
+              "cooldown": 2.7577412128448486
             },
             {
               "index": 6,
@@ -18470,7 +18470,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 4.325196266174316
+              "cooldown": 4.137687683105469
             },
             {
               "index": 7,
@@ -18709,7 +18709,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -18728,8 +18728,8 @@
         "busy": false,
         "localSeat": 0,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -18906,12 +18906,12 @@
           {
             "position": {
               "x": 0,
-              "y": 0.19524994492530823,
+              "y": 0.6789999008178711,
               "z": 135
             },
             "velocity": {
               "x": 0,
-              "y": 11.200000762939453,
+              "y": 10.300003051757812,
               "z": 0
             },
             "seated": false,
@@ -18935,10 +18935,10 @@
             "viewYaw": 0,
             "viewRoll": 0,
             "checkpointSide": 0,
-            "stun": 1.3849999904632568,
-            "immunity": 1.5850000381469727,
+            "stun": 1.340000033378601,
+            "immunity": 1.540000081062317,
             "stagger": 0,
-            "raceLaunch": 1.3849999904632568,
+            "raceLaunch": 1.340000033378601,
             "pushProtection": 0,
             "attackElapsed": 0,
             "kickCooldown": 0,
@@ -18980,7 +18980,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 21.518717436641456,
+        "worldTime": 22.97861638566479,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -19120,7 +19120,7 @@
               "slips": 0,
               "item": 0,
               "effect": 1,
-              "effectRemaining": 1.3799711465835571
+              "effectRemaining": 1.3299089670181274
             }
           ],
           "boxes": [
@@ -19167,7 +19167,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 0.33035600185394287
+              "cooldown": 0.10048036277294159
             },
             {
               "index": 5,
@@ -19176,7 +19176,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 1.7203125953674316
+              "cooldown": 1.4803545475006104
             },
             {
               "index": 6,
@@ -19185,7 +19185,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.09035062789917
+              "cooldown": 2.8603012561798096
             },
             {
               "index": 7,
@@ -19421,7 +19421,7 @@
         "status": "",
         "code": "",
         "map": "item-race",
-        "cardState": "{\"seats\":[{\"drawCount\":18,\"penalty\":0,\"open\":[4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":19,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":18,\"penalty\":0,\"open\":[],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":1,\"revision\":4,\"reveals\":1,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "cardState": "{\"seats\":[{\"drawCount\":14,\"penalty\":0,\"open\":[13,11,1,0,7],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[3,15,13,8,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":14,\"penalty\":0,\"open\":[1,15,15,16],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":2,\"revision\":17,\"reveals\":14,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
         "error": "",
         "winnerNickname": "",
         "victoryAction": "대기방으로 돌아가는 중",
@@ -19440,8 +19440,8 @@
         "busy": false,
         "localSeat": 1,
         "bells": 0,
-        "revision": 4,
-        "turn": 1,
+        "revision": 17,
+        "turn": 2,
         "bots": 0,
         "capacity": 6,
         "surfSections": 0,
@@ -19617,13 +19617,13 @@
           },
           {
             "position": {
-              "x": 5.73533863940192e-26,
-              "y": 0.44494763016700745,
+              "x": 2.1469892311098925e-25,
+              "y": 0.16255342960357666,
               "z": 134.99998474121094
             },
             "velocity": {
               "x": 0,
-              "y": 9.700004577636719,
+              "y": 11.200000762939453,
               "z": 0
             },
             "seated": false,
@@ -19647,10 +19647,10 @@
             "viewYaw": 0,
             "viewRoll": 0,
             "checkpointSide": 0,
-            "stun": 1.3100000619888306,
-            "immunity": 1.5100001096725464,
+            "stun": 1.3849999904632568,
+            "immunity": 1.5850000381469727,
             "stagger": 0,
-            "raceLaunch": 1.3100000619888306,
+            "raceLaunch": 1.3849999904632568,
             "pushProtection": 0,
             "attackElapsed": 0,
             "kickCooldown": 0,
@@ -19692,7 +19692,7 @@
           "z": 0
         },
         "ferryPositions": [],
-        "worldTime": 21.55192170287172,
+        "worldTime": 22.93710558066145,
         "factoryPlatforms": [],
         "factoryPresses": [],
         "selectedMap": "item-race",
@@ -19832,7 +19832,7 @@
               "slips": 0,
               "item": 0,
               "effect": 1,
-              "effectRemaining": 1.3467668294906616
+              "effectRemaining": 1.3714197874069214
             }
           ],
           "boxes": [
@@ -19879,7 +19879,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 0.29715174436569214
+              "cooldown": 0.14199116826057434
             },
             {
               "index": 5,
@@ -19888,7 +19888,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 1.6871083974838257
+              "cooldown": 1.5218653678894043
             },
             {
               "index": 6,
@@ -19897,7 +19897,7 @@
                 "y": 1.0499999523162842,
                 "z": 46
               },
-              "cooldown": 3.0571463108062744
+              "cooldown": 2.9018120765686035
             },
             {
               "index": 7,

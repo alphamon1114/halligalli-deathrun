@@ -1,0 +1,82 @@
+{
+  "utc": "2026-11-02T09:13:20.231Z",
+  "version": "1.0.0",
+  "protocol": 35,
+  "sourceCommit": "6f7f421fb0e65c27380c4b445e2d505caadccaaf",
+  "releaseUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.0",
+  "archive": {
+    "bytes": 408317886,
+    "sha256": "c124bd1d1496d235cbc21ad8eb93604534dc235bc51d1ee19e68597b6ebee36f"
+  },
+  "launcher": {
+    "bytes": 116137790,
+    "sha256": "057b7efeeceb23e072d6d3eeec02561fb69eb9e299c156fd7e69d503288d918d"
+  },
+  "checks": {
+    "launcherBoundaries": {
+      "passed": 31,
+      "failed": 0
+    },
+    "gameAdmissionContract": {
+      "passed": 32,
+      "failed": 0
+    },
+    "admittedThreePlayerGameplay": {
+      "passed": 21,
+      "failed": 0
+    }
+  },
+  "runtime": {
+    "noRelease": {
+      "http": 404,
+      "state": "BLOCKED",
+      "heldRoots": 93,
+      "launcherPlayEnabled": false
+    },
+    "liveDownload": {
+      "version": "1.0.0",
+      "state": "ALLOWED",
+      "restoredRoots": 93,
+      "homeScreenVisuallyConfirmed": true
+    },
+    "oldDirectLaunch": {
+      "embeddedVersion": "0.9.9",
+      "latestVersion": "1.0.0",
+      "http": 200,
+      "state": "BLOCKED",
+      "reason": "VersionMismatch",
+      "heldRoots": 93,
+      "probeStarted": false
+    },
+    "processLocalBrokenProxy": {
+      "gameHttp": 0,
+      "gameState": "BLOCKED",
+      "reason": "NetworkError",
+      "installedLatestLauncherPlayEnabled": false
+    },
+    "repair": {
+      "unexpectedFileBlockedPlay": true,
+      "downloadedAndPromotedNewDirectory": true,
+      "oldInstallationPreserved": true,
+      "unexpectedFileNotPromoted": true
+    },
+    "savedUserMaps": {
+      "checked": 24,
+      "changed": 0
+    }
+  },
+  "logs": [
+    "Logs/release-player.log",
+    "Logs/release-gate-contract.log",
+    "Logs/release-no-manifest-game.log",
+    "Logs/release-downloaded-game.log",
+    "Logs/release-stale-game.log",
+    "Logs/release-offline-game.log"
+  ],
+  "limits": [
+    "Unsigned Windows x64 executable; SmartScreen may warn.",
+    "No launcher self-replacement or differential patches.",
+    "Pre-gate historical binaries and deliberately modified binaries cannot be retroactively controlled.",
+    "No mid-match forced exit when a new version is published."
+  ]
+}

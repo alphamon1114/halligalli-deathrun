@@ -13,7 +13,10 @@
 - 설치 경로는 `%LOCALAPPDATA%/BellRunLauncher`이며 사용자 맵의 기존 LocalLow 경로와 PlayerPrefs는 건드리지 않습니다. 구버전 디렉터리를 자동 삭제하지 않습니다. 과거 검사 기능 없는 배포본이나 변조 실행 파일까지 통제하는 보안/DRM 기능은 아닙니다.
 - 배포 계약: schemaVersion 1, version, protocol, archiveName, downloadUrl, sha256, size, entryPoint. `GameRelease.Version`을 올리면 빌드 훅이 bundleVersion과 `BellRun-build.json`을 기록합니다. `Tools/Release/Build-Release.ps1` → 소스 커밋/푸시 → `Publish-Release.ps1 -Version <버전>` 순서입니다. GitHub draft에 ZIP·런처·메타데이터를 모두 올린 뒤 latest로 게시합니다. 공식 씬은 재생성하지 않습니다.
 - 검증(2026-11-02): 런처 HTTP/압축/손상 복구/오프라인·버전 변경 차단 등 **31/31**, Unity 응답 계약 **32/32**. Windows 게임·self-contained 런처 빌드 및 패키징 성공. 첫 배포 전 실제 게임은 HTTP 404에서 BLOCKED(씬 루트 93개 보류), 실제 런처도 실행/설치 버튼 비활성화를 확인했습니다. 두 실제 차단 화면을 확인했습니다.
-- 배포 후 실제 다운로드·홈 진입·구버전 0.9.9 직접 실행 거절은 이어서 검증합니다. 런처 자동 자체 교체·증분 패치·코드 서명은 포함하지 않습니다. 인터넷 연결과 GitHub Releases 접근이 필수입니다.
+- 실제 배포: 소스 `6f7f421`로 [v1.0.0](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.0)을 게시했습니다. 게임 ZIP 408,317,886바이트, 독립 런처 116,137,790바이트이며 GitHub 에셋 SHA-256과 로컬 결과가 일치합니다.
+- 배포 후 실제 런처 UI에서 GitHub 다운로드→검증→설치→게임 실행을 수행하고 설치된 게임의 정상 홈 화면과 ALLOWED(93개 루트 복구)를 확인했습니다. 별도 실제 구버전 0.9.9는 최신 1.0.0 응답 HTTP 200에서도 VersionMismatch로 차단되며 네트워크 프로브도 시작하지 않았습니다. 프로세스에만 끊어진 프록시를 적용하자 최신 게임은 HTTP 0/BLOCKED, 이미 최신 게임이 설치된 런처도 실행 버튼 비활성화였습니다.
+- 실제 설치에 임시 예상 밖 파일을 넣으면 실행이 막히고 업데이트 버튼만 활성화됩니다. 공식 ZIP을 다시 받아 새 설치 폴더로 전환하며 기존 폴더를 보존하는 것을 확인했고 임시 파일은 제거했습니다. 사용자 맵/받은 맵/클리어 데이터 **24개 해시 유지**. 최신 버전 검사 후 실제 3인 게임플레이 **21/21**(`TestResults/missile-aim.json`)도 통과했습니다. 전체 증거는 `TestResults/launcher-release.json`입니다. 구버전 실행기·UI 자동화 등 임시 검증 파일은 삭제했습니다.
+- 미완료/제한: 런처 자동 자체 교체·증분 패치·코드 서명은 포함하지 않습니다. 인터넷 연결과 GitHub Releases 접근이 필수이며, Windows SmartScreen 경고가 나타날 수 있습니다. 이번 변경의 인터넷 Relay/인위적 지연 게임플레이는 재검증하지 않았습니다.
 
 ### GitHub 공개 전환·업데이트 런처 요청 · 2026-11-02
 
