@@ -172,7 +172,7 @@ public sealed class MovementValidationRunner : MonoBehaviour
             var clone=Instantiate(character.bodyModel.gameObject);clone.transform.position=Vector3.zero;clone.transform.rotation=Quaternion.identity;
             try {
                 float standing=0,crouching=0;
-                foreach(string state in new[]{"Idle","WalkForward","RunForward","Jump","Fall","CrouchIdle","CrouchWalkForward","PunchLeft","PunchRight","Kick"}) {
+                foreach(string state in new[]{"Idle","WalkForward","RunForward","Jump","Fall","CrouchIdle","CrouchWalkForward","PushLeft","PushRight","Kick"}) {
                     var clip=character.motions.bodyClips.First(c=>c.name==state);clip.SampleAnimation(clone,clip.length*.25f);
                     float top=float.MinValue,bottom=float.MaxValue;
                     foreach(var skin in clone.GetComponentsInChildren<SkinnedMeshRenderer>()) {

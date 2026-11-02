@@ -1,0 +1,64 @@
+{
+  "utc": "2026-11-02T04:31:05.608Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\first-person-1440-1793593857540",
+  "ownedMaps": [
+    "d4d21dd2bcb04315b8b7892f4ff67ebb",
+    "9c24581a41f547c3b0c18546b0d1ce0b"
+  ],
+  "passed": 13,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Overview navigation cannot displace the saved first-person pose or author map changes",
+      "passed": true
+    },
+    {
+      "name": "Air placement snaps all axes without floor or face offsets and commits exact preview",
+      "passed": true
+    },
+    {
+      "name": "Existing block under crosshair does not implicitly switch air placement to face attachment",
+      "passed": true
+    },
+    {
+      "name": "Height guide measures preview bottom against actual floor",
+      "passed": true
+    },
+    {
+      "name": "Near distance stays usable and preview updates with distance",
+      "passed": true
+    },
+    {
+      "name": "Far distance is bounded and floor miss is explicitly marked as reference plane",
+      "passed": true
+    },
+    {
+      "name": "Invalid air position is rejected without silent relocation or draft changes",
+      "passed": true
+    },
+    {
+      "name": "Air item box preserves its authored bottom anchor and fixed dimensions",
+      "passed": true
+    },
+    {
+      "name": "Air placement is undone without losing earlier geometry",
+      "passed": true
+    },
+    {
+      "name": "Explicit surface mode restores flush floor attachment",
+      "passed": true
+    },
+    {
+      "name": "Real clear attempt does not retain an editor walk pawn",
+      "passed": true
+    },
+    {
+      "name": "F8 roundtrip retains first-person pose and edited geometry without certifying it",
+      "passed": true
+    },
+    {
+      "name": "First-person editing still requires actual solo completion before export",
+      "passed": true
+    }
+  ]
+}

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using HalliGalli.Movement;
 
 namespace HalliGalli.EditorTools
 {
@@ -38,7 +39,7 @@ namespace HalliGalli.EditorTools
         {
             if(state.StartsWith("Lasso")){LassoBody(state,phase);return;}
             if(state.StartsWith("Hit") || state=="Knockback"){ReactionBody(state,phase);return;}
-            if(state.StartsWith("Punch") || state=="Kick") { AttackBody(state,phase);return; }
+            if(state.StartsWith("Push") || state=="Kick") { AttackBody(state,phase);return; }
             Reset();
             bool crouch=state.Contains("Crouch"), walk=state.Contains("Walk"), run=state.Contains("Run");
             bool moving=walk||run, jump=state=="Jump", fall=state=="Fall", land=state=="Land";
@@ -118,7 +119,7 @@ namespace HalliGalli.EditorTools
         {
             if(state.StartsWith("Lasso")){LassoHands(state,phase);return;}
             if(state.StartsWith("Hit") || state=="Knockback"){ReactionHands(state,phase);return;}
-            if(state.StartsWith("Punch") || state=="Kick") { AttackHands(state,phase);return; }
+            if(state.StartsWith("Push") || state=="Kick") { AttackHands(state,phase);return; }
             Reset();
             bool run=state=="Run", walk=state=="Walk", crouch=state.Contains("Crouch");
             float a=phase*Mathf.PI*2;
@@ -175,58 +176,112 @@ namespace HalliGalli.EditorTools
                 CurlBody(side,i==0?75:Mathf.Lerp(85,20,outwards),.7f);
             }
         }
-        static Vector3 Path(float t,Vector3 idle,Vector3 chamber,Vector3 contact,Vector3 retract)
+        static MeleeAttack PushAttack(string state) => state=="PushLeft"?MeleeAttack.PushLeft:MeleeAttack.PushRight;
+        static float PushExtension(MeleeAttack attack,float time)
         {
-            if(t<.24f)return Vector3.Lerp(idle,chamber,Ease(0,.24f,t));
-            if(t<.42f)return Vector3.Lerp(chamber,contact,Ease(.24f,.42f,t));
-            if(t<.65f)return Vector3.Lerp(contact,retract,Ease(.42f,.65f,t));
-            return Vector3.Lerp(retract,idle,Ease(.65f,1,t));
+            float start=MeleeCombat.ContactStart(attack),end=MeleeCombat.ContactEnd(attack);
+            return Ease(start*.5f,start,time)*(1-Ease(end,MeleeCombat.Duration(attack)*.72f,time));
+        }
+        static float PushEnvelope(MeleeAttack attack,float time) =>
+            Ease(0,MeleeCombat.ContactStart(attack),time)*(1-Ease(MeleeCombat.Duration(attack)*.65f,MeleeCombat.Duration(attack),time));
+        static Vector3 PushPath(MeleeAttack attack,float time,Vector3 idle,Vector3 chamber,Vector3 contact,Vector3 retract)
+        {
+            float start=MeleeCombat.ContactStart(attack),end=MeleeCombat.ContactEnd(attack),duration=MeleeCombat.Duration(attack);
+            if(time<start*.5f)return Vector3.Lerp(idle,chamber,Ease(0,start*.5f,time));
+            if(time<start)return Vector3.Lerp(chamber,contact,Ease(start*.5f,start,time));
+            if(time<end)return contact;
+            if(time<duration*.72f)return Vector3.Lerp(contact,retract,Ease(end,duration*.72f,time));
+            return Vector3.Lerp(retract,idle,Ease(duration*.72f,duration,time));
         }
         public void AttackHands(string state,float phase)
         {
+            if(state=="Kick"){KickHands(phase);return;}
             Reset();
-            float envelope=Ease(0,.20f,phase)*(1-Ease(.70f,1,phase));
-            float extension=Ease(.24f,.42f,phase)*(1-Ease(.42f,.65f,phase));
+            var attack=PushAttack(state);
+            float time=phase*MeleeCombat.Duration(attack),envelope=PushEnvelope(attack,time);
             for(int i=0;i<2;i++) {
                 string side=i==0?"L":"R";float sign=i==0?-1:1;
-                bool striking=state==(i==0?"PunchLeft":"PunchRight");
+                bool pushing=state==(i==0?"PushLeft":"PushRight");
                 var idle=new Vector3(sign*.235f,-.235f,.43f);
-                Vector3 p=striking?Path(phase,idle,new Vector3(sign*.28f,-.16f,.33f),new Vector3(sign*.055f,-.12f,.70f),new Vector3(sign*.22f,-.16f,.39f)):
-                    Vector3.Lerp(idle,new Vector3(sign*(state=="Kick"?.29f:.245f),-.16f,.37f),envelope);
-                var q=Quaternion.Euler(Mathf.Lerp(-10,-28,extension),sign*Mathf.Lerp(10,-6,extension),-sign*Mathf.Lerp(32,3,extension));
-                var wrist=B(side+"_Wrist");wrist.position=P(p);wrist.rotation=root.rotation*q*worldRotations[wrist];
-                CurlHand(side,Mathf.Lerp(.45f,striking?1:.85f,envelope));
+                Vector3 p=pushing?PushPath(attack,time,idle,new Vector3(sign*.27f,-.19f,.35f),
+                    new Vector3(sign*.14f,-.14f,.66f),new Vector3(sign*.24f,-.18f,.39f)):
+                    Vector3.Lerp(idle,new Vector3(sign*.25f,-.19f,.39f),envelope);
+                // Fingers point up and the open palm faces the recipient, not the camera.
+                var idleRotation=Quaternion.Euler(-10,sign*10,-sign*32);
+                var palmRotation=Quaternion.Euler(-90,sign*8,-sign*6);
+                var wrist=B(side+"_Wrist");wrist.position=P(p);
+                wrist.rotation=root.rotation*Quaternion.Slerp(idleRotation,palmRotation,pushing?envelope:envelope*.25f)*worldRotations[wrist];
+                CurlHand(side,Mathf.Lerp(.45f,pushing?.03f:.22f,envelope));
             }
         }
         public void AttackBody(string state,float phase)
         {
+            if(state=="Kick"){KickBody(phase);return;}
             Body("Idle",0,Vector2.up);
-            float envelope=Ease(0,.20f,phase)*(1-Ease(.70f,1,phase));
-            float extension=Ease(.24f,.42f,phase)*(1-Ease(.42f,.65f,phase));
-            bool kick=state=="Kick";float sideSign=state=="PunchLeft"?-1:1;
-            Turn("Spine",new Vector3(kick?-9*extension:3*extension,kick?0:sideSign*14*extension,0));
+            var attack=PushAttack(state);
+            float time=phase*MeleeCombat.Duration(attack),envelope=PushEnvelope(attack,time),extension=PushExtension(attack,time);
+            float sideSign=state=="PushLeft"?-1:1;
+            // Weight comes from the torso. Feet remain planted and runtime leg locomotion is untouched.
+            Turn("Spine",new Vector3(4*extension,sideSign*8*extension,0));
+            Turn("Spine1",new Vector3(2*extension,0,0));
+            Turn("Neck",new Vector3(-3*extension,0,0));
             for(int i=0;i<2;i++) {
                 string side=i==0?"Left":"Right";float sign=i==0?-1:1;
-                bool striking=state=="Punch"+side;
-                Vector3 p=striking?Path(phase,new Vector3(sign*.27f,1,.09f),new Vector3(sign*.30f,1.28f,.14f),new Vector3(sign*.07f,1.38f,.64f),new Vector3(sign*.25f,1.26f,.22f)):
-                    Vector3.Lerp(new Vector3(sign*.27f,1,.09f),new Vector3(sign*.28f,1.25f,.25f),envelope);
-                Solve(B(side+"Arm"),B(side+"ForeArm"),B(side+"Hand"),P(p),P(new Vector3(sign*.5f,1.1f,-.10f)));
+                bool pushing=state=="Push"+side;
+                Vector3 idle=new Vector3(sign*.27f,1,.09f);
+                Vector3 p=pushing?PushPath(attack,time,idle,new Vector3(sign*.29f,1.25f,.18f),
+                    new Vector3(sign*.15f,1.35f,.65f),new Vector3(sign*.27f,1.20f,.24f)):
+                    Vector3.Lerp(idle,new Vector3(sign*.29f,1.18f,.22f),envelope);
+                Solve(B(side+"Arm"),B(side+"ForeArm"),B(side+"Hand"),P(p),P(new Vector3(sign*.50f,1.10f,-.06f)));
+                var wrist=B(side+"Hand");
+                Vector3 finger=Vector3.Slerp(new Vector3(0,-.9f,.3f),Vector3.up,pushing?envelope:envelope*.25f);
+                Vector3 palm=Vector3.Slerp(new Vector3(-sign,0,0),Vector3.forward,pushing?envelope:envelope*.25f);
+                Quaternion aim=Quaternion.LookRotation(V(finger),V(palm))*Quaternion.Inverse(Quaternion.LookRotation(V(new Vector3(sign,0,0)),V(Vector3.forward)));
+                wrist.rotation=aim*root.rotation*worldRotations[wrist];
+                string prefix="HandLoRA_Bip01_"+(i==0?"L":"R")+"_Finger";
+                foreach(var t in bones)if(t.name.StartsWith(prefix))t.localRotation=rotations[t];
+                CurlBody(side,Mathf.Lerp(45,pushing?4:22,envelope));
+            }
+        }
+        void KickHands(float phase)
+        {
+            Reset();
+            float time=phase*MeleeCombat.Duration(MeleeAttack.Kick);
+            float envelope=PushEnvelope(MeleeAttack.Kick,time),extension=PushExtension(MeleeAttack.Kick,time);
+            for(int i=0;i<2;i++) {
+                string side=i==0?"L":"R";float sign=i==0?-1:1;
+                var wrist=B(side+"_Wrist");
+                wrist.position=P(Vector3.Lerp(new Vector3(sign*.235f,-.235f,.43f),new Vector3(sign*.29f,-.16f,.37f),envelope));
+                var rotation=Quaternion.Euler(Mathf.Lerp(-10,-28,extension),sign*Mathf.Lerp(10,-6,extension),-sign*Mathf.Lerp(32,3,extension));
+                wrist.rotation=root.rotation*rotation*worldRotations[wrist];
+                CurlHand(side,Mathf.Lerp(.45f,.85f,envelope));
+            }
+        }
+        void KickBody(float phase)
+        {
+            Body("Idle",0,Vector2.up);
+            float time=phase*MeleeCombat.Duration(MeleeAttack.Kick);
+            float envelope=PushEnvelope(MeleeAttack.Kick,time),extension=PushExtension(MeleeAttack.Kick,time);
+            Turn("Spine",new Vector3(-9*extension,0,0));
+            for(int i=0;i<2;i++) {
+                string side=i==0?"Left":"Right";float sign=i==0?-1:1;
+                Vector3 hand=Vector3.Lerp(new Vector3(sign*.27f,1,.09f),new Vector3(sign*.28f,1.25f,.25f),envelope);
+                Solve(B(side+"Arm"),B(side+"ForeArm"),B(side+"Hand"),P(hand),P(new Vector3(sign*.5f,1.1f,-.10f)));
                 var wrist=B(side+"Hand");
                 Vector3 finger=Vector3.Slerp(new Vector3(0,-.9f,.3f),Vector3.forward,envelope);
                 Vector3 palm=Vector3.Slerp(new Vector3(-sign,0,0),Vector3.down,extension);
                 Quaternion aim=Quaternion.LookRotation(V(finger),V(palm))*Quaternion.Inverse(Quaternion.LookRotation(V(new Vector3(sign,0,0)),V(Vector3.forward)));
                 wrist.rotation=aim*root.rotation*worldRotations[wrist];
-                // Reset finger joints before applying the attack grip to avoid double curls.
                 string prefix="HandLoRA_Bip01_"+(i==0?"L":"R")+"_Finger";
-                foreach(var t in bones)if(t.name.StartsWith(prefix))t.localRotation=rotations[t];
+                foreach(var bone in bones)if(bone.name.StartsWith(prefix))bone.localRotation=rotations[bone];
                 CurlBody(side,Mathf.Lerp(45,100,envelope),envelope);
             }
-            if(kick) {
-                var foot=B("RightFoot");
-                Vector3 p=Path(phase,worldPositions[foot],new Vector3(.17f,.55f,.15f),new Vector3(.16f,.94f,.86f),new Vector3(.18f,.55f,.19f));
-                Solve(B("RightUpLeg"),B("RightLeg"),foot,P(p),P(new Vector3(.25f,1.2f,.9f)));
-                foot.rotation=root.rotation*Quaternion.Euler(-24*extension,0,0)*worldRotations[foot];
-            }
+            // Original right-foot chamber, comic forward extension and retract, retimed to contact.
+            var foot=B("RightFoot");
+            Vector3 target=PushPath(MeleeAttack.Kick,time,worldPositions[foot],new Vector3(.17f,.55f,.15f),
+                new Vector3(.16f,.94f,.86f),new Vector3(.18f,.55f,.19f));
+            Solve(B("RightUpLeg"),B("RightLeg"),foot,P(target),P(new Vector3(.25f,1.2f,.9f)));
+            foot.rotation=root.rotation*Quaternion.Euler(-24*extension,0,0)*worldRotations[foot];
         }
 
         public static float Recoil(float phase)
@@ -239,8 +294,8 @@ namespace HalliGalli.EditorTools
         {
             Body("Idle",0,Vector2.up);
             float r=Recoil(phase),guard=Ease(0,.18f,phase)*(1-Ease(.45f,1,phase));
-            bool kick=state=="Knockback";
-            float pitch=state=="HitBack"?17:state=="HitFront"||kick?-18:-5;
+            bool knockback=state=="Knockback";
+            float pitch=state=="HitBack"?17:state=="HitFront"||knockback?-18:-5;
             float roll=state=="HitLeft"?-16:state=="HitRight"?16:4;
             B("Hips").position+=V(new Vector3(0,-.035f*Mathf.Max(0,r),0));
             Turn("Spine",new Vector3(pitch*r,roll*.35f*r,roll*r));
@@ -248,7 +303,7 @@ namespace HalliGalli.EditorTools
             Turn("Neck",new Vector3(-pitch*.3f*r,roll*.3f*r,-roll*.3f*r));
             for(int i=0;i<2;i++) {
                 string side=i==0?"Left":"Right";float sign=i==0?-1:1;
-                Vector3 hand=Vector3.Lerp(new Vector3(sign*.27f,1,.09f),new Vector3(sign*(kick?.39f:.29f),kick?1.16f:1.29f,.23f),guard);
+                Vector3 hand=Vector3.Lerp(new Vector3(sign*.27f,1,.09f),new Vector3(sign*(knockback?.39f:.29f),knockback?1.16f:1.29f,.23f),guard);
                 hand.x+=-roll*.003f*r;
                 Solve(B(side+"Arm"),B(side+"ForeArm"),B(side+"Hand"),P(hand),P(new Vector3(sign*.52f,1.12f,-.15f)));
                 var foot=B(side+"Foot");Solve(B(side+"UpLeg"),B(side+"Leg"),foot,P(worldPositions[foot]),P(new Vector3(sign*.24f,.5f,.9f)));

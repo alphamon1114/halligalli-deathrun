@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory=$true)]
-    [ValidateSet('pyramid','pyramid-probe','pyramid-validate','pyramid-capture','pyramid-ui','capture-build','open')]
+    [ValidateSet('pyramid','pyramid-probe','pyramid-validate','pyramid-capture','pyramid-ui','push-preview','capture-build','open')]
     [string]$Job
 )
 $ErrorActionPreference='Stop'

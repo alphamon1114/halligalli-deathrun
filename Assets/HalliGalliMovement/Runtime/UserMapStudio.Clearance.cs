@@ -61,6 +61,7 @@ namespace HalliGalli.Movement
 
         void LateUpdate()
         {
+            UpdateFirstPersonCamera();
             if (!testing || busy || !clearAttempt || !clearSession) return;
             var local = clearSession.Local;
             if (local.Falls == clearFalls) return;

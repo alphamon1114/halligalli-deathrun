@@ -24,7 +24,7 @@ namespace HalliGalli.Movement
             public LassoTool.NetworkState lasso;
             public int ack,falls,respawns,attackSequence,hits,gates,checkpoint;
             public MeleeAttack attack;
-            public float attackElapsed,checkpointSide;
+            public float attackElapsed,kickCooldown,checkpointSide;
             public bool seated,respawning;
         }
         sealed class InputStream
@@ -154,7 +154,7 @@ namespace HalliGalli.Movement
                     var p=game.participants[i];
                     int ack=inputs.TryGetValue(members[i].id,out var stream)?stream.ack:0;
                     var pose=new Pose{motor=p.Motor.CaptureNetworkState(),lasso=p.Lasso.CaptureNetworkState(),ack=ack,falls=p.Falls,respawns=p.RespawnSequence,
-                        attack=p.Combat.CurrentAttack,attackElapsed=p.Combat.Elapsed,attackSequence=p.Combat.AttackSequence,hits=p.Combat.HitCount,
+                        attack=p.Combat.CurrentAttack,attackElapsed=p.Combat.Elapsed,attackSequence=p.Combat.AttackSequence,hits=p.Combat.HitCount,kickCooldown=p.Combat.KickCooldownRemaining,
                         seated=p.IsSeated,respawning=p.IsRespawning,gates=game.roster.surf?game.roster.surf.GatesPassed(p):0,checkpoint=p.CheckpointIndex,checkpointSide=p.CheckpointSide};
                     writer.WriteValueSafe(pose);
                 }
@@ -176,7 +176,7 @@ namespace HalliGalli.Movement
                     bool teleport=p.ApplyNetworkStatus(pose.seated,pose.respawning,pose.falls,pose.respawns,pose.motor.yaw);
                     p.SetCheckpoint(pose.checkpoint,pose.checkpointSide);
                     p.Lasso.ApplyNetwork(pose.lasso);
-                    p.Combat.ApplyNetworkAttack(pose.attack,pose.attackElapsed,pose.attackSequence,pose.hits);
+                    p.Combat.ApplyNetworkAttack(pose.attack,pose.attackElapsed,pose.attackSequence,pose.hits,pose.kickCooldown);
                     if(game.roster.surf)game.roster.surf.ApplyNetworkProgress(p,pose.gates);
                     if(!p.localPlayer){if(teleport)p.Motor.RestoreNetworkState(pose.motor);continue;}
                     predicted.RemoveAll(c=>c.sequence<=pose.ack||c.respawn!=pose.respawns);
@@ -206,7 +206,7 @@ namespace HalliGalli.Movement
                 if(p.IsSeated!=seated){
                     p.ApplyNetworkStatus(seated,false,p.Falls,p.RespawnSequence);
                     var state=p.Motor.CaptureNetworkState();state.position=(seated?p.seatAnchor:p.standAnchor).position;
-                    state.yaw=(seated?p.seatAnchor:p.standAnchor).eulerAngles.y;state.velocity=Vector3.zero;state.stun=state.stunImmunity=0;
+                    state.yaw=(seated?p.seatAnchor:p.standAnchor).eulerAngles.y;state.velocity=Vector3.zero;state.stun=state.stunImmunity=state.raceSlip=state.raceLaunch=0;
                     p.Motor.RestoreNetworkState(state);if(p.localPlayer){predicted.Clear();p.GetComponent<SourcePlayerController>().SmoothNetworkCorrection(p.transform.position,true);}
                 }
             }
@@ -227,7 +227,7 @@ namespace HalliGalli.Movement
         {
             if(!Active||Authority)return false;
             var p=combat.GetComponent<CourseParticipant>();
-            if(p&&p.localPlayer)Instance.LocalAction(kick?NetworkAction.Kick:NetworkAction.Punch);
+            if(p&&p.localPlayer)Instance.LocalAction(kick?NetworkAction.Kick:NetworkAction.Push);
             return true;
         }
         void ReceiveAction(ulong sender,ActionMessage message)
@@ -249,8 +249,10 @@ namespace HalliGalli.Movement
                 case NetworkAction.Interact:
                     if(p.IsRespawning)break;
                     if(p.IsSeated)p.Stand();else if(game.CanRing(p))game.Ring(p);else if(p.CanSit)p.Sit();break;
-                case NetworkAction.Punch:p.Combat.TryPunch();break;
-                case NetworkAction.Kick:p.Combat.TryKick();break;
+                case NetworkAction.Push:
+                    if(message.respawn==p.RespawnSequence){p.Combat.networkAim=message.aim;p.Combat.TryPush();}break;
+                case NetworkAction.Kick:
+                    if(message.respawn==p.RespawnSequence){p.Combat.networkAim=message.aim;p.Combat.TryKick();}break;
                 case NetworkAction.Respawn:if(message.respawn==p.RespawnSequence)p.RequestRespawn();break;
                 case NetworkAction.LassoThrow:if(message.respawn==p.RespawnSequence)p.Lasso.TryThrow(message.aim);break;
                 case NetworkAction.LassoPull:if(message.respawn==p.RespawnSequence&&message.toolSequence==p.Lasso.Casts)p.Lasso.TryPull(message.aim);break;

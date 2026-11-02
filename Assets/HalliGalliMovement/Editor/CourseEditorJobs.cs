@@ -115,7 +115,7 @@ namespace HalliGalli.EditorTools
                     EditorSceneManager.OpenScene(CourseBuilder.ScenePath);new GameObject("AI room review").AddComponent<RoomBotsValidationRunner>();
                     EditorApplication.isPlaying=true;File.WriteAllText(Path.Combine(Folder,"status.txt"),"DISPATCHED room-bots-validate");return;
                 }
-                if(job=="checkpoints"||job=="checkpoint-validate"||job=="checkpoint-capture"||job=="punch-preview"){
+                if(job=="checkpoints"||job=="checkpoint-validate"||job=="checkpoint-capture"||job=="push-preview"){
                     for(int i=0;i<UnityEngine.SceneManagement.SceneManager.sceneCount;i++){
                         var scene=UnityEngine.SceneManagement.SceneManager.GetSceneAt(i);
                         if(scene.isDirty){Directory.CreateDirectory(MovementProjectBuilder.Root+"/Demo/Backups");EditorSceneManager.SaveScene(scene,MovementProjectBuilder.Root+"/Demo/Backups/"+scene.name+"_"+DateTime.Now.ToString("yyyyMMdd_HHmmss")+".unity",true);}
@@ -124,9 +124,9 @@ namespace HalliGalli.EditorTools
                 if(job=="checkpoints"){
                     CheckpointBuilder.Install();File.WriteAllText(Path.Combine(Folder,"status.txt"),"DISPATCHED checkpoints");return;
                 }
-                if(job=="punch-preview"){
-                    EditorSceneManager.OpenScene(CourseBuilder.ScenePath);new GameObject("Punch preview").AddComponent<PunchPreviewRunner>();
-                    EditorApplication.isPlaying=true;File.WriteAllText(Path.Combine(Folder,"status.txt"),"DISPATCHED punch-preview");return;
+                if(job=="push-preview"){
+                    EditorSceneManager.OpenScene(CourseBuilder.ScenePath);new GameObject("Push preview").AddComponent<PushPreviewRunner>();
+                    EditorApplication.isPlaying=true;File.WriteAllText(Path.Combine(Folder,"status.txt"),"DISPATCHED push-preview");return;
                 }
                 if(job=="checkpoint-validate"){
                     EditorSceneManager.OpenScene(CourseBuilder.ScenePath);new GameObject("Checkpoint validation").AddComponent<CheckpointValidationRunner>();

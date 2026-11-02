@@ -1,0 +1,108 @@
+{
+  "utc": "2026-11-02T03:05:24.939Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\easy-builder-1280-1793588713876",
+  "ownedMaps": [
+    "01855a0837434c0f9c4334e14d46a62f",
+    "6e7b8ad0c63b4494ac36ecea2f6cc3f4"
+  ],
+  "passed": 24,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Free orbit changes both horizontal and vertical viewing angle without changing map data",
+      "passed": true
+    },
+    {
+      "name": "Orbit retains the focused part and zoom",
+      "passed": true
+    },
+    {
+      "name": "Leaving free flight preserves arbitrary viewing angle",
+      "passed": true
+    },
+    {
+      "name": "Panning translates focus without changing orbit angle",
+      "passed": true
+    },
+    {
+      "name": "Wheel zoom preserves viewing angle and map data",
+      "passed": true
+    },
+    {
+      "name": "Clicking a side attaches a block flush without embedding it",
+      "passed": true
+    },
+    {
+      "name": "Clicking the top stacks a block at the face instead of inside it",
+      "passed": true
+    },
+    {
+      "name": "Undo restores both placed blocks exactly",
+      "passed": true
+    },
+    {
+      "name": "Resizing a selected block keeps its bottom on the floor",
+      "passed": true
+    },
+    {
+      "name": "Rotated rectangular ramp uses rotated footprint for side attachment",
+      "passed": true
+    },
+    {
+      "name": "Erase click removes only the targeted user part",
+      "passed": true
+    },
+    {
+      "name": "Erasing is fully undoable",
+      "passed": true
+    },
+    {
+      "name": "Starting deck cannot be erased",
+      "passed": true
+    },
+    {
+      "name": "Large preset remains grounded and matches preview dimensions",
+      "passed": true
+    },
+    {
+      "name": "Item box keeps fixed size and floor anchor under large preset",
+      "passed": true
+    },
+    {
+      "name": "Floor-anchored item boxes cannot be embedded in a vertical block face",
+      "passed": true
+    },
+    {
+      "name": "A second finish bell is rejected without changing the map",
+      "passed": true
+    },
+    {
+      "name": "Out-of-bounds construction is rejected rather than silently relocated",
+      "passed": true
+    },
+    {
+      "name": "Building inside protected start is rejected",
+      "passed": true
+    },
+    {
+      "name": "Switching simple and detailed tools preserves geometry",
+      "passed": true
+    },
+    {
+      "name": "Simple movement arrows can reposition the unique finish bell",
+      "passed": true
+    },
+    {
+      "name": "Simple movement remains undoable without duplicating the bell",
+      "passed": true
+    },
+    {
+      "name": "Simple construction cannot bypass required solo clear",
+      "passed": true
+    },
+    {
+      "name": "Play and return retain free orbit, zoom, focus and authored geometry",
+      "passed": true
+    }
+  ]
+}

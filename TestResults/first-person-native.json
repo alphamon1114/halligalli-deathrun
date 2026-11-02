@@ -1,0 +1,84 @@
+{
+  "utc": "2026-11-02T04:35:19.194Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\first-person-native-1793594090408",
+  "passed": 16,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Tab captures first-person controls without changing the map",
+      "passed": true
+    },
+    {
+      "name": "Native mouse looks around without translating the camera",
+      "passed": true
+    },
+    {
+      "name": "W flies through the editor without authoring changes",
+      "passed": true
+    },
+    {
+      "name": "Native Q and wheel enable air placement and change placement distance",
+      "passed": true
+    },
+    {
+      "name": "Native left click installs the shown air preview",
+      "passed": true,
+      "detail": {
+        "status": "기본 발판 공중 배치 완료 · 계속 클릭해서 놓기 · 휠로 거리 조절 · Q로 표면 배치",
+        "valid": true
+      }
+    },
+    {
+      "name": "Right click selects the crosshair target and releases the cursor for properties",
+      "passed": true
+    },
+    {
+      "name": "Delete removes the crosshair target and undo restores it",
+      "passed": true
+    },
+    {
+      "name": "Target deletion is reversible without changing the authored placement",
+      "passed": true
+    },
+    {
+      "name": "Tab releases cursor and stops camera movement while using menus",
+      "passed": true
+    },
+    {
+      "name": "V enables a grounded physical editor pawn without entering clear verification",
+      "passed": true
+    },
+    {
+      "name": "Space physically jumps and lands using the gameplay motor",
+      "passed": true,
+      "detail": {
+        "startY": 0.024999916553497314,
+        "observedJumpY": 0.7486830949783325,
+        "landY": 0.024999916553497314
+      }
+    },
+    {
+      "name": "Walking changes actual grounded feet position without changing the map",
+      "passed": true
+    },
+    {
+      "name": "V returns to noclip and Space ascends freely",
+      "passed": true
+    },
+    {
+      "name": "V refuses to activate walking while the body overlaps a solid block",
+      "passed": true,
+      "detail": {
+        "status": "몸이 들어갈 빈 공간으로 이동한 뒤 V를 누르세요. 걷기는 벽이나 발판 안에서 시작할 수 없어요."
+      }
+    },
+    {
+      "name": "F8 destroys active editor walking pawn and starts uncertified real clear attempt",
+      "passed": true
+    },
+    {
+      "name": "Returning from real test restores walking mode, authored camera and map",
+      "passed": true
+    }
+  ]
+}

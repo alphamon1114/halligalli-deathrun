@@ -9,7 +9,12 @@ namespace HalliGalli.Movement
         {
             public string name;
             public Vector3 minimum,maximum,landing;
+            public Vector3 origin,localMinimum,localMaximum;
+            public float heading;
             public int firstSection,lastSection;
+            public Quaternion Rotation=>Quaternion.Euler(0,heading,0);
+            public Vector3 ToWorld(Vector3 local)=>origin+Rotation*local;
+            public Vector3 ToLocal(Vector3 world)=>Quaternion.Inverse(Rotation)*(world-origin);
         }
         public Chamber[] chambers;
         public Light[] flames;

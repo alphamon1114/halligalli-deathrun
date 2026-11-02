@@ -107,13 +107,12 @@ namespace HalliGalli.Movement
                 surfInput=surf.Guide(participant,route,surfNavigation,surfWideTurn,surfSidePreference);steering=surfInput.steering;
                 if(session.Ring(participant))return;
             }
-            bool recoil=participant.Receiver.LastAttack==MeleeAttack.Kick&&participant.Receiver.ReactionElapsed<.42f;
             bool machineWait=session.factory&&motor.Grounded&&session.factory.HoldForPress(transform.position,target);
-            if(recoil||machineWait||ferryWait&&toward.magnitude<.3f)steering=Vector3.zero;
+            if(machineWait||ferryWait&&toward.magnitude<.3f)steering=Vector3.zero;
             var opponent=ClosestOpponent();Vector3 toOpponent=opponent?Vector3.ProjectOnPlane(opponent.transform.position-transform.position,Vector3.up):Vector3.zero;
             bool duel=attacksEnabled&&opponent&&toOpponent.magnitude<1.8f;
             // Plant briefly while striking so the contact window faces the target; air momentum is retained.
-            if(duel&&motor.Grounded&&participant.Combat.IsAttacking&&!recoil)steering=Vector3.zero;
+            if(duel&&motor.Grounded&&participant.Combat.IsAttacking)steering=Vector3.zero;
             Vector3 face=duel?toOpponent:surfing?surfInput.forward:toward;float yaw=face.sqrMagnitude>.01f?Quaternion.LookRotation(face).eulerAngles.y:transform.eulerAngles.y;
             Vector3 local=Quaternion.Inverse(Quaternion.Euler(0,yaw,0))*steering.normalized*inputScale;
             // The row starts close to the edge; leave enough ground to accelerate before the first jump.
@@ -126,8 +125,8 @@ namespace HalliGalli.Movement
             var priorStep=climbStep&&Waypoint>0?route[Waypoint-1].GetComponent<ClimbStep>():null;
             bool hop=advanced&&climbStep&&priorStep&&climbStep.jump==ClimbJump.Hop&&priorStep.jump==ClimbJump.Hop&&motor.Grounded
                 &&motor.HorizontalSpeed>=7.2f&&Vector3.Dot(Vector3.ProjectOnPlane(motor.Velocity,Vector3.up).normalized,toward.normalized)>.95f;
-            motor.Simulate(new MovementCommand{move=new Vector2(local.x,local.z),yaw=yaw,crouch=duck,jumpPressed=!recoil&&!machineWait&&!ferryWait&&(surfing?surfInput.jump:gap||hop||rise)},Time.fixedDeltaTime);
-            if(duel&&Time.time>=nextAttack&&!recoil){bool kick=participant.Combat.AttackSequence%3==0;if(kick)participant.Combat.TryKick();else participant.Combat.TryPunch();nextAttack=Time.time+(kick?1.45f:.95f);}
+            motor.Simulate(new MovementCommand{move=new Vector2(local.x,local.z),yaw=yaw,crouch=duck,jumpPressed=!machineWait&&!ferryWait&&(surfing?surfInput.jump:gap||hop||rise)},Time.fixedDeltaTime);
+            if(duel&&Time.time>=nextAttack){bool kick=participant.Combat.AttackSequence%3==0;if(kick)participant.Combat.TryKick();else participant.Combat.TryPush();nextAttack=Time.time+(kick?1.45f:.95f);}
             if(Vector3.Distance(previous,transform.position)<.005f&&!duel&&!machineWait&&!ferryWait)stuckTime+=Time.fixedDeltaTime;else stuckTime=0;previous=transform.position;
             if(stuckTime>3){participant.BeginFall();stuckTime=0;}
         }

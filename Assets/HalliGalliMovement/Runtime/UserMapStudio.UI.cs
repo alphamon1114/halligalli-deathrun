@@ -6,8 +6,10 @@ namespace HalliGalli.Movement
     public sealed partial class UserMapStudio
     {
         bool libraryOpen, helpOpen, objectList, mapInspector;
-        bool partsMenuOpen;
+        bool partsMenuOpen, fileMenuOpen, easyContextOpen;
         public bool IsPartsMenuOpen => partsMenuOpen;
+        public bool IsContextPanelOpen => ShowInspector;
+        public Rect BuildHotbarScreenRect => new Rect(0, 0, Screen.width, BottomHeight * BellUI.Scale);
 
         public void SetPartsMenuOpen(bool open)
         {
@@ -15,6 +17,7 @@ namespace HalliGalli.Movement
             StopPointerInteraction();
             GUIUtility.keyboardControl = 0;
             partsMenuOpen = open;
+            fileMenuOpen = false;
             placementValid = false;
             if (studioCamera) UpdateCameraViewport();
         }
@@ -34,12 +37,32 @@ namespace HalliGalli.Movement
         GUIStyle compactField;
         static readonly string[] PartNames = { "기본 발판", "경사로", "삼각 서프", "체크포인트", "이동 발판", "컨베이어", "프레스", "위험 구역", "도착 종", "AI 경로점", "아이템 박스" };
         static readonly string[] ToolNames = { "이동 W", "회전 E", "크기 R" };
-        static readonly string[] PartHints = { "자유롭게 쌓는 바닥과 벽", "+Z 방향으로 올라가는 경사", "양쪽을 탈 수 있는 삼각 기둥", "추락 시 돌아오는 발판", "두 지점을 왕복하는 발판", "진행 방향으로 밀어주는 바닥", "위에서 내려오는 압착 장애물", "닿으면 체크포인트로 복귀", "코스마다 하나 · 손잡이로 이동", "목록 순서대로 AI가 이동", "닿으면 5종 중 하나 획득 · C 사용" };
+        static readonly string[] PartHints = { "자유롭게 쌓는 바닥과 벽", "회전해서 올라가는 방향 바꾸기", "양쪽을 탈 수 있는 삼각 기둥", "추락 시 돌아오는 발판", "두 지점을 왕복하는 발판", "진행 방향으로 밀어주는 바닥", "위에서 내려오는 압착 장애물", "닿으면 체크포인트로 복귀", "코스마다 하나 · 선택해서 옮기기", "자세히에서 목록 순서대로 AI가 이동", "닿으면 3종 중 하나 획득 · C 사용" };
         static readonly Color[] Swatches = UserMapRuntime.PaletteColors;
+        static readonly UserMapPart[] UIQuickParts = { UserMapPart.Block, UserMapPart.Ramp, UserMapPart.Checkpoint, UserMapPart.MovingPlatform, UserMapPart.ItemBox, UserMapPart.Bell };
+        static readonly string[] UIQuickKeys = { "1", "2", "3", "4", "5", "6" };
+        static readonly UserMapPart[] MenuParts = { UserMapPart.Block, UserMapPart.Ramp, UserMapPart.Surf, UserMapPart.Checkpoint, UserMapPart.MovingPlatform, UserMapPart.ItemBox, UserMapPart.Bell, UserMapPart.Conveyor, UserMapPart.Press, UserMapPart.Hazard, UserMapPart.Waypoint };
+        static readonly int[] PartGroupStarts = { 0, 3, 7, 10, 11 };
+        static readonly string[] PartGroupNames = { "길과 발판", "도움과 도착", "움직이는 장애물", "자세히 · AI 길 안내" };
+        static readonly string[] BuildSizeNames = { "작게", "보통", "크게" };
+        static readonly string[] MoveAxisNames = { "좌우", "위아래", "앞뒤" };
+        static readonly string[] MoveDistanceNames = { "가까이", "보통", "멀리" };
+        static readonly float[] MoveDistances = { 2, 4, 8 };
+        static readonly string[] MoveSpeedNames = { "천천히", "보통", "빠르게" };
+        static readonly float[] MovePeriods = { 8, 4, 2 };
         static readonly Color HintColor = new Color(.78f, .81f, .77f);
-        const float LeftWidth = 228, RightWidth = 320, TopHeight = 178, BottomHeight = 98;
-        Rect ViewportRect => new Rect(partsMenuOpen ? LeftWidth + 10 : 10, TopHeight,
-            BellUI.W - (partsMenuOpen ? LeftWidth : 0) - RightWidth - 30, BellUI.H - TopHeight - BottomHeight);
+        const float LeftWidth = 344, RightWidth = 320, TopHeight = 116, BottomHeight = 190;
+        bool ShowInspector => mapInspector || !EasyBuild || easyContextOpen && !placementMode && !EraseMode && FindObject(selectedId) != null;
+        float InspectorWidth => EasyBuild && !mapInspector ? 264 : RightWidth;
+        Rect ViewportRect
+        {
+            get
+            {
+                float left = partsMenuOpen ? LeftWidth + 20 : 10;
+                float right = ShowInspector ? InspectorWidth + 20 : 10;
+                return new Rect(left, TopHeight, BellUI.W - left - right, BellUI.H - TopHeight - BottomHeight);
+            }
+        }
         Rect TestHudRect => new Rect(BellUI.W * .5f - 560, 12, 1120, 148);
         Rect TestReturnRect => new Rect(BellUI.W * .5f + 280, 21, 260, 38);
         bool MapFieldsChanged => draft != null && (mapName != draft.name || mapDescription != (draft.description ?? "") || fallText != baselineFall);
@@ -154,10 +177,13 @@ namespace HalliGalli.Movement
                 BellUI.Round(new Rect(0, viewport.yMin, viewport.xMin, viewport.height), BellUI.Ink, 0);
                 BellUI.Round(new Rect(viewport.xMax, viewport.yMin, BellUI.W - viewport.xMax, viewport.height), BellUI.Ink, 0);
                 DrawWorldGuides();
-                GUI.enabled = !busy && pendingAction == null && !libraryOpen && !helpOpen;
+                DrawAirBuildGuide();
+                DrawFirstPersonBuildHud();
+                GUI.enabled = !busy && pendingAction == null && !libraryOpen && !helpOpen && !BuildCursorCaptured;
                 DrawToolbar();
-                if (partsMenuOpen) DrawPalette();
-                DrawInspector();
+                if (partsMenuOpen) { if (fileMenuOpen) DrawFileMenu(); else DrawPalette(); }
+                if (ShowInspector) DrawInspector();
+                DrawBuildHotbar();
                 DrawStatus();
                 GUI.enabled = !busy && pendingAction == null;
                 if (libraryOpen) DrawLibrary();
@@ -176,79 +202,84 @@ namespace HalliGalli.Movement
         {
             float width = BellUI.W;
             cameraHint = null;
-            BellUI.Round(new Rect(0, 0, width, TopHeight - 10), BellUI.Surface, 0);
-            if (BellUI.Button(new Rect(18, 76, 218, 34), partsMenuOpen ? "부품 메뉴 닫기" : "부품 메뉴", true, selected: partsMenuOpen, size: 18))
-                SetPartsMenuOpen(!partsMenuOpen);
-            for (int line = 0; line < 3; line++)
-                BellUI.Round(new Rect(32, 85 + line * 6, 18, 3), BellUI.Ink, 0);
-            BellUI.Text(new Rect(18, 48, 218, 22), HasUnsavedChanges ? "저장하지 않은 변경 있음 *" : "모든 변경 저장됨", 13, HasUnsavedChanges ? BellUI.Gold : HintColor);
-            float x = 245;
-            bool interactive = GUI.enabled;
-            if (BellUI.Button(new Rect(x, 18, 68, 40), "새 맵", size: 15)) NewMap(); x += 76;
-            if (BellUI.Button(new Rect(x, 18, 76, 40), "내 맵", size: 15)) OpenLibrary(); x += 84;
-            GUI.enabled = interactive && CanSaveFromUI;
-            if (BellUI.Button(new Rect(x, 18, 68, 40), "저장", true, size: 15)) SaveMap(); x += 76;
-            GUI.enabled = interactive;
-            if (BellUI.Button(new Rect(x, 18, 92, 40), "가져오기", size: 15)) ImportWithPicker(); x += 100;
-            GUI.enabled = interactive && CanSaveFromUI;
-            if (BellUI.Button(new Rect(x, 18, 92, 40), "내보내기", size: 15)) ExportWithPicker(); x += 102;
-            GUI.enabled = interactive && CanUndo;
-            if (BellUI.Button(new Rect(x, 18, 66, 40), "실행 취소", size: 13)) Undo(); x += 73;
-            GUI.enabled = interactive && CanRedo;
-            if (BellUI.Button(new Rect(x, 18, 66, 40), "다시 실행", size: 13)) Redo();
-            GUI.enabled = interactive;
-            if (BellUI.Button(new Rect(width - 294, 18, 142, 40), "클리어 검증 F8", true, size: 15)) BeginTest();
-            if (BellUI.Button(new Rect(width - 144, 18, 54, 40), "도움말", size: 13)) helpOpen = true;
-            if (BellUI.Button(new Rect(width - 82, 18, 64, 40), "홈으로", size: 14)) Close();
-            if (BellUI.Button(new Rect(18, 12, 218, 30), "선택 / 배치 취소", selected: !placementMode, size: 14)) placementMode = false;
-            bool fixedScale = FindObject(selectedId)?.kind == UserMapPart.ItemBox;
-            for (int i = 0; i < 3; i++)
+            BellUI.Round(new Rect(0, 0, width, TopHeight - 6), BellUI.Surface, 0);
+            if (BellUI.Button(new Rect(18, 12, 92, 40), "파일", selected: fileMenuOpen, size: 17))
             {
-                GUI.enabled = interactive && !(fixedScale && i == (int)TransformTool.Scale);
-                if (BellUI.Button(new Rect(244 + i * 87, 76, 80, 32), fixedScale && i == (int)TransformTool.Scale ? "크기 고정" : ToolNames[i],
-                    selected: !placementMode && transformTool == (TransformTool)i, size: 14))
-                { placementMode = false; transformTool = (TransformTool)i; }
+                bool open = !fileMenuOpen;
+                SetPartsMenuOpen(open);
+                fileMenuOpen = open && partsMenuOpen;
             }
+            BellUI.Text(new Rect(124, 12, 290, 24), draft.name, 18, BellUI.Paper, true);
+            BellUI.Text(new Rect(124, 36, 290, 18), HasUnsavedChanges ? "저장하지 않은 변경 *" : "모든 변경 저장됨", 12, HasUnsavedChanges ? BellUI.Gold : HintColor);
+            bool interactive = GUI.enabled;
+            GUI.enabled = interactive && CanUndo;
+            if (BellUI.Button(new Rect(428, 12, 94, 40), "실행 취소", size: 14)) { if (ApplyPendingFields()) Undo(); }
+            GUI.enabled = interactive && CanRedo;
+            if (BellUI.Button(new Rect(530, 12, 94, 40), "다시 실행", size: 14)) { if (ApplyPendingFields()) Redo(); }
             GUI.enabled = interactive;
-            if (BellUI.Button(new Rect(517, 76, 110, 32), snap ? "격자 맞춤 ON" : "격자 맞춤 OFF", selected: snap, size: 13)) snap = !snap;
-            if (BellUI.Button(new Rect(635, 76, 65, 32), Number(snapSize) + " m", size: 14)) snapSize = snapSize < .5f ? .5f : snapSize < 1 ? 1 : snapSize < 2 ? 2 : .25f;
-            BellUI.Text(new Rect(714, 76, 84, 32), "빈 공간 높이", 13, BellUI.Paper);
-            planeText = Field(new Rect(798, 76, 62, 32), planeText, "Plane", 8);
-            if (TryNumber(planeText, out float height)) placementHeight = Mathf.Clamp(height, -99, 299);
-            BellUI.Text(new Rect(width - 390, 76, 372, 32), "개체 클릭은 선택만 · 편집은 손잡이로", 13, HintColor, align: TextAnchor.MiddleRight);
+            if (BellUI.Button(new Rect(width - 546, 12, 188, 40), "플레이 · 클리어 F8", true, size: 16)) BeginTest();
+            GUI.enabled = interactive && CanSaveFromUI;
+            if (BellUI.Button(new Rect(width - 350, 12, 174, 40), CanSaveFromUI ? "저장 Ctrl+S" : "클리어 후 저장", true, size: 15)) SaveMap();
+            GUI.enabled = interactive;
+            if (BellUI.Button(new Rect(width - 168, 12, 70, 40), "도움말", size: 14)) { StopPointerInteraction(); helpOpen = true; }
+            if (BellUI.Button(new Rect(width - 90, 12, 72, 40), "홈으로", size: 14)) Close();
             DrawCameraToolbar();
         }
 
         void DrawCameraToolbar()
         {
-            const float y = 120, height = 40;
-            BellUI.Text(new Rect(18, y, 60, height), "카메라", 14, BellUI.Cool, true);
-            if (CameraButton(new Rect(84, y, 88, height), "위에서", "선택 개체를 중심에 두고 위에서 봐요. 선택이 없으면 현재 중심을 유지해요.", !AdvancedCamera && CurrentStudioView == StudioView.Top))
-                SetStudioView(StudioView.Top);
-            if (CameraButton(new Rect(180, y, 88, height), "사선", "선택 중심을 유지하며 입체적으로 봐요. 빈 바닥 드래그로 화면을 이동해요.", !AdvancedCamera && CurrentStudioView == StudioView.Angled))
-                SetStudioView(StudioView.Angled);
-            if (CameraButton(new Rect(276, y, 88, height), "옆에서", "선택 중심을 유지하며 옆에서 높이를 확인해요. 개체 이동은 손잡이로 해요.", !AdvancedCamera && CurrentStudioView == StudioView.Side))
-                SetStudioView(StudioView.Side);
-            if (CameraButton(new Rect(390, y, 80, height), "− 축소", "카메라만 멀어져요. 휠 아래로도 축소할 수 있고, 비행 속도는 바뀌지 않아요."))
-                ZoomCamera(-1);
-            if (CameraButton(new Rect(478, y, 80, height), "+ 확대", "카메라만 가까워져요. 휠 위로도 확대할 수 있고, 비행 속도는 바뀌지 않아요."))
-                ZoomCamera(1);
-            BellUI.Text(new Rect(582, y, 40, height), "초점", 14, BellUI.Paper);
-            if (CameraButton(new Rect(630, y, 92, height), "전체 맵", "출발점과 도착 종을 포함해 맵 전체가 보이도록 맞춰요. 맵 내용은 바뀌지 않아요."))
-                FocusAll();
-            bool interactive = GUI.enabled;
-            GUI.enabled = interactive && FindObject(selectedId) != null;
-            if (CameraButton(new Rect(730, y, 90, height), "선택 F", "선택 개체를 화면 중심에 맞춰요. F 키나 개체 두 번 클릭으로도 볼 수 있어요."))
-                FocusSelected();
-            GUI.enabled = interactive;
-            if (CameraButton(new Rect(828, y, 88, height), "출발점", "출발 구역을 화면 중심에 맞춰요. 개체 선택과 맵 내용은 유지돼요."))
-                FocusStart();
-            if (CameraButton(new Rect(924, y, 88, height), "도착 종", "도착 종을 화면 중심에 맞춰요. 개체 선택과 맵 내용은 유지돼요."))
-                FocusBell();
-            if (CameraButton(new Rect(BellUI.W - 232, y, 214, height), AdvancedCamera ? "고급 비행 ON · 끄기" : "고급 비행 OFF · 켜기",
-                AdvancedCamera ? "끄면 쉬운 카메라로 돌아가요. 비행 중에도 휠과 − / +는 항상 확대·축소예요."
-                    : "고급 사용자 전용: 켜야 우클릭 시점 회전과 WASD / Q·E 비행을 사용할 수 있어요.", AdvancedCamera))
-                SetAdvancedCamera(!AdvancedCamera);
+            const float y = 64, height = 36;
+            if (CameraButton(new Rect(18, y, 110, height), "1인칭 제작", "직접 돌아다니며 만들어요. Tab으로 마우스를 풀어요.", FirstPersonBuild))
+                SetFirstPersonBuild(true);
+            if (CameraButton(new Rect(136, y, 110, height), "전체 보기", "위에서 전체 구조를 확인하고 자유롭게 돌려 보세요.", !FirstPersonBuild))
+            { SetFirstPersonBuild(false); FocusAll(); }
+            if (FirstPersonBuild)
+            {
+                if (CameraButton(new Rect(258, y, 144, height), BuildNoclip ? "V 비행 · 노클립" : "V 걷기 · 점프", "V로 전환. 걷기는 실제 이동 물리로 간격을 확인하며 클리어 인증은 하지 않아요.", !BuildNoclip))
+                    SetBuildNoclip(!BuildNoclip);
+                if (CameraButton(new Rect(410, y, 146, height), AirBuild ? "Q 공중에 놓기" : "Q 붙여 놓기", "공중 배치는 휠로 거리를 조절해요. 자동으로 모드가 바뀌지 않아요.", AirBuild))
+                    SetAirBuild(!AirBuild);
+                BellUI.Text(new Rect(570, y, 64, height), "비행 속도", 13, HintColor);
+                for (int i = 0; i < MoveSpeedNames.Length; i++)
+                    if (CameraButton(new Rect(638 + i * 74, y, 68, height), MoveSpeedNames[i], "제작 비행 속도만 바뀌어요. 실제 걷기·점프 물리는 그대로예요.", BuildFlySpeedIndex == i))
+                        SetBuildFlySpeed(i);
+                if (CameraButton(new Rect(872, y, 86, height), "출발점", "출발 구역으로 돌아가요.")) FocusStart();
+                if (CameraButton(new Rect(966, y, 138, height), "조작 시작 Tab", "Tab 또는 맵 클릭으로 조작. 메뉴를 쓰려면 다시 Tab."))
+                    SetBuildCursorCaptured(true);
+                BellUI.Text(new Rect(1116, y, BellUI.W - 1134, height), "F8 클리어 검증", 12, BellUI.Cool);
+                return;
+            }
+            if (CameraButton(new Rect(258, y, 54, height), "−", "화면 축소")) ZoomCamera(-1);
+            if (CameraButton(new Rect(320, y, 54, height), "+", "화면 확대")) ZoomCamera(1);
+            if (CameraButton(new Rect(386, y, 64, height), "위", "위에서 보기", !AdvancedCamera && !IsOrbitView && CurrentStudioView == StudioView.Top)) SetStudioView(StudioView.Top);
+            if (CameraButton(new Rect(458, y, 64, height), "사선", "사선에서 보기", !AdvancedCamera && !IsOrbitView && CurrentStudioView == StudioView.Angled)) SetStudioView(StudioView.Angled);
+            if (CameraButton(new Rect(530, y, 64, height), "옆", "옆에서 높이 확인", !AdvancedCamera && !IsOrbitView && CurrentStudioView == StudioView.Side)) SetStudioView(StudioView.Side);
+            if (CameraButton(new Rect(610, y, 78, height), "출발점", "출발 구역을 보여줘요.")) FocusStart();
+            if (CameraButton(new Rect(696, y, 78, height), "도착 종", "도착 종을 보여줘요.")) FocusBell();
+            if (CameraButton(new Rect(782, y, 78, height), "선택 F", "선택 부품을 가까이 보여줘요.")) FocusSelected();
+            if (CameraButton(new Rect(868, y, 108, height), "중심 되찾기", "맵 전체로 돌아와요.")) FocusAll();
+            if (CameraButton(new Rect(984, y, 146, height), AirBuild ? "Q 공중에 놓기" : "Q 붙여 놓기", "배치 방식을 선택해요.", AirBuild)) SetAirBuild(!AirBuild);
+            BellUI.Text(new Rect(1142, y, BellUI.W - 1160, height), "우클릭 회전", 12, BellUI.Cool);
+        }
+
+        void DrawFirstPersonBuildHud()
+        {
+            if (!FirstPersonBuild || !CanNavigate) return;
+            var viewport = ViewportRect;
+            if (BuildCursorCaptured)
+            {
+                Vector2 center = viewport.center;
+                BellUI.Round(new Rect(center.x - 7, center.y - 1, 14, 2), BellUI.Paper, 0);
+                BellUI.Round(new Rect(center.x - 1, center.y - 7, 2, 14), BellUI.Paper, 0);
+            }
+            string hint = BuildCursorCaptured
+                ? BuildNoclip ? "WASD 이동 · 마우스 둘러보기 · Space / Ctrl 위아래 · V 걷기 · Tab 메뉴"
+                    : "WASD 이동 · Space 점프 · V 비행 · Tab 메뉴 · 점프 연습은 클리어 인증과 별개"
+                : "Tab 또는 맵 클릭: 조작 시작 · 우클릭: 부품 선택 · F8: 저장을 위한 클리어 검증";
+            BellUI.Text(new Rect(viewport.x + 12, viewport.y + 8, viewport.width - 24, 28), hint, 13, BellUI.Paper, shadow: true);
+            BellUI.Text(new Rect(viewport.x + 12, viewport.yMax - 34, viewport.width - 24, 26),
+                AirBuild ? "공중에 놓기 · 휠: 거리 조절 · 좌클릭: 설치 · Q: 붙여 놓기로 전환"
+                    : "붙여 놓기 · 좌클릭: 설치 · R: 90도 회전 · Q: 공중에 놓기", 13, BellUI.Gold, shadow: true);
         }
 
         bool CameraButton(Rect rect, string label, string hint, bool selected = false)
@@ -257,55 +288,210 @@ namespace HalliGalli.Movement
             return BellUI.Button(rect, label, selected: selected, size: 14);
         }
 
+        void DrawFileMenu()
+        {
+            var panel = new Rect(10, TopHeight, LeftWidth, ViewportRect.height);
+            BellUI.Round(panel, BellUI.Surface, 12);
+            BellUI.Text(new Rect(panel.x + 16, panel.y + 10, 200, 28), "파일과 맵 설정", 20, BellUI.Gold, true);
+            if (BellUI.Button(new Rect(panel.xMax - 72, panel.y + 10, 58, 28), "닫기", size: 13)) SetPartsMenuOpen(false);
+            float x = panel.x + 16, y = panel.y + 50, w = panel.width - 32;
+            if (BellUI.Button(new Rect(x, y, w, 44), "새 맵 만들기", size: 17)) { SetPartsMenuOpen(false); NewMap(); }
+            if (BellUI.Button(new Rect(x, y + 52, w, 44), "열기 · 내 맵 / 받은 맵", size: 17)) { SetPartsMenuOpen(false); OpenLibrary(); }
+            if (BellUI.Button(new Rect(x, y + 104, w, 44), "파일 가져오기…", size: 17)) { SetPartsMenuOpen(false); ImportWithPicker(); }
+            bool interactive = GUI.enabled;
+            GUI.enabled = interactive && CanSaveFromUI;
+            if (BellUI.Button(new Rect(x, y + 156, w, 44), "파일 내보내기…", size: 17)) { SetPartsMenuOpen(false); ExportWithPicker(); }
+            GUI.enabled = interactive;
+            if (BellUI.Button(new Rect(x, y + 208, w, 44), "맵 이름과 설정", size: 17))
+            {
+                if (ApplyPendingFields())
+                {
+                    SetPartsMenuOpen(false); mapInspector = true; inspectorScroll = Vector2.zero;
+                    if (studioCamera) UpdateCameraViewport();
+                }
+            }
+            BellUI.Text(new Rect(x, y + 268, w, 76), "먼저 F8로 직접 클리어해 주세요.\n도착 종을 E로 울리고 돌아오면\n저장과 파일 내보내기가 열려요.", 14, HintColor);
+        }
+
         void DrawPalette()
         {
-            var panel = new Rect(10, TopHeight, LeftWidth, BellUI.H - TopHeight - BottomHeight);
+            var panel = new Rect(10, TopHeight, LeftWidth, ViewportRect.height);
             BellUI.Round(panel, BellUI.Surface, 12);
-            if (BellUI.Button(new Rect(20, TopHeight + 10, 98, 32), "부품", selected: !objectList, size: 15)) objectList = false;
-            if (BellUI.Button(new Rect(124, TopHeight + 10, 104, 32), "개체 " + draft.objects.Length, selected: objectList, size: 15)) objectList = true;
-            float contentHeight = objectList ? draft.objects.Length * 42 + 14 : PartNames.Length * 51 + 12;
-            var view = new Rect(panel.x + 6, panel.y + 52, panel.width - 12, panel.height - 62);
+            if (BellUI.Button(new Rect(22, TopHeight + 10, 132, 34), "모든 부품 11", selected: !objectList, size: 16)) { objectList = false; paletteScroll = Vector2.zero; }
+            if (BellUI.Button(new Rect(162, TopHeight + 10, 112, 34), "개체 " + draft.objects.Length, selected: objectList, size: 15)) { objectList = true; paletteScroll = Vector2.zero; }
+            if (BellUI.Button(new Rect(282, TopHeight + 10, 58, 34), "닫기", size: 13)) SetPartsMenuOpen(false);
+            var view = new Rect(panel.x + 8, panel.y + 54, panel.width - 16, panel.height - 64);
+            float contentHeight = objectList ? draft.objects.Length * 46 + 10 : 806;
             paletteScroll = GUI.BeginScrollView(view, paletteScroll, new Rect(0, 0, view.width - 18, contentHeight));
+            float width = view.width - 22;
             if (objectList)
             {
                 for (int i = 0; i < draft.objects.Length; i++)
                 {
                     var item = draft.objects[i];
-                    if (BellUI.Button(new Rect(4, 4 + i * 42, view.width - 26, 36), (i + 1) + ". " + PartName(item.kind), selected: selectedId == item.id, size: 14))
-                    { SelectObject(item.id); mapInspector = false; SetPartsMenuOpen(false); }
+                    if (BellUI.Button(new Rect(2, 4 + i * 46, width, 40), (i + 1) + ". " + PartName(item.kind), selected: selectedId == item.id, size: 15))
+                    {
+                        if (SelectObject(item.id))
+                        { SetEraseMode(false); mapInspector = false; SetPartsMenuOpen(false); }
+                    }
                 }
             }
             else
-                for (int i = 0; i < PartNames.Length; i++)
+            {
+                float y = 0, tileWidth = (width - 10) * .5f;
+                for (int group = 0; group < PartGroupNames.Length; group++)
                 {
-                    float y = i * 51 + 4;
-                    if (BellUI.Button(new Rect(4, y, view.width - 26, 45), "", selected: placementMode && (int)palettePart == i)) ChoosePalette((UserMapPart)i);
-                    BellUI.Text(new Rect(14, y + 3, view.width - 46, 21), PartNames[i], 15, BellUI.Paper, true);
-                    BellUI.Text(new Rect(14, y + 24, view.width - 46, 17), PartHints[i], 11, HintColor);
+                    BellUI.Text(new Rect(4, y, width - 8, 28), PartGroupNames[group], 15, BellUI.Cool, true);
+                    y += 32;
+                    int count = PartGroupStarts[group + 1] - PartGroupStarts[group];
+                    for (int index = 0; index < count; index++)
+                    {
+                        var part = MenuParts[PartGroupStarts[group] + index];
+                        var tile = new Rect(2 + index % 2 * (tileWidth + 10), y + index / 2 * 94, tileWidth, 86);
+                        if (BellUI.Button(tile, "", selected: placementMode && palettePart == part))
+                        {
+                            if (part == UserMapPart.Waypoint && EasyBuild) SwitchBuildDetail();
+                            if (part != UserMapPart.Waypoint || !EasyBuild) SelectBuildPart(part);
+                        }
+                        DrawPartIcon(new Rect(tile.center.x - 22, tile.y + 8, 44, 40), part, BellUI.Gold);
+                        BellUI.Text(new Rect(tile.x + 4, tile.y + 52, tile.width - 8, 28), PartName(part), 16, BellUI.Paper, true, TextAnchor.MiddleCenter);
+                        if (GUI.enabled && tile.Contains(Event.current.mousePosition)) cameraHint = PartHints[(int)part];
+                    }
+                    y += ((count + 1) / 2) * 94 + 4;
                 }
+            }
             GUI.EndScrollView();
+        }
+
+        void SwitchBuildDetail()
+        {
+            if (!ApplyPendingFields()) return;
+            SetEasyBuild(!EasyBuild);
+            mapInspector = easyContextOpen = false;
+            inspectorScroll = Vector2.zero;
+            if (EasyBuild && AdvancedCamera) SetAdvancedCamera(false);
+            if (studioCamera) UpdateCameraViewport();
         }
 
         void DrawInspector()
         {
-            float x = BellUI.W - RightWidth - 10;
-            var panel = new Rect(x, TopHeight, RightWidth, BellUI.H - TopHeight - BottomHeight);
+            float width = InspectorWidth, x = BellUI.W - width - 10;
+            var panel = new Rect(x, TopHeight, width, ViewportRect.height);
             BellUI.Round(panel, BellUI.Surface, 12);
-            if (BellUI.Button(new Rect(x + 12, panel.y + 10, 143, 32), "개체 속성", selected: !mapInspector, size: 15)) mapInspector = false;
-            if (BellUI.Button(new Rect(x + 163, panel.y + 10, 145, 32), "맵 설정", selected: mapInspector, size: 15)) mapInspector = true;
+            if (EasyBuild)
+            {
+                BellUI.Text(new Rect(x + 12, panel.y + 10, width - 90, 32), mapInspector ? "맵 설정" : "선택한 부품", 18, BellUI.Gold, true);
+                if (BellUI.Button(new Rect(panel.xMax - 70, panel.y + 10, 58, 32), "닫기", size: 13) && ApplyPendingFields())
+                { mapInspector = easyContextOpen = false; if (studioCamera) UpdateCameraViewport(); }
+            }
+            else
+            {
+                if (BellUI.Button(new Rect(x + 12, panel.y + 10, 143, 32), "개체 속성", selected: !mapInspector, size: 15) && ApplyPendingFields())
+                { mapInspector = false; inspectorScroll = Vector2.zero; }
+                if (BellUI.Button(new Rect(x + 163, panel.y + 10, 145, 32), "맵 설정", selected: mapInspector, size: 15) && ApplyPendingFields())
+                { mapInspector = true; inspectorScroll = Vector2.zero; }
+            }
             var view = new Rect(x + 10, panel.y + 52, panel.width - 20, panel.height - 62);
             var item = FindObject(selectedId);
-            float height = mapInspector ? 560 : item == null ? 390 : 820;
+            float height = mapInspector ? 560 : EasyBuild ? item?.kind == UserMapPart.MovingPlatform ? 600 : 460 : item == null ? 390 : 820;
             inspectorScroll = GUI.BeginScrollView(view, inspectorScroll, new Rect(0, 0, view.width - 18, height));
             if (mapInspector) DrawMapFields(view.width - 24);
+            else if (EasyBuild && item != null) DrawEasyObjectFields(item, view.width - 24);
             else if (item != null) DrawObjectFields(item, view.width - 24);
             else
             {
-                BellUI.Text(new Rect(4, 6, 264, 82), "한 번 클릭: 개체 선택만\n두 번 클릭: 개체 가까이 보기\n부품 메뉴에서 목록을 열 수 있어요.", 15, BellUI.Paper);
-                BellUI.Text(new Rect(4, 100, 264, 230), "빈 바닥을 드래그하면 화면 이동,\n휠과 − / +는 항상 확대·축소예요.\n개체 이동은 선택 후 손잡이로 해요.\n\n부품을 고르고 바닥을 클릭해 배치해요.\n시작 책상과 출발 구역은 보호돼요.\n코스는 Z=0 앞쪽에 만들어 주세요.\n종은 코스마다 하나만 있어요.", 14, HintColor);
-                if (BellUI.Button(new Rect(4, 344, 264, 34), "맵 이름과 추락 높이 설정", size: 14)) mapInspector = true;
+                BellUI.Text(new Rect(4, 6, 264, 100), "개체를 선택하면 정확한 위치·회전·크기와 장치 설정이 나와요.\n변경한 값은 ‘적용’을 눌러 주세요.", 15, BellUI.Paper);
+                BellUI.Text(new Rect(4, 120, 264, 180), "W 이동 · E 회전 · R 크기\n축 손잡이를 드래그해 편집해요.\nAI 경로는 개체 목록 순서예요.\n\n우클릭 드래그: 자유롭게 둘러보기\n가운데 드래그: 화면 이동\n휠: 확대 / 축소", 14, HintColor);
+                if (BellUI.Button(new Rect(4, 324, 264, 38), "맵 이름과 추락 높이 설정", size: 14)) mapInspector = true;
             }
             GUI.EndScrollView();
+        }
+
+        void DrawEasyObjectFields(UserMapObject item, float width)
+        {
+            BellUI.Text(new Rect(4, 0, width, 28), PartName(item.kind), 18, BellUI.Gold, true);
+            BellUI.Text(new Rect(4, 32, width, 48), PartHints[(int)item.kind], 13, HintColor);
+            BellUI.Text(new Rect(4, 90, width, 24), "화면 방향으로 한 칸씩", 14, BellUI.Paper, true);
+            float cell = (width - 12) / 3;
+            if (BellUI.Button(new Rect(4, 120, cell, 34), "화면 왼쪽", size: 12)) NudgeSelectedInView(true, -1);
+            if (BellUI.Button(new Rect(10 + cell, 120, cell, 34), "화면 앞", size: 12)) NudgeSelectedInView(false, 1);
+            if (BellUI.Button(new Rect(16 + cell * 2, 120, cell, 34), "높이 올리기", size: 12)) NudgeSelectedBuild(1, 1);
+            if (BellUI.Button(new Rect(4, 160, cell, 34), "화면 오른쪽", size: 12)) NudgeSelectedInView(true, 1);
+            if (BellUI.Button(new Rect(10 + cell, 160, cell, 34), "화면 뒤", size: 12)) NudgeSelectedInView(false, -1);
+            if (BellUI.Button(new Rect(16 + cell * 2, 160, cell, 34), "높이 내리기", size: 12)) NudgeSelectedBuild(1, -1);
+            BellUI.Text(new Rect(4, 212, width, 24), "색 고르기", 15, BellUI.Paper, true);
+            for (int i = 0; i < Swatches.Length; i++)
+            {
+                var rect = new Rect(4 + i % 6 * 34, 244 + i / 6 * 36, 28, 28);
+                if (GUI.Button(rect, GUIContent.none, GUIStyle.none))
+                {
+                    var changed = CopyObject(item); changed.color = i; UpdateObject(changed);
+                }
+                BellUI.Round(rect, Swatches[i], 7);
+                if (item.color == i) BellUI.Round(new Rect(rect.x - 2, rect.y - 2, 32, 32), BellUI.Paper, 8, 2);
+            }
+            float y = 244 + ((Swatches.Length + 5) / 6) * 36 + 14;
+            if (item.kind == UserMapPart.MovingPlatform)
+            {
+                DrawMovePresetRow(item, width, y, "움직이는 방향", MoveAxisNames, 0); y += 68;
+                DrawMovePresetRow(item, width, y, "움직이는 거리", MoveDistanceNames, 1); y += 68;
+                DrawMovePresetRow(item, width, y, "움직이는 빠르기", MoveSpeedNames, 2); y += 68;
+            }
+            else if (item.kind == UserMapPart.Bell)
+            {
+                BellUI.Text(new Rect(4, y, width, 58), "종도 위 버튼으로 옮길 수 있어요.\n하나뿐인 종은 지우거나 복제하지 않아요.", 14, HintColor); y += 70;
+            }
+            if (BellUI.Button(new Rect(4, y, width, 36), "자세히 · 수치와 장치 설정", size: 14)) SwitchBuildDetail();
+        }
+
+        void NudgeSelectedInView(bool horizontal, int direction)
+        {
+            if (!studioCamera) return;
+            Vector3 basis = horizontal ? studioCamera.transform.right : studioCamera.transform.forward;
+            basis.y = 0;
+            if (basis.sqrMagnitude < .0001f)
+            {
+                basis = studioCamera.transform.up;
+                basis.y = 0;
+            }
+            float x = Mathf.Abs(basis.x), z = Mathf.Abs(basis.z);
+            int axis = Mathf.Approximately(x, z) ? horizontal ? 0 : 2 : x > z ? 0 : 2;
+            NudgeSelectedBuild(axis, direction * (basis[axis] >= 0 ? 1 : -1));
+        }
+
+        public bool NudgeSelectedBuild(int axis, int direction)
+        {
+            if (!CanNavigate || !EasyBuild || placementMode || EraseMode || axis < 0 || axis > 2
+                || direction != -1 && direction != 1 || !ApplyPendingFields()) return false;
+            var item = FindObject(selectedId);
+            if (item == null) return false;
+            StopPointerInteraction();
+            var changed = CopyObject(item);
+            changed.position[axis] += direction * (snap ? snapSize : .5f);
+            if (!UpdateObject(changed)) return false;
+            Status = PartName(item.kind) + "을 한 칸 옮겼어요. 실행 취소로 되돌릴 수 있어요.";
+            return true;
+        }
+
+        void DrawMovePresetRow(UserMapObject item, float width, float y, string label, string[] names, int setting)
+        {
+            BellUI.Text(new Rect(4, y, width, 24), label, 14, BellUI.Paper, true);
+            int axis = Mathf.Abs(item.travel.x) >= Mathf.Abs(item.travel.y) && Mathf.Abs(item.travel.x) >= Mathf.Abs(item.travel.z) ? 0
+                : Mathf.Abs(item.travel.y) >= Mathf.Abs(item.travel.z) ? 1 : 2;
+            float distance = item.travel.magnitude, cell = (width - 12) / 3;
+            for (int i = 0; i < 3; i++)
+            {
+                bool selected = setting == 0 ? axis == i && distance > 0 : setting == 1 ? Mathf.Approximately(distance, MoveDistances[i]) : Mathf.Approximately(item.period, MovePeriods[i]);
+                if (!BellUI.Button(new Rect(4 + i * (cell + 6), y + 28, cell, 32), names[i], selected: selected, size: 12)) continue;
+                var changed = CopyObject(item);
+                if (setting == 2) changed.period = MovePeriods[i];
+                else
+                {
+                    changed.travel = Vector3.zero;
+                    changed.travel[setting == 0 ? i : axis] = setting == 0 ? Mathf.Max(2, distance) : MoveDistances[i];
+                }
+                UpdateObject(changed);
+            }
         }
 
         void DrawMapFields(float width)
@@ -325,7 +511,7 @@ namespace HalliGalli.Movement
         {
             BellUI.Text(new Rect(4, 0, width, 28), PartName(item.kind), 19, BellUI.Gold, true);
             bool fixedScale = item.kind == UserMapPart.ItemBox;
-            BellUI.Text(new Rect(4, 31, width, 42), fixedScale ? "위치는 바닥 기준 · 닿으면 획득 · C 사용\n공식 레이스와 같은 5종 아이템이에요."
+            BellUI.Text(new Rect(4, 31, width, 42), fixedScale ? "위치는 바닥 기준 · 닿으면 획득 · C 사용\n미사일·바나나·바리게이트가 나와요."
                 : item.kind == UserMapPart.Bell || item.kind == UserMapPart.Press ? "위치는 바닥 높이 기준이에요."
                 : item.kind == UserMapPart.Waypoint ? "발이 닿을 위치예요. 목록 순서가 AI 경로예요." : "위치는 중심, 크기는 실제 가로·높이·깊이예요.", 13, HintColor);
             DrawVectorFields("위치", transformFields, 0, 84, width, "Position");
@@ -404,16 +590,197 @@ namespace HalliGalli.Movement
             return multiline ? GUI.TextArea(rect, value ?? "", max, compactField) : GUI.TextField(rect, value ?? "", max, compactField);
         }
 
+        void DrawBuildHotbar()
+        {
+            float y = BellUI.H - BottomHeight;
+            BellUI.Round(new Rect(0, y, BellUI.W, BottomHeight), BellUI.Surface, 0);
+            if (EasyBuild) DrawEasyTools(y + 8); else DrawAdvancedTools(y + 8);
+            var all = new Rect(18, y + 54, 158, 72);
+            if (BellUI.Button(all, "", true, partsMenuOpen && !fileMenuOpen))
+            {
+                bool open = !partsMenuOpen || fileMenuOpen;
+                SetPartsMenuOpen(open);
+                objectList = false;
+            }
+            for (int row = 0; row < 2; row++)
+                for (int col = 0; col < 3; col++)
+                    BellUI.Round(new Rect(all.center.x - 23 + col * 18, all.y + 10 + row * 14, 12, 10), BellUI.Ink, 2);
+            BellUI.Text(new Rect(all.x + 4, all.y + 42, all.width - 8, 26), "모든 부품 11", 18, BellUI.Ink, true, TextAnchor.MiddleCenter);
+            float width = (BellUI.W - 248) / 6;
+            for (int i = 0; i < UIQuickParts.Length; i++)
+            {
+                var part = UIQuickParts[i];
+                var rect = new Rect(190 + i * (width + 8), y + 54, width, 72);
+                bool selected = placementMode && !EraseMode && palettePart == part;
+                if (BellUI.Button(rect, "", selected: selected)) SelectBuildPart(part);
+                BellUI.Text(new Rect(rect.x + 10, rect.y + 6, 24, 24), UIQuickKeys[i], 18, selected ? BellUI.Gold : HintColor, true);
+                DrawPartIcon(new Rect(rect.center.x - 20, rect.y + 5, 40, 34), part, BellUI.Gold);
+                BellUI.Text(new Rect(rect.x + 4, rect.y + 42, rect.width - 8, 26), PartName(part), 17, BellUI.Paper, true, TextAnchor.MiddleCenter);
+                if (GUI.enabled && rect.Contains(Event.current.mousePosition)) cameraHint = PartHints[(int)part];
+            }
+        }
+
+        void DrawEasyTools(float y)
+        {
+            bool interactive = GUI.enabled;
+            var item = FindObject(selectedId);
+            if (BellUI.Button(new Rect(18, y, 78, 36), "선택", selected: !placementMode && !EraseMode, size: 16))
+            { SetEraseMode(false); StopPointerInteraction(); placementMode = false; GUIUtility.keyboardControl = 0; }
+            if (BellUI.Button(new Rect(104, y, 78, 36), "짓기", selected: placementMode && !EraseMode, size: 16))
+                SelectBuildPart(item != null && !placementMode ? item.kind : palettePart);
+            if (BellUI.Button(new Rect(190, y, 78, 36), "지우개", selected: EraseMode, size: 16)) SetEraseMode(!EraseMode);
+            BellUI.Text(new Rect(286, y, 36, 36), "크기", 14, HintColor);
+            bool fixedSize = (placementMode ? palettePart : item?.kind) == UserMapPart.ItemBox;
+            GUI.enabled = interactive && !EraseMode && (placementMode || item != null) && !fixedSize;
+            for (int i = 0; i < 3; i++)
+                if (BellUI.Button(new Rect(328 + i * 68, y, 60, 36), BuildSizeNames[i], selected: !fixedSize && (placementMode ? BuildSizeIndex == i : item != null && item.scale == BuildScale(item.kind, i)), size: 14)) SetBuildSize(i);
+            GUI.enabled = interactive && !EraseMode && (placementMode || item != null);
+            if (BellUI.Button(new Rect(540, y, 106, 36), "90도 회전", size: 15)) RotateBuild90();
+            GUI.enabled = interactive && item != null && !placementMode && !EraseMode && item.kind != UserMapPart.Bell;
+            if (BellUI.Button(new Rect(658, y, 96, 36), "복제", size: 15)) DuplicateSelected();
+            if (BellUI.Button(new Rect(762, y, 84, 36), "삭제", size: 15)) DeleteSelected();
+            GUI.enabled = interactive && item != null && !placementMode && !EraseMode;
+            if (BellUI.Button(new Rect(858, y, 116, 36), item?.kind == UserMapPart.MovingPlatform ? "옮기기 / 장치" : "옮기기 / 색", selected: easyContextOpen && !mapInspector, size: 14))
+            {
+                if (ApplyPendingFields())
+                {
+                    easyContextOpen = !easyContextOpen; mapInspector = false; inspectorScroll = Vector2.zero;
+                    if (studioCamera) UpdateCameraViewport();
+                }
+            }
+            GUI.enabled = interactive;
+            BellUI.Text(new Rect(986, y, BellUI.W - 1132, 36), fixedSize ? "크기 고정" : EraseMode ? "클릭해서 지우기" : placementMode ? AirBuild ? "공중에 놓아요" : "면에 붙여요" : "클릭해서 선택", 12, HintColor);
+            if (BellUI.Button(new Rect(BellUI.W - 132, y, 114, 36), "자세히", size: 16)) SwitchBuildDetail();
+        }
+
+        void DrawAdvancedTools(float y)
+        {
+            bool interactive = GUI.enabled;
+            var item = FindObject(selectedId);
+            bool fixedScale = item?.kind == UserMapPart.ItemBox;
+            for (int i = 0; i < 3; i++)
+            {
+                GUI.enabled = interactive && !(fixedScale && i == (int)TransformTool.Scale);
+                if (BellUI.Button(new Rect(18 + i * 88, y, 80, 36), fixedScale && i == (int)TransformTool.Scale ? "크기 고정" : ToolNames[i],
+                    selected: !placementMode && transformTool == (TransformTool)i, size: 14))
+                { StopPointerInteraction(); placementMode = false; transformTool = (TransformTool)i; }
+            }
+            GUI.enabled = interactive;
+            if (BellUI.Button(new Rect(292, y, 118, 36), snap ? "격자 맞춤 ON" : "격자 맞춤 OFF", selected: snap, size: 13)) snap = !snap;
+            if (BellUI.Button(new Rect(418, y, 64, 36), Number(snapSize) + " m", size: 14)) snapSize = snapSize < .5f ? .5f : snapSize < 1 ? 1 : snapSize < 2 ? 2 : .25f;
+            BellUI.Text(new Rect(494, y, 90, 36), "빈 공간 높이", 13, BellUI.Paper);
+            planeText = Field(new Rect(590, y, 64, 36), planeText, "Plane", 8);
+            if (TryNumber(planeText, out float height)) placementHeight = Mathf.Clamp(height, -99, 299);
+            if (BellUI.Button(new Rect(670, y, 150, 36), AdvancedCamera ? "고급 비행 끄기" : "고급 비행 켜기", selected: AdvancedCamera, size: 14))
+                SetAdvancedCamera(!AdvancedCamera);
+            GUI.enabled = interactive && item != null && item.kind != UserMapPart.Bell;
+            if (BellUI.Button(new Rect(836, y, 96, 36), "복제 Ctrl+D", size: 13)) DuplicateSelected();
+            if (BellUI.Button(new Rect(940, y, 88, 36), "삭제 Del", size: 13)) { if (ApplyInspectorFields()) DeleteSelected(); }
+            GUI.enabled = interactive;
+            if (BellUI.Button(new Rect(BellUI.W - 132, y, 114, 36), "쉬운 만들기", true, size: 15)) SwitchBuildDetail();
+        }
+
+        static void DrawPartIcon(Rect rect, UserMapPart part, Color color)
+        {
+            switch (part)
+            {
+                case UserMapPart.Block:
+                case UserMapPart.ItemBox:
+                    IconLine(rect, .12f, .28f, .58f, .08f, color); IconLine(rect, .58f, .08f, .9f, .3f, color);
+                    IconLine(rect, .9f, .3f, .44f, .5f, color); IconLine(rect, .44f, .5f, .12f, .28f, color);
+                    IconLine(rect, .12f, .28f, .12f, .72f, color); IconLine(rect, .12f, .72f, .44f, .94f, color);
+                    IconLine(rect, .44f, .5f, .44f, .94f, color); IconLine(rect, .44f, .94f, .9f, .74f, color);
+                    IconLine(rect, .9f, .3f, .9f, .74f, color);
+                    if (part == UserMapPart.ItemBox) BellUI.Text(new Rect(rect.x + rect.width * .55f, rect.y + rect.height * .38f, rect.width * .32f, rect.height * .48f), "?", 16, color, true, TextAnchor.MiddleCenter);
+                    break;
+                case UserMapPart.Ramp:
+                    IconLine(rect, .1f, .82f, .88f, .82f, color); IconLine(rect, .88f, .82f, .88f, .14f, color);
+                    IconLine(rect, .88f, .14f, .1f, .82f, color); IconLine(rect, .16f, .88f, .94f, .88f, color);
+                    break;
+                case UserMapPart.Surf:
+                    IconLine(rect, .06f, .84f, .5f, .12f, color); IconLine(rect, .5f, .12f, .94f, .84f, color);
+                    IconLine(rect, .94f, .84f, .06f, .84f, color); IconLine(rect, .5f, .12f, .5f, .68f, color);
+                    break;
+                case UserMapPart.Checkpoint:
+                    IconLine(rect, .1f, .9f, .9f, .9f, color); IconLine(rect, .3f, .86f, .3f, .08f, color);
+                    IconLine(rect, .3f, .1f, .84f, .22f, color); IconLine(rect, .84f, .22f, .3f, .45f, color);
+                    break;
+                case UserMapPart.MovingPlatform:
+                    BellUI.Round(new Rect(rect.x + rect.width * .23f, rect.y + rect.height * .58f, rect.width * .54f, rect.height * .22f), color, 3);
+                    IconLine(rect, .08f, .27f, .92f, .27f, color); IconLine(rect, .08f, .27f, .23f, .1f, color);
+                    IconLine(rect, .08f, .27f, .23f, .44f, color); IconLine(rect, .92f, .27f, .77f, .1f, color);
+                    IconLine(rect, .92f, .27f, .77f, .44f, color);
+                    break;
+                case UserMapPart.Conveyor:
+                    BellUI.Round(new Rect(rect.x + rect.width * .06f, rect.y + rect.height * .63f, rect.width * .88f, rect.height * .25f), color, 4, 2);
+                    IconLine(rect, .16f, .34f, .84f, .34f, color); IconLine(rect, .84f, .34f, .62f, .12f, color);
+                    IconLine(rect, .84f, .34f, .62f, .55f, color);
+                    break;
+                case UserMapPart.Press:
+                    IconLine(rect, .12f, .08f, .12f, .9f, color); IconLine(rect, .88f, .08f, .88f, .9f, color);
+                    IconLine(rect, .12f, .08f, .88f, .08f, color); IconLine(rect, .5f, .08f, .5f, .4f, color);
+                    BellUI.Round(new Rect(rect.x + rect.width * .28f, rect.y + rect.height * .4f, rect.width * .44f, rect.height * .2f), color, 2);
+                    IconLine(rect, .28f, .9f, .72f, .9f, color);
+                    break;
+                case UserMapPart.Hazard:
+                    IconLine(rect, .08f, .86f, .5f, .08f, color); IconLine(rect, .5f, .08f, .92f, .86f, color);
+                    IconLine(rect, .92f, .86f, .08f, .86f, color); IconLine(rect, .5f, .34f, .5f, .57f, color);
+                    BellUI.Round(new Rect(rect.center.x - 2, rect.y + rect.height * .69f, 4, 4), color, 2);
+                    break;
+                case UserMapPart.Bell:
+                    BellUI.Round(new Rect(rect.x + rect.width * .2f, rect.y + rect.height * .22f, rect.width * .6f, rect.height * .58f), color, 12, 3);
+                    IconLine(rect, .1f, .8f, .9f, .8f, color); IconLine(rect, .5f, .08f, .5f, .22f, color);
+                    BellUI.Round(new Rect(rect.center.x - 3, rect.y + rect.height * .84f, 6, 5), color, 3);
+                    break;
+                case UserMapPart.Waypoint:
+                    IconLine(rect, .18f, .78f, .48f, .28f, color); IconLine(rect, .48f, .28f, .82f, .64f, color);
+                    BellUI.Round(new Rect(rect.x + rect.width * .08f, rect.y + rect.height * .68f, 9, 9), color, 5);
+                    BellUI.Round(new Rect(rect.x + rect.width * .38f, rect.y + rect.height * .18f, 9, 9), color, 5);
+                    BellUI.Round(new Rect(rect.x + rect.width * .72f, rect.y + rect.height * .54f, 9, 9), color, 5);
+                    break;
+            }
+        }
+
+        static readonly System.Collections.Generic.Dictionary<(int, int, bool), Texture2D> iconLines
+            = new System.Collections.Generic.Dictionary<(int, int, bool), Texture2D>();
+
+        static void IconLine(Rect rect, float x1, float y1, float x2, float y2, Color color)
+        {
+            if (Event.current.type != EventType.Repaint) return;
+            int width = Mathf.RoundToInt(Mathf.Abs(x2 - x1) * rect.width) + 4;
+            int height = Mathf.RoundToInt(Mathf.Abs(y2 - y1) * rect.height) + 4;
+            bool rising = (x2 - x1) * (y2 - y1) < 0;
+            var key = (width, height, rising);
+            if (!iconLines.TryGetValue(key, out var texture))
+            {
+                texture = new Texture2D(width, height, TextureFormat.RGBA32, false)
+                { hideFlags = HideFlags.HideAndDontSave, filterMode = FilterMode.Bilinear, wrapMode = TextureWrapMode.Clamp };
+                var pixels = new Color[width * height];
+                Vector2 start = new Vector2(2, rising ? height - 2 : 2), end = new Vector2(width - 2, rising ? 2 : height - 2);
+                Vector2 direction = end - start;
+                for (int y = 0; y < height; y++)
+                    for (int x = 0; x < width; x++)
+                    {
+                        Vector2 point = new Vector2(x + .5f, y + .5f);
+                        float t = Mathf.Clamp01(Vector2.Dot(point - start, direction) / Mathf.Max(1, direction.sqrMagnitude));
+                        float alpha = Mathf.Clamp01(2 - Vector2.Distance(point, start + direction * t));
+                        pixels[(height - 1 - y) * width + x] = new Color(1, 1, 1, alpha);
+                    }
+                texture.SetPixels(pixels); texture.Apply(false, true);
+                iconLines.Add(key, texture);
+            }
+            // Axis-aligned textured strokes respect scroll-view clipping without rotating GUI.matrix.
+            Color previous = GUI.color; GUI.color = color;
+            GUI.DrawTexture(new Rect(rect.x + Mathf.Min(x1, x2) * rect.width - 2,
+                rect.y + Mathf.Min(y1, y2) * rect.height - 2, width, height), texture);
+            GUI.color = previous;
+        }
+
         void DrawStatus()
         {
-            float y = BellUI.H - BottomHeight + 8;
-            BellUI.Round(new Rect(0, y - 5, BellUI.W, BottomHeight), BellUI.Surface, 0);
-            BellUI.Text(new Rect(18, y, BellUI.W - 36, 26), ClearanceLabel, 14, CanSaveFromUI ? BellUI.Cool : BellUI.Gold, true);
-            BellUI.Text(new Rect(18, y + 28, BellUI.W - 36, 26), cameraHint ?? Status, 13, cameraHint == null ? BellUI.Paper : BellUI.Cool);
-            BellUI.Text(new Rect(18, y + 57, BellUI.W - 36, 22), AdvancedCamera
-                ? "고급 비행 ON · 우클릭+마우스: 시점 · WASD/QE: 이동 · Shift: 빠르게 · 휠/−/+: 항상 줌 · 개체 편집: 손잡이 · F8 클리어 검증"
-                : "빈 바닥 드래그: 화면 이동 · 클릭: 선택만 · 두 번 클릭/F: 선택 보기 · 손잡이: 개체 편집 · 휠/−/+: 항상 줌 · 부품 선택 후 클릭: 배치 · F8 클리어 검증",
-                13, HintColor);
+            float y = BellUI.H - BottomHeight + 132;
+            BellUI.Text(new Rect(18, y, BellUI.W - 36, 24), ClearanceLabel, 13, CanSaveFromUI ? BellUI.Cool : BellUI.Gold, true);
+            BellUI.Text(new Rect(18, y + 26, BellUI.W - 36, 24), cameraHint ?? Status, 13, cameraHint == null ? BellUI.Paper : BellUI.Cool);
         }
 
         public void OpenLibrary()
@@ -520,24 +887,24 @@ namespace HalliGalli.Movement
             BellUI.Round(new Rect(x, y, 900, 640), BellUI.Surface, 20);
             BellUI.Text(new Rect(x + 28, y + 20, 844, 38), "맵 만들기 빠른 안내", 26, BellUI.Gold, true);
             BellUI.Text(new Rect(x + 28, y + 74, 844, 480),
-                "1. 기본은 위에서 보기예요. 빈 바닥을 드래그하면 지도처럼 화면이 움직여요.\n" +
-                "   휠과 상단 − / +는 언제나 축소 / 확대예요. 손을 떼면 바로 멈춰요.\n" +
-                "2. 한 번 클릭은 선택만, 두 번 클릭이나 F는 선택 개체를 가까이 보여줘요.\n" +
-                "   위 / 사선 / 옆은 선택 중심을 유지해요. 전체 맵 / 선택 / 출발점 / 도착 종으로 초점을 맞춰요.\n" +
-                "3. 왼쪽 위 부품 메뉴를 열어 부품을 고르면 메뉴가 닫혀요. 코스를 클릭해 배치해요.\n" +
-                "4. 개체 선택 후 W 이동 / E 회전 / R 크기. 축 손잡이만 드래그해요.\n" +
-                "   개체 자체를 드래그해도 바뀌지 않아요. G는 격자 맞춤, Esc는 편집 취소예요.\n" +
-                "5. 오른쪽에서 정확한 XYZ, 색, 장치 값을 입력하고 ‘적용’을 눌러요.\n" +
-                "6. ‘고급 비행’을 켠 경우에만 우클릭+마우스로 둘러보고 WASD 이동, Q/E 상하 이동.\n" +
-                "   Shift는 빠르게, 휠은 항상 줌이에요. 고급 비행을 끄면 쉬운 카메라로 돌아와요.\n" +
-                "7. Ctrl+D 복제, Delete 삭제, Ctrl+Z 취소, Ctrl+Y 다시 실행.\n" +
-                "8. F8 클리어 검증: 혼자 출발부터 이동해 도착 종을 E로 울리세요.\n" +
-                "   실패 / R은 체크포인트 없이 처음부터. Esc 마우스 해제, F8 편집 복귀.\n" +
-                "9. 검증 완료 후 Ctrl+S 저장 / ‘내보내기’. 수정하면 다시 검증해야 해요.\n" +
-                "10. 가져온 원본은 ‘받은 맵’에 보관돼 방에서 바로 선택·공유할 수 있어요.\n" +
-                "   편집용 사본은 새 미검증 초안이에요. 저장·내보내려면 직접 클리어하세요.\n\n" +
-                "출발 책상은 보호돼요. 종은 정확히 하나, AI 경로점은 개체 목록 순서예요.\n" +
-                "실제 방에서는 원래 할리갈리 규칙을 그대로 사용하고 맵이 자동 공유돼요.",
+                "1. 아래 큰 부품 버튼이나 숫자 1~6을 눌러 고르고, 붙일 면을 클릭해요.\n" +
+                "   노란 미리보기는 놓을 수 있는 곳, 빨강 미리보기는 놓을 수 없는 곳이에요.\n" +
+                "2. 작게 / 보통 / 크게로 크기를 고르고 ‘90도 회전’으로 방향을 바꿔요.\n" +
+                "   ‘모든 부품 11’에는 경사로·삼각 서프·움직이는 장애물도 있어요.\n" +
+                "3. ‘선택’으로 부품을 고르면 크기 변경, 회전, 복제, 삭제를 할 수 있어요.\n" +
+                "   ‘옮기기 / 색’의 여섯 방향 버튼으로 종과 부품을 옮겨요. ‘옮기기 / 장치’에서 왕복 설정도 해요.\n" +
+                "4. ‘지우개’로 불필요한 부품을 클릭해 지워요. 실수했다면 실행 취소 Ctrl+Z!\n" +
+                "5. 기본은 1인칭 제작! Tab / 맵 클릭으로 조작하고, Tab / Esc로 마우스를 풀어요.\n" +
+                "   WASD 이동 · 마우스 둘러보기 · 비행 중 Space / Ctrl로 위아래 이동해요.\n" +
+                "   V로 비행 / 걷기 전환. 걷기에서는 Space로 실제 점프 간격을 확인해요.\n" +
+                "6. Q로 붙여 놓기 / 공중에 놓기 전환. 공중에서는 휠로 배치 거리를 조절해요.\n" +
+                "   전체 보기는 우클릭 회전 / 가운데 드래그 이동. 자세히에서 수치를 입력해요.\n" +
+                "7. F8 플레이: 혼자 출발부터 도착 종까지 가서 E로 직접 종을 울리세요.\n" +
+                "   실패 / R은 체크포인트 없이 처음부터. F8로 돌아온 뒤 저장하세요.\n" +
+                "8. 파일 메뉴에서 새 맵, 열기, 가져오기 / 내보내기, 맵 설정을 찾아요.\n" +
+                "   수정하면 다시 클리어해야 저장돼요. 받은 원본은 방에서 바로 공유할 수 있어요.\n\n" +
+                "출발 책상은 보호돼요. 도착 종은 하나만 있어요. 편집한 사본은 직접 클리어해야 해요.\n" +
+                "실제 방의 할리갈리 규칙은 그대로이며, 사용자 맵은 참가자에게 자동 공유돼요.",
                 16, BellUI.Paper);
             if (BellUI.Button(new Rect(x + 330, y + 578, 240, 42), "만들러 가기", true, size: 17)) helpOpen = false;
         }

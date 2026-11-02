@@ -1,0 +1,182 @@
+{
+    "utc": "2026-11-02T06:16:33.4289963Z",
+    "passed": 35,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Quick push alternates and rejected spam cannot skip a hand",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "A recovery click buffers exactly one attack without automatic repeat",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Quick push contacts only in its contact window and only once",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Strong push has longer windup and recovery",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Strong push reaches farther than quick push",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Protected contact does not add impulse, hit credit or a hit marker",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Solid wall blocks either push without moving target",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Targets behind and beyond reach are not hit",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Trigger volumes do not block pushes",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Long physics step cannot skip either contact window",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Movement continues during attack and push moves opponent",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Both grounded pushes displace, with stronger horizontal travel and no launch",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Strong push still collides with a nearby solid wall",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Network presentation adds no impulse and restored host physics predicts identically",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Push animation has priority over idle",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Runtime one-hand push extends wrist in both views",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Hands return to movement after quick push",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Strong push uses both hands instead of a leg viewmodel",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Strong push returns to locomotion after recovery",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Either push permits immediate movement, jump and counterattack",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Accepted push does not cancel windup or one buffered follow-up",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Quick push directions select four authored body reactions",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Push preserves gravity, prior momentum and air steering",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Protected hits do not replay sound, reactions or impulse",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Runtime accepted push moves body and first-person hands",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Repeated pushes cannot restart or extend receiver protection",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Protection expires on the first accepted hit deadline",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Reaction returns to idle without a stuck pose",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Reaction returns to crouch and preserves capsule height",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "PushLeft keeps camera aim, view and movement heading",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "PushLeft leaves mouse look responsive during reaction",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "PushLeft leaves crouch and walking input available",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "StrongPush keeps camera aim, view and movement heading",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "StrongPush leaves mouse look responsive during reaction",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "StrongPush leaves crouch and walking input available",
+            "passed": true,
+            "detail": ""
+        }
+    ]
+}

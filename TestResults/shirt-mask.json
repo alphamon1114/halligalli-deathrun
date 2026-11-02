@@ -1,0 +1,89 @@
+{
+    "utc": "2026-11-02T07:29:27.3163979Z",
+    "source": "Assets/HalliGalliMovement/Art/Textures/Body_BaseColor.png",
+    "sourceSha256": "f6409dd3e321b6a20360d768b426dd5dbc3c81b72a86ea34119f79aac94c9034",
+    "method": "Offline garment-blue segmentation of the inspected original atlas; immutable runtime R8 mask. No source importer/material/model/clip edits.",
+    "width": 4096,
+    "height": 4096,
+    "shirtTexels": 3826793,
+    "nonShirtTexels": 12950423,
+    "samples": [
+        {
+            "region": "shirt front island",
+            "x": 532,
+            "yFromTop": 1761,
+            "mask": 255,
+            "expectedShirt": true
+        },
+        {
+            "region": "shirt back island",
+            "x": 1433,
+            "yFromTop": 1761,
+            "mask": 255,
+            "expectedShirt": true
+        },
+        {
+            "region": "shirt upper island",
+            "x": 2293,
+            "yFromTop": 1310,
+            "mask": 255,
+            "expectedShirt": true
+        },
+        {
+            "region": "shirt lower island",
+            "x": 1310,
+            "yFromTop": 2907,
+            "mask": 255,
+            "expectedShirt": true
+        },
+        {
+            "region": "head",
+            "x": 532,
+            "yFromTop": 2989,
+            "mask": 0,
+            "expectedShirt": false
+        },
+        {
+            "region": "forearm",
+            "x": 3563,
+            "yFromTop": 1269,
+            "mask": 0,
+            "expectedShirt": false
+        },
+        {
+            "region": "hand",
+            "x": 3071,
+            "yFromTop": 573,
+            "mask": 0,
+            "expectedShirt": false
+        },
+        {
+            "region": "trousers upper",
+            "x": 1392,
+            "yFromTop": 942,
+            "mask": 0,
+            "expectedShirt": false
+        },
+        {
+            "region": "trousers lower",
+            "x": 532,
+            "yFromTop": 2498,
+            "mask": 0,
+            "expectedShirt": false
+        },
+        {
+            "region": "shoe side",
+            "x": 2866,
+            "yFromTop": 1761,
+            "mask": 0,
+            "expectedShirt": false
+        },
+        {
+            "region": "shoe sole",
+            "x": 3399,
+            "yFromTop": 348,
+            "mask": 0,
+            "expectedShirt": false
+        }
+    ]
+}

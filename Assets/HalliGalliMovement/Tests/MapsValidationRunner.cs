@@ -84,7 +84,7 @@ public sealed class MapsValidationRunner:MonoBehaviour
         yield return MeasureTutorial();
         yield return Switch(climb,6);
         Test("Switch to climb loads its scene, six players and all 56 cards",()=>Require(session.maps.current==climb&&session.roster.PlayerCount==6&&session.participants.Length==6&&session.EveryoneSeated&&game.Match.AllCards().Count()==56,"climb scene initialization"));
-        Test("Climb retains the original movement, kicks and equal entry distances",()=>Require(session.participants.All(p=>p.Motor.profile==climb.movementProfile&&Mathf.Abs(p.Receiver.kickHorizontalSpeed-6)<.001f)&&Enumerable.Range(0,6).All(i=>Mathf.Abs(Vector3.ProjectOnPlane(session.roster.firstPlatforms[i].position-session.participants[i].standAnchor.position,Vector3.up).magnitude-3)<.001f),"profile/entrance changed"));
+        Test("Climb retains the original movement and equal entry distances",()=>Require(session.participants.All(p=>p.Motor.profile==climb.movementProfile)&&Enumerable.Range(0,6).All(i=>Mathf.Abs(Vector3.ProjectOnPlane(session.roster.firstPlatforms[i].position-session.participants[i].standAnchor.position,Vector3.up).magnitude-3)<.001f),"profile/entrance changed"));
         Test("One shared spiral replaces difficulty branches and includes two local shortcuts",()=>{
             var fork=session.roster.branches;
             Require(fork&&fork.sharedSpiral&&fork.left.SequenceEqual(fork.right)&&fork.left.Length<=12,"shared route");
@@ -166,17 +166,25 @@ public sealed class MapsValidationRunner:MonoBehaviour
             }
             Test("A racer can physically pass a central blocker on ledge side "+side,()=>Require(runner.Motor.Grounded&&runner.Falls==0&&Vector3.Dot(runner.transform.position-middle,ledge.forward)>=.55f&&Vector3.Distance(blocker.transform.position,middle)<.1f,"blocked or slipped off the shared ledge"));
         }
-        foreach(int ledgeIndex in new[]{2,7})foreach(bool kicked in new[]{false,true}){
+        foreach(int ledgeIndex in new[]{2,7})foreach(bool pushed in new[]{false,true}){
             Bots(false);session.ResetPractice();yield return new WaitForFixedUpdate();runner.Stand();
-            var node=session.roster.branches.left[ledgeIndex];runner.Motor.Teleport(node.position);runner.Motor.Simulate(default,.015f);
-            var direction=Vector3.ProjectOnPlane((kicked?node.position-session.roster.branches.peakCenter:session.roster.branches.left[ledgeIndex+1].position-node.position),Vector3.up).normalized;
-            if(kicked)runner.Receiver.Receive(MeleeAttack.Kick,direction,runner.transform.position+Vector3.up);
+            var node=session.roster.branches.left[ledgeIndex];
+            var direction=Vector3.ProjectOnPlane((pushed?node.position-session.roster.branches.peakCenter:session.roster.branches.left[ledgeIndex+1].position-node.position),Vector3.up).normalized;
+            Vector3 start=node.position;
+            if(pushed){
+                // Start just inside the exposed edge rather than requiring a launch across the entire ledge.
+                float edge=.1f;
+                while(edge<8&&Physics.Raycast(node.position+direction*edge+Vector3.up*.5f,Vector3.down,1,~((1<<8)|(1<<9)),QueryTriggerInteraction.Ignore))edge+=.1f;
+                Require(edge<8,"exposed ledge edge missing");start+=direction*Mathf.Max(0,edge-.15f);
+            }
+            runner.Motor.Teleport(start);runner.Motor.Simulate(default,.015f);
+            if(pushed)runner.Receiver.Receive(MeleeAttack.Kick,direction,runner.transform.position+Vector3.up);
             float end=Time.time+4;
             while(runner.Falls==0&&Time.time<end){
-                runner.Motor.Simulate(new MovementCommand{move=kicked?Vector2.zero:Vector2.up,yaw=Quaternion.LookRotation(direction).eulerAngles.y},Time.fixedDeltaTime);
+                runner.Motor.Simulate(new MovementCommand{move=pushed?Vector2.zero:Vector2.up,yaw=Quaternion.LookRotation(direction).eulerAngles.y},Time.fixedDeltaTime);
                 yield return new WaitForFixedUpdate();
             }
-            Test((kicked?"An outward kick":"Missing the jump")+" on exposed ledge "+node.name+" causes a real fall",()=>Require(runner.Falls==1,"the ledge had an unintended safety floor"));
+            Test((pushed?"An outward push near the edge":"Missing the jump")+" on exposed ledge "+node.name+" causes a real fall",()=>Require(runner.Falls==1,"the ledge had an unintended safety floor"));
         }
         Bots(false);game.enabled=true;session.roster.StartNewGame(6);yield return new WaitForSeconds(.4f);
         int guard=0;while(!game.Match.HasExactFive()&&game.Match.Turn>=0&&guard++<56)game.Match.Reveal(game.Match.Turn);Require(game.Match.HasExactFive(),"five fixture");

@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace HalliGalli.Movement
 {
-    public enum RaceItem : byte { None, Missile, Banana, Shield, RollingBall, Laser }
-    public enum RaceEffect : byte { None, Flip, Slip, Push }
+    public enum RaceItem : byte { None=0, Missile=1, Banana=2, Barricade=3 }
+    public enum RaceEffect : byte { None=0, Flip=1, Slip=2 }
 
     // Official races and user maps share one host-authoritative item simulation.
     [DefaultExecutionOrder(175), DisallowMultipleComponent]
@@ -15,26 +15,25 @@ namespace HalliGalli.Movement
         public float finishZ=220;
         public bool UsesBellDistance {get;private set;}
         public static RaceCourse Active {get;private set;}
-        public const float BoxCooldown=8, ShieldSeconds=5, LockRange=45, FlipSeconds=.85f, SlipSeconds=1.1f, PushSeconds=.35f;
-        const int MaxActors=6, MaxMissiles=8, BananaEnd=32, BallEnd=40, MaxEntities=48;
-        const float MissileSpeed=21, MissileLifetime=5, BananaLifetime=22, BallSpeed=8, BallLifetime=8, BallRadius=.75f, BallClearance=.02f, LaserDisplaySeconds=.5f;
+        public const float BoxCooldown=8, LockRange=45, FlipSeconds=1.4f, SlipSeconds=1.1f;
+        const int MaxActors=6, MaxMissiles=8, BananaEnd=32, MaxEntities=40;
+        const float MissileSpeed=21, MissileLifetime=5, BananaLifetime=22;
         public int Round {get;private set;}
         public int Leader=>FindLeader();
         static double Clock=>CourseNetwork.WorldTime;
         static int WorldMask=>~((1<<CharacterMotionDriver.BodyLayer)|(1<<CharacterMotionDriver.HandsLayer));
         internal struct ActorState : Unity.Netcode.INetworkSerializeByMemcpy
         {
-            public int life,itemSequence,lockTarget,acquisitions,uses,flips,slips,pushes,blocked;
+            public int life,itemSequence,lockTarget,acquisitions,uses,flips,slips;
             public RaceItem item;
             public RaceEffect effect;
-            public double shieldUntil,effectAt,effectUntil,blockedAt;
+            public double effectAt,effectUntil;
         }
         internal struct EntityState : Unity.Netcode.INetworkSerializeByMemcpy
         {
             public int id,owner,target,ownerLife,targetLife;
             public RaceItem item;
-            public Vector3 position,direction;
-            public float distance;
+            public Vector3 position,direction,size;
             public double expires,armedAt;
         }
         readonly ActorState[] actors=new ActorState[MaxActors];
@@ -47,7 +46,7 @@ namespace HalliGalli.Movement
         Quaternion[] boxRotation=Array.Empty<Quaternion>();
         bool initialized,raceRunning;
         CourseSession subscribedSession;
-        int entitySequence,acquisitions,missileHits,bananaHits,ballHits,laserHits,blockedHits;
+        int entitySequence,acquisitions,missileHits,bananaHits;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void ResetStatic(){Active=null;}
@@ -88,12 +87,12 @@ namespace HalliGalli.Movement
             if(initialized||!session)return;
             boxReady=new double[itemBoxes.Length];boxRest=new Vector3[itemBoxes.Length];boxRotation=new Quaternion[itemBoxes.Length];
             for(int i=0;i<itemBoxes.Length;i++)if(itemBoxes[i]){boxRest[i]=itemBoxes[i].position;boxRotation[i]=itemBoxes[i].rotation;}
-            for(int i=0;i<actors.Length;i++){actors[i].lockTarget=-1;actors[i].life=-1;actors[i].blockedAt=-100;}
-            InitializeVisuals();initialized=true;
+            for(int i=0;i<actors.Length;i++){actors[i].lockTarget=-1;actors[i].life=-1;}
+            InitializeBarricades();InitializeVisuals();initialized=true;
         }
         void OnDestroy()
         {
-            Unsubscribe();RestoreBodies();DisposeVisuals();if(Active==this)Active=null;
+            Unsubscribe();RestoreBodies();DisposeBarricades();DisposeVisuals();if(Active==this)Active=null;
         }
         bool Live=>isActiveAndEnabled&&session&&session.RunActive&&!session.BellRung&&(!session.HasCardRules||!session.cardGame.Match.Finished)&&(!CourseNetwork.Active||CourseNetwork.Instance.Playing);
         bool Eligible(CourseParticipant p)=>p&&p.session==session&&p.isActiveAndEnabled&&p.Racing&&p.Receiver.canReceiveHits&&(!session.HasCardRules||session.cardGame.Match.CanClaim(session.cardGame.Index(p)));
@@ -101,7 +100,6 @@ namespace HalliGalli.Movement
         CourseParticipant Participant(int seat)=>session&&session.participants!=null&&seat>=0&&seat<session.participants.Length?session.participants[seat]:null;
         public RaceItem HeldItem(CourseParticipant p){int i=Seat(p);return i>=0&&i<MaxActors?actors[i].item:RaceItem.None;}
         public int ItemSequence(CourseParticipant p){int i=Seat(p);return i>=0&&i<MaxActors?actors[i].itemSequence:0;}
-        public float ShieldRemaining(CourseParticipant p){int i=Seat(p);return i>=0&&i<MaxActors?Mathf.Max(0,(float)(actors[i].shieldUntil-Clock)):0;}
         public float EffectRemaining(CourseParticipant p){int i=Seat(p);return i>=0&&i<MaxActors?Mathf.Max(0,(float)(actors[i].effectUntil-Clock)):0;}
         public float RemainingDistance(CourseParticipant p)=>!p?0:UsesBellDistance
             ?Vector3.Distance(p.transform.position,session.bellTarget.position):Mathf.Max(0,finishZ-p.transform.position.z);
@@ -135,30 +133,31 @@ namespace HalliGalli.Movement
             raceRunning=running;
             Array.Clear(boxReady,0,boxReady.Length);Array.Clear(entities,0,entities.Length);
             for(int i=0;i<MaxActors;i++)ClearActor(i);
-            RestoreBodies();
+            SyncBarricades();RestoreBodies();
         }
         public void ClearParticipant(CourseParticipant p)
         {
             int seat=Seat(p);if(seat<0||seat>=MaxActors)return;ClearActor(seat);
             for(int i=0;i<entities.Length;i++)if(entities[i].item!=RaceItem.None&&(entities[i].owner==seat||entities[i].target==seat))entities[i]=default;
+            SyncBarricades();
         }
         void ClearActor(int i)
         {
-            ref var state=ref actors[i];state.item=RaceItem.None;state.itemSequence++;state.shieldUntil=state.effectUntil=0;state.effect=RaceEffect.None;state.lockTarget=-1;
+            ref var state=ref actors[i];state.item=RaceItem.None;state.itemSequence++;state.effectUntil=0;state.effect=RaceEffect.None;state.lockTarget=-1;
             var p=Participant(i);state.life=p?p.RespawnSequence:-1;
             if(p&&p.Motor){p.Motor.ClearRaceSlip();if(p.Motor.Stunned)p.Motor.ClearStun();}
         }
         void FixedUpdate()
         {
-            EnsureInitialized();if(!initialized||!CourseNetwork.Authority)return;
+            EnsureInitialized();if(!initialized)return;
+            if(!CourseNetwork.Authority){SyncBarricades();return;}
             if(!Live){if(raceRunning)ResetRound();return;}
             if(!raceRunning)ResetRound(true);
             double now=Clock;
             for(int i=0;i<session.participants.Length;i++){
                 var p=Participant(i);ref var state=ref actors[i];
-                if(!Eligible(p)||state.life!=p.RespawnSequence){if(state.item!=RaceItem.None||state.shieldUntil>0||state.effectUntil>0||state.life!=p.RespawnSequence)ClearParticipant(p);continue;}
+                if(!Eligible(p)||state.life!=p.RespawnSequence){if(state.item!=RaceItem.None||state.effectUntil>0||state.life!=p.RespawnSequence)ClearParticipant(p);continue;}
                 if(state.effectUntil<=now){state.effect=RaceEffect.None;state.effectUntil=0;}
-                if(state.shieldUntil<=now)state.shieldUntil=0;
             }
             CollectBoxes(now);
             for(int i=0;i<entities.Length;i++)if(entities[i].item!=RaceItem.None)SimulateEntity(i,now,Time.fixedDeltaTime);
@@ -166,10 +165,10 @@ namespace HalliGalli.Movement
                 var p=Participant(i);if(!Eligible(p))continue;
                 var bot=p.GetComponent<CourseRival>();if(bot&&bot.enabled)UseAI(i,p,now);
             }
+            SyncBarricades();
         }
         void CollectBoxes(double now)
         {
-            int leader=FindLeader();
             for(int b=0;b<itemBoxes.Length;b++){
                 if(!itemBoxes[b]||boxReady[b]>now)continue;
                 int nearest=-1;float distance=1.15f*1.15f;
@@ -179,25 +178,24 @@ namespace HalliGalli.Movement
                     float squared=delta.x*delta.x+delta.z*delta.z;if(squared<distance){nearest=i;distance=squared;}
                 }
                 if(nearest<0)continue;
-                ref var state=ref actors[nearest];state.item=PickItem(nearest==leader,UnityEngine.Random.value);
+                ref var state=ref actors[nearest];state.item=PickItem(UnityEngine.Random.value);
                 state.itemSequence++;state.acquisitions++;state.lockTarget=-1;acquisitions++;boxReady[b]=now+BoxCooldown;
                 nextAI[nearest]=(float)now+UnityEngine.Random.Range(.45f,.9f);
             }
         }
-        static RaceItem PickItem(bool leader,float roll)=>leader
-            ?roll<1f/3f?RaceItem.Banana:roll<2f/3f?RaceItem.Shield:RaceItem.RollingBall
-            :roll<.5f?RaceItem.Missile:roll<.9f?RaceItem.Laser:RaceItem.Banana;
+        static RaceItem PickItem(float roll)=>roll<1f/3?RaceItem.Missile:roll<2f/3?RaceItem.Banana:RaceItem.Barricade;
         public CourseParticipant LockTarget(CourseParticipant actor,Vector3 aim)
         {
             if(!Eligible(actor)||!ValidAim(aim))return null;
-            aim.Normalize();Vector3 origin=Anchor(actor);CourseParticipant target=null;float score=float.NegativeInfinity;
+            aim.Normalize();Vector3 origin=Anchor(actor),aimOrigin=actor.Motor.CurrentEyePosition;CourseParticipant target=null;
+            float bestAlignment=float.NegativeInfinity,bestDistance=float.PositiveInfinity;
             for(int i=0;i<session.participants.Length;i++){
                 var p=Participant(i);if(p==actor||!Eligible(p))continue;
-                Vector3 delta=Anchor(p)-origin;float distance=delta.magnitude;if(distance<.1f||distance>LockRange)continue;
-                float dot=Vector3.Dot(aim,delta/distance);if(dot<.75f||Vector3.Dot(actor.transform.forward,delta)<=0)continue;
-                float candidate=dot*2-distance/LockRange;
-                if(candidate<=score||WorldDistance(origin,delta/distance,distance,.06f)<distance)continue;
-                target=p;score=candidate;
+                Vector3 targetPoint=Anchor(p),delta=targetPoint-origin;float distance=delta.magnitude;if(distance<.1f||distance>LockRange)continue;
+                float dot=Vector3.Dot(aim,(targetPoint-aimOrigin).normalized);if(dot<.75f)continue;
+                if(dot<bestAlignment||dot==bestAlignment&&distance>=bestDistance)continue;
+                if(WorldDistance(origin,delta/distance,distance,.06f)<distance)continue;
+                target=p;bestAlignment=dot;bestDistance=distance;
             }
             return target;
         }
@@ -214,28 +212,19 @@ namespace HalliGalli.Movement
                     entities[slot]=new EntityState{id=++entitySequence,item=RaceItem.Missile,owner=seat,target=targetSeat,ownerLife=actor.RespawnSequence,targetLife=target.RespawnSequence,
                         position=Anchor(actor)+direction*.55f,direction=direction,expires=now+MissileLifetime};state.lockTarget=targetSeat;break;
                 case RaceItem.Banana:
-                    if(!actor.Motor.Grounded)return;slot=FreeEntity(MaxMissiles,BananaEnd);if(slot<0)return;
+                    slot=FreeEntity(MaxMissiles,BananaEnd);if(slot<0)return;
                     Vector3 behind=actor.transform.position-actor.transform.forward*1.15f;
-                    if(WorldDistance(actor.transform.position+Vector3.up*.2f,-actor.transform.forward,1.15f,.12f)<1.15f||!GroundPoint(behind,out var ground))return;
+                    if(!GroundPoint(actor,actor.transform.position,out var actorFloor)||!GroundPoint(actor,behind,out var ground))return;
+                    Vector3 route=ground-actorFloor;float routeLength=route.magnitude;
+                    if(routeLength<.001f||WorldDistance(actorFloor+Vector3.up*.2f,route/routeLength,routeLength,.12f)<routeLength)return;
                     entities[slot]=new EntityState{id=++entitySequence,item=RaceItem.Banana,owner=seat,target=-1,ownerLife=actor.RespawnSequence,
                         position=ground+Vector3.up*.045f,direction=actor.transform.forward,armedAt=now+.85f,expires=now+BananaLifetime};break;
-                case RaceItem.Shield:state.shieldUntil=now+ShieldSeconds;break;
-                case RaceItem.RollingBall:
-                    if(!actor.Motor.Grounded||!GroundPoint(actor.transform.position,out var ballGround))return;
-                    slot=FreeEntity(BananaEnd,BallEnd);if(slot<0)return;
-                    Vector3 backward=Vector3.ProjectOnPlane(-actor.transform.forward,Vector3.up).normalized;
-                    entities[slot]=new EntityState{id=++entitySequence,item=RaceItem.RollingBall,owner=seat,target=-1,ownerLife=actor.RespawnSequence,
-                        position=ballGround+Vector3.up*(BallRadius+BallClearance),direction=backward,expires=now+BallLifetime};break;
-                case RaceItem.Laser:
-                    if(Vector3.Dot(actor.transform.forward,aim)<=0)return;
-                    slot=FreeEntity(BallEnd,MaxEntities);if(slot<0)return;
-                    Vector3 laserDirection=aim.normalized,origin=Anchor(actor);
-                    float beamDistance=WorldDistance(origin,laserDirection,LockRange,0);
-                    int victim=FirstActor(origin,laserDirection,LockRange,0,seat,ref beamDistance);
-                    entities[slot]=new EntityState{id=++entitySequence,item=RaceItem.Laser,owner=seat,target=victim,ownerLife=actor.RespawnSequence,
-                        targetLife=victim>=0?Participant(victim).RespawnSequence:-1,position=origin,direction=laserDirection,
-                        distance=Mathf.Min(LockRange,beamDistance),expires=now+LaserDisplaySeconds};
-                    if(victim>=0)Impact(victim,RaceItem.Laser,laserDirection,now);break;
+                case RaceItem.Barricade:
+                    slot=FreeEntity(BananaEnd,MaxEntities);if(slot<0)return;
+                    if(!TryPlaceBarricade(actor,aim,out var position,out var forward,out var size))return;
+                    entities[slot]=new EntityState{id=++entitySequence,item=RaceItem.Barricade,owner=seat,target=-1,ownerLife=actor.RespawnSequence,
+                        position=position,direction=forward,size=size,expires=now+BarricadeLifetime};
+                    SyncBarricades();break;
                 default:return;
             }
             state.item=RaceItem.None;state.itemSequence++;state.uses++;
@@ -247,24 +236,13 @@ namespace HalliGalli.Movement
         {
             ref var e=ref entities[index];var owner=Participant(e.owner);
             if(e.expires<=now||!Eligible(owner)||owner.RespawnSequence!=e.ownerLife){e=default;return;}
-            // A laser resolves once at use time; its remaining lifetime is visual/network persistence only.
-            if(e.item==RaceItem.Laser)return;
-            if(e.item==RaceItem.RollingBall){
-                float step=BallSpeed*dt,wall=WorldDistance(e.position,e.direction,step,BallRadius),first=wall;
-                int victim=FirstActor(e.position,e.direction,step,BallRadius,e.owner,ref first);
-                Vector3 next=e.position+e.direction*Mathf.Min(step,first);
-                if(!GroundPoint(next-Vector3.up*(BallRadius+BallClearance),out var floor)||Mathf.Abs(floor.y-(e.position.y-BallRadius-BallClearance))>.05f){e=default;return;}
-                e.position=next;
-                if(victim>=0){Impact(victim,RaceItem.RollingBall,e.direction,now);e=default;return;}
-                if(wall<=step)e=default;
-                return;
-            }
+            if(e.item==RaceItem.Barricade)return;
             if(e.item==RaceItem.Banana){
                 for(int i=0;i<session.participants.Length;i++){
                     var p=Participant(i);if(!Eligible(p)||!p.Motor.Grounded||i==e.owner&&now<e.armedAt)continue;
                     Vector3 delta=p.transform.position-e.position;
                     if(Mathf.Abs(delta.y)>.6f||delta.x*delta.x+delta.z*delta.z>.8f*.8f)continue;
-                    Impact(i,RaceItem.Banana,e.direction,now);e=default;return;
+                    Impact(i,RaceItem.Banana,now);e=default;return;
                 }
                 return;
             }
@@ -276,7 +254,7 @@ namespace HalliGalli.Movement
             float nearest=obstacle;
             int hit=FirstActor(e.position,e.direction,travel,.2f,e.owner,ref nearest);
             e.position+=e.direction*Mathf.Min(travel,nearest);
-            if(hit>=0){Impact(hit,RaceItem.Missile,e.direction,now);e=default;return;}
+            if(hit>=0){Impact(hit,RaceItem.Missile,now);e=default;return;}
             if(obstacle<=travel)e=default;
         }
         int FirstActor(Vector3 origin,Vector3 direction,float step,float radius,int owner,ref float nearest)
@@ -289,24 +267,19 @@ namespace HalliGalli.Movement
             }
             return hit;
         }
-        void Impact(int seat,RaceItem item,Vector3 direction,double now)
+        void Impact(int seat,RaceItem item,double now)
         {
             ref var state=ref actors[seat];var p=Participant(seat);
-            if(state.shieldUntil>now){state.blocked++;state.blockedAt=now;blockedHits++;return;}
             if(state.effectUntil>now)return;
-            RaceEffect effect=item==RaceItem.Missile?RaceEffect.Flip:item==RaceItem.Banana?RaceEffect.Slip:RaceEffect.Push;
-            direction=Vector3.ProjectOnPlane(effect==RaceEffect.Slip?p.Motor.Velocity:direction,Vector3.up);
-            if(direction.sqrMagnitude<.1f)direction=p.transform.forward;direction.Normalize();
-            float duration=effect==RaceEffect.Flip?FlipSeconds:effect==RaceEffect.Slip?SlipSeconds:PushSeconds;
+            RaceEffect effect=item==RaceItem.Missile?RaceEffect.Flip:RaceEffect.Slip;
+            float duration=effect==RaceEffect.Flip?FlipSeconds:SlipSeconds;
             if(effect==RaceEffect.Flip){
-                if(!p.Motor.ApplyStun(duration,.2f))return;
-                p.Motor.AddImpulse(direction*3.5f+Vector3.up*6.3f);state.flips++;missileHits++;
-            }else if(effect==RaceEffect.Slip){
-                p.Motor.ApplyRaceSlip(direction*Mathf.Max(7,p.Motor.HorizontalSpeed),duration);state.slips++;bananaHits++;
+                if(!p.Motor.ApplyRaceLaunch(11.5f,duration))return;
+                state.flips++;missileHits++;
             }else{
-                // Stagger suppresses input without a grounded stun discarding the horizontal impulse.
-                p.Motor.ApplyStagger(duration);p.Motor.AddImpulse(direction*10+Vector3.up*2);state.pushes++;
-                if(item==RaceItem.RollingBall)ballHits++;else laserHits++;
+                var direction=Vector3.ProjectOnPlane(p.Motor.Velocity,Vector3.up);
+                if(direction.sqrMagnitude<.1f)direction=p.transform.forward;direction.Normalize();
+                p.Motor.ApplyRaceSlip(direction*Mathf.Max(7,p.Motor.HorizontalSpeed),duration);state.slips++;bananaHits++;
             }
             state.effect=effect;state.effectAt=now;state.effectUntil=now+duration;
             p.Combat.InterruptAttack();if(p.Lasso)p.Lasso.CancelConnection();
@@ -315,17 +288,13 @@ namespace HalliGalli.Movement
         {
             ref var state=ref actors[seat];if(state.item==RaceItem.None||now<nextAI[seat]||p.Motor.Stunned)return;
             nextAI[seat]=(float)now+.3f;
-            if(state.item==RaceItem.Missile||state.item==RaceItem.Laser){var target=LockTarget(p,p.transform.forward);if(target)UseItem(p,Anchor(target)-Anchor(p));return;}
+            if(state.item==RaceItem.Missile){var target=LockTarget(p,p.transform.forward);if(target)UseItem(p,Anchor(target)-Anchor(p));return;}
             bool follower=false;
             for(int i=0;i<session.participants.Length;i++){
                 var other=Participant(i);if(other==p||!Eligible(other))continue;Vector3 delta=other.transform.position-p.transform.position;
                 if(delta.sqrMagnitude<18*18&&Vector3.Dot(p.transform.forward,delta)<-1&&Mathf.Abs(Vector3.Dot(p.transform.right,delta))<3){follower=true;break;}
             }
-            if(state.item==RaceItem.Banana||state.item==RaceItem.RollingBall){if(follower)UseItem(p,p.transform.forward);return;}
-            bool incoming=false;
-            for(int i=0;i<MaxMissiles;i++)if(entities[i].item==RaceItem.Missile&&entities[i].target==seat&&(entities[i].position-p.transform.position).sqrMagnitude<20*20){incoming=true;break;}
-            if(!incoming)for(int i=BananaEnd;i<BallEnd;i++)if(entities[i].item==RaceItem.RollingBall&&entities[i].owner!=seat&&CapsuleDistance(p,entities[i].position,entities[i].direction,20,BallRadius)<=20){incoming=true;break;}
-            if(state.shieldUntil<=now&&(incoming||follower))UseItem(p,p.transform.forward);
+            if(follower&&(state.item==RaceItem.Banana||state.item==RaceItem.Barricade))UseItem(p,p.transform.forward);
         }
         float WorldDistance(Vector3 origin,Vector3 direction,float distance,float radius)
         {
@@ -338,12 +307,25 @@ namespace HalliGalli.Movement
             for(int i=0;i<count;i++)if(!worldHits[i].collider.GetComponentInParent<CourseParticipant>())nearest=Mathf.Min(nearest,worldHits[i].distance);
             return nearest;
         }
-        bool GroundPoint(Vector3 position,out Vector3 point)
+        bool GroundPoint(CourseParticipant actor,Vector3 position,out Vector3 point)
         {
-            int count=Physics.RaycastNonAlloc(position+Vector3.up*.6f,Vector3.down,worldHits,1.6f,WorldMask,QueryTriggerInteraction.Ignore);
-            float nearest=float.PositiveInfinity;point=default;
-            for(int i=0;i<count;i++)if(worldHits[i].normal.y>.7f&&!worldHits[i].collider.GetComponentInParent<CourseParticipant>()&&worldHits[i].distance<nearest){nearest=worldHits[i].distance;point=worldHits[i].point;}
-            return !float.IsPositiveInfinity(nearest);
+            point=default;Vector3 origin=position+Vector3.up*.1f;
+            float distance=origin.y-session.fallHeight;if(distance<=0||position.y<session.fallHeight)return false;
+            int mask=WorldMask&actor.Motor.profile.collisionMask.value;
+            int overlaps=Physics.OverlapSphereNonAlloc(origin,.001f,overlapHits,mask,QueryTriggerInteraction.Ignore);
+            if(overlaps==overlapHits.Length)return false;
+            for(int i=0;i<overlaps;i++)if(!overlapHits[i].GetComponentInParent<CourseParticipant>())return false;
+            int count=Physics.RaycastNonAlloc(origin,Vector3.down,worldHits,distance,mask,QueryTriggerInteraction.Ignore);
+            if(count==worldHits.Length)return false;
+            float nearest=float.PositiveInfinity;int best=-1;
+            for(int i=0;i<count;i++){
+                var hit=worldHits[i];if(hit.collider.GetComponentInParent<CourseParticipant>()||hit.distance>=nearest)continue;
+                nearest=hit.distance;best=i;
+            }
+            // A blocked or steep first surface is not permission to place on a hidden floor below it.
+            if(best<0)return false;
+            var ground=worldHits[best];point=ground.point;
+            return point.y>=session.fallHeight&&point.y<=position.y+.001f&&ground.normal.y>=Mathf.Cos(actor.Motor.profile.slopeLimit*Mathf.Deg2Rad);
         }
         static float CapsuleDistance(CourseParticipant p,Vector3 origin,Vector3 direction,float step,float projectileRadius=.2f)
         {

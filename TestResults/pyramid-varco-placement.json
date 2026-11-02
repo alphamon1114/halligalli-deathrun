@@ -4,25 +4,25 @@
     "assets": [
         {
             "key": "StoneGate",
-            "instances": 9,
+            "instances": 10,
             "textured": true,
             "collidersAbsent": true
         },
         {
             "key": "LotusColumn",
-            "instances": 60,
+            "instances": 44,
             "textured": true,
             "collidersAbsent": true
         },
         {
             "key": "Anubis",
-            "instances": 12,
+            "instances": 10,
             "textured": true,
             "collidersAbsent": true
         },
         {
             "key": "ReliefPanel",
-            "instances": 58,
+            "instances": 44,
             "textured": true,
             "collidersAbsent": true
         },

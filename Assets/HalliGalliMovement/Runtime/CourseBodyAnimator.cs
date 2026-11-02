@@ -10,7 +10,11 @@ namespace HalliGalli.Movement
         void Start(){motor=GetComponent<SourceMotor>();combat=GetComponent<MeleeCombat>();receiver=GetComponent<MeleeReceiver>();animationPlayer=model.gameObject.AddComponent<Animation>();animationPlayer.playAutomatically=false;animationPlayer.cullingType=AnimationCullingType.AlwaysAnimate;
             foreach(var c in motions.bodyClips)animationPlayer.AddClip(c,c.name);animationPlayer.AddClip(seatedClip,"Seated");
             var bones=model.GetComponentsInChildren<Transform>();
-            foreach(string name in new[]{"PunchLeft","PunchRight","Kick","HitFront","HitBack","HitLeft","HitRight","Knockback","LassoHold","LassoThrow","LassoPull"}){var s=animationPlayer[name];if(s==null)continue;s.layer=name.StartsWith("Hit")||name=="Knockback"?2:1;s.speed=0;s.wrapMode=WrapMode.ClampForever;s.AddMixingTransform(bones.First(t=>t.name=="Spine"),true);if(name=="Kick")s.AddMixingTransform(bones.First(t=>t.name=="RightUpLeg"),true);}
+            foreach(string name in new[]{"PushLeft","PushRight","Kick","HitFront","HitBack","HitLeft","HitRight","Knockback","LassoHold","LassoThrow","LassoPull"}){
+                var s=animationPlayer[name];if(s==null)continue;s.layer=name.StartsWith("Hit")||name=="Knockback"?2:1;s.speed=0;s.wrapMode=WrapMode.ClampForever;
+                s.AddMixingTransform(bones.First(t=>t.name=="Spine"),true);
+                if(name=="Kick")s.AddMixingTransform(bones.First(t=>t.name=="RightUpLeg"),true);
+            }
         }
         void Update(){if(!animationPlayer)return;string next=seated?"Seated":!motor.Grounded?(motor.Velocity.y>.5f?"Jump":"Fall"):motor.HorizontalSpeed<.15f?"Idle":motor.IsRunning?"RunForward":"WalkForward";
             if(next!=locomotion){animationPlayer.CrossFade(next,.07f);locomotion=next;}

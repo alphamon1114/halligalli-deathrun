@@ -76,7 +76,8 @@ namespace HalliGalli.Movement
             BellUI.Text(new Rect(x-5,y+210,480,100),"BELL",88,BellUI.Paper,true);
             BellUI.Text(new Rect(x-5,y+298,480,100),"RUN",88,BellUI.Gold,true);
             BellUI.Text(new Rect(x+2,y+425,460,31),"할리갈리 데스런",21,BellUI.Muted);
-            if(!Busy&&!leaving&&BellUI.Button(new Rect(x+2,y+485,180,40),"조작키 설정",size:16))ControlSettings.Open();
+            DrawShirtPalette(x+2,y+468,false);
+            if(!Busy&&!leaving&&BellUI.Button(new Rect(x+2,y+560,180,40),"조작키 설정",size:16))ControlSettings.Open();
             float right=x+584;
             GUI.enabled=!Busy&&!leaving;
             if(entryScreen==EntryScreen.Home){
@@ -133,7 +134,8 @@ namespace HalliGalli.Movement
             }
             for(int i=0;i<members.Count;i++){
                 var m=members[i];float row=y+266+i*45;Color c=m.id==0?BellUI.Gold:m.ready?BellUI.Cool:BellUI.Muted;
-                BellUI.Round(new Rect(x,row,31,31),new Color(.18f,.19f,.17f),16);BellUI.Text(new Rect(x,row,31,31),(i+1).ToString(),13,c,true,TextAnchor.MiddleCenter);
+                Color shirt=PlayerShirtColors.ColorAt(m.shirtColor);
+                BellUI.Round(new Rect(x,row,31,31),shirt,16);BellUI.Text(new Rect(x,row,31,31),(i+1).ToString(),13,shirt.grayscale>.55f?BellUI.Ink:BellUI.Paper,true,TextAnchor.MiddleCenter);
                 string name=SeatName(i);int size=Mathf.Min(16,Mathf.FloorToInt(16*267/Mathf.Max(1,BellUI.Style(16).CalcSize(new GUIContent(name)).x)));
                 BellUI.Text(new Rect(x+47,row,267,31),name,Mathf.Max(12,size));
                 if(m.bot){
@@ -164,10 +166,33 @@ namespace HalliGalli.Movement
                 if(BellUI.Button(new Rect(right,y+444,440,52),loading?"맵 불러오는 중…":!UserMapReady?"맵을 받는 중…":ready?"준비 취소":"준비 완료",!ready))LocalAction(NetworkAction.Ready);
                 GUI.enabled=true;
             }
+            DrawShirtPalette(x,y+535,true);
             GUI.enabled=!Busy&&!leaving;
             if(BellUI.Button(new Rect(x,y+581,202,44),IsHost?"방 닫기":"나가기"))_=Leave();
             if(BellUI.Button(new Rect(x+220,y+581,202,44),"조작키 설정"))ControlSettings.Open();
             GUI.enabled=true;
+        }
+        void DrawShirtPalette(float x,float y,bool compact)
+        {
+            int selected=SelectedShirtColor;
+            float size=compact?30:34,step=compact?37:46;
+            float startX=compact?x+126:x,startY=compact?y:y+34;
+            string caption="티셔츠 · "+PlayerShirtColors.NameAt(selected);
+            for(int i=0;i<PlayerShirtColors.Count;i++){
+                var rect=new Rect(startX+i*step,startY,size,size);
+                bool available=CanSelectShirtColor(i),current=i==selected;
+                if(rect.Contains(Event.current.mousePosition))
+                    caption=(compact?"":"티셔츠 · ")+PlayerShirtColors.NameAt(i)+(online&&!Playing&&!loading&&!available&&!current?" (사용 중)":"");
+                Color shirt=PlayerShirtColors.ColorAt(i);
+                BellUI.Round(rect,available||current?shirt:Color.Lerp(BellUI.Ink,shirt,.3f),size*.5f);
+                BellUI.Round(new Rect(rect.x-3,rect.y-3,size+6,size+6),current?BellUI.Gold:new Color(.65f,.66f,.6f,.3f),size*.5f+3,current?2:1);
+                if(current)BellUI.Icon("check",new Rect(rect.x+7,rect.y+7,size-14,size-14),shirt.grayscale>.55f?BellUI.Ink:BellUI.Paper);
+                else if(!available&&online&&!Playing&&!loading)BellUI.Icon("person",new Rect(rect.x+8,rect.y+8,size-16,size-16),BellUI.Muted);
+                bool enabled=GUI.enabled;GUI.enabled=enabled&&available;
+                if(GUI.Button(rect,GUIContent.none,GUIStyle.none))SelectShirtColor(i);
+                GUI.enabled=enabled;
+            }
+            BellUI.Text(new Rect(x,y,compact?118:456,26),caption,compact?12:15,BellUI.Paper,true);
         }
     }
 }

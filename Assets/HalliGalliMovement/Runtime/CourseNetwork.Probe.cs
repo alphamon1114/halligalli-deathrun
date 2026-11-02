@@ -20,12 +20,22 @@ namespace HalliGalli.Movement
         [Serializable] sealed class Actor
         {
             public Vector3 position,velocity;
-            public bool seated,respawning,grounded,crouched,aiming,aiEnabled;
-            public int falls,respawns,hits,attacks,checkpoint,gates,ammo,shots,stunHits,blinks;
-            public float blink,yaw,viewYaw,viewRoll,checkpointSide,stun,immunity;
+            public bool seated,respawning,grounded,crouched,aiming,aiEnabled,localPlayer;
+            public int falls,respawns,hits,attacks,attackHits,checkpoint,gates,ammo,shots,stunHits;
+            public float yaw,viewYaw,viewRoll,checkpointSide,stun,immunity,stagger,raceLaunch,pushProtection,attackElapsed,kickCooldown;
+            public string attack;
+            public int shirtColor,shirtRenderers;
+            public Color shirtTint;
+            public Vector3 lastPush;
             public int lassoCasts,lassoHits,lassoPulls,lassoTarget;
             public string lassoPhase;public float lassoCooldown;
             public int ropeThrowSounds,ropeLatchSounds,ropePullSounds;
+        }
+        [Serializable] sealed class BuildPreviewReport
+        {
+            public bool valid;
+            public Vector3 position,rotation,scale;
+            public string placedId;
         }
         [Serializable] sealed class CheckpointInfo {public Vector3 position;public float yaw;public int gates;}
         [Serializable] sealed class PartVisualReport
@@ -54,6 +64,11 @@ namespace HalliGalli.Movement
             public bool active,playing,loading,host,canStart,busy;
             public int localSeat,bells,revision,turn,bots,capacity,surfSections,twoSidedSurfSections;
             public bool canAddBot,botCards;
+            public int protocol,selectedShirtColor,savedShirtColor;
+            public int raceAimTarget=-1;
+            public bool shirtSelectionAccepted,shirtSelectionLoading;
+            public string shirtPreferenceKey;
+            public bool[] selectableShirtColors;
             public CourseNetwork.Member[] members;
             public Actor[] actors;
             public CheckpointInfo[] checkpoints;
@@ -75,6 +90,15 @@ namespace HalliGalli.Movement
             public Vector3 studioCameraPosition,studioCameraForward,studioCameraFocus;
             public bool studioPartsMenu;
             public float studioViewportWidth;
+            public bool studioEasyBuild,studioEraseMode,studioOrbit,studioBuildValid;
+            public int studioBuildSize;
+            public Vector3 studioBuildPosition,studioBuildRotation,studioBuildScale;
+            public bool studioFirstPerson,studioCaptured,studioNoclip,studioAir,studioAirGround,studioAirGuide;
+            public int studioFlySpeed;
+            public float studioAirDistance,studioAirHeight;
+            public Vector3 studioAirBottom,studioAirReference;
+            public bool studioPawnActive,studioPawnGrounded;
+            public Vector3 studioPawnPosition,studioPawnVelocity;
             public RaceCourse.Snapshot race;
         }
         string role,folder,error="";
@@ -82,6 +106,7 @@ namespace HalliGalli.Movement
         CourseNetwork network;CourseSession game;
         MovementCommand movement;float pitch;bool pendingJump;
         bool studioUI;
+        bool shirtSelectionAccepted,shirtSelectionLoading;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot()
         {
@@ -101,7 +126,7 @@ namespace HalliGalli.Movement
                 if(Arg("--relay-probe")=="true"){
                     if(role=="host")await network.Connect(true);
                     // A Relay client waits for its join command, after the real code has been created.
-                }else if(role!="manual"){
+                }else if(role!="manual"&&Arg("--probe-manual")!="true"){
                     ushort port=ushort.TryParse(Arg("--net-port"),out var parsed)?parsed:(ushort)7777;
                     network.StartLoopback(role=="host",port,role);
                 }
@@ -130,6 +155,9 @@ namespace HalliGalli.Movement
             var report=new Report{hasFerry=game&&game.ferry,ferryPosition=game&&game.ferry?game.ferry.carrier.transform.position:Vector3.zero,ferryPositions=game&&game.ferry?new[]{game.ferry.carrier,game.ferry.secondCarrier}.Where(s=>s).Select(s=>s.transform.position).ToArray():Array.Empty<Vector3>(),worldTime=CourseNetwork.WorldTime,factoryPlatforms=game&&game.factory?game.factory.movingPlatforms.Select(s=>s.transform.position).ToArray():Array.Empty<Vector3>(),factoryPresses=game&&game.factory?game.factory.presses.Select(p=>p.head.position).ToArray():Array.Empty<Vector3>(),role=role,status=network.Status,code=network.InviteCode,map=game&&game.maps.current?game.maps.current.id:"",
                 active=CourseNetwork.Active,playing=network.Playing,loading=network.IsLoading,host=network.IsHost,canStart=network.CanStart,busy=network.Busy,
                 localSeat=network.LocalSeat,bells=game?game.BellCount:0,revision=match?.Revision??-1,turn=match?.Turn??-1,bots=network.BotCount,capacity=network.Capacity,canAddBot=network.CanAddBot,botCards=game&&game.cardGame.botEnabled,
+                protocol=CourseNetwork.Protocol,selectedShirtColor=network.SelectedShirtColor,savedShirtColor=PlayerShirtColors.SavedIndex,
+                shirtSelectionAccepted=shirtSelectionAccepted,shirtSelectionLoading=shirtSelectionLoading,shirtPreferenceKey=PlayerShirtColors.PreferenceKey,
+                selectableShirtColors=Enumerable.Range(0,PlayerShirtColors.Count).Select(network.CanSelectShirtColor).ToArray(),
                 selectedMap=network.MapId,userMapHash=network.SelectedUserMapHash,userMapReady=network.UserMapReady,
                 userMapTransfer=network.UserMapTransferStatus,userMapRevision=network.SelectedUserMapRevision,
                 userMapCacheHit=network.UserMapCacheHit,
@@ -155,13 +183,39 @@ namespace HalliGalli.Movement
                 studioCameraFocus=UserMapStudio.Current?UserMapStudio.Current.CameraFocus:Vector3.zero,
                 studioPartsMenu=UserMapStudio.Current&&UserMapStudio.Current.IsPartsMenuOpen,
                 studioViewportWidth=UserMapStudio.Current&&UserMapStudio.Current.EditorCamera?UserMapStudio.Current.EditorCamera.pixelWidth:0,
+                studioEasyBuild=UserMapStudio.Current&&UserMapStudio.Current.EasyBuild,
+                studioEraseMode=UserMapStudio.Current&&UserMapStudio.Current.EraseMode,
+                studioOrbit=UserMapStudio.Current&&UserMapStudio.Current.IsOrbitView,
+                studioBuildSize=UserMapStudio.Current?UserMapStudio.Current.BuildSizeIndex:0,
+                studioBuildValid=UserMapStudio.Current&&UserMapStudio.Current.BuildPreviewValid,
+                studioBuildPosition=UserMapStudio.Current?UserMapStudio.Current.BuildPreviewPosition:Vector3.zero,
+                studioBuildRotation=UserMapStudio.Current?UserMapStudio.Current.BuildPreviewRotation:Vector3.zero,
+                studioBuildScale=UserMapStudio.Current?UserMapStudio.Current.BuildPreviewScale:Vector3.zero,
+                studioFirstPerson=UserMapStudio.Current&&UserMapStudio.Current.FirstPersonBuild,
+                studioCaptured=UserMapStudio.Current&&UserMapStudio.Current.BuildCursorCaptured,
+                studioNoclip=UserMapStudio.Current&&UserMapStudio.Current.BuildNoclip,
+                studioAir=UserMapStudio.Current&&UserMapStudio.Current.AirBuild,
+                studioFlySpeed=UserMapStudio.Current?UserMapStudio.Current.BuildFlySpeedIndex:0,
+                studioAirDistance=UserMapStudio.Current?UserMapStudio.Current.AirBuildDistance:0,
+                studioAirGround=UserMapStudio.Current&&UserMapStudio.Current.AirBuildGuideHasGround,
+                studioAirGuide=UserMapStudio.Current&&UserMapStudio.Current.AirBuildGuideActive,
+                studioAirHeight=UserMapStudio.Current?UserMapStudio.Current.AirBuildGuideHeight:0,
+                studioAirBottom=UserMapStudio.Current?UserMapStudio.Current.AirBuildGuideBottom:Vector3.zero,
+                studioAirReference=UserMapStudio.Current?UserMapStudio.Current.AirBuildGuideReferencePoint:Vector3.zero,
+                studioPawnActive=UserMapStudio.Current&&UserMapStudio.Current.BuildPawnActive,
+                studioPawnGrounded=UserMapStudio.Current&&UserMapStudio.Current.BuildPawnGrounded,
+                studioPawnPosition=UserMapStudio.Current?UserMapStudio.Current.BuildPawnPosition:Vector3.zero,
+                studioPawnVelocity=UserMapStudio.Current?UserMapStudio.Current.BuildPawnVelocity:Vector3.zero,
                 cardState=match==null?"":JsonUtility.ToJson(match.ExportPublicState(game.cardGame.deck)),members=network.Members.ToArray(),
-                actors=game?game.participants.Select(p=>new Actor{position=p.transform.position,velocity=p.Motor.Velocity,seated=p.IsSeated,
-                    respawning=p.IsRespawning,grounded=p.Motor.Grounded,crouched=p.Motor.IsCrouched,falls=p.Falls,respawns=p.RespawnSequence,aiEnabled=p.GetComponent<CourseRival>()&&p.GetComponent<CourseRival>().enabled,
-                    hits=p.Receiver.ReceivedHits,attacks=p.Combat.AttackSequence,blink=p.Receiver.PunchBlinkAmount,blinks=p.Receiver.BlinksPlayed,
+                actors=game?game.participants.Select(p=>{var shirt=p.GetComponent<PlayerShirtAppearance>();return new Actor{position=p.transform.position,velocity=p.Motor.Velocity,seated=p.IsSeated,
+                    shirtColor=shirt?shirt.ColorIndex:-1,shirtRenderers=shirt?shirt.RendererCount:0,shirtTint=shirt?shirt.AppliedColor:Color.clear,
+                    respawning=p.IsRespawning,grounded=p.Motor.Grounded,crouched=p.Motor.IsCrouched,falls=p.Falls,respawns=p.RespawnSequence,aiEnabled=p.GetComponent<CourseRival>()&&p.GetComponent<CourseRival>().enabled,localPlayer=p.localPlayer,
+                    hits=p.Receiver.ReceivedHits,attacks=p.Combat.AttackSequence,attackHits=p.Combat.HitCount,pushProtection=p.Receiver.PushProtectionRemaining,
+                    attack=p.Combat.CurrentAttack.ToString(),attackElapsed=p.Combat.Elapsed,kickCooldown=p.Combat.KickCooldownRemaining,lastPush=p.Receiver.LastImpulse,
+                    stun=p.Motor.StunRemaining,immunity=p.Motor.StunImmuneRemaining,stagger=p.Motor.StaggerRemaining,raceLaunch=p.Motor.RaceLaunchRemaining,
                     lassoCasts=p.Lasso.Casts,lassoHits=p.Lasso.Hits,lassoPulls=p.Lasso.Pulls,lassoTarget=Array.IndexOf(game.participants,p.Lasso.Target),lassoPhase=p.Lasso.Phase.ToString(),lassoCooldown=p.Lasso.CooldownRemaining,
                     ropeThrowSounds=p.GetComponent<LassoAudio>().Played(LassoSound.Throw),ropeLatchSounds=p.GetComponent<LassoAudio>().Played(LassoSound.Latch),ropePullSounds=p.GetComponent<LassoAudio>().Played(LassoSound.Pull),
-                    checkpoint=p.CheckpointIndex,checkpointSide=p.CheckpointSide,gates=game.roster.surf?game.roster.surf.GatesPassed(p):0,yaw=p.transform.eulerAngles.y,viewYaw=p.localPlayer?p.GetComponent<SourcePlayerController>().AimRotation.eulerAngles.y:p.transform.eulerAngles.y,viewRoll=p.localPlayer?p.GetComponent<SourcePlayerController>().playerCamera.transform.eulerAngles.z:0}).ToArray():new Actor[0],error=error,
+                    checkpoint=p.CheckpointIndex,checkpointSide=p.CheckpointSide,gates=game.roster.surf?game.roster.surf.GatesPassed(p):0,yaw=p.transform.eulerAngles.y,viewYaw=p.localPlayer?p.GetComponent<SourcePlayerController>().AimRotation.eulerAngles.y:p.transform.eulerAngles.y,viewRoll=p.localPlayer?p.GetComponent<SourcePlayerController>().playerCamera.transform.eulerAngles.z:0};}).ToArray():new Actor[0],error=error,
                 checkpoints=game&&game.checkpoints?game.checkpoints.points.Select(p=>new CheckpointInfo{position=p.spawn.position,yaw=p.spawn.eulerAngles.y,gates=p.surfGates}).ToArray():new CheckpointInfo[0],
                 surfSections=game&&game.roster.surf?game.roster.surf.sections.Length:0,
                 twoSidedSurfSections=game&&game.roster.surf?game.roster.surf.sections.Count(s=>s.twoSided):0,
@@ -171,6 +225,10 @@ namespace HalliGalli.Movement
             report.victoryReturnPending=network.VictoryReturnPending;report.victoryReturnRemaining=network.VictoryReturnRemaining;
             if(hud){report.victorySoundsPlayed=hud.VictorySoundsPlayed;report.victoryAudioReady=hud.VictoryAudioReady;report.victorySoundPlaying=hud.VictoryAudioSource&&hud.VictoryAudioSource.isPlaying;}
             if(RaceCourse.Active&&RaceCourse.Active.session==game)report.race=RaceCourse.Active.CaptureSnapshot();
+            if(RaceCourse.Active&&RaceCourse.Active.session==game&&RaceCourse.Active.HeldItem(game.Local)==RaceItem.Missile){
+                var target=RaceCourse.Active.LockTarget(game.Local,game.Local.GetComponent<SourcePlayerController>().AimRotation*Vector3.forward);
+                report.raceAimTarget=target?Array.IndexOf(game.participants,target):-1;
+            }
             try{File.WriteAllText(Path.Combine(folder,"state-"+role+".json"),JsonUtility.ToJson(report));}catch(IOException){}
         }
         void FixedUpdate()
@@ -189,6 +247,12 @@ namespace HalliGalli.Movement
         {
             switch(c.action){
                 case "host-loopback":network.StartLoopback(true,ushort.Parse(c.value),"shared-map-host");break;
+                case "join-loopback":network.StartLoopback(false,ushort.Parse(c.value),role);break;
+                case "show-home":network.ShowStartScreen();break;
+                case "training":network.StartTraining();break;
+                case "shirt-color":shirtSelectionLoading=network.IsLoading;shirtSelectionAccepted=network.SelectShirtColor(int.Parse(c.value));break;
+                case "start-shirt-color":
+                    network.StartMatch();shirtSelectionLoading=network.IsLoading;shirtSelectionAccepted=network.SelectShirtColor(int.Parse(c.value));break;
                 case "join":_=network.Connect(false,c.value);break;
                 case "add-bot":network.AddBot();break;
                 case "remove-bot":if(c.seat>=0&&c.seat<network.Members.Count)network.RemoveBot(network.Members[c.seat].id);break;
@@ -202,6 +266,28 @@ namespace HalliGalli.Movement
                 case "studio-parts-menu":UserMapStudio.Current.SetPartsMenuOpen(c.value=="open");break;
                 case "studio-choose-part":UserMapStudio.Current.SendMessage("ChoosePalette",(UserMapPart)Enum.Parse(typeof(UserMapPart),c.value));break;
                 case "studio-view":UserMapStudio.Current.SetStudioView((UserMapStudio.StudioView)Enum.Parse(typeof(UserMapStudio.StudioView),c.value));break;
+                case "studio-orbit":UserMapStudio.Current.OrbitCamera(new Vector2(c.x,c.z));break;
+                case "studio-first-person":UserMapStudio.Current.SetFirstPersonBuild(c.value=="true");break;
+                case "studio-capture":UserMapStudio.Current.SetBuildCursorCaptured(c.value=="true");break;
+                case "studio-noclip":UserMapStudio.Current.SetBuildNoclip(c.value=="true");break;
+                case "studio-fly-speed":UserMapStudio.Current.SetBuildFlySpeed(c.seat);break;
+                case "studio-air":UserMapStudio.Current.SetAirBuild(c.value=="true");break;
+                case "studio-air-distance":UserMapStudio.Current.AdjustAirBuildDistance(c.x);break;
+                case "studio-build-navigate":UserMapStudio.Current.NavigateBuild(new Vector2(c.yaw,c.pitch),c.position,c.x,c.primary);break;
+                case "studio-easy":UserMapStudio.Current.SetEasyBuild(c.value=="true");break;
+                case "studio-build-size":UserMapStudio.Current.SetBuildSize(c.seat);break;
+                case "studio-build-rotate":UserMapStudio.Current.RotateBuild90();break;
+                case "studio-nudge":UserMapStudio.Current.NudgeSelectedBuild(c.seat,(int)c.x);break;
+                case "studio-build-preview":
+                    var builder=UserMapStudio.Current;
+                    bool valid=builder.PreviewBuild(new Ray(c.position,Quaternion.Euler(c.pitch,c.yaw,0)*Vector3.forward));
+                    var preview=new BuildPreviewReport{valid=valid,position=builder.BuildPreviewPosition,rotation=builder.BuildPreviewRotation,scale=builder.BuildPreviewScale};
+                    if(c.primary)preview.placedId=builder.PlaceBuildPreview();
+                    File.WriteAllText(Path.Combine(folder,"build-preview.json"),JsonUtility.ToJson(preview));break;
+                case "studio-build-place":UserMapStudio.Current.PlaceBuildPreview();break;
+                case "studio-erase":UserMapStudio.Current.SetEraseMode(c.value=="true");break;
+                case "studio-erase-hit":UserMapStudio.Current.EraseAtRay(new Ray(c.position,Quaternion.Euler(c.pitch,c.yaw,0)*Vector3.forward));break;
+                case "studio-read":File.WriteAllText(Path.Combine(folder,"studio-draft.json"),UserMapStorage.Serialize(UserMapStudio.Current.Draft));break;
                 case "studio-click":
                     var studio=UserMapStudio.Current;
                     studio.SelectAtScreenPoint(studio.EditorCamera.WorldToScreenPoint(c.position),c.x);

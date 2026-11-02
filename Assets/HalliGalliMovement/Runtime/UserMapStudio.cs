@@ -66,6 +66,7 @@ namespace HalliGalli.Movement
             Camera.onPreRender -= BeforeStudioCameraRender;
             Camera.onPostRender -= AfterStudioCameraRender;
             RestoreCameraFog();
+            DestroyBuildPawn();
             StopClearAttempt();
             if (Current == this) Current = null;
             if (studioCamera) Destroy(studioCamera.gameObject);
@@ -76,8 +77,10 @@ namespace HalliGalli.Movement
         IEnumerator LoadDraftScene(bool play)
         {
             busy = true;
+            RememberBuildPose();
             StopClearAttempt();
             StopPointerInteraction();
+            DestroyBuildPawn();
             RestoreCameraFog();
             if (studioCamera)
             {
@@ -152,6 +155,7 @@ namespace HalliGalli.Movement
             studioCamera.farClipPlane = 10000;
             studioCamera.fieldOfView = 65;
             cameraObject.AddComponent<AudioListener>();
+            BindBuildNavigation(game, controller);
             InitializeStudioCamera();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -167,7 +171,11 @@ namespace HalliGalli.Movement
             selectedId = null;
             undo.Clear(); redo.Clear();
             SyncMapFields(); SyncInspectorFields();
-            placementMode = false;
+            StopPointerInteraction();
+            DestroyBuildPawn();
+            buildPoseInitialized = false;
+            BuildNoclip = true;
+            placementMode = placementValid = placementAvailable = hasBuildRay = EraseMode = false;
             if (UserMapRuntime.Current && !busy && !testing)
             {
                 UserMapRuntime.Current.Rebuild(UserMapStorage.Clone(draft));
@@ -285,7 +293,8 @@ namespace HalliGalli.Movement
             try { UserMapStorage.Validate(draft); }
             catch (Exception e) { Status = e.Message; return; }
             libraryOpen = helpOpen = false;
-            placementMode = false;
+            partsMenuOpen = fileMenuOpen = easyContextOpen = mapInspector = false;
+            placementMode = placementValid = placementAvailable = hasBuildRay = EraseMode = false;
             StartCoroutine(LoadDraftScene(true));
         }
 
@@ -312,6 +321,7 @@ namespace HalliGalli.Movement
         {
             busy = true;
             StopPointerInteraction();
+            DestroyBuildPawn();
             AsyncOperation load = null;
             try
             {

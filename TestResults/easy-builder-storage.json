@@ -1,0 +1,61 @@
+{
+    "utc": "2026-11-02T03:02:34.7891293Z",
+    "checks": [
+        {
+            "name": "Uncleared map cannot be saved or exported",
+            "passed": true
+        },
+        {
+            "name": "Import creates a new uncertified draft without saving",
+            "passed": true
+        },
+        {
+            "name": "Portable input preserves geometry and Korean metadata",
+            "passed": true
+        },
+        {
+            "name": "Editing imported draft does not modify original file",
+            "passed": true
+        },
+        {
+            "name": "Draft cloning isolates nested object edits",
+            "passed": true
+        },
+        {
+            "name": "Unknown schema version rejected",
+            "passed": true
+        },
+        {
+            "name": "Path traversal map id rejected",
+            "passed": true
+        },
+        {
+            "name": "Unknown object kind rejected",
+            "passed": true
+        },
+        {
+            "name": "Nonfinite transform rejected",
+            "passed": true
+        },
+        {
+            "name": "Duplicate object identities rejected",
+            "passed": true
+        },
+        {
+            "name": "No bell rejected",
+            "passed": true
+        },
+        {
+            "name": "Too many objects rejected",
+            "passed": true
+        },
+        {
+            "name": "Oversized imported file rejected",
+            "passed": true
+        },
+        {
+            "name": "Content hash changes when geometry changes",
+            "passed": true
+        }
+    ]
+}

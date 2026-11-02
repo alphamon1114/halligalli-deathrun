@@ -269,7 +269,7 @@ namespace HalliGalli.EditorTools
                 AssetDatabase.CreateAsset(map, path);
             }
             map.id = Id; map.displayName = "아이템 레이스"; map.style = CourseMapStyle.Race; map.difficulty = 2;
-            map.description = "220m 연속 트랙. 선두는 바나나·방어막·후방 큰 공, 추격자는 미사일·직선 레이저 중심의 랜덤 아이템으로 경쟁합니다.";
+            map.description = "220m 연속 트랙. 선두는 바나나·바리게이트, 추격자는 미사일 중심의 랜덤 아이템으로 경쟁합니다.";
             map.scenePath = ScenePath; map.movementProfile = profile; map.playable = true; map.thumbnail = "Race";
             var catalog = CourseMapsBuilder.Catalog;
             catalog.maps = (catalog.maps ?? Array.Empty<CourseMapDefinition>()).Where(existing => existing && existing.id != Id).Append(map).ToArray();

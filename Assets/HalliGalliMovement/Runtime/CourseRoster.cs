@@ -59,6 +59,17 @@ namespace HalliGalli.Movement
             float width=surf?10.5f:Mathf.Max(4.6f,(count-1)*SeatSpacing+1.5f);
             mergeSurface.localScale=new Vector3(width,.44f,2.2f);
             if(session.userMap)session.userMap.ApplyRoster(this);
+            if(!CourseNetwork.Active)ApplyOfflineShirtColors();
+        }
+        public void ApplyOfflineShirtColors()
+        {
+            int local=PlayerShirtColors.SavedIndex,next=0;
+            foreach(var participant in allParticipants){
+                if(!participant)continue;
+                if(participant.localPlayer){PlayerShirtAppearance.Apply(participant,local);continue;}
+                if(next==local)next++;
+                PlayerShirtAppearance.Apply(participant,next++);
+            }
         }
     }
 }

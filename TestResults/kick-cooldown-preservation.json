@@ -1,0 +1,546 @@
+{
+  "utc": "2026-11-02T06:54:40.023Z",
+  "files": [
+    {
+      "path": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+      "before": "73a282aba74fa9e25b29e33d7256427a4487bdaa68401659c61b4defc016af7b",
+      "after": "73a282aba74fa9e25b29e33d7256427a4487bdaa68401659c61b4defc016af7b",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+      "before": "a45a165a269c8ddd6172581624488cced578d41f3add8b3eb52b431cfb54b5f0",
+      "after": "a45a165a269c8ddd6172581624488cced578d41f3add8b3eb52b431cfb54b5f0",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/CombatPractice.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/CombatPractice.unity",
+      "before": "24d3690871b618f9e8772448c4b3d7471f271c97319b823fadfda34a09ccce6e",
+      "after": "24d3690871b618f9e8772448c4b3d7471f271c97319b823fadfda34a09ccce6e",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+      "before": "c7c2288302b9bdabe8ab9a216672bc5206b174e7e322705e5b744b2a2a8b055b",
+      "after": "c7c2288302b9bdabe8ab9a216672bc5206b174e7e322705e5b744b2a2a8b055b",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/MovementLab.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/MovementLab.unity",
+      "before": "de3845022b77d4b0376b0be05507bdb4a79bf2684f3411911024ec9179f4ae70",
+      "after": "06739ed8e720cdf9b02611e07fb779dedcc25349dedc144f6a3531f564e1cc8c",
+      "unchanged": false,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/RaceCourse.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/RaceCourse.unity",
+      "before": "f9551ade8cc6a64a185ea6ec7963a7da769fc0a7a6a4d44520509278fd219365",
+      "after": "f9551ade8cc6a64a185ea6ec7963a7da769fc0a7a6a4d44520509278fd219365",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+      "before": "0257889661bab545ba3bee6804b03a89ea024395c1493718ffd51a1d3b35cbe2",
+      "after": "0257889661bab545ba3bee6804b03a89ea024395c1493718ffd51a1d3b35cbe2",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/UserMapCourse.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/UserMapCourse.unity",
+      "before": "a6b80952dd389aed38355f007bf07992e87a489f16717017fa83124fdaad5e84",
+      "after": "a6b80952dd389aed38355f007bf07992e87a489f16717017fa83124fdaad5e84",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/SurfMovement.asset",
+      "currentPath": "Assets/HalliGalliMovement/Settings/SurfMovement.asset",
+      "before": "73734179bda0a06f9113b25d081f0b9937a070a9d6cdfb8a2ffcd449492af40f",
+      "after": "73734179bda0a06f9113b25d081f0b9937a070a9d6cdfb8a2ffcd449492af40f",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/DefaultMovement.asset",
+      "currentPath": "Assets/HalliGalliMovement/Settings/DefaultMovement.asset",
+      "before": "f88fefeadb8570df409d5307cc3f18206fefd705ddb7239448f4aa8588091628",
+      "after": "f88fefeadb8570df409d5307cc3f18206fefd705ddb7239448f4aa8588091628",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity",
+      "currentPath": "Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity",
+      "before": "a40c949931b46a18ed246686648bad843febcc4393d6f2ccb13bdee91f536ecb",
+      "after": "a40c949931b46a18ed246686648bad843febcc4393d6f2ccb13bdee91f536ecb",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/SourceMotor.cs",
+      "currentPath": "Assets/HalliGalliMovement/Runtime/SourceMotor.cs",
+      "before": "5d6b3049f41143ff3b136de1fef144ad80be0582895d00932d91cd6871d7fef9",
+      "after": "5d6b3049f41143ff3b136de1fef144ad80be0582895d00932d91cd6871d7fef9",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Walk.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_Walk.anim",
+      "before": "491356c0499b60cc25e7a40727ef06c8f4048e4b1460cb235516f968d9d04d54",
+      "after": "491356c0499b60cc25e7a40727ef06c8f4048e4b1460cb235516f968d9d04d54",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Run.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_Run.anim",
+      "before": "ba398680fc2aa29fa6a201a0537763bd9ade07115a2409dd8a72a46288437847",
+      "after": "ba398680fc2aa29fa6a201a0537763bd9ade07115a2409dd8a72a46288437847",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_LassoThrow.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_LassoThrow.anim",
+      "before": "c845322cca628b91790ab9b8f24207323784a626000714b46efbc862f4ca1f65",
+      "after": "c845322cca628b91790ab9b8f24207323784a626000714b46efbc862f4ca1f65",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_LassoPull.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_LassoPull.anim",
+      "before": "7fd791cda6c315f136d3504181f2ef5d3dd7e4773a3c69980b8898fc0bbdb757",
+      "after": "7fd791cda6c315f136d3504181f2ef5d3dd7e4773a3c69980b8898fc0bbdb757",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_LassoHold.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_LassoHold.anim",
+      "before": "e25af068befdf9e3eba6a9abf594b50cbc8dc41a19decd7546252a9c9429dfc5",
+      "after": "e25af068befdf9e3eba6a9abf594b50cbc8dc41a19decd7546252a9c9429dfc5",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Land.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_Land.anim",
+      "before": "1a84665646f2ada68e0c94f69ad36d2a48c62d4524390436ce9fa10c6048d7ea",
+      "after": "1a84665646f2ada68e0c94f69ad36d2a48c62d4524390436ce9fa10c6048d7ea",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Knockback.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_Knockback.anim",
+      "before": "096fd16402ab90a685764af81a6affd822c3829bafab7fe4f0f2012cd140b45a",
+      "after": "096fd16402ab90a685764af81a6affd822c3829bafab7fe4f0f2012cd140b45a",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Jump.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_Jump.anim",
+      "before": "1010d2a0c35f951e8578f7b0d587f019858ab7ec528c56e166dc393cec3ac242",
+      "after": "1010d2a0c35f951e8578f7b0d587f019858ab7ec528c56e166dc393cec3ac242",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Idle.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_Idle.anim",
+      "before": "87e9f4ee80fb6ce44c3ebb02e235ca9e187622b7592499c3880911cd1c353bd5",
+      "after": "87e9f4ee80fb6ce44c3ebb02e235ca9e187622b7592499c3880911cd1c353bd5",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_HitRight.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_HitRight.anim",
+      "before": "30278508ab236a998257ad7b9ff790ac70a7e447a1827a313050864a94de0ad4",
+      "after": "30278508ab236a998257ad7b9ff790ac70a7e447a1827a313050864a94de0ad4",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_HitLeft.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_HitLeft.anim",
+      "before": "854ecc0f41cf0864ca0732facc4e56362dee0cc53ccc3ef44996ee4818e262ab",
+      "after": "854ecc0f41cf0864ca0732facc4e56362dee0cc53ccc3ef44996ee4818e262ab",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_HitFront.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_HitFront.anim",
+      "before": "0d8cec60a0a8c1b7432d4eb56bf704c475dad6be0330f2847b1135cd06256f1d",
+      "after": "0d8cec60a0a8c1b7432d4eb56bf704c475dad6be0330f2847b1135cd06256f1d",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_HitBack.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_HitBack.anim",
+      "before": "6024bf9ea9789d56dcccdf36cfed38a7d7c7ba2b1538b400999c9a63f412bcad",
+      "after": "6024bf9ea9789d56dcccdf36cfed38a7d7c7ba2b1538b400999c9a63f412bcad",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Fall.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_Fall.anim",
+      "before": "2db987e8ea5ecbe3650cf2421f9c23b53394140034646c82208bb14505b1dd95",
+      "after": "2db987e8ea5ecbe3650cf2421f9c23b53394140034646c82208bb14505b1dd95",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_CrouchWalk.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_CrouchWalk.anim",
+      "before": "95dd376576de760ae275005c1df1faef2a991a2878a0a9abc2b535f20a20b8db",
+      "after": "95dd376576de760ae275005c1df1faef2a991a2878a0a9abc2b535f20a20b8db",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_CrouchIdle.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_CrouchIdle.anim",
+      "before": "f4ac97ecfdc3df4ed259f81380dd9697f8fd5da6e5ae7b65b521a68406ca29a6",
+      "after": "f4ac97ecfdc3df4ed259f81380dd9697f8fd5da6e5ae7b65b521a68406ca29a6",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_WalkRight.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_WalkRight.anim",
+      "before": "0540de46d14d5bae82cb85d5ac6c94de4fdf941954073511b604fab505814490",
+      "after": "0540de46d14d5bae82cb85d5ac6c94de4fdf941954073511b604fab505814490",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_WalkLeft.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_WalkLeft.anim",
+      "before": "77257416a5970dd4258cbbfea628065fd1dfbb3ad3ffc150a58edb4b02a5c964",
+      "after": "77257416a5970dd4258cbbfea628065fd1dfbb3ad3ffc150a58edb4b02a5c964",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_WalkForward.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_WalkForward.anim",
+      "before": "f076de5a9e6d2bb67f55e58b9d70289ff8ea5cf141189dfa61168ede7b0f2d66",
+      "after": "f076de5a9e6d2bb67f55e58b9d70289ff8ea5cf141189dfa61168ede7b0f2d66",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_WalkBack.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_WalkBack.anim",
+      "before": "6dd36f276fd8383eac7d9219169be2ded2a9795cea2cba24f545913b90a9aca3",
+      "after": "6dd36f276fd8383eac7d9219169be2ded2a9795cea2cba24f545913b90a9aca3",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Seated.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_Seated.anim",
+      "before": "69cb36f0bcded904ecb4689a943330600f43c489250107e2fa523747072e09e7",
+      "after": "69cb36f0bcded904ecb4689a943330600f43c489250107e2fa523747072e09e7",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_RunRight.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_RunRight.anim",
+      "before": "d1e072fb37bc6b98256f035fe0f8b55c92a06fec39bcd6c8edfe48fff356373f",
+      "after": "d1e072fb37bc6b98256f035fe0f8b55c92a06fec39bcd6c8edfe48fff356373f",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_RunLeft.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_RunLeft.anim",
+      "before": "875cee4285e3d37b18fb767bff95b6816d891afd6a3f76e5cd086eef1e3ed61e",
+      "after": "875cee4285e3d37b18fb767bff95b6816d891afd6a3f76e5cd086eef1e3ed61e",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_RunForward.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_RunForward.anim",
+      "before": "a6f5ded90e894c7fd16a31f93b48f270d1e20799f2feb8587796e3ae9d721e28",
+      "after": "a6f5ded90e894c7fd16a31f93b48f270d1e20799f2feb8587796e3ae9d721e28",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_RunBack.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_RunBack.anim",
+      "before": "2c55fde2c8ce50b65767e1c6c77739800edc643724b56e1f5ae247132697a8d3",
+      "after": "2c55fde2c8ce50b65767e1c6c77739800edc643724b56e1f5ae247132697a8d3",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_LassoThrow.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_LassoThrow.anim",
+      "before": "1553a3bded22f4d2c46e357c402bc38052078b1fd5a9d717803e7a1a04ae08a6",
+      "after": "1553a3bded22f4d2c46e357c402bc38052078b1fd5a9d717803e7a1a04ae08a6",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_LassoPull.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_LassoPull.anim",
+      "before": "4204d09ffc8e905f413c0a5eaa7e642eb293286fe43492b62305033d862c4ce6",
+      "after": "4204d09ffc8e905f413c0a5eaa7e642eb293286fe43492b62305033d862c4ce6",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_LassoHold.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_LassoHold.anim",
+      "before": "d28f2b8fe4ac9de6142f1b094f5cb2115c31d2cead29bcd9be42b1d1de6d4546",
+      "after": "d28f2b8fe4ac9de6142f1b094f5cb2115c31d2cead29bcd9be42b1d1de6d4546",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Land.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_Land.anim",
+      "before": "5bc8bda02f89b07229b4e746c2237002c902e3f9eabe29fbd6f1cd68d64e5cfa",
+      "after": "5bc8bda02f89b07229b4e746c2237002c902e3f9eabe29fbd6f1cd68d64e5cfa",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Knockback.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_Knockback.anim",
+      "before": "e70710e0778230115d37d75dd6a23463f4af25b199e0ff264fd5fecd4da38e72",
+      "after": "e70710e0778230115d37d75dd6a23463f4af25b199e0ff264fd5fecd4da38e72",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Jump.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_Jump.anim",
+      "before": "2214751e76403fafcd9a86fed920ea5719dd93006d239b0505c8f1d400db497c",
+      "after": "2214751e76403fafcd9a86fed920ea5719dd93006d239b0505c8f1d400db497c",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Idle.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_Idle.anim",
+      "before": "40a7c01c0d3be13ee3b67e8ebbf19b924ea22134b39653a053793b16d5f3e856",
+      "after": "40a7c01c0d3be13ee3b67e8ebbf19b924ea22134b39653a053793b16d5f3e856",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_HitRight.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_HitRight.anim",
+      "before": "46856d4c9c44e429ef15f9c0fa7fe9bc20d54ebd5f157fb3df577426d3f7e6b8",
+      "after": "46856d4c9c44e429ef15f9c0fa7fe9bc20d54ebd5f157fb3df577426d3f7e6b8",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_HitLeft.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_HitLeft.anim",
+      "before": "7ddb6edcfb759c15989d5081b3137d8b0e5dcab206b262d22869c651cc667532",
+      "after": "7ddb6edcfb759c15989d5081b3137d8b0e5dcab206b262d22869c651cc667532",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_HitFront.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_HitFront.anim",
+      "before": "9107dccd6c897f964fcc90c37f4d95975ece90684785c082a0207207f7fa63de",
+      "after": "9107dccd6c897f964fcc90c37f4d95975ece90684785c082a0207207f7fa63de",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_HitBack.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_HitBack.anim",
+      "before": "8add5153f6031f1d27bc0dbb9ee3b90ba233ac64adada9be051aaf7304126eca",
+      "after": "8add5153f6031f1d27bc0dbb9ee3b90ba233ac64adada9be051aaf7304126eca",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Fall.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_Fall.anim",
+      "before": "ae72150d26bdf793111222d5e0bbef40184caa9dbf42f675c8d0780f7efb9979",
+      "after": "ae72150d26bdf793111222d5e0bbef40184caa9dbf42f675c8d0780f7efb9979",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkRight.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkRight.anim",
+      "before": "d14f777ab4ad3386a4121aa6c8baec38cd9a457f2f41da07f129ac1f2463b0c5",
+      "after": "d14f777ab4ad3386a4121aa6c8baec38cd9a457f2f41da07f129ac1f2463b0c5",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkLeft.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkLeft.anim",
+      "before": "51879facb7dfeb0dbefe4511bbf43363ff6bad9a62ab3ff684c504cc811a9667",
+      "after": "51879facb7dfeb0dbefe4511bbf43363ff6bad9a62ab3ff684c504cc811a9667",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkForward.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkForward.anim",
+      "before": "cb221160a5e3b00b470764587b14791e1c61aab71cfa02863f533fc4528d43b7",
+      "after": "cb221160a5e3b00b470764587b14791e1c61aab71cfa02863f533fc4528d43b7",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkBack.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkBack.anim",
+      "before": "7374008434108911d73504c5110edd8c71633d48f9d48743ada8de6749329b36",
+      "after": "7374008434108911d73504c5110edd8c71633d48f9d48743ada8de6749329b36",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchIdle.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchIdle.anim",
+      "before": "504503c898c65e507a966be95258fd0f3f321f9bd3951c7f11bd2d171f28a323",
+      "after": "504503c898c65e507a966be95258fd0f3f321f9bd3951c7f11bd2d171f28a323",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_PushLeft.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_PushLeft.anim",
+      "before": "2d7effe66cd8c84d978525398426ca8dbc0917776e9eedcd169c035c2bc5607e",
+      "after": "2d7effe66cd8c84d978525398426ca8dbc0917776e9eedcd169c035c2bc5607e",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_PushRight.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_PushRight.anim",
+      "before": "b62629ce5a62ffdeb8d0584ee97764ee9e80ad21524a106c720d169cd26a2da8",
+      "after": "b62629ce5a62ffdeb8d0584ee97764ee9e80ad21524a106c720d169cd26a2da8",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_StrongPush.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/Body_Kick.anim",
+      "before": "a5b4b92c51972b4d6ddf5e53bcbe3f3f4a7423ad106b167e3c0efa6a2b659b46",
+      "after": "dfbebfad483a3366132e285d169639121b5eddb712118682eb25011b8f783a3d",
+      "unchanged": false,
+      "approvedKickClip": true,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_PushLeft.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_PushLeft.anim",
+      "before": "033ff6d956e6171b3f605b57c4c9b13ae7aa49dcfe54edcbb8a6fc44a90f2b4e",
+      "after": "033ff6d956e6171b3f605b57c4c9b13ae7aa49dcfe54edcbb8a6fc44a90f2b4e",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_PushRight.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_PushRight.anim",
+      "before": "c7b289de9941d77e924168e448350ebf0c7b49072234ed744f99dbf5dc2a350a",
+      "after": "c7b289de9941d77e924168e448350ebf0c7b49072234ed744f99dbf5dc2a350a",
+      "unchanged": true,
+      "approvedKickClip": false,
+      "approvedViewmodelAddition": false
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_StrongPush.anim",
+      "currentPath": "Assets/HalliGalliMovement/Art/Motions/FP_Kick.anim",
+      "before": "070852e5b5397da732841895c4654130a4ec3ba2e391bb37c1a3b3cc889dc677",
+      "after": "72da7966060d750be1a9471d28214f526e0a71e325862feace33c58b984049a0",
+      "unchanged": false,
+      "approvedKickClip": true,
+      "approvedViewmodelAddition": false
+    }
+  ],
+  "success": true
+}

@@ -1,0 +1,178 @@
+{
+  "utc": "2026-11-02T07:53:23.209Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\push-1793605974757",
+  "passed": 28,
+  "failed": 0,
+  "travel": [
+    {
+      "attacker": 0,
+      "kick": false,
+      "distance": 0.415435791015625,
+      "remoteDistance": 0.415435791015625,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "attacker": 0,
+      "kick": true,
+      "distance": 2.717071533203125,
+      "remoteDistance": 2.717071533203125,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "attacker": 1,
+      "kick": false,
+      "distance": 0.415435791015625,
+      "remoteDistance": 0.42626953125,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "attacker": 1,
+      "kick": true,
+      "distance": 2.717071533203125,
+      "remoteDistance": 2.69573974609375,
+      "peak": 5.960464477539063e-8
+    }
+  ],
+  "checks": [
+    {
+      "name": "Seated host and guest cannot start a push or kick",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host quick push counts exactly one authoritative hit on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host quick push produces real horizontal displacement without launch or control lock",
+      "passed": true,
+      "detail": "{\"distance\":0.415435791015625,\"peak\":5.960464477539063e-8}"
+    },
+    {
+      "name": "host quick push has equivalent host and client travel without double impulse",
+      "passed": true,
+      "detail": "{\"distance\":0.415435791015625,\"remoteDistance\":0.415435791015625}"
+    },
+    {
+      "name": "host kick counts exactly one authoritative hit on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host kick produces real horizontal displacement without launch or control lock",
+      "passed": true,
+      "detail": "{\"distance\":2.717071533203125,\"peak\":5.960464477539063e-8}"
+    },
+    {
+      "name": "host kick has equivalent host and client travel without double impulse",
+      "passed": true,
+      "detail": "{\"distance\":2.717071533203125,\"remoteDistance\":2.717071533203125}"
+    },
+    {
+      "name": "host kick travels meaningfully farther than quick push",
+      "passed": true,
+      "detail": "{\"quick\":0.415435791015625,\"kick\":2.717071533203125}"
+    },
+    {
+      "name": "client1 quick push counts exactly one authoritative hit on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 quick push produces real horizontal displacement without launch or control lock",
+      "passed": true,
+      "detail": "{\"distance\":0.415435791015625,\"peak\":5.960464477539063e-8}"
+    },
+    {
+      "name": "client1 quick push has equivalent host and client travel without double impulse",
+      "passed": true,
+      "detail": "{\"distance\":0.415435791015625,\"remoteDistance\":0.42626953125}"
+    },
+    {
+      "name": "client1 kick counts exactly one authoritative hit on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 kick produces real horizontal displacement without launch or control lock",
+      "passed": true,
+      "detail": "{\"distance\":2.717071533203125,\"peak\":5.960464477539063e-8}"
+    },
+    {
+      "name": "client1 kick has equivalent host and client travel without double impulse",
+      "passed": true,
+      "detail": "{\"distance\":2.717071533203125,\"remoteDistance\":2.69573974609375}"
+    },
+    {
+      "name": "client1 kick travels meaningfully farther than quick push",
+      "passed": true,
+      "detail": "{\"quick\":0.415435791015625,\"kick\":2.717071533203125}"
+    },
+    {
+      "name": "host protected second contact does not count or replicate a hit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host protected second contact adds no physical displacement",
+      "passed": true,
+      "detail": "{\"reference\":0.415435791015625,\"distance\":0.415435791015625}"
+    },
+    {
+      "name": "host can push again after original protection expires",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 protected second contact does not count or replicate a hit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 protected second contact adds no physical displacement",
+      "passed": true,
+      "detail": "{\"reference\":0.415435791015625,\"distance\":0.415435791015625}"
+    },
+    {
+      "name": "client1 can push again after original protection expires",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Kick cannot hit beyond range",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Kick cannot hit behind attacker",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Pushed predicting guest can counterattack during protection",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Pushed guest immediately jumps and steers instead of being immobilized",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Pushed guest retains mouse aim without camera roll",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Pushed guest retains crouch input",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Respawning guest cannot start a kick",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

@@ -7,13 +7,14 @@ namespace HalliGalli.Movement
         enum TransformTool { Move, Rotate, Scale }
         TransformTool transformTool;
         UserMapPart palettePart = UserMapPart.Block;
-        bool placementMode, placementValid, looking, dragging, snap = true;
+        bool placementMode, placementValid, looking, dragging, snap = true, orbiting, middlePanning;
         float snapSize = .5f, placementHeight, flySpeed = 6;
         Vector3 placementPoint;
         GameObject selectedRoot;
         Bounds selectedBounds;
         UserMapObject dragOriginal, dragPreview, placementTemplate;
         Vector2 dragMouse;
+        Vector2 orbitMouse;
         Vector3 dragStartPoint;
         Plane dragPlane;
         int dragAxis = -1;
@@ -24,24 +25,28 @@ namespace HalliGalli.Movement
         static readonly Vector3[] Axes = { Vector3.right, Vector3.up, Vector3.forward };
         static readonly Color[] AxisColors = { new Color(1, .36f, .28f), new Color(.5f, .92f, .4f), new Color(.3f, .64f, 1) };
 
-        static UserMapObject DefaultObject(UserMapPart kind, Vector3 position)
+        static Vector3 DefaultScale(UserMapPart kind)
         {
-            Vector3 scale = new Vector3(4, 1, 4), travel = Vector3.zero;
             switch (kind)
             {
-                case UserMapPart.Ramp: scale = new Vector3(4, 2, 5); break;
-                case UserMapPart.Surf: scale = new Vector3(5, 3, 8); break;
-                case UserMapPart.Checkpoint: scale = new Vector3(5, .4f, 4); break;
-                case UserMapPart.MovingPlatform: scale = new Vector3(3, .5f, 3); travel = new Vector3(4, 0, 0); break;
-                case UserMapPart.Conveyor: scale = new Vector3(4, .5f, 6); break;
-                case UserMapPart.Press: scale = new Vector3(3, 4, 2); break;
-                case UserMapPart.Hazard: scale = new Vector3(4, .2f, 4); break;
-                case UserMapPart.Bell: scale = Vector3.one; break;
-                case UserMapPart.Waypoint: scale = Vector3.one; break;
-                case UserMapPart.ItemBox: scale = Vector3.one; break;
+                case UserMapPart.Ramp: return new Vector3(4, 2, 5);
+                case UserMapPart.Surf: return new Vector3(5, 3, 8);
+                case UserMapPart.Checkpoint: return new Vector3(5, .4f, 4);
+                case UserMapPart.MovingPlatform: return new Vector3(3, .5f, 3);
+                case UserMapPart.Conveyor: return new Vector3(4, .5f, 6);
+                case UserMapPart.Press: return new Vector3(3, 4, 2);
+                case UserMapPart.Hazard: return new Vector3(4, .2f, 4);
+                case UserMapPart.Bell:
+                case UserMapPart.Waypoint:
+                case UserMapPart.ItemBox: return Vector3.one;
+                default: return new Vector3(4, 1, 4);
             }
-            return new UserMapObject { kind = kind, position = position,
-                rotation = Vector3.zero, scale = scale, color = 0, travel = travel, period = 4, speed = 2 };
+        }
+
+        static UserMapObject DefaultObject(UserMapPart kind, Vector3 position)
+        {
+            return new UserMapObject { kind = kind, position = position, rotation = Vector3.zero, scale = DefaultScale(kind),
+                color = 0, travel = kind == UserMapPart.MovingPlatform ? new Vector3(4, 0, 0) : Vector3.zero, period = 4, speed = 2 };
         }
 
         void Update()
@@ -62,12 +67,13 @@ namespace HalliGalli.Movement
             }
             if (!CanNavigate) { StopPointerInteraction(); return; }
             UpdateCameraViewport();
+            if (FirstPersonBuild) { UpdateFirstPersonInput(); return; }
             bool inView = ViewportRect.Contains(BellUI.MousePoint);
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (partsMenuOpen) { SetPartsMenuOpen(false); return; }
                 if (dragging) { CancelDrag(); return; }
-                placementMode = false; StopPointerInteraction(); GUIUtility.keyboardControl = 0;
+                placementMode = false; EraseMode = false; StopPointerInteraction(); GUIUtility.keyboardControl = 0;
                 return;
             }
             if (partsMenuOpen && inView && Input.GetMouseButtonDown(0))
@@ -79,8 +85,23 @@ namespace HalliGalli.Movement
                 looking = true; Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
             }
             if (looking && !Input.GetMouseButton(1)) StopCameraLook();
+            if (!AdvancedCamera && inView && Input.GetMouseButtonDown(1))
+            {
+                StopPointerInteraction();
+                GUIUtility.keyboardControl = 0;
+                orbiting = true; orbitMouse = Input.mousePosition;
+            }
+            if (inView && !looking && Input.GetMouseButtonDown(2))
+            {
+                StopPointerInteraction();
+                GUIUtility.keyboardControl = 0;
+                middlePanning = true; panMouse = Input.mousePosition;
+            }
             if ((inView || looking) && Mathf.Abs(Input.mouseScrollDelta.y) > .01f)
-                ZoomCamera(Input.mouseScrollDelta.y);
+            {
+                if (AirBuild && !looking) AdjustAirBuildDistance(Input.mouseScrollDelta.y * 2);
+                else ZoomCamera(Input.mouseScrollDelta.y);
+            }
             if (GUIUtility.keyboardControl == 0)
             {
                 if (Input.GetKeyDown(KeyCode.Equals) || Input.GetKeyDown(KeyCode.Plus) || Input.GetKeyDown(KeyCode.KeypadPlus)) ZoomCamera(1);
@@ -90,6 +111,24 @@ namespace HalliGalli.Movement
             if (looking)
             {
                 UpdateAdvancedCamera();
+                placementValid = false;
+                return;
+            }
+            if (orbiting)
+            {
+                Vector2 mouse = Input.mousePosition;
+                if (Input.GetMouseButton(1) || Input.GetMouseButtonUp(1)) OrbitCamera(mouse - orbitMouse);
+                orbitMouse = mouse;
+                if (!Input.GetMouseButton(1)) orbiting = false;
+                placementValid = false;
+                return;
+            }
+            if (middlePanning)
+            {
+                Vector2 mouse = Input.mousePosition;
+                if (Input.GetMouseButton(2) || Input.GetMouseButtonUp(2)) PanCamera(mouse - panMouse);
+                panMouse = mouse;
+                if (!Input.GetMouseButton(2)) middlePanning = false;
                 placementValid = false;
                 return;
             }
@@ -128,34 +167,165 @@ namespace HalliGalli.Movement
                 else
                 {
                     if (Input.GetKeyDown(KeyCode.Delete)) DeleteSelected();
-                    if (Input.GetKeyDown(KeyCode.W)) transformTool = TransformTool.Move;
-                    if (Input.GetKeyDown(KeyCode.E)) transformTool = TransformTool.Rotate;
-                    if (Input.GetKeyDown(KeyCode.R))
+                    if (Input.GetKeyDown(KeyCode.Q)) SetAirBuild(!AirBuild);
+                    if (Input.GetKeyDown(KeyCode.Alpha1)) SelectBuildPart(UserMapPart.Block);
+                    if (Input.GetKeyDown(KeyCode.Alpha2)) SelectBuildPart(UserMapPart.Ramp);
+                    if (Input.GetKeyDown(KeyCode.Alpha3)) SelectBuildPart(UserMapPart.Checkpoint);
+                    if (Input.GetKeyDown(KeyCode.Alpha4)) SelectBuildPart(UserMapPart.MovingPlatform);
+                    if (Input.GetKeyDown(KeyCode.Alpha5)) SelectBuildPart(UserMapPart.ItemBox);
+                    if (Input.GetKeyDown(KeyCode.Alpha6)) SelectBuildPart(UserMapPart.Bell);
+                    if (EasyBuild)
                     {
-                        if (FindObject(selectedId)?.kind == UserMapPart.ItemBox) Status = "아이템 박스 크기는 (1, 1, 1)로 고정되어 있어요.";
-                        else transformTool = TransformTool.Scale;
+                        if (Input.GetKeyDown(KeyCode.R)) RotateBuild90();
                     }
-                    if (Input.GetKeyDown(KeyCode.G)) snap = !snap;
+                    else
+                    {
+                        if (Input.GetKeyDown(KeyCode.W)) transformTool = TransformTool.Move;
+                        if (Input.GetKeyDown(KeyCode.E)) transformTool = TransformTool.Rotate;
+                        if (Input.GetKeyDown(KeyCode.R))
+                        {
+                            if (FindObject(selectedId)?.kind == UserMapPart.ItemBox) Status = "아이템 박스 크기는 (1, 1, 1)로 고정되어 있어요.";
+                            else transformTool = TransformTool.Scale;
+                        }
+                        if (Input.GetKeyDown(KeyCode.G)) snap = !snap;
+                    }
                     if (Input.GetKeyDown(KeyCode.F)) FocusSelected();
                     if (Input.GetKeyDown(KeyCode.F1)) helpOpen = true;
                 }
             }
             if (!CanNavigate) { StopPointerInteraction(); return; }
             if (!inView) { placementValid = false; return; }
-            if (placementMode) UpdatePlacement();
+            if (placementMode && !EraseMode) UpdatePlacement();
             if (Input.GetMouseButtonDown(0))
             {
                 GUIUtility.keyboardControl = 0;
-                if (placementMode)
-                {
-                    if (placementValid)
-                    {
-                        string id = PlaceObject(palettePart, placementPoint);
-                        if (id != null) Status = PartName(palettePart) + " 배치 완료 · 계속 클릭해서 배치 · Esc로 선택 모드";
-                    }
-                }
+                if (EraseMode) EraseAtRay(studioCamera.ScreenPointToRay(Input.mousePosition));
+                else if (placementMode) PlaceBuildPreview();
                 else BeginSelection();
             }
+        }
+
+        void UpdateFirstPersonInput()
+        {
+            if (BuildCursorCaptured && (BuildMenuOpen || GUIUtility.keyboardControl != 0
+                || Cursor.lockState != CursorLockMode.Locked && !Application.isBatchMode))
+                SetBuildCursorCaptured(false);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (BuildCursorCaptured) { SetBuildCursorCaptured(false); return; }
+                if (partsMenuOpen) { SetPartsMenuOpen(false); return; }
+                fileMenuOpen = easyContextOpen = mapInspector = false;
+                placementMode = EraseMode = false;
+                StopPointerInteraction();
+                GUIUtility.keyboardControl = 0;
+                return;
+            }
+            if (Input.GetKeyDown(KeyCode.F8)) { BeginTest(); return; }
+            if (GUIUtility.keyboardControl != 0) return;
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                SetBuildCursorCaptured(!BuildCursorCaptured);
+                return;
+            }
+            bool ctrl = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+            bool shortcut = false;
+            if (ctrl)
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    if (CanSaveFromUI) SaveMap();
+                    else Status = "저장하려면 입력을 적용하고 F8 클리어 검증부터 완료해 주세요.";
+                    shortcut = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Z)) { if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) Redo(); else Undo(); shortcut = true; }
+                if (Input.GetKeyDown(KeyCode.Y)) { Redo(); shortcut = true; }
+                if (Input.GetKeyDown(KeyCode.D)) { DuplicateSelected(); shortcut = true; }
+                if (Input.GetKeyDown(KeyCode.N)) { NewMap(); shortcut = true; }
+                if (Input.GetKeyDown(KeyCode.O)) { OpenLibrary(); shortcut = true; }
+            }
+            if (shortcut) buildShortcutHeld = true;
+            if (!ctrl || !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Z)
+                || Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.N) || Input.GetKey(KeyCode.O))) buildShortcutHeld = false;
+            if (!CanNavigate) { StopPointerInteraction(); return; }
+            if (!BuildCursorCaptured)
+            {
+                placementValid = placementAvailable = false;
+                if (!shortcut && ViewportRect.Contains(BellUI.MousePoint) && Input.GetMouseButtonDown(0))
+                    SetBuildCursorCaptured(true);
+                return;
+            }
+            if (buildPointerBlockedFrame == Time.frameCount) return;
+            if (!ctrl)
+            {
+                if (Input.GetKeyDown(KeyCode.F1)) { helpOpen = true; SetBuildCursorCaptured(false); return; }
+                if (Input.GetKeyDown(KeyCode.F)) { FocusSelected(); return; }
+                if (Input.GetKeyDown(KeyCode.V)) SetBuildNoclip(!BuildNoclip);
+                if (Input.GetKeyDown(KeyCode.Q)) SetAirBuild(!AirBuild);
+                if (Input.GetKeyDown(KeyCode.R)) RotateBuild90();
+                UserMapPart? part = null;
+                if (Input.GetKeyDown(KeyCode.Alpha1)) part = UserMapPart.Block;
+                if (Input.GetKeyDown(KeyCode.Alpha2)) part = UserMapPart.Ramp;
+                if (Input.GetKeyDown(KeyCode.Alpha3)) part = UserMapPart.Checkpoint;
+                if (Input.GetKeyDown(KeyCode.Alpha4)) part = UserMapPart.MovingPlatform;
+                if (Input.GetKeyDown(KeyCode.Alpha5)) part = UserMapPart.ItemBox;
+                if (Input.GetKeyDown(KeyCode.Alpha6)) part = UserMapPart.Bell;
+                if (part.HasValue)
+                {
+                    SelectBuildPart(part.Value);
+                    SetBuildCursorCaptured(true);
+                    return;
+                }
+            }
+            if (!BuildCursorCaptured || BuildMenuOpen) return;
+            if (AirBuild && Mathf.Abs(Input.mouseScrollDelta.y) > .01f)
+                AdjustAirBuildDistance(Input.mouseScrollDelta.y * 2);
+            float forward = (Input.GetKey(KeyCode.W) ? 1 : 0) - (Input.GetKey(KeyCode.S) ? 1 : 0);
+            float right = (Input.GetKey(KeyCode.D) ? 1 : 0) - (Input.GetKey(KeyCode.A) ? 1 : 0);
+            bool jump = Input.GetKey(KeyCode.Space);
+            float vertical = BuildNoclip ? (jump ? 1 : 0) - (ctrl ? 1 : 0) : ControlBindings.Held(GameAction.Crouch) ? -1 : 0;
+            Vector3 movement = buildShortcutHeld ? Vector3.zero : new Vector3(right, vertical, forward);
+            NavigateBuild(new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * 10,
+                movement, Time.unscaledDeltaTime, jump && !buildShortcutHeld);
+            if (placementMode && !EraseMode) UpdatePlacement();
+            if (!ctrl && Input.GetKeyDown(KeyCode.Delete))
+            {
+                DeleteBuildTarget();
+                return;
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                string id = ObjectAt(BuildAimRay);
+                bool selected = id != null && SelectObject(id);
+                SetBuildCursorCaptured(false);
+                easyContextOpen = selected;
+                return;
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (EraseMode) EraseAtRay(BuildAimRay);
+                else if (placementMode) PlaceBuildPreview();
+                else
+                {
+                    string id = ObjectAt(BuildAimRay);
+                    if (id != null && SelectObject(id))
+                    {
+                        SetBuildCursorCaptured(false);
+                        easyContextOpen = true;
+                    }
+                }
+            }
+        }
+
+        public bool DeleteBuildTarget()
+        {
+            if (!CanNavigate || !FirstPersonBuild || !BuildCursorCaptured) return false;
+            string id = ObjectAt(BuildAimRay);
+            if (id == null) return false;
+            bool resumePlacement = placementMode;
+            if (!SelectObject(id)) return false;
+            bool deleted = DeleteSelected();
+            placementMode = resumePlacement;
+            return deleted;
         }
 
         void OnApplicationFocus(bool focused)
@@ -168,57 +338,17 @@ namespace HalliGalli.Movement
 
         void StopCameraLook()
         {
+            SetBuildCursorCaptured(false);
             looking = false;
-            panning = false;
+            panning = orbiting = middlePanning = false;
             if (testing && !busy) return;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
 
-        void ChoosePalette(UserMapPart part)
-        {
-            if (!ApplyInspectorFields()) return;
-            SetPartsMenuOpen(false);
-            palettePart = part;
-            placementMode = true;
-            placementTemplate = DefaultObject(part, Vector3.zero);
-            Status = PartName(part) + " · 바닥/발판 위를 클릭해 배치하세요. 빈 공간은 배치 높이 평면을 사용해요.";
-            GUIUtility.keyboardControl = 0;
-        }
+        void ChoosePalette(UserMapPart part) => SelectBuildPart(part);
 
-        void UpdatePlacement()
-        {
-            Ray ray = studioCamera.ScreenPointToRay(Input.mousePosition);
-            Vector3 point;
-            if (Physics.Raycast(ray, out var hit, studioCamera.farClipPlane, ~0, QueryTriggerInteraction.Ignore)) point = hit.point;
-            else
-            {
-                var plane = new Plane(Vector3.up, new Vector3(0, placementHeight, 0));
-                if (!plane.Raycast(ray, out float distance)) { placementValid = false; return; }
-                point = ray.GetPoint(distance);
-            }
-            if (placementTemplate == null) placementTemplate = DefaultObject(palettePart, Vector3.zero);
-            var item = placementTemplate;
-            bool anchored = palettePart == UserMapPart.Bell || palettePart == UserMapPart.Press || palettePart == UserMapPart.Waypoint || palettePart == UserMapPart.ItemBox;
-            if (snap)
-            {
-                point.x = Snap(point.x, snapSize);
-                point.z = Snap(point.z, snapSize);
-            }
-            if (!anchored) point.y += item.scale.y * .5f;
-            else if (palettePart == UserMapPart.Waypoint) point.y += .025f;
-            // The protected starting area ends at z=0. Keep the whole default footprint in front of it.
-            float halfDepth = palettePart == UserMapPart.ItemBox ? UserMapObject.ItemBoxBoundsSize.z * .5f : item.scale.z * .5f;
-            point.z = Mathf.Max(point.z, halfDepth + .05f);
-            placementPoint = point;
-            if (palettePart == UserMapPart.ItemBox)
-            {
-                var bounds = new Bounds(point + UserMapObject.ItemBoxBoundsCenter, UserMapObject.ItemBoxBoundsSize);
-                placementValid = bounds.min.x >= -500 && bounds.max.x <= 500 && bounds.min.y >= -100 && bounds.max.y <= 300
-                    && bounds.min.z >= 0 && bounds.max.z <= 1000 && bounds.max.y > draft.fallHeight + .25f;
-            }
-            else placementValid = point.z <= 998 && Mathf.Abs(point.x) <= 498 && point.y >= -99 && point.y <= 299;
-        }
+        void UpdatePlacement() => PreviewBuild(BuildAimRay);
 
         void RefreshSelectionRoot()
         {
@@ -230,7 +360,7 @@ namespace HalliGalli.Movement
         string ObjectAt(Ray ray)
         {
             if (!UserMapRuntime.Current) return null;
-            bool hitSurface = Physics.Raycast(ray, out var hit, studioCamera.farClipPlane, ~0, QueryTriggerInteraction.Collide);
+            bool hitSurface = Physics.Raycast(ray, out var hit, studioCamera.farClipPlane, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide);
             float nearest = hitSurface ? hit.distance : studioCamera.farClipPlane;
             string selected = null;
             foreach (var item in draft.objects)
@@ -275,7 +405,7 @@ namespace HalliGalli.Movement
         {
             var ray = studioCamera.ScreenPointToRay(Input.mousePosition);
             var item = FindObject(selectedId);
-            int axis = item != null ? PickAxis(item.position) : -1;
+            int axis = !EasyBuild && item != null ? PickAxis(item.position) : -1;
             if (axis >= 0 && IsSelectionDoubleClick(selectedId, Input.mousePosition, Time.unscaledTime)
                 && SelectAtScreenPoint(Input.mousePosition, Time.unscaledTime)) return;
             if (axis < 0)
@@ -391,6 +521,7 @@ namespace HalliGalli.Movement
         int PickAxis(Vector3 origin)
         {
             var item = FindObject(selectedId);
+            if (EasyBuild) return -1;
             bool itemBox = item != null && item.kind == UserMapPart.ItemBox;
             if (itemBox && transformTool == TransformTool.Scale) return -1;
             if (!Project(origin, out Vector2 start)) return -1;
@@ -419,13 +550,17 @@ namespace HalliGalli.Movement
         void DrawWorldGuides()
         {
             if (!studioCamera || Event.current.type != EventType.Repaint) return;
-            if (placementMode && placementValid)
+            if (placementMode && placementAvailable && CanNavigate && !EraseMode && !looking && !orbiting
+                && !middlePanning && !panning && (FirstPersonBuild ? BuildCursorCaptured : ViewportRect.Contains(BellUI.MousePoint)))
             {
                 var item = placementTemplate;
                 Vector3 center = placementPoint;
-                DrawPlacementWire(item, center);
+                Color color = placementValid ? BellUI.Gold : new Color(1, .25f, .22f);
+                DrawPlacementWire(item, center, color);
                 if (Project(center, out Vector2 point))
-                    BellUI.Text(new Rect(point.x + 16, point.y - 35, 240, 56), PartName(item.kind) + " 미리보기\n클릭하여 배치", 15, BellUI.Gold, shadow: true);
+                    BellUI.Text(new Rect(point.x + 16, point.y - 35, 320, 70),
+                        placementValid ? PartName(item.kind) + " 미리보기\n클릭하여 배치" : "여기에는 놓을 수 없어요\n" + buildPreviewError,
+                        15, color, shadow: true);
             }
             var selected = dragging ? dragPreview : FindObject(selectedId);
             if (selected == null) return;
@@ -433,6 +568,7 @@ namespace HalliGalli.Movement
                 ? new Bounds(selected.position + UserMapObject.ItemBoxBoundsCenter, UserMapObject.ItemBoxBoundsSize)
                 : dragging ? new Bounds(selected.position, selected.scale) : selectedBounds;
             DrawWireBox(bounds.center, bounds.size + Vector3.one * .05f, Quaternion.identity, BellUI.Cool);
+            if (FirstPersonBuild || EasyBuild || EraseMode) return;
             if (selected.kind == UserMapPart.ItemBox && transformTool == TransformTool.Scale) return;
             float length = AxisLength(selected.position);
             if (!Project(selected.position, out Vector2 start)) return;
@@ -449,32 +585,34 @@ namespace HalliGalli.Movement
                 BellUI.Text(new Rect(start.x + 15, start.y + 16, 300, 25), "놓아서 적용 · Esc 취소", 14, BellUI.Gold, shadow: true);
         }
 
-        void DrawPlacementWire(UserMapObject item, Vector3 center)
+        void DrawPlacementWire(UserMapObject item, Vector3 center, Color color)
         {
             Vector3 size = item.scale;
+            Quaternion rotation = Quaternion.Euler(item.rotation);
             if (item.kind == UserMapPart.Ramp || item.kind == UserMapPart.Surf)
             {
                 Vector3 half = size * .5f;
-                boxCorners[0] = center + new Vector3(-half.x, -half.y, -half.z);
-                boxCorners[1] = center + new Vector3(half.x, -half.y, -half.z);
-                boxCorners[2] = center + new Vector3(-half.x, -half.y, half.z);
-                boxCorners[3] = center + new Vector3(half.x, -half.y, half.z);
+                boxCorners[0] = center + rotation * new Vector3(-half.x, -half.y, -half.z);
+                boxCorners[1] = center + rotation * new Vector3(half.x, -half.y, -half.z);
+                boxCorners[2] = center + rotation * new Vector3(-half.x, -half.y, half.z);
+                boxCorners[3] = center + rotation * new Vector3(half.x, -half.y, half.z);
                 bool ramp = item.kind == UserMapPart.Ramp;
-                boxCorners[4] = center + new Vector3(ramp ? -half.x : 0, half.y, ramp ? half.z : -half.z);
-                boxCorners[5] = center + new Vector3(ramp ? half.x : 0, half.y, half.z);
+                boxCorners[4] = center + rotation * new Vector3(ramp ? -half.x : 0, half.y, ramp ? half.z : -half.z);
+                boxCorners[5] = center + rotation * new Vector3(ramp ? half.x : 0, half.y, half.z);
                 var edges = ramp ? RampEdges : SurfEdges;
-                for (int i = 0; i < edges.Length; i += 2) DrawWorldLine(boxCorners[edges[i]], boxCorners[edges[i + 1]], BellUI.Gold);
+                for (int i = 0; i < edges.Length; i += 2) DrawWorldLine(boxCorners[edges[i]], boxCorners[edges[i + 1]], color);
                 return;
             }
             if (item.kind == UserMapPart.Bell) { size = Vector3.Scale(size, new Vector3(.76f, 1.1f, .76f)); center.y += size.y * .5f; }
             if (item.kind == UserMapPart.Press) { size += new Vector3(.8f, 1, 0); center.y += size.y * .5f; }
-            if (item.kind == UserMapPart.ItemBox) { size = UserMapObject.ItemBoxBoundsSize; center += UserMapObject.ItemBoxBoundsCenter; }
-            DrawWireBox(center, size, Quaternion.identity, BellUI.Gold);
+            if (item.kind == UserMapPart.ItemBox) { size = UserMapObject.ItemBoxBoundsSize; center += UserMapObject.ItemBoxBoundsCenter; rotation = Quaternion.identity; }
+            DrawWireBox(center, size, rotation, color);
             if (item.kind == UserMapPart.MovingPlatform)
             {
-                DrawWorldLine(center - item.travel, center + item.travel, BellUI.Cool);
-                DrawWireBox(center + item.travel, size, Quaternion.identity, BellUI.Cool);
-                DrawWireBox(center - item.travel, size, Quaternion.identity, BellUI.Cool);
+                Color pathColor = placementValid ? BellUI.Cool : color;
+                DrawWorldLine(center - item.travel, center + item.travel, pathColor);
+                DrawWireBox(center + item.travel, size, rotation, pathColor);
+                DrawWireBox(center - item.travel, size, rotation, pathColor);
             }
         }
 

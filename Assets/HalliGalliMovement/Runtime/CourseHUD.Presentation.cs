@@ -41,7 +41,7 @@ namespace HalliGalli.Movement
         {
             var p=session.Local;float w=BellUI.W,h=BellUI.H;
             if(p.IsRespawning){Badge(new Rect(w*.5f-82,h*.5f+60,164,38),p.HasCheckpoint?"체크포인트 복귀":"다시 출발",BellUI.Paper,"arrow");return;}
-            if(session.practiceRoom){float first=Prompt(24,h-63,"F","발차기",120);Prompt(36+first,h-63,"R","제자리로",142);return;}
+            if(session.practiceRoom){Prompt(24,h-63,"R","제자리로",142);return;}
             if(session.HasCardRules){
                 var game=session.cardGame;var match=game.Match;var mine=match.Seats[game.Index(p)];
                 if(mine.MustSit){
@@ -92,20 +92,26 @@ namespace HalliGalli.Movement
         static string BoundKey(string key){switch(key){case "E":return ControlBindings.Hint(GameAction.Interact);case "F":return ControlBindings.Hint(GameAction.Kick);case "Q":return ControlBindings.Hint(GameAction.Lasso);case "R":return ControlBindings.Hint(GameAction.Respawn);case "LMB":return ControlBindings.Hint(GameAction.Primary);default:return key;}}
         void DrawTools()
         {
-            var p=session.Local;float y=BellUI.H-70,x=BellUI.W-56;
+            var p=session.Local;float y=BellUI.H-70,x=BellUI.W-70;
+            float kickCooldown=p.Combat.KickCooldownRemaining;
+            Skill(x-220,y,"mouse",BellUI.Paper,"LMB",null,1,"밀치기");
+            Skill(x-110,y,"arrow",kickCooldown>0?BellUI.Muted:BellUI.Paper,"F",
+                kickCooldown>0?kickCooldown.ToString("F1"):null,1-kickCooldown/MeleeCombat.KickCooldown,"발차기");
             bool attached=p.Lasso.Phase==LassoPhase.Latched;float cooldown=p.Lasso.CooldownRemaining;
-            Skill(x,y,"rope",attached?BellUI.Gold:cooldown>0?BellUI.Muted:BellUI.Paper,"Q",cooldown>0&&!attached?cooldown.ToString("F1"):null,attached?1:1-cooldown/5);
-            if(attached)BellUI.Text(new Rect(x-35,y-57,70,22),"당기기",12,BellUI.Gold,true,TextAnchor.MiddleCenter,true);
+            Skill(x,y,"rope",attached?BellUI.Gold:cooldown>0?BellUI.Muted:BellUI.Paper,"Q",
+                cooldown>0&&!attached?cooldown.ToString("F1"):null,attached?1:1-cooldown/5,attached?"당기기":"밧줄");
         }
-        static void Skill(float x,float y,string icon,Color color,string key,string value,float fraction)
+        static void Skill(float x,float y,string icon,Color color,string key,string value,float fraction,string label)
         {
+            BellUI.Text(new Rect(x-53,y-57,106,22),label,13,color,true,TextAnchor.MiddleCenter,true);
             BellUI.Round(new Rect(x-25,y-25,50,50),new Color(.06f,.065f,.055f,.7f),25);
             BellUI.Round(new Rect(x-27,y-27,54,54),new Color(.6f,.62f,.56f,.23f),27,2);
             if(fraction>=.999f)BellUI.Round(new Rect(x-27,y-27,54,54),new Color(color.r,color.g,color.b,.45f),27,2);
             else if(fraction>.001f)BellUI.Arc(new Vector2(x,y),27,Mathf.Clamp01(fraction),BellUI.Gold,2);
             if(value==null)BellUI.Icon(icon,new Rect(x-15,y-15,30,30),color);
             else BellUI.Text(new Rect(x-25,y-25,50,50),value,18,color,true,TextAnchor.MiddleCenter);
-            key=BoundKey(key);float width=Mathf.Max(36,BellUI.Style(12).CalcSize(new GUIContent(key)).x+14);
+            key=BoundKey(key);if(key=="LMB")key="좌클릭";
+            float width=Mathf.Max(36,BellUI.Style(12).CalcSize(new GUIContent(key)).x+14);
             BellUI.Key(new Rect(x-width/2,y+33,width,22),key);
         }
         void DrawCrosshair()
@@ -140,7 +146,7 @@ namespace HalliGalli.Movement
             if(BellUI.Button(new Rect(x+140,y,128,34),"조작키 설정",selected:HelpOpen,size:14)&&ReadInput)OpenHelp();y+=54;
             if(HelpOpen){
                 string[] keys={"WASD","SPACE","CTRL","LMB","F","Q","R","E"};
-                string[] actions={"이동","점프","웅크리기","주먹 / 카드 공개","발차기","밧줄 · 다시 눌러 당기기","체크포인트 복귀","일어나기 · 앉기 · 종"};
+                string[] actions={"이동","점프","웅크리기","밀치기 / 카드 공개","발차기","밧줄 · 다시 눌러 당기기","체크포인트 복귀","일어나기 · 앉기 · 종"};
                 for(int i=0;i<keys.Length;i++){BellUI.Key(new Rect(x,y+i*37,54,25),keys[i]);BellUI.Text(new Rect(x+66,y-2+i*37,205,29),actions[i],14);}
             }else{
                 if(!CourseNetwork.Active&&session.roster&&!session.practiceRoom){

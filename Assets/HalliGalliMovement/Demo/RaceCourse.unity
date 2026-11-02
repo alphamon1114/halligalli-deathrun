@@ -11342,8 +11342,6 @@ MonoBehaviour:
   audioSet: {fileID: 11400000, guid: 54a36037e06ea45468ac9ff892e659a0, type: 2}
   impactSource: {fileID: 288012071}
   canReceiveHits: 1
-  kickHorizontalSpeed: 6
-  kickLiftSpeed: 4
 --- !u!114 &188963741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63709,8 +63707,6 @@ MonoBehaviour:
   audioSet: {fileID: 11400000, guid: 54a36037e06ea45468ac9ff892e659a0, type: 2}
   impactSource: {fileID: 1332408022}
   canReceiveHits: 1
-  kickHorizontalSpeed: 6
-  kickLiftSpeed: 4
 --- !u!114 &1123713458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64849,8 +64845,6 @@ MonoBehaviour:
   audioSet: {fileID: 11400000, guid: 54a36037e06ea45468ac9ff892e659a0, type: 2}
   impactSource: {fileID: 1781878026}
   canReceiveHits: 1
-  kickHorizontalSpeed: 6
-  kickLiftSpeed: 4
 --- !u!114 &1148670555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74829,8 +74823,6 @@ MonoBehaviour:
   audioSet: {fileID: 11400000, guid: 54a36037e06ea45468ac9ff892e659a0, type: 2}
   impactSource: {fileID: 21993581}
   canReceiveHits: 1
-  kickHorizontalSpeed: 6
-  kickLiftSpeed: 4
 --- !u!114 &1347184794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101951,8 +101943,6 @@ MonoBehaviour:
   audioSet: {fileID: 11400000, guid: 54a36037e06ea45468ac9ff892e659a0, type: 2}
   impactSource: {fileID: 736641022}
   canReceiveHits: 1
-  kickHorizontalSpeed: 6
-  kickLiftSpeed: 4
 --- !u!114 &1824599079
 MonoBehaviour:
   m_ObjectHideFlags: 0

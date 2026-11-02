@@ -29,7 +29,7 @@ public sealed class PracticeValidationRunner:MonoBehaviour
         CheckThat("Targets remain still until hit",targets.Select((p,i)=>Vector3.Distance(p.transform.position,positions[i])<.03f).All(x=>x));
         var target=targets[2];local.Motor.Teleport(target.transform.position+Vector3.back*1.2f);local.GetComponent<SourcePlayerController>().ResetView(0);
         local.Combat.readInput=false;local.Combat.networkAim=Vector3.forward;local.Combat.TryKick();yield return new WaitForSeconds(.5f);
-        CheckThat("Kick moves a stationary training target",Vector3.Distance(target.transform.position,target.retryAnchor.position)>1);
+        CheckThat("Kick moves a stationary training target horizontally",Vector3.ProjectOnPlane(target.transform.position-target.retryAnchor.position,Vector3.up).magnitude>.25f&&target.Receiver.LastImpulse.y==0&&!target.Motor.Staggered);
         yield return new WaitForSeconds(3.8f);
         CheckThat("Target automatically returns after being knocked away",Vector3.Distance(target.transform.position,target.retryAnchor.position)<.1f&&!target.IsRespawning);
         local.Motor.Teleport(new Vector3(0,.025f,-6));local.Combat.ResetCombat();local.Lasso.EndRace();

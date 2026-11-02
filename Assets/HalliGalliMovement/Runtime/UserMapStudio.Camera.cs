@@ -7,13 +7,14 @@ namespace HalliGalli.Movement
     {
         public enum StudioView { Top, Angled, Side }
         public bool AdvancedCamera { get; private set; }
-        public StudioView CurrentStudioView { get; private set; } = StudioView.Top;
+        public StudioView CurrentStudioView { get; private set; } = StudioView.Angled;
+        public bool IsOrbitView { get; private set; }
         public Camera EditorCamera => studioCamera;
         public Vector3 CameraFocus => cameraFocus;
 
         const float MinCameraZoom = 1, MaxCameraZoom = 2000, OrthographicDistance = 2000;
         Vector3 cameraFocus;
-        Quaternion cameraRotation = Quaternion.Euler(90, 0, 0);
+        Quaternion cameraRotation = Quaternion.Euler(45, -35, 0);
         float cameraZoom = 20;
         bool cameraInitialized, cameraFogSaved, cameraFogOverride;
         bool panning, applicationFocused = true;
@@ -23,17 +24,23 @@ namespace HalliGalli.Movement
         readonly List<Renderer> boundsRenderers = new List<Renderer>();
 
         bool CanNavigate => CanEdit && studioCamera && applicationFocused && pendingAction == null
-            && !libraryOpen && !helpOpen && !UserMapStudioFileDialog.IsOpen;
+            && !libraryOpen && !helpOpen && !UserMapStudioFileDialog.IsOpen && !ControlSettings.BlocksInput;
         float CameraDistance => AdvancedCamera
             ? cameraZoom / Mathf.Tan(studioCamera.fieldOfView * .5f * Mathf.Deg2Rad) : OrthographicDistance;
 
         void InitializeStudioCamera()
         {
             UpdateCameraViewport();
+            if (FirstPersonBuild)
+            {
+                InitializeFirstPersonPose();
+                cameraInitialized = true;
+                return;
+            }
             if (!cameraInitialized)
             {
                 AdvancedCamera = false;
-                CurrentStudioView = StudioView.Top;
+                CurrentStudioView = StudioView.Angled;
                 cameraRotation = ViewRotation(CurrentStudioView);
                 FrameCamera(MapBounds());
                 cameraInitialized = true;
@@ -54,6 +61,7 @@ namespace HalliGalli.Movement
         void ApplyCameraPose()
         {
             if (!studioCamera) return;
+            if (FirstPersonBuild) { ApplyFirstPersonPose(); return; }
             studioCamera.orthographic = !AdvancedCamera;
             studioCamera.orthographicSize = cameraZoom;
             studioCamera.transform.SetPositionAndRotation(cameraFocus - cameraRotation * Vector3.forward * CameraDistance, cameraRotation);
@@ -72,9 +80,11 @@ namespace HalliGalli.Movement
         public void SetStudioView(StudioView view)
         {
             if (!CanNavigate || (view != StudioView.Top && view != StudioView.Angled && view != StudioView.Side)) return;
+            if (FirstPersonBuild) SetFirstPersonBuild(false);
             StopPointerInteraction();
             AdvancedCamera = false;
             CurrentStudioView = view;
+            IsOrbitView = false;
             cameraRotation = ViewRotation(view);
             UpdateCameraViewport();
             var item = FindObject(selectedId);
@@ -86,10 +96,10 @@ namespace HalliGalli.Movement
 
         public void SetAdvancedCamera(bool enabled)
         {
-            if (!CanNavigate || AdvancedCamera == enabled) return;
+            if (!CanNavigate || !FirstPersonBuild && AdvancedCamera == enabled) return;
+            if (FirstPersonBuild) SetFirstPersonBuild(false);
             StopPointerInteraction();
             AdvancedCamera = enabled;
-            if (!enabled) cameraRotation = ViewRotation(CurrentStudioView);
             ApplyCameraPose();
         }
 
@@ -104,6 +114,15 @@ namespace HalliGalli.Movement
         {
             if (!CanNavigate) return;
             StopPointerInteraction();
+            if (FirstPersonBuild)
+            {
+                DisableBuildPawn();
+                buildPosition = buildStartFeet + Vector3.up * BuildEyeHeight;
+                buildRotation = Quaternion.Euler(0, buildStartYaw, 0);
+                if (!BuildNoclip && !ActivateBuildWalking()) BuildNoclip = true;
+                ApplyFirstPersonPose();
+                return;
+            }
             FrameCamera(StartBounds());
         }
 
@@ -130,16 +149,31 @@ namespace HalliGalli.Movement
 
         public void ZoomCamera(float steps)
         {
-            if (!CanNavigate || float.IsNaN(steps) || float.IsInfinity(steps) || steps == 0) return;
+            if (!CanNavigate || FirstPersonBuild || float.IsNaN(steps) || float.IsInfinity(steps) || steps == 0) return;
             if (dragging) CancelDrag();
             cameraZoom = Mathf.Clamp(cameraZoom * Mathf.Pow(.85f, Mathf.Clamp(steps, -100, 100)), MinCameraZoom, MaxCameraZoom);
+            ApplyCameraPose();
+        }
+
+        // Orbit the current focus, never the camera itself, so turning cannot lose the map.
+        public void OrbitCamera(Vector2 screenPixels)
+        {
+            if (!CanNavigate || FirstPersonBuild || AdvancedCamera || !float.IsFinite(screenPixels.x) || !float.IsFinite(screenPixels.y)
+                || screenPixels.sqrMagnitude == 0) return;
+            if (dragging) CancelDrag();
+            Vector3 angles = cameraRotation.eulerAngles;
+            float pitch = Mathf.DeltaAngle(0, angles.x);
+            cameraRotation = Quaternion.Euler(Mathf.Clamp(pitch - screenPixels.y * .3f, -85, 89),
+                Mathf.Repeat(angles.y + screenPixels.x * .3f, 360), 0);
+            IsOrbitView = true;
+            placementValid = false;
             ApplyCameraPose();
         }
 
         // Physical screen pixels, with +Y upwards, just like Input.mousePosition.
         public void PanCamera(Vector2 screenPixels)
         {
-            if (!CanNavigate || float.IsNaN(screenPixels.x) || float.IsInfinity(screenPixels.x)
+            if (!CanNavigate || FirstPersonBuild || float.IsNaN(screenPixels.x) || float.IsInfinity(screenPixels.x)
                 || float.IsNaN(screenPixels.y) || float.IsInfinity(screenPixels.y)) return;
             if (dragging) CancelDrag();
             UpdateCameraViewport();
@@ -151,6 +185,7 @@ namespace HalliGalli.Movement
         void FrameCamera(Bounds bounds)
         {
             UpdateCameraViewport();
+            if (FirstPersonBuild) { FrameFirstPerson(bounds); return; }
             cameraFocus = bounds.center;
             cameraZoom = FitCameraZoom(bounds, cameraFocus);
             ApplyCameraPose();
@@ -252,6 +287,7 @@ namespace HalliGalli.Movement
         void OnDisable()
         {
             StopPointerInteraction();
+            DestroyBuildPawn();
             RestoreCameraFog();
         }
 

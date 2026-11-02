@@ -116,7 +116,6 @@ namespace HalliGalli.Movement
             command.yaw = yaw;
             pendingJump = false;
             ropeGesture=Vector2.zero;ropeGestureFrame=-1;
-            GetComponent<MeleeReceiver>()?.ClearPunchBlink();
         }
 
         public void SetCursorCaptured(bool captured)
@@ -133,7 +132,7 @@ namespace HalliGalli.Movement
             if (!focused) { pendingJump = false; command = new MovementCommand { yaw = yaw }; SetCursorCaptured(false); }
         }
 
-        private void OnDisable(){SetCursorCaptured(false);GetComponent<MeleeReceiver>()?.ClearPunchBlink();}
+        private void OnDisable(){SetCursorCaptured(false);}
 
         private static void ReadDevices(out Vector2 move, out Vector2 mouse,
             out bool crouch, out bool pressed, out bool held, out bool escape, out bool clicked)

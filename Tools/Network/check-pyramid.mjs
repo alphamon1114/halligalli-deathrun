@@ -39,7 +39,8 @@ try{
   }
   const layout=JSON.parse(fs.readFileSync(path.resolve(process.argv[3],'TestResults/pyramid-layout.json'),'utf8'));
   const room=layout.rooms[3];
-  command('host','teleport',{seat:1,position:{x:room.minimum.x+6,y:room.minimum.y+2,z:(room.minimum.z+room.maximum.z)/2}});falls++;
+  const yaw=room.heading*Math.PI/180,px=room.localMinimum.x+6,pz=(room.localMinimum.z+room.localMaximum.z)/2;
+  command('host','teleport',{seat:1,position:{x:room.origin.x+Math.cos(yaw)*px+Math.sin(yaw)*pz,y:room.origin.y+room.localMinimum.y+2,z:room.origin.z-Math.sin(yaw)*px+Math.cos(yaw)*pz}});falls++;
   await wait('Cursed pit contact recovers guest on both peers',()=>host().actors[1].falls===falls&&client().actors[1].falls===falls,3500);
   await wait('Pit restores fourth checkpoint without changing cards',()=>!client().actors[1].respawning&&client().actors[1].checkpoint===3&&client().actors[1].gates===20&&host().cardState===cardState);
   command('host','surf-gates',{seat:1,value:'25'});await sleep(150);command('host','teleport',{seat:1,position:host().bellLanding});
@@ -55,4 +56,4 @@ try{
   command('client1','leave');await wait('Guest leaves cleanly',()=>!client().active&&host().members.length===1);
   command('host','leave');await wait('Host closes room',()=>!host().active);
 }catch(error){console.error(error);checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'pyramid-failure.json'),JSON.stringify({host:host(),client:client()},null,2));process.exitCode=1;}
-finally{fs.writeFileSync(path.join(folder,'pyramid-results.json'),JSON.stringify({passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks},null,2));}
+finally{fs.writeFileSync(path.join(folder,'pyramid-results.json'),JSON.stringify({utc:new Date().toISOString(),passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks},null,2));}

@@ -93,7 +93,7 @@ public sealed class LassoValidationRunner:MonoBehaviour
         foreach(var p in players)p.Sit();Test("Everyone seated clears rope and cooldown",()=>Require(players.All(p=>!p.Lasso.ConnectionActive&&p.Lasso.CooldownRemaining==0),"race cleanup"));
         Begin();Attach();var state=A.Lasso.CaptureNetworkState();var mirror=players[2];velocity=B.Motor.Velocity;mirror.Lasso.ApplyNetwork(state);mirror.Lasso.ApplyNetwork(state);
         Test("Snapshots restore target and cooldown without duplicate impulses",()=>Require(mirror.Lasso.Target==B&&mirror.Lasso.Phase==LassoPhase.Latched&&mirror.Lasso.CooldownRemaining==state.cooldown&&B.Motor.Velocity==velocity,"snapshot"));
-        Begin();Attach();A.Combat.TryPunch();Test("Switching to melee releases the tether",()=>Require(!A.Lasso.ConnectionActive&&A.Combat.IsAttacking,"melee rope"));
+        Begin();Attach();A.Combat.TryPush();Test("Switching to melee releases the tether",()=>Require(!A.Lasso.ConnectionActive&&A.Combat.IsAttacking,"melee rope"));
         Begin();A.GetComponent<SourcePlayerController>().ResetView(0,0);Test("Q input routes to the lasso",()=>Require(A.Combat.ProcessLassoInput()&&!A.Combat.IsAttacking,"Q routing"));
         Begin();Attach();session.ResetPractice();Test("New game clears all live connections",()=>Require(players.All(p=>!p.Lasso.ConnectionActive),"restart tether"));
         Begin();Attach();var pullStart=B.transform.position;

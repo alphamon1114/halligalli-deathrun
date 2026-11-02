@@ -77,7 +77,7 @@ public sealed class MatchValidationRunner:MonoBehaviour
         Run("A local bell also cancels the other player's pending fall and seats both",()=>Require(rival.IsRespawning&&session.Ring(player)&&session.EveryoneSeated&&!rival.IsRespawning&&!controller.movementEnabled&&!player.Combat.actionsEnabled&&!rival.Receiver.canReceiveHits&&game.Match.Turn==0,"respawn return"));
         yield return new WaitForSeconds(.9f);
         Run("Cancelled fall cannot pull a seated player back onto the course",()=>Require(session.EveryoneSeated&&Vector3.Distance(rival.transform.position,rival.seatAnchor.position)<.01f&&game.CanReveal(player),"stale respawn timer"));
-        Run("Kick and punch movement tuning retained",()=>Require(Mathf.Abs(player.Receiver.kickHorizontalSpeed-6)<.001f&&Mathf.Abs(player.Receiver.kickLiftSpeed-4)<.001f&&MeleeReceiver.PunchBlinkDuration==.3f,"combat config changed"));
+        Run("Seating rejects pushes and kicks and clears receiver protection",()=>Require(!player.Combat.TryPush()&&!player.Combat.TryKick()&&player.Receiver.PushProtectionRemaining==0&&!player.Receiver.Receive(MeleeAttack.Kick,Vector3.forward,player.Motor.CurrentEyePosition),"seated attack accepted or protection retained"));
         session.ResetPractice();yield return new WaitForSeconds(.4f);
         Run("New game resets physical seats, card turn, penalties and all 56 cards",()=>Require(session.EveryoneSeated&&!session.RunActive&&!session.BellRung&&!game.Match.Paused&&game.Match.Turn==0&&game.Match.Seats.All(s=>s.Draw.Count==28&&!s.MustSit)&&DisplayMatches(),"reset"));
         game.Reveal(player);yield return new WaitForSeconds(.3f);game.Reveal(rival);yield return new WaitForSeconds(.3f);

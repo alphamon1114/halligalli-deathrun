@@ -22,7 +22,7 @@ namespace HalliGalli.EditorTools
                 var instances=all.Where(t=>t.name=="VARCO "+key).ToArray();
                 return new Placement{key=key,instances=instances.Length,
                     textured=instances.All(t=>t.GetComponentsInChildren<Renderer>().All(r=>r.sharedMaterials.All(m=>m&&m.mainTexture))),
-                    collidersAbsent=instances.All(t=>t.GetComponentsInChildren<Collider>().Length==0)};
+                    collidersAbsent=instances.All(t=>t.GetComponentsInChildren<Collider>(true).Length==0)};
             }).ToArray();
             if(entries.Any(e=>e.instances==0||!e.textured||!e.collidersAbsent))throw new InvalidDataException("Pyramid VARCO placement validation failed");
             Directory.CreateDirectory("TestResults");File.WriteAllText("TestResults/pyramid-varco-placement.json",JsonUtility.ToJson(new PlacementReport{flow="f3bda240-6222-43a4-a214-a85fdffa8af1",usedPoints=1500,assets=entries},true));
@@ -60,7 +60,7 @@ namespace HalliGalli.EditorTools
             obj.transform.rotation=Quaternion.Euler(0,yaw,0);
             b=renderers[0].bounds;foreach(var r in renderers.Skip(1))b.Encapsulate(r.bounds);
             obj.transform.position+=foot-new Vector3(b.center.x,b.min.y,b.center.z);
-            foreach(var c in obj.GetComponentsInChildren<Collider>())UnityEngine.Object.DestroyImmediate(c);
+            foreach(var c in obj.GetComponentsInChildren<Collider>(true))UnityEngine.Object.DestroyImmediate(c);
             return obj;
         }
     }

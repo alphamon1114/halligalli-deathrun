@@ -229,15 +229,16 @@ namespace HalliGalli.EditorTools
             UnityEngine.Object.DestroyImmediate(body);UnityEngine.Object.DestroyImmediate(hands);
             EditorUtility.SetDirty(set);AssetDatabase.SaveAssets();Debug.Log("LASSO_MOTIONS_COMPLETE");
         }
-        static AnimationClip[] Bake(GameObject model,bool hands,bool lassoOnly=false)
+        internal static AnimationClip[] BakeKick(GameObject model,bool hands) => Bake(model,hands,false,new[]{"Kick"});
+        static AnimationClip[] Bake(GameObject model,bool hands,bool lassoOnly=false,string[] states=null)
         {
             var author=new MotionPoseAuthor(model);var list=new List<AnimationClip>();
-            foreach(string state in lassoOnly?new[]{"LassoHold","LassoThrow","LassoPull"}:new[]{"Idle","Walk","Run","CrouchIdle","CrouchWalk","Jump","Fall","Land","PunchLeft","PunchRight","Kick","HitFront","HitBack","HitLeft","HitRight","Knockback","LassoHold","LassoThrow","LassoPull"}) {
+            foreach(string state in states??(lassoOnly?new[]{"LassoHold","LassoThrow","LassoPull"}:new[]{"Idle","Walk","Run","CrouchIdle","CrouchWalk","Jump","Fall","Land","PushLeft","PushRight","Kick","HitFront","HitBack","HitLeft","HitRight","Knockback","LassoHold","LassoThrow","LassoPull"})) {
                 bool directional=!hands&&(state=="Walk"||state=="Run"||state=="CrouchWalk");
                 string[] directions=directional?new[]{"Forward","Back","Left","Right"}:new[]{""};
                 foreach(string dir in directions) {
                     float duration=state=="Idle"||state=="CrouchIdle"?2:state=="Run"?.5f:state=="Walk"?.68f:state=="CrouchWalk"?1:state=="Land"?.24f:.6f;
-                    bool attack=state.StartsWith("Punch")||state=="Kick";
+                    bool attack=state.StartsWith("Push")||state=="Kick";
                     bool reaction=state.StartsWith("Hit")||state=="Knockback";
                     if(attack)duration=MeleeCombat.Duration((MeleeAttack)Enum.Parse(typeof(MeleeAttack),state));
                     if(reaction)duration=state=="Knockback"?.42f:.48f;

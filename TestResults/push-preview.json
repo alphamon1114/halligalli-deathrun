@@ -1,0 +1,424 @@
+{
+    "frames": [
+        {
+            "path": "Previews/Push_FP_PushLeft_Contact.png",
+            "view": "FP",
+            "attack": "PushLeft",
+            "phase": "Contact",
+            "bodyState": "PushLeft",
+            "handState": "PushLeft",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.15540041029453278,
+            "combatElapsed": 0.16499999165534973,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1714344024658203,
+                "y": 0.11832702159881592,
+                "z": -0.07324886322021484
+            },
+            "bodyLeftFoot": {
+                "x": -0.18014492094516754,
+                "y": 0.11832821369171143,
+                "z": -0.07324743270874023
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_FP_PushLeft_Recovered.png",
+            "view": "FP",
+            "attack": "PushLeft",
+            "phase": "Recovered",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.7053130865097046,
+            "combatElapsed": 0.0,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1711677759885788,
+                "y": 0.11944514513015747,
+                "z": -0.07273292541503906
+            },
+            "bodyLeftFoot": {
+                "x": -0.17987680435180664,
+                "y": 0.11944496631622314,
+                "z": -0.07273340225219727
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_FP_PushRight_Contact.png",
+            "view": "FP",
+            "attack": "PushRight",
+            "phase": "Contact",
+            "bodyState": "PushRight",
+            "handState": "PushRight",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.15838158130645752,
+            "combatElapsed": 0.16499999165534973,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17115353047847748,
+                "y": 0.119637131690979,
+                "z": -0.07270431518554688
+            },
+            "bodyLeftFoot": {
+                "x": -0.17986251413822174,
+                "y": 0.11963671445846558,
+                "z": -0.07270479202270508
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_FP_PushRight_Recovered.png",
+            "view": "FP",
+            "attack": "PushRight",
+            "phase": "Recovered",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.7068371772766113,
+            "combatElapsed": 0.0,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17142395675182343,
+                "y": 0.11604315042495728,
+                "z": -0.07324743270874023
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013440072536469,
+                "y": 0.1160430908203125,
+                "z": -0.07324790954589844
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_FP_Kick_Contact.png",
+            "view": "FP",
+            "attack": "Kick",
+            "phase": "Contact",
+            "bodyState": "Kick",
+            "handState": "Kick",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.3642551898956299,
+            "combatElapsed": 0.37499988079071045,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": true,
+            "bodyRightFoot": {
+                "x": 0.1570058912038803,
+                "y": 0.9370566606521606,
+                "z": 0.794985294342041
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013642728328705,
+                "y": 0.11601966619491577,
+                "z": -0.07325220108032227
+            },
+            "firstPersonRightFoot": {
+                "x": 0.1570058912038803,
+                "y": 0.9400154948234558,
+                "z": 0.7949854135513306
+            },
+            "firstPersonFootViewport": {
+                "x": 0.5947898626327515,
+                "y": 0.19412031769752502,
+                "z": 0.9749850630760193
+            }
+        },
+        {
+            "path": "Previews/Push_FP_Kick_Recovered.png",
+            "view": "FP",
+            "attack": "Kick",
+            "phase": "Recovered",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 1.259486198425293,
+            "combatElapsed": 0.0,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17117753624916077,
+                "y": 0.11931502819061279,
+                "z": -0.07275247573852539
+            },
+            "bodyLeftFoot": {
+                "x": -0.17988663911819458,
+                "y": 0.11931484937667847,
+                "z": -0.0727529525756836
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushLeft_Contact.png",
+            "view": "Body",
+            "attack": "PushLeft",
+            "phase": "Contact",
+            "bodyState": "PushLeft",
+            "handState": "PushLeft",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.1524345874786377,
+            "combatElapsed": 0.16499999165534973,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17117565870285034,
+                "y": 0.11933982372283936,
+                "z": -0.07274866104125977
+            },
+            "bodyLeftFoot": {
+                "x": -0.17988473176956177,
+                "y": 0.11933976411819458,
+                "z": -0.07274913787841797
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushLeft_Recovered.png",
+            "view": "Body",
+            "attack": "PushLeft",
+            "phase": "Recovered",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.7039780616760254,
+            "combatElapsed": 0.0,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1714259684085846,
+                "y": 0.11601591110229492,
+                "z": -0.07325124740600586
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013641238212585,
+                "y": 0.1160159707069397,
+                "z": -0.07325220108032227
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushRight_Contact.png",
+            "view": "Body",
+            "attack": "PushRight",
+            "phase": "Contact",
+            "bodyState": "PushRight",
+            "handState": "PushRight",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.15316557884216309,
+            "combatElapsed": 0.16499999165534973,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1714259535074234,
+                "y": 0.11601924896240234,
+                "z": -0.07325124740600586
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013642728328705,
+                "y": 0.11601918935775757,
+                "z": -0.07325172424316406
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushRight_Recovered.png",
+            "view": "Body",
+            "attack": "PushRight",
+            "phase": "Recovered",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.7042992115020752,
+            "combatElapsed": 0.0,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17142537236213684,
+                "y": 0.11602431535720825,
+                "z": -0.07325029373168945
+            },
+            "bodyLeftFoot": {
+                "x": -0.1801358163356781,
+                "y": 0.11602407693862915,
+                "z": -0.07325077056884766
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_Kick_Contact.png",
+            "view": "Body",
+            "attack": "Kick",
+            "phase": "Contact",
+            "bodyState": "Kick",
+            "handState": "Kick",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 0.3639993667602539,
+            "combatElapsed": 0.37499988079071045,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1570058912038803,
+                "y": 0.9422577619552612,
+                "z": 0.794985294342041
+            },
+            "bodyLeftFoot": {
+                "x": -0.17991673946380615,
+                "y": 0.11891818046569824,
+                "z": -0.07281303405761719
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_Kick_Recovered.png",
+            "view": "Body",
+            "attack": "Kick",
+            "phase": "Recovered",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "RuntimeCameraRender",
+            "elapsedSinceStart": 1.258852481842041,
+            "combatElapsed": 0.0,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1714259684085846,
+                "y": 0.11601626873016357,
+                "z": -0.07325124740600586
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013642728328705,
+                "y": 0.11601650714874268,
+                "z": -0.07325220108032227
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        }
+    ]
+}

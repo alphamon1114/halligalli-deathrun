@@ -29,6 +29,7 @@ namespace HalliGalli.Movement
         public float StunImmuneRemaining {get;private set;}
         public bool Stunned => StunRemaining>0;
         public float RaceSlipRemaining {get;private set;}
+        public float RaceLaunchRemaining {get;private set;}
         public bool Surfing { get; private set; }
         public Vector3 SurfNormal { get; private set; }
         public int SurfContactTicks { get; private set; }
@@ -50,13 +51,13 @@ namespace HalliGalli.Movement
         public struct NetworkState : Unity.Netcode.INetworkSerializeByMemcpy
         {
             public Vector3 position,velocity,normal,surfNormal;
-            public float yaw,height,stagger,buffer,stun,stunImmunity,raceSlip;
+            public float yaw,height,stagger,buffer,stun,stunImmunity,raceSlip,raceLaunch;
             public int jumps,surfTicks;
             public bool grounded,surfing;
         }
         public NetworkState CaptureNetworkState()=>new NetworkState{
             position=transform.position,velocity=Velocity,normal=groundNormal,surfNormal=SurfNormal,yaw=transform.eulerAngles.y,
-            height=body.height,stagger=StaggerRemaining,buffer=jumpBuffer,stun=StunRemaining,stunImmunity=StunImmuneRemaining,raceSlip=RaceSlipRemaining,jumps=JumpCount,surfTicks=SurfContactTicks,
+            height=body.height,stagger=StaggerRemaining,buffer=jumpBuffer,stun=StunRemaining,stunImmunity=StunImmuneRemaining,raceSlip=RaceSlipRemaining,raceLaunch=RaceLaunchRemaining,jumps=JumpCount,surfTicks=SurfContactTicks,
             grounded=Grounded,surfing=Surfing
         };
         public void RestoreNetworkState(NetworkState state)
@@ -65,7 +66,7 @@ namespace HalliGalli.Movement
             transform.SetPositionAndRotation(state.position,Quaternion.Euler(0,state.yaw,0));
             body.height=state.height;body.center=Vector3.up*body.height*.5f;body.enabled=mobile;
             Velocity=state.velocity;Grounded=state.grounded;StaggerRemaining=state.stagger;
-            StunRemaining=state.stun;StunImmuneRemaining=state.stunImmunity;RaceSlipRemaining=state.raceSlip;
+            StunRemaining=state.stun;StunImmuneRemaining=state.stunImmunity;RaceSlipRemaining=state.raceSlip;RaceLaunchRemaining=state.raceLaunch;
             groundNormal=state.normal;SurfNormal=state.surfNormal;Surfing=state.surfing;SurfContactTicks=state.surfTicks;
             jumpBuffer=state.buffer;JumpCount=state.jumps;CurrentEyePosition=PreviousEyePosition=transform.position+Vector3.up*EyeHeight;
         }
@@ -103,7 +104,7 @@ namespace HalliGalli.Movement
         {
             Initialize();
             if (dt <= 0 || !body.enabled) return;
-            bool stunned=Stunned,sliding=RaceSlipRemaining>0;
+            bool stunned=Stunned,sliding=RaceSlipRemaining>0,launched=RaceLaunchRemaining>0;
             AdvanceStun(dt);
             if(stunned){command.move=Vector2.zero;command.jumpPressed=command.jumpHeld=false;command.crouch=IsCrouched;jumpBuffer=-1;}
             if(Staggered) {
@@ -127,7 +128,7 @@ namespace HalliGalli.Movement
             bool wantsJump = jumpBuffer >= 0 || (profile.autoBunnyHop && command.jumpHeld);
             bool jumped = Grounded && wantsJump;
             Vector3 velocity = Velocity;
-            if(stunned&&Grounded&&!sliding){velocity.x=velocity.z=0;}
+            if(launched||stunned&&Grounded&&!sliding){velocity.x=velocity.z=0;}
             if (jumped)
             {
                 velocity.y = Mathf.Sqrt(2 * profile.gravity * profile.jumpHeight);
@@ -201,7 +202,7 @@ namespace HalliGalli.Movement
                 Grounded = false;
                 velocity.y = Mathf.Max(velocity.y - profile.gravity * dt * 0.5f, -profile.terminalFallSpeed);
             }
-            if(stunned&&Grounded&&!sliding){velocity.x=velocity.z=0;}
+            if(launched||stunned&&Grounded&&!sliding){velocity.x=velocity.z=0;}
             Velocity = velocity;
             if (Grounded) Surfing = false;
             if (Surfing) SurfContactTicks++;
@@ -301,6 +302,13 @@ namespace HalliGalli.Movement
             if(Grounded)Velocity=new Vector3(0,Velocity.y,0);
             return true;
         }
+        public bool ApplyRaceLaunch(float verticalSpeed,float duration)
+        {
+            if(!ApplyStun(duration,.2f))return false;
+            RaceSlipRemaining=0;RaceLaunchRemaining=StunRemaining;
+            Velocity=Vector3.up*verticalSpeed;Grounded=false;Surfing=false;
+            return true;
+        }
         public void ApplyRaceSlip(Vector3 velocity,float duration)
         {
             RaceSlipRemaining=Mathf.Max(0,duration);StunRemaining=Mathf.Max(StunRemaining,RaceSlipRemaining);
@@ -308,8 +316,8 @@ namespace HalliGalli.Movement
             Velocity=new Vector3(velocity.x,Velocity.y,velocity.z);
         }
         public void ClearRaceSlip(){RaceSlipRemaining=0;}
-        public void AdvanceStun(float dt){StunRemaining=Mathf.Max(0,StunRemaining-dt);StunImmuneRemaining=Mathf.Max(0,StunImmuneRemaining-dt);RaceSlipRemaining=Mathf.Max(0,RaceSlipRemaining-dt);}
-        public void ClearStun(){StunRemaining=StunImmuneRemaining=RaceSlipRemaining=0;}
+        public void AdvanceStun(float dt){StunRemaining=Mathf.Max(0,StunRemaining-dt);StunImmuneRemaining=Mathf.Max(0,StunImmuneRemaining-dt);RaceSlipRemaining=Mathf.Max(0,RaceSlipRemaining-dt);RaceLaunchRemaining=Mathf.Max(0,RaceLaunchRemaining-dt);}
+        public void ClearStun(){StunRemaining=StunImmuneRemaining=RaceSlipRemaining=RaceLaunchRemaining=0;}
 
         public void Teleport(Vector3 feetPosition)
         {
@@ -320,7 +328,7 @@ namespace HalliGalli.Movement
             Physics.SyncTransforms();
             Velocity = Vector3.zero;
             StaggerRemaining=0;
-            RaceSlipRemaining=0;
+            RaceSlipRemaining=RaceLaunchRemaining=0;
             Grounded = false;
             Surfing = false;
             SurfNormal = Vector3.zero;

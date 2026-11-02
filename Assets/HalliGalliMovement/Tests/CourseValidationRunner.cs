@@ -35,11 +35,10 @@ public sealed class CourseValidationRunner:MonoBehaviour
         Run("Fall returns player standing at own course entrance",()=>Require(!player.IsRespawning&&!player.IsSeated&&Vector3.Distance(player.transform.position,player.retryAnchor.position)<.15f&&controller.movementEnabled,"respawn="+player.transform.position));
         session.ResetPractice();player.Stand();rival.Stand();controller.enabled=false;player.Motor.Teleport(new Vector3(-1.1f,.38f,5.7f));rival.Motor.Teleport(new Vector3(0,.38f,5.7f));controller.ResetView(90);controller.UpdateView();
         for(int i=0;i<5;i++){player.Motor.Simulate(new MovementCommand{yaw=90},.015f);rival.Motor.Simulate(default,.015f);}controller.UpdateView();Physics.SyncTransforms();
-        int hits=player.Combat.HitCount;player.Combat.TryKick();float end=Time.time+2;
-        while(Time.time<end&&rival.Falls==0){rival.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
-        Run("A real kick knocks the opponent off the shared platform",()=>Require(player.Combat.HitCount==hits+1&&rival.Falls==1,"hits="+(player.Combat.HitCount-hits)+" falls="+rival.Falls+" pos="+rival.transform.position));
-        yield return new WaitForSeconds(.8f);Run("Kicked opponent returns to their entrance",()=>Require(!rival.IsRespawning&&Vector3.Distance(rival.transform.position,rival.retryAnchor.position)<.15f,"rival respawn"));
-        Run("Existing kick tuning remains 3 metre configuration",()=>Require(Mathf.Abs(player.Receiver.kickHorizontalSpeed-6)<.001f&&Mathf.Abs(player.Receiver.kickLiftSpeed-4)<.001f,"kick tuning changed"));
+        int hits=player.Combat.HitCount;Vector3 beforePush=rival.transform.position;player.Combat.TryKick();float end=Time.time+1.2f;
+        while(Time.time<end&&!rival.IsRespawning){rival.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
+        Run("A real kick displaces the opponent horizontally on the shared platform",()=>Require(player.Combat.HitCount==hits+1&&Vector3.ProjectOnPlane(rival.transform.position-beforePush,Vector3.up).magnitude>.3f,"hits="+(player.Combat.HitCount-hits)+" displacement="+(rival.transform.position-beforePush)));
+        Run("Kick contact leaves the opponent controls available",()=>Require(!rival.Motor.Staggered&&!rival.Motor.Stunned&&rival.Motor.RaceLaunchRemaining==0&&rival.Receiver.LastImpulse.y==0,"kick imposed a control lock or launch"));
         Run("Bell sound and custom seated clip are assigned",()=>Require(session.bellAudio.clip&&player.GetComponent<CharacterMotionDriver>().seatedClip&&rival.GetComponent<CourseBodyAnimator>().seatedClip,"missing asset"));
         // Traverse both entrance lanes using the same command-driven motor as the local player.
         foreach(int side in new[]{1,-1}){

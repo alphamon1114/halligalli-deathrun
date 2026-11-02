@@ -15,13 +15,13 @@ using UnityEngine.SceneManagement;
 
 namespace HalliGalli.Movement
 {
-    public enum NetworkAction { Reveal, Interact, Punch, Kick, Restart, Ready, Respawn, LassoThrow, LassoPull, UseItem }
+    public enum NetworkAction { Reveal=0, Interact=1, Push=2, Kick=3, Restart=4, Ready=5, Respawn=6, LassoThrow=7, LassoPull=8, UseItem=9 }
 
     // Lobby/Relay supplies discovery and encrypted transport; this host owns all game decisions.
     [DefaultExecutionOrder(150)]
     public sealed partial class CourseNetwork : MonoBehaviour
     {
-        public const int Protocol=28;
+        public const int Protocol=35;
         public static double WorldTime=>Active&&Instance.manager&&Instance.manager.IsListening?Instance.manager.ServerTime.Time:Time.fixedTimeAsDouble;
         public const int MaxParticipants=6;
         const int capacity=MaxParticipants;
@@ -36,7 +36,7 @@ namespace HalliGalli.Movement
         public int LocalSeat=>members.FindIndex(m=>!m.bot&&manager&&m.id==manager.LocalClientId);
         public CourseSession Game=>game;
         public IReadOnlyList<Member> Members=>members;
-        [Serializable] public sealed class Member {public ulong id;public string name;public bool ready,bot;}
+        [Serializable] public sealed class Member {public ulong id;public string name;public bool ready,bot;public int shirtColor;}
         public int BotCount=>members.Count(m=>m.bot);
         public int HumanCount=>members.Count(m=>!m.bot);
         public int Capacity=>capacity;
@@ -45,7 +45,7 @@ namespace HalliGalli.Movement
         public bool CanAddBot=>CanEditBots&&OccupiedSeats<capacity;
         int botSequence;
         [Serializable] sealed class Room {public Member[] members;public string map,code;public int capacity,epoch,mapRevision;public bool loading,playing;public UserMapOffer userMap;}
-        [Serializable] sealed class Hello {public int protocol;public string name;}
+        [Serializable] sealed class Hello {public int protocol;public string name;public int shirtColor=-1;}
         [Serializable] sealed class Load {public int epoch,mapRevision;public string map,mapHash;}
         [Serializable] sealed class ActionMessage {public int epoch,mapRevision,respawn,toolSequence,raceRound,itemSequence;public NetworkAction action;public Vector3 aim;}
         [Serializable] sealed class Signal {public int epoch;}
@@ -56,7 +56,7 @@ namespace HalliGalli.Movement
         CourseSession game;
         readonly List<Member> members=new List<Member>();
         readonly HashSet<ulong> loaded=new HashSet<ulong>();
-        readonly Dictionary<ulong,string> approved=new Dictionary<ulong,string>();
+        readonly Dictionary<ulong,Member> approved=new Dictionary<ulong,Member>();
         readonly Dictionary<ulong,float> actionTimes=new Dictionary<ulong,float>();
         bool online,menu,bound,loading,leaving;
         int epoch,operation;
@@ -120,10 +120,15 @@ namespace HalliGalli.Movement
             try{if(request.Payload.Length>256)throw new Exception();hello=JsonUtility.FromJson<Hello>(Encoding.UTF8.GetString(request.Payload));}
             catch{reason="잘못된 접속 요청";}
             if(hello==null||hello.protocol!=Protocol)reason="게임 버전이 달라. 같은 빌드를 사용해줘.";
+            else if(!PlayerShirtColors.IsValid(hello.shirtColor))reason="잘못된 티셔츠 색상";
             else if(Playing||loading)reason="이미 게임 중인 방이야. 대기방으로 돌아온 뒤 입장해줘.";
             else if(OccupiedSeats>=capacity&&!approved.ContainsKey(request.ClientNetworkId))reason="방이 가득 찼어. 방장에게 AI를 빼거나 빈자리를 만들어 달라고 해줘.";
             response.Approved=reason==null;response.Reason=reason??"";response.Pending=false;
-            if(response.Approved)approved[request.ClientNetworkId]=CleanName(hello.name);
+            if(response.Approved){
+                int color=FreeShirtColor(hello.shirtColor,request.ClientNetworkId);
+                if(color<0){response.Approved=false;response.Reason="사용 가능한 티셔츠 색상이 없어.";return;}
+                approved[request.ClientNetworkId]=new Member{id=request.ClientNetworkId,name=CleanName(hello.name),shirtColor=color,ready=request.ClientNetworkId==NetworkManager.ServerClientId};
+            }
         }
         static string CleanName(string value)
         {
@@ -137,7 +142,8 @@ namespace HalliGalli.Movement
         {
             if(!CanAddBot)return false;
             int number=1;while(members.Any(m=>m.bot&&m.name=="AI "+number))number++;
-            members.Add(new Member{id=ulong.MaxValue-(ulong)++botSequence,name="AI "+number,ready=true,bot=true});
+            int color=FreeShirtColor(0,ulong.MaxValue);if(color<0)return false;
+            members.Add(new Member{id=ulong.MaxValue-(ulong)++botSequence,name="AI "+number,ready=true,bot=true,shirtColor=color});
             Status="";BroadcastRoom();return true;
         }
         public bool RemoveBot(ulong id)
@@ -192,9 +198,9 @@ namespace HalliGalli.Movement
         }
         void PrepareConnection()
         {
-            EnsureManager();members.Clear();approved.Clear();loaded.Clear();actionTimes.Clear();botSequence=0;ResetSimulation();
+            EnsureManager();members.Clear();approved.Clear();loaded.Clear();actionTimes.Clear();botSequence=0;pendingShirtRequest=0;ResetSimulation();
             ResetUserMapState();mapRevision=epoch=0;mapId="first-steps";
-            manager.NetworkConfig.ConnectionData=Encoding.UTF8.GetBytes(JsonUtility.ToJson(new Hello{protocol=Protocol,name=CleanName(nickname)}));
+            manager.NetworkConfig.ConnectionData=Encoding.UTF8.GetBytes(JsonUtility.ToJson(new Hello{protocol=Protocol,name=CleanName(nickname),shirtColor=PlayerShirtColors.SavedIndex}));
             online=true;Playing=false;loading=false;bound=false;menu=true;connectDeadline=Time.realtimeSinceStartup+35;
             FreezeWorld();
             // Diagnostic clients use temporary names; keep the player's saved nickname intact.
@@ -224,12 +230,21 @@ namespace HalliGalli.Movement
             messages.RegisterNamedMessageHandler("HG.pose",ReceivePose);
             messages.RegisterNamedMessageHandler("HG.race",ReceiveRace);
             RegisterUserMapMessages();
+            RegisterShirtMessages();
         }
         void Connected(ulong id)
         {
             connectDeadline=0;
             if(!IsHost)return;
-            if(!members.Any(m=>m.id==id))members.Add(new Member{id=id,name=approved.TryGetValue(id,out var name)?name:"Player",ready=id==NetworkManager.ServerClientId});
+            if(!members.Any(m=>m.id==id)){
+                if(!approved.TryGetValue(id,out var member)){
+                    // Netcode may connect the host without invoking connection approval.
+                    if(id!=NetworkManager.ServerClientId){manager.DisconnectClient(id);return;}
+                    member=new Member{id=id,name=CleanName(nickname),ready=true,shirtColor=FreeShirtColor(PlayerShirtColors.SavedIndex,id)};
+                    approved[id]=member;
+                }
+                members.Add(member);
+            }
             BroadcastRoom();
             QueueUserMap(id);
         }
@@ -245,13 +260,16 @@ namespace HalliGalli.Movement
         void BroadcastRoom()
         {
             if(!IsHost)return;
+            ApplyRoomShirtColors();
             SendAll("HG.room",new Room{members=members.ToArray(),capacity=capacity,epoch=epoch,map=mapId,code=InviteCode,loading=loading,playing=Playing,mapRevision=mapRevision,userMap=userMapOffer});
         }
         void ReceiveRoom(ulong sender,Room room)
         {
             if(!online||sender!=NetworkManager.ServerClientId||IsHost||room.members==null||room.members.Length>capacity||room.epoch<epoch)return;
+            if(!ValidShirtMembers(room.members))return;
             if(!ReceiveMapSelection(room))return;
             members.Clear();members.AddRange(room.members);InviteCode=room.code;
+            ApplyRoomShirtColors();
             if(!room.playing&&!room.loading){epoch=room.epoch;Playing=loading=false;menu=true;bound=false;ResetSimulation();FreezeWorld();}
         }
         public bool CanStart=>online&&IsHost&&!Busy&&!leaving&&!loading&&!Playing&&members.Count>=2&&members.Count<=capacity&&approved.Count==HumanCount&&members.All(m=>m.bot||m.ready)&&AllUserMapsReady;
@@ -302,6 +320,7 @@ namespace HalliGalli.Movement
             int old=Array.FindIndex(all,p=>p.localPlayer);
             if(old!=seat){var other=all[seat];all[seat]=all[old];all[old]=other;}
             game.roster.ApplyLayout(members.Count);game.ResetPractice();
+            ApplyRoomShirtColors();
             game.cardGame.botEnabled=false;
             foreach(var p in all){
                 var rival=p.GetComponent<CourseRival>();if(rival)rival.enabled=false;
@@ -372,7 +391,7 @@ namespace HalliGalli.Movement
                 manager=null;transport=null;
                 await Task.Yield();
             }
-            members.Clear();approved.Clear();InviteCode="";Status=reason;ResetSimulation();
+            members.Clear();approved.Clear();pendingShirtRequest=0;InviteCode="";Status=reason;ResetSimulation();
             if(!string.IsNullOrEmpty(returnScene))_=SceneManager.LoadSceneAsync(returnScene);
             leaving=false;
         }

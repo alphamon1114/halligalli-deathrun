@@ -1,0 +1,261 @@
+{
+  "utc": "2026-11-02T07:55:53.409Z",
+  "files": [
+    {
+      "path": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/CombatPractice.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/MovementLab.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/RaceCourse.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/UserMapCourse.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/SurfMovement.asset",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/DefaultMovement.asset",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/SourceMotor.cs",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Walk.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Run.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_LassoThrow.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_LassoPull.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_LassoHold.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Land.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Knockback.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Jump.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Idle.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_HitRight.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_HitLeft.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_HitFront.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_HitBack.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Fall.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_CrouchWalk.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_CrouchIdle.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_WalkRight.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_WalkLeft.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_WalkForward.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_WalkBack.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Seated.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_RunRight.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_RunLeft.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_RunForward.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_RunBack.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_LassoThrow.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_LassoPull.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_LassoHold.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Land.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Knockback.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Jump.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Idle.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_HitRight.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_HitLeft.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_HitFront.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_HitBack.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Fall.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkRight.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkLeft.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkForward.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchWalkBack.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_CrouchIdle.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_PushLeft.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_PushRight.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/Body_Kick.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_PushLeft.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_PushRight.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Motions/FP_Kick.anim",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Prefabs/SourcePlayer.prefab",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Materials/Body.mat",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Textures/Body_BaseColor.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/CustomMotions.asset",
+      "unchanged": true
+    }
+  ]
+}

@@ -19,13 +19,13 @@ namespace HalliGalli.Movement
             if (player == null || ControlSettings.BlocksInput) return;
             bool reset = player.PointerActionsAllowed && ControlBindings.Pressed(GameAction.Respawn);
 #if ENABLE_INPUT_SYSTEM
-            bool testPunch=Keyboard.current!=null && Keyboard.current.hKey.wasPressedThisFrame;
+            bool testPush=Keyboard.current!=null && Keyboard.current.hKey.wasPressedThisFrame;
             bool testKick=Keyboard.current!=null && Keyboard.current.jKey.wasPressedThisFrame;
 #else
-            bool testPunch=Input.GetKeyDown(KeyCode.H),testKick=Input.GetKeyDown(KeyCode.J);
+            bool testPush=Input.GetKeyDown(KeyCode.H),testKick=Input.GetKeyDown(KeyCode.J);
 #endif
-            if(Cursor.lockState==CursorLockMode.Locked && (testPunch||testKick))
-                player.GetComponent<MeleeReceiver>()?.Receive(testKick?MeleeAttack.Kick:MeleeAttack.PunchLeft,-player.transform.forward,player.Motor.CurrentEyePosition);
+            if(Cursor.lockState==CursorLockMode.Locked && (testPush||testKick))
+                player.GetComponent<MeleeReceiver>()?.Receive(testKick?MeleeAttack.Kick:MeleeAttack.PushLeft,-player.transform.forward,player.Motor.CurrentEyePosition);
             if (reset || player.transform.position.y < respawnBelow)
             {
                 player.Motor.Teleport(spawn);
@@ -53,8 +53,8 @@ namespace HalliGalli.Movement
             GUI.Label(new Rect(38, 30, 610, 38), korean ? "할리갈리 데스런 · 이동 / 타격 테스트" : "HALLI GALLI / MOVEMENT & COMBAT", title);
             GUI.Label(new Rect(38, 75, 540, 25), korean ? "WASD 이동   Space 점프   Ctrl 웅크리기" : "WASD move   Space jump   Ctrl crouch", text);
             GUI.Label(new Rect(38, 107, 540, 25), korean ? "마우스 시점   V 전신 확인   R 처음으로   Esc 커서 해제" : "Mouse look   V body view   R restart   Esc cursor", text);
-            GUI.Label(new Rect(38, 139, 610, 25), korean ? "좌클릭 좌우 주먹질   F 발차기   연습 상대는 3초 뒤 복귀" : "LMB alternating punches   F kick   Target returns after 3 s", text);
-            GUI.Label(new Rect(38, 171, 610, 25), korean ? "주먹: 순간 시야 가림·이동 가능   발차기: 넉백   H / J 테스트" : "Punch: brief blink, free movement   Kick: knockback   H / J test hits", text);
+            GUI.Label(new Rect(38, 139, 610, 25), korean ? "좌클릭 한 손 밀치기   F 발차기   연습 상대는 3초 뒤 복귀" : "LMB one-hand push   F kick   Target returns after 3 s", text);
+            GUI.Label(new Rect(38, 171, 610, 25), korean ? "수평 밀치기 · 피격 중에도 이동/반격 가능 · H / J 피격 테스트" : "Horizontal push · move and counterattack freely · H / J test hits", text);
             string state = !player.Motor.Grounded ? (korean ? "공중" : "AIR") : player.Motor.IsCrouched ? (korean ? "웅크리기" : "CROUCH") : (korean ? "지상" : "GROUND");
             GUI.Label(new Rect(Screen.width - 300, 25, 270, 30), state + "  |  " + player.Motor.HorizontalSpeed.ToString("0.0") + " m/s", badge);
             GUI.color = new Color(1, 1, 1, 0.85f);

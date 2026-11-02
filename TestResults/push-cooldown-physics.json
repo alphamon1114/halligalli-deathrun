@@ -1,0 +1,207 @@
+{
+    "utc": "2026-11-02T06:52:01.8873121Z",
+    "passed": 40,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Quick push alternates and rejected spam cannot skip a hand",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "A recovery click buffers exactly one attack without automatic repeat",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick cooldown rejects repeated and buffered F without blocking quick pushes",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "A ready buffered kick spends cooldown only when it actually starts",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Cancelling a queued kick is free but cancelling a started kick preserves cooldown",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Respawn and individual seating preserve kick cooldown while round and match resets clear it",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Authoritative attack snapshots restore cooldown without restarting attacks or impulses",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Quick push contacts only in its contact window and only once",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick has longer windup and recovery",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick reaches farther than quick push",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Protected contact does not add impulse, hit credit or a hit marker",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Solid wall blocks either attack without moving target",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Targets behind and beyond reach are not hit",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Trigger volumes do not block pushes",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Long physics step cannot skip either contact window",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Movement continues during attack and push moves opponent",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Grounded push and kick displace, with stronger kick travel and no launch",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick still collides with a nearby solid wall",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Network presentation adds no impulse and restored host physics predicts identically",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Push animation has priority over idle",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Runtime one-hand push extends wrist in both views",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Hands return to movement after quick push",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick extends the right foot in both views while hands brace naturally",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick restores the leg and locomotion after recovery",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Push and kick permit immediate movement, jump and counterattack",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Accepted kick does not cancel windup or one buffered follow-up",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Quick push directions select four authored body reactions",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Push preserves gravity, prior momentum and air steering",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Protected hits do not replay sound, reactions or impulse",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Runtime accepted push moves body and first-person hands",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Repeated pushes cannot restart or extend receiver protection",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Protection expires on the first accepted hit deadline",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Reaction returns to idle without a stuck pose",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Reaction returns to crouch and preserves capsule height",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "PushLeft keeps camera aim, view and movement heading",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "PushLeft leaves mouse look responsive during reaction",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "PushLeft leaves crouch and walking input available",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick keeps camera aim, view and movement heading",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick leaves mouse look responsive during reaction",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Kick leaves crouch and walking input available",
+            "passed": true,
+            "detail": ""
+        }
+    ]
+}

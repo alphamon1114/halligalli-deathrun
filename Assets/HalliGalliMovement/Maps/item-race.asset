@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uC544\uC774\uD15C \uB808\uC774\uC2A4"
   style: 4
   difficulty: 2
-  description: "220m 연속 트랙. 선두는 바나나·방어막·후방 큰 공, 추격자는 미사일·직선 레이저 중심의 랜덤 아이템으로 경쟁합니다."
+  description: "220m 연속 트랙. 선두는 바나나·바리게이트, 추격자는 미사일 중심의 랜덤 아이템으로 경쟁합니다."
   playable: 1
   scenePath: Assets/HalliGalliMovement/Demo/RaceCourse.unity
   thumbnail: Race

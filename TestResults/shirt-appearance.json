@@ -1,0 +1,172 @@
+{
+    "utc": "2026-11-02T07:44:08.3136620Z",
+    "atlas": "Assets/HalliGalliMovement/Art/Textures/Body_BaseColor.png",
+    "shader": "HalliGalli/PlayerShirt",
+    "comparison": "Actual SourcePlayer/Idle geometry through PlayerShirtAppearance and per-renderer MPB. Columns 0..7; front top/back bottom. Non-shirt comparison excludes a 2px garment/AA boundary and background; compared against blue and original Body Standard material. No PlayerPrefs writes.",
+    "handsUnchanged": true,
+    "kickUnchanged": true,
+    "bodyGeometryUnchanged": true,
+    "bodyRenderers": 1,
+    "views": [
+        {
+            "color": 0,
+            "name": "파랑",
+            "view": "Front",
+            "image": "Previews/Shirt_Front_0.png",
+            "comparedNonShirtPixels": 31185,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 0,
+            "originalBodyMaxByteDifference": 4
+        },
+        {
+            "color": 1,
+            "name": "빨강",
+            "view": "Front",
+            "image": "Previews/Shirt_Front_1.png",
+            "comparedNonShirtPixels": 31185,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 1,
+            "originalBodyMaxByteDifference": 4
+        },
+        {
+            "color": 2,
+            "name": "주황",
+            "view": "Front",
+            "image": "Previews/Shirt_Front_2.png",
+            "comparedNonShirtPixels": 31185,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 1,
+            "originalBodyMaxByteDifference": 4
+        },
+        {
+            "color": 3,
+            "name": "노랑",
+            "view": "Front",
+            "image": "Previews/Shirt_Front_3.png",
+            "comparedNonShirtPixels": 31185,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 1,
+            "originalBodyMaxByteDifference": 4
+        },
+        {
+            "color": 4,
+            "name": "초록",
+            "view": "Front",
+            "image": "Previews/Shirt_Front_4.png",
+            "comparedNonShirtPixels": 31185,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 1,
+            "originalBodyMaxByteDifference": 4
+        },
+        {
+            "color": 5,
+            "name": "하늘",
+            "view": "Front",
+            "image": "Previews/Shirt_Front_5.png",
+            "comparedNonShirtPixels": 31185,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 0,
+            "originalBodyMaxByteDifference": 4
+        },
+        {
+            "color": 6,
+            "name": "보라",
+            "view": "Front",
+            "image": "Previews/Shirt_Front_6.png",
+            "comparedNonShirtPixels": 31185,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 0,
+            "originalBodyMaxByteDifference": 4
+        },
+        {
+            "color": 7,
+            "name": "분홍",
+            "view": "Front",
+            "image": "Previews/Shirt_Front_7.png",
+            "comparedNonShirtPixels": 31185,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 1,
+            "originalBodyMaxByteDifference": 4
+        },
+        {
+            "color": 0,
+            "name": "파랑",
+            "view": "Back",
+            "image": "Previews/Shirt_Back_0.png",
+            "comparedNonShirtPixels": 30977,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 0,
+            "originalBodyMaxByteDifference": 6
+        },
+        {
+            "color": 1,
+            "name": "빨강",
+            "view": "Back",
+            "image": "Previews/Shirt_Back_1.png",
+            "comparedNonShirtPixels": 30977,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 2,
+            "originalBodyMaxByteDifference": 6
+        },
+        {
+            "color": 2,
+            "name": "주황",
+            "view": "Back",
+            "image": "Previews/Shirt_Back_2.png",
+            "comparedNonShirtPixels": 30977,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 2,
+            "originalBodyMaxByteDifference": 6
+        },
+        {
+            "color": 3,
+            "name": "노랑",
+            "view": "Back",
+            "image": "Previews/Shirt_Back_3.png",
+            "comparedNonShirtPixels": 30977,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 2,
+            "originalBodyMaxByteDifference": 6
+        },
+        {
+            "color": 4,
+            "name": "초록",
+            "view": "Back",
+            "image": "Previews/Shirt_Back_4.png",
+            "comparedNonShirtPixels": 30977,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 0,
+            "originalBodyMaxByteDifference": 6
+        },
+        {
+            "color": 5,
+            "name": "하늘",
+            "view": "Back",
+            "image": "Previews/Shirt_Back_5.png",
+            "comparedNonShirtPixels": 30977,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 0,
+            "originalBodyMaxByteDifference": 6
+        },
+        {
+            "color": 6,
+            "name": "보라",
+            "view": "Back",
+            "image": "Previews/Shirt_Back_6.png",
+            "comparedNonShirtPixels": 30977,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 2,
+            "originalBodyMaxByteDifference": 6
+        },
+        {
+            "color": 7,
+            "name": "분홍",
+            "view": "Back",
+            "image": "Previews/Shirt_Back_7.png",
+            "comparedNonShirtPixels": 30977,
+            "changedNonShirtPixels": 0,
+            "maxNonShirtByteDifference": 2,
+            "originalBodyMaxByteDifference": 6
+        }
+    ]
+}

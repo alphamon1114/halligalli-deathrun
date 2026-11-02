@@ -42,8 +42,8 @@ namespace HalliGalli.Movement
         void Update(){if(bellButton)bellButton.localPosition=buttonRest-Vector3.up*.045f*Mathf.Exp(-(Time.time-bellAt)*12);}
         public bool CanStand(CourseParticipant participant)=>!HasCardRules||cardGame.CanStand(participant);
         public bool MustReturn(CourseParticipant participant)=>BellRung||(HasCardRules&&cardGame.MustReturn(participant));
-        public void NotifyStand(CourseParticipant participant){if(HasCardRules)cardGame.Stand(participant);if(!RunActive){RunActive=true;foreach(var p in participants){p.Initialize();p.Lasso.BeginRace();}onDeparture.Invoke();}}
-        public void NotifySeated(CourseParticipant participant){if(resetting)return;if(HasCardRules)cardGame.Sit(participant);if(EveryoneSeated){RunActive=BellRung=false;BellRinger=null;foreach(var p in participants){p.Lasso.EndRace();}onEveryoneSeated.Invoke();}}
+        public void NotifyStand(CourseParticipant participant){if(HasCardRules)cardGame.Stand(participant);if(!RunActive){RunActive=true;foreach(var p in participants){p.Initialize();p.Lasso.BeginRace();p.Combat.ResetCombat(resetCooldown:true);}onDeparture.Invoke();}}
+        public void NotifySeated(CourseParticipant participant){if(resetting)return;if(HasCardRules)cardGame.Sit(participant);if(EveryoneSeated){RunActive=BellRung=false;BellRinger=null;foreach(var p in participants){p.Lasso.EndRace();p.Combat.ResetCombat(resetCooldown:true);}onEveryoneSeated.Invoke();}}
         public bool CanRing(CourseParticipant participant)
         {
             if(practiceRoom)return false;
@@ -66,6 +66,6 @@ namespace HalliGalli.Movement
             }
             return true;
         }
-        public void ResetPractice(){resetting=true;RunActive=BellRung=false;BellRinger=null;BellCount=0;foreach(var p in participants){p.ResetPractice();p.Lasso.EndRace();}resetting=false;if(cardGame&&cardGame.enabled)cardGame.ResetMatch();}
+        public void ResetPractice(){resetting=true;RunActive=BellRung=false;BellRinger=null;BellCount=0;foreach(var p in participants){p.ResetPractice();p.Lasso.EndRace();p.Combat.ResetCombat(resetCooldown:true);}resetting=false;if(cardGame&&cardGame.enabled)cardGame.ResetMatch();}
     }
 }

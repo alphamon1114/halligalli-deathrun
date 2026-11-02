@@ -22,8 +22,8 @@ namespace HalliGalli.EditorTools
             string asset=AudioFolder+"/ImpactSounds.asset";
             var set=AssetDatabase.LoadAssetAtPath<ImpactAudioSet>(asset);
             if(!set){set=ScriptableObject.CreateInstance<ImpactAudioSet>();AssetDatabase.CreateAsset(set,asset);}
-            set.punches=Directory.GetFiles(AudioFolder,"Punch*.wav").OrderBy(p=>p).Select(p=>AssetDatabase.LoadAssetAtPath<AudioClip>(p.Replace('\\','/'))).ToArray();
-            set.kicks=Directory.GetFiles(AudioFolder,"Kick*.wav").OrderBy(p=>p).Select(p=>AssetDatabase.LoadAssetAtPath<AudioClip>(p.Replace('\\','/'))).ToArray();
+            set.pushes=Directory.GetFiles(AudioFolder,"Punch*.wav").OrderBy(p=>p).Select(p=>AssetDatabase.LoadAssetAtPath<AudioClip>(p.Replace('\\','/'))).ToArray();
+            set.strongPushes=Directory.GetFiles(AudioFolder,"Kick*.wav").OrderBy(p=>p).Select(p=>AssetDatabase.LoadAssetAtPath<AudioClip>(p.Replace('\\','/'))).ToArray();
             EditorUtility.SetDirty(set);AssetDatabase.SaveAssets();
         }
         public static MeleeReceiver InstallAudio(GameObject actor)

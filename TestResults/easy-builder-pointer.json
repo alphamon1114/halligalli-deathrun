@@ -1,0 +1,51 @@
+{
+  "utc": "2026-11-02T03:04:45.897Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\easy-pointer-1793588670956",
+  "passed": 4,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Native mouse orbit changes camera without editing map",
+      "passed": true
+    },
+    {
+      "name": "Native mouse pan changes camera without editing map",
+      "passed": true
+    },
+    {
+      "name": "Native mouse zoom changes camera without editing map",
+      "passed": true
+    },
+    {
+      "name": "Native simple platform buttons set forward path short distance and fast speed",
+      "passed": true,
+      "platform": {
+        "id": "9607ddacfbb64cdebf82539787e29bd9",
+        "kind": 4,
+        "position": {
+          "x": 8,
+          "y": 1,
+          "z": 15
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "scale": {
+          "x": 3,
+          "y": 0.5,
+          "z": 3
+        },
+        "color": 0,
+        "travel": {
+          "x": 0,
+          "y": 0,
+          "z": 2
+        },
+        "period": 2,
+        "speed": 2
+      }
+    }
+  ]
+}

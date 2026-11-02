@@ -64,31 +64,44 @@ namespace HalliGalli.Movement
                 if (item == null) Fail("비어 있는 부품이 있습니다.");
                 CheckId(item.id);
                 if (!ids.Add(item.id)) Fail("부품 ID가 중복됩니다.");
-                if ((int)item.kind < 0 || (int)item.kind > (int)UserMapPart.ItemBox) Fail("알 수 없는 부품 종류입니다.");
-                if (!VectorRange(item.position, new Vector3(-500, -100, 0), new Vector3(500, 300, 1000))) Fail("부품 위치가 제작 영역 밖입니다.");
-                if (!VectorRange(item.rotation, Vector3.one * -360, Vector3.one * 360)) Fail("회전은 -360 ~ 360도 범위여야 합니다.");
-                if (!VectorRange(item.scale, Vector3.one * .1f, new Vector3(100, 60, 100))) Fail("부품 크기는 0.1 ~ 100m (높이 최대 60m)여야 합니다.");
-                if (item.kind == UserMapPart.ItemBox && (item.scale.x != 1 || item.scale.y != 1 || item.scale.z != 1))
-                    Fail("아이템 박스 크기는 (1, 1, 1)로 고정되어 있습니다.");
-                if (!VectorRange(item.travel, Vector3.one * -80, Vector3.one * 80)) Fail("이동 거리는 축마다 -80 ~ 80m 범위여야 합니다.");
-                if (!InRange(item.period, .5f, 120) || !InRange(item.speed, -20, 20)) Fail("주기는 0.5 ~ 120초, 속도는 -20 ~ 20m/s 범위여야 합니다.");
-                if (item.color < 0 || item.color > 7) Fail("부품 색상 번호가 올바르지 않습니다.");
-                bool yawOnly = item.kind == UserMapPart.Checkpoint || item.kind == UserMapPart.MovingPlatform || item.kind == UserMapPart.Conveyor
-                    || item.kind == UserMapPart.Press || item.kind == UserMapPart.Bell || item.kind == UserMapPart.Waypoint || item.kind == UserMapPart.ItemBox;
-                if (yawOnly && (Mathf.Abs(Mathf.DeltaAngle(0, item.rotation.x)) > .001f || Mathf.Abs(Mathf.DeltaAngle(0, item.rotation.z)) > .001f))
-                    Fail("이 부품은 수평 회전(Y축)만 지원합니다.");
-                if (item.kind == UserMapPart.Bell) {
-                    bells++;
-                    if (!VectorRange(item.scale, Vector3.one * .5f, Vector3.one * 2)) Fail("종 크기는 0.5 ~ 2 범위여야 합니다.");
-                }
-                CheckFootprint(item, data.fallHeight);
+                if (!TryValidateObject(item, data.fallHeight, out string error)) Fail(error);
+                if (item.kind == UserMapPart.Bell) bells++;
             }
             if (bells != 1) Fail("맵에는 종이 정확히 하나 있어야 합니다.");
         }
 
-        static void CheckFootprint(UserMapObject item, float fallHeight)
+        // Object identity, map-wide uniqueness/counts, and serialized byte size are checked by Validate/Serialize.
+        // The editor also uses these same geometry rules without exceptions or per-frame allocations.
+        public static bool TryValidateObject(UserMapObject item, float fallHeight, out string error)
         {
-            if (item.kind == UserMapPart.Waypoint) return;
+            error = ObjectError(item, fallHeight);
+            return error == null;
+        }
+
+        static string ObjectError(UserMapObject item, float fallHeight)
+        {
+            if (item == null) return "비어 있는 부품이 있습니다.";
+            if ((int)item.kind < 0 || (int)item.kind > (int)UserMapPart.ItemBox) return "알 수 없는 부품 종류입니다.";
+            if (!VectorRange(item.position, new Vector3(-500, -100, 0), new Vector3(500, 300, 1000))) return "부품 위치가 제작 영역 밖입니다.";
+            if (!VectorRange(item.rotation, Vector3.one * -360, Vector3.one * 360)) return "회전은 -360 ~ 360도 범위여야 합니다.";
+            if (!VectorRange(item.scale, Vector3.one * .1f, new Vector3(100, 60, 100))) return "부품 크기는 0.1 ~ 100m (높이 최대 60m)여야 합니다.";
+            if (item.kind == UserMapPart.ItemBox && (item.scale.x != 1 || item.scale.y != 1 || item.scale.z != 1))
+                return "아이템 박스 크기는 (1, 1, 1)로 고정되어 있습니다.";
+            if (!VectorRange(item.travel, Vector3.one * -80, Vector3.one * 80)) return "이동 거리는 축마다 -80 ~ 80m 범위여야 합니다.";
+            if (!InRange(item.period, .5f, 120) || !InRange(item.speed, -20, 20)) return "주기는 0.5 ~ 120초, 속도는 -20 ~ 20m/s 범위여야 합니다.";
+            if (item.color < 0 || item.color > 7) return "부품 색상 번호가 올바르지 않습니다.";
+            bool yawOnly = item.kind == UserMapPart.Checkpoint || item.kind == UserMapPart.MovingPlatform || item.kind == UserMapPart.Conveyor
+                || item.kind == UserMapPart.Press || item.kind == UserMapPart.Bell || item.kind == UserMapPart.Waypoint || item.kind == UserMapPart.ItemBox;
+            if (yawOnly && (Mathf.Abs(Mathf.DeltaAngle(0, item.rotation.x)) > .001f || Mathf.Abs(Mathf.DeltaAngle(0, item.rotation.z)) > .001f))
+                return "이 부품은 수평 회전(Y축)만 지원합니다.";
+            if (item.kind == UserMapPart.Bell && !VectorRange(item.scale, Vector3.one * .5f, Vector3.one * 2))
+                return "종 크기는 0.5 ~ 2 범위여야 합니다.";
+            return FootprintError(item, fallHeight);
+        }
+
+        static string FootprintError(UserMapObject item, float fallHeight)
+        {
+            if (item.kind == UserMapPart.Waypoint) return null;
             Vector3 extent = item.scale * .5f, centre = item.position;
             if (item.kind == UserMapPart.Bell) { extent = Vector3.Scale(item.scale, new Vector3(.38f, .55f, .38f)); centre.y += extent.y; }
             if (item.kind == UserMapPart.Press) { extent = new Vector3(item.scale.x * .5f + .4f, item.scale.y * .5f + .5f, item.scale.z * .5f); centre.y += extent.y; }
@@ -102,8 +115,9 @@ namespace HalliGalli.Movement
             if (item.kind == UserMapPart.MovingPlatform) bound += Abs(item.travel);
             var min = centre - bound; var max = centre + bound;
             if (min.z < -.001f || max.z > 1000 || min.x < -500 || max.x > 500 || max.y > 300 || min.y < -100)
-                Fail("부품과 이동 경로는 시작 책상 앞(z ≥ 0)의 제작 영역 안에 있어야 합니다.");
-            if (max.y <= fallHeight + .25f) Fail("부품은 낙하 복귀 높이보다 위에 있어야 합니다.");
+                return "부품과 이동 경로는 시작 책상 앞(z ≥ 0)의 제작 영역 안에 있어야 합니다.";
+            if (max.y <= fallHeight + .25f) return "부품은 낙하 복귀 높이보다 위에 있어야 합니다.";
+            return null;
         }
 
         static Vector3 Abs(Vector3 value) => new Vector3(Mathf.Abs(value.x), Mathf.Abs(value.y), Mathf.Abs(value.z));

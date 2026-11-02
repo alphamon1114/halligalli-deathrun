@@ -40,7 +40,7 @@ namespace HalliGalli.Movement
             if(seatedClip)bodyAnimation.AddClip(seatedClip,"Seated");
             wasGrounded=motor.Grounded;
             bodyAnimation.Play("Idle"); handAnimation.Play("Idle");
-            foreach(string name in new[]{"PunchLeft","PunchRight","Kick","LassoHold","LassoThrow","LassoPull"}) {
+            foreach(string name in new[]{"PushLeft","PushRight","Kick","LassoHold","LassoThrow","LassoPull"}) {
                 var s=bodyAnimation[name];if(s==null)continue;
                 s.layer=1;s.speed=0;s.wrapMode=WrapMode.ClampForever;
                 var bones=bodyModel.GetComponentsInChildren<Transform>();
@@ -112,9 +112,12 @@ bool toggle=ControlBindings.Pressed(GameAction.BodyView);
             if(reacting) {handAnimation[hand].speed=0;handAnimation[hand].time=receiver.ReactionElapsed;}
             if(roping){handAnimation.Play(hand);handAnimation[hand].speed=0;handAnimation[hand].time=lasso.MotionTime;handAnimation.Sample();}
             if(kickModel) {
-                bool kicking=attacking && combat.CurrentAttack==MeleeAttack.Kick;
-                kickModel.gameObject.SetActive(kicking && !thirdPerson);
-                if(kicking && kickAnimation) {kickAnimation.Play("Kick");kickAnimation["Kick"].speed=0;kickAnimation["Kick"].time=combat.Elapsed;kickAnimation.Sample();}
+                bool kicking=attacking&&combat.CurrentAttack==MeleeAttack.Kick&&!thirdPerson;
+                if(kickModel.gameObject.activeSelf!=kicking)kickModel.gameObject.SetActive(kicking);
+                if(kicking&&kickAnimation) {
+                    if(!kickAnimation.IsPlaying("Kick"))kickAnimation.Play("Kick");
+                    kickAnimation["Kick"].speed=0;kickAnimation["Kick"].time=combat.Elapsed;kickAnimation.Sample();
+                }
             }
         }
         void Change(Animation animation,string next,string current)

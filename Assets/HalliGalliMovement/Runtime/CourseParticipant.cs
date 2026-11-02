@@ -66,7 +66,7 @@ namespace HalliGalli.Movement
         public bool RequestRespawn()
         {
             if(IsSeated||IsRespawning||!session.RunActive||session.HasCardRules&&session.cardGame.Match.Finished)return false;
-            // Share the fall delay and cleanup; never refill cards or reset rope cooldown.
+            // Share the fall delay and cleanup; never refill cards or reset ability cooldowns.
             BeginFall();return true;
         }
         public void BeginFall(){if(IsRespawning||IsSeated)return;Falls++;IsRespawning=true;respawnAt=Time.time+.7f;SetMobility(false);}

@@ -1,112 +1,178 @@
 {
-  "utc": "2026-10-30T08:41:58.646Z",
-  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\race-1793349553567",
-  "passed": 26,
+  "utc": "2026-11-02T08:30:08.534Z",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\race-1793608055507",
+  "passed": 34,
   "failed": 0,
   "checks": [
     {
       "name": "Final official race loads on both peers with identical box placement",
-      "passed": true
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "Seated player cannot create an item attack",
-      "passed": true
-    },
-    {
-      "name": "First-place racer receives a shield on both peers",
-      "passed": true
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "Holding an item leaves other boxes available",
-      "passed": true
+      "passed": true,
+      "detail": ""
     },
     {
-      "name": "Missile without a forward lock preserves inventory",
-      "passed": true
-    },
-    {
-      "name": "Remote shield blocks homing missile without somersault",
-      "passed": true
+      "name": "Missile without an aimed lock preserves inventory",
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "Homing hit forces victim into airborne somersault",
-      "passed": true
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Missile removes a running victims horizontal momentum on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Missile launches over 2.8m while held forward cannot move the victim",
+      "passed": true,
+      "detail": "peak metres=3.30625319480896"
     },
     {
       "name": "Victim first-person camera never rolls with the somersault",
-      "passed": true
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Missile victim regains ordinary movement after recovery",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Leader can acquire a missile through a live item box",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Leader turning backwards hits the trailing player with a missile",
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "In-flight missile cannot hit a new target life",
-      "passed": true
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Actual jump deploys banana-host on the floor on both peers",
+      "passed": true,
+      "detail": "{\"preUse\":{\"x\":0,\"y\":0.8394196033477783,\"z\":160},\"host\":{\"x\":0,\"y\":0.04500000178813934,\"z\":158.85000610351562},\"guest\":{\"x\":0,\"y\":0.04500000178813934,\"z\":158.85000610351562}}"
     },
     {
       "name": "Placed banana causes authoritative sliding on both peers",
-      "passed": true
+      "passed": true,
+      "detail": ""
     },
     {
-      "name": "Temporary shield also blocks banana sliding",
-      "passed": true
+      "name": "Actual jump deploys barricade-client1 on the floor on both peers",
+      "passed": true,
+      "detail": "{\"preUse\":{\"x\":0,\"y\":0.748682975769043,\"z\":178},\"host\":{\"x\":0,\"y\":0,\"z\":175},\"guest\":{\"x\":0,\"y\":0,\"z\":175}}"
     },
     {
-      "name": "Backward rolling ball pushes the pursuing player backward",
-      "passed": true
+      "name": "Barricade occupies about one third of the track with matching remote dimensions",
+      "passed": true,
+      "detail": "size={\"x\":4.625833034515381,\"y\":2.200000047683716,\"z\":0.6000000238418579}"
     },
     {
-      "name": "Straight laser hits and pushes the player ahead",
-      "passed": true
+      "name": "Barricade physically stops the host rather than giving an impact boost",
+      "passed": true,
+      "detail": ""
     },
     {
-      "name": "Laser beam display cannot repeatedly damage the victim",
-      "passed": true
+      "name": "The remaining road is wide enough to run around the barricade",
+      "passed": true,
+      "detail": ""
     },
     {
-      "name": "Shield blocks a straight laser",
-      "passed": true
+      "name": "Expired barricade removes its collision as well as its visual",
+      "passed": true,
+      "detail": ""
     },
     {
-      "name": "Shield blocks the backward rolling ball",
-      "passed": true
+      "name": "Unsupported airborne barricade-host-unsupported retains inventory on both peers",
+      "passed": true,
+      "detail": "{\"position\":{\"x\":6,\"y\":0.8780379295349121,\"z\":178},\"yaw\":270}"
     },
     {
-      "name": "Unhoming laser misses off-axis opponent and stops at track wall",
-      "passed": true
+      "name": "Actual jump deploys barricade-host on the floor on both peers",
+      "passed": true,
+      "detail": "{\"preUse\":{\"x\":0,\"y\":0.5132098197937012,\"z\":178},\"host\":{\"x\":0,\"y\":0,\"z\":175},\"guest\":{\"x\":0,\"y\":0,\"z\":175}}"
     },
     {
-      "name": "Leader live pickups cover banana, shield and ball only",
-      "passed": true
+      "name": "Predicting guest and host agree that the barricade blocks movement",
+      "passed": true,
+      "detail": ""
     },
     {
-      "name": "Trailing live pickups cover missile, laser and occasional banana only",
-      "passed": true
+      "name": "Owner respawn removes deployed barricade collision on the guest",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Unsupported airborne banana-client1-unsupported retains inventory on both peers",
+      "passed": true,
+      "detail": "{\"position\":{\"x\":6.775000095367432,\"y\":0.5788280963897705,\"z\":178},\"yaw\":270}"
+    },
+    {
+      "name": "Actual jump deploys banana-client1 on the floor on both peers",
+      "passed": true,
+      "detail": "{\"preUse\":{\"x\":0,\"y\":0.639946460723877,\"z\":178},\"host\":{\"x\":0,\"y\":0.04500000178813934,\"z\":176.85000610351562},\"guest\":{\"x\":0,\"y\":0.04500000178813934,\"z\":176.85000610351562}}"
+    },
+    {
+      "name": "Leader live pickups include all three items",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Trailing live pickups include all three items",
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "Bell award preserves card rules and clears all round item effects",
-      "passed": true
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "Entire continuous course can be run with normal movement",
-      "passed": true
+      "passed": true,
+      "detail": ""
     },
     {
-      "name": "AI races along the same track and collects a leader item",
-      "passed": true
+      "name": "AI races along the same track and collects an unrestricted item",
+      "passed": true,
+      "detail": ""
     },
     {
-      "name": "AI uses its defensive item against a nearby follower",
-      "passed": true
+      "name": "AI uses its acquired missile at a forward target or defense at a follower",
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "AI can complete the track and ring the original bell",
-      "passed": true
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "Switching to an existing map removes race state on both peers",
-      "passed": true
+      "passed": true,
+      "detail": ""
     },
     {
       "name": "No runtime probe errors",
-      "passed": true
+      "passed": true,
+      "detail": ""
     }
   ]
 }

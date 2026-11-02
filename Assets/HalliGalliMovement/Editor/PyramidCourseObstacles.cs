@@ -1,6 +1,6 @@
-using System.Linq;
 using HalliGalli.Movement;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace HalliGalli.EditorTools
 {
@@ -8,46 +8,91 @@ namespace HalliGalli.EditorTools
     {
         public static void Install(PyramidCourse course,Material stone)
         {
-            var root=new GameObject("Pyramid course obstacles").transform;
+            var root=new GameObject("Pyramid course cues").transform;
             var surf=course.GetComponent<SurfCourse>();
-            // Place openings along the actual ride lane, never across its collision surface.
-            Aperture(root,course.chambers[0],surf.sections[0],.72f,stone);
-            Aperture(root,course.chambers[2],surf.sections[course.chambers[2].firstSection+2],.65f,stone);
-            Aperture(root,course.chambers[3],surf.sections[course.chambers[3].firstSection+4],.55f,stone);
-            Aperture(root,course.chambers[4],surf.sections[course.chambers[4].firstSection+2],.6f,stone);
-            var spiral=course.chambers[1];
-            foreach(int offset in new[]{1,3}){
-                var arc=surf.sections[spiral.firstSection+offset];
-                var center=(arc.points[0]+arc.points.Last())*.5f;
-                float top=arc.points[0].y+16,baseY=spiral.minimum.y;
-                var shaft=PyramidArtBuilder.Box(root,"Spiral central shaft",new Vector3(center.x,(baseY+top)*.5f,center.z),new Vector3(10,top-baseY,10),stone,true);
-                shaft.GetComponent<Renderer>().enabled=false;
-                var column=PyramidVarcoImporter.Place(root,"LotusColumn",new Vector3(center.x,baseY,center.z),top-baseY);
-                var size=column.GetComponentInChildren<Renderer>().bounds.size;var scale=column.transform.localScale;
-                column.transform.localScale=new Vector3(scale.x*14/size.x,scale.y,scale.z*14/size.z);
-                PyramidVarcoImporter.Place(root,"Anubis",new Vector3(center.x,top,center.z),8,offset==1?180:0);
+            var launch=PyramidArtBuilder.Material("Jump launch gold",new Color(1,.64f,.18f),true);
+            var landing=PyramidArtBuilder.Material("Jump landing turquoise",new Color(.17f,.75f,.72f),true);
+            for(int roomIndex=0;roomIndex<course.chambers.Length;roomIndex++){
+                var room=course.chambers[roomIndex];
+                // Mark at most two transfers: the widest gap and an opposite-height
+                // transfer when present. Runes never outline a floor or span a gap.
+                int widest=room.firstSection;float largestGap=float.NegativeInfinity;
+                for(int i=room.firstSection;i<room.lastSection;i++){
+                    var section=surf.sections[i];var next=surf.sections[i+1];int end=section.points.Length-1;
+                    var forward=Quaternion.Euler(0,section.headings[end],0)*Vector3.forward;
+                    float gap=Vector3.Dot(next.points[0]-section.points[end],forward);
+                    if(gap>largestGap){largestGap=gap;widest=i;}
+                }
+                int other=room.firstSection,direction=TransferDirection(surf,widest);float oppositeHeight=0;
+                for(int i=room.firstSection;i<room.lastSection;i++){
+                    int candidate=TransferDirection(surf,i);
+                    if(candidate==0||candidate==direction)continue;
+                    var section=surf.sections[i];
+                    float height=Mathf.Abs(surf.sections[i+1].points[0].y-section.points[section.points.Length-1].y);
+                    if(height>oppositeHeight){oppositeHeight=height;other=i;}
+                }
+                GapCues(root,surf,widest,stone,launch,landing);
+                if(other!=widest)GapCues(root,surf,other,stone,launch,landing);
+                if(roomIndex+1<course.chambers.Length)TurnArrow(root,room,course.chambers[roomIndex+1],roomIndex,landing);
             }
         }
-        static void Aperture(Transform root,PyramidCourse.Chamber room,SurfCourse.Section section,float fraction,Material stone)
+        static int TransferDirection(SurfCourse surf,int index)
         {
-            // These selected sections are straight before their kicker, so the opening is perpendicular to travel.
-            Vector3 center=Vector3.Lerp(section.points[0],section.points[1],fraction);
-            var rotation=Quaternion.Euler(0,section.headings[0],0);
-            if(!section.twoSided)center+=rotation*Vector3.right*(section.side*3.2f);
-            var frame=new GameObject("Pyramid aperture").transform;frame.SetParent(root);
-            float halfOpening=section.twoSided?7.4f:3.8f;
-            float low=center.y-4.8f,high=center.y+7.5f,bottom=room.minimum.y,top=high+4;
+            var section=surf.sections[index];
+            float rise=surf.sections[index+1].points[0].y-section.points[section.points.Length-1].y;
+            return rise>.05f?1:rise<-.05f?-1:0;
+        }
+        static void GapCues(Transform root,SurfCourse surf,int index,Material stone,Material launch,Material landing)
+        {
+            var from=surf.sections[index];var to=surf.sections[index+1];int direction=TransferDirection(surf,index);
+            CuePair(root,"Launch "+(index+1),from,from.points.Length-1,surf.laneX,stone,launch,direction);
+            CuePair(root,"Landing "+(index+2),to,0,surf.laneX,stone,landing,direction);
+        }
+        static void CuePair(Transform root,string name,SurfCourse.Section section,int point,float laneX,Material stone,Material accent,int direction)
+        {
+            var rotation=Quaternion.Euler(0,section.headings[point],0);
             foreach(int side in new[]{-1,1}){
-                var at=center+rotation*Vector3.right*(side*(halfOpening+3));at.y=(bottom+top)*.5f;
-                var pillar=PyramidArtBuilder.Box(frame,"Aperture stone pier",at,new Vector3(6,top-bottom,2),stone,true);pillar.transform.rotation=rotation;
+                var cue=new GameObject(name+(side<0?" left rune":" right rune")).transform;cue.SetParent(root);
+                // A small floating chevron stays at riding-lane eye level, beyond the
+                // outer bank. There is no pillar, hidden proxy, or decorative collider.
+                var center=section.points[point]+rotation*Vector3.right*(side*(laneX+section.halfWidth+.8f))+Vector3.up*.9f;
+                if(direction==0){
+                    foreach(int bar in new[]{-1,1}){
+                        var level=PyramidArtBuilder.Box(cue,"Level transfer rune",center+Vector3.up*bar*.13f,new Vector3(.46f,.10f,.12f),accent);
+                        level.transform.rotation=rotation;level.GetComponent<Renderer>().shadowCastingMode=ShadowCastingMode.Off;
+                    }
+                    continue;
+                }
+                var stem=PyramidArtBuilder.Box(cue,"Rune stem",center-Vector3.up*direction*.5f,new Vector3(.13f,.5f,.13f),stone);
+                stem.GetComponent<Renderer>().shadowCastingMode=ShadowCastingMode.Off;
+                foreach(int arm in new[]{-1,1}){
+                    var offset=new Vector3(arm*.18f,-direction*.18f,0);
+                    var chevron=PyramidArtBuilder.Box(cue,direction>0?"Ascending transfer chevron":"Descending transfer chevron",center+rotation*offset,new Vector3(.12f,.62f,.12f),accent);
+                    chevron.transform.rotation=rotation*Quaternion.Euler(0,0,arm*direction*45);
+                    chevron.GetComponent<Renderer>().shadowCastingMode=ShadowCastingMode.Off;
+                }
             }
-            foreach(bool upper in new[]{false,true}){
-                float a=upper?high:bottom,b=upper?top:low;
-                var at=center;at.y=(a+b)*.5f;
-                var slab=PyramidArtBuilder.Box(frame,upper?"Aperture lintel":"Aperture sill",at,new Vector3(halfOpening*2,b-a,2),stone,true);slab.transform.rotation=rotation;
-            }
-            var gate=PyramidVarcoImporter.Place(frame,"StoneGate",new Vector3(center.x,low-.2f,center.z)-rotation*Vector3.forward*.9f,17.5f,section.headings[0]+180);
-            if(section.twoSided){var scale=gate.transform.localScale;scale.x*=1.95f;gate.transform.localScale=scale;}
+        }
+        static void TurnArrow(Transform root,PyramidCourse.Chamber room,PyramidCourse.Chamber next,int index,Material accent)
+        {
+            var incoming=room.Rotation*Vector3.forward;
+            var outgoing=next.Rotation*Vector3.forward;
+            var right=Vector3.Cross(Vector3.up,outgoing);
+            var cue=new GameObject("Checkpoint "+(index+1)+" turn arrow").transform;cue.SetParent(root);
+            // A small inlay occupies the outside corner, away from the approach and
+            // exit lanes. Its only geometry is the bent arrow; there is no floor rim.
+            var bend=room.landing+incoming*3.5f-outgoing*3.5f+Vector3.up*.04f;
+            var tip=bend+outgoing*1.35f;
+            ArrowStroke(cue,bend-incoming*1.35f,bend,accent);
+            ArrowStroke(cue,bend,tip,accent);
+            foreach(int side in new[]{-1,1})ArrowStroke(cue,tip-outgoing*.55f+right*side*.4f,tip,accent);
+        }
+        static void ArrowStroke(Transform root,Vector3 from,Vector3 to,Material accent)
+        {
+            var delta=to-from;
+            var stroke=PyramidArtBuilder.Box(root,"Checkpoint direction stroke",(from+to)*.5f,new Vector3(.14f,.035f,delta.magnitude),accent);
+            stroke.transform.rotation=Quaternion.LookRotation(delta,Vector3.up);
+            stroke.GetComponent<Renderer>().shadowCastingMode=ShadowCastingMode.Off;
         }
     }
 }

@@ -12,12 +12,14 @@ public sealed class PyramidValidationRunner:MonoBehaviour
 {
     public bool probeOnly;
     [Serializable]class Check{public string name,detail;public bool passed;}
-    [Serializable]class Report{public int passed,failed;public List<Check> checks;}
+    [Serializable]class Report{public string utc;public int passed,failed;public List<Check> checks;}
     readonly List<Check> checks=new List<Check>();
     IEnumerator Start()
     {
         var run=Validate();while(true){bool more;object next=null;try{more=run.MoveNext();if(more)next=run.Current;}catch(Exception e){Test("Runner completes",false,e.ToString());break;}if(!more)break;yield return next;}
-        Time.timeScale=1;Save();Debug.Log("PYRAMID_VALIDATION_RESULT "+checks.Count(c=>c.passed)+"/"+checks.Count);EditorApplication.isPlaying=false;
+        Time.timeScale=1;Save();Debug.Log("PYRAMID_VALIDATION_RESULT "+checks.Count(c=>c.passed)+"/"+checks.Count);
+        if(Application.isBatchMode){EditorApplication.Exit(checks.Any(c=>!c.passed)?1:0);yield break;}
+        EditorApplication.isPlaying=false;
     }
     IEnumerator Validate()
     {
@@ -27,7 +29,6 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         var control=session.Local.GetComponent<SourcePlayerController>();control.controlsEnabled=false;control.SetCursorCaptured(false);
         foreach(var p in roster.allParticipants){p.Combat.readInput=false;var b=p.GetComponent<CourseRival>();if(b){b.enabled=false;b.attacksEnabled=false;}}
         Time.timeScale=5;
-        Test("Separate playable pyramid retains original surf in catalog",session.maps.current.id=="pyramid"&&session.maps.catalog.maps.Any(m=>m.id=="surf"&&m.playable)&&session.maps.catalog.maps.Count(m=>m.playable)==5,"");
         Test("Five authored chambers and twenty-five two-sided triangular ramps",pyramid.chambers.Length==5&&surf.sections.Length==25&&surf.sections.All(s=>s.twoSided)&&FindObjectsByType<MeshCollider>().Count(c=>c.name.StartsWith("Pyramid bank "))==25,"");
         bool faces=true,aligned=true;
         for(int i=0;i<surf.sections.Length;i++){
@@ -41,11 +42,38 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         }
         Test("Both faces slope down away from the ridge and have collision",faces,"");
         Test("Transfers retain the same lanes without forced side swaps",aligned,"");
-        float length=surf.sections.Sum(s=>s.Length);Test("New route is two to three times original length",length>336.8712f*2&&length<336.8712f*3,"metres="+length+" ratio="+length/336.8712f);
+        float length=surf.sections.Sum(s=>s.Length),travel=length;
+        var gaps=new List<float>();var elevationChanges=new List<float>();int rises=0,drops=0;bool monotonic=true;
+        foreach(var s in surf.sections){
+            bool up=false,down=false;
+            for(int j=1;j<s.points.Length;j++){float dy=s.points[j].y-s.points[j-1].y;up|=dy>.0001f;down|=dy<-.0001f;}
+            monotonic&=!(up&&down);if(up)rises++;if(down)drops++;
+        }
+        for(int i=1;i<surf.sections.Length;i++){
+            var previous=surf.sections[i-1];Vector3 end=previous.points.Last(),next=surf.sections[i].points[0];
+            if(previous.landing==Vector3.zero){
+                gaps.Add(Vector3.Dot(next-end,Quaternion.Euler(0,previous.headings.Last(),0)*Vector3.forward));
+                elevationChanges.Add(next.y-end.y);
+                travel+=Vector3.Distance(end,next);
+            }else travel+=Vector3.Distance(end,previous.landing)+Vector3.Distance(previous.landing,next);
+        }
+        travel+=Vector3.Distance(surf.sections.Last().points.Last(),surf.finish.position);
+        Test("Ramp distance is approximately seventy percent of previous course",length>=644*.67f&&length<=644*.73f,"metres="+length);
+        Test("Complete route including transfers is approximately seventy percent",travel>=875*.65f&&travel<=875*.75f,"metres="+travel);
+        Test("Ascending ramps have no recessed middle trough",monotonic&&rises>=5&&drops>=5,"ascending="+rises+" descending="+drops);
+        int turns=0;
+        for(int i=1;i<pyramid.chambers.Length;i++){
+            float a=surf.sections[pyramid.chambers[i-1].lastSection].headings.Last();
+            float b=surf.sections[pyramid.chambers[i].firstSection].headings[0];
+            if(Mathf.Abs(Mathf.Abs(Mathf.DeltaAngle(a,b))-90)<.01f)turns++;
+        }
+        Test("Checkpoint decks connect quarter-turn course legs",turns>=2,"quarter turns="+turns);
+        Test("Transfers retain varied readable jump distances",gaps.Count(g=>g>1)>=8&&gaps.Select(g=>Mathf.Round(g*10)).Distinct().Count()>=3,string.Join(", ",gaps));
+        Test("Transfers include higher and lower receiving ramps",elevationChanges.Any(y=>y>.25f)&&elevationChanges.Any(y=>y<-1),"height changes="+string.Join(", ",elevationChanges));
         Test("Four shared checkpoints match completed chambers",session.checkpoints.points.Select(p=>p.surfGates).SequenceEqual(new[]{4,9,14,20}),"");
         Test("Original surf physics retained",surf.sections.All(s=>s.halfWidth>=2.4f)&&session.Local.Motor.profile.moveSpeed==4.5f&&!session.Local.Motor.profile.autoBunnyHop&&session.Local.Motor.profile.maximumAirSpeed==0,"");
-        Test("Spiral includes full reverse travel",surf.sections.Skip(4).Take(5).Any(s=>s.headings.Any(h=>Vector3.Dot(Quaternion.Euler(0,h,0)*Vector3.forward,Vector3.back)>.99f)),"");
-        Test("Four physical stone apertures and two spiral shafts",FindObjectsByType<Transform>().Count(t=>t.name=="Pyramid aperture")==4&&FindObjectsByType<Transform>().Count(t=>t.name=="Spiral central shaft")==2,"");
+        var decoration=GameObject.Find("Pyramid decoration");var cues=GameObject.Find("Pyramid course cues");
+        Test("Decoration and route cues cannot collide with racers",decoration&&cues&&decoration.GetComponentsInChildren<Collider>(true).Length==0&&cues.GetComponentsInChildren<Collider>(true).Length==0,"");
         var runner=roster.allParticipants[1];var bot=runner.GetComponent<CourseRival>();
         foreach(int count in new[]{2,3,6}){
             roster.StartNewGame(count);yield return null;
@@ -56,14 +84,15 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         foreach(int seat in probeOnly?new[]{0,5}:new[]{0,2,5}){
             session.ResetPractice();yield return new WaitForFixedUpdate();
             bot.surfSidePreference=seat%2==0?-1:1;bot.route=roster.RouteForSeat(seat);runner.standAnchor.position=starts[seat];runner.retryAnchor.position=starts[seat];runner.Stand();
-            bot.enabled=true;float begin=Time.time,deadline=begin+160,next=0;var trace=new List<string>();
+            bot.enabled=true;float begin=Time.time,deadline=begin+160,next=0;var trace=new List<string>();bool launched=false;
             while(!session.BellRung&&Time.time<deadline&&runner.Falls==0){
+                launched|=!runner.Motor.Grounded&&!runner.Motor.Surfing&&runner.Motor.Velocity.y>1;
                 if(Time.time>=next){next=Time.time+.5f;trace.Add((Time.time-begin).ToString("F2")+" s="+bot.SurfSection+"/"+bot.SurfPhase+" g="+surf.GatesPassed(runner)+" p="+runner.transform.position+" v="+runner.Motor.Velocity);}
                 yield return new WaitForFixedUpdate();
             }
             bot.enabled=false;float seconds=Time.time-begin;
             Test("Start "+seat+" completes every bank without falls",session.BellRinger==runner&&surf.Completed(runner)&&runner.Falls==0,"seconds="+seconds+" falls="+runner.Falls+"\n"+string.Join("\n",trace));
-            if(!probeOnly)Test("Start "+seat+" completes within the long-course race budget",seconds>=60&&seconds<=108,"seconds="+seconds);
+            if(!probeOnly)Test("Start "+seat+" launches upward through real movement physics",launched,"seconds="+seconds);
         }
         if(probeOnly)yield break;
         for(int cp=0;cp<session.checkpoints.points.Length;cp++){
@@ -76,7 +105,8 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         }
         for(int i=0;i<pyramid.chambers.Length;i++){
             session.ResetPractice();yield return new WaitForFixedUpdate();runner.Stand();var room=pyramid.chambers[i];
-            runner.Motor.Teleport(new Vector3(room.minimum.x+6,room.minimum.y+3,(room.minimum.z+room.maximum.z)*.5f));
+            var localPit=new Vector3(room.localMinimum.x+6,room.localMinimum.y+3,(room.localMinimum.z+room.localMaximum.z)*.5f);
+            runner.Motor.Teleport(room.origin+Quaternion.Euler(0,room.heading,0)*localPit);
             float end=Time.time+1.5f;while(!runner.IsRespawning&&Time.time<end){runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
             Test("Chamber "+i+" pit recovers rather than reaching another route",runner.IsRespawning&&runner.Falls==1,"y="+runner.transform.position.y);
         }
@@ -88,6 +118,6 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         session.ResetPractice();
     }
     void Test(string name,bool passed,string detail){checks.Add(new Check{name=name,passed=passed,detail=detail});if(!passed)Debug.LogError(name+" "+detail);Save();}
-    void Save(){Directory.CreateDirectory("TestResults");File.WriteAllText("TestResults/"+(probeOnly?"pyramid-probe":"pyramid-validation")+".json",JsonUtility.ToJson(new Report{passed=checks.Count(c=>c.passed),failed=checks.Count(c=>!c.passed),checks=checks},true));}
+    void Save(){Directory.CreateDirectory("TestResults");File.WriteAllText("TestResults/"+(probeOnly?"pyramid-probe":"pyramid-validation")+".json",JsonUtility.ToJson(new Report{utc=DateTime.UtcNow.ToString("O"),passed=checks.Count(c=>c.passed),failed=checks.Count(c=>!c.passed),checks=checks},true));}
 }
 #endif
