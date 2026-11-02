@@ -16,7 +16,7 @@ git lfs pull
 git lfs fsck
 ```
 
-GitHub의 ZIP 다운로드 대신 Git + Git LFS로 복제하세요. 모델, 텍스처, 효과음, 미리보기는 LFS로 저장합니다. 비공개 저장소이므로 접근 권한이 있는 GitHub 계정이 필요합니다.
+GitHub의 ZIP 다운로드 대신 Git + Git LFS로 복제하세요. 모델, 텍스처, 효과음, 미리보기는 LFS로 저장합니다. 공개 저장소이므로 별도 접근 권한 없이 내려받을 수 있습니다.
 
 ## 실행
 
