@@ -62,6 +62,8 @@ Shift 달리기와 마비총은 제거된 상태입니다. 기본 이동은 4.5m
 
 ![왕의 회랑 양면 서프](Previews/Pyramid_Triangle_Choice.png)
 
+![태엽 요새의 솟아오르는 창](Previews/Clockwork_Spears.png)
+
 ![왕의 회랑 직각 전환 배치도](Previews/Pyramid_Overview.png)
 
 참고: [beginner](https://steamcommunity.com/sharedfiles/filedetails/?id=3070321829)·[kitsune](https://steamcommunity.com/sharedfiles/filedetails/?id=3076153623)의 단계 구성, [utopia](https://steamcommunity.com/sharedfiles/filedetails?id=156054906)·[boreas](https://steamcommunity.com/sharedfiles/filedetails/?id=3133346713)의 공개 램프 이미지, [mesa_aether](https://steamcommunity.com/sharedfiles/filedetails/?id=3125360522)의 분리된 착지 구역. 외부 맵을 직접 플레이하거나 에셋을 복제한 것은 아닙니다.
@@ -88,7 +90,7 @@ Shift 달리기와 마비총은 제거된 상태입니다. 기본 이동은 4.5m
 
 ## 개발과 검증
 
-- 태엽 요새 검증 **2026-11-03, v1.0.1 / 프로토콜 36**: Unity 실제 플레이 **58/58**, AI 물리 완주 34.245초/낙하 0회, 두 체크포인트·패턴별 피격/안전·6인 출발 확인. 기존 씬·맵 설정·이동 관련 19개 해시 일치. [플레이 검증](TestResults/clockwork-validation.json).
+- 태엽 요새 검증 **2026-11-03, v1.0.1 / 프로토콜 36**: Unity 실제 플레이 **58/58**, 두 플레이어 완주·피격·패턴 동기화 **23/23**, 실제 마우스 맵 페이지 선택 **2/2**. 기존 씬·맵 설정·이동 관련 19개 해시 일치. Windows 빌드와 [v1.0.1 배포](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.1) 완료, 실제 런처 1.0.0→1.0.1 업데이트 및 다운로드된 게임의 6인 카드 테이블을 확인했습니다. [플레이 검증](TestResults/clockwork-validation.json) · [네트워크](TestResults/clockwork-network.json) · [배포 검증](TestResults/clockwork-release.json). 인터넷 Relay·인위적 지연·실사용자 난이도 평가는 이번 작업에서 수행하지 않았습니다.
 - 런처 배포 검증 **2026-11-02, v1.0.0 / 프로토콜 35**: [공식 Release](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.0) 게시, 실제 UI 다운로드·설치·홈 진입·손상 설치 복구, 구버전 직접 실행 및 네트워크 실패 차단 확인. 런처 경계 **31/31**, 게임 검사 계약 **32/32**, 검사 통과 후 실제 3인 게임플레이 **21/21**. 사용자 맵 데이터 24개 해시 유지. [검증 기록](TestResults/launcher-release.json).
 - 런처 개발: `.NET 10 SDK`에서 `dotnet run --project Launcher/BellRun.Launcher.Tests/BellRun.Launcher.Tests.csproj -c Release`로 설치/실행 차단 경계 검사를 수행합니다. Unity의 `HalliGalli.EditorTools.GameReleaseVerification.Run`은 게임 버전 검사 응답 계약을 확인합니다.
 - 새 배포: `Runtime/GameRelease.cs`의 `Version`을 새 `major.minor.patch`로 올리고 `powershell -ExecutionPolicy Bypass -File Tools/Release/Build-Release.ps1`을 실행합니다. 씬을 재생성하지 않고 게임·독립 실행 런처·ZIP·메타데이터를 `Build/Releases/<버전>`에 만듭니다. 해당 소스를 커밋·푸시한 뒤 `Tools/Release/Publish-Release.ps1 -Version <버전>`으로 게시합니다. 전체 에셋 업로드가 끝난 draft만 latest로 전환하며, 게시된 버전은 덮어쓰지 말고 새 버전을 발급하세요. 전체 ZIP 업데이트 방식이며 런처 자체의 변경은 최신 EXE를 다시 받습니다.

@@ -42,7 +42,7 @@ try{
   await walkTo(0,trap.position.z+3);
   check('Physical safe traversal '+(i+1),host().actors[1].falls===routeStart.falls);
  }
- await walkTo(0,host().bellLanding.z-1);
+ await walkTo(0,host().bellLanding.z);
  await wait('Both checkpoints saved',()=>host().actors[1].checkpoint===1&&guest().actors[1].checkpoint===1);
  check('Physical full course completed without teleport or falls',host().actors[1].falls===routeStart.falls,{seconds:(Date.now()-startTime)/1000});
  await command('client1','action',{value:'Interact'});await wait('Bell awards and reseats peers',()=>peers().every(s=>s.bells===1&&s.actors.every(a=>a.seated)));
@@ -75,7 +75,8 @@ try{
  await wait('Spear attack visible',()=>{const t=host().clockwork.traps[0];return t.cycle>t.period-t.attackSeconds+.3&&t.cycle<t.period-.3;});await capture('clockwork-spears-active');
  await command('host','room');await wait('Room restored',()=>!host().playing&&!guest().playing);
  for(let i=0;i<4;i++)await command('host','add-bot');await command('client1','ready');await wait('Six ready',()=>host().canStart&&host().members.length===6);await command('host','start');await wait('Six-player course loaded',()=>peers().every(s=>s.playing&&s.actors.length===6),60000);
- check('Six players start seated with original table rules',peers().every(s=>s.actors.every(a=>a.seated)));await capture('clockwork-table-six');
+ check('Six players start seated with original table rules',peers().every(s=>s.actors.every(a=>a.seated)));
+ await command('host','action',{value:'Reveal'});await wait('Six-player first card',()=>host().revision>0&&guest().revision>0);await sleep(350);await capture('clockwork-table-six');
  check('No runtime probe errors',peers().every(s=>!s.error));
 }catch(error){if(checks.at(-1)?.passed!==false)checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'failure.json'),JSON.stringify({error:String(error),host:host(),guest:guest()},null,2));process.exitCode=1;}
 finally{for(const process of processes)process.kill();fs.writeFileSync(path.join(project,'TestResults/clockwork-network.json'),JSON.stringify({utc:new Date().toISOString(),protocol:host()?.protocol,folder,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,observations},null,2));}

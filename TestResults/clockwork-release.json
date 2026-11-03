@@ -1,0 +1,29 @@
+{
+  "outdatedPlayBlocked": true,
+  "previousInstallPreserved": true,
+  "version": "1.0.1",
+  "utc": "2026-11-03T05:43:19.1414814Z",
+  "after": "v1.0.1-2c0de6a0acea42e68d0b30c79e42f8df",
+  "updatedPlayEnabled": true,
+  "before": "v1.0.0-f44e96b444e24aa6bfff409110850783",
+  "status": "최신 버전과 설치된 모든 파일을 확인했습니다.\r\n‘게임 실행’을 누르면 최신 배포를 새로 확인하고 실행합니다.",
+  "protocol": 36,
+  "releaseUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.1",
+  "sourceCommit": "e7f6c55c65b6fb7204ef4bef830666a9ed1bd7a9",
+  "archiveSha256": "cb74211db23de827778ca1ce33eb90dc4a12614dc701a5b8b2c36688a8ec9a15",
+  "downloadedGame": {
+    "utc": "2026-11-03T05:45:30.579Z",
+    "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\clockwork-live-1793684689783",
+    "gate": "ALLOWED",
+    "map": "clockwork",
+    "players": 6,
+    "cardRevision": 1,
+    "normalTableCameraVisuallyConfirmed": true,
+    "screenshot": "Previews/Clockwork_Table.png"
+  },
+  "screenshots": [
+    "Previews/Clockwork_Spears.png",
+    "Previews/Clockwork_Arrows.png",
+    "Previews/Clockwork_Table.png"
+  ]
+}
