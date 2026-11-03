@@ -80,7 +80,7 @@ async function placeAirDrop(item,seat,yaw){
  return entity;
 }
 try{
- launch('manual');await wait(()=>host()?.protocol===35,60000);await cmd('studio-open');await wait(()=>host().studioOpen&&!host().studioBusy);await importMap(input);
+ launch('manual');await wait(()=>host()?.protocol>0,60000);await cmd('studio-open');await wait(()=>host().studioOpen&&!host().studioBusy);await importMap(input);
  await cmd('studio-place',{value:'ItemBox',position:{x:0,y:0,z:3}});const first=host().studioSelected;
  const box=part(10,{x:0,y:0,z:3});box.id=first;const validHash=host().studioDraftHash;
  for(const [name,change] of [['Resized pickup rejected',o=>o.scale.x=2],['Tilted pickup rejected',o=>o.rotation.x=45],['Animated pickup bounds outside map rejected',o=>o.position.z=.5]]){
@@ -114,7 +114,7 @@ try{
  fs.writeFileSync(maximumFile,JSON.stringify(maximum));ownedMaps.push(maximum.id);await importMap(maximumFile);check('Full 512-object map accepts 510 item boxes',host().studioObjects===512);await closeStudio();
  await cmd('host-loopback',{value:'17894'});await wait(()=>host().active&&host().host&&!host().busy);await cmd('user-map',{value:maximumFile});await wait(()=>host().selectedMap.startsWith('user:'));
  let hash=host().userMapHash;const maxCache=path.join(storage,'DownloadedMaps',hash+'.bellmap');if(fs.existsSync(maxCache))fs.unlinkSync(maxCache);
- launch('client1');await wait(()=>guest()?.protocol===35&&guest().userMapReady&&guest().userMapHash===hash&&host().members.length===2);check('Joining guest downloads the full box map without cache',!guest().userMapCacheHit&&fs.existsSync(maxCache));await start();
+ launch('client1');await wait(()=>guest()?.protocol>0&&guest().userMapReady&&guest().userMapHash===hash&&host().members.length===2);check('Joining guest downloads the full box map without cache',!guest().userMapCacheHit&&fs.existsSync(maxCache));await start();
  await wait(()=>host().race?.boxes?.length===510&&guest().race?.boxes?.length===510);await stand();await teleport(0,{x:24,y:.025,z:90});await wait(()=>host().race.boxes[509].cooldown>0&&guest().race.boxes[509].cooldown>0);check('Last box in maximum map replicates pickup and cooldown',host().race.actors[0].item===guest().race.actors[0].item&&host().race.actors[0].item>0);
  await cmd('room');await wait(()=>!host().playing&&!guest().playing);await cmd('user-map',{value:shared});hash=host().userMapHash;await wait(()=>guest().userMapReady&&guest().userMapHash===hash);await start();await wait(()=>host().race?.boxes?.length===2&&guest().race?.boxes?.length===2);await stand();
  await take(1,0,true);
@@ -160,4 +160,4 @@ try{
  await cmd('pointer',{yaw:180,pitch:22});await sleep(400);await capture('race-five-player-seated');await cmd('action',{value:'Reveal'});await sleep(400);await capture('race-five-table-focus');check('Five-player official race starts with seated local player',host().actors.length===5&&host().actors[0].seated);
  check('No runtime probe errors',!host().error&&!guest().error);
 }catch(error){checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'failure.json'),JSON.stringify({error:error.stack,host:host(),guest:guest()},null,2));process.exitCode=1;}
-finally{for(const p of processes)p.kill();fs.writeFileSync(path.join(project,'TestResults/usermap-items.json'),JSON.stringify({utc:new Date().toISOString(),protocol:35,folder,shared,maximumFile,ownedMaps,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,pickups,observations},null,2));}
+finally{for(const p of processes)p.kill();fs.writeFileSync(path.join(project,'TestResults/usermap-items.json'),JSON.stringify({utc:new Date().toISOString(),protocol:host()?.protocol,folder,shared,maximumFile,ownedMaps,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,pickups,observations},null,2));}

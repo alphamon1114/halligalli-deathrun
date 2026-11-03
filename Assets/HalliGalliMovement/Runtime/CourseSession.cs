@@ -13,6 +13,7 @@ namespace HalliGalli.Movement
         public CourseCheckpoints checkpoints;
         public CombatPracticeRoom practiceRoom;
         public FactoryCourse factory;
+        public ClockworkCourse clockwork;
         public TutorialFerryCourse ferry;
         public UserMapRuntime userMap;
         public bool HasCardRules=>cardGame&&cardGame.enabled&&cardGame.Match!=null;

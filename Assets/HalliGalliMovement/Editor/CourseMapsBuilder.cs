@@ -36,11 +36,6 @@ namespace HalliGalli.EditorTools
             };
             var catalog=Catalog;if(!catalog){catalog=ScriptableObject.CreateInstance<CourseMapCatalog>();catalog.maps=defaults;AssetDatabase.CreateAsset(catalog,CatalogPath);}
             else {catalog.maps=(catalog.maps??Array.Empty<CourseMapDefinition>()).Concat(defaults).Distinct().ToArray();EditorUtility.SetDirty(catalog);}
-            // The item race is the final official course, including after another map builder installs its entry.
-            if(catalog.maps.Any(map=>map&&map.id==RaceCourseBuilder.Id)){
-                catalog.maps=catalog.maps.Where(map=>!map||map.id!=RaceCourseBuilder.Id).Concat(catalog.maps.Where(map=>map&&map.id==RaceCourseBuilder.Id)).ToArray();
-                EditorUtility.SetDirty(catalog);
-            }
             return catalog;
         }
         public static void InstallInCurrentScene(string id="first-steps")

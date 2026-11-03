@@ -7,6 +7,7 @@
 - 밧줄 투척·걸림·당김, 승리 효과음은 기존 VARCO Sound 작업을 사용합니다. `TestResults/lasso-summary.json`, `lasso-audio-validation.json`, `victory-validation.json`을 참고하세요.
 - 피라미드 벽의 Sandstone Blocks 05는 Poly Haven / Rob Tuytel의 CC0 에셋입니다. 원본 출처: https://polyhaven.com/a/sandstone_blocks_05 . 라이선스 사본은 `Assets/HalliGalliMovement/Art/Pyramid/StoneScan/LICENSE.txt`에 보존합니다.
 - 카드는 기본판의 과일·장수 분포를 사용하되 카드 그림과 뒷면은 직접 제작한 SVG/텍스처입니다. `Assets/HalliGalliCards/README_KO.md`에 설명돼 있습니다.
+- 태엽 요새의 창·화살·기어·격자 메시와 금속/바닥 패턴은 `ClockworkCourseBuilder`에서 직접 생성합니다. 석조 표면과 실내 장식은 위 기존 프로젝트 에셋을 재사용하며 새 유료 생성은 하지 않았습니다. 생성 결과는 `Assets/HalliGalliMovement/Art/Clockwork`에 보존합니다.
 
 저장소를 공개 오픈소스로 라이선스 지정한 것은 아닙니다. 외부 서비스 생성물과 포함 에셋의 권리는 각각의 적용 조건을 따릅니다. 새 배포나 공개 범위를 바꿀 때 출처와 적용 조건을 유지하세요.
 

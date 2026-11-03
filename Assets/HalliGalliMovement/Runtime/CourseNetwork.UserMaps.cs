@@ -25,7 +25,7 @@ namespace HalliGalli.Movement
         string mapTransferError="";
         bool userMapsTab;
         LocalUserMap[] localUserMaps=Array.Empty<LocalUserMap>();
-        int userMapsPage;
+        int userMapsPage,officialMapsPage;
 
         public bool IsUserMapSelected=>userMapOffer!=null;
         public string SelectedUserMapHash=>userMapOffer?.hash??"";
@@ -296,15 +296,24 @@ namespace HalliGalli.Movement
             BellUI.Text(new Rect(right,y+164,440,35),"선택: "+SelectedMapTitle,15,BellUI.Paper,true);
             if(!userMapsTab){
                 int count=0;foreach(var map in game.maps.catalog.maps)if(map&&map.playable)count++;
-                float step=Mathf.Min(54,212f/Mathf.Max(1,count)),height=step-5;int index=0;
+                int pages=Mathf.Max(1,(count+3)/4);officialMapsPage=Mathf.Clamp(officialMapsPage,0,pages-1);
+                int index=0,first=officialMapsPage*4;
                 foreach(var map in game.maps.catalog.maps){
-                    if(!map||!map.playable)continue;float row=y+200+index++*step;
+                    if(!map||!map.playable)continue;
+                    int slot=index++;if(slot<first||slot>=first+4)continue;
+                    float row=y+200+(slot-first)*44;
                     GUI.enabled=CanEditMaps;
-                    if(BellUI.Button(new Rect(right,row,440,height),"",selected:map.id==mapId))SelectMap(map.id);
-                    BellUI.MapPicture(new Rect(right+8,row+4,72,height-8),map,10);
-                    BellUI.Text(new Rect(right+94,row,338,height*.56f),map.displayName,16,BellUI.Paper,true);
-                    BellUI.Text(new Rect(right+94,row+height*.56f,338,height*.44f),map.StyleLabel+" · "+map.DifficultyLabel,11,BellUI.Muted);
+                    if(BellUI.Button(new Rect(right,row,440,39),"",selected:map.id==mapId))SelectMap(map.id);
+                    BellUI.MapPicture(new Rect(right+8,row+4,72,31),map,10);
+                    BellUI.Text(new Rect(right+94,row,338,22),map.displayName,16,BellUI.Paper,true);
+                    BellUI.Text(new Rect(right+94,row+22,338,17),map.StyleLabel+" · "+map.DifficultyLabel,11,BellUI.Muted);
                 }
+                GUI.enabled=officialMapsPage>0;
+                if(BellUI.Button(new Rect(right,y+379,70,28),"이전",size:12))officialMapsPage--;
+                GUI.enabled=officialMapsPage+1<pages;
+                if(BellUI.Button(new Rect(right+370,y+379,70,28),"다음",size:12))officialMapsPage++;
+                GUI.enabled=true;
+                BellUI.Text(new Rect(right+80,y+379,280,28),(officialMapsPage+1)+" / "+pages,12,BellUI.Muted,false,TextAnchor.MiddleCenter);
             }else if(IsHost){
                 GUI.enabled=CanEditMaps;
                 if(BellUI.Button(new Rect(right+326,y+201,114,28),"새로고침",size:12))RefreshUserMaps();

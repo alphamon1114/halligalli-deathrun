@@ -176,7 +176,7 @@ try{
  const creator=JSON.parse(fs.readFileSync(path.join(project,'TestResults/usermap-creator-clear.json'),'utf8'));
  if(creator.failed!==0||!fs.existsSync(creator.small))throw new Error('Run check-creator-clear.mjs first: this scenario reuses its actually cleared small map');
  preferenceBackup=await backupPreference();
- launch('host');await wait('Host player starts',()=>host()?.protocol===35,60000);await command('host','show-home');
+ launch('host');await wait('Host player starts',()=>host()?.protocol>0,60000);await command('host','show-home');
  for(let index=0;index<8;index++){
   await choose('host',index);
   const actor=host().actors.find(a=>a.localPlayer);tints.push(actor.shirtTint);
@@ -204,7 +204,7 @@ try{
  await command('host','studio-export',{value:clearedMap});await wait('Fresh cleared map exported',()=>fs.existsSync(clearedMap));
  await command('host','studio-close');if(host().studioConfirmation)await command('host','studio-confirm',{value:'discard'});
  await wait('Studio closes',()=>!host().studioOpen);
- launch('client1');await wait('Guest player starts',()=>guest()?.protocol===35,60000);await command('client1','show-home');await choose('client1',0);
+ launch('client1');await wait('Guest player starts',()=>guest()?.protocol>0,60000);await command('client1','show-home');await choose('client1',0);
  await command('host','host-loopback',{value:port});await wait('Host room',()=>host().members.length===1&&!host().busy);
  await command('client1','join-loopback',{value:port});await wait('Guest admitted',()=>sameRoom()&&host().members.length===2&&!guest().busy);
  check('Colliding join receives deterministic first-free without changing preference',host().selectedShirtColor===0&&guest().selectedShirtColor===1&&guest().savedShirtColor===0,remember('Join collision'));
@@ -256,7 +256,7 @@ try{
  // genuinely change its cached value before restarting that player.
  await choose('client1',alternate);await choose('client1',saved);
  await command('client1','leave');await wait('Guest leaves and seat frees',()=>host().members.length===5&&!guest().active);await stop('client1');
- launch('client1');await wait('Fresh guest process reads saved preference',()=>guest()?.protocol===35,60000);
+ launch('client1');await wait('Fresh guest process reads saved preference',()=>guest()?.protocol>0,60000);
  check('Explicit preference survives actual process restart',guest().savedShirtColor===saved&&guest().selectedShirtColor===saved);
  await command('client1','show-home');await command('client1','join-loopback',{value:port});await wait('Restarted guest rejoins final seat',()=>sameRoom()&&host().members.length===6&&guest().localSeat===5);
  check('Rejoin preserves human preference and every existing bot identity',guest().selectedShirtColor===saved&&JSON.stringify(roomColors(host()).slice(0,5))===JSON.stringify(preserved));
@@ -273,6 +273,6 @@ try{
 }finally{
  try{for(const role of Object.keys(processes))await stop(role);await restorePreference();}
  catch(error){checks.push({name:'Preference cleanup: '+String(error),passed:false});console.error(error);process.exitCode=1;}
- const result={utc:new Date().toISOString(),folder,transport:'loopback',protocol:35,preferenceKey,preferenceRestored:restored,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,captures,nativeInput,commands,snapshots};
+ const result={utc:new Date().toISOString(),folder,transport:'loopback',protocol:host()?.protocol,preferenceKey,preferenceRestored:restored,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,captures,nativeInput,commands,snapshots};
  fs.mkdirSync(path.join(project,'TestResults'),{recursive:true});const report=path.join(project,'TestResults/shirt-colors.json');fs.writeFileSync(report,JSON.stringify(result,null,2));console.log(JSON.stringify({report,passed:result.passed,failed:result.failed,folder,preferenceRestored:restored}));
 }

@@ -107,7 +107,8 @@ namespace HalliGalli.Movement
                 surfInput=surf.Guide(participant,route,surfNavigation,surfWideTurn,surfSidePreference);steering=surfInput.steering;
                 if(session.Ring(participant))return;
             }
-            bool machineWait=session.factory&&motor.Grounded&&session.factory.HoldForPress(transform.position,target);
+            bool machineWait=motor.Grounded&&(session.factory&&session.factory.HoldForPress(transform.position,target)
+                ||session.clockwork&&!returning&&session.clockwork.HoldForTrap(transform.position,target));
             if(machineWait||ferryWait&&toward.magnitude<.3f)steering=Vector3.zero;
             var opponent=ClosestOpponent();Vector3 toOpponent=opponent?Vector3.ProjectOnPlane(opponent.transform.position-transform.position,Vector3.up):Vector3.zero;
             bool duel=attacksEnabled&&opponent&&toOpponent.magnitude<1.8f;

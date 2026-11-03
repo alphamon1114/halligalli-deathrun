@@ -52,6 +52,15 @@ namespace HalliGalli.Movement
             public string[] unsupportedMaterials,legacyFloorFrames;
             public PartVisualReport[] parts;
         }
+        [Serializable] sealed class ClockworkTrapInfo
+        {
+            public string kind,stage;
+            public Vector3 position,visual;
+            public Vector3[] hitPoints;
+            public float cycle,period,phase,warningSeconds,attackSeconds;
+            public int hits;
+        }
+        [Serializable] sealed class ClockworkReport {public ClockworkTrapInfo[] traps;}
         [Serializable] sealed class Report
         {
             public string role,status,code,map,cardState,error;
@@ -100,6 +109,7 @@ namespace HalliGalli.Movement
             public bool studioPawnActive,studioPawnGrounded;
             public Vector3 studioPawnPosition,studioPawnVelocity;
             public RaceCourse.Snapshot race;
+            public ClockworkReport clockwork;
         }
         string role,folder,error="";
         int lastCommand,lastRespawn=-1;float nextReport;
@@ -230,6 +240,16 @@ namespace HalliGalli.Movement
                 var target=RaceCourse.Active.LockTarget(game.Local,game.Local.GetComponent<SourcePlayerController>().AimRotation*Vector3.forward);
                 report.raceAimTarget=target?Array.IndexOf(game.participants,target):-1;
             }
+            if(game&&game.clockwork){
+                double now=report.worldTime;
+                report.clockwork=new ClockworkReport{traps=game.clockwork.traps.Select(trap=>{
+                    var sample=trap.Sample(now);
+                    return new ClockworkTrapInfo{kind=trap.kind.ToString(),stage=sample.stage.ToString(),cycle=sample.cycle,
+                        position=trap.transform.position,visual=trap.movingRoot.position,period=trap.period,phase=trap.phase,
+                        warningSeconds=trap.warningSeconds,attackSeconds=trap.attackSeconds,hits=trap.Hits,
+                        hitPoints=trap.hitboxes.Select(box=>box.transform.TransformPoint(box.center)).ToArray()};
+                }).ToArray()};
+            }
             try{File.WriteAllText(Path.Combine(folder,"state-"+role+".json"),JsonUtility.ToJson(report));}catch(IOException){}
         }
         void FixedUpdate()
@@ -322,6 +342,9 @@ namespace HalliGalli.Movement
                 case "studio-reopen":UserMapStudio.Current.OpenMap(UserMapStorage.Load(c.value));break;
                 case "room":network.ReturnToRoom();break;
                 case "menu":network.ShowMenu();break;
+                case "offline-map-menu":
+                    if(CourseNetwork.Active)throw new InvalidOperationException("Offline map menu requires no active room.");
+                    FindAnyObjectByType<CourseHUD>().OpenMapMenu();break;
                 case "leave":_=network.Leave();break;
                 case "action":network.LocalAction((NetworkAction)Enum.Parse(typeof(NetworkAction),c.value));break;
                 case "lasso":game.Local.Lasso.TryUse(Quaternion.Euler(c.pitch,c.yaw,0)*Vector3.forward);break;

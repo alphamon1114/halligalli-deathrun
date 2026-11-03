@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec28677467a0aea4e84d6c543cf8c8a5, type: 3}
+  m_Name: clockwork
+  m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Movement.CourseMapDefinition
+  id: clockwork
+  displayName: "\uD0DC\uC5FD \uC694\uC0C8"
+  style: 3
+  difficulty: 2
+  description: "128m \uD0DC\uC5FD \uC694\uC0C8. \uC608\uACE0\uB4F1\uC744 \uBCF4\uACE0 \uC19F\uC544\uB098\uB294 \uCC3D\uACFC \uAC00\uB85C\uC9C0\uB974\uB294 \uD654\uC0B4\uC758 \uC77C\uC815\uD55C \uB9AC\uB4EC\uC744 \uC775\uD788\uC138\uC694. \uB450 \uC548\uC804 \uC9C0\uC810\uC5D0\uC11C \uC7AC\uCD9C\uBC1C\uD569\uB2C8\uB2E4."
+  playable: 1
+  scenePath: Assets/HalliGalliMovement/Demo/ClockworkCourse.unity
+  thumbnail: Clockwork
+  movementProfile: {fileID: 11400000, guid: cbd0b0853a4852c44a7cc48b90917ab8, type: 2}

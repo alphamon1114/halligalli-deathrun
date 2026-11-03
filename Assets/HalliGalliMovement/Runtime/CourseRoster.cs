@@ -40,7 +40,7 @@ namespace HalliGalli.Movement
                 firstPlatforms[i].position=new Vector3(x,.15f,FirstZ);
                 startLabels[i].position=new Vector3(x,.03f,-.25f);
                 var route=RouteForSeat(i);
-                if(!session.userMap&&!itemRace){
+                if(!session.userMap&&!session.clockwork&&!itemRace){
                     if(route.Length>0)route[0].position=new Vector3(x,.175f,FirstZ);
                     if(route.Length>1)route[1].position=new Vector3(x,.375f,5.7f);
                     if(branches)branches.Apply(route,i,count);

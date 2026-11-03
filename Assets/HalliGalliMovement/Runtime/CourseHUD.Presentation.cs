@@ -4,6 +4,7 @@ namespace HalliGalli.Movement
 {
     public sealed partial class CourseHUD
     {
+        int mapMenuPage;
         void OnGUI()
         {
             if(ControlSettings.IsOpen||!session||!session.Local||CourseNetwork.Instance&&CourseNetwork.Instance.OverlayVisible)return;
@@ -166,9 +167,20 @@ namespace HalliGalli.Movement
             BellUI.Text(new Rect(x,y,700,48),"어디서 겨룰까?",32,BellUI.Paper,true);
             BellUI.Text(new Rect(x,y+51,500,28),session.roster.PlayerCount+"인 · 새로운 대결",15,BellUI.Muted);
             if(BellUI.Button(new Rect(x+990,y+4,110,38),"닫기")&&ReadInput)CloseMapMenu();
-            var maps=session.maps.catalog.maps;int index=0;
+            var maps=session.maps.catalog.maps;int count=0,index=0;
+            foreach(var map in maps)if(map&&map.playable)count++;
+            int pages=Mathf.Max(1,(count+5)/6);mapMenuPage=Mathf.Clamp(mapMenuPage,0,pages-1);
+            GUI.enabled=mapMenuPage>0;
+            if(BellUI.Button(new Rect(x+680,y+8,80,34),"이전",size:14)&&ReadInput)mapMenuPage--;
+            GUI.enabled=mapMenuPage+1<pages;
+            if(BellUI.Button(new Rect(x+880,y+8,80,34),"다음",size:14)&&ReadInput)mapMenuPage++;
+            GUI.enabled=true;
+            BellUI.Text(new Rect(x+765,y+8,110,34),(mapMenuPage+1)+" / "+pages,14,BellUI.Muted,false,TextAnchor.MiddleCenter);
+            int first=mapMenuPage*6;
             foreach(var map in maps){
-                if(!map||!map.playable)continue;float cx=x+(index%3)*368,cy=y+98+(index/3)*244;index++;
+                if(!map||!map.playable)continue;
+                int slot=index++;if(slot<first||slot>=first+6)continue;
+                float cx=x+((slot-first)%3)*368,cy=y+98+((slot-first)/3)*244;
                 var tile=new Rect(cx,cy,352,232);BellUI.Round(tile,BellUI.Surface,24);
                 BellUI.MapPicture(new Rect(cx+10,cy+10,332,94),map,16);
                 string icon=map.style==CourseMapStyle.Climb?"mountain":map.style==CourseMapStyle.Surf?"surf":"jump";

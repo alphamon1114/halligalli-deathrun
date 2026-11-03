@@ -75,4 +75,4 @@ try{
  }
  check('No runtime probe errors',peers().every(s=>!s.error));
 }catch(error){if(checks.at(-1)?.passed!==false)checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'failure.json'),JSON.stringify({error:String(error),states:peers()},null,2));process.exitCode=1;}
-finally{for(const child of processes)child.kill();fs.writeFileSync(path.join(project,'TestResults/missile-aim.json'),JSON.stringify({utc:new Date().toISOString(),protocol:35,folder,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,observations},null,2));}
+finally{for(const child of processes)child.kill();fs.writeFileSync(path.join(project,'TestResults/missile-aim.json'),JSON.stringify({utc:new Date().toISOString(),protocol:host()?.protocol,folder,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,observations},null,2));}

@@ -58,6 +58,7 @@ Shift 달리기와 마비총은 제거된 상태입니다. 기본 이동은 4.5m
 - **폐공장**: 움직이는 발판, 컨베이어, 닿으면 복귀하는 프레스.
 - **왕의 회랑**: 25개 양면 삼각 서프·5개 방·4개 체크포인트. 서프 길이 644→450m(69.9%)로 단축하고 넓은 착지대에서 네 번 90도 전환합니다. 내리막 가속과 골 없이 올라가는 도약대를 분리하고 높은/낮은 착지면을 배치했습니다. 같은 면으로 완주할 수 있으며 장식물은 충돌하지 않습니다.
 - **아이템 레이스**: 220m 연속 트랙과 32개 아이템 박스. 순위와 무관하게 미사일·바나나·바리게이트를 각각 1/3 확률로 획득합니다. 레이저·실드·굴러가는 공은 제거했습니다.
+- **태엽 요새**: 128m 석조 통로에서 바닥 창과 횡단 화살의 고정 패턴을 피합니다. 녹색 안전 3.5초 → 황색 예고 0.9초 → 적색 공격 1.2초. 창·화살·혼합 여섯 구간과 체크포인트 두 곳을 지나 종에 도착하세요. 피격은 마지막 체크포인트로 복귀하며 기존 카드·종 규칙을 유지합니다. 공식 맵 목록의 다음 페이지에서 선택합니다.
 
 ![왕의 회랑 양면 서프](Previews/Pyramid_Triangle_Choice.png)
 
@@ -87,6 +88,7 @@ Shift 달리기와 마비총은 제거된 상태입니다. 기본 이동은 4.5m
 
 ## 개발과 검증
 
+- 태엽 요새 검증 **2026-11-03, v1.0.1 / 프로토콜 36**: Unity 실제 플레이 **58/58**, AI 물리 완주 34.245초/낙하 0회, 두 체크포인트·패턴별 피격/안전·6인 출발 확인. 기존 씬·맵 설정·이동 관련 19개 해시 일치. [플레이 검증](TestResults/clockwork-validation.json).
 - 런처 배포 검증 **2026-11-02, v1.0.0 / 프로토콜 35**: [공식 Release](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.0) 게시, 실제 UI 다운로드·설치·홈 진입·손상 설치 복구, 구버전 직접 실행 및 네트워크 실패 차단 확인. 런처 경계 **31/31**, 게임 검사 계약 **32/32**, 검사 통과 후 실제 3인 게임플레이 **21/21**. 사용자 맵 데이터 24개 해시 유지. [검증 기록](TestResults/launcher-release.json).
 - 런처 개발: `.NET 10 SDK`에서 `dotnet run --project Launcher/BellRun.Launcher.Tests/BellRun.Launcher.Tests.csproj -c Release`로 설치/실행 차단 경계 검사를 수행합니다. Unity의 `HalliGalli.EditorTools.GameReleaseVerification.Run`은 게임 버전 검사 응답 계약을 확인합니다.
 - 새 배포: `Runtime/GameRelease.cs`의 `Version`을 새 `major.minor.patch`로 올리고 `powershell -ExecutionPolicy Bypass -File Tools/Release/Build-Release.ps1`을 실행합니다. 씬을 재생성하지 않고 게임·독립 실행 런처·ZIP·메타데이터를 `Build/Releases/<버전>`에 만듭니다. 해당 소스를 커밋·푸시한 뒤 `Tools/Release/Publish-Release.ps1 -Version <버전>`으로 게시합니다. 전체 에셋 업로드가 끝난 draft만 latest로 전환하며, 게시된 버전은 덮어쓰지 말고 새 버전을 발급하세요. 전체 ZIP 업데이트 방식이며 런처 자체의 변경은 최신 EXE를 다시 받습니다.
@@ -101,7 +103,7 @@ Shift 달리기와 마비총은 제거된 상태입니다. 기본 이동은 4.5m
 - 이전 검증 **2026-10-30, 프로토콜 28**: 사용자 맵 아이템 **23/23**, 기존 레이스 **26/26**, 제작자 클리어 **37/37**. 5인 카드 화면에서 테이블을 확인했습니다. 해당 전용 검사는 이번 피라미드 변경에서 재실행하지 않았습니다.
 - 이전 사용자 맵 검증: 저장·파일 경계 **15/15**, 루프백 공유 **27/27**, 다운로드·재호스팅·캐시 **27/27**, Unity Relay **26/26**. 이 전용 시나리오들은 이번 아이템 박스 변경에서 재실행하지 않았습니다.
 - 이전 공식 맵 검증 **2026-10-27**: 왕의 회랑 물리·복귀 **35/35**, Unity Relay **26/26**. 이번에 전체 공식 맵 검사를 다시 수행한 것은 아닙니다.
-- 네트워크 프로토콜: **35**. 순위와 무관한 아이템 지급과 공중 바닥 설치 규칙을 함께 사용하도록 모두 같은 최신 빌드를 사용해야 합니다. 위 날짜별 검증 수치는 각 당시 프로토콜의 기록입니다.
+- 네트워크 프로토콜: **36**. 태엽 요새의 고정 패턴·호스트 피격 판정을 포함한 같은 최신 빌드를 사용해야 합니다. 위 날짜별 검증 수치는 각 당시 프로토콜의 기록입니다.
 - 상세 기록: [티셔츠 동기화](TestResults/shirt-colors.json), [티셔츠 렌더링](TestResults/shirt-appearance.json), [최신 전투 물리](TestResults/stronger-kick-physics.json), [밀침 효과 회귀](TestResults/push-network.json), [이전 쿨타임/HUD](TestResults/push-cooldown.json), [재현 방법과 이전 검증](Docs/HANDOFF.md#검증과-빌드).
 - 기존 조작·규칙 문서: [START_HERE_KO.txt](START_HERE_KO.txt), [게임 상세](Assets/HalliGalliMovement/README_KO.md).
 - 에셋 출처: [Docs/ASSETS.md](Docs/ASSETS.md).

@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HalliGalliMovement/Demo/RaceCourse.unity
     guid: e19f8e71a6641f9469b01b382a324d67
+  - enabled: 1
+    path: Assets/HalliGalliMovement/Demo/ClockworkCourse.unity
+    guid: af03b1013a2842c40b3dfceeed23adea
   m_configObjects: {}
