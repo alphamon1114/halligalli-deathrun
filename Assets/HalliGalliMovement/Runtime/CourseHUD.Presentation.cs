@@ -29,7 +29,10 @@ namespace HalliGalli.Movement
                     if(session.roster&&session.roster.surf){
                         BellUI.Text(new Rect(26,h-73,85,35),p.Motor.HorizontalSpeed.ToString("F1"),25,BellUI.Paper,true,shadow:true);
                         BellUI.Text(new Rect(102,h-66,40,25),"m/s",12,BellUI.Muted,shadow:true);
-                        for(int i=0;i<session.roster.surf.sections.Length;i++)BellUI.Round(new Rect(28+i*17,h-29,6,6),session.roster.surf.GatesPassed(p)>i?BellUI.Gold:new Color(.65f,.67f,.61f,.4f),3);
+                        bool ordered = session.checkpoints && session.checkpoints.orderedPassage;
+                        int count = ordered ? session.checkpoints.points.Length : session.roster.surf.sections.Length;
+                        int passed = ordered ? p.CheckpointIndex + 1 : session.roster.surf.GatesPassed(p);
+                        for(int i=0;i<count;i++)BellUI.Round(new Rect(28+i*17,h-29,6,6),passed>i?BellUI.Gold:new Color(.65f,.67f,.61f,.4f),3);
                     }
                 }
                 if(!table&&!p.IsSeated&&!p.IsRespawning)DrawCrosshair();

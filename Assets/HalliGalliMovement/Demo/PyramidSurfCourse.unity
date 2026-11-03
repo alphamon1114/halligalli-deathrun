@@ -91642,6 +91642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HalliGalli.Movement.CourseCheckpoints
   session: {fileID: 1594262524}
+  orderedPassage: 1
   points:
   - spawn: {fileID: 143295539}
     landing: {fileID: 1200899945}

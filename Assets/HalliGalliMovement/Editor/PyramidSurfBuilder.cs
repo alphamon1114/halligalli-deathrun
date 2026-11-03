@@ -86,6 +86,7 @@ namespace HalliGalli.EditorTools
             session.fallHeight=rooms.Min(r=>r.minimum.y)-4;
             var profile=AssetDatabase.LoadAssetAtPath<SourceMovementProfile>(SurfCourseBuilder.ProfilePath);
             Register(profile);CourseMapsBuilder.InstallInCurrentScene(Id);
+            session.checkpoints.orderedPassage=true;
             foreach(var p in roster.allParticipants)p.GetComponent<SourceMotor>().profile=profile;
             PyramidArtBuilder.Dress(session,pyramid,stone);
             PyramidCourseObstacles.Install(pyramid,stone);

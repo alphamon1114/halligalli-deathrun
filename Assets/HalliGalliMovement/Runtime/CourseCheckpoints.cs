@@ -16,6 +16,7 @@ namespace HalliGalli.Movement
         }
         public CourseSession session;
         public Point[] points = Array.Empty<Point>();
+        public bool orderedPassage;
 
         public Point Saved(CourseParticipant participant) => participant.CheckpointIndex >= 0 && participant.CheckpointIndex < points.Length ? points[participant.CheckpointIndex] : null;
         public Vector3 SpawnPosition(CourseParticipant participant)
@@ -27,7 +28,21 @@ namespace HalliGalli.Movement
         {
             if (CourseNetwork.Active && !CourseNetwork.Authority || !session.RunActive) return;
             foreach (var participant in session.participants) {
-                if (participant.IsSeated || participant.IsRespawning || session.MustReturn(participant) || !participant.Motor.Grounded) continue;
+                if (participant.IsSeated || participant.IsRespawning || session.MustReturn(participant)) continue;
+                if (orderedPassage) {
+                    // The host records passage over the next plaza, not contact with every surf bank.
+                    int next = participant.CheckpointIndex + 1;
+                    if (next >= points.Length) continue;
+                    var point = points[next];
+                    if (!point.spawn || !point.landing || !point.landing.enabled) continue;
+                    var bounds = point.landing.bounds;
+                    var position = participant.transform.position;
+                    if (position.x < bounds.min.x || position.x > bounds.max.x || position.z < bounds.min.z || position.z > bounds.max.z || position.y < bounds.max.y - .15f) continue;
+                    participant.SetCheckpoint(next, 0);
+                    RestoreSurfProgress(participant);
+                    continue;
+                }
+                if (!participant.Motor.Grounded) continue;
                 for (int index = 0; index < points.Length; index++) {
                     if (participant.CheckpointIndex == index) continue;
                     var point = points[index];

@@ -31,9 +31,9 @@ try{
   command('host','teleport',{seat:1,position:host().bellLanding});await sleep(300);command('client1','action',{value:'Interact'});await sleep(300);
   check('Unfinished racer cannot ring the royal bell',host().bells===0&&client().bells===0);
   for(let i=0;i<4;i++){
-    const cp=host().checkpoints[i];command('host','surf-gates',{seat:1,value:String(cp.gates)});await sleep(150);
-    command('host','teleport',{seat:1,position:cp.position});
-    await wait(`Landing ${i+1} saves on both peers`,()=>host().actors[1].checkpoint===i&&client().actors[1].checkpoint===i);
+    const cp=host().checkpoints[i];
+    command('host','teleport',{seat:1,position:{...cp.position,y:cp.position.y+3}});
+    await wait(`Airborne checkpoint ${i+1} saves on both peers`,()=>host().actors[1].checkpoint===i&&client().actors[1].checkpoint===i&&!host().actors[1].grounded&&!client().actors[1].grounded);
     command('client1','action',{value:'Respawn'});falls++;
     await wait(`R restores checkpoint ${i+1} and earned gates`,()=>!client().actors[1].respawning&&client().actors[1].falls===falls&&host().actors[1].falls===falls&&client().actors[1].gates===cp.gates&&client().actors[1].checkpoint===i);
   }
@@ -43,7 +43,10 @@ try{
   command('host','teleport',{seat:1,position:{x:room.origin.x+Math.cos(yaw)*px+Math.sin(yaw)*pz,y:room.origin.y+room.localMinimum.y+2,z:room.origin.z-Math.sin(yaw)*px+Math.cos(yaw)*pz}});falls++;
   await wait('Cursed pit contact recovers guest on both peers',()=>host().actors[1].falls===falls&&client().actors[1].falls===falls,3500);
   await wait('Pit restores fourth checkpoint without changing cards',()=>!client().actors[1].respawning&&client().actors[1].checkpoint===3&&client().actors[1].gates===20&&host().cardState===cardState);
-  command('host','surf-gates',{seat:1,value:'25'});await sleep(150);command('host','teleport',{seat:1,position:host().bellLanding});
+  command('host','teleport',{seat:1,position:host().checkpoints[0].position});await sleep(250);
+  check('Backtracking cannot replace the fourth checkpoint',host().actors[1].checkpoint===3&&client().actors[1].checkpoint===3);
+  check('Final bank contacts are not fabricated',host().actors[1].gates===20&&client().actors[1].gates===20);
+  command('host','teleport',{seat:1,position:host().bellLanding});
   await sleep(250);command('client1','action',{value:'Interact'});
   await wait('Completed pyramid awards bell and reseats everyone',()=>host().bells===1&&client().bells===1&&host().actors.every(p=>p.seated)&&client().actors.every(p=>p.seated));
   await wait('Awarded cards remain synchronized',()=>host().cardState===client().cardState);

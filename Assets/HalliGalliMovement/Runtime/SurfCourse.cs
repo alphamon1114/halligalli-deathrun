@@ -66,7 +66,13 @@ namespace HalliGalli.Movement
             return state;
         }
         public int GatesPassed(CourseParticipant p) => State(p).gates;
-        public bool Completed(CourseParticipant p) => GatesPassed(p) == sections.Length;
+        public bool Completed(CourseParticipant p)
+        {
+            var checkpoints = p.session.checkpoints;
+            if (checkpoints && checkpoints.orderedPassage)
+                return checkpoints.points.Length > 0 && p.CheckpointIndex == checkpoints.points.Length - 1;
+            return GatesPassed(p) == sections.Length;
+        }
         public void ApplyNetworkProgress(CourseParticipant p,int gates){State(p).gates=gates;}
         public void RestoreCheckpointProgress(CourseParticipant p,int gates){var state=State(p);state.gates=Mathf.Clamp(gates,0,sections.Length);state.contacts=0;}
         void FixedUpdate()
