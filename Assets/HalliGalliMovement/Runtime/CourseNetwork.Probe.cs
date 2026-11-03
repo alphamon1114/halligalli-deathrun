@@ -55,12 +55,27 @@ namespace HalliGalli.Movement
         [Serializable] sealed class ClockworkTrapInfo
         {
             public string kind,stage;
-            public Vector3 position,visual;
+            public Vector3 position,visual,forward;
             public Vector3[] hitPoints;
             public float cycle,period,phase,warningSeconds,attackSeconds;
             public int hits;
         }
-        [Serializable] sealed class ClockworkReport {public ClockworkTrapInfo[] traps;}
+        [Serializable] sealed class ClockworkPressInfo
+        {
+            public Vector3 position,visual,forward;
+            public float period,phase,cycle;
+        }
+        [Serializable] sealed class ClockworkFerryInfo
+        {
+            public Vector3 position,origin,travel,waiting,boarding,arrival;
+            public float period,phase,standingOffset;
+        }
+        [Serializable] sealed class ClockworkReport
+        {
+            public ClockworkTrapInfo[] traps;
+            public ClockworkPressInfo[] presses;
+            public ClockworkFerryInfo[] ferries;
+        }
         [Serializable] sealed class Report
         {
             public string role,status,code,map,cardState,error;
@@ -245,10 +260,17 @@ namespace HalliGalli.Movement
                 report.clockwork=new ClockworkReport{traps=game.clockwork.traps.Select(trap=>{
                     var sample=trap.Sample(now);
                     return new ClockworkTrapInfo{kind=trap.kind.ToString(),stage=sample.stage.ToString(),cycle=sample.cycle,
-                        position=trap.transform.position,visual=trap.movingRoot.position,period=trap.period,phase=trap.phase,
+                        position=trap.transform.position,visual=trap.movingRoot.position,forward=trap.transform.forward,period=trap.period,phase=trap.phase,
                         warningSeconds=trap.warningSeconds,attackSeconds=trap.attackSeconds,hits=trap.Hits,
                         hitPoints=trap.hitboxes.Select(box=>box.transform.TransformPoint(box.center)).ToArray()};
-                }).ToArray()};
+                }).ToArray(),
+                    presses=game.clockwork.presses.Select(press=>new ClockworkPressInfo{
+                        position=press.raised,visual=press.head.position,forward=press.transform.forward,
+                        period=press.period,phase=press.phase,cycle=press.Cycle(now)}).ToArray(),
+                    ferries=game.clockwork.ferries.Select(ferry=>new ClockworkFerryInfo{
+                        position=ferry.carrier.transform.position,origin=ferry.carrier.origin,travel=ferry.carrier.travel,
+                        waiting=ferry.waitingPoint.position,boarding=ferry.boardingDock.bounds.center,arrival=ferry.arrivalDock.bounds.center,
+                        period=ferry.carrier.period,phase=ferry.carrier.phase,standingOffset=ferry.carrier.standingOffset}).ToArray()};
             }
             try{File.WriteAllText(Path.Combine(folder,"state-"+role+".json"),JsonUtility.ToJson(report));}catch(IOException){}
         }

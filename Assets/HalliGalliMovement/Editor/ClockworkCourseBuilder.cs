@@ -15,12 +15,31 @@ namespace HalliGalli.EditorTools
     {
         public const string Id = "clockwork";
         public const string ScenePath = MovementProjectBuilder.Root + "/Demo/ClockworkCourse.unity";
-        public const float FinishZ = 128;
-        const float Width = 8, EndZ = 132;
+        public const float FinishZ = 80, CourseLength = 160;
+        const float Width = 8;
+        const int FerryBoardWaypoint = 21, FerryExitWaypoint = 22;
         const string Art = MovementProjectBuilder.Root + "/Art/Clockwork";
         const string Thumbnail = MovementProjectBuilder.Root + "/Resources/UI/Maps/Clockwork.png";
-        static readonly float[] TrapZ = { 20, 32, 58, 70, 94, 106 };
-        static readonly float[] RouteZ = { 2.3f, 5.7f, 11, 17, 23, 29, 35, 45, 51, 55, 61, 67, 73, 82, 87, 91, 97, 103, 109, 119, 127.2f };
+        static readonly Vector3[] LegOrigins = { Vector3.zero, new Vector3(0, 0, 40), new Vector3(40, 0, 40), new Vector3(40, 0, 80) };
+        static readonly float[] LegYaw = { 0, 90, 0, -90 };
+        static readonly int[] TrapLeg = { 0, 1, 2, 3, 3, 3 };
+        static readonly float[] TrapDistance = { 28, 30, 34, 10, 20, 29 };
+        static readonly int[] CheckpointWaypoint = { 9, 18, 25 };
+        static readonly Vector3[] RoutePoints = {
+            RoutePoint(0, 2.3f), RoutePoint(0, 5.7f), RoutePoint(0, 10.8f),
+            RoutePoint(0, 15.2f), RoutePoint(0, 18.3f), RoutePoint(0, 22.7f),
+            RoutePoint(0, 25), RoutePoint(0, 31), RoutePoint(0, 35.5f), RoutePoint(1, 0),
+            RoutePoint(1, 6), RoutePoint(1, 9), RoutePoint(1, 15), RoutePoint(1, 17),
+            RoutePoint(1, 23), RoutePoint(1, 27), RoutePoint(1, 33), RoutePoint(1, 35.5f), RoutePoint(2, 0),
+            RoutePoint(2, 6), RoutePoint(2, 8), RoutePoint(2, 12), RoutePoint(2, 28),
+            RoutePoint(2, 31), RoutePoint(2, 37), RoutePoint(3, 0),
+            RoutePoint(3, 6), RoutePoint(3, 7), RoutePoint(3, 13), RoutePoint(3, 17),
+            RoutePoint(3, 23), RoutePoint(3, 26), RoutePoint(3, 32),
+            RoutePoint(3, 33.8f), RoutePoint(3, 38), RoutePoint(3, 39.2f)
+        };
+
+        static Vector3 RoutePoint(int leg, float distance)
+            => LegOrigins[leg] + Quaternion.Euler(0, LegYaw[leg], 0) * new Vector3(0, .025f, distance);
 
         [MenuItem("HalliGalli/Maps/Build Clockwork Fortress Only")]
         public static void Build()
@@ -29,7 +48,7 @@ namespace HalliGalli.EditorTools
             if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
             var profile = AssetDatabase.LoadAssetAtPath<SourceMovementProfile>(MovementProjectBuilder.Root + "/Settings/DefaultMovement.asset");
             if (!profile || !CourseMapsBuilder.Catalog) throw new InvalidOperationException("The saved starter movement profile and map catalog are required.");
-            foreach (string key in new[] { "ConcreteFloor", "ConcreteWall", "ConcreteColumn", "UtilityPipes", "CeilingLight", "MountainRock" })
+            foreach (string key in new[] { "ConcreteFloor", "ConcreteWall", "ConcreteColumn", "UtilityPipes", "CeilingLight" })
                 if (!EnvironmentAssetImporter.Prefab(key)) throw new FileNotFoundException("Existing environment prefab missing: " + key);
             var palette = new Palette();
             var shapes = new Shapes();
@@ -44,13 +63,25 @@ namespace HalliGalli.EditorTools
             var course = root.gameObject.AddComponent<ClockworkCourse>();
             course.session = session;
             session.clockwork = course;
-            BuildFloor(root, session, palette);
-            BuildFortress(root, palette, shapes);
-            course.traps = new ClockworkTrap[TrapZ.Length];
-            for (int i = 0; i < TrapZ.Length; i++)
-                course.traps[i] = BuildTrap(root, session, i, palette, shapes);
-            BuildRoutes(session.roster);
-            PlaceBell(session, root, palette, shapes);
+            var legs = new Transform[LegOrigins.Length];
+            for (int i = 0; i < legs.Length; i++) {
+                legs[i] = Node(root, "Leg " + (char)('A' + i) + " / 40 metres", LegOrigins[i]);
+                legs[i].localRotation = Quaternion.Euler(0, LegYaw[i], 0);
+            }
+            BuildFloor(root, legs, session, palette, out var boardingDock, out var arrivalDock);
+            BuildFortress(legs, palette, shapes);
+            course.traps = new ClockworkTrap[TrapDistance.Length];
+            for (int i = 0; i < TrapDistance.Length; i++)
+                course.traps[i] = BuildTrap(legs[TrapLeg[i]], session, i, palette, shapes);
+            course.presses = new[] {
+                BuildPress(legs[1], session, 12, 0, palette, shapes),
+                BuildPress(legs[1], session, 20, .5f, palette, shapes)
+            };
+            var ferry = BuildFerry(legs[2], boardingDock, arrivalDock, palette, shapes);
+            course.ferries = new[] { ferry };
+            course.movingPlatforms = new[] { ferry.carrier };
+            BuildRoutes(session.roster, ferry);
+            PlaceBell(session, legs[3], palette, shapes);
             session.fallHeight = -5;
             session.maps.current = Register(profile);
             session.maps.catalog = CourseMapsBuilder.Catalog;
@@ -66,7 +97,7 @@ namespace HalliGalli.EditorTools
             else scenes.Add(new EditorBuildSettingsScene(ScenePath, true));
             EditorBuildSettings.scenes = scenes.ToArray();
             AssetDatabase.SaveAssets();
-            Debug.Log("CLOCKWORK_CREATED " + ScenePath + " length=128 traps=6 checkpoints=2 seats=6");
+            Debug.Log("CLOCKWORK_CREATED " + ScenePath + " length=" + CourseLength + " legs=4 traps=6 presses=2 ferries=1 jumpGaps=3 checkpoints=3 seats=6 waypoints=36");
         }
 
         static void PrepareTemplate(CourseSession session)
@@ -118,75 +149,115 @@ namespace HalliGalli.EditorTools
             roster.branches = null; roster.surf = null;
         }
 
-        static void BuildFloor(Transform root, CourseSession session, Palette p)
+        static void BuildFloor(Transform root, Transform[] legs, CourseSession session, Palette p,
+            out BoxCollider boardingDock, out BoxCollider arrivalDock)
         {
-            var floor = Node(root, "Stone causeway and safe landings", Vector3.zero);
-            // Separate, flush floor pieces make checkpoint raycasts unambiguous; no duplicate floor under a landing.
-            FloorCollider(floor, "Start apron", 0, 8, 10);
-            FloorCollider(floor, "Spear hall floor", 8, 42, Width);
-            var first = FloorCollider(floor, "Checkpoint I safe deck", 42, 48, Width);
-            FloorCollider(floor, "Arrow hall floor", 48, 79, Width);
-            var second = FloorCollider(floor, "Checkpoint II safe deck", 79, 85, Width);
-            FloorCollider(floor, "Mixed hall and bell floor", 85, EndZ, Width);
-            for (float z = 0; z < EndZ; z += 4)
-                Prop("ConcreteFloor", floor, new Vector3(0, -.15f, z + 2), new Vector3(z < 8 ? 10 : Width, .3f, 4));
+            // Every slab ends at its visible edge. Gaps have neither hidden floor nor decorative bridge.
+            Deck(legs[0], "Start apron", 0, 8, 10, p);
+            Deck(legs[0], "First jump approach", 8, 12, Width, p);
+            Deck(legs[0], "Double jump middle island", 13.5f, 19.5f, Width, p);
+            Deck(legs[0], "Spear approach and clearance", 21, 35, Width, p);
+            Deck(legs[1], "First press waiting pad", 5, 10, Width, p);
+            Deck(legs[1], "First press threshold", 10, 14, Width, p);
+            Deck(legs[1], "Press clearance and second waiting pad", 14, 18, Width, p);
+            Deck(legs[1], "Second press threshold", 18, 22, Width, p);
+            Deck(legs[1], "Arrow approach and clearance", 22, 35, Width, p);
+            boardingDock = Deck(legs[2], "Ferry boarding dock", 5, 10, Width, p);
+            arrivalDock = Deck(legs[2], "Ferry arrival dock and arrow hall", 26, 35, Width, p);
+            Deck(legs[3], "Final mixed trap run", 5, 35, Width, p);
+            Deck(legs[3], "Final jump landing and bell deck", 36.5f, 44, Width, p);
             session.checkpoints.session = session;
-            session.checkpoints.points = new[] {
-                Checkpoint(session.checkpoints.transform, first, 45, 7, "I", p),
-                Checkpoint(session.checkpoints.transform, second, 82, 13, "II", p)
-            };
+            session.checkpoints.points = new CourseCheckpoints.Point[3];
+            for (int i = 0; i < 3; i++) {
+                var corner = Node(root, "Safe turn plaza " + (i + 1), LegOrigins[i + 1]);
+                corner.localRotation = Quaternion.Euler(0, LegYaw[i + 1], 0);
+                var landing = Deck(corner, "Checkpoint " + (i + 1) + " safe deck", -5, 5, 10, p);
+                session.checkpoints.points[i] = Checkpoint(session.checkpoints.transform, corner, landing,
+                    CheckpointWaypoint[i], new[] { "I", "II", "III" }[i], i == 0, p);
+            }
+            JumpLip(legs[0], 12, "JUMP / DOUBLE GAP", p);
+            JumpLip(legs[0], 19.5f, "JUMP / SECOND GAP", p);
+            JumpLip(legs[3], 35, "JUMP / THE BELL", p);
         }
 
-        static BoxCollider FloorCollider(Transform parent, string name, float from, float to, float width)
+        static BoxCollider Deck(Transform parent, string name, float from, float to, float width, Palette p)
         {
             var floor = Node(parent, name, new Vector3(0, -.3f, (from + to) * .5f));
             var collider = floor.gameObject.AddComponent<BoxCollider>();
             collider.size = new Vector3(width, .6f, to - from);
+            for (float edge = from; edge < to; edge += 4) {
+                float length = Mathf.Min(4, to - edge);
+                Prop("ConcreteFloor", floor, new Vector3(0, .15f, edge + length * .5f - (from + to) * .5f), new Vector3(width, .3f, length));
+            }
+            foreach (int side in new[] { -1, 1 })
+                Box(floor, "Bronze deck edge", new Vector3(side * (width * .5f - .06f), .3f, 0), new Vector3(.12f, .025f, to - from), p.bronze);
             return collider;
         }
 
-        static CourseCheckpoints.Point Checkpoint(Transform parent, BoxCollider floor, float z, int resume, string title, Palette p)
+        static CourseCheckpoints.Point Checkpoint(Transform parent, Transform corner, BoxCollider floor,
+            int resume, string title, bool turnRight, Palette p)
         {
-            var spawn = Node(parent, "Clockwork checkpoint " + title, new Vector3(0, .025f, z));
-            var outline = Node(parent, "Checkpoint " + title + " outline", Vector3.zero).gameObject.AddComponent<LineRenderer>();
-            outline.loop = true; outline.positionCount = 4; outline.widthMultiplier = .045f;
+            var spawn = Node(parent, "Clockwork checkpoint " + title, Vector3.zero);
+            spawn.SetPositionAndRotation(corner.TransformPoint(Vector3.up * .025f), corner.rotation);
+            var outline = Node(corner, "Checkpoint " + title + " outline", Vector3.zero).gameObject.AddComponent<LineRenderer>();
+            outline.useWorldSpace = false; outline.loop = true; outline.positionCount = 4; outline.widthMultiplier = .045f;
             outline.sharedMaterial = p.checkpoint;
-            outline.SetPositions(new[] { new Vector3(-3.5f, .025f, z - 2), new Vector3(3.5f, .025f, z - 2), new Vector3(3.5f, .025f, z + 2), new Vector3(-3.5f, .025f, z + 2) });
-            foreach (int side in new[] { -1, 1 }) {
-                Box(parent, "Checkpoint plaque", new Vector3(side * 3.65f, 1.65f, z + 1.5f), new Vector3(.65f, .8f, .12f), p.dark);
-                Label(parent, title, new Vector3(side * 3.65f, 1.83f, z + 1.42f), .62f, p.safe.color, p.text);
-                Label(parent, "SAVED", new Vector3(side * 3.65f, 1.49f, z + 1.42f), .15f, p.safe.color, p.text);
-            }
+            outline.SetPositions(new[] { new Vector3(-4.8f, .025f, -4.8f), new Vector3(4.8f, .025f, -4.8f),
+                new Vector3(4.8f, .025f, 4.8f), new Vector3(-4.8f, .025f, 4.8f) });
+            // The outside of the turn holds signage; both incoming and outgoing centerlines remain open.
+            float side = turnRight ? -1 : 1;
+            Prop("ConcreteColumn", corner, new Vector3(side * 4.3f, .8f, 0), new Vector3(.7f, 1.6f, .7f));
+            Box(corner, "Checkpoint plaque", new Vector3(side * 4.3f, 1.9f, 0), new Vector3(.85f, 1, .12f), p.dark);
+            Label(corner, title, new Vector3(side * 4.3f, 2.15f, -.08f), .62f, p.safe.color, p.text);
+            Label(corner, "SAVED", new Vector3(side * 4.3f, 1.79f, -.08f), .15f, p.safe.color, p.text);
+            Label(corner, turnRight ? "TURN RIGHT" : "TURN LEFT", new Vector3(side * 4.3f, 1.59f, -.08f), .13f, p.ivory.color, p.text);
+            RouteArrow(corner, 1.2f, p.safe);
+            RouteArrow(corner, 3.5f, p.safe);
             return new CourseCheckpoints.Point { spawn = spawn, landing = floor, resumeWaypoint = resume };
         }
 
-        static void BuildFortress(Transform parent, Palette p, Shapes shapes)
+        static void RouteArrow(Transform parent, float distance, Material material)
         {
-            var root = Node(parent, "Textured fortress architecture", Vector3.zero);
+            var root = Node(parent, "Forward route arrow", new Vector3(0, .035f, distance));
+            Box(root, "Arrow stem", new Vector3(0, 0, -.4f), new Vector3(.1f, .015f, .8f), material);
             foreach (int side in new[] { -1, 1 }) {
-                var wall = Node(root, "Solid outer fortress wall", new Vector3(side * 4.45f, 3, 70));
-                wall.gameObject.AddComponent<BoxCollider>().size = new Vector3(.9f, 6, 124);
-                for (int z = 10; z < EndZ; z += 4)
-                    Prop("ConcreteWall", root, new Vector3(side * 4.45f, 2.7f, z), new Vector3(4.02f, 5.4f, .9f), 90);
-                for (int z = 12; z <= 132; z += 12) {
-                    Prop("ConcreteColumn", root, new Vector3(side * 4.7f, 3, z), new Vector3(1.1f, 6, 1.2f));
-                    Prop("ConcreteColumn", root, new Vector3(side * 4.7f, 6.15f, z), new Vector3(1.4f, .3f, 1.5f));
-                    var gear = MeshObject(root, "Bronze wall gear", new Vector3(side * 3.97f, 3.7f, z + 4), shapes.gear, p.bronze);
-                    gear.localRotation = Quaternion.Euler(0, side * 90, 0);
-                    gear.localScale = Vector3.one * .85f;
-                    Prop("CeilingLight", root, new Vector3(side * 3.95f, 2.7f, z), new Vector3(.36f, .65f, .45f), side * 90);
-                }
-                for (int z = 16; z <= 128; z += 24)
-                    Prop("MountainRock", root, new Vector3(side * 10, -3.4f, z), new Vector3(14, 6, 26), z * side);
+                var stroke = Box(root, "Arrow tip", new Vector3(side * .2f, 0, -.14f), new Vector3(.1f, .015f, .58f), material);
+                stroke.localRotation = Quaternion.Euler(0, -side * 45, 0);
             }
-            var end = Node(root, "Solid back wall", new Vector3(0, 3, EndZ + .45f));
-            end.gameObject.AddComponent<BoxCollider>().size = new Vector3(9.8f, 6, .9f);
-            Prop("ConcreteWall", root, new Vector3(0, 2.7f, EndZ + .45f), new Vector3(9.8f, 5.4f, .9f));
-            Gate(root, 12, "01 / SPEARS", "AMBER: WAIT   GREEN: CROSS", p, shapes, ClockworkTrapKind.Spears);
-            Gate(root, 50, "02 / ARROWS", "WATCH THE WALLS   WAIT FOR GREEN", p, shapes, ClockworkTrapKind.Arrows);
-            Gate(root, 86, "03 / CLOCKWORK", "SAME RHYTHM   TWO TRAP TYPES", p, shapes, ClockworkTrapKind.Spears);
-            Gate(root, 121, "THE BELL", "128 METRES / RING TO CLAIM", p, shapes, ClockworkTrapKind.Arrows);
-            // Open sky over the untouched table keeps the six-player card camera unobstructed.
+        }
+
+        static void JumpLip(Transform parent, float distance, string title, Palette p)
+        {
+            for (int stripe = -4; stripe <= 4; stripe++)
+                Box(parent, "Jump takeoff stripe", new Vector3(stripe * .75f, .025f, distance - .25f), new Vector3(.42f, .025f, .16f), p.ivory);
+            RouteArrow(parent, distance - 1.5f, p.ivory);
+            Box(parent, "Jump instruction plaque", new Vector3(-3.7f, 1.15f, distance - 1.1f), new Vector3(.6f, .6f, .08f), p.dark);
+            Label(parent, title, new Vector3(-3.7f, 1.17f, distance - 1.16f), .1f, p.ivory.color, p.text);
+        }
+
+        static void BuildFortress(Transform[] legs, Palette p, Shapes shapes)
+        {
+            float[][] stations = {
+                new[] { 9.5f, 24, 32 }, new[] { 7f, 25, 33 },
+                new[] { 7f, 29 }, new[] { 6.5f, 15, 24, 32, 40 }
+            };
+            for (int leg = 0; leg < legs.Length; leg++) {
+                var root = Node(legs[leg], "Open fortress machine housings", Vector3.zero);
+                foreach (float distance in stations[leg]) foreach (int side in new[] { -1, 1 }) {
+                    Prop("ConcreteWall", root, new Vector3(side * 4.55f, .8f, distance), new Vector3(2.6f, 1.6f, .6f), 90);
+                    Prop("ConcreteColumn", root, new Vector3(side * 4.7f, 1.7f, distance), new Vector3(.8f, 3.4f, .9f));
+                    Prop("ConcreteColumn", root, new Vector3(side * 4.7f, 3.5f, distance), new Vector3(1.05f, .25f, 1.15f));
+                    var gear = MeshObject(root, "Bronze wall gear", new Vector3(side * 4.24f, 2.45f, distance), shapes.gear, p.bronze);
+                    gear.localRotation = Quaternion.Euler(0, side * 90, 0); gear.localScale = Vector3.one * .58f;
+                    Prop("CeilingLight", root, new Vector3(side * 4.18f, 1.25f, distance), new Vector3(.3f, .55f, .35f), side * 90);
+                }
+            }
+            Gate(legs[0], 8, "01 / LEAP & SPEARS", "TWO JUMPS / WAIT FOR GREEN / TURN RIGHT", p, shapes, ClockworkTrapKind.Spears);
+            Gate(legs[1], 6, "02 / HYDRAULIC HALL", "TWO PRESSES / ARROWS / TURN LEFT", p, shapes, ClockworkTrapKind.Arrows);
+            Gate(legs[2], 6, "03 / CLOCKWORK FERRY", "WAIT / BOARD / RIDE / TURN LEFT", p, shapes, ClockworkTrapKind.Arrows);
+            Gate(legs[3], 6, "04 / THE BELL", "MIXED TRAPS / FINAL JUMP / 160 METRES", p, shapes, ClockworkTrapKind.Spears);
+            // Short, non-colliding housings leave the turns, every jump lip and both ferry docks visibly open.
+            // No ceiling is built over the original six-seat table/card camera.
         }
 
         static void Gate(Transform parent, float z, string title, string subtitle, Palette p, Shapes shapes, ClockworkTrapKind icon)
@@ -211,8 +282,8 @@ namespace HalliGalli.EditorTools
 
         static ClockworkTrap BuildTrap(Transform parent, CourseSession session, int index, Palette p, Shapes shapes)
         {
-            bool spears = index == 0 || index == 1 || index == 4;
-            var root = Node(parent, (spears ? "Spears " : "Arrows ") + (index + 1), new Vector3(0, 0, TrapZ[index]));
+            bool spears = index == 0 || index == 3 || index == 5;
+            var root = Node(parent, (spears ? "Spears " : "Arrows ") + (index + 1), new Vector3(0, 0, TrapDistance[index]));
             var trap = root.gameObject.AddComponent<ClockworkTrap>();
             trap.session = session; trap.kind = spears ? ClockworkTrapKind.Spears : ClockworkTrapKind.Arrows;
             trap.period = 5.6f; trap.phase = index % 2 == 0 ? 0 : 2.8f;
@@ -259,30 +330,104 @@ namespace HalliGalli.EditorTools
             return trap;
         }
 
-        static void BuildRoutes(CourseRoster roster)
+        static FactoryPress BuildPress(Transform parent, CourseSession session, float distance, float phase, Palette p, Shapes shapes)
         {
+            var root = Node(parent, "Hydraulic press / " + distance + " metres", new Vector3(0, 0, distance));
+            var press = root.gameObject.AddComponent<FactoryPress>();
+            press.contactSession = session; press.orientedContact = true; press.period = 4.8f; press.phase = phase;
+            foreach (int side in new[] { -1, 1 }) {
+                Box(root, "Press upright", new Vector3(side * 4.55f, 2.65f, 0), new Vector3(.45f, 5.3f, .75f), p.steel);
+                Prop("UtilityPipes", root, new Vector3(side * 4.65f, 2.6f, .45f), new Vector3(.4f, 4, .45f));
+                var gear = MeshObject(root, "Press drive gear", new Vector3(side * 4.55f, 3.2f, -.45f), shapes.gear, p.bronze);
+                gear.localScale = Vector3.one * .5f;
+            }
+            Box(root, "Press crossbeam", new Vector3(0, 5.2f, 0), new Vector3(9.5f, .5f, 1.5f), p.steel);
+            press.head = Node(root, "Press head", Vector3.up * 3.8f);
+            press.raised = press.head.position; press.stroke = 3.25f;
+            press.headCollider = press.head.gameObject.AddComponent<BoxCollider>();
+            press.headCollider.size = new Vector3(Width, .8f, 1.4f);
+            Box(press.head, "Blackened press plate", Vector3.zero, press.headCollider.size, p.dark);
+            Box(press.head, "Press hazard band", new Vector3(0, -.2f, -.72f), new Vector3(Width, .15f, .025f), p.bronze);
+            Box(press.head, "Piston", Vector3.up * 1.05f, new Vector3(.45f, 1.4f, .45f), p.steel);
+            press.warning = MeshObject(root, "Paired press signals", new Vector3(0, 2.7f, -1), shapes.signals, p.signal).GetComponent<Renderer>();
+            for (int stripe = -5; stripe <= 5; stripe++)
+                Box(root, "Press hazard threshold", new Vector3(stripe * .65f, .025f, -.95f), new Vector3(.32f, .02f, .14f), p.bronze);
+            foreach (float pad in new[] { -2.5f, 2.5f }) {
+                Box(root, "Press safe pad marker", new Vector3(-3.65f, .025f, pad), new Vector3(.2f, .025f, 1.1f), p.safe);
+                Box(root, "Press safe pad marker", new Vector3(3.65f, .025f, pad), new Vector3(.2f, .025f, 1.1f), p.safe);
+            }
+            Box(root, "Press wait plaque", new Vector3(-3.7f, 1.35f, -3), new Vector3(.6f, .7f, .08f), p.dark);
+            Label(root, "WAIT\nFOR GREEN", new Vector3(-3.7f, 1.37f, -3.06f), .12f, p.ivory.color, p.text);
+            press.Apply(0);
+            return press;
+        }
+
+        static ClockworkCourse.Ferry BuildFerry(Transform parent, BoxCollider boardingDock, BoxCollider arrivalDock, Palette p, Shapes shapes)
+        {
+            var root = Node(parent, "Mandatory clockwork ferry", new Vector3(0, -.3f, 12));
+            var collider = root.gameObject.AddComponent<BoxCollider>();
+            collider.size = new Vector3(5, .6f, 4);
+            var carrier = root.gameObject.AddComponent<FactorySurface>();
+            carrier.origin = parent.TransformPoint(new Vector3(0, -.3f, 18));
+            carrier.travel = parent.TransformVector(Vector3.forward * 6);
+            carrier.period = 10; carrier.phase = -.25f; carrier.standingOffset = .325f;
+            carrier.transform.position = carrier.PositionAt(0);
+            Prop("ConcreteFloor", root, new Vector3(0, .15f, 0), new Vector3(5, .3f, 4));
+            Box(root, "Ferry hull", new Vector3(0, -.1f, 0), new Vector3(4.8f, .3f, 3.8f), p.dark);
+            foreach (int side in new[] { -1, 1 }) {
+                Box(root, "Ferry side band", new Vector3(side * 2.44f, .28f, 0), new Vector3(.12f, .05f, 4), p.bronze);
+                var gear = MeshObject(root, "Ferry drive gear", new Vector3(side * 2.52f, -.12f, 0), shapes.gear, p.bronze);
+                gear.localRotation = Quaternion.Euler(0, 90, 0); gear.localScale = Vector3.one * .38f;
+                foreach (float edge in new[] { 9.65f, 26.35f })
+                    Box(parent, "Dock berth marker", new Vector3(side * 2.7f, .12f, edge), new Vector3(.18f, .24f, .5f), p.bronze);
+            }
+            var symbols = Node(root, "Moving ferry deck arrows", Vector3.up * .3f);
+            RouteArrow(symbols, .5f, p.safe);
+            var wait = Node(parent, "Ferry safe waiting point", new Vector3(0, .025f, 8));
+            RouteArrow(parent, 8, p.safe);
+            Box(parent, "Ferry wait plaque", new Vector3(-3.55f, 1.3f, 8), new Vector3(.85f, .85f, .12f), p.dark);
+            Label(parent, "WAIT\nBOARD & RIDE", new Vector3(-3.55f, 1.32f, 7.92f), .12f, p.ivory.color, p.text);
+            return new ClockworkCourse.Ferry {
+                carrier = carrier, boardingDock = boardingDock, arrivalDock = arrivalDock, waitingPoint = wait,
+                boardWaypoint = FerryBoardWaypoint, exitWaypoint = FerryExitWaypoint
+            };
+        }
+
+        static void BuildRoutes(CourseRoster roster, ClockworkCourse.Ferry ferry)
+        {
+            var movingMarkers = new Transform[roster.routeRoots.Length];
             for (int seat = 0; seat < roster.routeRoots.Length; seat++) {
                 var route = roster.routeRoots[seat];
-                for (int i = 0; i < RouteZ.Length; i++) {
-                    float x = i == 0 ? (seat - 2.5f) * CourseRoster.SeatSpacing : i == 1 ? (seat - 2.5f) * .5f : 0;
-                    var marker = Node(route, "Clockwork waypoint " + i, new Vector3(x, .025f, RouteZ[i]));
+                for (int i = 0; i < RoutePoints.Length; i++) {
+                    var position = RoutePoints[i];
+                    position.x += i == 0 ? (seat - 2.5f) * CourseRoster.SeatSpacing : i == 1 ? (seat - 2.5f) * .5f : 0;
+                    var marker = Node(route, "Clockwork waypoint " + i, Vector3.zero);
+                    marker.position = position;
                     marker.gameObject.AddComponent<ClimbStep>().arrivalRadius = .45f;
+                    if (i == FerryBoardWaypoint) {
+                        marker.position = ferry.carrier.transform.position + Vector3.up * ferry.carrier.standingOffset;
+                        movingMarkers[seat] = marker;
+                    }
+                    int leg = i < CheckpointWaypoint[0] ? 0 : i < CheckpointWaypoint[1] ? 1 : i < CheckpointWaypoint[2] ? 2 : 3;
+                    marker.rotation = Quaternion.Euler(0, LegYaw[leg], 0);
                 }
                 var bot = roster.allParticipants[seat].GetComponent<CourseRival>();
                 if (bot) bot.route = route.Cast<Transform>().ToArray();
             }
+            ferry.carrier.routeMarkers = movingMarkers;
         }
 
         static void PlaceBell(CourseSession session, Transform root, Palette p, Shapes shapes)
         {
             var roots = session.gameObject.scene.GetRootGameObjects();
-            roots.Single(item => item.name == "Bell plinth").transform.position = new Vector3(0, .35f, FinishZ);
-            session.bellTarget.position = new Vector3(0, .7f, FinishZ);
+            var rotation = Quaternion.Euler(0, -90, 0);
+            roots.Single(item => item.name == "Bell plinth").transform.SetPositionAndRotation(new Vector3(0, .35f, FinishZ), rotation);
+            session.bellTarget.SetPositionAndRotation(new Vector3(0, .7f, FinishZ), rotation);
             var label = roots.FirstOrDefault(item => item.name == "RING");
-            if (label) label.transform.SetPositionAndRotation(new Vector3(0, .4f, FinishZ - .34f), Quaternion.identity);
+            if (label) label.transform.SetPositionAndRotation(new Vector3(.34f, .4f, FinishZ), rotation);
             foreach (int side in new[] { -1, 1 }) {
-                Prop("ConcreteColumn", root, new Vector3(side * 3.1f, .8f, 129), new Vector3(.9f, 1.6f, .9f));
-                var gear = MeshObject(root, "Bell podium medallion", new Vector3(side * 3.1f, 1, 128.5f), shapes.gear, p.bronze);
+                Prop("ConcreteColumn", root, new Vector3(side * 3.1f, .8f, 41), new Vector3(.9f, 1.6f, .9f));
+                var gear = MeshObject(root, "Bell podium medallion", new Vector3(side * 3.1f, 1, 40.5f), shapes.gear, p.bronze);
                 gear.localScale = Vector3.one * .36f;
             }
         }
@@ -293,7 +438,7 @@ namespace HalliGalli.EditorTools
             var map = AssetDatabase.LoadAssetAtPath<CourseMapDefinition>(path);
             if (!map) { map = ScriptableObject.CreateInstance<CourseMapDefinition>(); AssetDatabase.CreateAsset(map, path); }
             map.id = Id; map.displayName = "태엽 요새"; map.style = CourseMapStyle.Factory; map.difficulty = 2;
-            map.description = "128m 태엽 요새. 예고등을 보고 솟아나는 창과 가로지르는 화살의 일정한 리듬을 익히세요. 두 안전 지점에서 재출발합니다.";
+            map.description = "160m 태엽 요새. 점프 틈과 창·화살, 두 프레스를 지나 좌우로 꺾이는 길을 달리세요. 왕복 발판을 기다려 타고 마지막 점프 너머 종을 울리세요. 세 모서리의 안전 지점에서 재출발합니다.";
             map.scenePath = ScenePath; map.movementProfile = profile; map.playable = true; map.thumbnail = "Clockwork";
             var catalog = CourseMapsBuilder.Catalog;
             catalog.maps = (catalog.maps ?? Array.Empty<CourseMapDefinition>()).Where(existing => existing && existing.id != Id).Append(map).ToArray();
@@ -328,12 +473,20 @@ namespace HalliGalli.EditorTools
             var target = new RenderTexture(960, 480, 24, RenderTextureFormat.ARGB32);
             var image = new Texture2D(960, 480, TextureFormat.RGB24, false);
             var previous = RenderTexture.active;
+            bool previousFog = RenderSettings.fog;
+            var ferry = course.ferries[0].carrier;
+            var previousFerryPosition = ferry.transform.position;
+            var press = course.presses[1];
+            var previousHeadPosition = press.head.position;
             var spear = course.traps[0].movingRoot;
             var oldPosition = spear.localPosition;
             var signal = course.traps[0].warning;
             var previousSignal = new MaterialPropertyBlock();
             signal.GetPropertyBlock(previousSignal);
             try {
+                RenderSettings.fog = false;
+                ferry.transform.position = ferry.origin;
+                press.head.position = press.raised - Vector3.up * press.stroke * .65f;
                 spear.localPosition = Vector3.zero;
                 var activeSignal = new MaterialPropertyBlock();
                 activeSignal.SetColor("_Color", new Color(1, .08f, .025f));
@@ -342,14 +495,20 @@ namespace HalliGalli.EditorTools
                 camera.enabled = false;
                 camera.cullingMask = ~((1 << CharacterMotionDriver.HandsLayer) | (1 << 8));
                 camera.clearFlags = CameraClearFlags.SolidColor; camera.backgroundColor = RenderSettings.fogColor;
-                camera.fieldOfView = 66; camera.farClipPlane = 220;
-                camera.transform.position = new Vector3(2.8f, 3.1f, 8.5f);
-                camera.transform.LookAt(new Vector3(0, 1.65f, 24));
+                camera.orthographic = true; camera.orthographicSize = 50; camera.farClipPlane = 240;
+                camera.transform.position = new Vector3(-48, 95, 2);
+                camera.transform.LookAt(new Vector3(20, 0, 40));
                 camera.targetTexture = target; camera.Render();
                 RenderTexture.active = target;
                 image.ReadPixels(new Rect(0, 0, target.width, target.height), 0, 0); image.Apply();
-                File.WriteAllBytes(Thumbnail, image.EncodeToPNG());
+                var png = image.EncodeToPNG();
+                File.WriteAllBytes(Thumbnail, png);
+                Directory.CreateDirectory("Previews");
+                File.WriteAllBytes("Previews/ClockworkMixedOverview.png", png);
             } finally {
+                RenderSettings.fog = previousFog;
+                ferry.transform.position = previousFerryPosition;
+                press.head.position = previousHeadPosition;
                 spear.localPosition = oldPosition;
                 signal.SetPropertyBlock(previousSignal);
                 camera.targetTexture = null; RenderTexture.active = previous;

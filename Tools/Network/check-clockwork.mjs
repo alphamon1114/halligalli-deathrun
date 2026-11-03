@@ -7,6 +7,9 @@ const processes=[],checks=[],observations=[],cached={},sequences={};
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 function state(role){try{cached[role]=JSON.parse(fs.readFileSync(path.join(folder,'state-'+role+'.json'),'utf8'));}catch{}return cached[role];}
 const host=()=>state('host'),guest=()=>state('client1'),peers=()=>[host(),guest()];
+const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z);
+const offset=(point,forward,n)=>({x:point.x+forward.x*n,y:.025,z:point.z+forward.z*n});
+const yaw=forward=>Math.atan2(forward.x,forward.z)*180/Math.PI;
 function check(name,passed,detail){checks.push({name,passed,detail});if(!passed)throw Error(name);}
 async function wait(name,predicate,timeout=20000){const deadline=Date.now()+timeout;while(Date.now()<deadline){if(predicate())return;await sleep(30);}throw Error('Timeout: '+name);}
 async function command(role,action,extra={}){
@@ -18,78 +21,89 @@ function launch(role){processes.push(spawn(path.join(project,'Build/Windows/Hall
 async function capture(name){await command('host','capture',{value:name});await wait('Capture '+name,()=>fs.existsSync(path.join(folder,name+'.png')));observations.push({name,host:structuredClone(host()),guest:structuredClone(guest())});}
 async function stand(){await command('host','five');for(const role of ['host','client1'])await command(role,'action',{value:'Interact'});await wait('Racers stand',()=>peers().every(s=>s.actors.slice(0,2).every(a=>!a.seated)));}
 async function teleport(seat,position){
- // Lift above the entire course first: fixture repositioning must not sweep through unrelated live traps.
+ // Fixture repositioning travels above the course, not through unrelated live hazards.
  const start=host().actors[seat].position;
  await command('host','teleport',{seat,position:{x:start.x,y:10,z:start.z}});
  await command('host','teleport',{seat,position:{x:position.x,y:10,z:position.z}});
  await command('host','teleport',{seat,position});
 }
-async function walkTo(x,z){
- const deadline=Date.now()+30000,falls=host().actors[1].falls;
- while(Date.now()<deadline){const actor=host().actors[1],dx=x-actor.position.x,dz=z-actor.position.z;if(actor.falls!==falls)throw Error('Physical traversal hit a trap');if(Math.hypot(dx,dz)<.4){await command('client1','move',{x:0,z:0});return;}await command('client1','move',{x:0,z:1,yaw:Math.atan2(dx,dz)*180/Math.PI});await sleep(35);}
- throw Error('Walking timeout');
-}
+async function startRoom(){await command('client1','ready');await wait('Room ready',()=>host().canStart);await command('host','start');await wait('Course loaded',()=>peers().every(s=>s.playing&&s.map==='clockwork'),60000);}
 try{
  launch('host');await wait('Host ready',()=>host()?.active&&!host().busy,60000);launch('client1');await wait('Guest joins',()=>guest()?.active&&!guest().busy&&host().members.length===2,60000);
- await command('host','map',{value:'clockwork'});await command('client1','ready');await wait('Ready',()=>host().canStart);await command('host','start');
- await wait('New course loaded',()=>peers().every(s=>s.playing&&s.map==='clockwork'&&s.clockwork?.traps?.length===6),60000);
- check('New course and two checkpoints load on both peers',peers().every(s=>s.checkpoints.length===2));await capture('clockwork-table-two');
- // A wrong-card departure must not grant immunity to physical obstacles.
+ await command('host','map',{value:'clockwork'});await startRoom();
+ check('Mixed course loads with three safe checkpoints',peers().every(s=>s.checkpoints.length===3&&s.clockwork?.traps.length===6));await capture('clockwork-table-two');
  for(const role of ['host','client1'])await command(role,'action',{value:'Interact'});
  await wait('Wrong-card departures',()=>host().actors.every(a=>!a.seated));
  check('Both wrong-card departures require returning',JSON.parse(host().cardState).seats.every(s=>s.mustSit));
- for(const [kind,index]of [['Spears',0],['Arrows',2]])for(const seat of [0,1]){
-  const trap=host().clockwork.traps[index],falls=host().actors[seat].falls;
-  await teleport(seat,{x:0,y:.025,z:trap.position.z});
+ const kinds=['Spears','Arrows'];
+ for(const kind of kinds)for(const seat of [0,1]){
+  const trap=host().clockwork.traps.find(t=>t.kind===kind),falls=host().actors[seat].falls;
+  await teleport(seat,{...trap.position,y:.025});
   await wait(kind+' wrong-card hit '+seat,()=>peers().every(s=>s.actors[seat].falls===falls+1),8000);
   await wait(kind+' wrong-card respawn '+seat,()=>peers().every(s=>!s.actors[seat].respawning));
-  check(kind+' wrong-card departure respawns seat '+seat,host().actors[seat].position.z<6
-   &&Math.abs(host().actors[seat].position.z-guest().actors[seat].position.z)<.3);
+  check(kind+' wrong-card departure respawns seat '+seat,host().actors[seat].position.z<6&&distance(host().actors[seat].position,guest().actors[seat].position)<.3);
+ }
+ for(const seat of [0,1]){
+  const press=host().clockwork.presses[0],falls=host().actors[seat].falls;
+  await teleport(seat,{...press.position,y:.025});
+  await wait('Wrong-card press hit '+seat,()=>peers().every(s=>s.actors[seat].falls===falls+1),8000);
+  await wait('Wrong-card press respawn '+seat,()=>peers().every(s=>!s.actors[seat].respawning));
+  check('Press wrong-card departure respawns seat '+seat,host().actors[seat].position.z<6&&distance(host().actors[seat].position,guest().actors[seat].position)<.3);
  }
  for(const role of ['host','client1'])await command(role,'action',{value:'Interact'});
  await wait('Wrong-card departures return to seats',()=>peers().every(s=>s.actors.every(a=>a.seated)));
- await command('host','five');await command('client1','action',{value:'Interact'});await wait('Guest stands',()=>!host().actors[1].seated);
- const routeStart=structuredClone(host().actors[1]),startTime=Date.now();await walkTo(0,5);
- for(let i=0;i<6;i++){
-  const trap=host().clockwork.traps[i];await walkTo(0,trap.position.z-3);
-  await wait('Safe opening '+i,()=>{const t=host().clockwork.traps[i];return t.cycle<.45;},15000);
-  await walkTo(0,trap.position.z+3);
-  check('Physical safe traversal '+(i+1),host().actors[1].falls===routeStart.falls);
- }
- await walkTo(0,host().bellLanding.z);
- await wait('Both checkpoints saved',()=>host().actors[1].checkpoint===1&&guest().actors[1].checkpoint===1);
- check('Physical full course completed without teleport or falls',host().actors[1].falls===routeStart.falls,{seconds:(Date.now()-startTime)/1000});
- await command('client1','action',{value:'Interact'});await wait('Bell awards and reseats peers',()=>peers().every(s=>s.bells===1&&s.actors.every(a=>a.seated)));
- check('Existing bell/card rule works',host().cardState===guest().cardState);
  await stand();
- for(const [kind,index]of [['Spears',0],['Arrows',2]])for(const seat of [0,1]){
-  const trap=host().clockwork.traps[index],point=trap.hitPoints[0];
-  const position={x:kind==='Spears'?point.x:0,y:.025,z:point.z};
-  await wait(kind+' warning opens',()=>{const t=host().clockwork.traps[index],safe=t.period-t.warningSeconds-t.attackSeconds;return t.cycle>safe+.05&&t.cycle<safe+.25;},15000);
-  const falls=host().actors[seat].falls;await teleport(seat,position);await sleep(120);
-  check(kind+' warning does not hit seat '+seat,host().actors[seat].falls===falls);
-  await wait(kind+' authoritative hit '+seat,()=>peers().every(s=>s.actors[seat].falls===falls+1),7000);
-  await wait('Respawn '+seat,()=>peers().every(s=>!s.actors[seat].respawning));
-  check(kind+' hit and respawn synchronize seat '+seat,Math.hypot(host().actors[seat].position.x-guest().actors[seat].position.x,host().actors[seat].position.z-guest().actors[seat].position.z)<.3);
+ for(let index=0;index<6;index++){
+  const seat=index%2,trap=host().clockwork.traps[index];
+  await wait('Warning opens '+index,()=>{const t=host().clockwork.traps[index],safe=t.period-t.warningSeconds-t.attackSeconds;return t.cycle>safe+.05&&t.cycle<safe+.25;},15000);
+  const falls=host().actors[seat].falls;await teleport(seat,{...trap.position,y:.025});await sleep(120);
+  check('Trap '+index+' warning remains harmless',host().actors[seat].falls===falls);
+  await wait('Oriented trap hit '+index,()=>peers().every(s=>s.actors[seat].falls===falls+1),7000);
+  await wait('Trap respawn '+index,()=>peers().every(s=>!s.actors[seat].respawning));
+  check('Oriented trap '+index+' hit and respawn synchronize',distance(host().actors[seat].position,guest().actors[seat].position)<.3);
  }
- for(let i=0;i<2;i++){
+ for(let i=0;i<3;i++){
   await teleport(1,host().checkpoints[i].position);await wait('Checkpoint landing',()=>peers().every(s=>s.actors[1].checkpoint===i));
   const falls=host().actors[1].falls;await command('client1','action',{value:'Respawn'});await wait('Checkpoint return',()=>peers().every(s=>s.actors[1].falls===falls+1&&!s.actors[1].respawning));
-  check('Checkpoint '+(i+1)+' restores guest at safe landing',Math.abs(host().actors[1].position.z-host().checkpoints[i].position.z)<.35);
+  check('Corner checkpoint '+(i+1)+' restores guest safely',distance(host().actors[1].position,host().checkpoints[i].position)<.35);
  }
- const arrow=host().clockwork.traps[2];await teleport(0,{x:0,y:.025,z:arrow.position.z-3});await command('host','pointer',{yaw:0,pitch:6});
- const safeFalls=host().actors[0].falls,phaseSamples=[];for(let i=0;i<28;i++){
-  await sleep(220);const a=host(),b=guest();
-  phaseSamples.push(a.clockwork.traps.map((t,j)=>{const d=Math.abs(t.cycle-b.clockwork.traps[j].cycle);return Math.min(d,t.period-d);}));
- }
- check('Host and guest pattern clocks stay synchronized',phaseSamples.every(row=>row.every(d=>d<.3)),{maxPhaseError:Math.max(...phaseSamples.flat())});
- check('Adjacent waiting area stays safe through complete pattern',host().actors[0].falls===safeFalls);
- await wait('Arrow attack visible',()=>{const t=host().clockwork.traps[2];return t.stage==='Attack'&&t.visual.x>-5&&t.visual.x<0;},30000);await capture('clockwork-arrows-active');
- await teleport(0,{x:0,y:.025,z:16.5});await command('host','pointer',{yaw:0,pitch:12});
- await wait('Spear attack visible',()=>{const t=host().clockwork.traps[0];return t.cycle>t.period-t.attackSeconds+.3&&t.cycle<t.period-.3;});await capture('clockwork-spears-active');
- await command('host','room');await wait('Room restored',()=>!host().playing&&!guest().playing);
- for(let i=0;i<4;i++)await command('host','add-bot');await command('client1','ready');await wait('Six ready',()=>host().canStart&&host().members.length===6);await command('host','start');await wait('Six-player course loaded',()=>peers().every(s=>s.playing&&s.actors.length===6),60000);
- check('Six players start seated with original table rules',peers().every(s=>s.actors.every(a=>a.seated)));
+ // Repositioning sets up only this carry fixture; subsequent motion must come from the platform.
+ const carrier=host().clockwork.ferries[0];
+ await teleport(1,{x:carrier.position.x,y:carrier.position.y+carrier.standingOffset,z:carrier.position.z});
+ await wait('Guest lands on carrier',()=>host().actors[1].grounded);
+ const carryStart=structuredClone(host().actors[1]),baseCarrier=host().clockwork.ferries[0].position,carryOffsets=[];
+ const relative={x:carryStart.position.x-baseCarrier.x,y:carryStart.position.y-baseCarrier.y,z:carryStart.position.z-baseCarrier.z};
+ for(let n=0;n<12;n++){await sleep(180);const s=host(),p=s.clockwork.ferries[0].position;carryOffsets.push(distance(s.actors[1].position,{x:p.x+relative.x,y:p.y+relative.y,z:p.z+relative.z}));}
+ check('Moving platform carries remote player without input',host().actors[1].falls===carryStart.falls&&distance(host().actors[1].position,carryStart.position)>1&&carryOffsets.every(d=>d<.7),{offsets:carryOffsets});
+ check('Carried guest position replicates',distance(host().actors[1].position,guest().actors[1].position)<1.4);
+ const arrowIndex=host().clockwork.traps.findIndex(t=>t.kind==='Arrows'),arrow=host().clockwork.traps[arrowIndex];
+ await teleport(0,offset(arrow.position,arrow.forward,-3));await command('host','pointer',{yaw:yaw(arrow.forward),pitch:6});
+ const safeFalls=host().actors[0].falls,phaseSamples=[];
+ for(let i=0;i<28;i++){await sleep(220);const a=host(),b=guest();phaseSamples.push(a.clockwork.traps.map((t,j)=>{const d=Math.abs(t.cycle-b.clockwork.traps[j].cycle);return Math.min(d,t.period-d);}));}
+ check('Host and guest trap clocks synchronize',phaseSamples.every(row=>row.every(d=>d<.3)),{maxPhaseError:Math.max(...phaseSamples.flat())});
+ check('Trap waiting pad stays safe through whole cycle',host().actors[0].falls===safeFalls);
+ await wait('Arrow flight visible',()=>{const t=host().clockwork.traps[arrowIndex],side={x:t.forward.z,z:-t.forward.x},x=(t.visual.x-t.position.x)*side.x+(t.visual.z-t.position.z)*side.z;return t.stage==='Attack'&&x>-5&&x<0;},30000);await capture('clockwork-arrows-active');
+ const press=host().clockwork.presses[0];await teleport(0,offset(press.position,press.forward,-3));await command('host','pointer',{yaw:yaw(press.forward),pitch:8});await capture('clockwork-presses');
+ await teleport(0,host().clockwork.ferries[0].waiting);await command('host','pointer',{yaw:0,pitch:10});await capture('clockwork-ferry-wait');
+ await command('host','room');await wait('Room restored',()=>!host().playing&&!guest().playing);await command('host','add-bot');await startRoom();
+ await command('host','five');await wait('Authoritative AI departs',()=>!host().actors[2].seated);
+ const runStart=Date.now(),initialFalls=host().actors[2].falls,trace=[];let checkpointMask=0,rode=false,jumped=false;
+ await wait('Physical mixed route completion',()=>{
+  const a=host(),b=guest(),p=a.actors[2],f=a.clockwork.ferries[0],c=f.position;
+  if(p.checkpoint>=0)checkpointMask|=1<<p.checkpoint;
+  if(p.grounded&&Math.abs(p.position.x-c.x)<2&&Math.abs(p.position.z-c.z)<1.8&&p.position.z>54&&p.position.z<62)rode=true;
+  if(!p.grounded&&p.position.y>.2)jumped=true;
+  if(trace.at(-1)?.time!==a.worldTime)trace.push({time:a.worldTime,position:p.position,falls:p.falls,checkpoint:p.checkpoint});
+  return a.bells===1&&b.bells===1&&a.actors.every(actor=>actor.seated)&&b.actors.every(actor=>actor.seated);
+ },150000);
+ observations.push({name:'Physical mixed-route authoritative AI run',trace});
+ check('Mixed route completes physically without teleport or falls',host().actors[2].falls===initialFalls,{seconds:(Date.now()-runStart)/1000});
+ check('Physical route crosses all three corner checkpoints',checkpointMask===7,{checkpointMask});
+ check('Physical route jumps and rides mandatory carrier',jumped&&rode,{jumped,rode});
+ check('Bell/card result replicates after mixed route',host().cardState===guest().cardState);
+ await command('host','room');await wait('Room restored for six',()=>!host().playing&&!guest().playing);
+ for(let i=0;i<3;i++)await command('host','add-bot');await startRoom();
+ check('Six players start seated',peers().every(s=>s.actors.length===6&&s.actors.every(a=>a.seated)));
  await sleep(500);await command('host','action',{value:'Reveal'});await wait('Six-player first card',()=>host().revision>0&&guest().revision>0);await sleep(350);await capture('clockwork-table-six');
  check('No runtime probe errors',peers().every(s=>!s.error));
 }catch(error){if(checks.at(-1)?.passed!==false)checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'failure.json'),JSON.stringify({error:String(error),host:host(),guest:guest()},null,2));process.exitCode=1;}

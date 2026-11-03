@@ -14,7 +14,7 @@ namespace HalliGalli.Movement
     // Compiled into the player: neither local metadata nor command-line arguments authorize play.
     public static class GameRelease
     {
-        public const string Version = "1.0.2";
+        public const string Version = "1.0.3";
         public const int SchemaVersion = 1;
         public const string EntryPoint = "HalliGalliMovement.exe";
         public const string BuildMetadataName = "BellRun-build.json";

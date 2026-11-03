@@ -77,11 +77,12 @@ namespace HalliGalli.Movement
                 }
             }
             bool ferryWait=session.ferry&&!returning&&session.ferry.AdjustBotTarget(participant,Waypoint,ref target);
+            if(session.clockwork&&!returning)ferryWait|=session.clockwork.AdjustBotTarget(participant,Waypoint,ref target);
             Vector3 toward=Vector3.ProjectOnPlane(target-transform.position,Vector3.up);
             Vector3 desired=Vector3.ClampMagnitude(toward*5.5f,motor.profile.moveSpeed);
             Vector3 steering=motor.Grounded?toward.normalized:desired-Vector3.ProjectOnPlane(motor.Velocity,Vector3.up);
             float inputScale=1;
-            var climbStep=session.roster&&(session.roster.branches||session.factory)&&!returning?NavigationNode().GetComponent<ClimbStep>():null;
+            var climbStep=session.roster&&(session.roster.branches||session.factory||session.clockwork)&&!returning?NavigationNode().GetComponent<ClimbStep>():null;
             if(climbStep&&climbStep.jump==ClimbJump.Hop&&!motor.Grounded){
                 Vector3 horizontal=Vector3.ProjectOnPlane(motor.Velocity,Vector3.up);
                 if(horizontal.magnitude>4&&horizontal.magnitude<8f){

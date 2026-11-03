@@ -1,6 +1,6 @@
 {
-    "utc": "2026-11-03T05:56:40.4575641Z",
-    "passed": 92,
+    "utc": "2026-11-03T06:27:30.7263426Z",
+    "passed": 132,
     "failed": 0,
     "checks": [
         {
@@ -15,12 +15,12 @@
         },
         {
             "name": "Spears 1 no safe or warning collision",
-            "detail": "capsule=(0.00, 0.03, 20.00)",
+            "detail": "capsule=(0.00, 0.03, 28.00)",
             "passed": true
         },
         {
             "name": "Spears 1 active geometry contacts standing capsule",
-            "detail": "capsule=(0.00, 0.03, 20.00)",
+            "detail": "capsule=(0.00, 0.03, 28.00)",
             "passed": true
         },
         {
@@ -44,38 +44,88 @@
             "passed": true
         },
         {
-            "name": "Spears 2 deterministic safe-warning-attack cycle",
+            "name": "Arrows 2 deterministic safe-warning-attack cycle",
             "detail": "period=5.6 safe=3.5",
             "passed": true
         },
         {
-            "name": "Spears 2 no safe or warning collision",
-            "detail": "capsule=(0.00, 0.03, 32.00)",
+            "name": "Arrows 2 no safe or warning collision",
+            "detail": "capsule=(30.00, 0.03, 40.00)",
             "passed": true
         },
         {
-            "name": "Spears 2 active geometry contacts standing capsule",
-            "detail": "capsule=(0.00, 0.03, 32.00)",
+            "name": "Arrows 2 active geometry contacts standing capsule",
+            "detail": "capsule=(30.00, 0.03, 40.00)",
             "passed": true
         },
         {
-            "name": "Spears 2 no whole-room or overhead kill",
+            "name": "Arrows 2 no whole-room or overhead kill",
             "detail": "outside and above geometry",
             "passed": true
         },
         {
-            "name": "Spears 2 retracted spear never damages above its exposed tip",
-            "detail": "same capsule, different exposed length",
+            "name": "Arrows 2 fast arrow sweep catches between endpoint samples",
+            "detail": "actual individual arrow volumes",
             "passed": true
         },
         {
-            "name": "Spears 2 individual spear gaps are not a filled room collider",
-            "detail": "small capsule between the centre columns",
+            "name": "Arrows 2 projectile reset does not sweep backwards through room",
+            "detail": "end-to-start discontinuity excluded",
             "passed": true
         },
         {
-            "name": "Spears 2 moving capsule cannot tunnel through exposed spears",
-            "detail": "swept player movement",
+            "name": "Arrows 2 far side remains safe before arrow arrives",
+            "detail": "attack is spatial, not a firing-zone trigger",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 burst shot 1 visibly crosses and hits",
+            "detail": "shot=1",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 burst gap 1 is invisible and harmless",
+            "detail": "gap=1.8999999165535",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 burst reset 1 cannot hit backwards",
+            "detail": "separate projectile launches",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 burst shot 2 visibly crosses and hits",
+            "detail": "shot=2",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 burst gap 2 is invisible and harmless",
+            "detail": "gap=2.29999993244807",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 burst reset 2 cannot hit backwards",
+            "detail": "separate projectile launches",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 burst shot 3 visibly crosses and hits",
+            "detail": "shot=3",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 burst gap 3 is invisible and harmless",
+            "detail": "gap=2.69999994834264",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 rapid arrows cross at 50 metres per second",
+            "detail": "speed=49.99995",
+            "passed": true
+        },
+        {
+            "name": "Arrows 2 post-burst green window is clear for crossing",
+            "detail": "safeSeconds=3.5",
             "passed": true
         },
         {
@@ -85,12 +135,12 @@
         },
         {
             "name": "Arrows 3 no safe or warning collision",
-            "detail": "capsule=(0.00, 0.03, 58.00)",
+            "detail": "capsule=(40.00, 0.03, 74.00)",
             "passed": true
         },
         {
             "name": "Arrows 3 active geometry contacts standing capsule",
-            "detail": "capsule=(0.00, 0.03, 58.00)",
+            "detail": "capsule=(40.00, 0.03, 74.00)",
             "passed": true
         },
         {
@@ -155,7 +205,7 @@
         },
         {
             "name": "Arrows 3 rapid arrows cross at 50 metres per second",
-            "detail": "speed=49.99994",
+            "detail": "speed=49.99995",
             "passed": true
         },
         {
@@ -164,208 +214,158 @@
             "passed": true
         },
         {
-            "name": "Arrows 4 deterministic safe-warning-attack cycle",
+            "name": "Spears 4 deterministic safe-warning-attack cycle",
             "detail": "period=5.6 safe=3.5",
             "passed": true
         },
         {
-            "name": "Arrows 4 no safe or warning collision",
-            "detail": "capsule=(0.00, 0.03, 70.00)",
+            "name": "Spears 4 no safe or warning collision",
+            "detail": "capsule=(30.00, 0.03, 80.00)",
             "passed": true
         },
         {
-            "name": "Arrows 4 active geometry contacts standing capsule",
-            "detail": "capsule=(0.00, 0.03, 70.00)",
+            "name": "Spears 4 active geometry contacts standing capsule",
+            "detail": "capsule=(30.00, 0.03, 80.00)",
             "passed": true
         },
         {
-            "name": "Arrows 4 no whole-room or overhead kill",
+            "name": "Spears 4 no whole-room or overhead kill",
             "detail": "outside and above geometry",
             "passed": true
         },
         {
-            "name": "Arrows 4 fast arrow sweep catches between endpoint samples",
-            "detail": "actual individual arrow volumes",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 projectile reset does not sweep backwards through room",
-            "detail": "end-to-start discontinuity excluded",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 far side remains safe before arrow arrives",
-            "detail": "attack is spatial, not a firing-zone trigger",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 burst shot 1 visibly crosses and hits",
-            "detail": "shot=1",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 burst gap 1 is invisible and harmless",
-            "detail": "gap=1.8999999165535",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 burst reset 1 cannot hit backwards",
-            "detail": "separate projectile launches",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 burst shot 2 visibly crosses and hits",
-            "detail": "shot=2",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 burst gap 2 is invisible and harmless",
-            "detail": "gap=2.29999993244807",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 burst reset 2 cannot hit backwards",
-            "detail": "separate projectile launches",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 burst shot 3 visibly crosses and hits",
-            "detail": "shot=3",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 burst gap 3 is invisible and harmless",
-            "detail": "gap=2.69999994834264",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 rapid arrows cross at 50 metres per second",
-            "detail": "speed=49.99994",
-            "passed": true
-        },
-        {
-            "name": "Arrows 4 post-burst green window is clear for crossing",
-            "detail": "safeSeconds=3.5",
-            "passed": true
-        },
-        {
-            "name": "Spears 5 deterministic safe-warning-attack cycle",
-            "detail": "period=5.6 safe=3.5",
-            "passed": true
-        },
-        {
-            "name": "Spears 5 no safe or warning collision",
-            "detail": "capsule=(0.00, 0.03, 94.00)",
-            "passed": true
-        },
-        {
-            "name": "Spears 5 active geometry contacts standing capsule",
-            "detail": "capsule=(0.00, 0.03, 94.00)",
-            "passed": true
-        },
-        {
-            "name": "Spears 5 no whole-room or overhead kill",
-            "detail": "outside and above geometry",
-            "passed": true
-        },
-        {
-            "name": "Spears 5 retracted spear never damages above its exposed tip",
+            "name": "Spears 4 retracted spear never damages above its exposed tip",
             "detail": "same capsule, different exposed length",
             "passed": true
         },
         {
-            "name": "Spears 5 individual spear gaps are not a filled room collider",
+            "name": "Spears 4 individual spear gaps are not a filled room collider",
             "detail": "small capsule between the centre columns",
             "passed": true
         },
         {
-            "name": "Spears 5 moving capsule cannot tunnel through exposed spears",
+            "name": "Spears 4 moving capsule cannot tunnel through exposed spears",
             "detail": "swept player movement",
             "passed": true
         },
         {
-            "name": "Arrows 6 deterministic safe-warning-attack cycle",
+            "name": "Arrows 5 deterministic safe-warning-attack cycle",
             "detail": "period=5.6 safe=3.5",
             "passed": true
         },
         {
-            "name": "Arrows 6 no safe or warning collision",
-            "detail": "capsule=(0.00, 0.03, 106.00)",
+            "name": "Arrows 5 no safe or warning collision",
+            "detail": "capsule=(20.00, 0.03, 80.00)",
             "passed": true
         },
         {
-            "name": "Arrows 6 active geometry contacts standing capsule",
-            "detail": "capsule=(0.00, 0.03, 106.00)",
+            "name": "Arrows 5 active geometry contacts standing capsule",
+            "detail": "capsule=(20.00, 0.03, 80.00)",
             "passed": true
         },
         {
-            "name": "Arrows 6 no whole-room or overhead kill",
+            "name": "Arrows 5 no whole-room or overhead kill",
             "detail": "outside and above geometry",
             "passed": true
         },
         {
-            "name": "Arrows 6 fast arrow sweep catches between endpoint samples",
+            "name": "Arrows 5 fast arrow sweep catches between endpoint samples",
             "detail": "actual individual arrow volumes",
             "passed": true
         },
         {
-            "name": "Arrows 6 projectile reset does not sweep backwards through room",
+            "name": "Arrows 5 projectile reset does not sweep backwards through room",
             "detail": "end-to-start discontinuity excluded",
             "passed": true
         },
         {
-            "name": "Arrows 6 far side remains safe before arrow arrives",
+            "name": "Arrows 5 far side remains safe before arrow arrives",
             "detail": "attack is spatial, not a firing-zone trigger",
             "passed": true
         },
         {
-            "name": "Arrows 6 burst shot 1 visibly crosses and hits",
+            "name": "Arrows 5 burst shot 1 visibly crosses and hits",
             "detail": "shot=1",
             "passed": true
         },
         {
-            "name": "Arrows 6 burst gap 1 is invisible and harmless",
-            "detail": "gap=1.8999999165535",
+            "name": "Arrows 5 burst gap 1 is invisible and harmless",
+            "detail": "gap=4.69999986886978",
             "passed": true
         },
         {
-            "name": "Arrows 6 burst reset 1 cannot hit backwards",
+            "name": "Arrows 5 burst reset 1 cannot hit backwards",
             "detail": "separate projectile launches",
             "passed": true
         },
         {
-            "name": "Arrows 6 burst shot 2 visibly crosses and hits",
+            "name": "Arrows 5 burst shot 2 visibly crosses and hits",
             "detail": "shot=2",
             "passed": true
         },
         {
-            "name": "Arrows 6 burst gap 2 is invisible and harmless",
-            "detail": "gap=2.29999993244807",
+            "name": "Arrows 5 burst gap 2 is invisible and harmless",
+            "detail": "gap=5.09999988476435",
             "passed": true
         },
         {
-            "name": "Arrows 6 burst reset 2 cannot hit backwards",
+            "name": "Arrows 5 burst reset 2 cannot hit backwards",
             "detail": "separate projectile launches",
             "passed": true
         },
         {
-            "name": "Arrows 6 burst shot 3 visibly crosses and hits",
+            "name": "Arrows 5 burst shot 3 visibly crosses and hits",
             "detail": "shot=3",
             "passed": true
         },
         {
-            "name": "Arrows 6 burst gap 3 is invisible and harmless",
-            "detail": "gap=2.69999994834264",
+            "name": "Arrows 5 burst gap 3 is invisible and harmless",
+            "detail": "gap=5.49999990065893",
             "passed": true
         },
         {
-            "name": "Arrows 6 rapid arrows cross at 50 metres per second",
-            "detail": "speed=49.99994",
+            "name": "Arrows 5 rapid arrows cross at 50 metres per second",
+            "detail": "speed=49.99995",
             "passed": true
         },
         {
-            "name": "Arrows 6 post-burst green window is clear for crossing",
+            "name": "Arrows 5 post-burst green window is clear for crossing",
             "detail": "safeSeconds=3.5",
+            "passed": true
+        },
+        {
+            "name": "Spears 6 deterministic safe-warning-attack cycle",
+            "detail": "period=5.6 safe=3.5",
+            "passed": true
+        },
+        {
+            "name": "Spears 6 no safe or warning collision",
+            "detail": "capsule=(11.00, 0.03, 80.00)",
+            "passed": true
+        },
+        {
+            "name": "Spears 6 active geometry contacts standing capsule",
+            "detail": "capsule=(11.00, 0.03, 80.00)",
+            "passed": true
+        },
+        {
+            "name": "Spears 6 no whole-room or overhead kill",
+            "detail": "outside and above geometry",
+            "passed": true
+        },
+        {
+            "name": "Spears 6 retracted spear never damages above its exposed tip",
+            "detail": "same capsule, different exposed length",
+            "passed": true
+        },
+        {
+            "name": "Spears 6 individual spear gaps are not a filled room collider",
+            "detail": "small capsule between the centre columns",
+            "passed": true
+        },
+        {
+            "name": "Spears 6 moving capsule cannot tunnel through exposed spears",
+            "detail": "swept player movement",
             "passed": true
         },
         {
@@ -399,13 +399,73 @@
             "passed": true
         },
         {
+            "name": "Arrows actual safe and warning traversal space is nonlethal",
+            "detail": "warningObserved=True",
+            "passed": true
+        },
+        {
+            "name": "Arrows actual exposed projectile contact triggers one fall",
+            "detail": "falls=1 hits=1 stage=Attack",
+            "passed": true
+        },
+        {
+            "name": "Arrows victim respawns at the original start",
+            "detail": "position=(0.75, 0.03, -0.70)",
+            "passed": true
+        },
+        {
+            "name": "Spears actual safe and warning traversal space is nonlethal",
+            "detail": "warningObserved=True",
+            "passed": true
+        },
+        {
+            "name": "Spears actual exposed projectile contact triggers one fall",
+            "detail": "falls=1 hits=1 stage=Attack",
+            "passed": true
+        },
+        {
+            "name": "Spears victim respawns at the original start",
+            "detail": "position=(0.75, 0.03, -0.70)",
+            "passed": true
+        },
+        {
+            "name": "Arrows actual safe and warning traversal space is nonlethal",
+            "detail": "warningObserved=True",
+            "passed": true
+        },
+        {
+            "name": "Arrows actual exposed projectile contact triggers one fall",
+            "detail": "falls=1 hits=1 stage=Attack",
+            "passed": true
+        },
+        {
+            "name": "Arrows victim respawns at the original start",
+            "detail": "position=(0.75, 0.03, -0.70)",
+            "passed": true
+        },
+        {
+            "name": "Spears actual safe and warning traversal space is nonlethal",
+            "detail": "warningObserved=True",
+            "passed": true
+        },
+        {
+            "name": "Spears actual exposed projectile contact triggers one fall",
+            "detail": "falls=1 hits=1 stage=Attack",
+            "passed": true
+        },
+        {
+            "name": "Spears victim respawns at the original start",
+            "detail": "position=(0.75, 0.03, -0.70)",
+            "passed": true
+        },
+        {
             "name": "Grounded safe deck saves checkpoint 0",
             "detail": "saved=0",
             "passed": true
         },
         {
             "name": "Fall restores checkpoint 0",
-            "detail": "position=(0.00, 0.03, 45.00)",
+            "detail": "position=(0.00, 0.03, 40.00)",
             "passed": true
         },
         {
@@ -415,22 +475,87 @@
         },
         {
             "name": "Fall restores checkpoint 1",
-            "detail": "position=(0.00, 0.03, 82.00)",
+            "detail": "position=(40.00, 0.03, 40.00)",
             "passed": true
         },
         {
-            "name": "Solo bot physically walks and waits through all six crossings to ring",
-            "detail": "seconds=34.68 falls=0\n0.0 w=0 p=(0.75, 0.03, -0.70) falls=0\n0.5 w=0 p=(-0.75, 0.02, 0.80) falls=0\n1.0 w=1 p=(-2.07, 0.02, 2.63) falls=0\n1.5 w=1 p=(-1.26, 0.02, 4.79) falls=0\n2.0 w=2 p=(-0.53, 0.02, 6.96) falls=0\n2.5 w=2 p=(-0.22, 0.02, 9.24) falls=0\n3.1 w=3 p=(0.01, 0.02, 11.52) falls=0\n3.6 w=3 p=(0.02, 0.02, 13.82) falls=0\n4.1 w=3 p=(0.00, 0.02, 16.11) falls=0\n4.6 w=4 p=(0.00, 0.02, 18.41) falls=0\n5.1 w=4 p=(0.00, 0.02, 20.70) falls=0\n5.6 w=5 p=(0.00, 0.02, 23.00) falls=0\n6.1 w=5 p=(0.00, 0.02, 25.29) falls=0\n6.6 w=5 p=(0.00, 0.02, 27.59) falls=0\n7.1 w=6 p=(0.00, 0.02, 29.72) falls=0\n7.7 w=6 p=(0.00, 0.02, 32.01) falls=0\n8.2 w=6 p=(0.00, 0.02, 34.31) falls=0\n8.7 w=7 p=(0.00, 0.02, 36.60) falls=0\n9.2 w=7 p=(0.00, 0.02, 38.90) falls=0\n9.7 w=7 p=(0.00, 0.02, 41.19) falls=0\n10.2 w=7 p=(0.00, 0.02, 43.49) falls=0\n10.7 w=8 p=(0.00, 0.02, 45.78) falls=0\n11.2 w=8 p=(0.00, 0.02, 48.08) falls=0\n11.7 w=8 p=(0.00, 0.02, 50.37) falls=0\n12.2 w=9 p=(0.00, 0.02, 52.67) falls=0\n12.8 w=10 p=(0.00, 0.02, 54.84) falls=0\n13.3 w=10 p=(0.00, 0.02, 54.97) falls=0\n13.8 w=10 p=(0.00, 0.02, 54.97) falls=0\n14.3 w=10 p=(0.00, 0.02, 54.97) falls=0\n14.8 w=10 p=(0.00, 0.02, 54.97) falls=0\n15.3 w=10 p=(0.00, 0.02, 54.97) falls=0\n15.8 w=10 p=(0.00, 0.02, 56.89) falls=0\n16.3 w=10 p=(0.00, 0.02, 59.19) falls=0\n16.8 w=11 p=(0.00, 0.02, 61.48) falls=0\n17.3 w=11 p=(0.00, 0.02, 63.78) falls=0\n17.9 w=11 p=(0.00, 0.02, 66.07) falls=0\n18.4 w=12 p=(0.00, 0.02, 67.83) falls=0\n18.9 w=12 p=(0.00, 0.02, 70.13) falls=0\n19.4 w=12 p=(0.00, 0.02, 72.42) falls=0\n19.9 w=13 p=(0.00, 0.02, 74.72) falls=0\n20.4 w=13 p=(0.00, 0.02, 77.01) falls=0\n20.9 w=13 p=(0.00, 0.02, 79.31) falls=0\n21.4 w=13 p=(0.00, 0.02, 81.60) falls=0\n21.9 w=14 p=(0.00, 0.02, 83.90) falls=0\n22.4 w=14 p=(0.00, 0.02, 86.19) falls=0\n23.0 w=15 p=(0.00, 0.02, 88.49) falls=0\n23.5 w=16 p=(0.00, 0.02, 90.74) falls=0\n24.0 w=16 p=(0.00, 0.02, 91.00) falls=0\n24.5 w=16 p=(0.00, 0.02, 91.00) falls=0\n25.0 w=16 p=(0.00, 0.02, 91.00) falls=0\n25.5 w=16 p=(0.00, 0.02, 91.00) falls=0\n26.0 w=16 p=(0.00, 0.02, 91.00) falls=0\n26.5 w=16 p=(0.00, 0.02, 91.00) falls=0\n27.0 w=16 p=(0.00, 0.02, 92.99) falls=0\n27.5 w=16 p=(0.00, 0.02, 95.28) falls=0\n28.1 w=17 p=(0.00, 0.02, 97.58) falls=0\n28.6 w=17 p=(0.00, 0.02, 99.87) falls=0\n29.1 w=17 p=(0.00, 0.02, 102.17) falls=0\n29.6 w=18 p=(0.00, 0.02, 103.93) falls=0\n30.1 w=18 p=(0.00, 0.02, 106.22) falls=0\n30.6 w=18 p=(0.00, 0.02, 108.52) falls=0\n31.1 w=19 p=(0.00, 0.02, 110.81) falls=0\n31.6 w=19 p=(0.00, 0.02, 113.11) falls=0\n32.1 w=19 p=(0.00, 0.02, 115.40) falls=0\n32.6 w=19 p=(0.00, 0.02, 117.70) falls=0\n33.2 w=20 p=(0.00, 0.02, 119.99) falls=0\n33.7 w=20 p=(0.00, 0.02, 122.29) falls=0\n34.2 w=20 p=(0.00, 0.02, 124.58) falls=0",
+            "name": "Grounded safe deck saves checkpoint 2",
+            "detail": "saved=2",
             "passed": true
         },
         {
-            "name": "Physical route visits both safe checkpoints",
-            "detail": "visitedMask=3",
+            "name": "Fall restores checkpoint 2",
+            "detail": "position=(40.00, 0.03, 80.00)",
+            "passed": true
+        },
+        {
+            "name": "Solo bot physically completes mixed fortress and rings without falling",
+            "detail": "seconds=50.895 falls=0 departure=50\n0.0 w=0 p=(0.75, 0.03, -0.70) grounded=False jumps=0 aboard=False falls=0\n0.5 w=0 p=(-0.75, 0.02, 0.80) grounded=True jumps=0 aboard=False falls=0\n1.0 w=1 p=(-2.07, 0.02, 2.63) grounded=True jumps=0 aboard=False falls=0\n1.5 w=1 p=(-1.26, 0.02, 4.79) grounded=True jumps=0 aboard=False falls=0\n2.0 w=2 p=(-0.53, 0.02, 6.96) grounded=True jumps=0 aboard=False falls=0\n2.6 w=2 p=(-0.20, 0.02, 9.23) grounded=True jumps=0 aboard=False falls=0\n3.1 w=3 p=(0.01, 0.02, 11.52) grounded=True jumps=0 aboard=False falls=0\n3.6 w=3 p=(0.01, 0.71, 13.81) grounded=False jumps=1 aboard=False falls=0\n4.1 w=4 p=(-0.07, 0.02, 16.11) grounded=True jumps=1 aboard=False falls=0\n4.6 w=5 p=(0.00, 0.02, 18.41) grounded=True jumps=1 aboard=False falls=0\n5.1 w=5 p=(0.00, 1.01, 20.70) grounded=False jumps=2 aboard=False falls=0\n5.6 w=6 p=(0.08, 0.02, 23.00) grounded=True jumps=2 aboard=False falls=0\n6.1 w=7 p=(0.00, 0.02, 25.29) grounded=True jumps=2 aboard=False falls=0\n6.6 w=7 p=(0.00, 0.02, 27.58) grounded=True jumps=2 aboard=False falls=0\n7.1 w=7 p=(0.00, 0.02, 29.88) grounded=True jumps=2 aboard=False falls=0\n7.7 w=8 p=(0.00, 0.02, 32.17) grounded=True jumps=2 aboard=False falls=0\n8.2 w=8 p=(0.00, 0.02, 34.47) grounded=True jumps=2 aboard=False falls=0\n8.7 w=9 p=(0.00, 0.02, 36.76) grounded=True jumps=2 aboard=False falls=0\n9.2 w=9 p=(0.00, 0.02, 39.06) grounded=True jumps=2 aboard=False falls=0\n9.7 w=10 p=(1.60, 0.02, 40.17) grounded=True jumps=2 aboard=False falls=0\n10.2 w=10 p=(3.90, 0.02, 40.11) grounded=True jumps=2 aboard=False falls=0\n10.7 w=11 p=(6.19, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n11.2 w=11 p=(8.48, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n11.7 w=12 p=(9.51, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n12.2 w=12 p=(9.51, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n12.8 w=12 p=(10.96, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n13.3 w=12 p=(13.25, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n13.8 w=13 p=(15.55, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n14.3 w=14 p=(17.49, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n14.8 w=14 p=(17.52, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n15.3 w=14 p=(19.64, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n15.8 w=14 p=(21.94, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n16.3 w=15 p=(24.23, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n16.8 w=15 p=(26.53, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n17.3 w=16 p=(27.01, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n17.9 w=16 p=(27.01, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n18.4 w=16 p=(27.01, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n18.9 w=16 p=(27.01, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n19.4 w=16 p=(27.01, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n19.9 w=16 p=(27.01, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n20.4 w=16 p=(28.73, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n20.9 w=16 p=(31.02, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n21.4 w=17 p=(33.32, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n21.9 w=18 p=(35.61, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n22.4 w=18 p=(37.91, 0.02, 40.00) grounded=True jumps=2 aboard=False falls=0\n23.0 w=19 p=(39.98, 0.02, 40.45) grounded=True jumps=2 aboard=False falls=0\n23.5 w=19 p=(40.16, 0.02, 42.75) grounded=True jumps=2 aboard=False falls=0\n24.0 w=19 p=(40.05, 0.02, 45.04) grounded=True jumps=2 aboard=False falls=0\n24.5 w=20 p=(39.99, 0.02, 47.34) grounded=True jumps=2 aboard=False falls=0\n25.0 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n25.5 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n26.0 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n26.5 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n27.0 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n27.5 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n28.1 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n28.6 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n29.1 w=21 p=(40.00, 0.02, 48.16) grounded=True jumps=2 aboard=False falls=0\n29.6 w=21 p=(40.00, 0.02, 49.54) grounded=True jumps=2 aboard=False falls=0\n30.1 w=21 p=(40.00, 0.71, 51.62) grounded=False jumps=3 aboard=False falls=0\n30.6 w=22 p=(40.01, 0.02, 52.25) grounded=True jumps=3 aboard=True falls=0\n31.1 w=22 p=(40.01, 0.02, 53.24) grounded=True jumps=3 aboard=True falls=0\n31.6 w=22 p=(40.01, 0.02, 54.69) grounded=True jumps=3 aboard=True falls=0\n32.1 w=22 p=(40.01, 0.02, 56.46) grounded=True jumps=3 aboard=True falls=0\n32.6 w=22 p=(40.01, 0.02, 58.37) grounded=True jumps=3 aboard=True falls=0\n33.2 w=22 p=(40.01, 0.02, 60.23) grounded=True jumps=3 aboard=True falls=0\n33.7 w=22 p=(40.01, 0.02, 61.83) grounded=True jumps=3 aboard=True falls=0\n34.2 w=22 p=(40.01, 0.02, 63.03) grounded=True jumps=3 aboard=True falls=0\n34.7 w=22 p=(40.01, 0.12, 65.55) grounded=False jumps=4 aboard=False falls=0\n35.2 w=22 p=(39.99, 0.59, 67.63) grounded=False jumps=4 aboard=False falls=0\n35.7 w=23 p=(40.02, 0.02, 69.51) grounded=True jumps=4 aboard=False falls=0\n36.2 w=24 p=(40.00, 0.02, 71.81) grounded=True jumps=4 aboard=False falls=0\n36.7 w=24 p=(40.00, 0.02, 74.10) grounded=True jumps=4 aboard=False falls=0\n37.2 w=24 p=(40.00, 0.02, 76.40) grounded=True jumps=4 aboard=False falls=0\n37.7 w=25 p=(40.00, 0.02, 78.69) grounded=True jumps=4 aboard=False falls=0\n38.3 w=26 p=(38.74, 0.02, 80.13) grounded=True jumps=4 aboard=False falls=0\n38.8 w=26 p=(36.44, 0.02, 80.11) grounded=True jumps=4 aboard=False falls=0\n39.3 w=27 p=(34.15, 0.02, 80.01) grounded=True jumps=4 aboard=False falls=0\n39.8 w=28 p=(32.99, 0.02, 79.99) grounded=True jumps=4 aboard=False falls=0\n40.3 w=28 p=(32.99, 0.02, 79.99) grounded=True jumps=4 aboard=False falls=0\n40.8 w=28 p=(32.99, 0.02, 79.99) grounded=True jumps=4 aboard=False falls=0\n41.3 w=28 p=(32.99, 0.02, 79.99) grounded=True jumps=4 aboard=False falls=0\n41.8 w=28 p=(32.99, 0.02, 79.99) grounded=True jumps=4 aboard=False falls=0\n42.3 w=28 p=(32.99, 0.02, 79.99) grounded=True jumps=4 aboard=False falls=0\n42.8 w=28 p=(31.07, 0.02, 79.99) grounded=True jumps=4 aboard=False falls=0\n43.4 w=28 p=(28.77, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n43.9 w=29 p=(26.48, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n44.4 w=29 p=(24.18, 0.03, 80.00) grounded=True jumps=4 aboard=False falls=0\n44.9 w=30 p=(23.03, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n45.4 w=30 p=(22.25, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n45.9 w=30 p=(19.95, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n46.4 w=30 p=(17.66, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n46.9 w=31 p=(15.36, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n47.4 w=32 p=(14.00, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n47.9 w=32 p=(14.00, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n48.5 w=32 p=(12.08, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n49.0 w=32 p=(9.79, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n49.5 w=33 p=(7.49, 0.02, 80.00) grounded=True jumps=4 aboard=False falls=0\n50.0 w=34 p=(5.20, 0.29, 80.00) grounded=False jumps=5 aboard=False falls=0\n50.5 w=34 p=(2.90, 0.45, 80.00) grounded=False jumps=5 aboard=False falls=0",
+            "passed": true
+        },
+        {
+            "name": "Physical route visits all three safe checkpoints",
+            "detail": "visitedMask=7",
+            "passed": true
+        },
+        {
+            "name": "Physical route crosses all six oriented traps",
+            "detail": "crossedMask=63",
+            "passed": true
+        },
+        {
+            "name": "Physical route crosses both oriented presses",
+            "detail": "crossedMask=3",
+            "passed": true
+        },
+        {
+            "name": "Physical route jumps both starter gaps and final gap",
+            "detail": "jumpMask=7",
+            "passed": true
+        },
+        {
+            "name": "Physical route makes right and both left turns",
+            "detail": "turnMask=7",
+            "passed": true
+        },
+        {
+            "name": "Physical route waits outside active machines",
+            "detail": "stationarySeconds=8.024977",
+            "passed": true
+        },
+        {
+            "name": "Physical route waits for the boarding ferry",
+            "detail": "boardingWaitSeconds=4.455008",
+            "passed": true
+        },
+        {
+            "name": "Physical route boards and rides the real moving collider",
+            "detail": "ridingSeconds=4.455008",
+            "passed": true
+        },
+        {
+            "name": "Physical route is carried without walking on the ferry",
+            "detail": "carriedMetres=11.22605",
+            "passed": true
+        },
+        {
+            "name": "Physical route disembarks onto the far dock",
+            "detail": "exited=True",
             "passed": true
         },
         {
             "name": "Returning bell winner still respawns on physical trap contact",
             "detail": "falls=1",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 12 metres returning bell winner is physically crushed and respawned",
+            "detail": "falls=2",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 20 metres returning bell winner is physically crushed and respawned",
+            "detail": "falls=3",
             "passed": true
         },
         {
@@ -441,6 +566,61 @@
         {
             "name": "Standing player still takes trap damage outside RunActive",
             "detail": "falls=1",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 12 metres seated participant is excluded from crushing",
+            "detail": "falls=0",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 12 metres actual oriented press is safe while raised",
+            "detail": "openObserved=True",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 12 metres descending physical head crushes standing player once",
+            "detail": "falls=1",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 12 metres physical crush respawns at saved safe checkpoint",
+            "detail": "position=(0.00, 0.03, 40.00)",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 12 metres standing player is crushed outside RunActive",
+            "detail": "falls=1",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 20 metres seated participant is excluded from crushing",
+            "detail": "falls=0",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 20 metres actual oriented press is safe while raised",
+            "detail": "openObserved=True",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 20 metres descending physical head crushes standing player once",
+            "detail": "falls=1",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 20 metres physical crush respawns at saved safe checkpoint",
+            "detail": "position=(0.00, 0.03, 40.00)",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 20 metres standing player is crushed outside RunActive",
+            "detail": "falls=1",
+            "passed": true
+        },
+        {
+            "name": "Idle capsule is physically carried by the moving platform",
+            "detail": "distance=1.096588 relativeError=0.008308411",
             "passed": true
         },
         {
@@ -460,6 +640,26 @@
         },
         {
             "name": "Arrows wrong-card stand is hit and respawned",
+            "detail": "falls=1 position=(0.75, 0.03, -0.70)",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 12 metres wrong-card stand is a returning player",
+            "detail": "mustReturn=True",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 12 metres wrong-card stand is crushed and respawned",
+            "detail": "falls=1 position=(0.75, 0.03, -0.70)",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 20 metres wrong-card stand is a returning player",
+            "detail": "mustReturn=True",
+            "passed": true
+        },
+        {
+            "name": "Hydraulic press / 20 metres wrong-card stand is crushed and respawned",
             "detail": "falls=1 position=(0.75, 0.03, -0.70)",
             "passed": true
         }

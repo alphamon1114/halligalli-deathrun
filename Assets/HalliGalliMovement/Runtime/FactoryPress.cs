@@ -11,6 +11,7 @@ namespace HalliGalli.Movement
         public Vector3 raised;
         public float stroke=3.25f,period=4.8f,phase;
         public bool orientedContact;
+        public CourseSession contactSession;
         MaterialPropertyBlock tint;
         public float Cycle(double time)=>Mathf.Repeat((float)(time/period)+phase,1);
         // Long open interval, amber warning, fast downward stroke, then slow retraction.
@@ -41,8 +42,15 @@ namespace HalliGalli.Movement
             // Include the downward sweep so a fast stroke cannot step over a crouched player.
             var area=headCollider.bounds;
             if(area.min.y<previous.min.y)area.Encapsulate(previous);
+            if(!CourseNetwork.Authority)return;
+            if(contactSession){
+                foreach(var participant in contactSession.participants)
+                    if(participant&&participant.isActiveAndEnabled&&!participant.IsSeated&&!participant.IsRespawning
+                        &&(orientedContact?IntersectsRotated(participant,Mathf.Max(0,previous.max.y-headCollider.bounds.max.y)):Intersects(participant,area)))participant.BeginFall();
+                return;
+            }
             var course=GetComponentInParent<FactoryCourse>();
-            if(!CourseNetwork.Authority||!course||!course.session.RunActive)return;
+            if(!course||!course.session.RunActive)return;
             foreach(var p in course.session.participants)
                 if(p.Racing&&(orientedContact?IntersectsRotated(p,Mathf.Max(0,previous.max.y-headCollider.bounds.max.y)):Intersects(p,area)))p.BeginFall();
         }
