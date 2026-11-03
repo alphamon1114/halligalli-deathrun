@@ -1,0 +1,38 @@
+{
+  "utc": "2026-11-03T08:03:13.897Z",
+  "release": "https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.4",
+  "sourceCommit": "6b0fbdca425e79c38e9a7f32cdaeb64332f2bb27",
+  "manifest": {
+    "schemaVersion": 1,
+    "version": "1.0.4",
+    "protocol": 39,
+    "archiveName": "BellRun-Windows-1.0.4.zip",
+    "downloadUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/download/v1.0.4/BellRun-Windows-1.0.4.zip",
+    "sha256": "cf7c7bd56db633d12681ee8c0b3a4a0d1c6a7a773891819103986c24e99600aa",
+    "size": 408536458,
+    "entryPoint": "HalliGalliMovement.exe"
+  },
+  "playerInteraction": {
+    "passed": 30,
+    "failed": 0
+  },
+  "fullPyramid": {
+    "passed": 38,
+    "failed": 0
+  },
+  "legacySurf": {
+    "passed": 57,
+    "failed": 0
+  },
+  "twoPlayerNetwork": {
+    "passed": 28,
+    "failed": 0,
+    "runFolder": "Tools\\Network\\Runs\\pyramid-bell-1793692907147"
+  },
+  "visual": "Previews/Pyramid_BellPrompt.png",
+  "limits": [
+    "Arrival-state regressions use controlled position/progress fixtures; full-course movement is validated separately.",
+    "Internet Relay and artificial latency were not exercised.",
+    "Launcher UI download was not rerun for this patch; the published game passed the mandatory latest-release check."
+  ]
+}

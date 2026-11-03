@@ -22,7 +22,7 @@ public sealed class PyramidBellValidationRunner:MonoBehaviour
         yield return null;yield return null;
         CourseNetwork.Instance.StartPractice();yield return null;
         var session=FindAnyObjectByType<CourseSession>();var surf=session.roster.surf;var hud=FindAnyObjectByType<CourseHUD>();
-        session.cardGame.botEnabled=false;hud.ReadInput=false;session.roster.StartNewGame(2);
+        session.cardGame.botEnabled=false;session.cardGame.shuffleOnReset=false;session.cardGame.seed=20261020;hud.ReadInput=false;session.roster.StartNewGame(2);
         session.Local.GetComponent<SourcePlayerController>().controlsEnabled=false;
         foreach(var p in session.roster.allParticipants){p.Combat.readInput=false;var bot=p.GetComponent<CourseRival>();if(bot)bot.enabled=false;}
         foreach(var r in session.bellTarget.GetComponentsInChildren<Renderer>())if(r.enabled)
@@ -73,7 +73,8 @@ public sealed class PyramidBellValidationRunner:MonoBehaviour
         local.SetCheckpoint(3,0);surf.RestoreCheckpointProgress(local,25);local.Motor.Teleport(surf.finish.position);local.Motor.Simulate(default,Time.fixedDeltaTime);
         CheckResult("Wrong card departure still cannot claim the bell",!session.CanRing(local));
         session.ResetPractice();yield return new WaitForFixedUpdate();
-        while(!session.cardGame.Match.HasExactFive())session.cardGame.Match.Reveal(session.cardGame.Match.Turn);
+        for(int attempts=0;!session.cardGame.Match.HasExactFive()&&attempts<1000;attempts++)session.cardGame.Match.Reveal(session.cardGame.Match.Turn);
+        if(!session.cardGame.Match.HasExactFive())throw new InvalidOperationException("Fixed deck failed to produce a legal departure.");
         local.Stand();var first=session.checkpoints.points[0];local.Motor.Teleport(first.spawn.position-Vector3.up*2);local.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
         CheckResult("Passing underneath a checkpoint does not save it",local.CheckpointIndex==-1);
     }
