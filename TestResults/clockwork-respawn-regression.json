@@ -1,0 +1,61 @@
+{
+  "utc": "2026-11-03T05:57:17.298Z",
+  "before": [
+    {
+      "name": "Returning bell winner still respawns on physical trap contact",
+      "detail": "falls=0",
+      "passed": false
+    },
+    {
+      "name": "Standing player still takes trap damage outside RunActive",
+      "detail": "falls=0",
+      "passed": false
+    },
+    {
+      "name": "Spears wrong-card stand is hit and respawned",
+      "detail": "falls=0 position=(0.00, 0.03, 20.00)",
+      "passed": false
+    },
+    {
+      "name": "Arrows wrong-card stand is hit and respawned",
+      "detail": "falls=0 position=(0.00, 0.03, 58.00)",
+      "passed": false
+    }
+  ],
+  "after": [
+    {
+      "name": "Returning bell winner still respawns on physical trap contact",
+      "detail": "falls=1",
+      "passed": true
+    },
+    {
+      "name": "Standing player still takes trap damage outside RunActive",
+      "detail": "falls=1",
+      "passed": true
+    },
+    {
+      "name": "Spears wrong-card stand is a returning player",
+      "detail": "mustReturn=True",
+      "passed": true
+    },
+    {
+      "name": "Spears wrong-card stand is hit and respawned",
+      "detail": "falls=1 position=(0.75, 0.03, -0.70)",
+      "passed": true
+    },
+    {
+      "name": "Arrows wrong-card stand is a returning player",
+      "detail": "mustReturn=True",
+      "passed": true
+    },
+    {
+      "name": "Arrows wrong-card stand is hit and respawned",
+      "detail": "falls=1 position=(0.75, 0.03, -0.70)",
+      "passed": true
+    }
+  ],
+  "burst": {
+    "passed": 92,
+    "failed": 0
+  }
+}

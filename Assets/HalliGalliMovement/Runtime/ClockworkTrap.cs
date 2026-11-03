@@ -40,7 +40,7 @@ namespace HalliGalli.Movement
         Vector3 authoredRoot;
         MaterialPropertyBlock tint;
         ClockworkTrapStage shownStage;
-        bool initialized, shown, hasPrevious;
+        bool initialized, shown, hasPrevious, projectilesShown;
         double previousTime;
         readonly ActorSample[] actors=new ActorSample[CourseNetwork.MaxParticipants];
         struct ActorSample
@@ -49,7 +49,7 @@ namespace HalliGalli.Movement
             public Vector3 feet;
             public float height;
             public int life;
-            public bool racing;
+            public bool exposed;
         }
 
         public ClockworkTrapSample Sample(double time)
@@ -65,6 +65,15 @@ namespace HalliGalli.Movement
 
         float Extension(float progress)
             =>kind==ClockworkTrapKind.Arrows?progress:progress<.2f?progress/.2f:progress<=.8f?1:(1-progress)/.2f;
+
+        // Three launches, half a slot in flight and half clear: 0.2 s crossing / 0.4 s cadence.
+        const int ArrowShots=3;
+        static bool ArrowFlight(float progress,out float flight)
+        {
+            float slot=progress*ArrowShots;
+            flight=(slot-Mathf.Floor(slot))*2;
+            return progress<1&&flight<1;
+        }
 
         Vector3 RootAt(float progress, bool active)
         {
@@ -105,10 +114,16 @@ namespace HalliGalli.Movement
         {
             if(!Initialize())return;
             var sample=Sample(time);
-            movingRoot.localPosition=RootAt(sample.progress,sample.stage==ClockworkTrapStage.Attack);
+            float motion=sample.progress;
+            bool active=sample.stage==ClockworkTrapStage.Attack;
+            if(active&&kind==ClockworkTrapKind.Arrows)active=ArrowFlight(sample.progress,out motion);
+            movingRoot.localPosition=RootAt(motion,active);
+            if(projectiles!=null&&(!shown||projectilesShown!=active)){
+                foreach(var renderer in projectiles)renderer.enabled=active;
+                projectilesShown=active;
+            }
             if(shown&&shownStage==sample.stage)return;
             shown=true;shownStage=sample.stage;
-            if(projectiles!=null)foreach(var renderer in projectiles)renderer.enabled=sample.stage==ClockworkTrapStage.Attack;
             if(warning){
                 Color color=sample.stage==ClockworkTrapStage.Safe?new Color(.16f,.8f,.3f)
                     :sample.stage==ClockworkTrapStage.Warning?new Color(1,.58f,.04f):new Color(1,.08f,.025f);
@@ -128,14 +143,15 @@ namespace HalliGalli.Movement
                 var motor=participant.Motor;
                 var feet=participant.transform.position;
                 var prior=actors[i];
-                bool racing=session.RunActive&&participant.Racing;
-                if(racing){
-                    bool swept=continuous&&prior.participant==participant&&prior.life==participant.RespawnSequence&&prior.racing;
+                // Physical hazards also affect wrong-card departures and players returning to their seats.
+                bool exposed=!participant.IsSeated&&!participant.IsRespawning;
+                if(exposed){
+                    bool swept=continuous&&prior.participant==participant&&prior.life==participant.RespawnSequence&&prior.exposed;
                     bool hit=swept?SweptIntersectsCapsule(prior.feet,feet,motor.profile.radius,prior.height,motor.BodyHeight,previousTime,now)
                         :IntersectsCapsule(feet,motor.profile.radius,motor.BodyHeight,now);
                     if(hit){participant.BeginFall();Hits++;LastHitTime=now;LastHitSeat=i;}
                 }
-                actors[i]=new ActorSample{participant=participant,feet=feet,height=motor.BodyHeight,life=participant.RespawnSequence,racing=participant.Racing};
+                actors[i]=new ActorSample{participant=participant,feet=feet,height=motor.BodyHeight,life=participant.RespawnSequence,exposed=!participant.IsSeated&&!participant.IsRespawning};
             }
             hasPrevious=true;previousTime=now;
         }
@@ -145,8 +161,10 @@ namespace HalliGalli.Movement
             if(!Initialize())return false;
             var sample=Sample(time);
             if(sample.stage!=ClockworkTrapStage.Attack)return false;
+            float motion=sample.progress;
+            if(kind==ClockworkTrapKind.Arrows&&!ArrowFlight(sample.progress,out motion))return false;
             var localFeet=transform.InverseTransformPoint(feet);
-            return Contact(localFeet,localFeet,radius,height,height,sample.progress,sample.progress);
+            return Contact(localFeet,localFeet,radius,height,height,motion,motion);
         }
 
         // Split on attack boundaries: an arrow's end-to-start reset is NEVER a crossing projectile.
@@ -162,7 +180,12 @@ namespace HalliGalli.Movement
                 double start=Math.Max(fromTime,attackStart),end=Math.Min(toTime,attackStart+AttackDuration);
                 if(end<start)continue;
                 if(kind==ClockworkTrapKind.Arrows){
-                    if(ContactInterval(from,to,radius,fromHeight,toHeight,fromTime,toTime,attackStart,start,end))return true;
+                    double slot=AttackDuration/ArrowShots,flight=slot*.5;
+                    for(int shot=0;shot<ArrowShots;shot++){
+                        double launch=attackStart+shot*slot;
+                        if(ContactInterval(from,to,radius,fromHeight,toHeight,fromTime,toTime,launch,
+                            Math.Max(start,launch),Math.Min(end,launch+flight),flight))return true;
+                    }
                 }else{
                     // Spear travel is linear up, held, linear down; no missed peak across a long simulation step.
                     double rise=attackStart+AttackDuration*.2,fall=attackStart+AttackDuration*.8;
@@ -174,12 +197,13 @@ namespace HalliGalli.Movement
             return false;
         }
 
-        bool ContactInterval(Vector3 from,Vector3 to,float radius,float fromHeight,float toHeight,double fromTime,double toTime,double attackStart,double start,double end)
+        bool ContactInterval(Vector3 from,Vector3 to,float radius,float fromHeight,float toHeight,double fromTime,double toTime,double attackStart,double start,double end,double duration=0)
         {
             if(end<start)return false;
+            if(duration<=0)duration=AttackDuration;
             float a=(float)((start-fromTime)/(toTime-fromTime)),b=(float)((end-fromTime)/(toTime-fromTime));
             return Contact(Vector3.LerpUnclamped(from,to,a),Vector3.LerpUnclamped(from,to,b),radius,Mathf.Lerp(fromHeight,toHeight,a),Mathf.Lerp(fromHeight,toHeight,b),
-                Mathf.Clamp01((float)((start-attackStart)/AttackDuration)),Mathf.Clamp01((float)((end-attackStart)/AttackDuration)));
+                Mathf.Clamp01((float)((start-attackStart)/duration)),Mathf.Clamp01((float)((end-attackStart)/duration)));
         }
 
         bool Contact(Vector3 from,Vector3 to,float radius,float fromHeight,float toHeight,float fromProgress,float toProgress)

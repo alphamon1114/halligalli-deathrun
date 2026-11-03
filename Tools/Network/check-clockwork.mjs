@@ -34,6 +34,20 @@ try{
  await command('host','map',{value:'clockwork'});await command('client1','ready');await wait('Ready',()=>host().canStart);await command('host','start');
  await wait('New course loaded',()=>peers().every(s=>s.playing&&s.map==='clockwork'&&s.clockwork?.traps?.length===6),60000);
  check('New course and two checkpoints load on both peers',peers().every(s=>s.checkpoints.length===2));await capture('clockwork-table-two');
+ // A wrong-card departure must not grant immunity to physical obstacles.
+ for(const role of ['host','client1'])await command(role,'action',{value:'Interact'});
+ await wait('Wrong-card departures',()=>host().actors.every(a=>!a.seated));
+ check('Both wrong-card departures require returning',JSON.parse(host().cardState).seats.every(s=>s.mustSit));
+ for(const [kind,index]of [['Spears',0],['Arrows',2]])for(const seat of [0,1]){
+  const trap=host().clockwork.traps[index],falls=host().actors[seat].falls;
+  await teleport(seat,{x:0,y:.025,z:trap.position.z});
+  await wait(kind+' wrong-card hit '+seat,()=>peers().every(s=>s.actors[seat].falls===falls+1),8000);
+  await wait(kind+' wrong-card respawn '+seat,()=>peers().every(s=>!s.actors[seat].respawning));
+  check(kind+' wrong-card departure respawns seat '+seat,host().actors[seat].position.z<6
+   &&Math.abs(host().actors[seat].position.z-guest().actors[seat].position.z)<.3);
+ }
+ for(const role of ['host','client1'])await command(role,'action',{value:'Interact'});
+ await wait('Wrong-card departures return to seats',()=>peers().every(s=>s.actors.every(a=>a.seated)));
  await command('host','five');await command('client1','action',{value:'Interact'});await wait('Guest stands',()=>!host().actors[1].seated);
  const routeStart=structuredClone(host().actors[1]),startTime=Date.now();await walkTo(0,5);
  for(let i=0;i<6;i++){
@@ -70,13 +84,13 @@ try{
  }
  check('Host and guest pattern clocks stay synchronized',phaseSamples.every(row=>row.every(d=>d<.3)),{maxPhaseError:Math.max(...phaseSamples.flat())});
  check('Adjacent waiting area stays safe through complete pattern',host().actors[0].falls===safeFalls);
- await wait('Arrow attack visible',()=>{const t=host().clockwork.traps[2];return t.cycle>t.period-t.attackSeconds+.35&&t.cycle<t.period-.25;});await capture('clockwork-arrows-active');
+ await wait('Arrow attack visible',()=>{const t=host().clockwork.traps[2];return t.stage==='Attack'&&t.visual.x>-5&&t.visual.x<0;},30000);await capture('clockwork-arrows-active');
  await teleport(0,{x:0,y:.025,z:16.5});await command('host','pointer',{yaw:0,pitch:12});
  await wait('Spear attack visible',()=>{const t=host().clockwork.traps[0];return t.cycle>t.period-t.attackSeconds+.3&&t.cycle<t.period-.3;});await capture('clockwork-spears-active');
  await command('host','room');await wait('Room restored',()=>!host().playing&&!guest().playing);
  for(let i=0;i<4;i++)await command('host','add-bot');await command('client1','ready');await wait('Six ready',()=>host().canStart&&host().members.length===6);await command('host','start');await wait('Six-player course loaded',()=>peers().every(s=>s.playing&&s.actors.length===6),60000);
  check('Six players start seated with original table rules',peers().every(s=>s.actors.every(a=>a.seated)));
- await command('host','action',{value:'Reveal'});await wait('Six-player first card',()=>host().revision>0&&guest().revision>0);await sleep(350);await capture('clockwork-table-six');
+ await sleep(500);await command('host','action',{value:'Reveal'});await wait('Six-player first card',()=>host().revision>0&&guest().revision>0);await sleep(350);await capture('clockwork-table-six');
  check('No runtime probe errors',peers().every(s=>!s.error));
 }catch(error){if(checks.at(-1)?.passed!==false)checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'failure.json'),JSON.stringify({error:String(error),host:host(),guest:guest()},null,2));process.exitCode=1;}
 finally{for(const process of processes)process.kill();fs.writeFileSync(path.join(project,'TestResults/clockwork-network.json'),JSON.stringify({utc:new Date().toISOString(),protocol:host()?.protocol,folder,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,observations},null,2));}

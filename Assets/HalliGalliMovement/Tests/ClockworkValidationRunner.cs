@@ -107,10 +107,10 @@ public sealed class ClockworkValidationRunner : MonoBehaviour
             "seconds="+(Time.time-started)+" falls="+runner.Falls+"\n"+string.Join("\n",trace));
         Test("Physical route visits both safe checkpoints",checkpointMask==3,"visitedMask="+checkpointMask);
         if(session.BellRung){
-            int hits=spear.Hits,falls=runner.Falls;
+            int falls=runner.Falls;
             runner.Motor.Teleport(spear.transform.TransformPoint(new Vector3(0,.025f,0)));
-            yield return new WaitForSeconds(spear.period+.1f);
-            Test("Returning bell winner is immune to trap damage",runner.Falls==falls&&spear.Hits==hits,"falls="+runner.Falls);
+            yield return new WaitForSeconds(spear.period+1);
+            Test("Returning bell winner still respawns on physical trap contact",runner.Falls==falls+1&&!runner.IsRespawning,"falls="+runner.Falls);
         }
         session.ResetPractice();
         int seatedHits=spear.Hits;
@@ -119,8 +119,18 @@ public sealed class ClockworkValidationRunner : MonoBehaviour
         Test("Seated participants are excluded even inside attack geometry",runner.IsSeated&&runner.Falls==0&&spear.Hits==seatedHits,"hits="+(spear.Hits-seatedHits));
         runner.Stand();session.ApplyNetworkState(false,session.BellCount);
         runner.Motor.Teleport(spear.transform.TransformPoint(new Vector3(0,.025f,0)));
-        yield return new WaitForSeconds(spear.period+.1f);
-        Test("No trap damage outside RunActive",!runner.IsRespawning&&runner.Falls==0&&!session.RunActive,"falls="+runner.Falls);
+        yield return new WaitForSeconds(spear.period+1);
+        Test("Standing player still takes trap damage outside RunActive",!runner.IsRespawning&&runner.Falls==1&&!session.RunActive,"falls="+runner.Falls);
+        session.cardGame.enabled=true;
+        foreach(var trap in new[]{spear,arrows}){
+            session.ResetPractice();
+            bool stood=runner.Stand();
+            Test(trap.kind+" wrong-card stand is a returning player",stood&&session.MustReturn(runner)&&!runner.Racing,"mustReturn="+session.MustReturn(runner));
+            runner.Motor.Teleport(trap.transform.TransformPoint(new Vector3(0,.025f,0)));
+            yield return new WaitForSeconds(trap.period+1);
+            Test(trap.kind+" wrong-card stand is hit and respawned",runner.Falls==1&&!runner.IsRespawning
+                &&Vector3.Distance(runner.transform.position,runner.standAnchor.position)<.15f,"falls="+runner.Falls+" position="+runner.transform.position);
+        }
         session.ResetPractice();
     }
 
@@ -132,6 +142,7 @@ public sealed class ClockworkValidationRunner : MonoBehaviour
         Vector3 centre=trap.transform.TransformPoint(new Vector3(0,.025f,0));
         float radius=runner.Motor.profile.radius,height=runner.Motor.BodyHeight;
         var mid=trap.Sample(attack+trap.attackSeconds*.5);
+        double contactTime=attack+trap.attackSeconds*(trap.kind==ClockworkTrapKind.Arrows?1d/12:.5);
         Test(trap.name+" deterministic safe-warning-attack cycle",
             trap.Sample(origin+.1).stage==ClockworkTrapStage.Safe&&trap.Sample(warning).stage==ClockworkTrapStage.Warning
             &&mid.stage==ClockworkTrapStage.Attack&&trap.Sample(origin+trap.period+.1).stage==ClockworkTrapStage.Safe
@@ -139,16 +150,37 @@ public sealed class ClockworkValidationRunner : MonoBehaviour
             "period="+trap.period+" safe="+trap.SafeSeconds);
         Test(trap.name+" no safe or warning collision",!trap.IntersectsCapsule(centre,radius,height,origin+.1)
             &&!trap.IntersectsCapsule(centre,radius,height,warning),"capsule="+centre);
-        Test(trap.name+" active geometry contacts standing capsule",trap.IntersectsCapsule(centre,radius,height,attack+trap.attackSeconds*.5),"capsule="+centre);
-        Test(trap.name+" no whole-room or overhead kill",!trap.IntersectsCapsule(centre+Vector3.forward*3,radius,height,attack+trap.attackSeconds*.5)
-            &&!trap.IntersectsCapsule(centre+Vector3.up*3,radius,height,attack+trap.attackSeconds*.5),"outside and above geometry");
+        Test(trap.name+" active geometry contacts standing capsule",trap.IntersectsCapsule(centre,radius,height,contactTime),"capsule="+centre);
+        Test(trap.name+" no whole-room or overhead kill",!trap.IntersectsCapsule(centre+Vector3.forward*3,radius,height,contactTime)
+            &&!trap.IntersectsCapsule(centre+Vector3.up*3,radius,height,contactTime),"outside and above geometry");
         if(trap.kind==ClockworkTrapKind.Arrows){
-            double before=attack+trap.attackSeconds*.1,after=attack+trap.attackSeconds*.9;
+            double before=attack+trap.attackSeconds*.01,after=attack+trap.attackSeconds*.16;
             Test(trap.name+" fast arrow sweep catches between endpoint samples",!trap.IntersectsCapsule(centre,radius,height,before)
                 &&!trap.IntersectsCapsule(centre,radius,height,after)&&trap.SweptIntersectsCapsule(centre,centre,radius,height,height,before,after),"actual individual arrow volumes");
             Test(trap.name+" projectile reset does not sweep backwards through room",!trap.SweptIntersectsCapsule(centre,centre,radius,height,height,
                 attack+trap.attackSeconds*.98,origin+trap.period+.1),"end-to-start discontinuity excluded");
             Test(trap.name+" far side remains safe before arrow arrives",!trap.IntersectsCapsule(trap.transform.TransformPoint(new Vector3(2,.025f,0)),radius,height,before),"attack is spatial, not a firing-zone trigger");
+            double slot=trap.attackSeconds/3d;
+            var renderers=trap.movingRoot.GetComponentsInChildren<Renderer>(true);
+            for(int shot=0;shot<3;shot++){
+                double launch=attack+shot*slot,centreTime=launch+slot*.25,gap=launch+slot*.75;
+                trap.Apply(centreTime);
+                Test(trap.name+" burst shot "+(shot+1)+" visibly crosses and hits",
+                    renderers.All(r=>r.enabled)&&trap.IntersectsCapsule(centre,radius,height,centreTime),"shot="+(shot+1));
+                trap.Apply(gap);
+                Test(trap.name+" burst gap "+(shot+1)+" is invisible and harmless",
+                    renderers.All(r=>!r.enabled)&&!trap.IntersectsCapsule(centre,radius,height,gap)
+                    &&!trap.SweptIntersectsCapsule(centre,centre,radius,height,height,launch+slot*.6,launch+slot*.95),"gap="+gap);
+                if(shot<2)Test(trap.name+" burst reset "+(shot+1)+" cannot hit backwards",
+                    !trap.SweptIntersectsCapsule(centre,centre,radius,height,height,launch+slot*.95,launch+slot*1.05),"separate projectile launches");
+            }
+            trap.Apply(attack+slot*.05);Vector3 near=trap.movingRoot.position;
+            trap.Apply(attack+slot*.45);Vector3 far=trap.movingRoot.position;
+            float speed=Vector3.Distance(near,far)/(float)(slot*.4);
+            Test(trap.name+" rapid arrows cross at 50 metres per second",Mathf.Abs(speed-50)<.01f,"speed="+speed);
+            Test(trap.name+" post-burst green window is clear for crossing",
+                !trap.SweptIntersectsCapsule(centre-Vector3.forward*3,centre+Vector3.forward*3,radius,height,height,
+                    origin+trap.period+.1,origin+trap.period+trap.SafeSeconds-.1),"safeSeconds="+trap.SafeSeconds);
         }else{
             Test(trap.name+" retracted spear never damages above its exposed tip",!trap.IntersectsCapsule(centre+Vector3.up*.5f,radius,height,attack+trap.attackSeconds*.01)
                 &&trap.IntersectsCapsule(centre+Vector3.up*.5f,radius,height,attack+trap.attackSeconds*.5),"same capsule, different exposed length");
