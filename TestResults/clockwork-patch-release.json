@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-03T06:03:41.612Z",
+  "version": "1.0.2",
+  "protocol": 37,
+  "sourceCommit": "23b0b1f1c7b0461eadb7f0c3b018166d301aca25",
+  "releaseUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.2",
+  "sha256": "fc5e18c2d4dd1f97a48b1baae654e5211cdf9511bb8bcc888358ec94177aa267",
+  "editorPassed": 92,
+  "editorFailed": 0,
+  "multiplayerPassed": 28,
+  "multiplayerFailed": 0,
+  "previousMapAndMovementHashesPreserved": 19,
+  "visualArrowFlightConfirmed": true,
+  "screenshot": "Tools\\Network\\Runs\\clockwork-1793685680574\\clockwork-arrows-active.png",
+  "launcherUpdatePerformed": false,
+  "reason": "Existing user game and launcher left running; user updates after closing game."
+}

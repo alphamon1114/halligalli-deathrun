@@ -90,7 +90,7 @@ Shift 달리기와 마비총은 제거된 상태입니다. 기본 이동은 4.5m
 
 ## 개발과 검증
 
-- 함정 수정 **2026-11-03, v1.0.2 / 프로토콜 37**: 잘못 기립·복귀 중 피격 무시를 수정하고 화살을 50m/s 고속 3연발로 변경했습니다. 기존 실패 4개를 포함해 Unity 실제 플레이 **92/92**. [리스폰 회귀](TestResults/clockwork-respawn-regression.json).
+- 함정 수정 **2026-11-03, v1.0.2 / 프로토콜 37**: 잘못 기립·복귀 중 피격 무시를 수정하고 화살을 50m/s 고속 3연발로 변경했습니다. 기존 실패 4개를 포함해 Unity 실제 플레이 **92/92**, 두 플레이어 잘못 기립/정상 경주 피격·리스폰·완주 **28/28**. [v1.0.2 배포](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.2) 완료. 게임 종료 후 런처에서 업데이트하세요. [리스폰 회귀](TestResults/clockwork-respawn-regression.json) · [멀티플레이 검증](TestResults/clockwork-network.json).
 - 태엽 요새 검증 **2026-11-03, v1.0.1 / 프로토콜 36**: Unity 실제 플레이 **58/58**, 두 플레이어 완주·피격·패턴 동기화 **23/23**, 실제 마우스 맵 페이지 선택 **2/2**. 기존 씬·맵 설정·이동 관련 19개 해시 일치. Windows 빌드와 [v1.0.1 배포](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.1) 완료, 실제 런처 1.0.0→1.0.1 업데이트 및 다운로드된 게임의 6인 카드 테이블을 확인했습니다. [플레이 검증](TestResults/clockwork-validation.json) · [네트워크](TestResults/clockwork-network.json) · [배포 검증](TestResults/clockwork-release.json). 인터넷 Relay·인위적 지연·실사용자 난이도 평가는 이번 작업에서 수행하지 않았습니다.
 - 런처 배포 검증 **2026-11-02, v1.0.0 / 프로토콜 35**: [공식 Release](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.0) 게시, 실제 UI 다운로드·설치·홈 진입·손상 설치 복구, 구버전 직접 실행 및 네트워크 실패 차단 확인. 런처 경계 **31/31**, 게임 검사 계약 **32/32**, 검사 통과 후 실제 3인 게임플레이 **21/21**. 사용자 맵 데이터 24개 해시 유지. [검증 기록](TestResults/launcher-release.json).
 - 런처 개발: `.NET 10 SDK`에서 `dotnet run --project Launcher/BellRun.Launcher.Tests/BellRun.Launcher.Tests.csproj -c Release`로 설치/실행 차단 경계 검사를 수행합니다. Unity의 `HalliGalli.EditorTools.GameReleaseVerification.Run`은 게임 버전 검사 응답 계약을 확인합니다.
