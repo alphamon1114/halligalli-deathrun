@@ -1,0 +1,38 @@
+{
+  "utc": "2026-11-03T06:34:08.102Z",
+  "version": "1.0.3",
+  "protocol": 38,
+  "sourceCommit": "c5b30547e30886b594e64b5f8594916bdf733578",
+  "releaseUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.3",
+  "sha256": "42c308bc7325df0b00a8628fc43224b9730b382380950be21d8d77f8cf6f3930",
+  "editor": {
+    "passed": 132,
+    "failed": 0,
+    "physicalSoloSeconds": 50.895,
+    "falls": 0
+  },
+  "multiplayer": {
+    "passed": 33,
+    "failed": 0,
+    "peers": 2,
+    "physicalAiCompletionSeconds": 46.319,
+    "falls": 0,
+    "remotePlayerCarry": true
+  },
+  "preservedOriginalMapAndMovementFiles": 19,
+  "screenshots": [
+    "Previews/ClockworkMixedOverview.png",
+    "Previews/ClockworkPresses.png",
+    "Previews/ClockworkFerry.png"
+  ],
+  "visualChecked": [
+    "Press waiting corridor",
+    "Ferry gap and carrier",
+    "Six-player card table"
+  ],
+  "limits": [
+    "Internet Relay and artificial latency not exercised",
+    "Human difficulty/playability study not performed"
+  ],
+  "userGameAndLauncherLeftUntouched": true
+}

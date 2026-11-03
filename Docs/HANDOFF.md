@@ -12,7 +12,9 @@
 - 코너/체크포인트 좌표는 `(0,0,40)`, `(40,0,40)`, `(40,0,80)`, 종은 `(0,.7,80)`입니다. 이동 발판은 `(40,-.3,58)`을 중심으로 ±6m, 10초 주기로 왕복하며 16m 빈 구간을 건넙니다. 안전 착지대와 함정을 분리하고 낙하 구간 밑의 숨은 바닥은 두지 않았습니다. 장식은 비충돌이며 원래 카드 테이블을 유지합니다.
 - `ClockworkCourse`가 방향에 독립적인 프레스 대기와 실제 이동 발판의 도착 예측·탑승·하차를 처리합니다. 이동 운반은 기존 `FactorySurface`/모터를 사용하며 물리는 조정하지 않습니다. `FactoryPress.contactSession`을 지정한 태엽 요새 프레스만 잘못 기립·복귀 상태에서도 피격합니다. 기존 폐공장·유즈맵 프레스 동작은 유지합니다. 창·화살 3연발과 기존 리스폰 수정도 유지합니다.
 - 검증(2026-11-03): Unity 실제 플레이 **132/132**. 순간이동 없는 완주 **50.895초/낙하 0회**, 모든 점프·세 방향 전환·프레스 2개·함정 6곳·체크포인트 3곳 통과. 기계 앞 안전 대기 약 8.0초, 발판 도착 대기 약 4.5초, 실제 운반 약 11.2m, 먼 착지대 하차 확인. 정상/잘못 기립/좌석 복귀의 피격·리스폰 및 이전 고속 3연발 회귀도 포함합니다. `TestResults/clockwork-validation.json`.
-- `ClockworkCourseBuilder.Build()`로 태엽 요새만 재생성했습니다. `Previews/ClockworkMixedOverview.png`는 새 전체 배치입니다. 진행 중: Windows 1.0.3 패키징·배포 후 실제 두 플레이어와 AI의 피격·운반·혼합 코스 완주 동기화 확인. 인터넷 Relay·인위적 지연·실사용자 난이도 평가는 미검증입니다.
+- `ClockworkCourseBuilder.Build()`로 태엽 요새만 재생성했습니다. 기존 다른 씬·맵 설정·이동 프로필/소스 **19개 SHA-256 일치**. `Previews/ClockworkMixedOverview.png`는 새 전체 배치, `ClockworkPresses.png`/`ClockworkFerry.png`는 실제 플레이 화면입니다.
+- Windows **1.0.3 / 프로토콜 38** 빌드·패키징·[GitHub Release](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.3) 게시 완료. 배포 소스 `c5b3054`. 실제 두 플레이어 검증 **33/33**: 방향이 바뀐 모든 함정 피격·복귀, 프레스 오기립 피격, 세 코너 체크포인트, 참가자 무입력 발판 운반·동기화, AI 물리 완주 **46.319초/낙하 0회**, 종·6인 카드 테이블 확인. `TestResults/clockwork-network.json`, `clockwork-mixed-release.json`, `clockwork-mixed-preservation.json`.
+- 미검증: 인터넷 Relay·인위적 지연·실사용자 난이도 평가. 별도 미구현 기능은 없습니다. 사용자의 실행 중 게임·런처는 건드리지 않았으며, 게임 종료 후 런처에서 1.0.3으로 업데이트해야 합니다.
 
 ### 함정 리스폰·고속 화살 3연발 · 2026-11-03
 
