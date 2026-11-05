@@ -17,6 +17,7 @@
 - 저장된 씬으로 **Windows 빌드 성공**(2026-11-05), 검사본은 `Build/ValidatedWindows-1.0.6`에 별도 보존했습니다. 설치된 게임과 런처를 덮어쓰지 않았습니다. 임시 `CommitValidation.cs`/`.meta`는 제거했고 공식 맵을 재생성하지 않았습니다.
 - 새 독립 실행 파일도 실제 실행했습니다. 공개 매니페스트 요청 **HTTP 200**, `VersionMismatch`로 **1.0.6 / 프로토콜 42** 실행을 막고 게임 루트 93개를 비활성 상태로 유지했습니다. 최신 버전 제한을 우회하지 않았습니다. `TestResults/windows-build-gate.json`은 실행 로그 증거이며 독립 실행 UI 캡처는 주장하지 않습니다.
 - 전체 근거: `TestResults/current-validation-summary.json`(**753개 검사 통과**, 위 제한 포함). 임시 복사 프로젝트/실행 래퍼는 정리하고 검사본·결과를 보존합니다. 남은 별도 범위는 **1.0.6 런처 릴리스 게시/업데이트 경로, 인터넷 Relay·지연 조건, 사람의 체감 난이도와 음향 평가**입니다. 아래 “보류” 기록은 이전 이력입니다.
+- 후속 사용자 **“게시하자”** 승인으로 1.0.6 릴리스 패키지를 준비했습니다. 실행 중인 사용자 런처를 종료/덮어쓰지 않도록 `Build-Release.ps1 -SkipPlayerBuild -LauncherOutputDirectory Build/LauncherPackage-1.0.6`를 사용합니다. 게임은 위 검증본을 그대로 사용했고 ZIP SHA256은 `8703dbab30fab82eefef9e882fef8989e2da30f7019f75b6d17cc6076937e5d6`입니다. 게시/업데이트 확인 결과는 후속 기록을 따릅니다.
 
 
 ### 연습실 서프 입문 3단계 · 2026-11-05

@@ -1,11 +1,12 @@
 param(
     [string]$UnityPath = "$env:ProgramFiles/Unity/Hub/Editor/6000.6.0f1/Editor/Unity.exe",
-    [switch]$SkipPlayerBuild
+    [switch]$SkipPlayerBuild,
+    [string]$LauncherOutputDirectory
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $player = Join-Path $root 'Build/Windows'
-$launcher = Join-Path $root 'Build/Launcher'
+$launcher = if ($LauncherOutputDirectory) { [IO.Path]::GetFullPath((Join-Path $root $LauncherOutputDirectory)) } else { Join-Path $root 'Build/Launcher' }
 $log = Join-Path $root 'Logs/release-player.log'
 Push-Location $root
 try {
