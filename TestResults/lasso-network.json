@@ -1,0 +1,328 @@
+{
+  "utc": "2026-11-05T01:12:01.103Z",
+  "seed": 20261105,
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\lasso-1793841055228",
+  "executable": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\Windows\\HalliGalliMovement.exe",
+  "graphical": false,
+  "passed": 49,
+  "failed": 0,
+  "travel": [
+    {
+      "caster": 0,
+      "turn": true,
+      "spam": false,
+      "countersteer": false,
+      "gap": 8,
+      "distance": 1.8858642578125,
+      "remoteDistance": 1.8858642578125,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "caster": 0,
+      "turn": false,
+      "spam": false,
+      "countersteer": true,
+      "gap": 8,
+      "distance": -1.9063873291015625,
+      "remoteDistance": -1.9063873291015625,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "caster": 0,
+      "turn": false,
+      "spam": true,
+      "countersteer": false,
+      "gap": 8,
+      "distance": 1.8858642578125,
+      "remoteDistance": 1.8858642578125,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "caster": 1,
+      "turn": true,
+      "spam": false,
+      "countersteer": false,
+      "gap": 8,
+      "distance": 1.8858642578125,
+      "remoteDistance": 1.878021240234375,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "caster": 1,
+      "turn": false,
+      "spam": false,
+      "countersteer": true,
+      "gap": 8,
+      "distance": -1.8279266357421875,
+      "remoteDistance": -1.82891845703125,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "caster": 1,
+      "turn": false,
+      "spam": true,
+      "countersteer": false,
+      "gap": 8,
+      "distance": 1.8858642578125,
+      "remoteDistance": 1.9109039306640625,
+      "peak": 5.960464477539063e-8
+    },
+    {
+      "caster": 0,
+      "turn": false,
+      "spam": false,
+      "countersteer": false,
+      "gap": 1.2,
+      "distance": 0.5749969482421875,
+      "remoteDistance": 0.5749969482421875,
+      "peak": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "Seated host and guest cannot cast or spend cooldown",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host camera turn counts one cast, real hit and automatic pull on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host camera turn uses horizontal movement without lift or control lock",
+      "passed": true,
+      "detail": "{\"distance\":1.8858642578125,\"peak\":5.960464477539063e-8,\"locked\":false}"
+    },
+    {
+      "name": "host camera turn agrees on physical travel without a client impulse replay",
+      "passed": true,
+      "detail": "{\"distance\":1.8858642578125,\"remoteDistance\":1.8858642578125}"
+    },
+    {
+      "name": "host camera turn plays each existing rope sound once per peer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host camera turn does not forcibly deliver victim to caster feet",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host victim can countersteer after the automatic pull",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host countersteering counts one cast, real hit and automatic pull on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host countersteering uses horizontal movement without lift or control lock",
+      "passed": true,
+      "detail": "{\"distance\":-1.9063873291015625,\"peak\":5.960464477539063e-8,\"locked\":false}"
+    },
+    {
+      "name": "host countersteering agrees on physical travel without a client impulse replay",
+      "passed": true,
+      "detail": "{\"distance\":-1.9063873291015625,\"remoteDistance\":-1.9063873291015625}"
+    },
+    {
+      "name": "host countersteering plays each existing rope sound once per peer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host countersteering does not forcibly deliver victim to caster feet",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host active countersteering reduces real inward travel",
+      "passed": true,
+      "detail": "{\"unopposed\":1.8858642578125,\"opposed\":-1.9063873291015625}"
+    },
+    {
+      "name": "host repeated Q counts one cast, real hit and automatic pull on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host repeated Q uses horizontal movement without lift or control lock",
+      "passed": true,
+      "detail": "{\"distance\":1.8858642578125,\"peak\":5.960464477539063e-8,\"locked\":false}"
+    },
+    {
+      "name": "host repeated Q agrees on physical travel without a client impulse replay",
+      "passed": true,
+      "detail": "{\"distance\":1.8858642578125,\"remoteDistance\":1.8858642578125}"
+    },
+    {
+      "name": "host repeated Q plays each existing rope sound once per peer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host repeated Q does not forcibly deliver victim to caster feet",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 camera turn counts one cast, real hit and automatic pull on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 camera turn uses horizontal movement without lift or control lock",
+      "passed": true,
+      "detail": "{\"distance\":1.8858642578125,\"peak\":5.960464477539063e-8,\"locked\":false}"
+    },
+    {
+      "name": "client1 camera turn agrees on physical travel without a client impulse replay",
+      "passed": true,
+      "detail": "{\"distance\":1.8858642578125,\"remoteDistance\":1.878021240234375}"
+    },
+    {
+      "name": "client1 camera turn plays each existing rope sound once per peer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 camera turn does not forcibly deliver victim to caster feet",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 victim can countersteer after the automatic pull",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 countersteering counts one cast, real hit and automatic pull on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 countersteering uses horizontal movement without lift or control lock",
+      "passed": true,
+      "detail": "{\"distance\":-1.8279266357421875,\"peak\":5.960464477539063e-8,\"locked\":false}"
+    },
+    {
+      "name": "client1 countersteering agrees on physical travel without a client impulse replay",
+      "passed": true,
+      "detail": "{\"distance\":-1.8279266357421875,\"remoteDistance\":-1.82891845703125}"
+    },
+    {
+      "name": "client1 countersteering plays each existing rope sound once per peer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 countersteering does not forcibly deliver victim to caster feet",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 active countersteering reduces real inward travel",
+      "passed": true,
+      "detail": "{\"unopposed\":1.8858642578125,\"opposed\":-1.8279266357421875}"
+    },
+    {
+      "name": "client1 repeated Q counts one cast, real hit and automatic pull on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 repeated Q uses horizontal movement without lift or control lock",
+      "passed": true,
+      "detail": "{\"distance\":1.8858642578125,\"peak\":5.960464477539063e-8,\"locked\":false}"
+    },
+    {
+      "name": "client1 repeated Q agrees on physical travel without a client impulse replay",
+      "passed": true,
+      "detail": "{\"distance\":1.8858642578125,\"remoteDistance\":1.9109039306640625}"
+    },
+    {
+      "name": "client1 repeated Q plays each existing rope sound once per peer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "client1 repeated Q does not forcibly deliver victim to caster feet",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host near target counts one cast, real hit and automatic pull on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "host near target uses horizontal movement without lift or control lock",
+      "passed": true,
+      "detail": "{\"distance\":0.5749969482421875,\"peak\":0,\"locked\":false}"
+    },
+    {
+      "name": "host near target agrees on physical travel without a client impulse replay",
+      "passed": true,
+      "detail": "{\"distance\":0.5749969482421875,\"remoteDistance\":0.5749969482421875}"
+    },
+    {
+      "name": "host near target plays each existing rope sound once per peer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Upward host miss consumes one cast but never hits, pulls or plays success sounds",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Upward host miss leaves victim position unchanged on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Upward host miss rejects cooldown retry on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Out-of-range guest miss consumes one cast but never hits, pulls or plays success sounds",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Out-of-range guest miss leaves victim position unchanged on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Out-of-range guest miss rejects cooldown retry on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Victim respawn prevents an in-flight rope from applying stale force",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Caster respawn cancels its rope without refunding cooldown",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Pulled guest can immediately jump and steer on both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Returning to room clears live ropes on both peers",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

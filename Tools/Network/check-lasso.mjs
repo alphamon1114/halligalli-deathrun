@@ -101,9 +101,9 @@ try{
  const seated=baseline();for(const role of ['host','client1'])await command(role,'lasso',{yaw:0,pitch:0});await sleep(200);
  check('Seated host and guest cannot cast or spend cooldown',peers().every((s,i)=>s.actors.every((a,seat)=>a.seated&&a.lassoCasts===seated[i][seat].lassoCasts&&a.lassoCooldown===0)));
  await command('host','five');
- await wait(()=>peers().every(s=>JSON.parse(s.cardState).five)&&host().cardState===state('client1').cardState);
+ await wait(()=>JSON.parse(host().cardState).reveals>0&&host().cardState===state('client1').cardState);
  await command('host','action',{value:'Interact'});await command('client1','action',{value:'Interact'});
- await wait(()=>peers().every(s=>s.actors.every(a=>!a.seated&&!a.respawning)));
+ await wait(()=>peers().every(s=>JSON.parse(s.cardState).five&&s.actors.every(a=>!a.seated&&!a.respawning)));
  for(const caster of [0,1]){
   const unopposed=await success(caster,{turn:true});
   const opposed=await success(caster,{countersteer:true});
