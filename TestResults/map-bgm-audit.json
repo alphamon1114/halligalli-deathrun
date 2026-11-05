@@ -1,0 +1,112 @@
+{
+  "utc": "2026-11-05T01:16:31.251Z",
+  "sourceDirectory": "C:/Users/mbc/Music/VARCO Sound/HalliGalli_MapBGM",
+  "method": "Full MP3 decode through FFmpeg 20181217-f22fcd4, EBU R128 integrated loudness/true peak; decoded 48kHz stereo float PCM, non-overlapping 10ms RMS blocks below -50dBFS for low-level edges. Edge sums are near-silence estimates, not musical seamlessness ratings.",
+  "gameIntegrated": false,
+  "originalsModified": false,
+  "subjectiveListeningPerformed": false,
+  "limitations": [
+    "No auditory judgement of musical continuity or theme suitability",
+    "No Unity playback, map switching, looping or gameplay SFX balance verification: selected BGM is not integrated"
+  ],
+  "tracks": [
+    {
+      "file": "BGM_ClockworkFortress.mp3",
+      "sha256": "4e8de2bbaa192f497b56d9c1ad2c7224fed4bfb5c356e6809f1433e005fdaffc",
+      "decodeExit": 0,
+      "durationSeconds": 166.91,
+      "samplePeakDbfs": -0.7270698277757787,
+      "samplesAtOrAboveFullScale": 0,
+      "leadingBelowMinus50DbSeconds": 0.11,
+      "trailingBelowMinus50DbSeconds": 1.54,
+      "longestInteriorBelowMinus50DbSeconds": 0.64,
+      "seamSampleJump": 0.00017717578157316893,
+      "summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -15.3 LUFS\r\n    Threshold: -25.5 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         6.4 LU\r\n    Threshold: -35.4 LUFS\r\n    LRA low:   -19.9 LUFS\r\n    LRA high:  -13.5 LUFS\r\n\r\n  True peak:\r\n    Peak:       -0.7 dBFS\r\n",
+      "decoderErrors": []
+    },
+    {
+      "file": "BGM_Factory.mp3",
+      "sha256": "1fc73ffab77d11b8b5b6dfae3a0ecf68f4ee30c8c09b9f6d605a5b0e88e4b70a",
+      "decodeExit": 0,
+      "durationSeconds": 170.67,
+      "samplePeakDbfs": -0.49372161917313556,
+      "samplesAtOrAboveFullScale": 0,
+      "leadingBelowMinus50DbSeconds": 0.11,
+      "trailingBelowMinus50DbSeconds": 0,
+      "longestInteriorBelowMinus50DbSeconds": 0.98,
+      "seamSampleJump": 0.0016549427527934313,
+      "summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -13.6 LUFS\r\n    Threshold: -24.2 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         7.0 LU\r\n    Threshold: -34.1 LUFS\r\n    LRA low:   -18.7 LUFS\r\n    LRA high:  -11.7 LUFS\r\n\r\n  True peak:\r\n    Peak:       -0.5 dBFS\r\n",
+      "decoderErrors": []
+    },
+    {
+      "file": "BGM_FirstSteps.mp3",
+      "sha256": "22d72e6444d5d0d7ce91451c9a233bb6a40221b7e9cb47e122d208265f41e983",
+      "decodeExit": 0,
+      "durationSeconds": 151.15,
+      "samplePeakDbfs": -0.5613575751043897,
+      "samplesAtOrAboveFullScale": 0,
+      "leadingBelowMinus50DbSeconds": 0.12,
+      "trailingBelowMinus50DbSeconds": 1.25,
+      "longestInteriorBelowMinus50DbSeconds": 0.12,
+      "seamSampleJump": 0.00006086003077143687,
+      "summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -14.6 LUFS\r\n    Threshold: -24.7 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         4.6 LU\r\n    Threshold: -34.6 LUFS\r\n    LRA low:   -17.9 LUFS\r\n    LRA high:  -13.3 LUFS\r\n\r\n  True peak:\r\n    Peak:       -0.6 dBFS\r\n",
+      "decoderErrors": []
+    },
+    {
+      "file": "BGM_ItemRace.mp3",
+      "sha256": "e5023d2ee004326e9a0691c7b3f978600c0f9cd47cf58b459b2cc2dbe734ff4e",
+      "decodeExit": 0,
+      "durationSeconds": 153.87,
+      "samplePeakDbfs": -0.5463032225935909,
+      "samplesAtOrAboveFullScale": 0,
+      "leadingBelowMinus50DbSeconds": 0.18,
+      "trailingBelowMinus50DbSeconds": 1.48,
+      "longestInteriorBelowMinus50DbSeconds": 0.19,
+      "seamSampleJump": 0.00008085908120847307,
+      "summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -14.3 LUFS\r\n    Threshold: -24.4 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         2.7 LU\r\n    Threshold: -34.3 LUFS\r\n    LRA low:   -15.5 LUFS\r\n    LRA high:  -12.8 LUFS\r\n\r\n  True peak:\r\n    Peak:       -0.4 dBFS\r\n",
+      "decoderErrors": []
+    },
+    {
+      "file": "BGM_KingsCorridor.mp3",
+      "sha256": "736e08f2003d133cbbecc03b2467051d4fc70b5d081fe30fc7718679a8c91a7f",
+      "decodeExit": 0,
+      "durationSeconds": 183.63,
+      "samplePeakDbfs": -0.567387292716683,
+      "samplesAtOrAboveFullScale": 0,
+      "leadingBelowMinus50DbSeconds": 0.3,
+      "trailingBelowMinus50DbSeconds": 1.33,
+      "longestInteriorBelowMinus50DbSeconds": 0,
+      "seamSampleJump": 0.005043518907768885,
+      "summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -14.8 LUFS\r\n    Threshold: -24.8 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         5.2 LU\r\n    Threshold: -34.8 LUFS\r\n    LRA low:   -18.0 LUFS\r\n    LRA high:  -12.8 LUFS\r\n\r\n  True peak:\r\n    Peak:       -0.5 dBFS\r\n",
+      "decoderErrors": []
+    },
+    {
+      "file": "BGM_Summit.mp3",
+      "sha256": "ad81d59ec99d67d4c8457e6e197093db0ab32c0769da09b62d63b51d4cdf7da1",
+      "decodeExit": 0,
+      "durationSeconds": 161.51,
+      "samplePeakDbfs": -0.7200777791686425,
+      "samplesAtOrAboveFullScale": 0,
+      "leadingBelowMinus50DbSeconds": 0.23,
+      "trailingBelowMinus50DbSeconds": 2.36,
+      "longestInteriorBelowMinus50DbSeconds": 0.04,
+      "seamSampleJump": 0.00013777801859760075,
+      "summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -14.9 LUFS\r\n    Threshold: -25.0 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         4.1 LU\r\n    Threshold: -34.9 LUFS\r\n    LRA low:   -17.2 LUFS\r\n    LRA high:  -13.1 LUFS\r\n\r\n  True peak:\r\n    Peak:       -0.7 dBFS\r\n",
+      "decoderErrors": []
+    },
+    {
+      "file": "BGM_SurfCanal.mp3",
+      "sha256": "bc1d2d659dcbeb7f743154374aef3bd2d254489448232cc2e281cf661d91e374",
+      "decodeExit": 0,
+      "durationSeconds": 188.95,
+      "samplePeakDbfs": -0.5135028118426916,
+      "samplesAtOrAboveFullScale": 0,
+      "leadingBelowMinus50DbSeconds": 0.11,
+      "trailingBelowMinus50DbSeconds": 0.39,
+      "longestInteriorBelowMinus50DbSeconds": 0.01,
+      "seamSampleJump": 0.0009900732934511325,
+      "summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -14.2 LUFS\r\n    Threshold: -24.3 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         6.7 LU\r\n    Threshold: -34.2 LUFS\r\n    LRA low:   -19.0 LUFS\r\n    LRA high:  -12.4 LUFS\r\n\r\n  True peak:\r\n    Peak:       -0.5 dBFS\r\n",
+      "decoderErrors": []
+    }
+  ]
+}
