@@ -15,13 +15,13 @@ using UnityEngine.SceneManagement;
 
 namespace HalliGalli.Movement
 {
-    public enum NetworkAction { Reveal=0, Interact=1, Push=2, Kick=3, Restart=4, Ready=5, Respawn=6, LassoThrow=7, LassoPull=8, UseItem=9 }
+    public enum NetworkAction { Reveal=0, Interact=1, Push=2, Kick=3, Restart=4, Ready=5, Respawn=6, LassoThrow=7, UseItem=9 }
 
     // Lobby/Relay supplies discovery and encrypted transport; this host owns all game decisions.
     [DefaultExecutionOrder(150)]
     public sealed partial class CourseNetwork : MonoBehaviour
     {
-        public const int Protocol=39;
+        public const int Protocol=40;
         public static double WorldTime=>Active&&Instance.manager&&Instance.manager.IsListening?Instance.manager.ServerTime.Time:Time.fixedTimeAsDouble;
         public const int MaxParticipants=6;
         const int capacity=MaxParticipants;
@@ -47,7 +47,7 @@ namespace HalliGalli.Movement
         [Serializable] sealed class Room {public Member[] members;public string map,code;public int capacity,epoch,mapRevision;public bool loading,playing;public UserMapOffer userMap;}
         [Serializable] sealed class Hello {public int protocol;public string name;public int shirtColor=-1;}
         [Serializable] sealed class Load {public int epoch,mapRevision;public string map,mapHash;}
-        [Serializable] sealed class ActionMessage {public int epoch,mapRevision,respawn,toolSequence,raceRound,itemSequence;public NetworkAction action;public Vector3 aim;}
+        [Serializable] sealed class ActionMessage {public int epoch,mapRevision,respawn,raceRound,itemSequence;public NetworkAction action;public Vector3 aim;}
         [Serializable] sealed class Signal {public int epoch;}
 
         NetworkManager manager;

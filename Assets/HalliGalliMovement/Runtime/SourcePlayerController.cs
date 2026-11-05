@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace HalliGalli.Movement
 {
-    // Sample this frame's mouse movement before MeleeCombat handles the Q press.
+    // Sample this frame's view direction before MeleeCombat handles the Q cast.
     [DefaultExecutionOrder(-10), DisallowMultipleComponent, RequireComponent(typeof(SourceMotor))]
     public sealed class SourcePlayerController : MonoBehaviour
     {
@@ -22,15 +22,6 @@ namespace HalliGalli.Movement
         int pointerBlockedFrame=-1;
         public bool PointerActionsAllowed=>!ControlSettings.BlocksInput&&controlsEnabled&&hasFocus&&Cursor.lockState==CursorLockMode.Locked&&pointerBlockedFrame!=Time.frameCount;
         private float yaw, pitch;
-        Vector2 ropeGesture;int ropeGestureFrame=-1;
-        public Vector3 ConsumeRopeGesture()
-        {
-            var gesture=ropeGestureFrame==Time.frameCount?ropeGesture:Vector2.zero;
-            ropeGesture=Vector2.zero;ropeGestureFrame=-1;
-            // A deliberate swing, measured in degrees/second rather than accumulated turns.
-            if(gesture.magnitude/Mathf.Max(Time.unscaledDeltaTime,.001f)<90)return Vector3.zero;
-            return (Quaternion.Euler(0,yaw,0)*Vector3.right*gesture.x+Vector3.up*gesture.y).normalized;
-        }
         public Quaternion AimRotation => Quaternion.Euler(pitch,yaw,0);
         public float Pitch=>pitch;
         Vector3 networkViewOffset;
@@ -63,7 +54,6 @@ namespace HalliGalli.Movement
             if (active)
             {
                 if(!lookSuppressed)ApplyLook(mouse);
-                else {ropeGesture=Vector2.zero;ropeGestureFrame=-1;}
                 command = movementEnabled?new MovementCommand { move = move, crouch = crouch, jumpHeld = held, yaw = yaw }:new MovementCommand{yaw=yaw};
                 pendingJump = movementEnabled && (pendingJump || pressed);
             }
@@ -71,7 +61,6 @@ namespace HalliGalli.Movement
             {
                 command = new MovementCommand { yaw = yaw };
                 pendingJump = false;
-                ropeGesture=Vector2.zero;ropeGestureFrame=-1;
             }
         }
 
@@ -98,9 +87,6 @@ namespace HalliGalli.Movement
 
         public void ApplyLook(Vector2 mouseDelta)
         {
-            var rope=GetComponent<LassoTool>();
-            ropeGesture=rope&&rope.Phase==LassoPhase.Latched?mouseDelta*Motor.profile.mouseSensitivity:Vector2.zero;
-            ropeGestureFrame=Time.frameCount;
             // Mouse deltas already describe this frame's movement; do not multiply by deltaTime.
             yaw = Mathf.Repeat(yaw + mouseDelta.x * Motor.profile.mouseSensitivity, 360);
             pitch = Mathf.Clamp(pitch - mouseDelta.y * Motor.profile.mouseSensitivity,
@@ -115,12 +101,11 @@ namespace HalliGalli.Movement
             pitch = Mathf.Clamp(pitchDegrees,-Motor.profile.pitchLimit,Motor.profile.pitchLimit);
             command.yaw = yaw;
             pendingJump = false;
-            ropeGesture=Vector2.zero;ropeGestureFrame=-1;
         }
 
         public void SetCursorCaptured(bool captured)
         {
-            if(!captured){ropeGesture=Vector2.zero;ropeGestureFrame=-1;pendingJump=false;command=new MovementCommand{yaw=yaw};if(Motor)Motor.ClearJumpBuffer();}
+            if(!captured){pendingJump=false;command=new MovementCommand{yaw=yaw};if(Motor)Motor.ClearJumpBuffer();}
             if(!captured||Cursor.lockState!=CursorLockMode.Locked)pointerBlockedFrame=Time.frameCount;
             Cursor.lockState = captured ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = !captured;

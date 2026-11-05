@@ -33,9 +33,10 @@ public sealed class PracticeValidationRunner:MonoBehaviour
         yield return new WaitForSeconds(3.8f);
         CheckThat("Target automatically returns after being knocked away",Vector3.Distance(target.transform.position,target.retryAnchor.position)<.1f&&!target.IsRespawning);
         local.Motor.Teleport(new Vector3(0,.025f,-6));local.Combat.ResetCombat();local.Lasso.EndRace();
-        bool cast=local.Lasso.TryThrow((LassoTool.Anchor(target)-local.Motor.CurrentEyePosition).normalized);yield return new WaitForSeconds(.5f);
-        CheckThat("Stationary practice target can be roped",cast&&local.Lasso.Target==target);
-        bool pull=local.Lasso.TryPull(Vector3.zero);CheckThat("Default rope pull moves target toward player",pull&&Vector3.Dot(local.Lasso.LastImpulse,local.transform.position-target.transform.position)>0);
+        int hits=local.Lasso.Hits,pulls=local.Lasso.Pulls;var targetStart=target.transform.position;var inward=Vector3.ProjectOnPlane(local.transform.position-targetStart,Vector3.up).normalized;
+        bool cast=local.Lasso.TryThrow((LassoTool.Anchor(target)-local.Motor.CurrentEyePosition).normalized);yield return new WaitForSeconds(.75f);
+        CheckThat("Single cast hits and automatically pulls the practice target once",cast&&local.Lasso.Hits==hits+1&&local.Lasso.Pulls==pulls+1&&!local.Lasso.ConnectionActive);
+        CheckThat("Practice pull moves target toward player without lift",Vector3.Dot(target.transform.position-targetStart,inward)>.05f&&local.Lasso.LastImpulse.y==0&&target.transform.position.y<targetStart.y+.05f);
         float cooldown=local.Lasso.CooldownRemaining;int respawns=local.RespawnSequence;
         FindAnyObjectByType<CourseHUD>().ProcessActions(false,false,true);yield return new WaitForSeconds(.85f);
         CheckThat("R resets only local position and preserves cooldown",local.RespawnSequence==respawns+1&&Vector3.Distance(local.transform.position,local.retryAnchor.position)<.1f&&local.Lasso.CooldownRemaining>cooldown-1.2f&&!local.Lasso.ConnectionActive&&session.practiceRoom.Active);

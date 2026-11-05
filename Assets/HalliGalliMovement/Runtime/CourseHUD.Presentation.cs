@@ -101,9 +101,9 @@ namespace HalliGalli.Movement
             Skill(x-220,y,"mouse",BellUI.Paper,"LMB",null,1,"밀치기");
             Skill(x-110,y,"arrow",kickCooldown>0?BellUI.Muted:BellUI.Paper,"F",
                 kickCooldown>0?kickCooldown.ToString("F1"):null,1-kickCooldown/MeleeCombat.KickCooldown,"발차기");
-            bool attached=p.Lasso.Phase==LassoPhase.Latched;float cooldown=p.Lasso.CooldownRemaining;
-            Skill(x,y,"rope",attached?BellUI.Gold:cooldown>0?BellUI.Muted:BellUI.Paper,"Q",
-                cooldown>0&&!attached?cooldown.ToString("F1"):null,attached?1:1-cooldown/5,attached?"당기기":"밧줄");
+            bool caught=p.Lasso.HitFeedbackActive;float cooldown=p.Lasso.CooldownRemaining;
+            Skill(x,y,"rope",caught?BellUI.Gold:cooldown>0?BellUI.Muted:BellUI.Paper,"Q",
+                cooldown>0&&!caught?cooldown.ToString("F1"):null,caught?1:1-cooldown/LassoTool.CooldownSeconds,caught?"자동 당김":"밧줄");
         }
         static void Skill(float x,float y,string icon,Color color,string key,string value,float fraction,string label)
         {
@@ -121,10 +121,10 @@ namespace HalliGalli.Movement
         void DrawCrosshair()
         {
             var p=session.Local;float x=BellUI.W*.5f,y=BellUI.H*.5f;
-            Color c=p.Combat.HitMarkerRemaining>0||p.Lasso.Phase==LassoPhase.Latched?BellUI.Gold:BellUI.Paper;
+            Color c=p.Combat.HitMarkerRemaining>0||p.Lasso.HitFeedbackActive?BellUI.Gold:BellUI.Paper;
             BellUI.Round(new Rect(x-3,y-3,6,6),new Color(0,0,0,.65f),3);
             BellUI.Round(new Rect(x-1.5f,y-1.5f,3,3),c,2);
-            if(p.Lasso.Phase==LassoPhase.Latched)BellUI.Arc(new Vector2(x,y),9,1,BellUI.Gold,2);
+            if(p.Lasso.HitFeedbackActive)BellUI.Arc(new Vector2(x,y),9,1,BellUI.Gold,2);
         }
         void DrawLassoWarning()
         {
@@ -150,7 +150,7 @@ namespace HalliGalli.Movement
             if(BellUI.Button(new Rect(x+140,y,128,34),"조작키 설정",selected:HelpOpen,size:14)&&ReadInput)OpenHelp();y+=54;
             if(HelpOpen){
                 string[] keys={"WASD","SPACE","CTRL","LMB","F","Q","R","E"};
-                string[] actions={"이동","점프","웅크리기","밀치기 / 카드 공개","발차기","밧줄 · 다시 눌러 당기기","체크포인트 복귀","일어나기 · 앉기 · 종"};
+                string[] actions={"이동","점프","웅크리기","밀치기 / 카드 공개","발차기","밧줄 · 맞으면 자동 당김","체크포인트 복귀","일어나기 · 앉기 · 종"};
                 for(int i=0;i<keys.Length;i++){BellUI.Key(new Rect(x,y+i*37,54,25),keys[i]);BellUI.Text(new Rect(x+66,y-2+i*37,205,29),actions[i],14);}
             }else{
                 if(!CourseNetwork.Active&&session.roster&&!session.practiceRoom){

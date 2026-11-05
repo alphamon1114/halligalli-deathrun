@@ -12,7 +12,7 @@ namespace HalliGalli.Movement
         public const int WheelUp=-1, WheelDown=-2, Slots=3;
         public const string PreferenceKey="HalliGalli.Controls.v1";
         public static readonly GameAction[] Actions=(GameAction[])Enum.GetValues(typeof(GameAction));
-        public static readonly string[] Names={"앞으로","뒤로","왼쪽으로","오른쪽으로","점프","웅크리기","밀치기 / 카드 공개","발차기","밧줄 / 당기기","일어나기 / 앉기 / 종","체크포인트 복귀","전신 보기","레이스 아이템 사용"};
+        public static readonly string[] Names={"앞으로","뒤로","왼쪽으로","오른쪽으로","점프","웅크리기","밀치기 / 카드 공개","발차기","밧줄 · 자동 당김","일어나기 / 앉기 / 종","체크포인트 복귀","전신 보기","레이스 아이템 사용"};
         static readonly KeyCode[] keys=((KeyCode[])Enum.GetValues(typeof(KeyCode))).Distinct().Where(k=>(int)k>0&&(int)k<(int)KeyCode.JoystickButton0).ToArray();
         static int[][] bindings;
         [Serializable] sealed class Saved { public int version=1; public Row[] rows; }

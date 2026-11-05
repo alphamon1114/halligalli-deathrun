@@ -63,9 +63,7 @@ namespace HalliGalli.Movement
         {
             if(!participant)participant=GetComponent<CourseParticipant>();
             if(!participant)return false;
-            return participant.Lasso.Phase==LassoPhase.Latched
-                ?participant.Lasso.TryPull(controller?controller.ConsumeRopeGesture():Vector3.zero)
-                :participant.Lasso.TryThrow(controller?controller.AimRotation*Vector3.forward:networkAim??transform.forward);
+            return participant.Lasso.TryThrow(controller?controller.AimRotation*Vector3.forward:networkAim??transform.forward);
         }
         public void ProcessPointerInput(bool primaryPressed,bool aimHeld,bool kickPressed)
         {

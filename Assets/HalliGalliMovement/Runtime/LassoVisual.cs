@@ -10,7 +10,8 @@ namespace HalliGalli.Movement
     {
         CourseParticipant owner;LassoTool tool;CharacterMotionDriver driver;
         Transform coil,loop,left,right,bodyLeft,bodyRight;
-        LineRenderer[] strands;Material hemp;
+        LineRenderer[] strands;Material hemp;Renderer[] loopRenderers;MaterialPropertyBlock hitTint;bool highlighted;
+        static readonly Color RopeColor=new Color(.56f,.39f,.20f);
         void Start()
         {
             owner=GetComponent<CourseParticipant>();tool=GetComponent<LassoTool>();driver=GetComponent<CharacterMotionDriver>();
@@ -18,7 +19,8 @@ namespace HalliGalli.Movement
             var body=driver?driver.bodyModel:GetComponent<CourseBodyAnimator>()?.model;
             if(body){bodyLeft=Bone(body,"LeftHand");bodyRight=Bone(body,"RightHand");}
             coil=Model("Coil");loop=Model("Loop");
-            hemp=new Material(Shader.Find("Standard")){color=new Color(.56f,.39f,.20f)};hemp.SetFloat("_Glossiness",.12f);
+            hemp=new Material(Shader.Find("Standard")){color=RopeColor};hemp.SetFloat("_Glossiness",.12f);
+            if(loop){loopRenderers=loop.GetComponentsInChildren<Renderer>(true);hitTint=new MaterialPropertyBlock();hitTint.SetColor("_Color",BellUI.Gold);}
             strands=new LineRenderer[3];
             for(int i=0;i<3;i++){
                 var go=new GameObject("Lasso braided strand "+i);go.transform.SetParent(transform,false);
@@ -36,7 +38,12 @@ namespace HalliGalli.Movement
         void LateUpdate()
         {
             if(strands==null||!owner)return;
-            bool visible=!owner.IsSeated&&!owner.IsRespawning&&(tool.ConnectionActive||tool.GestureActive)&&!owner.Motor.Stunned;
+            bool visible=!owner.IsSeated&&!owner.IsRespawning&&(tool.ConnectionActive||tool.MotionActive)&&!owner.Motor.Stunned;
+            bool caught=tool.HitFeedbackActive;
+            if(caught!=highlighted){
+                highlighted=caught;hemp.color=caught?BellUI.Gold:RopeColor;
+                if(loopRenderers!=null)foreach(var renderer in loopRenderers)renderer.SetPropertyBlock(caught?hitTint:null);
+            }
             bool fp=owner.localPlayer&&driver&&!driver.thirdPerson;
             var rotation=fp?driver.worldCamera.transform.rotation:Quaternion.LookRotation(owner.Combat.networkAim??transform.forward);
             var l=fp?left:bodyLeft;var r=fp?right:bodyRight;
@@ -48,8 +55,8 @@ namespace HalliGalli.Movement
             if(!tool.ConnectionActive)end=Vector3.Lerp(end,start,retraction);
             bool extended=visible&&(tool.ConnectionActive||Time.time-tool.PullAt<.3f);
             if(loop){loop.gameObject.SetActive(extended);if(extended){
-                var facing=tool.Phase==LassoPhase.Latched?Quaternion.Euler(90,0,0):Quaternion.LookRotation(tool.CastDirection.sqrMagnitude>.01f?tool.CastDirection:transform.forward);
-                loop.SetPositionAndRotation(end,facing);loop.localScale=Vector3.one*(tool.Phase==LassoPhase.Latched?1.45f:1);
+                var facing=caught?Quaternion.Euler(90,0,0):Quaternion.LookRotation(tool.CastDirection.sqrMagnitude>.01f?tool.CastDirection:transform.forward);
+                loop.SetPositionAndRotation(end,facing);loop.localScale=Vector3.one*(caught?1.45f:1);
             }}
             float length=Vector3.Distance(start,end);Vector3 axis=(end-start).normalized;
             Vector3 side=Vector3.Cross(axis,Vector3.up).normalized;if(side.sqrMagnitude<.01f)side=Vector3.right;
@@ -59,7 +66,7 @@ namespace HalliGalli.Movement
                 if(!extended)continue;
                 for(int i=0;i<81;i++){
                     float t=i/80f,twist=t*length*30+strand*Mathf.PI*2/3;
-                    float sag=Mathf.Sin(t*Mathf.PI)*Mathf.Min(.3f,length*.025f)*(tool.Phase==LassoPhase.Latched?1:.25f);
+                    float sag=caught?0:Mathf.Sin(t*Mathf.PI)*Mathf.Min(.3f,length*.025f)*.25f;
                     line.SetPosition(i,Vector3.Lerp(start,end,t)-Vector3.up*sag+(side*Mathf.Cos(twist)+up*Mathf.Sin(twist))*.004f);
                 }
             }

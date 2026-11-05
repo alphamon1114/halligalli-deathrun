@@ -14,7 +14,7 @@ public sealed class UIPreviewRunner:MonoBehaviour
         PlayModeWindow.SetCustomRenderingResolution(1920,1080,"Bell Run UI review");
         yield return null;yield return null;
         session=FindAnyObjectByType<CourseSession>();hud=FindAnyObjectByType<CourseHUD>();hud.ReadInput=false;
-        session.cardGame.botEnabled=false;session.cardGame.ReadInput=false;session.cardGame.shuffleOnReset=false;
+        session.cardGame.botEnabled=false;session.cardGame.ReadInput=false;session.cardGame.shuffleOnReset=false;session.cardGame.seed=20261105;
         session.roster.StartNewGame(6);yield return null;
         foreach(var p in session.participants){var bot=p.GetComponent<CourseRival>();if(bot)bot.enabled=false;p.Combat.readInput=false;p.Lasso.SimulateAutomatically=false;var c=p.GetComponent<SourcePlayerController>();if(c){c.controlsEnabled=false;c.movementEnabled=false;}}
         control=session.Local.GetComponent<SourcePlayerController>();control.SetCursorCaptured(true);
@@ -28,7 +28,7 @@ public sealed class UIPreviewRunner:MonoBehaviour
         yield return Capture("UI_Race");
         a.Lasso.TryThrow(Vector3.up);a.Lasso.Simulate(1.5f);yield return Capture("UI_Cooldown");
         a.Lasso.EndRace();b.Lasso.TryThrow((LassoTool.Anchor(a)-b.Motor.CurrentEyePosition).normalized);b.Lasso.Simulate(.4f);
-        yield return new WaitForSeconds(.3f);yield return Capture("UI_Lasso");b.Lasso.CancelConnection();
+        yield return Capture("UI_Lasso");b.Lasso.Simulate(LassoTool.AutoPullDelay);yield return Capture("UI_LassoReleased");
         control.SetCursorCaptured(false);yield return Capture("UI_Pause");
         hud.OpenHelp();yield return Capture("UI_Controls");ControlSettings.Close();
         hud.OpenMapMenu();yield return Capture("UI_Maps");hud.CloseMapMenu();

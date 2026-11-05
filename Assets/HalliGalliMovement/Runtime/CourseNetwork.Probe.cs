@@ -369,16 +369,14 @@ namespace HalliGalli.Movement
                     FindAnyObjectByType<CourseHUD>().OpenMapMenu();break;
                 case "leave":_=network.Leave();break;
                 case "action":network.LocalAction((NetworkAction)Enum.Parse(typeof(NetworkAction),c.value));break;
-                case "lasso":game.Local.Lasso.TryUse(Quaternion.Euler(c.pitch,c.yaw,0)*Vector3.forward);break;
+                case "lasso":game.Local.Lasso.TryThrow(Quaternion.Euler(c.pitch,c.yaw,0)*Vector3.forward);break;
                 case "race-item":FindAnyObjectByType<CourseHUD>().UseRaceItem();break;
                 case "controls":ControlSettings.Open();break;
                 case "random-seed":if(network.IsHost)UnityEngine.Random.InitState(int.Parse(c.value));break;
-                case "pull":
-                    if(c.value=="mouse"){
-                        var control=game.Local.GetComponent<SourcePlayerController>();
-                        control.ResetView(c.yaw,c.pitch);control.ApplyLook(new Vector2(c.x,c.z));game.Local.Combat.ProcessLassoInput();
-                    }else game.Local.Lasso.TryPull(c.value=="gesture"?Quaternion.Euler(c.pitch,c.yaw,0)*Vector3.forward:Vector3.zero);
-                    break;
+                case "look":
+                    var control=game.Local.GetComponent<SourcePlayerController>();
+                    control.ResetView(c.yaw,c.pitch);control.ApplyLook(new Vector2(c.x,c.z));control.UpdateView();
+                    movement.yaw=control.AimRotation.eulerAngles.y;pitch=control.Pitch;break;
                 case "pointer":
                     movement.yaw=c.yaw;pitch=c.pitch;game.Local.GetComponent<SourcePlayerController>().ResetView(c.yaw,c.pitch);
                     game.Local.GetComponent<SourcePlayerController>().UpdateView();

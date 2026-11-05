@@ -9,7 +9,7 @@ namespace HalliGalli.Movement
     public sealed class LassoTool : MonoBehaviour
     {
         public const float CooldownSeconds=5, Range=12, FlightSpeed=28, BreakDistance=16;
-        public const float PullSpeed=16, PullLift=3.5f;
+        public const float PullSpeed=16, AutoPullDelay=.12f;
         public const float PlayerHitRadius=.32f, WorldHitRadius=.06f;
         public LassoPhase Phase {get;private set;}
         public CourseParticipant Target {get;private set;}
@@ -24,24 +24,21 @@ namespace HalliGalli.Movement
         public float CastAt {get;private set;}=-100;
         public float PullAt {get;private set;}=-100;
         public bool ConnectionActive=>Phase!=LassoPhase.Idle;
-        public bool GestureActive=>Time.time-CastAt<.4f||Time.time-PullAt<.45f;
+        public bool MotionActive=>Time.time-CastAt<.4f||Time.time-PullAt<.45f;
+        public bool HitFeedbackActive=>Phase==LassoPhase.Latched||Time.time-PullAt<.3f;
         public string Motion=>Time.time-PullAt<.45f?"LassoPull":Time.time-CastAt<.4f?"LassoThrow":ConnectionActive?"LassoHold":"";
         public float MotionTime=>Motion=="LassoPull"?Time.time-PullAt:Motion=="LassoThrow"?Time.time-CastAt:0;
         public bool CanAct=>isActiveAndEnabled&&owner&&owner.Racing&&owner.Combat.actionsEnabled&&!owner.Motor.Stunned&&!owner.Motor.Staggered&&(!CourseNetwork.Active||CourseNetwork.Instance.Playing);
         public bool CanThrow=>CanAct&&!ConnectionActive&&CooldownRemaining<=0&&!owner.Combat.IsAttacking;
         public bool SimulateAutomatically=true;
-        CourseParticipant owner;LassoAudio audio;float travelled;
+        CourseParticipant owner;LassoAudio audio;float travelled,pullDelay;
         static int Mask=>~((1<<CharacterMotionDriver.BodyLayer)|(1<<CharacterMotionDriver.HandsLayer));
         void Awake(){owner=GetComponent<CourseParticipant>();audio=gameObject.AddComponent<LassoAudio>();gameObject.AddComponent<LassoVisual>();}
         void FixedUpdate(){if(SimulateAutomatically)Simulate(Time.fixedDeltaTime);}
         public void BeginRace(){EndRace();}
         public void EndRace(){CancelConnection();CooldownRemaining=0;CastAt=PullAt=-100;if(audio)audio.Stop();}
-        public void CancelConnection(){Phase=LassoPhase.Idle;Target=null;}
+        public void CancelConnection(){Phase=LassoPhase.Idle;Target=null;pullDelay=0;}
         public void ReleaseIfTarget(CourseParticipant participant){if(Target==participant)CancelConnection();}
-        public bool TryUse(Vector3 direction)
-        {
-            return Phase==LassoPhase.Latched?TryPull(direction):TryThrow(direction);
-        }
         public bool TryThrow(Vector3 direction)
         {
             if(!CanThrow||!Valid(direction))return false;
@@ -51,19 +48,14 @@ namespace HalliGalli.Movement
             CastOrigin=Tip=owner.Motor.CurrentEyePosition;CastDirection=direction.normalized;
             travelled=0;Target=null;Phase=LassoPhase.Flying;Sound(LassoSound.Throw,Casts,CastOrigin);return true;
         }
-        public bool TryPull(Vector3 direction)
+        void Pull()
         {
-            if(!CanAct||Phase!=LassoPhase.Latched||(!Valid(direction)&&direction!=Vector3.zero))return false;
-            if(CourseNetwork.Active&&!CourseNetwork.Authority){CourseNetwork.Instance.LocalAction(NetworkAction.LassoPull,true,direction);return true;}
-            if(!ConnectionValid()){CancelConnection();return false;}
-            // No flick pulls toward the caster. An active mouse flick supplies a world-space
-            // gesture; simply facing forward must never launch the victim away.
-            Vector3 pull=direction.sqrMagnitude>.01f?direction.normalized:(owner.Motor.CurrentEyePosition-Anchor(Target)).normalized;
-            // Overcome momentum pointing away from the pull, while retaining sideways speed.
-            LastImpulse=pull*Mathf.Max(PullSpeed,PullSpeed-Vector3.Dot(Target.Motor.Velocity,pull))+Vector3.up*PullLift;
+            Vector3 pull=owner.transform.position-Target.transform.position;pull.y=0;pull.Normalize();
+            // Overcome momentum away from the caster, retaining sideways and vertical speed.
+            LastImpulse=pull*Mathf.Max(PullSpeed,PullSpeed-Vector3.Dot(Target.Motor.Velocity,pull));
             Target.Motor.AddImpulse(LastImpulse);
             Target.Combat.InterruptAttack();
-            Tip=Anchor(Target);Pulls++;PullAt=Time.time;Sound(LassoSound.Pull,Pulls,owner.Motor.CurrentEyePosition,Target);CancelConnection();return true;
+            Tip=Anchor(Target);Pulls++;PullAt=Time.time;Sound(LassoSound.Pull,Pulls,owner.Motor.CurrentEyePosition,Target);CancelConnection();
         }
         public void Simulate(float dt)
         {
@@ -71,7 +63,12 @@ namespace HalliGalli.Movement
             CooldownRemaining=Mathf.Max(0,CooldownRemaining-dt);
             if(CourseNetwork.Active&&!CourseNetwork.Authority)return;
             if(!CanAct){CancelConnection();return;}
-            if(Phase==LassoPhase.Latched){if(!ConnectionValid())CancelConnection();else Tip=Anchor(Target);return;}
+            if(Phase==LassoPhase.Latched){
+                if(!ConnectionValid()){CancelConnection();return;}
+                Tip=Anchor(Target);pullDelay-=dt;
+                if(pullDelay<=.00001f)Pull();
+                return;
+            }
             if(Phase!=LassoPhase.Flying)return;
             float step=Mathf.Min(FlightSpeed*dt,Range-travelled);
             // Wider on players, narrow on scenery: forgiving edge hits without snagging a
@@ -99,7 +96,7 @@ namespace HalliGalli.Movement
             foreach(var p in owner.session.participants)if(Eligible(p))Candidate(p,CapsuleDistance(p,step));
             if(nearest){
                 Target=nearest;Tip=Anchor(nearest);
-                if(ConnectionValid()){Hits++;Phase=LassoPhase.Latched;Sound(LassoSound.Latch,Hits,Tip,Target);return;}
+                if(ConnectionValid()){Hits++;Phase=LassoPhase.Latched;pullDelay=AutoPullDelay;Sound(LassoSound.Latch,Hits,Tip,Target);return;}
                 CancelConnection();return;
             }
             if(obstacle<=step){Tip+=CastDirection*obstacle;CancelConnection();return;}

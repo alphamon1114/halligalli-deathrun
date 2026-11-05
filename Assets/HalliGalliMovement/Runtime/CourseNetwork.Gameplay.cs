@@ -218,7 +218,7 @@ namespace HalliGalli.Movement
             if(action!=NetworkAction.Ready&&(!Playing||!bound||menu))return;
             if(action==NetworkAction.Ready&&(Playing||loading||!UserMapReady))return;
             var race=RaceCourse.Active;
-            var message=new ActionMessage{epoch=epoch,mapRevision=mapRevision,action=action,respawn=game?game.Local.RespawnSequence:0,toolSequence=game?game.Local.Lasso.Casts:0,
+            var message=new ActionMessage{epoch=epoch,mapRevision=mapRevision,action=action,respawn=game?game.Local.RespawnSequence:0,
                 raceRound=race?race.Round:0,itemSequence=race&&game?race.ItemSequence(game.Local):0,
                 aim=aim??(game?game.Local.GetComponent<SourcePlayerController>().AimRotation*Vector3.forward:Vector3.forward)};
             if(IsHost)ReceiveAction(manager.LocalClientId,message);else Send("HG.action",message,0);
@@ -255,7 +255,6 @@ namespace HalliGalli.Movement
                     if(message.respawn==p.RespawnSequence){p.Combat.networkAim=message.aim;p.Combat.TryKick();}break;
                 case NetworkAction.Respawn:if(message.respawn==p.RespawnSequence)p.RequestRespawn();break;
                 case NetworkAction.LassoThrow:if(message.respawn==p.RespawnSequence)p.Lasso.TryThrow(message.aim);break;
-                case NetworkAction.LassoPull:if(message.respawn==p.RespawnSequence&&message.toolSequence==p.Lasso.Casts)p.Lasso.TryPull(message.aim);break;
                 case NetworkAction.UseItem:
                     var race=RaceCourse.Active;
                     if(race&&race.session==game&&message.mapRevision==mapRevision&&message.respawn==p.RespawnSequence&&message.raceRound==race.Round&&message.itemSequence==race.ItemSequence(p))
