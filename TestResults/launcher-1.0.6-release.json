@@ -1,0 +1,47 @@
+{
+  "utc": "2026-11-05T07:17:17.7805972Z",
+  "completedUtc": "2026-11-05T07:18:20.3419857Z",
+  "status": "passed",
+  "version": "1.0.6",
+  "protocol": 42,
+  "error": null,
+  "checks": [
+    {
+      "name": "Existing installation is 1.0.5 and update is offered",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Real install button downloads and verifies 1.0.6",
+      "passed": true,
+      "detail": "\uCD5C\uC2E0 \uBC84\uC804\uACFC \uC124\uCE58\uB41C \uBAA8\uB4E0 \uD30C\uC77C\uC744 \uD655\uC778\uD588\uC2B5\uB2C8\uB2E4.\r\n\u2018\uAC8C\uC784 \uC2E4\uD589\u2019\uC744 \uB204\uB974\uBA74 \uCD5C\uC2E0 \uBC30\uD3EC\uB97C \uC0C8\uB85C \uD655\uC778\uD558\uACE0 \uC2E4\uD589\uD569\uB2C8\uB2E4."
+    },
+    {
+      "name": "Update atomically selects new version and preserves old installation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Real play button launches downloaded executable",
+      "passed": true,
+      "detail": "\uAC8C\uC784\uC744 \uC2DC\uC791\uD588\uC2B5\uB2C8\uB2E4. \uAC8C\uC784 \uC790\uCCB4\uC5D0\uC11C\uB3C4 \uCD5C\uC2E0 \uBC30\uD3EC\uB97C \uB2E4\uC2DC \uD655\uC778\uD569\uB2C8\uB2E4.\r\n\uAC8C\uC784 \uC885\uB8CC \uD6C4 \u2018\uCD5C\uC2E0 \uD655\uC778 / \uC7AC\uC2DC\uB3C4\u2019\uB97C \uB20C\uB7EC \uC8FC\uC138\uC694."
+    },
+    {
+      "name": "Production gate admits published version without bypass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Downloaded game initializes real participant runtime",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "scope": "Production LauncherForm and LauncherEngine with actual GitHub download, integrity checks and actual player launch in an isolated copy of the existing 1.0.5 install. Buttons invoked through WinForms handlers; game audio disabled.",
+  "userInstallationModified": false,
+  "userLauncherClosed": false,
+  "limitations": [
+    "No hardware mouse input assertion; DrawToBitmap captures actual launcher controls, not the game window.",
+    "Internet Relay multiplayer not exercised."
+  ]
+}
