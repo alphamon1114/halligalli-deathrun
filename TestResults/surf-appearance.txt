@@ -1,0 +1,7 @@
+Before: renderers=237, colliders=51, meshColliders=11, checkpointOutlines=3, Bulkhead panel=0, Bulkhead seam=0, ConcreteColumn=0, CeilingLight=0, Fixture light=0, Surf broad bulkhead=10, Surf broad divider=1, Surf fixture light=8, backdropPlanes=6
+After: renderers=237, colliders=51, meshColliders=11, checkpointOutlines=3, Bulkhead panel=0, Bulkhead seam=0, ConcreteColumn=0, CeilingLight=0, Fixture light=0, Surf broad bulkhead=10, Surf broad divider=1, Surf fixture light=8, backdropPlanes=6
+Protected state SHA-256 before: 1CBF86585AF5997AAAFF949CE19ECECE2F9BA049AF5501C8B840A2E9EBBC0F15
+Protected state SHA-256 after: 1CBF86585AF5997AAAFF949CE19ECECE2F9BA049AF5501C8B840A2E9EBBC0F15
+Movement profile SHA-256: 73734179BDA0A06F9113B25D081F0B9937A070A9D6CDFB8A2FFCD449492AF40F
+Unchanged: serialized route/checkpoint configuration, colliders, behaviours, rigidbodies, audio, anchors and world transforms.
+Hazard: continuous dark surface, perimeter warning tape, sparse electrical signs; no floor grid.

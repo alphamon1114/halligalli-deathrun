@@ -1,0 +1,2228 @@
+{
+    "utc": "2026-11-05T06:35:13.0622095Z",
+    "completedUtc": "2026-11-05T06:37:06.6708810Z",
+    "unityVersion": "6000.6.0f1",
+    "status": "passed",
+    "screenshot": "Previews/MapMusic_Settings.png",
+    "runId": "991ead98cdff436cb82961634c759f72",
+    "passed": 217,
+    "failed": 0,
+    "limited": 0,
+    "outputSampleRate": 48000,
+    "processId": 28576,
+    "playbackCompleted": true,
+    "persistenceCompleted": true,
+    "preferencesRestored": true,
+    "speakerMode": "Stereo",
+    "defaultMusicVolume": 0.30000001192092896,
+    "checks": [
+        {
+            "name": "One persistent player owns exactly two reusable music sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "All seven playable map definitions exist",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Initial music reaches the actual mixer output",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-22.94dBFS; RMS=-35.41dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: mapped track replaces the previous track",
+            "detail": "previous=first-steps; current=summit",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: mapped track replaces the previous track",
+            "detail": "previous=summit; current=first-steps",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> first-steps: intermediate fade contains both playing sources",
+            "detail": "old gain=0.005984312; new gain=0.2940157",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> first-steps: both fading sources emit real audio samples",
+            "detail": "old RMS=0.02377053; new RMS=0.03777907",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> first-steps: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: resource mapping is the actual current clip",
+            "detail": "first-steps; 2ch; 48000Hz; 147.050s",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: music is looping stereo 2D playback",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: audio sample position genuinely advances",
+            "detail": "samples=240000 -> 256384; DSP elapsed=0.3627",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: actual mixer output contains music",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-18.81dBFS; RMS=-32.87dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: natural loop 1 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: natural loop 2 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: natural loop 3 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: respawn does not restart music",
+            "detail": "samples=389120 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: round reset does not restart music",
+            "detail": "samples=390144 -> 402432",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: reselecting the same map does not restart music",
+            "detail": "samples=389120 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: music controls leave all SFX source volumes unchanged",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: real bell attack remains prominent over default music",
+            "detail": "At 2m from bell, loudest 50ms bell=-12.59dBFS; music=-27.63dBFS; difference=15.03dB (minimum 3dB).",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: actual bell plus music mixer output does not clip",
+            "detail": "Mixed sample peak=-4.58dBFS. Not a true-peak or subjective masking guarantee.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: mapped track replaces the previous track",
+            "detail": "previous=first-steps; current=summit",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps -> summit: intermediate fade contains both playing sources",
+            "detail": "old gain=0.00620842; new gain=0.2937916",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps -> summit: both fading sources emit real audio samples",
+            "detail": "old RMS=0.02829881; new RMS=0.02741894",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps -> summit: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: resource mapping is the actual current clip",
+            "detail": "summit; 2ch; 48000Hz; 156.310s",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: music is looping stereo 2D playback",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: audio sample position genuinely advances",
+            "detail": "samples=240000 -> 257408; DSP elapsed=0.3627",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: actual mixer output contains music",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-22.92dBFS; RMS=-36.67dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: natural loop 1 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: natural loop 2 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: natural loop 3 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: respawn does not restart music",
+            "detail": "samples=389120 -> 400384",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: round reset does not restart music",
+            "detail": "samples=390144 -> 402432",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: reselecting the same map does not restart music",
+            "detail": "samples=390144 -> 402432",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: music controls leave all SFX source volumes unchanged",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: real bell attack remains prominent over default music",
+            "detail": "At 2m from bell, loudest 50ms bell=-12.59dBFS; music=-24.85dBFS; difference=12.25dB (minimum 3dB).",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: actual bell plus music mixer output does not clip",
+            "detail": "Mixed sample peak=-5.15dBFS. Not a true-peak or subjective masking guarantee.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: mapped track replaces the previous track",
+            "detail": "previous=summit; current=surf",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> surf: intermediate fade contains both playing sources",
+            "detail": "old gain=0.005843783; new gain=0.2941562",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> surf: both fading sources emit real audio samples",
+            "detail": "old RMS=0.05599949; new RMS=0.01814856",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> surf: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: resource mapping is the actual current clip",
+            "detail": "surf; 2ch; 48000Hz; 185.850s",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: music is looping stereo 2D playback",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: audio sample position genuinely advances",
+            "detail": "samples=240000 -> 256384; DSP elapsed=0.3627",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: actual mixer output contains music",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-23.20dBFS; RMS=-35.51dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: natural loop 1 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: natural loop 2 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: natural loop 3 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: respawn does not restart music",
+            "detail": "samples=390144 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: round reset does not restart music",
+            "detail": "samples=389120 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: reselecting the same map does not restart music",
+            "detail": "samples=389120 -> 400384",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: music controls leave all SFX source volumes unchanged",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: real bell attack remains prominent over default music",
+            "detail": "At 2m from bell, loudest 50ms bell=-12.59dBFS; music=-33.03dBFS; difference=20.43dB (minimum 3dB).",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: actual bell plus music mixer output does not clip",
+            "detail": "Mixed sample peak=-4.82dBFS. Not a true-peak or subjective masking guarantee.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: mapped track replaces the previous track",
+            "detail": "previous=surf; current=factory",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf -> factory: intermediate fade contains both playing sources",
+            "detail": "old gain=0.005907959; new gain=0.2940921",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf -> factory: both fading sources emit real audio samples",
+            "detail": "old RMS=0.01855522; new RMS=0.003562413",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf -> factory: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: resource mapping is the actual current clip",
+            "detail": "factory; 2ch; 48000Hz; 159.870s",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: music is looping stereo 2D playback",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: audio sample position genuinely advances",
+            "detail": "samples=240000 -> 257408; DSP elapsed=0.3627",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: actual mixer output contains music",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-27.23dBFS; RMS=-43.62dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: natural loop 1 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: natural loop 2 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: natural loop 3 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: respawn does not restart music",
+            "detail": "samples=390144 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: round reset does not restart music",
+            "detail": "samples=389120 -> 402432",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: reselecting the same map does not restart music",
+            "detail": "samples=389120 -> 400384",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: music controls leave all SFX source volumes unchanged",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: real bell attack remains prominent over default music",
+            "detail": "At 2m from bell, loudest 50ms bell=-12.59dBFS; music=-40.45dBFS; difference=27.85dB (minimum 3dB).",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory: actual bell plus music mixer output does not clip",
+            "detail": "Mixed sample peak=-5.42dBFS. Not a true-peak or subjective masking guarantee.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: mapped track replaces the previous track",
+            "detail": "previous=factory; current=pyramid",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory -> pyramid: intermediate fade contains both playing sources",
+            "detail": "old gain=0.00622378; new gain=0.2937762",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory -> pyramid: both fading sources emit real audio samples",
+            "detail": "old RMS=0.02731222; new RMS=0.02577005",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "factory -> pyramid: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: resource mapping is the actual current clip",
+            "detail": "pyramid; 2ch; 48000Hz; 179.330s",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: music is looping stereo 2D playback",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: audio sample position genuinely advances",
+            "detail": "samples=240000 -> 256384; DSP elapsed=0.3413",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: actual mixer output contains music",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-19.76dBFS; RMS=-41.84dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: natural loop 1 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: natural loop 2 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: natural loop 3 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: respawn does not restart music",
+            "detail": "samples=389120 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: round reset does not restart music",
+            "detail": "samples=389120 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: reselecting the same map does not restart music",
+            "detail": "samples=390144 -> 402432",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: music controls leave all SFX source volumes unchanged",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: real bell attack remains prominent over default music",
+            "detail": "At 2m from bell, loudest 50ms bell=-12.59dBFS; music=-26.98dBFS; difference=14.38dB (minimum 3dB).",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid: actual bell plus music mixer output does not clip",
+            "detail": "Mixed sample peak=-5.12dBFS. Not a true-peak or subjective masking guarantee.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/RaceCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: mapped track replaces the previous track",
+            "detail": "previous=pyramid; current=item-race",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid -> item-race: intermediate fade contains both playing sources",
+            "detail": "old gain=0.006238765; new gain=0.2937613",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid -> item-race: both fading sources emit real audio samples",
+            "detail": "old RMS=0.02628865; new RMS=0.015146",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "pyramid -> item-race: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: resource mapping is the actual current clip",
+            "detail": "item-race; 2ch; 48000Hz; 147.670s",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: music is looping stereo 2D playback",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: audio sample position genuinely advances",
+            "detail": "samples=240000 -> 256384; DSP elapsed=0.3627",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: actual mixer output contains music",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-16.79dBFS; RMS=-31.00dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: natural loop 1 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: natural loop 2 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: natural loop 3 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: respawn does not restart music",
+            "detail": "samples=390144 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: round reset does not restart music",
+            "detail": "samples=390144 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: reselecting the same map does not restart music",
+            "detail": "samples=390144 -> 402432",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: music controls leave all SFX source volumes unchanged",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: real bell attack remains prominent over default music",
+            "detail": "At 2m from bell, loudest 50ms bell=-12.95dBFS; music=-26.66dBFS; difference=13.71dB (minimum 3dB).",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race: actual bell plus music mixer output does not clip",
+            "detail": "Mixed sample peak=-4.90dBFS. Not a true-peak or subjective masking guarantee.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/ClockworkCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: mapped track replaces the previous track",
+            "detail": "previous=item-race; current=clockwork",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race -> clockwork: intermediate fade contains both playing sources",
+            "detail": "old gain=0.005533719; new gain=0.2944663",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race -> clockwork: both fading sources emit real audio samples",
+            "detail": "old RMS=0.03942098; new RMS=0.03231001",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "item-race -> clockwork: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: resource mapping is the actual current clip",
+            "detail": "clockwork; 2ch; 48000Hz; 162.510s",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: music is looping stereo 2D playback",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: audio sample position genuinely advances",
+            "detail": "samples=240000 -> 255360; DSP elapsed=0.3413",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: actual mixer output contains music",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-22.02dBFS; RMS=-34.72dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: natural loop 1 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: natural loop 2 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: natural loop 3 wraps without stopping",
+            "detail": "Seeked near end once; observed natural wrap=True; observed stopped frame=False.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: respawn does not restart music",
+            "detail": "samples=391168 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: round reset does not restart music",
+            "detail": "samples=390144 -> 402432",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: reselecting the same map does not restart music",
+            "detail": "samples=390144 -> 401408",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: real bell event starts the existing bell source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: music controls leave all SFX source volumes unchanged",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: real bell attack remains prominent over default music",
+            "detail": "At 2m from bell, loudest 50ms bell=-12.59dBFS; music=-31.21dBFS; difference=18.62dB (minimum 3dB).",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork: actual bell plus music mixer output does not clip",
+            "detail": "Mixed sample peak=-5.27dBFS. Not a true-peak or subjective masking guarantee.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Zero music volume leaves loop transport running",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Zero music volume is persisted without changing SFX volume",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Zero volume removes music from the real mixer output",
+            "detail": "Sample peak=-180.00dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Restoring the slider restores actual music output",
+            "detail": "continuous AudioListener OnAudioFilterRead; peak=-16.34dBFS; RMS=-32.86dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Restoring music volume preserves SFX settings",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: mapped track replaces the previous track",
+            "detail": "previous=clockwork; current=surf",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork -> surf: intermediate fade contains both playing sources",
+            "detail": "old gain=0.005415201; new gain=0.2945848",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork -> surf: both fading sources emit real audio samples",
+            "detail": "old RMS=0.03022239; new RMS=0.01760067",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "clockwork -> surf: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: mapped track replaces the previous track",
+            "detail": "previous=surf; current=first-steps",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf -> first-steps: intermediate fade contains both playing sources",
+            "detail": "old gain=0.006641275; new gain=0.2933587",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf -> first-steps: both fading sources emit real audio samples",
+            "detail": "old RMS=0.01543868; new RMS=0.03813881",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "surf -> first-steps: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: mapped track replaces the previous track",
+            "detail": "previous=first-steps; current=summit",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps -> summit: intermediate fade contains both playing sources",
+            "detail": "old gain=0.005590582; new gain=0.2944094",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps -> summit: both fading sources emit real audio samples",
+            "detail": "old RMS=0.02862409; new RMS=0.02709118",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps -> summit: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: player-facing map selection accepts the map",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: actual map scene finishes loading",
+            "detail": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: mapped track replaces the previous track",
+            "detail": "previous=summit; current=first-steps",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> first-steps: intermediate fade contains both playing sources",
+            "detail": "old gain=0.005129045; new gain=0.294871",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> first-steps: both fading sources emit real audio samples",
+            "detail": "old RMS=0.02342259; new RMS=0.03767253",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "summit -> first-steps: outgoing source stops after the fade",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "first-steps: switches never accumulate players or audio sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "push-impact: real local feedback remains prominent over default music",
+            "detail": "50ms effect/music difference=8.99dB; local received-event audio path.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "push-impact: real effect plus music does not clip",
+            "detail": "Mixed sample peak=-7.69dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "kick-impact: real local feedback remains prominent over default music",
+            "detail": "50ms effect/music difference=8.64dB; local received-event audio path.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "kick-impact: real effect plus music does not clip",
+            "detail": "Mixed sample peak=-5.43dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "rope-throw: real local feedback remains prominent over default music",
+            "detail": "50ms effect/music difference=5.83dB; local received-event audio path.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "rope-throw: real effect plus music does not clip",
+            "detail": "Mixed sample peak=-11.81dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "rope-latch: real local feedback remains prominent over default music",
+            "detail": "50ms effect/music difference=3.27dB; local received-event audio path.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "rope-latch: real effect plus music does not clip",
+            "detail": "Mixed sample peak=-9.17dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "rope-pull: real local feedback remains prominent over default music",
+            "detail": "50ms effect/music difference=5.87dB; local received-event audio path.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "rope-pull: real effect plus music does not clip",
+            "detail": "Mixed sample peak=-9.33dBFS.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Combat balance checks leave SFX source volumes unchanged",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Home screen stops map music",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Real home settings including the music slider are captured",
+            "detail": "Previews/MapMusic_Settings.png",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Returning from home resumes the selected map music",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Real local waiting room has no map music",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Starting a real local room match plays its map track",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Opening the online pause menu does not stop a running match track",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "ReturnToRoom stops both map sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Starting another room round resumes music without extra sources",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Leaving the room returns to silent home",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Changed volume is stored for the next play session",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Volume survives a complete exit and re-entry into Play mode",
+            "detail": "Expected 0.61; fresh runtime reported 0.61.",
+            "passed": true,
+            "limited": false
+        },
+        {
+            "name": "Reloaded volume controls the genuinely playing source",
+            "detail": "",
+            "passed": true,
+            "limited": false
+        }
+    ],
+    "measurements": [
+        {
+            "map": "first-steps",
+            "kind": "initial-output",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-initial-output.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 67584,
+            "seconds": 0.7039999961853027,
+            "rmsDbfs": -35.408058166503906,
+            "peakDbfs": -22.936939239501953,
+            "loudest50msDbfs": -30.707347869873047,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 14.592,
+            "dspEnd": 15.296,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "playing",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-playing.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 67584,
+            "seconds": 0.7039999961853027,
+            "rmsDbfs": -32.868247985839844,
+            "peakDbfs": -18.80616569519043,
+            "loudest50msDbfs": -28.11203956604004,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 17.472,
+            "dspEnd": 18.176,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "natural-loop",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-natural-loop.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 104448,
+            "seconds": 1.0880000591278076,
+            "rmsDbfs": -32.80663299560547,
+            "peakDbfs": -20.821468353271484,
+            "loudest50msDbfs": -27.286869049072266,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 0.0,
+            "dspEnd": 0.0,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "music-only-at-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-music-only-at-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 94208,
+            "seconds": 0.981333315372467,
+            "rmsDbfs": -32.70199966430664,
+            "peakDbfs": -18.80616569519043,
+            "loudest50msDbfs": -27.627552032470703,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 23.168,
+            "dspEnd": 24.149333333333335,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "bell-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-bell-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -18.328336715698242,
+            "peakDbfs": -5.387640476226807,
+            "loudest50msDbfs": -12.593778610229492,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 24.384,
+            "dspEnd": 25.386666666666667,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "music-and-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-music-and-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -18.163524627685547,
+            "peakDbfs": -4.578746795654297,
+            "loudest50msDbfs": -12.514339447021484,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 25.6,
+            "dspEnd": 26.602666666666668,
+            "audible": true
+        },
+        {
+            "map": "summit",
+            "kind": "playing",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/summit-playing.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 65536,
+            "seconds": 0.6826666593551636,
+            "rmsDbfs": -36.6738395690918,
+            "peakDbfs": -22.916889190673828,
+            "loudest50msDbfs": -32.4317626953125,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 27.818666666666665,
+            "dspEnd": 28.501333333333335,
+            "audible": true
+        },
+        {
+            "map": "summit",
+            "kind": "natural-loop",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/summit-natural-loop.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 104448,
+            "seconds": 1.0880000591278076,
+            "rmsDbfs": -33.14612579345703,
+            "peakDbfs": -16.681459426879883,
+            "loudest50msDbfs": -26.187772750854492,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 0.0,
+            "dspEnd": 0.0,
+            "audible": true
+        },
+        {
+            "map": "summit",
+            "kind": "music-only-at-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/summit-music-only-at-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -33.65972137451172,
+            "peakDbfs": -16.00113296508789,
+            "loudest50msDbfs": -24.84779167175293,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 33.472,
+            "dspEnd": 34.474666666666664,
+            "audible": true
+        },
+        {
+            "map": "summit",
+            "kind": "bell-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/summit-bell-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 98304,
+            "seconds": 1.0240000486373901,
+            "rmsDbfs": -18.413143157958984,
+            "peakDbfs": -5.387640476226807,
+            "loudest50msDbfs": -12.593778610229492,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 34.666666666666664,
+            "dspEnd": 35.690666666666665,
+            "audible": true
+        },
+        {
+            "map": "summit",
+            "kind": "music-and-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/summit-music-and-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -18.203720092773438,
+            "peakDbfs": -5.146998882293701,
+            "loudest50msDbfs": -12.561958312988281,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 35.904,
+            "dspEnd": 36.906666666666666,
+            "audible": true
+        },
+        {
+            "map": "surf",
+            "kind": "playing",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/surf-playing.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 67584,
+            "seconds": 0.7039999961853027,
+            "rmsDbfs": -35.51347732543945,
+            "peakDbfs": -23.19615936279297,
+            "loudest50msDbfs": -33.218833923339844,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 38.12266666666667,
+            "dspEnd": 38.82666666666667,
+            "audible": true
+        },
+        {
+            "map": "surf",
+            "kind": "natural-loop",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/surf-natural-loop.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 106496,
+            "seconds": 1.1093332767486572,
+            "rmsDbfs": -40.37586975097656,
+            "peakDbfs": -19.79610824584961,
+            "loudest50msDbfs": -35.84434127807617,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 0.0,
+            "dspEnd": 0.0,
+            "audible": true
+        },
+        {
+            "map": "surf",
+            "kind": "music-only-at-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/surf-music-only-at-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -36.416542053222656,
+            "peakDbfs": -20.060089111328125,
+            "loudest50msDbfs": -33.02870178222656,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 43.797333333333334,
+            "dspEnd": 44.8,
+            "audible": true
+        },
+        {
+            "map": "surf",
+            "kind": "bell-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/surf-bell-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 94208,
+            "seconds": 0.981333315372467,
+            "rmsDbfs": -18.242116928100586,
+            "peakDbfs": -5.387640476226807,
+            "loudest50msDbfs": -12.593778610229492,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 45.013333333333335,
+            "dspEnd": 45.99466666666667,
+            "audible": true
+        },
+        {
+            "map": "surf",
+            "kind": "music-and-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/surf-music-and-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 94208,
+            "seconds": 0.981333315372467,
+            "rmsDbfs": -18.172893524169922,
+            "peakDbfs": -4.823389530181885,
+            "loudest50msDbfs": -12.578474044799805,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 46.22933333333334,
+            "dspEnd": 47.21066666666667,
+            "audible": true
+        },
+        {
+            "map": "factory",
+            "kind": "playing",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/factory-playing.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 65536,
+            "seconds": 0.6826666593551636,
+            "rmsDbfs": -43.61509323120117,
+            "peakDbfs": -27.22502899169922,
+            "loudest50msDbfs": -40.454593658447266,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 48.46933333333333,
+            "dspEnd": 49.152,
+            "audible": true
+        },
+        {
+            "map": "factory",
+            "kind": "natural-loop",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/factory-natural-loop.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 106496,
+            "seconds": 1.1093332767486572,
+            "rmsDbfs": -47.55436706542969,
+            "peakDbfs": -28.683185577392578,
+            "loudest50msDbfs": -42.91666793823242,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 0.0,
+            "dspEnd": 0.0,
+            "audible": true
+        },
+        {
+            "map": "factory",
+            "kind": "music-only-at-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/factory-music-only-at-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -43.80887222290039,
+            "peakDbfs": -27.22502899169922,
+            "loudest50msDbfs": -40.448463439941406,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 54.144,
+            "dspEnd": 55.14666666666667,
+            "audible": true
+        },
+        {
+            "map": "factory",
+            "kind": "bell-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/factory-bell-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 94208,
+            "seconds": 0.981333315372467,
+            "rmsDbfs": -18.242116928100586,
+            "peakDbfs": -5.387640476226807,
+            "loudest50msDbfs": -12.593778610229492,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 55.36,
+            "dspEnd": 56.34133333333333,
+            "audible": true
+        },
+        {
+            "map": "factory",
+            "kind": "music-and-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/factory-music-and-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -18.31617546081543,
+            "peakDbfs": -5.417115688323975,
+            "loudest50msDbfs": -12.593335151672363,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 56.576,
+            "dspEnd": 57.57866666666666,
+            "audible": true
+        },
+        {
+            "map": "pyramid",
+            "kind": "playing",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/pyramid-playing.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 67584,
+            "seconds": 0.7039999961853027,
+            "rmsDbfs": -41.838478088378906,
+            "peakDbfs": -19.755884170532227,
+            "loudest50msDbfs": -27.620372772216797,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 58.83733333333333,
+            "dspEnd": 59.541333333333334,
+            "audible": true
+        },
+        {
+            "map": "pyramid",
+            "kind": "natural-loop",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/pyramid-natural-loop.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 106496,
+            "seconds": 1.1093332767486572,
+            "rmsDbfs": -35.31098556518555,
+            "peakDbfs": -19.239591598510742,
+            "loudest50msDbfs": -31.312955856323242,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 0.0,
+            "dspEnd": 0.0,
+            "audible": true
+        },
+        {
+            "map": "pyramid",
+            "kind": "music-only-at-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/pyramid-music-only-at-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -35.92635726928711,
+            "peakDbfs": -18.595272064208984,
+            "loudest50msDbfs": -26.976232528686523,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 64.46933333333334,
+            "dspEnd": 65.472,
+            "audible": true
+        },
+        {
+            "map": "pyramid",
+            "kind": "bell-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/pyramid-bell-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -18.328336715698242,
+            "peakDbfs": -5.387640476226807,
+            "loudest50msDbfs": -12.593778610229492,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 65.68533333333333,
+            "dspEnd": 66.688,
+            "audible": true
+        },
+        {
+            "map": "pyramid",
+            "kind": "music-and-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/pyramid-music-and-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -18.25420570373535,
+            "peakDbfs": -5.119989395141602,
+            "loudest50msDbfs": -12.580322265625,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 66.90133333333333,
+            "dspEnd": 67.904,
+            "audible": true
+        },
+        {
+            "map": "item-race",
+            "kind": "playing",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/item-race-playing.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 67584,
+            "seconds": 0.7039999961853027,
+            "rmsDbfs": -31.002830505371094,
+            "peakDbfs": -16.788484573364258,
+            "loudest50msDbfs": -25.928068161010742,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 69.16266666666667,
+            "dspEnd": 69.86666666666666,
+            "audible": true
+        },
+        {
+            "map": "item-race",
+            "kind": "natural-loop",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/item-race-natural-loop.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 104448,
+            "seconds": 1.0880000591278076,
+            "rmsDbfs": -38.278568267822266,
+            "peakDbfs": -21.560964584350586,
+            "loudest50msDbfs": -34.540870666503906,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 0.0,
+            "dspEnd": 0.0,
+            "audible": true
+        },
+        {
+            "map": "item-race",
+            "kind": "music-only-at-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/item-race-music-only-at-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 94208,
+            "seconds": 0.981333315372467,
+            "rmsDbfs": -31.619001388549805,
+            "peakDbfs": -16.788484573364258,
+            "loudest50msDbfs": -26.66276741027832,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 74.85866666666666,
+            "dspEnd": 75.84,
+            "audible": true
+        },
+        {
+            "map": "item-race",
+            "kind": "bell-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/item-race-bell-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 98304,
+            "seconds": 1.0240000486373901,
+            "rmsDbfs": -18.419771194458008,
+            "peakDbfs": -5.387640476226807,
+            "loudest50msDbfs": -12.954841613769531,
+            "longestSilenceSeconds": 0.02135416679084301,
+            "dspStart": 76.05333333333333,
+            "dspEnd": 77.07733333333333,
+            "audible": true
+        },
+        {
+            "map": "item-race",
+            "kind": "music-and-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/item-race-music-and-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 94208,
+            "seconds": 0.981333315372467,
+            "rmsDbfs": -18.05314064025879,
+            "peakDbfs": -4.8957438468933105,
+            "loudest50msDbfs": -12.561843872070313,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 77.312,
+            "dspEnd": 78.29333333333334,
+            "audible": true
+        },
+        {
+            "map": "clockwork",
+            "kind": "playing",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/clockwork-playing.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 67584,
+            "seconds": 0.7039999961853027,
+            "rmsDbfs": -34.718421936035156,
+            "peakDbfs": -22.019224166870117,
+            "loudest50msDbfs": -31.14374351501465,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 79.53066666666666,
+            "dspEnd": 80.23466666666667,
+            "audible": true
+        },
+        {
+            "map": "clockwork",
+            "kind": "natural-loop",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/clockwork-natural-loop.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 106496,
+            "seconds": 1.1093332767486572,
+            "rmsDbfs": -36.42892074584961,
+            "peakDbfs": -20.43593406677246,
+            "loudest50msDbfs": -29.745868682861328,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 0.0,
+            "dspEnd": 0.0,
+            "audible": true
+        },
+        {
+            "map": "clockwork",
+            "kind": "music-only-at-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/clockwork-music-only-at-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -34.93842315673828,
+            "peakDbfs": -21.131107330322266,
+            "loudest50msDbfs": -31.2104549407959,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 85.20533333333333,
+            "dspEnd": 86.208,
+            "audible": true
+        },
+        {
+            "map": "clockwork",
+            "kind": "bell-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/clockwork-bell-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 96256,
+            "seconds": 1.002666711807251,
+            "rmsDbfs": -18.328336715698242,
+            "peakDbfs": -5.387640476226807,
+            "loudest50msDbfs": -12.593778610229492,
+            "longestSilenceSeconds": 0.000020833333110203966,
+            "dspStart": 86.42133333333334,
+            "dspEnd": 87.424,
+            "audible": true
+        },
+        {
+            "map": "clockwork",
+            "kind": "music-and-bell",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/clockwork-music-and-bell.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 94208,
+            "seconds": 0.981333315372467,
+            "rmsDbfs": -18.150543212890625,
+            "peakDbfs": -5.266354084014893,
+            "loudest50msDbfs": -12.542966842651367,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 87.65866666666666,
+            "dspEnd": 88.64,
+            "audible": true
+        },
+        {
+            "map": "clockwork",
+            "kind": "volume-zero",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/clockwork-volume-zero.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 67584,
+            "seconds": 0.7039999961853027,
+            "rmsDbfs": -180.0,
+            "peakDbfs": -180.0,
+            "loudest50msDbfs": -180.0,
+            "longestSilenceSeconds": 0.7039999961853027,
+            "dspStart": 88.91733333333333,
+            "dspEnd": 89.6,
+            "audible": false
+        },
+        {
+            "map": "clockwork",
+            "kind": "volume-restored",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/clockwork-volume-restored.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 65536,
+            "seconds": 0.6826666593551636,
+            "rmsDbfs": -32.8606071472168,
+            "peakDbfs": -16.341419219970703,
+            "loudest50msDbfs": -26.642276763916016,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 89.89866666666667,
+            "dspEnd": 90.58133333333332,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "push-impact-music-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-push-impact-music-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 86016,
+            "seconds": 0.8960000276565552,
+            "rmsDbfs": -32.14105987548828,
+            "peakDbfs": -18.80616569519043,
+            "loudest50msDbfs": -28.0235538482666,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 94.22933333333332,
+            "dspEnd": 95.12533333333332,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "push-impact-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-push-impact-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 88064,
+            "seconds": 0.9173333048820496,
+            "rmsDbfs": -31.475305557250977,
+            "peakDbfs": -6.46295166015625,
+            "loudest50msDbfs": -19.035568237304688,
+            "longestSilenceSeconds": 0.7273333072662354,
+            "dspStart": 95.31733333333334,
+            "dspEnd": 96.23466666666668,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "push-impact-mixed",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-push-impact-mixed.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 83968,
+            "seconds": 0.874666690826416,
+            "rmsDbfs": -28.498188018798828,
+            "peakDbfs": -7.6863484382629395,
+            "loudest50msDbfs": -18.615102767944336,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 96.46933333333334,
+            "dspEnd": 97.344,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "kick-impact-music-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-kick-impact-music-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 88064,
+            "seconds": 0.9173333048820496,
+            "rmsDbfs": -32.241790771484375,
+            "peakDbfs": -18.80616569519043,
+            "loudest50msDbfs": -28.0235538482666,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 97.57866666666666,
+            "dspEnd": 98.496,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "kick-impact-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-kick-impact-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 86016,
+            "seconds": 0.8960000276565552,
+            "rmsDbfs": -28.548458099365234,
+            "peakDbfs": -5.482182025909424,
+            "loudest50msDbfs": -19.38665199279785,
+            "longestSilenceSeconds": 0.6059583425521851,
+            "dspStart": 98.70933333333332,
+            "dspEnd": 99.60533333333332,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "kick-impact-mixed",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-kick-impact-mixed.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 86016,
+            "seconds": 0.8960000276565552,
+            "rmsDbfs": -25.758159637451172,
+            "peakDbfs": -5.429346084594727,
+            "loudest50msDbfs": -16.258079528808594,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 99.81866666666669,
+            "dspEnd": 100.71466666666667,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-throw-music-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-throw-music-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 86016,
+            "seconds": 0.8960000276565552,
+            "rmsDbfs": -32.14105987548828,
+            "peakDbfs": -18.80616569519043,
+            "loudest50msDbfs": -28.0235538482666,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 100.94933333333331,
+            "dspEnd": 101.84533333333331,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-throw-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-throw-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 86016,
+            "seconds": 0.8960000276565552,
+            "rmsDbfs": -33.19960403442383,
+            "peakDbfs": -15.546553611755371,
+            "loudest50msDbfs": -22.192203521728516,
+            "longestSilenceSeconds": 0.6142500042915344,
+            "dspStart": 102.08,
+            "dspEnd": 102.976,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-throw-mixed",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-throw-mixed.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 88064,
+            "seconds": 0.9173333048820496,
+            "rmsDbfs": -29.68400001525879,
+            "peakDbfs": -11.805645942687988,
+            "loudest50msDbfs": -21.151424407958984,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 103.18933333333334,
+            "dspEnd": 104.10666666666668,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-latch-music-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-latch-music-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 86016,
+            "seconds": 0.8960000276565552,
+            "rmsDbfs": -31.962875366210938,
+            "peakDbfs": -18.80616569519043,
+            "loudest50msDbfs": -27.59738540649414,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 104.32,
+            "dspEnd": 105.216,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-latch-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-latch-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 88064,
+            "seconds": 0.9173333048820496,
+            "rmsDbfs": -33.90570831298828,
+            "peakDbfs": -9.468291282653809,
+            "loudest50msDbfs": -24.323816299438477,
+            "longestSilenceSeconds": 0.46558332443237305,
+            "dspStart": 105.42933333333332,
+            "dspEnd": 106.34666666666666,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-latch-mixed",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-latch-mixed.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 88064,
+            "seconds": 0.9173333048820496,
+            "rmsDbfs": -29.88866424560547,
+            "peakDbfs": -9.170452117919922,
+            "loudest50msDbfs": -22.684053421020508,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 106.56,
+            "dspEnd": 107.47733333333332,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-pull-music-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-pull-music-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 88064,
+            "seconds": 0.9173333048820496,
+            "rmsDbfs": -32.06049346923828,
+            "peakDbfs": -18.80616569519043,
+            "loudest50msDbfs": -27.59738540649414,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 107.69066666666669,
+            "dspEnd": 108.608,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-pull-only",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-pull-only.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 86016,
+            "seconds": 0.8960000276565552,
+            "rmsDbfs": -31.117753982543945,
+            "peakDbfs": -9.902677536010742,
+            "loudest50msDbfs": -21.72994041442871,
+            "longestSilenceSeconds": 0.5340833067893982,
+            "dspStart": 108.8,
+            "dspEnd": 109.696,
+            "audible": true
+        },
+        {
+            "map": "first-steps",
+            "kind": "rope-pull-mixed",
+            "method": "continuous AudioListener OnAudioFilterRead",
+            "file": "TestResults/MapMusicAudio/first-steps-rope-pull-mixed.wav",
+            "sampleRate": 48000,
+            "channels": 2,
+            "samples": 88064,
+            "seconds": 0.9173333048820496,
+            "rmsDbfs": -28.77283477783203,
+            "peakDbfs": -9.327345848083496,
+            "loudest50msDbfs": -20.4235897064209,
+            "longestSilenceSeconds": 0.0,
+            "dspStart": 109.93066666666668,
+            "dspEnd": 110.848,
+            "audible": true
+        }
+    ],
+    "limits": [
+        "Mixer samples measure engine output, not physical speakers. Bell balance is measured at 2m using the production received-bell event; traversal, subjective masking and hardware listening are not claimed."
+    ]
+}

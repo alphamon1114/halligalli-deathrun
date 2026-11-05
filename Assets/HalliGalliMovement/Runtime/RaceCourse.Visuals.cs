@@ -16,9 +16,10 @@ namespace HalliGalli.Movement
         readonly BodyVisual[] bodies=new BodyVisual[MaxActors];
         readonly Transform[] entityVisuals=new Transform[MaxEntities];
         readonly int[] visualIds=new int[MaxEntities];
+        readonly Transform[] barricadeCracks=new Transform[MaxEntities-BananaEnd];
         Transform visualsRoot;
         Material metal,red,yellow,peelInner,flame,barricadeOrange,barricadeBlack;
-        Mesh coneMesh,barricadeBoxMesh,barricadeStripeMesh;
+        Mesh coneMesh,barricadeBoxMesh,barricadeStripeMesh,barricadeCrackMesh;
         void InitializeVisuals()
         {
             visualsRoot=new GameObject("Race items (visuals only)").transform;visualsRoot.SetParent(transform,false);
@@ -30,9 +31,10 @@ namespace HalliGalli.Movement
             barricadeOrange=Material("Barricade warning orange",new Color(1,.32f,.015f),.1f);
             barricadeBlack=Material("Barricade warning black",new Color(.025f,.03f,.035f),.15f);
             coneMesh=BuildCone();barricadeBoxMesh=BuildBarricadeBox();barricadeStripeMesh=BuildBarricadeStripes();
+            barricadeCrackMesh=BuildBarricadeCracks();
             for(int i=0;i<MaxEntities;i++){
                 var root=new GameObject(i<MaxMissiles?"Homing missile":i<BananaEnd?"Banana peel":"Placed barricade").transform;root.SetParent(visualsRoot,false);entityVisuals[i]=root;
-                if(i<MaxMissiles)BuildMissile(root);else if(i<BananaEnd)BuildBanana(root);else BuildBarricade(root);
+                if(i<MaxMissiles)BuildMissile(root);else if(i<BananaEnd)BuildBanana(root);else barricadeCracks[i-BananaEnd]=BuildBarricade(root);
                 root.gameObject.SetActive(false);
             }
         }
@@ -77,7 +79,7 @@ namespace HalliGalli.Movement
             }
             var stem=Shape(root,"Banana stem",PrimitiveType.Capsule,new Vector3(.025f,.29f,0),new Vector3(.075f,.14f,.075f),yellow);stem.localRotation=Quaternion.Euler(0,0,-18);
         }
-        void BuildBarricade(Transform root)
+        Transform BuildBarricade(Transform root)
         {
             MeshPart(root,"Orange warning panel",barricadeBoxMesh,new Vector3(0,.62f,0),new Vector3(1,.6f,.5f),barricadeOrange);
             MeshPart(root,"Black diagonal warning stripes",barricadeStripeMesh,Vector3.zero,Vector3.one,barricadeBlack);
@@ -88,6 +90,9 @@ namespace HalliGalli.Movement
                 MeshPart(root,"Upright support",barricadeBoxMesh,new Vector3(side*.38f,.49f,0),new Vector3(.065f,.9f,.4f),barricadeBlack);
                 MeshPart(root,"Wide support foot",barricadeBoxMesh,new Vector3(side*.38f,.04f,0),new Vector3(.18f,.08f,1),barricadeOrange);
             }
+            var cracks=MeshPart(root,"Exposed panel fractures",barricadeCrackMesh,Vector3.zero,Vector3.one,peelInner);
+            cracks.gameObject.SetActive(false);
+            return cracks;
         }
         static Mesh BuildBarricadeBox()
         {
@@ -118,6 +123,27 @@ namespace HalliGalli.Movement
                 }
             }
             var mesh=new Mesh{name="Race barricade warning stripes",vertices=vertices,normals=normals,triangles=triangles};mesh.RecalculateBounds();return mesh;
+        }
+        static Mesh BuildBarricadeCracks()
+        {
+            var points=new[]{new Vector2(-.06f,.90f),new Vector2(.03f,.76f),new Vector2(-.04f,.65f),
+                new Vector2(.07f,.50f),new Vector2(.02f,.34f),new Vector2(-.24f,.57f),new Vector2(.27f,.59f)};
+            var links=new[]{0,1,1,2,2,3,3,4,2,5,3,6};
+            int segments=links.Length/2;
+            var vertices=new Vector3[segments*8];var normals=new Vector3[vertices.Length];var triangles=new int[segments*12];
+            for(int side=0;side<2;side++)for(int i=0;i<segments;i++){
+                Vector2 a=points[links[i*2]],b=points[links[i*2+1]],direction=(b-a).normalized;
+                Vector2 edge=new Vector2(-direction.y,direction.x)*.008f;
+                Vector3 normal=side==0?Vector3.forward:Vector3.back;float z=normal.z*.264f;
+                int v=(side*segments+i)*4,k=(side*segments+i)*6;
+                vertices[v]=new Vector3(a.x-edge.x,a.y-edge.y,z);vertices[v+1]=new Vector3(b.x-edge.x,b.y-edge.y,z);
+                vertices[v+2]=new Vector3(b.x+edge.x,b.y+edge.y,z);vertices[v+3]=new Vector3(a.x+edge.x,a.y+edge.y,z);
+                for(int j=0;j<4;j++)normals[v+j]=normal;
+                triangles[k]=v;triangles[k+1]=v+(side==0?1:2);triangles[k+2]=v+(side==0?2:1);
+                triangles[k+3]=v;triangles[k+4]=v+(side==0?2:3);triangles[k+5]=v+(side==0?3:2);
+            }
+            var mesh=new Mesh{name="Race barricade fractures",vertices=vertices,normals=normals,triangles=triangles};
+            mesh.RecalculateBounds();return mesh;
         }
         static Mesh BuildCone()
         {
@@ -160,7 +186,14 @@ namespace HalliGalli.Movement
                 if(fresh||CourseNetwork.Authority||e.item!=RaceItem.Missile)visual.position=e.position;else visual.position=Vector3.Lerp(visual.position,e.position,blend);
                 Vector3 direction=e.direction.sqrMagnitude>.01f?e.direction:Vector3.forward;
                 visual.rotation=Quaternion.LookRotation(direction,Vector3.up);
-                if(e.item==RaceItem.Barricade)visual.localScale=e.size;
+                if(e.item==RaceItem.Barricade){
+                    visual.localScale=e.size;
+                    var cracks=barricadeCracks[i-BananaEnd];bool damaged=e.barricadeHits>0;
+                    if(cracks.gameObject.activeSelf!=damaged)cracks.gameObject.SetActive(damaged);
+                    float age=(float)(now-e.barricadeHitAt);
+                    if(damaged&&age>=0&&age<.4f)
+                        visual.rotation*=Quaternion.Euler(Mathf.Sin(age*55)*5*(1-age/.4f),0,0);
+                }
                 visualIds[i]=e.id;
             }
             for(int i=0;i<MaxActors;i++){
@@ -181,6 +214,7 @@ namespace HalliGalli.Movement
             if(metal)Destroy(metal);if(red)Destroy(red);if(yellow)Destroy(yellow);if(peelInner)Destroy(peelInner);if(flame)Destroy(flame);
             if(barricadeOrange)Destroy(barricadeOrange);if(barricadeBlack)Destroy(barricadeBlack);
             if(coneMesh)Destroy(coneMesh);if(barricadeBoxMesh)Destroy(barricadeBoxMesh);if(barricadeStripeMesh)Destroy(barricadeStripeMesh);
+            if(barricadeCrackMesh)Destroy(barricadeCrackMesh);
         }
     }
 }

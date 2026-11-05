@@ -1,0 +1,44 @@
+{
+  "sourceRevision": "fa84b375ba78cce06bcde7e04960cae5fff6dd94",
+  "sourceHashes": {
+    "Hands_BaseColor.png": "6f80dddc21e95fc6be0bbbf87110d4db1f5a7980aba765cc471f0c4b30d56e93",
+    "Hands_Normal.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+    "Hands_ORM.png": "405795d930d4468305f9a9e12963e6b3846cd02348037040bc9459f5f3de220b",
+    "Hands_AO.png": "c534dd3894810cd509e3e777af0ec2cd86c8022dd44442b082384d122d790d4e",
+    "Hands_MetalSmooth.png": "bfe8fb2d614515018eb8ca1cc773f38ec9a8c851e472d9df5f3736e27335dfec"
+  },
+  "backupDirectory": "Build/RealisticHandTextureRecovery/fa84b375ba78cce06bcde7e04960cae5fff6dd94",
+  "method": "Topology-aware low-frequency UV color-seam leveling. Only a broad correction field is rasterized onto the original atlas; original source pixel residual pores/creases are retained. No synthetic texture, UV change, source-RGB blur, global whitening or geometry edit.",
+  "parameters": {
+    "sourceLowFrequencySigmaPixels": 12,
+    "colorDiffusionSteps": 100,
+    "colorDiffusionRate": 0.6,
+    "atlasPaddingPixels": 8,
+    "readOnlyGeometry": "ArtSource/Hands/RealisticHands.blend"
+  },
+  "effect": {
+    "weldedColorVertices": 29028,
+    "triangles": 58051,
+    "sourceMeanRGB": [
+      0.807145413933251,
+      0.6009964419755186,
+      0.46429634790323054
+    ],
+    "clippedSkinPixels": 8,
+    "correctedMeanRGB": [
+      0.8073866406873672,
+      0.6011332003296759,
+      0.46457418219948426
+    ],
+    "coveredSkinPixels": 11525521,
+    "skinPixels": 12617187,
+    "maximumAbsoluteRGBOffset": [
+      0.23239345848560333,
+      0.18806347250938416,
+      0.22494050860404968
+    ]
+  },
+  "supportMaps": "Normal, ORM, AO and MetalSmooth are byte-identical original Git/LFS maps. Metadata untouched.",
+  "baseColorSha256": "97e663690e6337c036982cb4eace3948297059951cca734df7421d198547399c",
+  "scope": "Texture authoring and appearance preview only; no game validation, build, material, mesh, or scene edit."
+}

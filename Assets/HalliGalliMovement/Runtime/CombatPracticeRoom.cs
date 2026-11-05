@@ -8,6 +8,7 @@ namespace HalliGalli.Movement
         public const string ScenePath="Assets/HalliGalliMovement/Demo/CombatPractice.unity";
         public CourseSession session;
         public bool Active{get;private set;}
+        public PracticeSurfArea Surf { get; private set; }
         readonly float[] restoreAt=new float[6];
         public void Enter()
         {
@@ -21,9 +22,11 @@ namespace HalliGalli.Movement
                 p.Stand();p.Combat.readInput=p.localPlayer;p.Combat.simulateAutomatically=true;restoreAt[i]=0;
             }
             var control=session.Local.GetComponent<SourcePlayerController>();control.controlsEnabled=true;control.suppressCursorCapture=false;
+            if(!Surf)Surf=gameObject.AddComponent<PracticeSurfArea>();
+            Surf.Enter(this);
             if(!Application.isBatchMode)control.SetCursorCaptured(true);
         }
-        public void Exit(){Active=false;}
+        public void Exit(){if(Surf)Surf.Leave();Active=false;}
         void FixedUpdate()
         {
             if(!Active||CourseNetwork.CapturesPointer)return;

@@ -10,7 +10,7 @@ namespace HalliGalli.Movement
     {
         public CourseSession session;
         [System.NonSerialized] public bool ReadInput=true;
-        Rect RoomPanel=>new Rect(BellUI.W-342,88,318,Mathf.Min(HelpOpen?506:CourseNetwork.Active?348:466,BellUI.H-112));
+        Rect RoomPanel=>new Rect(BellUI.W-342,88,318,Mathf.Min(HelpOpen?584:CourseNetwork.Active?426:session&&session.practiceRoom?568:544,BellUI.H-112));
         public bool HelpOpen{get;private set;}
         public void OpenHelp(){ControlSettings.Open();}
         public bool MapMenuOpen{get;private set;}
@@ -55,14 +55,14 @@ namespace HalliGalli.Movement
         void Update()
         {
             if(ControlSettings.BlocksInput||CourseNetwork.CapturesPointer)return;
-            if(session.roster){
+            if(session.roster||session.practiceRoom){
 #if ENABLE_INPUT_SYSTEM
                 Vector2 mouse=Mouse.current!=null?Mouse.current.position.ReadValue():new Vector2(-1,-1);
 #else
                 Vector2 mouse=Input.mousePosition;
 #endif
                 var point=new Vector2(mouse.x,Screen.height-mouse.y)/BellUI.Scale;
-                session.Local.GetComponent<SourcePlayerController>().suppressCursorCapture=MapMenuOpen||(Cursor.lockState!=CursorLockMode.Locked&&RoomPanel.Contains(point));
+                session.Local.GetComponent<SourcePlayerController>().suppressCursorCapture=MapMenuOpen||(Cursor.lockState!=CursorLockMode.Locked&&(RoomPanel.Contains(point)||PracticeSurfActive&&PracticeInfoPanel.Contains(point)));
             }
             if(!ReadInput)return;
             if(MapMenuOpen){

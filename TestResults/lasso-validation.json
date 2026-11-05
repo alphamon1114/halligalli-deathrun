@@ -1,5 +1,5 @@
 {
-    "utc": "2026-11-05T01:03:00.7732159Z",
+    "utc": "2026-11-05T06:19:10.2030265Z",
     "seed": 20261105,
     "passed": 57,
     "failed": 0,
@@ -100,13 +100,13 @@
             "passed": true
         },
         {
-            "name": "Ground pull produces real travel without forced lift",
-            "detail": "distance=1.812m / 0.50s; rise=0.000m",
+            "name": "Strong ground pull moves a stationary target over three metres without lift",
+            "detail": "distance=3.778m / 0.50s; rise=0.000m",
             "passed": true
         },
         {
-            "name": "Countersteering reduces travel without locking input",
-            "detail": "distance=-0.741m / 0.50s; unopposed=1.812m",
+            "name": "Countersteering reduces travel but still yields an inward pull without locking input",
+            "detail": "distance=0.921m / 0.50s; unopposed=3.778m",
             "passed": true
         },
         {

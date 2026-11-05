@@ -1,0 +1,8 @@
+2026-11-05 — initial water-surf appearance cleanup
+Before: renderers=1268, colliders=51, meshColliders=11, checkpointOutlines=3, Bulkhead panel=609, Bulkhead seam=97, ConcreteColumn=24, CeilingLight=20, Fixture light=45, Surf broad bulkhead=0, Surf broad divider=0, Surf fixture light=0, backdropPlanes=0
+After: renderers=237, colliders=51, meshColliders=11, checkpointOutlines=3, Bulkhead panel=0, Bulkhead seam=0, ConcreteColumn=0, CeilingLight=0, Fixture light=0, Surf broad bulkhead=10, Surf broad divider=1, Surf fixture light=8, backdropPlanes=6
+Protected state SHA-256 before: 50BD0C35FA2AD67E511EF5D4D87E151086C5977205CCCB61492F7CF21FD7F609
+Protected state SHA-256 after: 50BD0C35FA2AD67E511EF5D4D87E151086C5977205CCCB61492F7CF21FD7F609
+Movement profile SHA-256: 73734179BDA0A06F9113B25D081F0B9937A070A9D6CDFB8A2FFCD449492AF40F
+Unchanged: serialized route/checkpoint configuration, colliders, behaviours, rigidbodies, audio, anchors and world transforms.
+Hazard: continuous dark surface, perimeter warning tape, sparse electrical signs; no floor grid.

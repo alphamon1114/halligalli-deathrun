@@ -9,7 +9,7 @@ namespace HalliGalli.Movement
     public sealed class LassoTool : MonoBehaviour
     {
         public const float CooldownSeconds=5, Range=12, FlightSpeed=28, BreakDistance=16;
-        public const float PullSpeed=16, AutoPullDelay=.12f;
+        public const float PullSpeed=32, AutoPullDelay=.12f;
         public const float PlayerHitRadius=.32f, WorldHitRadius=.06f;
         public LassoPhase Phase {get;private set;}
         public CourseParticipant Target {get;private set;}

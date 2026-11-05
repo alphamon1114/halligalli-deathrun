@@ -1,4 +1,5 @@
 {
+  "utc": "2026-11-05T06:48:58.894Z",
   "passed": 26,
   "failed": 0,
   "checks": [
@@ -18,16 +19,6 @@
       "detail": ""
     },
     {
-      "name": "Twenty-five banks and four checkpoints match",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "name": "All twenty-five triangular ramps support both faces on both peers",
-      "passed": true,
-      "detail": ""
-    },
-    {
       "name": "Legal five synchronized",
       "passed": true,
       "detail": ""
@@ -43,7 +34,7 @@
       "detail": ""
     },
     {
-      "name": "Landing 1 saves on both peers",
+      "name": "Airborne checkpoint 1 saves on both peers",
       "passed": true,
       "detail": ""
     },
@@ -53,7 +44,7 @@
       "detail": ""
     },
     {
-      "name": "Landing 2 saves on both peers",
+      "name": "Airborne checkpoint 2 saves on both peers",
       "passed": true,
       "detail": ""
     },
@@ -63,7 +54,7 @@
       "detail": ""
     },
     {
-      "name": "Landing 3 saves on both peers",
+      "name": "Airborne checkpoint 3 saves on both peers",
       "passed": true,
       "detail": ""
     },
@@ -73,7 +64,7 @@
       "detail": ""
     },
     {
-      "name": "Landing 4 saves on both peers",
+      "name": "Airborne checkpoint 4 saves on both peers",
       "passed": true,
       "detail": ""
     },
@@ -89,6 +80,16 @@
     },
     {
       "name": "Pit restores fourth checkpoint without changing cards",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Backtracking cannot replace the fourth checkpoint",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Final bank contacts are not fabricated",
       "passed": true,
       "detail": ""
     },
@@ -113,7 +114,7 @@
       "detail": ""
     },
     {
-      "name": "Original eleven-bank surf still loads",
+      "name": "Original surf still loads",
       "passed": true,
       "detail": ""
     },
@@ -132,5 +133,10 @@
       "passed": true,
       "detail": ""
     }
+  ],
+  "backend": "Two isolated Unity Editor processes over loopback; production release gate unchanged",
+  "limits": [
+    "Not a published standalone-player admission test",
+    "No Internet Relay or artificial latency"
   ]
 }

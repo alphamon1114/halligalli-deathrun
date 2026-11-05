@@ -31,10 +31,10 @@ namespace HalliGalli.Movement
         }
         internal struct EntityState : Unity.Netcode.INetworkSerializeByMemcpy
         {
-            public int id,owner,target,ownerLife,targetLife;
+            public int id,owner,target,ownerLife,targetLife,barricadeHits;
             public RaceItem item;
             public Vector3 position,direction,size;
-            public double expires,armedAt;
+            public double expires,armedAt,barricadeHitAt;
         }
         readonly ActorState[] actors=new ActorState[MaxActors];
         readonly EntityState[] entities=new EntityState[MaxEntities];

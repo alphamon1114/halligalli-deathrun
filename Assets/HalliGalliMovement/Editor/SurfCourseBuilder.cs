@@ -41,7 +41,7 @@ namespace HalliGalli.EditorTools
             var course = root.gameObject.AddComponent<SurfCourse>(); roster.surf = course; roster.branches = null;
             Directory.CreateDirectory(MeshFolder); AssetDatabase.Refresh();
             var concrete = EnvironmentAssetImporter.Prefab("ConcreteFloor").GetComponentInChildren<MeshRenderer>().sharedMaterial;
-            var accent = Accent();
+            var accent = SurfAppearanceBuilder.RouteEdgeMaterial();
             // Three shared recovery decks separate momentum sections. No teleports, boosts or speed caps.
             course.sections = new[] {
                 Straight(new Vector3(0,-.6f,8.5f),new Vector3(0,-4.8f,30.5f),0,new Vector3(0,.375f,6.1f)),
@@ -103,7 +103,9 @@ namespace HalliGalli.EditorTools
             EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene); AssetDatabase.SaveAssets();
             EditorBuildSettings.scenes = CourseMapsBuilder.BuildScenePaths().Select(p => new EditorBuildSettingsScene(p, true)).ToArray();
             EnvironmentArtBuilder.InstallSurf();
-            EditorSceneManager.OpenScene(ScenePath);CheckpointBuilder.InstallCurrent();SurfDividerBuilder.InstallCurrent();EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+            EditorSceneManager.OpenScene(ScenePath);CheckpointBuilder.InstallCurrent();SurfDividerBuilder.InstallCurrent();
+            SurfAppearanceBuilder.ApplyCurrent();
+            EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
             Capture();
         }
 
@@ -132,14 +134,6 @@ namespace HalliGalli.EditorTools
         {
             var go = GameObject.CreatePrimitive(PrimitiveType.Cube); go.name = name;
             go.transform.SetParent(root); go.transform.position = position; go.transform.localScale = size;
-        }
-        static Material Accent()
-        {
-            string path = MeshFolder + "/SurfEdge.mat";
-            var m = AssetDatabase.LoadAssetAtPath<Material>(path);
-            if (!m) { m = new Material(Shader.Find("Standard")); AssetDatabase.CreateAsset(m, path); }
-            m.color = new Color(.56f, .38f, .9f); m.EnableKeyword("_EMISSION"); m.SetColor("_EmissionColor", new Color(.3f, .12f, .65f));
-            EditorUtility.SetDirty(m); return m;
         }
         internal static void BuildRamp(Transform parent, string name, int side, SurfCourse.Section section, Material material, Material accent,string meshFolder=null)
         {
@@ -241,7 +235,7 @@ namespace HalliGalli.EditorTools
             camera.clearFlags = CameraClearFlags.SolidColor; camera.backgroundColor = RenderSettings.fogColor;
             // Cutaway only for the preview camera, restored immediately; gameplay keeps the room intact.
             var shell=GameObject.Find("VARCO environment").transform.Cast<Transform>()
-                .Where(t=>t.name.Contains("ConcreteWall")||t.name.Contains("CeilingLight")||t.position.y>14).ToArray();
+                .Where(t=>t.name.Contains("ConcreteWall")||t.name.Contains("CeilingLight")||t.name=="Surf backdrop wall"||t.name=="Surf backdrop ceiling"||t.position.y>14).ToArray();
             foreach(var t in shell)t.gameObject.SetActive(false);
             var bulkheads=GameObject.Find("Surf bulkheads");if(bulkheads)bulkheads.SetActive(false);
             bool previewFog=RenderSettings.fog;RenderSettings.fog=false;

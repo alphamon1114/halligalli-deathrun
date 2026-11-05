@@ -1,0 +1,137 @@
+{
+    "utc": "2026-11-05T06:33:47.9660394Z",
+    "completedUtc": "2026-11-05T06:33:57.7563471Z",
+    "status": "passed",
+    "unityVersion": "6000.6.0f1",
+    "passed": 24,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "A real box pickup and item use create a solid barricade",
+            "detail": "id=1 lifetime=8",
+            "passed": true
+        },
+        {
+            "name": "Left click starts a real push but never damages the barricade",
+            "detail": "hits=0",
+            "passed": true
+        },
+        {
+            "name": "Kick windup cannot damage the wall before contact",
+            "detail": "elapsed=0.31",
+            "passed": true
+        },
+        {
+            "name": "First kick contact deals exactly one damage and confirms a hit",
+            "detail": "elapsed=0.3599999",
+            "passed": true
+        },
+        {
+            "name": "Repeated contact ticks and held/repeated input cannot duplicate the first kick",
+            "detail": "attackSequence=2",
+            "passed": true
+        },
+        {
+            "name": "A completed animation still rejects input during the two-second cooldown",
+            "detail": "cooldown=0.8400011",
+            "passed": true
+        },
+        {
+            "name": "Damaged barricade stops actual CharacterController movement",
+            "detail": "position=(0.00, 0.02, 174.38)",
+            "passed": true
+        },
+        {
+            "name": "Second legal kick breaks the barricade immediately",
+            "detail": "hit delta=2",
+            "passed": true
+        },
+        {
+            "name": "Broken barricade lets the same controller cross its former footprint",
+            "detail": "position=(0.00, 0.02, 177.34)",
+            "passed": true
+        },
+        {
+            "name": "A new deployment in the released pool slot has no retained damage",
+            "detail": "oldId=1 newId=2",
+            "passed": true
+        },
+        {
+            "name": "Two distinct actors combine one kick each into one break",
+            "detail": "attacker=4 owner=1",
+            "passed": true
+        },
+        {
+            "name": "An out-of-range real kick leaves the wall intact",
+            "detail": "distance=3m",
+            "passed": true
+        },
+        {
+            "name": "A close kick aimed away leaves the wall intact",
+            "detail": "backward miss",
+            "passed": true
+        },
+        {
+            "name": "A real nearer solid wall occludes kick damage",
+            "detail": "occluder=Center: (0.00, 1.20, 174.42), Extents: (1.50, 1.20, 0.07)",
+            "passed": true
+        },
+        {
+            "name": "Removing only the occluder makes the same attack hit",
+            "detail": "positive control",
+            "passed": true
+        },
+        {
+            "name": "First kick exposes visible pale fractures on the front face",
+            "detail": "brightened centre pixels=6880",
+            "passed": true
+        },
+        {
+            "name": "First kick exposes visible pale fractures on the back face",
+            "detail": "brightened centre pixels=6227",
+            "passed": true
+        },
+        {
+            "name": "Returning everyone to the table clears a damaged wall and its collision",
+            "detail": "round=6",
+            "passed": true
+        },
+        {
+            "name": "New round and reused pool both begin undamaged",
+            "detail": "id=5",
+            "passed": true
+        },
+        {
+            "name": "A damaged barricade stays solid until its original eight-second expiry",
+            "detail": "age=7.605",
+            "passed": true
+        },
+        {
+            "name": "Damage never renews the original eight-second expiry",
+            "detail": "age=8.01",
+            "passed": true
+        },
+        {
+            "name": "Expired collision permits actual passage",
+            "detail": "position=(0.00, 0.02, 176.86)",
+            "passed": true
+        },
+        {
+            "name": "Owner-life cleanup removes a damaged wall before its timer expires",
+            "detail": "owner respawning=True",
+            "passed": true
+        },
+        {
+            "name": "Owner respawn leaves no invisible collision",
+            "detail": "position=(0.00, 0.02, 176.86)",
+            "passed": true
+        }
+    ],
+    "captures": [
+        "Previews/Barricade_Front_Intact.png",
+        "Previews/Barricade_Back_Intact.png",
+        "Previews/Barricade_Front_Damaged.png",
+        "Previews/Barricade_Back_Damaged.png"
+    ],
+    "limitations": []
+}

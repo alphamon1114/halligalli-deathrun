@@ -42,7 +42,7 @@ namespace HalliGalli.Movement
         {
             if(online||Busy||leaving||!game||UserMapStudio.IsOpen)return;
             menu=false;Status="";entryScreen=EntryScreen.Home;game.ResetPractice();game.cardGame.botEnabled=true;
-            foreach(var p in game.roster.allParticipants){var bot=p.GetComponent<CourseRival>();if(bot)bot.enabled=true;p.Combat.simulateAutomatically=true;}
+            foreach(var p in game.roster.allParticipants){p.Initialize();var bot=p.GetComponent<CourseRival>();if(bot)bot.enabled=true;p.Combat.simulateAutomatically=true;}
             var controller=game.Local.GetComponent<SourcePlayerController>();controller.controlsEnabled=true;controller.suppressCursorCapture=false;
             if(!Application.isBatchMode)controller.SetCursorCaptured(true);
         }
@@ -58,6 +58,7 @@ namespace HalliGalli.Movement
             BellUI.Icon("bell",new Rect(x,y+8,54,54),BellUI.Gold);
             BellUI.Text(new Rect(x+74,y,620,55),"BELL RUN",39,BellUI.Paper,true);
             BellUI.Text(new Rect(x+76,y+57,600,28),"함께할 준비됐어?",18,BellUI.Muted);
+            MusicVolumeControl.Draw(new Rect(x+600,y+12,440,59));
             BellUI.Line(new Vector2(x,y+105),new Vector2(x+1040,y+105),new Color(.4f,.38f,.29f,.3f),1);
             DrawRoom(x,y);
             if(!string.IsNullOrWhiteSpace(Status))BellUI.Text(new Rect(x+445,y+570,595,63),Status,15,BellUI.Gold);
@@ -78,6 +79,7 @@ namespace HalliGalli.Movement
             BellUI.Text(new Rect(x+2,y+425,460,31),"할리갈리 데스런",21,BellUI.Muted);
             DrawShirtPalette(x+2,y+468,false);
             if(!Busy&&!leaving&&BellUI.Button(new Rect(x+2,y+560,180,40),"조작키 설정",size:16))ControlSettings.Open();
+            MusicVolumeControl.Draw(new Rect(x+202,y+548,278,59));
             float right=x+584;
             GUI.enabled=!Busy&&!leaving;
             if(entryScreen==EntryScreen.Home){

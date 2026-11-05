@@ -2,29 +2,45 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawn} from 'node:child_process';
 
+// node Tools/Network/check-race.mjs <project> [--barricade-only] [--attach <probe-folder>] [--headless]
+// Attached peers must use roles host/client1. They are never terminated by this runner.
 const project=path.resolve(process.argv[2]??'.');
-const folder=path.join(project,'Tools/Network/Runs','race-'+Date.now());
-fs.mkdirSync(folder,{recursive:true});
-const checks=[],processes=[],sequences={},cached={};
+const barricadeOnly=process.argv.includes('--barricade-only'),graphical=!process.argv.includes('--headless');
+const attachIndex=process.argv.indexOf('--attach'),attached=attachIndex>=0;
+if(attached&&!process.argv[attachIndex+1])throw new Error('--attach requires an existing probe folder');
+const folder=attached?path.resolve(process.argv[attachIndex+1]):path.join(project,'Tools/Network/Runs',(barricadeOnly?'barricade-':'race-')+Date.now());
+fs.mkdirSync(folder,{recursive:true});fs.mkdirSync(path.join(project,'TestResults'),{recursive:true});
+const reportFile=path.join(project,'TestResults',barricadeOnly?'barricade-network.json':'race-network.json');
+const startedUtc=new Date().toISOString(),checks=[],processes=[],sequences={},cached={},observations=[];
+const limitations=graphical?[]:['Headless mode omits screenshot captures; run BarricadeValidationRunner with graphics for front/back visible-pixel assertions.'];
+let barricadeSeed;
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 function state(role){try{cached[role]=JSON.parse(fs.readFileSync(path.join(folder,'state-'+role+'.json'),'utf8'));}catch{}return cached[role];}
-const host=()=>state('host'),guest=()=>state('client1');
+const host=()=>state('host'),guest=()=>state('client1'),peers=()=>[host(),guest()];
 const rolls=[];
-function check(name,passed,detail=''){checks.push({name,passed,detail});if(!passed)throw new Error(name);}
-async function wait(predicate,timeout=15000){const end=Date.now()+timeout;while(Date.now()<end){if(predicate())return;await sleep(40);}throw new Error('Scenario state timeout');}
+function report(status){fs.writeFileSync(reportFile,JSON.stringify({utc:startedUtc,completedUtc:status==='running'?null:new Date().toISOString(),status,folder,attached,graphical,protocol:host()?.protocol,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,rolls,observations,limitations},null,2));}
+function observe(name){observations.push({name,host:structuredClone(host()),guest:structuredClone(guest())});}
+function check(name,passed,detail=''){checks.push({name,passed,detail});console.log((passed?'PASS ':'FAIL ')+name);if(!passed)throw new Error(name);}
+function failure(error){if(checks.at(-1)?.passed!==false)checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,barricadeOnly?'barricade-failure.json':'failure.json'),JSON.stringify({utc:new Date().toISOString(),error:error.stack,host:host(),guest:guest()},null,2));process.exitCode=1;}
+report('running');
+const watchdog=setTimeout(()=>{failure(new Error('Scenario exceeded '+(barricadeOnly?'six':'fifteen')+' minutes'));for(const p of processes)p.kill();report('failed');process.exit(1);},(barricadeOnly?6:15)*60000);
+async function wait(predicate,timeout=15000){const end=Date.now()+timeout;while(Date.now()<end){for(const p of processes)if(p.spawnError||p.exitCode!==null)throw p.spawnError??new Error('Player exited: '+p.exitCode);for(const s of peers())if(s?.error)throw new Error(s.error);if(predicate())return;await sleep(25);}throw new Error('Scenario state timeout');}
 async function command(role,action,extra={}){
- const file=path.join(folder,'command-'+role+'.json');const sequence=sequences[role]=(sequences[role]??0)+1;
+ const file=path.join(folder,'command-'+role+'.json');
+ if(sequences[role]===undefined){let previous=0;try{previous=JSON.parse(fs.readFileSync(file,'utf8')).sequence??0;}catch{}sequences[role]=Math.max(state(role)?.commandSequence??0,previous);}
+ const sequence=++sequences[role];
  fs.writeFileSync(file+'.tmp',JSON.stringify({sequence,action,...extra}));
  for(let i=0;;i++){try{fs.renameSync(file+'.tmp',file);break;}catch(e){if(i===99)throw e;await sleep(10);}}
  await wait(()=>state(role)?.commandSequence===sequence);
  if(state(role).error)throw new Error(state(role).error);
 }
 function launch(role){
- const args=role==='host'?['-screen-fullscreen','0','-screen-width','1440','-screen-height','900']:['-batchmode','-nographics'];
- const child=spawn(path.join(project,'Build/Windows/HalliGalliMovement.exe'),[...args,'--net-probe',role,'--probe-dir',folder,'--net-port','17893','-logFile',path.join(folder,role+'.log')],{stdio:'ignore'});
- processes.push(child);child.on('error',error=>console.error(error));
+ if(attached)return;
+ const args=graphical&&role==='host'?['-screen-fullscreen','0','-screen-width','1440','-screen-height','900']:['-batchmode','-nographics'];
+ const child=spawn(path.join(project,'Build/Windows/HalliGalliMovement.exe'),[...args,'-disable-audio','--net-probe',role,'--probe-dir',folder,'--net-port','17893','-logFile',path.join(folder,role+'.log')],{stdio:'ignore'});
+ processes.push(child);child.on('error',error=>child.spawnError=error);
 }
-async function capture(name){await command('host','capture',{value:name});await wait(()=>fs.existsSync(path.join(folder,name+'.png')));}
+async function capture(name){if(!graphical)return;const file=path.join(folder,name+'.png');if(fs.existsSync(file))fs.unlinkSync(file);await command('host','capture',{value:name});await wait(()=>fs.existsSync(file));}
 async function teleport(seat,z,x=0){await command('host','teleport',{seat,position:{x,y:.025,z}});await wait(()=>Math.abs(host().actors[seat].position.z-z)<.3&&host().actors[seat].grounded);await sleep(100);}
 async function use(role){await command(role,'pointer',{yaw:0,pitch:0});await command(role,'race-item');}
 async function take(item,seat=0,leader=seat===1){
@@ -38,13 +54,14 @@ async function take(item,seat=0,leader=seat===1){
   await teleport(1-seat,leader?5:214);
   const box=host().race.boxes.find(b=>b.cooldown<=0&&b.position.z>30&&b.position.z<205);
   if(!box){await sleep(1000);continue;}
-  await command('host','random-seed',{value:String(125+tries)});
+  const seed=item===3&&barricadeSeed!==undefined?barricadeSeed:125+tries;
+  await command('host','random-seed',{value:String(seed)});
   const acquisitions=host().race.actors[seat].acquisitions;
   await teleport(seat,box.position.z,box.position.x);
   await wait(()=>host().race.actors[seat].acquisitions>acquisitions&&host().race.actors[seat].item!==0&&guest().race.actors[seat].item===host().race.actors[seat].item);
   if((host().race.leader===seat)!==leader)throw new Error('Pickup setup did not establish the requested rank');
-  rolls.push({leader,item:host().race.actors[seat].item});
-  if(host().race.actors[seat].item===item)return;
+  rolls.push({leader,item:host().race.actors[seat].item,seed});
+  if(host().race.actors[seat].item===item){if(item===3)barricadeSeed=seed;return;}
   const before=host().actors[seat].respawns;
   await command(role,'action',{value:'Respawn'});
   await wait(()=>host().actors[seat].respawns>before&&!host().actors[seat].respawning&&host().race.actors[seat].item===0);
@@ -87,11 +104,88 @@ async function airborneUse(item,seat,yaw=0,rejected=false){
  check('Actual jump deploys '+label+' on the floor on both peers',!afterUse.host.actors[seat].grounded&&afterUse.host.race.actors[seat].item===0&&afterUse.guest.race.actors[seat].item===0&&[entity,remote].every(p=>Math.abs(p.position.y-(item===2?.045:0))<.06&&Math.abs(p.position.x-(start.x-Math.sin(angle)*offset))<.15&&Math.abs(p.position.z-(start.z-Math.cos(angle)*offset))<.15),JSON.stringify({preUse:start,host:entity.position,guest:remote.position}));
  return entity;
 }
+async function deployed(){
+ await take(3,0,true);
+ for(const role of ['host','client1'])await command(role,'move',{yaw:0});
+ await teleport(0,178);await teleport(1,173.9);
+ await wait(()=>peers().every(s=>s.actors.slice(0,2).every(a=>a.kickCooldown<=0&&a.attack==='None')));
+ await use('host');await wait(()=>peers().every(s=>s.race.projectiles.some(p=>p.item===3&&p.owner===0)));
+ const wall=host().race.projectiles.find(p=>p.item===3&&p.owner===0);
+ check('Fresh live pickup deployment has zero retained damage on both peers',peers().every(s=>s.race.projectiles.find(p=>p.id===wall.id)?.barricadeHits===0),'entity='+wall.id);
+ observe('Fresh barricade '+wall.id);return wall;
+}
+const wallOn=(s,wall)=>s.race.projectiles.find(p=>p.id===wall.id);
+async function kick(role,wall,hits){
+ const seat=role==='host'?0:1,before=host().actors[seat].attacks;
+ await command(role,'action',{value:'Kick'});
+ await wait(()=>peers().every(s=>s.actors[seat].attacks===before+1&&(hits===2?!wallOn(s,wall):wallOn(s,wall)?.barricadeHits===hits)),2500);
+ observe(role+' kick '+hits+' on '+wall.id);
+}
+async function passage(wall,label){
+ await teleport(0,178,5);await command('client1','move',{z:1,yaw:0});await sleep(700);await command('client1','move',{yaw:0});
+ check(label,peers().every(s=>s.actors[1].position.z>wall.position.z+1),'host='+host().actors[1].position.z+' guest='+guest().actors[1].position.z);
+}
+async function breakable(cooperative){
+ const wall=await deployed();await teleport(0,wall.position.z+1.1);
+ await command('host','pointer',{yaw:180,pitch:0});await command('client1','pointer',{yaw:0,pitch:0});
+ const pushSequence=guest().actors[1].attacks;
+ await command('client1','action',{value:'Push'});
+ await wait(()=>peers().every(s=>s.actors[1].attacks>pushSequence&&s.actors[1].attack==='None'));
+ check('Left-click push cannot damage a barricade',peers().every(s=>wallOn(s,wall)?.barricadeHits===0));
+ await kick('client1',wall,1);
+ const sequence=host().actors[1].attacks;
+ await command('client1','action',{value:'Kick'});await command('client1','action',{value:'Kick'});await sleep(350);
+ check('One guest kick contact and cooldown retries count only once',peers().every(s=>wallOn(s,wall)?.barricadeHits===1&&s.actors[1].attacks===sequence));
+ await command('client1','move',{z:1,yaw:0});await sleep(350);await command('client1','move',{yaw:0});
+ check('Damaged barricade still blocks the guest CharacterController on both peers',peers().every(s=>wallOn(s,wall)?.barricadeHits===1&&s.actors[1].position.z<wall.position.z-.3&&s.actors[1].position.z>wall.position.z-1));
+ if(graphical&&!cooperative){
+  await teleport(0,wall.position.z+5);await command('host','pointer',{yaw:180,pitch:6});await capture('barricade-front-cracked');
+  await teleport(0,wall.position.z-5);await command('host','pointer',{yaw:0,pitch:6});await capture('barricade-back-cracked');
+  await teleport(0,178,5);
+ }
+ if(!cooperative)await wait(()=>peers().every(s=>s.actors[1].kickCooldown<=0));
+ await kick(cooperative?'host':'client1',wall,2);
+ check(cooperative?'Host and guest share two-hit damage without a client-side double hit':'Second guest kick after cooldown destroys the same wall',peers().every(s=>!wallOn(s,wall)));
+ await passage(wall,'Broken barricade frees real guest travel on both peers');
+}
+async function focusedBarricades(){
+ for(const cooperative of [false,true])await breakable(cooperative);
+ let wall=await deployed();
+ await teleport(1,wall.position.z-3);await command('client1','pointer',{yaw:0,pitch:0});
+ for(const miss of ['out-of-range','aimed-away']){
+  if(miss==='aimed-away'){await wait(()=>peers().every(s=>s.actors[1].kickCooldown<=0));await teleport(1,wall.position.z-1.1);await command('client1','pointer',{yaw:180,pitch:0});}
+  const before=host().actors[1].attacks;
+  await command('client1','action',{value:'Kick'});await wait(()=>peers().every(s=>s.actors[1].attacks===before+1&&s.actors[1].attack==='None'));
+  check('Actual '+miss+' guest kick leaves authoritative wall intact',peers().every(s=>wallOn(s,wall)?.barricadeHits===0));observe(miss);
+ }
+ await wait(()=>peers().every(s=>s.actors[1].kickCooldown<=0));await command('client1','pointer',{yaw:0,pitch:0});await kick('client1',wall,1);
+ await teleport(0,host().bellLanding.z,host().bellLanding.x);await command('host','action',{value:'Interact'});
+ await wait(()=>peers().every(s=>s.actors.every(a=>a.seated)&&s.race.projectiles.length===0));
+ check('Real bell/new-round transition clears a damaged barricade on both peers',peers().every(s=>!wallOn(s,wall)));await stand();
+ wall=await deployed();const expires=host().worldTime+wall.remaining;
+ await command('client1','pointer',{yaw:0,pitch:0});
+ await wait(()=>host().worldTime>=expires-6);await kick('client1',wall,1);
+ await wait(()=>host().worldTime>=expires-.5,10000);
+ check('Damage preserves the solid wall until the original eight-second deadline',peers().every(s=>wallOn(s,wall)?.barricadeHits===1),'deadline='+expires+' worldTime='+host().worldTime);
+ await wait(()=>peers().every(s=>!wallOn(s,wall)),2000);
+ check('Damaging the wall does not extend its original expiry',host().worldTime<expires+.6,'deadline='+expires+' worldTime='+host().worldTime);
+ await passage(wall,'Expired barricade frees real guest travel on both peers');
+ wall=await deployed();await command('client1','pointer',{yaw:0,pitch:0});await kick('client1',wall,1);
+ const life=host().actors[0].respawns;await command('host','action',{value:'Respawn'});
+ await wait(()=>peers().every(s=>s.actors[0].respawns>life&&!s.actors[0].respawning&&!wallOn(s,wall)),3000);
+ check('Owner respawn clears damaged barricades on both peers before expiry',peers().every(s=>!wallOn(s,wall)));await passage(wall,'Owner-life cleanup removes guest collision');
+ await command('host','room');await wait(()=>peers().every(s=>!s.playing));
+}
 try{
- launch('host');await wait(()=>host()?.active&&!host().busy,60000);launch('client1');await wait(()=>host().members.length===2&&guest()?.members.length===2&&!guest().busy);
+ launch('host');await wait(()=>host()?.active&&!host().busy,60000);launch('client1');await wait(()=>host().members.length===2&&guest()?.members.length===2&&!guest().busy,60000);
+ const oldTimes=peers().map(s=>s.worldTime);await wait(()=>peers().every((s,i)=>s.worldTime>oldTimes[i]+.1),5000);
+ check('Attached or launched peers publish fresh matching protocol state',host().protocol===guest().protocol&&host().protocol===42);
+ if(host().playing){await command('host','room');await wait(()=>peers().every(s=>!s.playing));}
  await startRace();check('Final official race loads on both peers with identical box placement',JSON.stringify(host().race.boxes.map(b=>b.position))===JSON.stringify(guest().race.boxes.map(b=>b.position))&&host().bellLanding.z>=210);
  await command('host','race-item');check('Seated player cannot create an item attack',host().race.projectiles.length===0);
- await stand();await command('host','pointer',{yaw:0,pitch:7});await capture('race-start');
+ await stand();await command('host','pointer',{yaw:0,pitch:7});await capture(barricadeOnly?'barricade-start':'race-start');
+ if(barricadeOnly)await focusedBarricades();
+ else{
  await take(1);
  const spare=host().race.boxes.find(b=>b.cooldown<=0&&b.position.z>30);
  const acquired=host().race.actors[0].acquisitions;
@@ -160,6 +254,7 @@ try{
  await wait(()=>host().actors[0].respawns>ownerLife&&guest().race.projectiles.every(p=>p.item!==3));
  await command('client1','move',{z:1,yaw:0});await sleep(900);await command('client1','move',{z:0,yaw:0});
  check('Owner respawn removes deployed barricade collision on the guest',host().actors[1].position.z>177&&guest().actors[1].position.z>177);
+ for(const cooperative of [false,true])await breakable(cooperative);
  await take(2,1);await teleport(0,160);await teleport(1,178,6.8);
  await airborneUse(2,1,270,true);
  await teleport(1,178);banana=await airborneUse(2,1);
@@ -191,6 +286,7 @@ try{
  // Unity JsonUtility serializes a null nested DTO as its empty default object.
  check('Switching to an existing map removes race state on both peers',[host(),guest()].every(s=>!s.race.running&&s.race.actors.length===0&&s.race.boxes.length===0&&s.race.projectiles.length===0));
  await command('host','controls');await capture('race-controls');
+ }
  check('No runtime probe errors',!host().error&&!guest().error);
-}catch(error){if(checks.at(-1)?.passed!==false)checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'failure.json'),JSON.stringify({error:error.stack,host:host(),guest:guest()},null,2));process.exitCode=1;}
-finally{for(const p of processes)p.kill();fs.writeFileSync(path.join(project,'TestResults/race-network.json'),JSON.stringify({utc:new Date().toISOString(),folder,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks},null,2));}
+}catch(error){failure(error);}
+finally{clearTimeout(watchdog);for(const p of processes)p.kill();report(process.exitCode?'failed':limitations.length?'limited':'passed');}

@@ -1,0 +1,293 @@
+{
+    "modelPath": "Assets/HalliGalliMovement/Art/FP_Hands.fbx",
+    "prefabPath": "Assets/HalliGalliMovement/Prefabs/SourcePlayer.prefab",
+    "scope": "Isolated editor visual renders only; original motion clips sampled without modification. No gameplay, physics, network, build or release verification.",
+    "error": "",
+    "complete": true,
+    "importedMeshes": [
+        {
+            "renderer": "Realistic_Hand_L",
+            "mesh": "Realistic_Hand_L",
+            "guid": "271269c55f92a8042b930b0128aa0b44",
+            "localId": -8393930988373385365,
+            "vertices": 32120,
+            "submeshes": 1,
+            "bones": [
+                "R_Wrist",
+                "R_Forearm",
+                "R_Thumb1",
+                "R_Thumb2",
+                "R_Thumb3",
+                "R_Index1",
+                "R_Index2",
+                "R_Index3",
+                "R_Middle1",
+                "R_Middle2",
+                "R_Middle3",
+                "R_Ring1",
+                "R_Ring2",
+                "R_Ring3",
+                "R_Little1",
+                "R_Little2",
+                "R_Little3",
+                "L_Wrist",
+                "L_Forearm",
+                "L_Thumb1",
+                "L_Thumb2",
+                "L_Thumb3",
+                "L_Index1",
+                "L_Index2",
+                "L_Index3",
+                "L_Middle1",
+                "L_Middle2",
+                "L_Middle3",
+                "L_Ring1",
+                "L_Ring2",
+                "L_Ring3",
+                "L_Little1",
+                "L_Little2",
+                "L_Little3"
+            ],
+            "localScale": {
+                "x": 1.0,
+                "y": 0.9999999403953552,
+                "z": 1.0
+            }
+        },
+        {
+            "renderer": "Realistic_Hand_R",
+            "mesh": "Realistic_Hand_R",
+            "guid": "271269c55f92a8042b930b0128aa0b44",
+            "localId": -2195332405720050631,
+            "vertices": 32120,
+            "submeshes": 1,
+            "bones": [
+                "R_Wrist",
+                "R_Forearm",
+                "R_Thumb1",
+                "R_Thumb2",
+                "R_Thumb3",
+                "R_Index1",
+                "R_Index2",
+                "R_Index3",
+                "R_Middle1",
+                "R_Middle2",
+                "R_Middle3",
+                "R_Ring1",
+                "R_Ring2",
+                "R_Ring3",
+                "R_Little1",
+                "R_Little2",
+                "R_Little3",
+                "L_Wrist",
+                "L_Forearm",
+                "L_Thumb1",
+                "L_Thumb2",
+                "L_Thumb3",
+                "L_Index1",
+                "L_Index2",
+                "L_Index3",
+                "L_Middle1",
+                "L_Middle2",
+                "L_Middle3",
+                "L_Ring1",
+                "L_Ring2",
+                "L_Ring3",
+                "L_Little1",
+                "L_Little2",
+                "L_Little3"
+            ],
+            "localScale": {
+                "x": 1.0,
+                "y": 0.9999999403953552,
+                "z": 1.0
+            }
+        }
+    ],
+    "savedPrefabMeshes": [
+        {
+            "renderer": "Realistic_Hand_L",
+            "mesh": "Realistic_Hand_L",
+            "guid": "271269c55f92a8042b930b0128aa0b44",
+            "localId": -8393930988373385365,
+            "vertices": 32120,
+            "submeshes": 1,
+            "bones": [
+                "R_Wrist",
+                "R_Forearm",
+                "R_Thumb1",
+                "R_Thumb2",
+                "R_Thumb3",
+                "R_Index1",
+                "R_Index2",
+                "R_Index3",
+                "R_Middle1",
+                "R_Middle2",
+                "R_Middle3",
+                "R_Ring1",
+                "R_Ring2",
+                "R_Ring3",
+                "R_Little1",
+                "R_Little2",
+                "R_Little3",
+                "L_Wrist",
+                "L_Forearm",
+                "L_Thumb1",
+                "L_Thumb2",
+                "L_Thumb3",
+                "L_Index1",
+                "L_Index2",
+                "L_Index3",
+                "L_Middle1",
+                "L_Middle2",
+                "L_Middle3",
+                "L_Ring1",
+                "L_Ring2",
+                "L_Ring3",
+                "L_Little1",
+                "L_Little2",
+                "L_Little3"
+            ],
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "renderer": "Realistic_Hand_R",
+            "mesh": "Realistic_Hand_R",
+            "guid": "271269c55f92a8042b930b0128aa0b44",
+            "localId": -2195332405720050631,
+            "vertices": 32120,
+            "submeshes": 1,
+            "bones": [
+                "R_Wrist",
+                "R_Forearm",
+                "R_Thumb1",
+                "R_Thumb2",
+                "R_Thumb3",
+                "R_Index1",
+                "R_Index2",
+                "R_Index3",
+                "R_Middle1",
+                "R_Middle2",
+                "R_Middle3",
+                "R_Ring1",
+                "R_Ring2",
+                "R_Ring3",
+                "R_Little1",
+                "R_Little2",
+                "R_Little3",
+                "L_Wrist",
+                "L_Forearm",
+                "L_Thumb1",
+                "L_Thumb2",
+                "L_Thumb3",
+                "L_Index1",
+                "L_Index2",
+                "L_Index3",
+                "L_Middle1",
+                "L_Middle2",
+                "L_Middle3",
+                "L_Ring1",
+                "L_Ring2",
+                "L_Ring3",
+                "L_Little1",
+                "L_Little2",
+                "L_Little3"
+            ],
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        }
+    ],
+    "frames": [
+        {
+            "file": "Previews/NewHands/Anatomy_Open_Dorsal.png",
+            "source": "Imported FBX; original MotionPoseAuthor.ReviewHands",
+            "pose": "Open",
+            "view": "Dorsal",
+            "clipTime": 0.0
+        },
+        {
+            "file": "Previews/NewHands/Anatomy_Open_Palm.png",
+            "source": "Imported FBX; original MotionPoseAuthor.ReviewHands",
+            "pose": "Open",
+            "view": "Palm",
+            "clipTime": 0.0
+        },
+        {
+            "file": "Previews/NewHands/Anatomy_Relaxed_Dorsal.png",
+            "source": "Imported FBX; original MotionPoseAuthor.ReviewHands",
+            "pose": "Relaxed",
+            "view": "Dorsal",
+            "clipTime": 0.0
+        },
+        {
+            "file": "Previews/NewHands/Anatomy_Relaxed_Palm.png",
+            "source": "Imported FBX; original MotionPoseAuthor.ReviewHands",
+            "pose": "Relaxed",
+            "view": "Palm",
+            "clipTime": 0.0
+        },
+        {
+            "file": "Previews/NewHands/Anatomy_Fist_Dorsal.png",
+            "source": "Imported FBX; original MotionPoseAuthor.ReviewHands",
+            "pose": "Fist",
+            "view": "Dorsal",
+            "clipTime": 0.0
+        },
+        {
+            "file": "Previews/NewHands/Anatomy_Fist_Palm.png",
+            "source": "Imported FBX; original MotionPoseAuthor.ReviewHands",
+            "pose": "Fist",
+            "view": "Palm",
+            "clipTime": 0.0
+        },
+        {
+            "file": "Previews/NewHands/Prefab_Idle_FirstPerson.png",
+            "source": "Assets/HalliGalliMovement/Prefabs/SourcePlayer.prefab; existing Assets/HalliGalliMovement/Art/Motions/FP_Idle.anim",
+            "pose": "Idle",
+            "view": "Saved hands camera",
+            "clipTime": 0.2800000011920929
+        },
+        {
+            "file": "Previews/NewHands/Prefab_Idle_Oblique.png",
+            "source": "Assets/HalliGalliMovement/Prefabs/SourcePlayer.prefab; existing Assets/HalliGalliMovement/Art/Motions/FP_Idle.anim",
+            "pose": "Idle",
+            "view": "Studio oblique",
+            "clipTime": 0.2800000011920929
+        },
+        {
+            "file": "Previews/NewHands/Prefab_PushLeft_FirstPerson.png",
+            "source": "Assets/HalliGalliMovement/Prefabs/SourcePlayer.prefab; existing Assets/HalliGalliMovement/Art/Motions/FP_PushLeft.anim",
+            "pose": "PushLeft",
+            "view": "Saved hands camera",
+            "clipTime": 0.1599999964237213
+        },
+        {
+            "file": "Previews/NewHands/Prefab_PushLeft_Oblique.png",
+            "source": "Assets/HalliGalliMovement/Prefabs/SourcePlayer.prefab; existing Assets/HalliGalliMovement/Art/Motions/FP_PushLeft.anim",
+            "pose": "PushLeft",
+            "view": "Studio oblique",
+            "clipTime": 0.1599999964237213
+        },
+        {
+            "file": "Previews/NewHands/Prefab_PushRight_FirstPerson.png",
+            "source": "Assets/HalliGalliMovement/Prefabs/SourcePlayer.prefab; existing Assets/HalliGalliMovement/Art/Motions/FP_PushRight.anim",
+            "pose": "PushRight",
+            "view": "Saved hands camera",
+            "clipTime": 0.1599999964237213
+        },
+        {
+            "file": "Previews/NewHands/Prefab_PushRight_Oblique.png",
+            "source": "Assets/HalliGalliMovement/Prefabs/SourcePlayer.prefab; existing Assets/HalliGalliMovement/Art/Motions/FP_PushRight.anim",
+            "pose": "PushRight",
+            "view": "Studio oblique",
+            "clipTime": 0.1599999964237213
+        }
+    ]
+}

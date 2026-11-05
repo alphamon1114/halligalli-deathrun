@@ -24,7 +24,7 @@ public sealed class PyramidBellValidationRunner:MonoBehaviour
         var session=FindAnyObjectByType<CourseSession>();var surf=session.roster.surf;var hud=FindAnyObjectByType<CourseHUD>();
         session.cardGame.botEnabled=false;session.cardGame.shuffleOnReset=false;session.cardGame.seed=20261020;hud.ReadInput=false;session.roster.StartNewGame(2);
         session.Local.GetComponent<SourcePlayerController>().controlsEnabled=false;
-        foreach(var p in session.roster.allParticipants){p.Combat.readInput=false;var bot=p.GetComponent<CourseRival>();if(bot)bot.enabled=false;}
+        foreach(var p in session.roster.allParticipants){p.Initialize();p.Combat.readInput=false;var bot=p.GetComponent<CourseRival>();if(bot)bot.enabled=false;}
         foreach(var r in session.bellTarget.GetComponentsInChildren<Renderer>())if(r.enabled)
             CheckResult("Visible bell remains at its interaction target",Vector3.Distance(r.bounds.center,session.bellTarget.position)<.4f,"target="+session.bellTarget.position+" bounds="+r.bounds);
         Time.timeScale=5;
@@ -49,12 +49,12 @@ public sealed class PyramidBellValidationRunner:MonoBehaviour
             }
             runner.Motor.Teleport(session.checkpoints.points[0].spawn.position);runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
             CheckResult("Seat "+seat+" backtracking preserves furthest checkpoint",runner.CheckpointIndex==3);
-            runner.SetCheckpoint(3,0);surf.RestoreCheckpointProgress(runner,20);
+            runner.SetCheckpoint(session.checkpoints.points.Length-1,0);surf.RestoreCheckpointProgress(runner,session.checkpoints.points.Last().surfGates);
             runner.Motor.Teleport(surf.finish.position);
             for(int i=0;i<5;i++){runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
             CheckResult("Seat "+seat+" valid checkpoint route can ring without touching every bank",session.CanRing(runner),"grounded="+runner.Motor.Grounded+" gates="+surf.GatesPassed(runner)+" claim="+session.cardGame.Match.CanClaim(seat));
             if(seat==0){
-                if(SystemInfo.graphicsDeviceType!=UnityEngine.Rendering.GraphicsDeviceType.Null){
+                if(!Application.isBatchMode&&SystemInfo.graphicsDeviceType!=UnityEngine.Rendering.GraphicsDeviceType.Null){
                     var control=runner.GetComponent<SourcePlayerController>();
                     var direction=session.bellTarget.position+Vector3.up*.15f-runner.Motor.CurrentEyePosition;
                     control.ResetView(Mathf.Atan2(direction.x,direction.z)*Mathf.Rad2Deg,-Mathf.Atan2(direction.y,new Vector2(direction.x,direction.z).magnitude)*Mathf.Rad2Deg);
@@ -70,7 +70,7 @@ public sealed class PyramidBellValidationRunner:MonoBehaviour
         session.ResetPractice();yield return new WaitForFixedUpdate();
         var local=session.Local;local.Stand();local.Motor.Teleport(session.checkpoints.points[0].spawn.position+Vector3.up*2);local.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
         CheckResult("Wrong card departure cannot save a checkpoint",local.CheckpointIndex==-1);
-        local.SetCheckpoint(3,0);surf.RestoreCheckpointProgress(local,25);local.Motor.Teleport(surf.finish.position);local.Motor.Simulate(default,Time.fixedDeltaTime);
+        local.SetCheckpoint(session.checkpoints.points.Length-1,0);surf.RestoreCheckpointProgress(local,surf.sections.Length);local.Motor.Teleport(surf.finish.position);local.Motor.Simulate(default,Time.fixedDeltaTime);
         CheckResult("Wrong card departure still cannot claim the bell",!session.CanRing(local));
         session.ResetPractice();yield return new WaitForFixedUpdate();
         for(int attempts=0;!session.cardGame.Match.HasExactFive()&&attempts<1000;attempts++)session.cardGame.Match.Reveal(session.cardGame.Match.Turn);

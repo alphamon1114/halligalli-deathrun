@@ -45,7 +45,7 @@ namespace HalliGalli.Movement
         {
             var p=session.Local;float w=BellUI.W,h=BellUI.H;
             if(p.IsRespawning){Badge(new Rect(w*.5f-82,h*.5f+60,164,38),p.HasCheckpoint?"체크포인트 복귀":"다시 출발",BellUI.Paper,"arrow");return;}
-            if(session.practiceRoom){Prompt(24,h-63,"R","제자리로",142);return;}
+            if(session.practiceRoom){DrawPracticeState();return;}
             if(session.HasCardRules){
                 var game=session.cardGame;var match=game.Match;var mine=match.Seats[game.Index(p)];
                 if(mine.MustSit){
@@ -148,11 +148,14 @@ namespace HalliGalli.Movement
             if(BellUI.Button(new Rect(x,y,width,43),"계속하기",true)&&ReadInput)Resume();y+=59;
             if(BellUI.Button(new Rect(x,y,128,34),"게임",selected:!HelpOpen,size:14)&&ReadInput)HelpOpen=false;
             if(BellUI.Button(new Rect(x+140,y,128,34),"조작키 설정",selected:HelpOpen,size:14)&&ReadInput)OpenHelp();y+=54;
+            bool enabled=GUI.enabled;GUI.enabled=enabled&&ReadInput;
+            MusicVolumeControl.Draw(new Rect(x,y,width,59));y+=78;GUI.enabled=enabled;
             if(HelpOpen){
                 string[] keys={"WASD","SPACE","CTRL","LMB","F","Q","R","E"};
                 string[] actions={"이동","점프","웅크리기","밀치기 / 카드 공개","발차기","밧줄 · 맞으면 자동 당김","체크포인트 복귀","일어나기 · 앉기 · 종"};
                 for(int i=0;i<keys.Length;i++){BellUI.Key(new Rect(x,y+i*37,54,25),keys[i]);BellUI.Text(new Rect(x+66,y-2+i*37,205,29),actions[i],14);}
             }else{
+                if(session.practiceRoom)y=DrawPracticeNavigation(x,y,width);
                 if(!CourseNetwork.Active&&session.roster&&!session.practiceRoom){
                     BellUI.Text(new Rect(x,y,width,25),"연습 인원",14,BellUI.Muted);y+=32;
                     for(int count=2;count<=6;count++)if(BellUI.Button(new Rect(x+(count-2)*55,y,48,38),count.ToString(),selected:session.roster.PlayerCount==count)&&ReadInput)session.roster.StartNewGame(count);

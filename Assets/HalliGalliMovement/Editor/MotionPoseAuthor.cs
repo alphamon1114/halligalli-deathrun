@@ -203,15 +203,25 @@ namespace HalliGalli.EditorTools
                 string side=i==0?"L":"R";float sign=i==0?-1:1;
                 bool pushing=state==(i==0?"PushLeft":"PushRight");
                 var idle=new Vector3(sign*.235f,-.235f,.43f);
-                Vector3 p=pushing?PushPath(attack,time,idle,new Vector3(sign*.27f,-.19f,.35f),
-                    new Vector3(sign*.14f,-.14f,.66f),new Vector3(sign*.24f,-.18f,.39f)):
-                    Vector3.Lerp(idle,new Vector3(sign*.25f,-.19f,.39f),envelope);
-                // Fingers point up and the open palm faces the recipient, not the camera.
+                Vector3 p=pushing?PushPath(attack,time,idle,new Vector3(sign*.25f,-.25f,.36f),
+                    new Vector3(sign*.17f,-.24f,.71f),new Vector3(sign*.24f,-.25f,.40f)):
+                    Vector3.Lerp(idle,new Vector3(sign*.27f,-.29f,.38f),envelope);
+                // Extend the palm below the crosshair; the other hand stays at the hip.
                 var idleRotation=Quaternion.Euler(-10,sign*10,-sign*32);
-                var palmRotation=Quaternion.Euler(-90,sign*8,-sign*6);
+                var palmRotation=Quaternion.Euler(-88,sign*5,-sign*4);
                 var wrist=B(side+"_Wrist");wrist.position=P(p);
-                wrist.rotation=root.rotation*Quaternion.Slerp(idleRotation,palmRotation,pushing?envelope:envelope*.25f)*worldRotations[wrist];
-                CurlHand(side,Mathf.Lerp(.45f,pushing?.03f:.22f,envelope));
+                wrist.rotation=root.rotation*Quaternion.Slerp(idleRotation,palmRotation,pushing?envelope:0)*worldRotations[wrist];
+                CurlHand(side,Mathf.Lerp(.45f,pushing?.02f:.45f,envelope));
+                if(pushing) {
+                    // The viewmodel forearm is a child pivoted AT the wrist, not an elbow.
+                    // Counter-rotate it independently: raising an open hand must not raise
+                    // the entire rigid forearm into a vertical/lateral striking surface.
+                    var forearm=B(side+"_Forearm");
+                    Vector3 elbow=P(new Vector3(sign*.29f,-.40f,.20f));
+                    Quaternion extended=Quaternion.FromToRotation(V(Vector3.back),elbow-wrist.position)
+                        *root.rotation*worldRotations[forearm];
+                    forearm.rotation=Quaternion.Slerp(forearm.rotation,extended,envelope);
+                }
             }
         }
         public void AttackBody(string state,float phase)
@@ -229,18 +239,37 @@ namespace HalliGalli.EditorTools
                 string side=i==0?"Left":"Right";float sign=i==0?-1:1;
                 bool pushing=state=="Push"+side;
                 Vector3 idle=new Vector3(sign*.27f,1,.09f);
-                Vector3 p=pushing?PushPath(attack,time,idle,new Vector3(sign*.29f,1.25f,.18f),
-                    new Vector3(sign*.15f,1.35f,.65f),new Vector3(sign*.27f,1.20f,.24f)):
-                    Vector3.Lerp(idle,new Vector3(sign*.29f,1.18f,.22f),envelope);
-                Solve(B(side+"Arm"),B(side+"ForeArm"),B(side+"Hand"),P(p),P(new Vector3(sign*.50f,1.10f,-.06f)));
-                var wrist=B(side+"Hand");
-                Vector3 finger=Vector3.Slerp(new Vector3(0,-.9f,.3f),Vector3.up,pushing?envelope:envelope*.25f);
-                Vector3 palm=Vector3.Slerp(new Vector3(-sign,0,0),Vector3.forward,pushing?envelope:envelope*.25f);
+                var upper=B(side+"Arm");var lower=B(side+"ForeArm");var wrist=B(side+"Hand");
+                float reach=Vector3.Distance(upper.position,lower.position)+Vector3.Distance(lower.position,wrist.position);
+                // Keep the goal reachable, nearly straight ahead of the shoulder. A low
+                // elbow pole makes the elbow unfold forward instead of sweeping sideways.
+                Vector3 contact=root.InverseTransformPoint(upper.position)
+                    +new Vector3(-sign*.025f,-.09f,.48f).normalized*(reach*.96f);
+                Vector3 p=pushing?PushPath(attack,time,idle,new Vector3(sign*.24f,1.22f,.20f),
+                    contact,new Vector3(sign*.27f,1.12f,.20f)):
+                    Vector3.Lerp(idle,new Vector3(sign*.29f,1.02f,.12f),envelope);
+                Vector3 pole=Vector3.Lerp(new Vector3(sign*.45f,1.15f,-.22f),
+                    new Vector3(sign*.25f,.98f,.12f),pushing?envelope:0);
+                Solve(upper,lower,wrist,P(p),P(pole));
+                Vector3 finger=Vector3.Slerp(new Vector3(0,-.9f,.3f),Vector3.up,pushing?envelope:0);
+                Vector3 palm=Vector3.Slerp(new Vector3(-sign,0,0),Vector3.forward,pushing?envelope:0);
                 Quaternion aim=Quaternion.LookRotation(V(finger),V(palm))*Quaternion.Inverse(Quaternion.LookRotation(V(new Vector3(sign,0,0)),V(Vector3.forward)));
                 wrist.rotation=aim*root.rotation*worldRotations[wrist];
                 string prefix="HandLoRA_Bip01_"+(i==0?"L":"R")+"_Finger";
                 foreach(var t in bones)if(t.name.StartsWith(prefix))t.localRotation=rotations[t];
-                CurlBody(side,Mathf.Lerp(45,pushing?4:22,envelope));
+                CurlBody(side,Mathf.Lerp(45,pushing?3:45,envelope));
+                if(pushing)for(int digit=1;digit<=4;digit++) {
+                    // The imported fingers have asymmetric rest bends. Open their
+                    // joints along each proximal phalanx rather than treating rest as straight.
+                    var knuckle=B(prefix+digit);
+                    Vector3 along=knuckle.GetChild(0).position-knuckle.position;
+                    for(int joint=1;joint<=2;joint++) {
+                        var phalanx=B(prefix+digit+joint);
+                        if(phalanx.childCount==0)continue;
+                        var open=Quaternion.FromToRotation(phalanx.GetChild(0).position-phalanx.position,along);
+                        phalanx.rotation=Quaternion.Slerp(Quaternion.identity,open,envelope)*phalanx.rotation;
+                    }
+                }
             }
         }
         void KickHands(float phase)

@@ -2,30 +2,42 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawn} from 'node:child_process';
 import {randomUUID} from 'node:crypto';
+// Focused reuse of this script's previously exported two-box rotated-floor fixture:
+// node Tools/Network/check-usermap-items.mjs <project> --barricade-only --attach <probe-folder> --shared-map <shared.bellmap> [--headless] [--host-role manual]
 const project=path.resolve(process.argv[2]??'.');
-const folder=path.join(project,'Tools/Network/Runs','usermap-items-'+Date.now());fs.mkdirSync(folder,{recursive:true});
+const option=name=>{const i=process.argv.indexOf(name);if(i<0)return null;if(!process.argv[i+1]||process.argv[i+1].startsWith('--'))throw Error(name+' requires a value');return process.argv[i+1];};
+const attach=option('--attach'),attached=!!attach,barricadeOnly=process.argv.includes('--barricade-only'),graphical=!process.argv.includes('--headless');
+const hostRole=option('--host-role')??(attached?'host':'manual'),sharedInput=option('--shared-map');
+if(barricadeOnly&&!sharedInput)throw Error('--barricade-only requires --shared-map pointing to a previously exported shared.bellmap');
+const folder=attached?path.resolve(attach):path.join(project,'Tools/Network/Runs','usermap-items-'+Date.now());fs.mkdirSync(folder,{recursive:true});
 const storage=path.join(process.env.USERPROFILE,'AppData/LocalLow/HalliGalli Prototype/HalliGalli Deathrun - Bell Run');
 const checks=[],processes=[],ownedMaps=[],observations=[],pickups=[],cached={},sequences={};
+const startedUtc=new Date().toISOString();
+let barricadeSeed;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms)),id=()=>randomUUID().replaceAll('-','');
-function state(role='manual'){try{cached[role]=JSON.parse(fs.readFileSync(path.join(folder,'state-'+role+'.json'),'utf8'));}catch{}return cached[role];}
+function state(role=hostRole){try{cached[role]=JSON.parse(fs.readFileSync(path.join(folder,'state-'+role+'.json'),'utf8'));}catch{}return cached[role];}
 const host=()=>state(),guest=()=>state('client1');
-function check(name,passed,detail){checks.push({name,passed,...(detail?{detail}:{})});if(!passed)throw Error(name);}
-async function wait(fn,timeout=20000){const end=Date.now()+timeout;while(Date.now()<end){if(fn())return;await sleep(40);}throw Error('Runtime state timeout');}
-async function command(role,action,extra={}){const file=path.join(folder,'command-'+role+'.json');const sequence=sequences[role]=(sequences[role]??0)+1;fs.writeFileSync(file+'.tmp',JSON.stringify({sequence,action,...extra}));for(let n=0;;n++){try{fs.renameSync(file+'.tmp',file);break;}catch(e){if(n===99)throw e;await sleep(10);}}await wait(()=>state(role)?.commandSequence===sequence);if(state(role).error)throw Error(state(role).error);}
-const cmd=(action,extra)=>command('manual',action,extra);
-function launch(role){const args=role==='manual'?['-screen-fullscreen','0','-screen-width','1440','-screen-height','900']:['-batchmode','-nographics'];const p=spawn(path.join(project,'Build/Windows/HalliGalliMovement.exe'),[...args,'--net-probe',role,'--probe-dir',folder,'--net-port','17894','-logFile',path.join(folder,role+'.log')],{stdio:'ignore'});processes.push(p);return p;}
-async function capture(name){await cmd('capture',{value:name});await wait(()=>fs.existsSync(path.join(folder,name+'.png')));}
+function check(name,passed,detail){checks.push({name,passed,...(detail?{detail}:{})});console.log((passed?'PASS ':'FAIL ')+name);if(!passed)throw Error(name);}
+async function wait(fn,timeout=20000){const end=Date.now()+timeout;while(Date.now()<end){for(const p of processes)if(p.spawnError||p.exitCode!==null)throw p.spawnError??Error('Player exited '+p.exitCode);for(const s of [host(),guest()])if(s?.error)throw Error(s.error);if(fn())return;await sleep(25);}throw Error('Runtime state timeout');}
+async function command(role,action,extra={}){const file=path.join(folder,'command-'+role+'.json');if(sequences[role]===undefined){let old=0;try{old=JSON.parse(fs.readFileSync(file,'utf8')).sequence??0;}catch{}sequences[role]=Math.max(old,state(role)?.commandSequence??0);}const sequence=++sequences[role];fs.writeFileSync(file+'.tmp',JSON.stringify({sequence,action,...extra}));for(let n=0;;n++){try{fs.renameSync(file+'.tmp',file);break;}catch(e){if(n===99)throw e;await sleep(10);}}await wait(()=>state(role)?.commandSequence===sequence);}
+const cmd=(action,extra)=>command(hostRole,action,extra);
+function launch(role){if(attached)return;const args=graphical&&role===hostRole?['-screen-fullscreen','0','-screen-width','1440','-screen-height','900']:['-batchmode','-nographics'];const p=spawn(path.join(project,'Build/Windows/HalliGalliMovement.exe'),[...args,'-disable-audio','--net-probe',role,'--probe-dir',folder,'--net-port','17894','-logFile',path.join(folder,role+'.log')],{stdio:'ignore'});processes.push(p);p.on('error',error=>p.spawnError=error);return p;}
+async function capture(name){if(!graphical)return;const file=path.join(folder,name+'.png');if(fs.existsSync(file))fs.unlinkSync(file);await cmd('capture',{value:name});await wait(()=>fs.existsSync(file));}
 function part(kind,position,scale={x:1,y:1,z:1}){return{id:id(),kind,position,rotation:{x:0,y:0,z:0},scale,color:0,travel:{x:0,y:0,z:0},period:4,speed:2};}
 const floor=part(0,{x:0,y:-.25,z:15},{x:30,y:.5,z:40});floor.rotation.y=90;
 const fixture={version:1,id:id(),name:'아이템 제작 검증',description:'회전 바닥의 아이템 박스와 공중 설치 검증',fallHeight:-5,objects:[floor,part(8,{x:0,y:0,z:8})]};
-const input=path.join(folder,'input.bellmap'),shared=path.join(folder,'shared.bellmap'),maximumFile=path.join(folder,'maximum.bellmap');fs.writeFileSync(input,JSON.stringify(fixture));ownedMaps.push(fixture.id);
+const input=path.join(folder,'input.bellmap'),shared=sharedInput?path.resolve(sharedInput):path.join(folder,'shared.bellmap'),maximumFile=path.join(folder,'maximum.bellmap');if(!barricadeOnly){fs.writeFileSync(input,JSON.stringify(fixture));ownedMaps.push(fixture.id);}
+const reportFile=path.join(project,'TestResults',barricadeOnly?'barricade-usermap-network.json':'usermap-items.json');
+function report(status){fs.mkdirSync(path.join(project,'TestResults'),{recursive:true});fs.writeFileSync(reportFile,JSON.stringify({utc:startedUtc,completedUtc:status==='running'?null:new Date().toISOString(),status,protocol:host()?.protocol,folder,attached,graphical,shared,maximumFile,ownedMaps,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,pickups,observations,limitations:graphical?[]:['Headless mode does not capture crack visibility; use BarricadeValidationRunner with graphics.']},null,2));}
+function failure(error){if(checks.at(-1)?.passed!==false)checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'usermap-items-failure.json'),JSON.stringify({utc:new Date().toISOString(),error:error.stack,host:host(),guest:guest()},null,2));process.exitCode=1;}
+report('running');const watchdog=setTimeout(()=>{failure(Error('Usermap item scenario exceeded '+(barricadeOnly?'four':'fifteen')+' minutes'));for(const p of processes)p.kill();report('failed');process.exit(1);},(barricadeOnly?4:15)*60000);
 async function importMap(file){const before=host().studioDraftId;await cmd('studio-import',{value:file});if(host().studioConfirmation)await cmd('studio-confirm',{value:'discard'});await wait(()=>!host().studioBusy&&host().studioDraftId!==before);ownedMaps.push(host().studioDraftId);}
 async function closeStudio(){await cmd('studio-close');if(host().studioConfirmation)await cmd('studio-confirm',{value:'discard'});await wait(()=>!host().studioOpen);}
 async function start(){await command('client1','ready');await wait(()=>host().canStart);await cmd('start');await wait(()=>host().playing&&guest().playing,60000);}
 async function stand(){await cmd('five');await cmd('action',{value:'Interact'});await command('client1','action',{value:'Interact'});await wait(()=>host().actors.slice(0,2).every(a=>!a.seated));}
 async function teleport(seat,position){await cmd('teleport',{seat,position});await wait(()=>[host(),guest()].filter(Boolean).every(s=>Math.abs(s.actors[seat].position.x-position.x)<.25&&Math.abs(s.actors[seat].position.z-position.z)<.25&&s.actors[seat].grounded));}
 function observe(name){const value={name,host:structuredClone(host()),guest:structuredClone(guest())};observations.push(value);return value;}
-const roleFor=seat=>seat===0?'manual':'client1';
+const roleFor=seat=>seat===0?hostRole:'client1';
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z);
 async function take(item,seat,leader){
  const role=roleFor(seat),other=1-seat;
@@ -40,13 +52,14 @@ async function take(item,seat,leader){
   await teleport(seat,{x:-15,y:.025,z:12});
   await wait(()=>host().race.boxes.some(b=>b.cooldown<=0));
   const box=host().race.boxes.find(b=>b.cooldown<=0),before=host().race.actors[seat].acquisitions;
-  await cmd('random-seed',{value:String(125+attempt)});await teleport(seat,{...box.position,y:.025});
+  const seed=item===3&&barricadeSeed!==undefined?barricadeSeed:125+attempt;
+  await cmd('random-seed',{value:String(seed)});await teleport(seat,{...box.position,y:.025});
   await wait(()=>host().race.actors[seat].acquisitions>before&&host().race.actors[seat].item>0&&guest().race.actors[seat].item===host().race.actors[seat].item);
   await wait(()=>[host(),guest()].every(s=>s.race.leader===(leader?seat:other)));
   const received=host().race.actors[seat].item;
-  pickups.push({seat,leader,item:received,box:box.index,seed:125+attempt});
+  pickups.push({seat,leader,item:received,box:box.index,seed});
   if(![1,2,3].includes(received))throw Error('Unexpected shared-map item '+received);
-  if(received===item)return;
+  if(received===item){if(item===3)barricadeSeed=seed;return;}
  }
  throw Error('No item '+item+' acquired from live unrestricted shared-map boxes');
 }
@@ -79,8 +92,45 @@ async function placeAirDrop(item,seat,yaw){
  observe('Placed '+(item===2?'banana':'barricade')+' while airborne');
  return entity;
 }
+async function sharedBarricadeCombat(){
+ await take(3,1,false);
+ await wait(()=>[host(),guest()].every(s=>s.race.projectiles.every(p=>p.item!==3)&&s.actors.slice(0,2).every(a=>a.kickCooldown<=0&&a.attack==='None')));
+ await teleport(0,{x:8,y:.025,z:12});await teleport(1,{x:15,y:.025,z:12});
+ const wall=await placeAirDrop(3,1,90),on=s=>s.race.projectiles.find(p=>p.id===wall.id);
+ check('Fresh rotated shared-map barricade has no retained damage',[host(),guest()].every(s=>on(s)?.barricadeHits===0));
+ await wait(()=>[host(),guest()].every(s=>s.actors[1].grounded));
+ await teleport(0,{x:wall.position.x-1.1,y:.025,z:wall.position.z});await cmd('pointer',{yaw:90,pitch:0});
+ await teleport(1,{x:wall.position.x+1.1,y:.025,z:wall.position.z});await command('client1','pointer',{yaw:270,pitch:0});
+ const pushes=host().actors[0].attacks;await cmd('action',{value:'Push'});
+ await wait(()=>[host(),guest()].every(s=>s.actors[0].attacks===pushes+1&&s.actors[0].attack==='None'));
+ check('Shared-map left-click attack cannot damage a rotated barricade',[host(),guest()].every(s=>on(s)?.barricadeHits===0));
+ await cmd('action',{value:'Kick'});await wait(()=>[host(),guest()].every(s=>on(s)?.barricadeHits===1),2500);
+ const kicks=host().actors[0].attacks;await cmd('action',{value:'Kick'});await sleep(300);
+ check('Shared-map first kick and cooldown retry count once on both peers',[host(),guest()].every(s=>on(s)?.barricadeHits===1&&s.actors[0].attacks===kicks));
+ await cmd('move',{z:1,yaw:90});await sleep(350);await cmd('move',{yaw:90});
+ check('Damaged rotated shared-map barricade still blocks real movement',[host(),guest()].every(s=>on(s)?.barricadeHits===1&&s.actors[0].position.x<wall.position.x-.3&&s.actors[0].position.x>wall.position.x-1));
+ observe('Shared-map damaged wall collision');await capture('item-barricade-cracked-shared');
+ await command('client1','action',{value:'Kick'});await wait(()=>[host(),guest()].every(s=>!on(s)),2500);
+ check('Host and guest kicks combine through the shared-map authoritative runtime',[host(),guest()].every(s=>!on(s)&&s.actors[1].kickCooldown>0));
+ await teleport(1,{x:15,y:.025,z:20});await cmd('move',{z:1,yaw:90});await sleep(700);await cmd('move',{yaw:90});
+ check('Broken rotated shared-map barricade permits real controller passage on both peers',[host(),guest()].every(s=>s.actors[0].position.x>wall.position.x+1));
+ observe('Shared-map broken wall passage');
+}
+async function focusedSharedMap(){
+ launch(hostRole);await wait(()=>host()?.protocol>0,60000);
+ if(!host().active){await cmd('host-loopback',{value:'17894'});await wait(()=>host().active&&host().host&&!host().busy);}
+ launch('client1');await wait(()=>guest()?.protocol>0&&host().members.length===2&&!host().busy&&!guest().busy,60000);
+ const times=[host(),guest()].map(s=>s.worldTime);await wait(()=>[host(),guest()].every((s,i)=>s.worldTime>times[i]+.1),5000);
+ check('Both shared-map peers publish fresh matching protocol state',host().protocol===42&&guest().protocol===42);
+ if(host().playing){await cmd('room');await wait(()=>!host().playing&&!guest().playing);}
+ await cmd('user-map',{value:shared});await wait(()=>guest().userMapReady&&guest().userMapHash===host().userMapHash);
+ await start();await wait(()=>host().race?.boxes?.length===2&&guest().race?.boxes?.length===2);await stand();
+ await sharedBarricadeCombat();await cmd('room');await wait(()=>!host().playing&&!guest().playing);
+}
 try{
- launch('manual');await wait(()=>host()?.protocol>0,60000);await cmd('studio-open');await wait(()=>host().studioOpen&&!host().studioBusy);await importMap(input);
+ if(barricadeOnly)await focusedSharedMap();
+ else{
+ launch(hostRole);await wait(()=>host()?.protocol>0,60000);await cmd('studio-open');await wait(()=>host().studioOpen&&!host().studioBusy);await importMap(input);
  await cmd('studio-place',{value:'ItemBox',position:{x:0,y:0,z:3}});const first=host().studioSelected;
  const box=part(10,{x:0,y:0,z:3});box.id=first;const validHash=host().studioDraftHash;
  for(const [name,change] of [['Resized pickup rejected',o=>o.scale.x=2],['Tilted pickup rejected',o=>o.rotation.x=45],['Animated pickup bounds outside map rejected',o=>o.position.z=.5]]){
@@ -155,9 +205,11 @@ try{
  await teleport(0,{x:8,y:.025,z:4});await command('client1','move',{z:1,yaw:270});await sleep(1100);await command('client1','move',{z:0,yaw:270});
  check('Rotated shared barricade blocks actual guest prediction on both peers',[host(),guest()].every(s=>s.actors[1].position.x>wall.position.x+.25&&s.actors[1].position.x<wall.position.x+1));
  observe('Air-dropped barricade collision on both sides');await capture('item-barricade-shared');
+ await sharedBarricadeCombat();
  await cmd('room');await wait(()=>!host().playing&&!guest().playing);await cmd('map',{value:'first-steps'});await start();await sleep(300);check('Changing to an item-free map removes all item state',!host().race?.boxes?.length&&!guest().race?.boxes?.length);
  await cmd('room');await wait(()=>!host().playing&&!guest().playing);await cmd('map',{value:'item-race'});for(let i=0;i<3;i++)await cmd('add-bot');await wait(()=>host().members.length===5);await start();await wait(()=>host().actors.length===5&&host().actors[0].seated);
  await cmd('pointer',{yaw:180,pitch:22});await sleep(400);await capture('race-five-player-seated');await cmd('action',{value:'Reveal'});await sleep(400);await capture('race-five-table-focus');check('Five-player official race starts with seated local player',host().actors.length===5&&host().actors[0].seated);
+ }
  check('No runtime probe errors',!host().error&&!guest().error);
-}catch(error){checks.push({name:String(error),passed:false});fs.writeFileSync(path.join(folder,'failure.json'),JSON.stringify({error:error.stack,host:host(),guest:guest()},null,2));process.exitCode=1;}
-finally{for(const p of processes)p.kill();fs.writeFileSync(path.join(project,'TestResults/usermap-items.json'),JSON.stringify({utc:new Date().toISOString(),protocol:host()?.protocol,folder,shared,maximumFile,ownedMaps,passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,checks,pickups,observations},null,2));}
+}catch(error){failure(error);}
+finally{clearTimeout(watchdog);for(const p of processes)p.kill();report(process.exitCode?'failed':graphical?'passed':'limited');}

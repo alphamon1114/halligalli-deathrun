@@ -1,0 +1,1131 @@
+UnityEngine.BoxCollider|Table leg|18905:256|True|0|0.14	0	0	2.5
+0	0.74	0	0.37
+0	0	0.14	-7.4
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 8|18914:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"1f3e57930696ce54083fc079aed24c4b","type":2}}}
+UnityEngine.AudioSource|AI player 6/ImpactAudio|18926:256|True|0|-1	0	-8.742278E-08	3.75
+0	1	0	1.32499993
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"AudioSource":{"m_Enabled":true,"serializedVersion":"4","OutputAudioMixerGroup":{"instanceID":0},"m_audioClip":{"instanceID":0},"m_Resource":{"instanceID":0},"m_PlayOnAwake":false,"m_Volume":1.0,"m_Pitch":1.0,"Loop":false,"Mute":false,"Spatialize":false,"SpatializePostEffects":false,"Priority":128,"DopplerLevel":0.0,"MinDistance":1.5,"MaxDistance":18.0,"Pan2D":0.0,"rolloffMode":1,"BypassEffects":false,"BypassListenerEffects":false,"BypassReverbZones":false,"rolloffCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"panLevelCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"spreadCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"reverbZoneMixCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}}
+UnityEngine.BoxCollider|Right arena wall|18952:256|False|0|0.4	0	0	13
+0	9	0	0
+0	0	50	12
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 49|18992:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.935
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"4e75c417be1ab714a99278c75f2ac8a4","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 52|19002:256|True|0|1	0	0	1.83597362
+0	1	0	0.903
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"aff840507a5557d429821c73f7b3c165","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 32|19024:256|True|0|1	0	0	-1.83597386
+0	1	0	0.903
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"3c7912942e57a8147a610a584b50ad67","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 34|19033:256|True|0|1	0	0	1.83597362
+0	1	0	0.927
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"160f68ac57da75747abb8c2d8ab029df","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 3|19042:256|True|0|1	0	0	1.83597374
+0	1	0	0.91899997
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"356d5fc4daa30e4479e4c6f1e94413c7","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Movement.CourseParticipant|AI player 2|19087:256|True|0|-1	0	-8.742278E-08	-2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseParticipant","session":{"instanceID":0},"seatAnchor":{"instanceID":0},"standAnchor":{"instanceID":0},"retryAnchor":{"instanceID":0},"localPlayer":false}}
+HalliGalli.Movement.CourseRival|AI player 2|19088:256|True|0|-1	0	-8.742278E-08	-2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseRival","participant":{"instanceID":0},"route":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"attacksEnabled":true,"autoDepart":true,"surfWideTurn":0.0,"surfSidePreference":0}}
+HalliGalli.Movement.CourseBodyAnimator|AI player 2|19089:256|True|0|-1	0	-8.742278E-08	-2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseBodyAnimator","model":{"instanceID":0},"motions":{"fileID":11400000,"guid":"3d8e3f0e8c1d0da4883b4c627840b42b","type":2},"seatedClip":{"fileID":7400000,"guid":"e4f5f668629cf0146bc72310b97e6591","type":2},"seated":false}}
+HalliGalli.Movement.MeleeReceiver|AI player 2|19090:256|True|0|-1	0	-8.742278E-08	-2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeReceiver","audioSet":{"fileID":11400000,"guid":"54a36037e06ea45468ac9ff892e659a0","type":2},"impactSource":{"instanceID":0},"canReceiveHits":true}}
+HalliGalli.Movement.MeleeCombat|AI player 2|19091:256|True|0|-1	0	-8.742278E-08	-2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeCombat","aimCamera":{"instanceID":0},"readInput":false,"actionsEnabled":true,"simulateAutomatically":true,"hitMask":{"serializedVersion":"2","m_Bits":4294966527}}}
+HalliGalli.Movement.SourceMotor|AI player 2|19092:256|True|0|-1	0	-8.742278E-08	-2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SourceMotor","profile":{"fileID":11400000,"guid":"34a29c0383e67c64f9cfa796da97e953","type":2}}}
+UnityEngine.CharacterController|AI player 2|19093:256|True|0|-1	0	-8.742278E-08	-2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"CharacterController":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Height":1.7999999523162842,"m_Radius":0.30000001192092896,"m_SlopeLimit":46.0,"m_StepOffset":0.30000001192092896,"m_SkinWidth":0.02500000037252903,"m_MinMoveDistance":0.0,"m_Center":{"x":0.0,"y":0.8999999761581421,"z":0.0}}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 11|19151:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"0fe8eccfc8302764090af0ed3d34857f","type":2}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 24|19173:256|True|0|1	0	0	-1.83597386
+0	1	0	0.951
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"06a9ec7b23d17d041873e0015905cfbf","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 2|19182:256|True|0|1	0	0	-1.83597386
+0	1	0	0.959
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"356d5fc4daa30e4479e4c6f1e94413c7","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.AudioSource|AI player 2/ImpactAudio|19191:256|True|0|-1	0	-8.742278E-08	-2.25
+0	1	0	1.32499993
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"AudioSource":{"m_Enabled":true,"serializedVersion":"4","OutputAudioMixerGroup":{"instanceID":0},"m_audioClip":{"instanceID":0},"m_Resource":{"instanceID":0},"m_PlayOnAwake":false,"m_Volume":1.0,"m_Pitch":1.0,"Loop":false,"Mute":false,"Spatialize":false,"SpatializePostEffects":false,"Priority":128,"DopplerLevel":0.0,"MinDistance":1.5,"MaxDistance":18.0,"Pan2D":0.0,"rolloffMode":1,"BypassEffects":false,"BypassListenerEffects":false,"BypassReverbZones":false,"rolloffCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"panLevelCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"spreadCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"reverbZoneMixCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/Entry right bulkhead|19205:256|True|0|1	0	0	10
+0	1	0	6.3
+0	0	1	7.125
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":0.800000011920929,"y":23.399999618530273,"z":46.25},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 36|19208:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.910999954
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"cf2382f09eff50e4596805bd3beb88a4","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 43|19213:256|True|0|1	0	0	1.83597362
+0	1	0	0.942999959
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"1e6deb5e1e8b15842a763b421805ca60","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 16|19216:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.967
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"8e8d04fd96cf81049bf66c7d7d5dd2cd","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/North perimeter bulkhead|19280:256|True|0|1	0	0	-27
+0	1	0	-24.5
+0	0	1	162
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":162.0,"y":85.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/Entry left bulkhead|19283:256|True|0|1	0	0	-10
+0	1	0	6.3
+0	0	1	7.125
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":0.800000011920929,"y":23.399999618530273,"z":46.25},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 31|19304:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.895
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"3c7912942e57a8147a610a584b50ad67","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 10|19307:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.91899997
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"1a56dc6fca0593940a1e656f442ea885","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 38|19316:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.951
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"cf2382f09eff50e4596805bd3beb88a4","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 7|19326:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"c7eb0f6e2f0cb6d45a9d98f1fefa94cb","type":2}}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 1|19342:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"6014cd382da950f4cadafa1984f3ed47","type":2}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 22|19357:256|True|0|1	0	0	-1.83597386
+0	1	0	0.959
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"06a9ec7b23d17d041873e0015905cfbf","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Movement.SurfDividerElectricity|Surf course/Surf lane divider|19368:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SurfDividerElectricity","surfaceMin":{"x":-24.0,"y":-5.230000019073486,"z":-24.0},"surfaceSize":{"x":60.0,"y":54.25},"arcs":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}]}}
+HalliGalli.Movement.SurfDivider|Surf course/Surf lane divider|19369:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SurfDivider","session":{"instanceID":0}}}
+UnityEngine.BoxCollider|Surf course/Surf lane divider|19370:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":60.0,"y":0.2800000011920929,"z":54.25},"m_Center":{"x":6.0,"y":-5.400000095367432,"z":3.125}}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 3|19383:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"5b598d7bb5f8e354698ea6ec2ef07b60","type":2}}}
+UnityEngine.BoxCollider|Far arena wall|19388:256|False|0|26	0	0	0
+0	9	0	0
+0	0	0.4	36
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 7|19439:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.959
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"87378a36bc4b335499b9268ae1463cf7","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Table deck|19458:256|True|0|12	0	0	0
+0	0.44	0	-0.22
+0	0	8	-4
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 20|19470:256|True|0|1	0	0	1.83597374
+0	1	0	0.951
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"389bab434283dd948825592a54075ee2","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 35|19483:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.927
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"160f68ac57da75747abb8c2d8ab029df","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Movement.CourseCheckpoints|Course checkpoints|19491:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseCheckpoints","session":{"instanceID":0},"points":[{"spawn":{"instanceID":0},"landing":{"instanceID":0},"resumeWaypoint":3,"surfGates":1,"surfLanes":false},{"spawn":{"instanceID":0},"landing":{"instanceID":0},"resumeWaypoint":3,"surfGates":3,"surfLanes":false},{"spawn":{"instanceID":0},"landing":{"instanceID":0},"resumeWaypoint":3,"surfGates":7,"surfLanes":false}],"orderedPassage":false}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 23|19507:256|True|0|1	0	0	1.83597374
+0	1	0	0.927
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"06a9ec7b23d17d041873e0015905cfbf","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/Entry rear bulkhead|19517:256|True|0|1	0	0	0
+0	1	0	6.3
+0	0	1	-16
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":20.0,"y":23.399999618530273,"z":0.800000011920929},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.BoxCollider|Left arena wall|19533:256|False|0|0.4	0	0	-13
+0	9	0	0
+0	0	50	12
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 28|19546:256|True|0|1	0	0	1.83597374
+0	1	0	0.895
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"3c7912942e57a8147a610a584b50ad67","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Player row and lanes/First platform 5/Landing surface|19557:256|True|0|1.3	0	0	2.25
+0	0.44	0	-0.06999999
+0	0	2	2.3
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.BoxCollider|Surf course/Surf midway landing|19573:256|True|0|7	0	0	-26
+0	0.4	0	-17.4
+0	0	12	-6
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 17|19605:256|True|0|1	0	0	1.83597362
+0	1	0	0.91899997
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"8e8d04fd96cf81049bf66c7d7d5dd2cd","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 39|19620:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.91899997
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"e161fdeb7a8149d4597cd0db9cff942e","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 51|19640:256|True|0|1	0	0	1.83597374
+0	1	0	0.935
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"aff840507a5557d429821c73f7b3c165","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Movement.CourseParticipant|Player|19657:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseParticipant","session":{"instanceID":0},"seatAnchor":{"instanceID":0},"standAnchor":{"instanceID":0},"retryAnchor":{"instanceID":0},"localPlayer":true}}
+HalliGalli.Movement.CourseTableView|Player|19658:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseTableView","participant":{"instanceID":0},"table":{"instanceID":0},"fieldOfView":50.0,"minimumHeight":2.549999952316284,"transitionSeconds":0.2199999988079071}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 29|19680:256|True|0|1	0	0	-1.83597386
+0	1	0	0.951
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"3c7912942e57a8147a610a584b50ad67","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 27|19708:256|True|0|1	0	0	-1.83597386
+0	1	0	0.927
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"4f91fe4f29cfa984c9c3c31aed7c535d","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/Late sector bulkhead|19713:256|True|0|1	0	0	-9
+0	1	0	-24.5
+0	0	1	44
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":126.0,"y":85.0,"z":1.2000000476837158},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.BoxCollider|Pit floor|19716:256|True|0|142	0	0	-30
+0	0.4	0	-67.2
+0	0	174	55
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.AudioSource|AI player 4/ImpactAudio|19739:256|True|0|-1	0	-8.742278E-08	0.75
+0	1	0	1.32499993
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"AudioSource":{"m_Enabled":true,"serializedVersion":"4","OutputAudioMixerGroup":{"instanceID":0},"m_audioClip":{"instanceID":0},"m_Resource":{"instanceID":0},"m_PlayOnAwake":false,"m_Volume":1.0,"m_Pitch":1.0,"Loop":false,"Mute":false,"Spatialize":false,"SpatializePostEffects":false,"Priority":128,"DopplerLevel":0.0,"MinDistance":1.5,"MaxDistance":18.0,"Pan2D":0.0,"rolloffMode":1,"BypassEffects":false,"BypassListenerEffects":false,"BypassReverbZones":false,"rolloffCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"panLevelCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"spreadCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"reverbZoneMixCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}}
+UnityEngine.BoxCollider|Table leg|19810:256|True|0|0.14	0	0	2.5
+0	0.74	0	0.37
+0	0	0.14	-2.8
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/Surf collision ceiling|19815:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":162.0,"y":1.0,"z":186.0},"m_Center":{"x":-27.0,"y":18.5,"z":69.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 30|19838:256|True|0|1	0	0	1.83597362
+0	1	0	0.959
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"3c7912942e57a8147a610a584b50ad67","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 55|19855:256|True|0|1	0	0	1.83597374
+0	1	0	0.910999954
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"3e9abbf00841e2042a0bb1da1c080bda","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 15|19868:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.942999959
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"8e8d04fd96cf81049bf66c7d7d5dd2cd","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/South perimeter bulkhead|19873:256|True|0|1	0	0	-27
+0	1	0	-24.5
+0	0	1	-24
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":162.0,"y":85.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 42|19920:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.959
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"1e6deb5e1e8b15842a763b421805ca60","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 4|19927:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"06c51a7414ed705499688177c8744817","type":2}}}
+UnityEngine.BoxCollider|Surf course/Surf transfer landing|19935:256|True|0|9	0	0	-48
+0	0.4	0	-32.4
+0	0	12	56.5
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 11|19945:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.951
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"e2267db5cc9f9264d80502dd55d48deb","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 21|19965:256|True|0|1	0	0	-1.83597386
+0	1	0	0.895
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"389bab434283dd948825592a54075ee2","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Player row and lanes/First platform 1/Landing surface|20012:256|True|0|1.3	0	0	-3.75
+0	0.44	0	-0.06999999
+0	0	2	2.3
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 13|20042:256|True|0|1	0	0	1.83597362
+0	1	0	0.935
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"50f486ae8e2e78d4cb7b234ab3ef25fd","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 5|20080:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.903
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"87378a36bc4b335499b9268ae1463cf7","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Movement.CourseParticipant|AI player 3|20100:256|True|0|-1	0	-8.742278E-08	-0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseParticipant","session":{"instanceID":0},"seatAnchor":{"instanceID":0},"standAnchor":{"instanceID":0},"retryAnchor":{"instanceID":0},"localPlayer":false}}
+HalliGalli.Movement.CourseRival|AI player 3|20101:256|True|0|-1	0	-8.742278E-08	-0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseRival","participant":{"instanceID":0},"route":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"attacksEnabled":true,"autoDepart":true,"surfWideTurn":0.0,"surfSidePreference":0}}
+HalliGalli.Movement.CourseBodyAnimator|AI player 3|20102:256|True|0|-1	0	-8.742278E-08	-0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseBodyAnimator","model":{"instanceID":0},"motions":{"fileID":11400000,"guid":"3d8e3f0e8c1d0da4883b4c627840b42b","type":2},"seatedClip":{"fileID":7400000,"guid":"e4f5f668629cf0146bc72310b97e6591","type":2},"seated":false}}
+HalliGalli.Movement.MeleeReceiver|AI player 3|20103:256|True|0|-1	0	-8.742278E-08	-0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeReceiver","audioSet":{"fileID":11400000,"guid":"54a36037e06ea45468ac9ff892e659a0","type":2},"impactSource":{"instanceID":0},"canReceiveHits":true}}
+HalliGalli.Movement.MeleeCombat|AI player 3|20104:256|True|0|-1	0	-8.742278E-08	-0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeCombat","aimCamera":{"instanceID":0},"readInput":false,"actionsEnabled":true,"simulateAutomatically":true,"hitMask":{"serializedVersion":"2","m_Bits":4294966527}}}
+HalliGalli.Movement.SourceMotor|AI player 3|20105:256|True|0|-1	0	-8.742278E-08	-0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SourceMotor","profile":{"fileID":11400000,"guid":"34a29c0383e67c64f9cfa796da97e953","type":2}}}
+UnityEngine.CharacterController|AI player 3|20106:256|True|0|-1	0	-8.742278E-08	-0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"CharacterController":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Height":1.7999999523162842,"m_Radius":0.30000001192092896,"m_SlopeLimit":46.0,"m_StepOffset":0.30000001192092896,"m_SkinWidth":0.02500000037252903,"m_MinMoveDistance":0.0,"m_Center":{"x":0.0,"y":0.8999999761581421,"z":0.0}}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/East perimeter bulkhead|20112:256|True|0|1	0	0	54
+0	1	0	-24.5
+0	0	1	69
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":85.0,"z":186.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 10|20115:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"afe1cbd9191f59343b52a58c32dc5511","type":2}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 45|20124:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.935
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"1e6deb5e1e8b15842a763b421805ca60","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Movement.CourseParticipant|AI player 5|20140:256|True|0|-1	0	-8.742278E-08	2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseParticipant","session":{"instanceID":0},"seatAnchor":{"instanceID":0},"standAnchor":{"instanceID":0},"retryAnchor":{"instanceID":0},"localPlayer":false}}
+HalliGalli.Movement.CourseRival|AI player 5|20141:256|True|0|-1	0	-8.742278E-08	2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseRival","participant":{"instanceID":0},"route":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"attacksEnabled":true,"autoDepart":true,"surfWideTurn":0.0,"surfSidePreference":0}}
+HalliGalli.Movement.CourseBodyAnimator|AI player 5|20142:256|True|0|-1	0	-8.742278E-08	2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseBodyAnimator","model":{"instanceID":0},"motions":{"fileID":11400000,"guid":"3d8e3f0e8c1d0da4883b4c627840b42b","type":2},"seatedClip":{"fileID":7400000,"guid":"e4f5f668629cf0146bc72310b97e6591","type":2},"seated":false}}
+HalliGalli.Movement.MeleeReceiver|AI player 5|20143:256|True|0|-1	0	-8.742278E-08	2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeReceiver","audioSet":{"fileID":11400000,"guid":"54a36037e06ea45468ac9ff892e659a0","type":2},"impactSource":{"instanceID":0},"canReceiveHits":true}}
+HalliGalli.Movement.MeleeCombat|AI player 5|20144:256|True|0|-1	0	-8.742278E-08	2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeCombat","aimCamera":{"instanceID":0},"readInput":false,"actionsEnabled":true,"simulateAutomatically":true,"hitMask":{"serializedVersion":"2","m_Bits":4294966527}}}
+HalliGalli.Movement.SourceMotor|AI player 5|20145:256|True|0|-1	0	-8.742278E-08	2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SourceMotor","profile":{"fileID":11400000,"guid":"34a29c0383e67c64f9cfa796da97e953","type":2}}}
+UnityEngine.CharacterController|AI player 5|20146:256|True|0|-1	0	-8.742278E-08	2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"CharacterController":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Height":1.7999999523162842,"m_Radius":0.30000001192092896,"m_SlopeLimit":46.0,"m_StepOffset":0.30000001192092896,"m_SkinWidth":0.02500000037252903,"m_MinMoveDistance":0.0,"m_Center":{"x":0.0,"y":0.8999999761581421,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 40|20171:256|True|0|1	0	0	-1.83597386
+0	1	0	0.942999959
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"e161fdeb7a8149d4597cd0db9cff942e","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/Curve portal header|20186:256|True|0|1	0	0	-90
+0	1	0	-2.5
+0	0	1	44
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":36.0,"y":41.0,"z":1.2000000476837158},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 46|20195:256|True|0|1	0	0	1.83597374
+0	1	0	0.942999959
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"1e6deb5e1e8b15842a763b421805ca60","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 5|20222:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"3fe2b96c2ebfe5c498248eafcff176f0","type":2}}}
+UnityEngine.BoxCollider|Player row and lanes/First platform 2/Landing surface|20238:256|True|0|1.3	0	0	-2.25
+0	0.44	0	-0.06999999
+0	0	2	2.3
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/Curve portal sill|20246:256|True|0|1	0	0	-90
+0	1	0	-53.5
+0	0	1	44
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":36.0,"y":27.0,"z":1.2000000476837158},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.AudioSource|Service bell|20248:256|True|0|1	0	0	-14.2732391
+0	1	0	-49.8
+0	0	1	139.268433
+0	0	0	1
+|{"AudioSource":{"m_Enabled":true,"serializedVersion":"4","OutputAudioMixerGroup":{"instanceID":0},"m_audioClip":{"instanceID":0},"m_Resource":{"fileID":8300000,"guid":"2f06c8cf86734784cae30ea924e79c58","type":3},"m_PlayOnAwake":false,"m_Volume":1.0,"m_Pitch":1.0,"Loop":false,"Mute":false,"Spatialize":false,"SpatializePostEffects":false,"Priority":128,"DopplerLevel":0.0,"MinDistance":3.0,"MaxDistance":45.0,"Pan2D":0.0,"rolloffMode":0,"BypassEffects":false,"BypassListenerEffects":false,"BypassReverbZones":false,"rolloffCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"panLevelCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"spreadCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"reverbZoneMixCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 44|20252:256|True|0|1	0	0	-1.83597386
+0	1	0	0.935
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"1e6deb5e1e8b15842a763b421805ca60","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 25|20298:256|True|0|1	0	0	1.83597374
+0	1	0	0.959
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"981c415c39e3f15498eaf18b12f3bd32","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 2|20324:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"13945df18e3597f439d7d8922acf1a44","type":2}}}
+UnityEngine.BoxCollider|Table leg|20329:256|True|0|0.14	0	0	-2.5
+0	0.74	0	0.37
+0	0	0.14	-2.8
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.AudioSource|AI player 3/ImpactAudio|20347:256|True|0|-1	0	-8.742278E-08	-0.75
+0	1	0	1.32499993
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"AudioSource":{"m_Enabled":true,"serializedVersion":"4","OutputAudioMixerGroup":{"instanceID":0},"m_audioClip":{"instanceID":0},"m_Resource":{"instanceID":0},"m_PlayOnAwake":false,"m_Volume":1.0,"m_Pitch":1.0,"Loop":false,"Mute":false,"Spatialize":false,"SpatializePostEffects":false,"Priority":128,"DopplerLevel":0.0,"MinDistance":1.5,"MaxDistance":18.0,"Pan2D":0.0,"rolloffMode":1,"BypassEffects":false,"BypassListenerEffects":false,"BypassReverbZones":false,"rolloffCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"panLevelCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"spreadCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"reverbZoneMixCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}}
+HalliGalli.Movement.CourseRival|AI player 6|20380:256|True|0|-1	0	-8.742278E-08	3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseRival","participant":{"instanceID":0},"route":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"attacksEnabled":true,"autoDepart":true,"surfWideTurn":0.0,"surfSidePreference":0}}
+HalliGalli.Movement.CourseParticipant|AI player 6|20381:256|True|0|-1	0	-8.742278E-08	3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseParticipant","session":{"instanceID":0},"seatAnchor":{"instanceID":0},"standAnchor":{"instanceID":0},"retryAnchor":{"instanceID":0},"localPlayer":false}}
+HalliGalli.Movement.CourseBodyAnimator|AI player 6|20382:256|True|0|-1	0	-8.742278E-08	3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseBodyAnimator","model":{"instanceID":0},"motions":{"fileID":11400000,"guid":"3d8e3f0e8c1d0da4883b4c627840b42b","type":2},"seatedClip":{"fileID":7400000,"guid":"e4f5f668629cf0146bc72310b97e6591","type":2},"seated":false}}
+HalliGalli.Movement.MeleeReceiver|AI player 6|20383:256|True|0|-1	0	-8.742278E-08	3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeReceiver","audioSet":{"fileID":11400000,"guid":"54a36037e06ea45468ac9ff892e659a0","type":2},"impactSource":{"instanceID":0},"canReceiveHits":true}}
+HalliGalli.Movement.MeleeCombat|AI player 6|20384:256|True|0|-1	0	-8.742278E-08	3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeCombat","aimCamera":{"instanceID":0},"readInput":false,"actionsEnabled":true,"simulateAutomatically":true,"hitMask":{"serializedVersion":"2","m_Bits":4294966527}}}
+HalliGalli.Movement.SourceMotor|AI player 6|20385:256|True|0|-1	0	-8.742278E-08	3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SourceMotor","profile":{"fileID":11400000,"guid":"34a29c0383e67c64f9cfa796da97e953","type":2}}}
+UnityEngine.CharacterController|AI player 6|20386:256|True|0|-1	0	-8.742278E-08	3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"CharacterController":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Height":1.7999999523162842,"m_Radius":0.30000001192092896,"m_SlopeLimit":46.0,"m_StepOffset":0.30000001192092896,"m_SkinWidth":0.02500000037252903,"m_MinMoveDistance":0.0,"m_Center":{"x":0.0,"y":0.8999999761581421,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 6|20414:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.942999959
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"87378a36bc4b335499b9268ae1463cf7","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 47|20445:256|True|0|1	0	0	-1.83597386
+0	1	0	0.910999954
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"4e75c417be1ab714a99278c75f2ac8a4","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Surf course/Surf finish|20498:256|True|0|9	0	0	-13.2732391
+0	0.4	0	-50.6999969
+0	0	12	136.068436
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.BoxCollider|Table leg|20512:256|True|0|0.14	0	0	-2.5
+0	0.74	0	0.37
+0	0	0.14	-7.4
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 26|20523:256|True|0|1	0	0	1.83597362
+0	1	0	0.967
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"981c415c39e3f15498eaf18b12f3bd32","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 9|20548:256|True|0|1	0	0	-1.83597386
+0	1	0	0.91899997
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"1a56dc6fca0593940a1e656f442ea885","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 41|20563:256|True|0|1	0	0	-1.83597386
+0	1	0	0.935
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"26f431b610f4c5249bf89a9580661ae9","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 33|20578:256|True|0|1	0	0	1.83597362
+0	1	0	0.910999954
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"160f68ac57da75747abb8c2d8ab029df","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Movement.CourseSession|Course session|20609:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseSession","participants":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"cardGame":{"instanceID":0},"roster":{"instanceID":0},"maps":{"instanceID":0},"checkpoints":{"instanceID":0},"practiceRoom":{"instanceID":0},"factory":{"instanceID":0},"clockwork":{"instanceID":0},"ferry":{"instanceID":0},"userMap":{"instanceID":0},"bellTarget":{"instanceID":0},"bellButton":{"instanceID":0},"bellAudio":{"instanceID":0},"fallHeight":-65.0,"onDeparture":{"m_PersistentCalls":{"m_Calls":[]}},"onEveryoneSeated":{"m_PersistentCalls":{"m_Calls":[]}},"onBellRung":{"m_PersistentCalls":{"m_Calls":[]}}}}
+HalliGalli.Movement.CourseCardGame|Course session|20611:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseCardGame","session":{"instanceID":0},"deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"display":{"instanceID":0},"tableView":{"instanceID":0},"shuffleOnReset":true,"botEnabled":true,"seed":20261020,"botRevealDelay":1.2000000476837158,"botStandDelay":0.8999999761581421}}
+HalliGalli.Movement.CourseRoster|Course session|20612:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseRoster","session":{"instanceID":0},"playerCount":6,"allParticipants":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"chairs":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"firstPlatforms":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"routeRoots":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"drawAnchors":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"openAnchors":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"cardLabels":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"startLabels":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"mergeSurface":{"instanceID":0},"startLine":{"instanceID":0},"branches":{"instanceID":0},"surf":{"instanceID":0}}}
+HalliGalli.Movement.CourseMapController|Course session|20613:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseMapController","session":{"instanceID":0},"catalog":{"fileID":11400000,"guid":"5dec833c139249149a25e2d8b7e0e117","type":2},"current":{"fileID":11400000,"guid":"fe45410631aef234ba7f3e69d5c98d81","type":2}}}
+UnityEngine.BoxCollider|Player row and lanes/Wide merge platform/Landing surface|20623:256|True|0|10.5	0	0	0
+0	0.44	0	0.13
+0	0	2.2	5.7
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 48|20627:256|True|0|1	0	0	-1.83597386
+0	1	0	0.903
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"4e75c417be1ab714a99278c75f2ac8a4","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 14|20642:256|True|0|1	0	0	1.83597362
+0	1	0	0.895
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"8e8d04fd96cf81049bf66c7d7d5dd2cd","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 6|20647:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"861be44a78859e740aba8aae2a81a6c5","type":2}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 53|20660:256|True|0|1	0	0	-1.83597386
+0	1	0	0.895
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"64434cf58777c4a4eadbc989721cbdb4","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Player row and lanes/First platform 4/Landing surface|20671:256|True|0|1.3	0	0	0.75
+0	0.44	0	-0.06999999
+0	0	2	2.3
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 0|20701:256|True|0|1	0	0	-1.83597386
+0	1	0	0.91899997
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"356d5fc4daa30e4479e4c6f1e94413c7","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 1|20735:256|True|0|1	0	0	-1.83597386
+0	1	0	0.927
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"356d5fc4daa30e4479e4c6f1e94413c7","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Player row and lanes/First platform 6/Landing surface|20747:256|True|0|1.3	0	0	3.75
+0	0.44	0	-0.06999999
+0	0	2	2.3
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Movement.CourseHUD|Course HUD|20752:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseHUD","session":{"instanceID":0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 37|20760:256|True|0|1	0	0	-1.83597386
+0	1	0	0.910999954
+0	0	1	-6.16
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"cf2382f09eff50e4596805bd3beb88a4","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Surf course/Surf bulkheads/West perimeter bulkhead|20773:256|True|0|1	0	0	-108
+0	1	0	-24.5
+0	0	1	69
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":85.0,"z":186.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.AudioSource|AI player 5/ImpactAudio|20839:256|True|0|-1	0	-8.742278E-08	2.25
+0	1	0	1.32499993
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"AudioSource":{"m_Enabled":true,"serializedVersion":"4","OutputAudioMixerGroup":{"instanceID":0},"m_audioClip":{"instanceID":0},"m_Resource":{"instanceID":0},"m_PlayOnAwake":false,"m_Volume":1.0,"m_Pitch":1.0,"Loop":false,"Mute":false,"Spatialize":false,"SpatializePostEffects":false,"Priority":128,"DopplerLevel":0.0,"MinDistance":1.5,"MaxDistance":18.0,"Pan2D":0.0,"rolloffMode":1,"BypassEffects":false,"BypassListenerEffects":false,"BypassReverbZones":false,"rolloffCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"panLevelCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"spreadCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"reverbZoneMixCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 19|20896:256|True|0|1	0	0	1.83597374
+0	1	0	0.903
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"389bab434283dd948825592a54075ee2","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Movement.CourseParticipant|AI player 4|20900:256|True|0|-1	0	-8.742278E-08	0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseParticipant","session":{"instanceID":0},"seatAnchor":{"instanceID":0},"standAnchor":{"instanceID":0},"retryAnchor":{"instanceID":0},"localPlayer":false}}
+HalliGalli.Movement.CourseRival|AI player 4|20901:256|True|0|-1	0	-8.742278E-08	0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseRival","participant":{"instanceID":0},"route":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"attacksEnabled":true,"autoDepart":true,"surfWideTurn":0.0,"surfSidePreference":0}}
+HalliGalli.Movement.CourseBodyAnimator|AI player 4|20902:256|True|0|-1	0	-8.742278E-08	0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CourseBodyAnimator","model":{"instanceID":0},"motions":{"fileID":11400000,"guid":"3d8e3f0e8c1d0da4883b4c627840b42b","type":2},"seatedClip":{"fileID":7400000,"guid":"e4f5f668629cf0146bc72310b97e6591","type":2},"seated":false}}
+HalliGalli.Movement.MeleeReceiver|AI player 4|20903:256|True|0|-1	0	-8.742278E-08	0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeReceiver","audioSet":{"fileID":11400000,"guid":"54a36037e06ea45468ac9ff892e659a0","type":2},"impactSource":{"instanceID":0},"canReceiveHits":true}}
+HalliGalli.Movement.MeleeCombat|AI player 4|20904:256|True|0|-1	0	-8.742278E-08	0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeCombat","aimCamera":{"instanceID":0},"readInput":false,"actionsEnabled":true,"simulateAutomatically":true,"hitMask":{"serializedVersion":"2","m_Bits":4294966527}}}
+HalliGalli.Movement.SourceMotor|AI player 4|20905:256|True|0|-1	0	-8.742278E-08	0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SourceMotor","profile":{"fileID":11400000,"guid":"34a29c0383e67c64f9cfa796da97e953","type":2}}}
+UnityEngine.CharacterController|AI player 4|20906:256|True|0|-1	0	-8.742278E-08	0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"CharacterController":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Height":1.7999999523162842,"m_Radius":0.30000001192092896,"m_SlopeLimit":46.0,"m_StepOffset":0.30000001192092896,"m_SkinWidth":0.02500000037252903,"m_MinMoveDistance":0.0,"m_Center":{"x":0.0,"y":0.8999999761581421,"z":0.0}}}
+UnityEngine.BoxCollider|Bell plinth|20919:256|True|0|0.65	0	0	-14.2732391
+0	0.7	0	-50.1499977
+0	0	0.65	139.268433
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 4|20924:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.910999954
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"356d5fc4daa30e4479e4c6f1e94413c7","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 54|20980:256|True|0|1	0	0	-1.83597386
+0	1	0	0.942999959
+0	0	1	-4.04
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"64434cf58777c4a4eadbc989721cbdb4","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 18|20995:256|True|0|1	0	0	2.94830329E-07
+0	1	0	0.895
+0	0	1	-2.98
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"8e8d04fd96cf81049bf66c7d7d5dd2cd","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Surf course/Surf turn landing|21049:256|True|0|12	0	0	0
+0	0.4	0	-11.4
+0	0	10	35.5
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+UnityEngine.BoxCollider|Table top|21058:256|True|0|5.5	0	0	0
+0	0.15	0	0.79
+0	0	5.2	-5.1
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Movement.SurfCourse|Surf course|21093:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SurfCourse","sections":[{"points":[{"x":0.0,"y":-0.6000000238418579,"z":8.5},{"x":0.0,"y":-4.800000190734863,"z":30.5}],"side":-1,"twoSided":false,"headings":[0.0,0.0],"entry":{"x":0.0,"y":0.375,"z":6.099999904632568},"landing":{"x":3.200000047683716,"y":-11.175000190734863,"z":34.0},"landingName":"Surf turn landing","halfWidth":3.0},{"points":[{"x":0.0,"y":-12.0,"z":29.0},{"x":0.0,"y":-18.0,"z":8.0}],"side":-1,"twoSided":false,"headings":[180.0,180.0],"entry":{"x":0.0,"y":-11.175000190734863,"z":31.5},"landing":{"x":0.0,"y":0.0,"z":0.0},"landingName":"","halfWidth":3.0},{"points":[{"x":0.0,"y":-18.0,"z":8.0},{"x":-0.005709444638341665,"y":-18.0019588470459,"z":7.600215435028076},{"x":-0.022832702845335007,"y":-18.007741928100586,"z":7.200756549835205},{"x":-0.05135558545589447,"y":-18.017202377319336,"z":6.801949977874756},{"x":-0.0912555679678917,"y":-18.030197143554688,"z":6.404120445251465},{"x":-0.142500102519989,"y":-18.046581268310547,"z":6.00759220123291},{"x":-0.2050466239452362,"y":-18.066211700439453,"z":5.612689018249512},{"x":-0.2788442373275757,"y":-18.088943481445313,"z":5.219733715057373},{"x":-0.3638336956501007,"y":-18.11463165283203,"z":4.829045295715332},{"x":-0.45994406938552856,"y":-18.14313507080078,"z":4.440943241119385},{"x":-0.5670986175537109,"y":-18.174304962158203,"z":4.05574369430542},{"x":-0.685208797454834,"y":-18.20800018310547,"z":3.6737618446350098},{"x":-0.8141795992851257,"y":-18.244075775146484,"z":3.2953085899353027},{"x":-0.9539040923118591,"y":-18.282386779785156,"z":2.9206924438476563},{"x":-1.1042689085006714,"y":-18.32278823852539,"z":2.5502185821533203},{"x":-1.265152931213379,"y":-18.36513900756836,"z":2.184189796447754},{"x":-1.4364228248596191,"y":-18.409292221069336,"z":1.8229045867919922},{"x":-1.617939829826355,"y":-18.45510482788086,"z":1.4666576385498047},{"x":-1.8095555305480957,"y":-18.502431869506836,"z":1.115738868713379},{"x":-2.0111138820648193,"y":-18.551128387451172,"z":0.7704353332519531},{"x":-2.2224514484405518,"y":-18.601051330566406,"z":0.4310283660888672},{"x":-2.4433934688568115,"y":-18.652057647705078,"z":0.09779548645019531},{"x":-2.673762559890747,"y":-18.70400047302246,"z":-0.22899341583251953},{"x":-2.9133684635162354,"y":-18.756736755371094,"z":-0.5490703582763672},{"x":-3.162018060684204,"y":-18.810121536254883,"z":-0.8621749877929688},{"x":-3.419506549835205,"y":-18.864011764526367,"z":-1.168050765991211},{"x":-3.685624837875366,"y":-18.918262481689453,"z":-1.4664478302001953},{"x":-3.960155963897705,"y":-18.97273063659668,"z":-1.7571258544921875},{"x":-4.2428741455078125,"y":-19.02726936340332,"z":-2.0398454666137695},{"x":-4.5335516929626465,"y":-19.081737518310547,"z":-2.314375877380371},{"x":-4.831950664520264,"y":-19.135988235473633,"z":-2.580493927001953},{"x":-5.137826442718506,"y":-19.189878463745117,"z":-2.837982177734375},{"x":-5.450930118560791,"y":-19.243263244628906,"z":-3.0866317749023438},{"x":-5.771007537841797,"y":-19.29599952697754,"z":-3.3262367248535156},{"x":-6.097795486450195,"y":-19.347942352294922,"z":-3.556605339050293},{"x":-6.431028366088867,"y":-19.398948669433594,"z":-3.7775487899780273},{"x":-6.7704362869262695,"y":-19.448871612548828,"z":-3.9888858795166016},{"x":-7.115739822387695,"y":-19.497568130493164,"z":-4.190443992614746},{"x":-7.466658115386963,"y":-19.54489517211914,"z":-4.3820600509643555},{"x":-7.822905540466309,"y":-19.590707778930664,"z":-4.563576698303223},{"x":-8.184191703796387,"y":-19.63486099243164,"z":-4.734847068786621},{"x":-8.55021858215332,"y":-19.67721176147461,"z":-4.895730018615723},{"x":-8.920692443847656,"y":-19.717613220214844,"z":-5.046095848083496},{"x":-9.295310020446777,"y":-19.755924224853516,"z":-5.185820579528809},{"x":-9.673763275146484,"y":-19.79199981689453,"z":-5.314790725708008},{"x":-10.055745124816895,"y":-19.825695037841797,"z":-5.432900428771973},{"x":-10.440942764282227,"y":-19.85686492919922,"z":-5.5400543212890625},{"x":-10.829046249389648,"y":-19.88536834716797,"z":-5.636165618896484},{"x":-11.219734191894531,"y":-19.911056518554688,"z":-5.721155166625977},{"x":-11.612689971923828,"y":-19.933788299560547,"z":-5.794952392578125},{"x":-12.007593154907227,"y":-19.953418731689453,"z":-5.857499122619629},{"x":-12.404120445251465,"y":-19.969802856445313,"z":-5.908743858337402},{"x":-12.801950454711914,"y":-19.982797622680664,"z":-5.948643684387207},{"x":-13.200757026672363,"y":-19.992258071899414,"z":-5.977166175842285},{"x":-13.60021686553955,"y":-19.9980411529541,"z":-5.994289398193359},{"x":-14.000001907348633,"y":-20.0,"z":-5.999999046325684},{"x":-14.250001907348633,"y":-19.99565887451172,"z":-5.999999046325684},{"x":-14.500001907348633,"y":-19.98263931274414,"z":-5.999999046325684},{"x":-14.750001907348633,"y":-19.9609375,"z":-5.999999046325684},{"x":-15.000001907348633,"y":-19.93055534362793,"z":-5.999999046325684},{"x":-15.250001907348633,"y":-19.89149284362793,"z":-5.999999046325684},{"x":-15.500001907348633,"y":-19.84375,"z":-5.999999046325684},{"x":-15.750001907348633,"y":-19.78732681274414,"z":-5.999999046325684},{"x":-16.000001907348633,"y":-19.72222137451172,"z":-5.999999046325684},{"x":-16.250001907348633,"y":-19.6484375,"z":-5.999999046325684},{"x":-16.500001907348633,"y":-19.56597137451172,"z":-5.999999046325684},{"x":-16.750001907348633,"y":-19.47482681274414,"z":-5.999999046325684},{"x":-17.000001907348633,"y":-19.375,"z":-5.999999046325684},{"x":-17.250001907348633,"y":-19.26649284362793,"z":-5.999999046325684},{"x":-17.500001907348633,"y":-19.14930534362793,"z":-5.999999046325684},{"x":-17.750001907348633,"y":-19.0234375,"z":-5.999999046325684},{"x":-18.000001907348633,"y":-18.88888931274414,"z":-5.999999046325684},{"x":-18.250001907348633,"y":-18.74565887451172,"z":-5.999998569488525},{"x":-18.500001907348633,"y":-18.59375,"z":-5.999998569488525},{"x":-18.750001907348633,"y":-18.43315887451172,"z":-5.999998569488525},{"x":-19.000001907348633,"y":-18.26388931274414,"z":-5.999998569488525},{"x":-19.250001907348633,"y":-18.0859375,"z":-5.999998569488525},{"x":-19.500001907348633,"y":-17.89930534362793,"z":-5.999998569488525},{"x":-19.750001907348633,"y":-17.70399284362793,"z":-5.999998569488525},{"x":-20.000001907348633,"y":-17.5,"z":-5.999998569488525}],"side":-1,"twoSided":false,"headings":[180.0,181.63636779785156,183.27272033691406,184.90908813476563,186.5454559326172,188.18182373046875,189.81817626953125,191.4545440673828,193.09091186523438,194.72727966308594,196.36363220214844,198.0,199.63636779785156,201.27272033691406,202.90908813476563,204.5454559326172,206.18182373046875,207.81817626953125,209.4545440673828,211.09091186523438,212.72727966308594,214.36363220214844,216.0,217.63636779785156,219.27272033691406,220.90908813476563,222.5454559326172,224.18182373046875,225.81817626953125,227.4545440673828,229.09091186523438,230.72727966308594,232.36363220214844,234.0,235.63636779785156,237.27272033691406,238.90908813476563,240.5454559326172,242.18182373046875,243.81817626953125,245.4545440673828,247.09091186523438,248.72726440429688,250.36363220214844,252.0,253.63636779785156,255.27272033691406,256.9090881347656,258.5454406738281,260.18182373046875,261.81817626953125,263.4545593261719,265.0909118652344,266.7272644042969,268.3636474609375,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0,270.0],"entry":{"x":0.0,"y":0.0,"z":0.0},"landing":{"x":-26.0,"y":-17.174999237060547,"z":-9.199999809265137},"landingName":"Surf midway landing","halfWidth":3.0},{"points":[{"x":-31.0,"y":-18.299999237060547,"z":-6.0},{"x":-66.0,"y":-25.299999237060547,"z":-6.0}],"side":-1,"twoSided":false,"headings":[270.0,270.0],"entry":{"x":-28.5,"y":-17.174999237060547,"z":-6.0},"landing":{"x":0.0,"y":0.0,"z":0.0},"landingName":"","halfWidth":3.0},{"points":[{"x":-66.0,"y":-25.299999237060547,"z":-6.0},{"x":-66.51400756835938,"y":-25.302644729614258,"z":-5.992659091949463},{"x":-67.02759552001953,"y":-25.310449600219727,"z":-5.970643520355225},{"x":-67.54035186767578,"y":-25.32322120666504,"z":-5.933971405029297},{"x":-68.05184173583984,"y":-25.34076499938965,"z":-5.882671356201172},{"x":-68.5616683959961,"y":-25.362884521484375,"z":-5.81678581237793},{"x":-69.06939697265625,"y":-25.389385223388672,"z":-5.736368656158447},{"x":-69.57463073730469,"y":-25.420072555541992,"z":-5.641486167907715},{"x":-70.07694244384766,"y":-25.454753875732422,"z":-5.532214164733887},{"x":-70.575927734375,"y":-25.49323081970215,"z":-5.40864372253418},{"x":-71.07118225097656,"y":-25.535310745239258,"z":-5.270873546600342},{"x":-71.56230163574219,"y":-25.580799102783203,"z":-5.119017601013184},{"x":-72.04888916015625,"y":-25.629501342773438,"z":-4.953197956085205},{"x":-72.5305404663086,"y":-25.68122100830078,"z":-4.773551940917969},{"x":-73.0068588256836,"y":-25.735763549804688,"z":-4.580225944519043},{"x":-73.47747039794922,"y":-25.792936325073242,"z":-4.373374938964844},{"x":-73.94197845458984,"y":-25.8525447845459,"z":-4.153171062469482},{"x":-74.40000915527344,"y":-25.914390563964844,"z":-3.9197919368743896},{"x":-74.85118865966797,"y":-25.978281021118164,"z":-3.673429012298584},{"x":-75.29515075683594,"y":-26.044023513793945,"z":-3.4142823219299316},{"x":-75.73153686523438,"y":-26.111419677734375,"z":-3.1425628662109375},{"x":-76.15997314453125,"y":-26.18027687072754,"z":-2.858494281768799},{"x":-76.58013153076172,"y":-26.250398635864258,"z":-2.562305450439453},{"x":-76.99166107177734,"y":-26.32159423828125,"z":-2.2542409896850586},{"x":-77.39422607421875,"y":-26.39366340637207,"z":-1.9345483779907227},{"x":-77.78749084472656,"y":-26.466415405273438,"z":-1.603492259979248},{"x":-78.17115020751953,"y":-26.539653778076172,"z":-1.2613396644592285},{"x":-78.54487609863281,"y":-26.61318588256836,"z":-0.9083719253540039},{"x":-78.90837097167969,"y":-26.686813354492188,"z":-0.5448765754699707},{"x":-79.26133728027344,"y":-26.760345458984375,"z":-0.17114830017089844},{"x":-79.6034927368164,"y":-26.83358383178711,"z":0.2125072479248047},{"x":-79.9345474243164,"y":-26.906335830688477,"z":0.6057758331298828},{"x":-80.25424194335938,"y":-26.978404998779297,"z":1.0083379745483398},{"x":-80.56230163574219,"y":-27.04960060119629,"z":1.4198660850524902},{"x":-80.85848999023438,"y":-27.119722366333008,"z":1.8400225639343262},{"x":-81.14256286621094,"y":-27.188579559326172,"z":2.2684640884399414},{"x":-81.4142837524414,"y":-27.2559757232666,"z":2.704845428466797},{"x":-81.67343139648438,"y":-27.321718215942383,"z":3.1488075256347656},{"x":-81.91979217529297,"y":-27.385608673095703,"z":3.5999879837036133},{"x":-82.15316772460938,"y":-27.44745445251465,"z":4.058019638061523},{"x":-82.37337493896484,"y":-27.507062911987305,"z":4.522530555725098},{"x":-82.5802230834961,"y":-27.56423568725586,"z":4.993137359619141},{"x":-82.77355194091797,"y":-27.618778228759766,"z":5.469460487365723},{"x":-82.95320129394531,"y":-27.67049789428711,"z":5.951111793518066},{"x":-83.1190185546875,"y":-27.719200134277344,"z":6.437694549560547},{"x":-83.2708740234375,"y":-27.76468849182129,"z":6.928814888000488},{"x":-83.40863800048828,"y":-27.8067684173584,"z":7.424068450927734},{"x":-83.53221130371094,"y":-27.845245361328125,"z":7.92305850982666},{"x":-83.64148712158203,"y":-27.879926681518555,"z":8.425371170043945},{"x":-83.73636627197266,"y":-27.910614013671875,"z":8.9306001663208},{"x":-83.81678771972656,"y":-27.937114715576172,"z":9.438332557678223},{"x":-83.8826675415039,"y":-27.9592342376709,"z":9.948153495788574},{"x":-83.93396759033203,"y":-27.976776123046875,"z":10.459648132324219},{"x":-83.97064208984375,"y":-27.98954963684082,"z":10.972400665283203},{"x":-83.99266052246094,"y":-27.99735450744629,"z":11.485992431640625},{"x":-84.0,"y":-28.0,"z":12.0}],"side":-1,"twoSided":false,"headings":[270.0,271.6363525390625,273.2727355957031,274.9090881347656,276.5454406738281,278.18182373046875,279.81817626953125,281.4545593261719,283.0909118652344,284.7272644042969,286.3636474609375,288.0,289.6363525390625,291.2727355957031,292.9090881347656,294.5454406738281,296.18182373046875,297.81817626953125,299.4545593261719,301.0909118652344,302.7272644042969,304.3636474609375,306.0,307.6363525390625,309.2727355957031,310.9090881347656,312.5454406738281,314.18182373046875,315.81817626953125,317.45452880859375,319.0909118652344,320.7272644042969,322.3636474609375,324.0,325.6363525390625,327.2727355957031,328.9090881347656,330.5454406738281,332.18182373046875,333.81817626953125,335.4545593261719,337.0909118652344,338.7272644042969,340.3636474609375,342.0,343.6363525390625,345.2727355957031,346.9090881347656,348.5454406738281,350.18182373046875,351.81817626953125,353.4545593261719,355.0909118652344,356.7272644042969,358.3636474609375,360.0],"entry":{"x":0.0,"y":0.0,"z":0.0},"landing":{"x":0.0,"y":0.0,"z":0.0},"landingName":"","halfWidth":3.0},{"points":[{"x":-84.0,"y":-28.0,"z":12.0},{"x":-84.0,"y":-32.0,"z":36.0}],"side":-1,"twoSided":false,"headings":[0.0,0.0],"entry":{"x":0.0,"y":0.0,"z":0.0},"landing":{"x":0.0,"y":0.0,"z":0.0},"landingName":"","halfWidth":3.0},{"points":[{"x":-84.0,"y":-32.0,"z":36.0},{"x":-83.99266052246094,"y":-32.00293731689453,"z":36.514007568359375},{"x":-83.97064208984375,"y":-32.01161193847656,"z":37.0275993347168},{"x":-83.93397521972656,"y":-32.02580261230469,"z":37.54035186767578},{"x":-83.88267517089844,"y":-32.04529571533203,"z":38.05184555053711},{"x":-83.81678771972656,"y":-32.06987380981445,"z":38.561668395996094},{"x":-83.73636627197266,"y":-32.09931945800781,"z":39.069400787353516},{"x":-83.64148712158203,"y":-32.13341522216797,"z":39.57462692260742},{"x":-83.53221130371094,"y":-32.17194747924805,"z":40.076942443847656},{"x":-83.40864562988281,"y":-32.21470260620117,"z":40.575931549072266},{"x":-83.2708740234375,"y":-32.26145935058594,"z":41.07118606567383},{"x":-83.1190185546875,"y":-32.3120002746582,"z":41.56230545043945},{"x":-82.95320129394531,"y":-32.366111755371094,"z":42.04888916015625},{"x":-82.77355194091797,"y":-32.423580169677734,"z":42.530540466308594},{"x":-82.5802230834961,"y":-32.48418426513672,"z":43.00686264038086},{"x":-82.37337493896484,"y":-32.547706604003906,"z":43.47747039794922},{"x":-82.15316772460938,"y":-32.61393737792969,"z":43.941978454589844},{"x":-81.91979217529297,"y":-32.682655334472656,"z":44.4000129699707},{"x":-81.67343139648438,"y":-32.75364685058594,"z":44.851192474365234},{"x":-81.4142837524414,"y":-32.82669448852539,"z":45.2951545715332},{"x":-81.14256286621094,"y":-32.90157699584961,"z":45.731536865234375},{"x":-80.8584976196289,"y":-32.978084564208984,"z":46.159976959228516},{"x":-80.56230926513672,"y":-33.055999755859375,"z":46.580135345458984},{"x":-80.25424194335938,"y":-33.13510513305664,"z":46.991661071777344},{"x":-79.9345474243164,"y":-33.21518325805664,"z":47.39422607421875},{"x":-79.6034927368164,"y":-33.296016693115234,"z":47.78749084472656},{"x":-79.26133728027344,"y":-33.37739562988281,"z":48.17115020751953},{"x":-78.90837097167969,"y":-33.4590950012207,"z":48.54487609863281},{"x":-78.54487609863281,"y":-33.5409049987793,"z":48.90837097167969},{"x":-78.17115020751953,"y":-33.62260437011719,"z":49.2613410949707},{"x":-77.78749084472656,"y":-33.703983306884766,"z":49.603492736816406},{"x":-77.39422607421875,"y":-33.78481674194336,"z":49.934547424316406},{"x":-76.99166107177734,"y":-33.86489486694336,"z":50.254241943359375},{"x":-76.58013153076172,"y":-33.944000244140625,"z":50.56230545043945},{"x":-76.15998077392578,"y":-34.021915435791016,"z":50.85849380493164},{"x":-75.73153686523438,"y":-34.09842300415039,"z":51.14256286621094},{"x":-75.29515075683594,"y":-34.17330551147461,"z":51.414283752441406},{"x":-74.8511962890625,"y":-34.24635314941406,"z":51.673431396484375},{"x":-74.40000915527344,"y":-34.317344665527344,"z":51.91979217529297},{"x":-73.94197845458984,"y":-34.38606262207031,"z":52.15317153930664},{"x":-73.47747039794922,"y":-34.452293395996094,"z":52.373374938964844},{"x":-73.00686645507813,"y":-34.51581573486328,"z":52.580223083496094},{"x":-72.5305404663086,"y":-34.576419830322266,"z":52.77355194091797},{"x":-72.04888916015625,"y":-34.633888244628906,"z":52.95320129394531},{"x":-71.56230163574219,"y":-34.6879997253418,"z":53.1190185546875},{"x":-71.07118225097656,"y":-34.73854064941406,"z":53.2708740234375},{"x":-70.575927734375,"y":-34.78529739379883,"z":53.40864181518555},{"x":-70.07694244384766,"y":-34.82805252075195,"z":53.5322151184082},{"x":-69.57463073730469,"y":-34.86658477783203,"z":53.64148712158203},{"x":-69.06939697265625,"y":-34.90068054199219,"z":53.736366271972656},{"x":-68.5616683959961,"y":-34.93012619018555,"z":53.81678771972656},{"x":-68.05184936523438,"y":-34.95470428466797,"z":53.88267135620117},{"x":-67.54035186767578,"y":-34.97419738769531,"z":53.9339714050293},{"x":-67.02760314941406,"y":-34.98838806152344,"z":53.97064208984375},{"x":-66.51400756835938,"y":-34.99706268310547,"z":53.99266052246094},{"x":-66.0,"y":-35.0,"z":54.0},{"x":-65.66666412353516,"y":-34.99565887451172,"z":54.0},{"x":-65.33333587646484,"y":-34.98263931274414,"z":54.0},{"x":-65.0,"y":-34.9609375,"z":54.0},{"x":-64.66666412353516,"y":-34.93055725097656,"z":54.0},{"x":-64.33333587646484,"y":-34.89149475097656,"z":54.0},{"x":-64.0,"y":-34.84375,"z":54.0},{"x":-63.66666793823242,"y":-34.78732681274414,"z":54.0},{"x":-63.33333206176758,"y":-34.72222137451172,"z":54.0},{"x":-63.0,"y":-34.6484375,"z":54.0},{"x":-62.66666793823242,"y":-34.56597137451172,"z":54.0},{"x":-62.33333206176758,"y":-34.47482681274414,"z":54.0},{"x":-62.0,"y":-34.375,"z":54.0},{"x":-61.66666793823242,"y":-34.26649475097656,"z":54.0},{"x":-61.333335876464844,"y":-34.14930725097656,"z":54.0},{"x":-61.0,"y":-34.0234375,"z":54.0},{"x":-60.66666793823242,"y":-33.88888931274414,"z":54.0},{"x":-60.333335876464844,"y":-33.74565887451172,"z":54.0},{"x":-60.0,"y":-33.59375,"z":54.0},{"x":-59.66666793823242,"y":-33.43315887451172,"z":54.0},{"x":-59.333335876464844,"y":-33.26388931274414,"z":54.0},{"x":-59.0,"y":-33.0859375,"z":54.0},{"x":-58.66666793823242,"y":-32.89930725097656,"z":54.0},{"x":-58.333335876464844,"y":-32.70399475097656,"z":54.0},{"x":-58.0,"y":-32.5,"z":54.0}],"side":-1,"twoSided":false,"headings":[0.0,1.6363636255264282,3.2727272510528564,4.909090995788574,6.545454502105713,8.181818008422852,9.818181991577148,11.454545021057129,13.090909004211426,14.727272033691406,16.363636016845703,18.0,19.636363983154297,21.272727966308594,22.909090042114258,24.545455932617188,26.18181800842285,27.81818199157715,29.454544067382813,31.09090805053711,32.727272033691406,34.3636360168457,36.0,37.6363639831543,39.272727966308594,40.90909194946289,42.54545593261719,44.181819915771484,45.818180084228516,47.45454406738281,49.090911865234375,50.727272033691406,52.3636360168457,54.000003814697266,55.6363639831543,57.272727966308594,58.909088134765625,60.54545593261719,62.18181610107422,63.818180084228516,65.45454406738281,67.09091186523438,68.7272720336914,70.36363983154297,72.0,73.63636016845703,75.2727279663086,76.90909576416016,78.54545593261719,80.18181610107422,81.81818389892578,83.45454406738281,85.09091186523438,86.7272720336914,88.36363983154297,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0,90.0],"entry":{"x":0.0,"y":0.0,"z":0.0},"landing":{"x":-48.0,"y":-32.17499923706055,"z":57.20000076293945},"landingName":"Surf transfer landing","halfWidth":3.0},{"points":[{"x":-43.0,"y":-33.29999923706055,"z":60.400001525878906},{"x":-7.0,"y":-39.79999923706055,"z":60.400001525878906}],"side":1,"twoSided":false,"headings":[90.0,90.0],"entry":{"x":-45.5,"y":-32.17499923706055,"z":60.400001525878906},"landing":{"x":0.0,"y":0.0,"z":0.0},"landingName":"","halfWidth":3.0},{"points":[{"x":-7.0,"y":-39.79999923706055,"z":60.400001525878906},{"x":-6.331051349639893,"y":-39.80501937866211,"z":60.409732818603516},{"x":-5.6626691818237305,"y":-39.819759368896484,"z":60.43891525268555},{"x":-4.995418071746826,"y":-39.84373092651367,"z":60.48752212524414},{"x":-4.329863548278809,"y":-39.87644958496094,"z":60.555519104003906},{"x":-3.666567325592041,"y":-39.91742706298828,"z":60.642845153808594},{"x":-3.006091833114624,"y":-39.96617889404297,"z":60.74942398071289},{"x":-2.348996639251709,"y":-40.022220611572266,"z":60.87516784667969},{"x":-1.6958355903625488,"y":-40.08506393432617,"z":61.01996994018555},{"x":-1.0471625328063965,"y":-40.15422821044922,"z":61.18370819091797},{"x":-0.40352582931518555,"y":-40.229217529296875,"z":61.366241455078125},{"x":0.2345290184020996,"y":-40.30955505371094,"z":61.567420959472656},{"x":0.8664631843566895,"y":-40.394752502441406,"z":61.787071228027344},{"x":1.4917411804199219,"y":-40.48432159423828,"z":62.02500915527344},{"x":2.1098337173461914,"y":-40.57777786254883,"z":62.28103256225586},{"x":2.720219612121582,"y":-40.67463302612305,"z":62.55492401123047},{"x":3.3223800659179688,"y":-40.77440643310547,"z":62.84645080566406},{"x":3.9158077239990234,"y":-40.876609802246094,"z":63.15536880493164},{"x":4.499999046325684,"y":-40.98075866699219,"z":63.48141860961914},{"x":5.074460029602051,"y":-41.086360931396484,"z":63.824317932128906},{"x":5.638706207275391,"y":-41.192935943603516,"z":64.18378448486328},{"x":6.192257881164551,"y":-41.29999923706055,"z":64.55950164794922},{"x":6.734646797180176,"y":-41.40706253051758,"z":64.951171875},{"x":7.265415191650391,"y":-41.51363754272461,"z":65.35844421386719},{"x":7.784114837646484,"y":-41.619239807128906,"z":65.7809829711914},{"x":8.290304183959961,"y":-41.723388671875,"z":66.21842193603516},{"x":8.783557891845703,"y":-41.825592041015625,"z":66.67041015625},{"x":9.26345443725586,"y":-41.92536163330078,"z":67.13654327392578},{"x":9.729591369628906,"y":-42.022220611572266,"z":67.61644744873047},{"x":10.181573867797852,"y":-42.11567687988281,"z":68.10969543457031},{"x":10.619020462036133,"y":-42.20524597167969,"z":68.61589050292969},{"x":11.041559219360352,"y":-42.290443420410156,"z":69.13458251953125},{"x":11.448831558227539,"y":-42.37078094482422,"z":69.66535186767578},{"x":11.840496063232422,"y":-42.445770263671875,"z":70.2077407836914},{"x":12.216218948364258,"y":-42.51493453979492,"z":70.76129150390625},{"x":12.575681686401367,"y":-42.57777786254883,"z":71.3255386352539},{"x":12.918582916259766,"y":-42.633819580078125,"z":71.9000015258789},{"x":13.24462890625,"y":-42.68257141113281,"z":72.48419189453125},{"x":13.553548812866211,"y":-42.723548889160156,"z":73.07762145996094},{"x":13.845077514648438,"y":-42.75626754760742,"z":73.67977905273438},{"x":14.118968963623047,"y":-42.78023910522461,"z":74.29016876220703},{"x":14.374990463256836,"y":-42.794979095458984,"z":74.90825653076172},{"x":14.61292839050293,"y":-42.79999923706055,"z":75.53353881835938}],"side":1,"twoSided":false,"headings":[90.0,88.33333587646484,86.66666412353516,85.0,83.33333587646484,81.66666412353516,80.0,78.33333587646484,76.66666412353516,75.0,73.33333587646484,71.66666412353516,70.0,68.33333587646484,66.66666412353516,65.0,63.33333206176758,61.66666793823242,60.0,58.33333206176758,56.66666793823242,55.0,53.33333206176758,51.66666793823242,50.0,48.33333206176758,46.666664123535156,45.0,43.33333206176758,41.66666793823242,40.0,38.333335876464844,36.666664123535156,35.0,33.33333206176758,31.666667938232422,30.0,28.333335876464844,26.66666603088379,25.000001907348633,23.33333396911621,21.666667938232422,20.0],"entry":{"x":0.0,"y":0.0,"z":0.0},"landing":{"x":0.0,"y":0.0,"z":0.0},"landingName":"","halfWidth":3.0},{"points":[{"x":14.61299991607666,"y":-42.79999923706055,"z":75.53399658203125},{"x":24.190000534057617,"y":-48.29999923706055,"z":101.84500122070313}],"side":1,"twoSided":false,"headings":[20.0,20.0],"entry":{"x":0.0,"y":0.0,"z":0.0},"landing":{"x":0.0,"y":0.0,"z":0.0},"landingName":"","halfWidth":2.4000000953674316},{"points":[{"x":25.899999618530273,"y":-51.0,"z":106.54399871826172},{"x":26.11009979248047,"y":-51.002044677734375,"z":107.1484603881836},{"x":26.302532196044922,"y":-51.00809860229492,"z":107.75877380371094},{"x":26.477130889892578,"y":-51.01803207397461,"z":108.37442016601563},{"x":26.63374900817871,"y":-51.03172302246094,"z":108.9948959350586},{"x":26.772254943847656,"y":-51.04904556274414,"z":109.61965942382813},{"x":26.892532348632813,"y":-51.06987380981445,"z":110.24818420410156},{"x":26.994478225708008,"y":-51.09408187866211,"z":110.87994384765625},{"x":27.078006744384766,"y":-51.12154769897461,"z":111.51439666748047},{"x":27.14304542541504,"y":-51.15214157104492,"z":112.15101623535156},{"x":27.18954086303711,"y":-51.18574142456055,"z":112.78925323486328},{"x":27.21745491027832,"y":-51.22222137451172,"z":113.42858123779297},{"x":27.226762771606445,"y":-51.26145935058594,"z":114.06844329833984},{"x":27.21745491027832,"y":-51.303321838378906,"z":114.70830535888672},{"x":27.18954086303711,"y":-51.34769058227539,"z":115.34762573242188},{"x":27.14304542541504,"y":-51.394439697265625,"z":115.98587036132813},{"x":27.078006744384766,"y":-51.443443298339844,"z":116.62248229980469},{"x":26.994478225708008,"y":-51.49457550048828,"z":117.25694274902344},{"x":26.892532348632813,"y":-51.547706604003906,"z":117.88870239257813},{"x":26.772254943847656,"y":-51.60272216796875,"z":118.51722717285156},{"x":26.63374900817871,"y":-51.659488677978516,"z":119.1419906616211},{"x":26.477130889892578,"y":-51.71788024902344,"z":119.76245880126953},{"x":26.302532196044922,"y":-51.77777862548828,"z":120.37811279296875},{"x":26.11009979248047,"y":-51.83905029296875,"z":120.9884262084961},{"x":25.899999618530273,"y":-51.90157699584961,"z":121.59288787841797},{"x":25.672407150268555,"y":-51.96522903442383,"z":122.19097900390625},{"x":25.42751693725586,"y":-52.029884338378906,"z":122.78219604492188},{"x":25.1655330657959,"y":-52.09541702270508,"z":123.36604309082031},{"x":24.88667869567871,"y":-52.16170120239258,"z":123.94202423095703},{"x":24.5911922454834,"y":-52.228607177734375,"z":124.50965118408203},{"x":24.279321670532227,"y":-52.296016693115234,"z":125.06844329833984},{"x":23.95132827758789,"y":-52.36380386352539,"z":125.61792755126953},{"x":23.607494354248047,"y":-52.43183898925781,"z":126.15763854980469},{"x":23.24810791015625,"y":-52.5,"z":126.68712615966797},{"x":22.873472213745117,"y":-52.56816101074219,"z":127.2059326171875},{"x":22.483905792236328,"y":-52.63619613647461,"z":127.713623046875},{"x":22.07973861694336,"y":-52.703983306884766,"z":128.20977783203125},{"x":21.661314010620117,"y":-52.771392822265625,"z":128.69395446777344},{"x":21.228981018066406,"y":-52.83829879760742,"z":129.16575622558594},{"x":20.783111572265625,"y":-52.90458297729492,"z":129.62478637695313},{"x":20.324077606201172,"y":-52.970115661621094,"z":130.07066345214844},{"x":19.852270126342773,"y":-53.034767150878906,"z":130.50299072265625},{"x":19.36808967590332,"y":-53.09842300415039,"z":130.92141723632813},{"x":18.871944427490234,"y":-53.16094970703125,"z":131.32559204101563},{"x":18.36425018310547,"y":-53.22222137451172,"z":131.71514892578125},{"x":17.845443725585938,"y":-53.28211975097656,"z":132.08978271484375},{"x":17.315959930419922,"y":-53.340511322021484,"z":132.4491729736328},{"x":16.776247024536133,"y":-53.39727783203125,"z":132.7930145263672},{"x":16.226760864257813,"y":-53.452293395996094,"z":133.12100219726563},{"x":15.667969703674316,"y":-53.50542449951172,"z":133.43287658691406},{"x":15.100342750549316,"y":-53.556556701660156,"z":133.72836303710938},{"x":14.524364471435547,"y":-53.605560302734375,"z":134.00721740722656},{"x":13.940516471862793,"y":-53.65230941772461,"z":134.26919555664063},{"x":13.349296569824219,"y":-53.696678161621094,"z":134.5140838623047},{"x":12.751206398010254,"y":-53.73854064941406,"z":134.74168395996094},{"x":12.146747589111328,"y":-53.77777862548828,"z":134.9517822265625},{"x":11.536433219909668,"y":-53.81425857543945,"z":135.1442108154297},{"x":10.920780181884766,"y":-53.84785842895508,"z":135.31881713867188},{"x":10.300312042236328,"y":-53.87845230102539,"z":135.47543334960938},{"x":9.675546646118164,"y":-53.90591812133789,"z":135.6139373779297},{"x":9.047019958496094,"y":-53.93012619018555,"z":135.7342071533203},{"x":8.415262222290039,"y":-53.95095443725586,"z":135.83615112304688},{"x":7.7808074951171875,"y":-53.96827697753906,"z":135.919677734375},{"x":7.144187927246094,"y":-53.98196792602539,"z":135.98472595214844},{"x":6.505947113037109,"y":-53.99190139770508,"z":136.03121948242188},{"x":5.8666229248046875,"y":-53.997955322265625,"z":136.05914306640625},{"x":5.2267608642578125,"y":-54.0,"z":136.0684356689453},{"x":4.89342737197876,"y":-53.99479293823242,"z":136.0684356689453},{"x":4.560094356536865,"y":-53.97916793823242,"z":136.0684356689453},{"x":4.2267608642578125,"y":-53.953125,"z":136.0684356689453},{"x":3.893427610397339,"y":-53.91666793823242,"z":136.0684356689453},{"x":3.5600943565368652,"y":-53.86979293823242,"z":136.0684356689453},{"x":3.2267608642578125,"y":-53.8125,"z":136.0684356689453},{"x":2.893427848815918,"y":-53.74479293823242,"z":136.0684356689453},{"x":2.5600943565368652,"y":-53.66666793823242,"z":136.0684356689453},{"x":2.2267611026763916,"y":-53.578125,"z":136.0684356689453},{"x":1.893427848815918,"y":-53.47916793823242,"z":136.0684356689453},{"x":1.5600943565368652,"y":-53.36979293823242,"z":136.0684356689453},{"x":1.2267611026763916,"y":-53.25,"z":136.0684356689453},{"x":0.893427848815918,"y":-53.11979293823242,"z":136.0684356689453},{"x":0.5600948333740234,"y":-52.97916793823242,"z":136.0684356689453},{"x":0.2267613410949707,"y":-52.828125,"z":136.0684356689453},{"x":-0.10657215118408203,"y":-52.66666793823242,"z":136.0684356689453},{"x":-0.43990516662597656,"y":-52.49479293823242,"z":136.0684356689453},{"x":-0.7732386589050293,"y":-52.3125,"z":136.0684356689453},{"x":-1.106572151184082,"y":-52.11979293823242,"z":136.0684356689453},{"x":-1.4399051666259766,"y":-51.91666793823242,"z":136.0684356689453},{"x":-1.7732386589050293,"y":-51.703125,"z":136.0684356689453},{"x":-2.106572151184082,"y":-51.47916793823242,"z":136.0684356689453},{"x":-2.4399051666259766,"y":-51.24479293823242,"z":136.0684356689453},{"x":-2.7732386589050293,"y":-51.0,"z":136.0684356689453}],"side":1,"twoSided":false,"headings":[20.0,18.33333396911621,16.66666603088379,15.0,13.333333015441895,11.666666030883789,10.0,8.333333015441895,6.666666030883789,4.999999523162842,3.3333327770233154,1.6666661500930786,-5.960464477539063e-7,-1.6666673421859741,-3.333333969116211,-5.000000953674316,-6.666667461395264,-8.333332061767578,-10.000000953674316,-11.666666030883789,-13.333333969116211,-14.999999046325684,-16.666667938232422,-18.333332061767578,-20.000001907348633,-21.66666603088379,-23.33333396911621,-25.0,-26.666667938232422,-28.33333396911621,-30.000001907348633,-31.66666603088379,-33.333335876464844,-35.0,-36.666664123535156,-38.33332824707031,-40.0,-41.66666793823242,-43.33333206176758,-44.999996185302734,-46.66666793823242,-48.33333206176758,-50.0,-51.666664123535156,-53.333335876464844,-55.0,-56.666664123535156,-58.33333206176758,-60.000003814697266,-61.66666793823242,-63.33333206176758,-65.0,-66.66667175292969,-68.33333587646484,-70.0,-71.66666412353516,-73.33333587646484,-75.0,-76.66666412353516,-78.33332824707031,-80.0,-81.66667175292969,-83.33333587646484,-85.0,-86.66667175292969,-88.33333587646484,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0,-90.0],"entry":{"x":0.0,"y":0.0,"z":0.0},"landing":{"x":0.0,"y":0.0,"z":0.0},"landingName":"","halfWidth":2.4000000953674316}],"finish":{"instanceID":0},"laneX":3.200000047683716}}
+UnityEngine.MeshCollider|Surf course/Surf ramp 9|21096:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MeshCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"5","m_Convex":false,"m_CookingOptions":30,"m_Mesh":{"fileID":4300000,"guid":"8465801fbda8fd84d844931a2520b633","type":2}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 50|21118:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.903
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"aff840507a5557d429821c73f7b3c165","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 12|21164:256|True|0|1	0	0	1.83597362
+0	1	0	0.951
+0	0	1	-6.16000032
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"e2267db5cc9f9264d80502dd55d48deb","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+UnityEngine.BoxCollider|Player row and lanes/First platform 3/Landing surface|21180:256|True|0|1.3	0	0	-0.75
+0	0.44	0	-0.06999999
+0	0	2	2.3
+0	0	0	1
+|{"BoxCollider":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_IsTrigger":false,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Size":{"x":1.0,"y":1.0,"z":1.0},"m_Center":{"x":0.0,"y":0.0,"z":0.0}}}
+HalliGalli.Cards.FruitCardView|Live card table/Live card visuals/Card 8|21188:256|True|0|1	0	0	2.52807464E-08
+0	1	0	0.927
+0	0	1	-7.22
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.FruitCardView","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"definition":{"fileID":11400000,"guid":"1a56dc6fca0593940a1e656f442ea885","type":2},"cardRenderer":{"instanceID":0},"visual":{"instanceID":0},"faceDown":true}}
+HalliGalli.Cards.CardTableDisplay|Live card table|21217:256|True|0|1	0	0	0
+0	1	0	0
+0	0	1	0
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Cards.CardTableDisplay","deck":{"fileID":11400000,"guid":"d05819924df80934ea25ce635d0c35ac","type":2},"drawAnchors":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"openAnchors":[{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0},{"instanceID":0}],"visualRoot":{"instanceID":0}}}
+UnityEngine.CharacterController|Player|21818:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"CharacterController":{"m_Material":{"instanceID":0},"m_IncludeLayers":{"serializedVersion":"2","m_Bits":0},"m_ExcludeLayers":{"serializedVersion":"2","m_Bits":0},"m_LayerOverridePriority":0,"m_ProvidesContacts":false,"m_Enabled":true,"serializedVersion":"3","m_Height":1.7999999523162842,"m_Radius":0.30000001192092896,"m_SlopeLimit":46.0,"m_StepOffset":0.30000001192092896,"m_SkinWidth":0.02500000037252903,"m_MinMoveDistance":0.0,"m_Center":{"x":0.0,"y":0.8999999761581421,"z":0.0}}}
+HalliGalli.Movement.SourceMotor|Player|21819:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SourceMotor","profile":{"fileID":11400000,"guid":"cbd0b0853a4852c44a7cc48b90917ab8","type":2}}}
+HalliGalli.Movement.SourcePlayerController|Player|21820:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.SourcePlayerController","playerCamera":{"instanceID":0},"controlsEnabled":true,"captureCursorOnStart":true,"movementEnabled":true,"actionsEnabled":true,"cameraHeightOffset":0.0}}
+HalliGalli.Movement.CharacterMotionDriver|Player|21821:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.CharacterMotionDriver","motor":{"instanceID":0},"worldCamera":{"instanceID":0},"handCamera":{"instanceID":0},"bodyModel":{"instanceID":0},"handsModel":{"instanceID":0},"kickModel":{"instanceID":0},"combat":{"instanceID":0},"receiver":{"instanceID":0},"motions":{"fileID":11400000,"guid":"3d8e3f0e8c1d0da4883b4c627840b42b","type":2},"thirdPerson":false,"seatedClip":{"fileID":7400000,"guid":"e4f5f668629cf0146bc72310b97e6591","type":2},"seated":false}}
+HalliGalli.Movement.MeleeCombat|Player|21822:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeCombat","aimCamera":{"instanceID":0},"readInput":true,"actionsEnabled":true,"simulateAutomatically":true,"hitMask":{"serializedVersion":"2","m_Bits":4294966527}}}
+HalliGalli.Movement.MeleeReceiver|Player|21823:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"MonoBehaviour":{"m_Enabled":true,"m_EditorHideFlags":0,"m_Name":"","m_EditorClassIdentifier":"Assembly-CSharp::HalliGalli.Movement.MeleeReceiver","audioSet":{"fileID":11400000,"guid":"54a36037e06ea45468ac9ff892e659a0","type":2},"impactSource":{"instanceID":0},"canReceiveHits":true}}
+UnityEngine.AudioSource|Player/ImpactAudio|22193:256|True|0|-1	0	-8.742278E-08	-3.75
+0	1	0	1.32499993
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+|{"AudioSource":{"m_Enabled":true,"serializedVersion":"4","OutputAudioMixerGroup":{"instanceID":0},"m_audioClip":{"instanceID":0},"m_Resource":{"instanceID":0},"m_PlayOnAwake":false,"m_Volume":1.0,"m_Pitch":1.0,"Loop":false,"Mute":false,"Spatialize":false,"SpatializePostEffects":false,"Priority":128,"DopplerLevel":0.0,"MinDistance":1.5,"MaxDistance":18.0,"Pan2D":0.0,"rolloffMode":1,"BypassEffects":false,"BypassListenerEffects":false,"BypassReverbZones":false,"rolloffCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408},{"serializedVersion":"3","time":1.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"panLevelCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"spreadCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"reverbZoneMixCustomCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":1.0,"inSlope":0.0,"outSlope":0.0,"tangentMode":0,"weightedMode":0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4}}}
+anchor|Player row and lanes/Route seat 3/Landing 4|18902:256|1	0	0	-13.2732391
+0	1	0	-50.475
+0	0	1	139.268433
+0	0	0	1
+
+anchor|Player row and lanes/Card draw 1|18918:256|1	0	0	2.52807464E-08
+0	1	0	0.891
+0	0	1	-7.22
+0	0	0	1
+
+anchor|Player retry|18941:256|1	0	0	-3.75
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 6/Landing 3|19004:256|1	0	0	-3.2
+0	1	0	-0.3
+0	0	1	9.5
+0	0	0	1
+
+anchor|Player row and lanes/Card draw 3|19030:256|1	0	0	1.83597374
+0	1	0	0.891
+0	0	1	-4.04
+0	0	0	1
+
+anchor|Player row and lanes/Seat 4|19049:256|-1	0	-8.742278E-08	0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+
+anchor|Player row and lanes/Card open 1|19057:256|1	0	0	1.40713583E-08
+0	1	0	0.891
+0	0	1	-6.27999973
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 3/Landing 2|19103:256|1	0	0	-3.2
+0	1	0	0.375
+0	0	1	6.1
+0	0	0	1
+
+anchor|Player row and lanes/Card draw 4|19237:256|1	0	0	2.94830329E-07
+0	1	0	0.891
+0	0	1	-2.98
+0	0	0	1
+
+anchor|Rival seat|19239:256|-1	0	-8.742278E-08	-2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 6/Landing 4|19285:256|1	0	0	-13.2732391
+0	1	0	-50.475
+0	0	1	139.268433
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 5/Landing 2|19354:256|1	0	0	-3.2
+0	1	0	0.375
+0	0	1	6.1
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 6/Landing 0|19405:256|1	0	0	3.75
+0	1	0	0.175
+0	0	1	2.3
+0	0	0	1
+
+anchor|Player row and lanes/Retry 3|19474:256|1	0	0	-0.75
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Start 3|19480:256|1	0	0	-0.75
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Course checkpoints/Surf turn landing|19494:256|-1	0	-8.742278E-08	3.2
+0	1	0	-11.175
+8.742278E-08	0	-1	34
+0	0	0	1
+
+anchor|Rival stand|19548:256|1	0	0	-2.25
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 2/Landing 0|19560:256|1	0	0	-2.25
+0	1	0	0.175
+0	0	1	2.3
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 3/Landing 3|19568:256|1	0	0	-3.2
+0	1	0	-0.3
+0	0	1	9.5
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 2/Landing 4|19602:256|1	0	0	-13.2732391
+0	1	0	-50.475
+0	0	1	139.268433
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 5/Landing 0|19654:256|1	0	0	2.25
+0	1	0	0.175
+0	0	1	2.3
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 4/Landing 2|19666:256|1	0	0	-3.2
+0	1	0	0.375
+0	0	1	6.1
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 1/Landing 0|19677:256|1	0	0	-3.75
+0	1	0	0.175
+0	0	1	2.3
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 1/Landing 2|19682:256|1	0	0	-3.2
+0	1	0	0.375
+0	0	1	6.1
+0	0	0	1
+
+anchor|Player seat|19749:256|-1	0	-8.742278E-08	-3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 2/Landing 1|19776:256|1	0	0	-2.25
+0	1	0	0.375
+0	0	1	5.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 4/Landing 0|19780:256|1	0	0	0.75
+0	1	0	0.175
+0	0	1	2.3
+0	0	0	1
+
+anchor|Player row and lanes/Retry 6|19833:256|1	0	0	3.75
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Course checkpoints/Surf transfer landing|19842:256|-1.1920929E-07	0	1.00000012	-48
+0	1	0	-32.175
+-1.00000012	0	-1.1920929E-07	57.2
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 6/Landing 2|19881:256|1	0	0	-3.2
+0	1	0	0.375
+0	0	1	6.1
+0	0	0	1
+
+anchor|Player row and lanes/Card open 4|19883:256|1	0	0	1.64103682E-07
+0	1	0	0.891
+0	0	1	-3.92
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 3/Landing 1|19889:256|1	0	0	-0.75
+0	1	0	0.375
+0	0	1	5.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 4/Landing 3|19906:256|1	0	0	-3.2
+0	1	0	-0.3
+0	0	1	9.5
+0	0	0	1
+
+anchor|Player row and lanes/Card open 2|19955:256|1	0	0	1.02190983
+0	1	0	0.891
+0	0	1	-5.69
+0	0	0	1
+
+anchor|Player row and lanes/Card open 3|20067:256|1	0	0	1.02191
+0	1	0	0.891
+0	0	1	-4.50999975
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 5/Landing 4|20086:256|1	0	0	-13.2732391
+0	1	0	-50.475
+0	0	1	139.268433
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 3/Landing 0|20109:256|1	0	0	-0.75
+0	1	0	0.175
+0	0	1	2.3
+0	0	0	1
+
+anchor|Player row and lanes/Start 4|20214:256|1	0	0	0.75
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 2/Landing 3|20216:256|1	0	0	-3.2
+0	1	0	-0.3
+0	0	1	9.5
+0	0	0	1
+
+anchor|Service bell|20249:256|1	0	0	-14.2732391
+0	1	0	-49.8
+0	0	1	139.268433
+0	0	0	1
+
+anchor|Player row and lanes/Start 5|20268:256|1	0	0	2.25
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 5/Landing 1|20273:256|1	0	0	2.25
+0	1	0	0.375
+0	0	1	5.7
+0	0	0	1
+
+anchor|Player row and lanes/Card open 6|20302:256|1	0	0	-1.02191
+0	1	0	0.891
+0	0	1	-5.68999958
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 4/Landing 4|20423:256|1	0	0	-13.2732391
+0	1	0	-50.475
+0	0	1	139.268433
+0	0	0	1
+
+anchor|Surf course/Bell landing|20427:256|1	0	0	-13.2732391
+0	1	0	-50.475
+0	0	1	139.268433
+0	0	0	1
+
+anchor|Player row and lanes/Card draw 5|20429:256|1	0	0	-1.83597386
+0	1	0	0.891
+0	0	1	-4.04
+0	0	0	1
+
+anchor|Player row and lanes/Card draw 2|20438:256|1	0	0	1.83597362
+0	1	0	0.891
+0	0	1	-6.16000032
+0	0	0	1
+
+anchor|Player row and lanes/Card open 5|20440:256|1	0	0	-1.02191
+0	1	0	0.891
+0	0	1	-4.51
+0	0	0	1
+
+anchor|Player row and lanes/Card draw 6|20442:256|1	0	0	-1.83597386
+0	1	0	0.891
+0	0	1	-6.16
+0	0	0	1
+
+anchor|Player row and lanes/Start 6|20516:256|1	0	0	3.75
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Course checkpoints/Surf midway landing|20719:256|-1.1920929E-07	0	-1.00000012	-26
+0	1	0	-17.175
+1.00000012	0	-1.1920929E-07	-9.2
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 6/Landing 1|20755:256|1	0	0	3.75
+0	1	0	0.375
+0	0	1	5.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 2/Landing 2|20787:256|1	0	0	-3.2
+0	1	0	0.375
+0	0	1	6.1
+0	0	0	1
+
+anchor|Player row and lanes/Retry 4|20796:256|1	0	0	0.75
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 1/Landing 1|20807:256|1	0	0	-3.75
+0	1	0	0.375
+0	0	1	5.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 1/Landing 3|20818:256|1	0	0	-3.2
+0	1	0	-0.3
+0	0	1	9.5
+0	0	0	1
+
+anchor|Player row and lanes/Seat 6|20853:256|-1	0	-8.742278E-08	3.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+
+anchor|Player stand|20893:256|1	0	0	-3.75
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 4/Landing 1|20939:256|1	0	0	0.75
+0	1	0	0.375
+0	0	1	5.7
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 1/Landing 4|20969:256|1	0	0	-13.2732391
+0	1	0	-50.475
+0	0	1	139.268433
+0	0	0	1
+
+anchor|Player row and lanes/Seat 5|21018:256|-1	0	-8.742278E-08	2.25
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+
+anchor|Player row and lanes/Route seat 5/Landing 3|21076:256|1	0	0	-3.2
+0	1	0	-0.3
+0	0	1	9.5
+0	0	0	1
+
+anchor|Rival retry|21193:256|1	0	0	-2.25
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Retry 5|21209:256|1	0	0	2.25
+0	1	0	0.025
+0	0	1	-0.7
+0	0	0	1
+
+anchor|Player row and lanes/Seat 3|21229:256|-1	0	-8.742278E-08	-0.75
+0	1	0	0.025
+8.742278E-08	0	-1	-1.85
+0	0	0	1
+
+movementProfile|73734179BDA0A06F9113B25D081F0B9937A070A9D6CDFB8A2FFCD449492AF40F

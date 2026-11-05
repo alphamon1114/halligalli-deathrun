@@ -1,0 +1,63 @@
+{
+  "sourceRevision": "fa84b375ba78cce06bcde7e04960cae5fff6dd94",
+  "sourceDirectory": "Assets/HalliGalliMovement/Art/Textures",
+  "recoveryMethod": "git show <revision>:<path>, followed by git lfs smudge for each original LFS pointer",
+  "nonimportedBackupDirectory": "Build/RealisticHandTextureRecovery/fa84b375ba78cce06bcde7e04960cae5fff6dd94",
+  "rejectedMapBackupSubdirectory": "RejectedCleanMaps",
+  "operation": "Recovered and backed up all original PNGs first. Four support maps remain byte-identical originals; BaseColor receives topology-aware low-frequency UV color-seam leveling. Existing .meta files untouched.",
+  "colorCorrection": "Sample the original broad skin color at every triangle-corner UV, share target colors at the same anatomical vertex, diffuse only that broad field over the continuous hand topology, and rasterize its additive correction onto the unchanged UV atlas. Original fine RGB residuals remain intact. No source-texture blur, synthetic repainting, global whitening or generated clean-map content. The occupied-atlas mean RGB changes from [0.807145,0.600996,0.464296] to [0.807387,0.601133,0.464574]. See skin-shadow-correction.json.",
+  "uvContract": "Original UV atlas layout preserved; geometry owner confirmed original UVs are retained.",
+  "maps": [
+    {
+      "name": "Hands_BaseColor.png",
+      "dimensions": [4096, 4096],
+      "originalBytes": 10969631,
+      "originalSha256": "6f80dddc21e95fc6be0bbbf87110d4db1f5a7980aba765cc471f0c4b30d56e93",
+      "correctedSha256": "97e663690e6337c036982cb4eace3948297059951cca734df7421d198547399c",
+      "visualContent": "Original skin pores, creases and warm palette retained; broad UV-island color differences leveled through actual hand topology without filtering fine source RGB detail."
+    },
+    {
+      "name": "Hands_Normal.png",
+      "dimensions": [1024, 1024],
+      "bytes": 15960,
+      "sha256": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+      "uniformRGBA": [128, 128, 255, 255]
+    },
+    {
+      "name": "Hands_ORM.png",
+      "dimensions": [1024, 1024],
+      "bytes": 15959,
+      "sha256": "405795d930d4468305f9a9e12963e6b3846cd02348037040bc9459f5f3de220b",
+      "uniformRGBA": [255, 148, 0, 255]
+    },
+    {
+      "name": "Hands_AO.png",
+      "dimensions": [1024, 1024],
+      "bytes": 20538,
+      "sha256": "c534dd3894810cd509e3e777af0ec2cd86c8022dd44442b082384d122d790d4e",
+      "uniformRGBA": [255, 255, 255, 255]
+    },
+    {
+      "name": "Hands_MetalSmooth.png",
+      "dimensions": [1024, 1024],
+      "bytes": 20546,
+      "sha256": "bfe8fb2d614515018eb8ca1cc773f38ec9a8c851e472d9df5f3736e27335dfec",
+      "uniformRGBA": [0, 0, 0, 107]
+    }
+  ],
+  "appearanceAnalysis": {
+    "observed": "All four support maps are uniform across every pixel. Original AO cannot add dark bands, and the neutral normal cannot create localized faceting. BaseColor itself contains broad shaded color bands as well as realistic fine skin detail.",
+    "inference": "After geometry-normal refinement, actual Unity imported-gray versus imported-skin renders isolated remaining hard bands to albedo UV color discontinuities. Soft Blender studio lighting alone was insufficient to assess them.",
+    "materialRecommendation": "Use neutral white _Color instead of (0.941, 0.974, 0.975, 1) to preserve original hue and avoid an extra dark/cool multiplier. Keep conservative gloss. Reducing AO or bump cannot address localized darkness with these original constant maps. Do not introduce emissive/fill-color hacks or erase albedo skin detail.",
+    "supportMapDetail": "With original MetalSmooth alpha 107/255 and current GlossMapScale 0.38, Standard smoothness is approximately 0.1595; fallback Glossiness 0.22 does not control pixels while the metallic/smoothness map is enabled.",
+    "selectedAppearanceEvidence": "Parent accepted actual Unity Imported_Skin.png / Anatomy_Open_Palm.png with BaseColor 97e663690e6337c036982cb4eace3948297059951cca734df7421d198547399c. UV color steps are reduced; remaining broad palm-pad shading matches Imported_Gray.png and is not a reason for further albedo whitening.",
+    "correctionDecision": "Superseded local single-shell feathering because it retained existing color steps at other UV boundaries. The final authoring method averages all triangle-corner UV colors at shared anatomical vertices, smooths only the low-frequency color field over the original topology, and writes that field back to the existing atlas with 8px padding. Original pixel-scale skin residuals, original palette, UVs and four support maps remain source-authored."
+  },
+  "preview": "Previews/RealisticHands/SkinTextureComparison.png",
+  "previewScope": "Texture atlases and representative skin crops only: original / corrected original / rejected clean. Rejected map uses a different UV layout and its crop is a representative sample, not UV-corresponding anatomy.",
+  "shadowCorrectionPreview": "Previews/RealisticHands/SkinShadowCorrection.png",
+  "palmCorrectionPreview": "Previews/RealisticHands/PalmTextureCorrection.png",
+  "readOnlyGeometryDependency": "ArtSource/Hands/RealisticHands.blend",
+  "authoringScript": "Tools/Art/restore-realistic-hand-textures.py",
+  "scopeNotPerformed": "This texture worker ran no Unity import/capture, game tests, full validation, build, release, materials/C#/FBX/meta editing, or paid generation. Geometry owner and parent performed the authorized narrow Unity appearance captures."
+}

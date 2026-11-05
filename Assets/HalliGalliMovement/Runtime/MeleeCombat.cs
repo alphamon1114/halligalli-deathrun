@@ -161,15 +161,22 @@ namespace HalliGalli.Movement
             // The closest solid surface consumes the strike, even when it is a wall.
             resolved = true;
             var receiver = nearest.GetComponentInParent<MeleeReceiver>();
-            if (!receiver || !receiver.canReceiveHits || receiver.transform.IsChildOf(transform)) return;
             Vector3 sight = point - origin;
             count = Physics.RaycastNonAlloc(origin, sight.normalized, castHits, sight.magnitude, hitMask, QueryTriggerInteraction.Ignore);
             if(count==castHits.Length)return;
             for(int i=0;i<count;i++) {
                 var obstruction=castHits[i];
                 if (!obstruction.collider.transform.IsChildOf(transform) && obstruction.collider != nearest &&
-                    obstruction.collider.GetComponentInParent<MeleeReceiver>() != receiver && obstruction.distance < sight.magnitude - .025f) return;
+                    (!receiver||obstruction.collider.GetComponentInParent<MeleeReceiver>()!=receiver) && obstruction.distance < sight.magnitude - .025f) return;
             }
+            if(CurrentAttack==MeleeAttack.Kick&&RaceCourse.Active){
+                if(!participant)participant=GetComponent<CourseParticipant>();
+                if(RaceCourse.Active.TryKickBarricade(participant,nearest)){
+                    HitCount++;HitMarkerRemaining=.16f;
+                    return;
+                }
+            }
+            if (!receiver || !receiver.canReceiveHits || receiver.transform.IsChildOf(transform)) return;
             Vector3 push = Vector3.ProjectOnPlane(forward, Vector3.up).normalized;
             if (push.sqrMagnitude < .01f) push = transform.forward;
             if(!receiver.Receive(CurrentAttack, push, point))return;

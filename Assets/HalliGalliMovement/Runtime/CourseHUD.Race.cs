@@ -18,7 +18,7 @@ namespace HalliGalli.Movement
             string title=item==RaceItem.Missile?"유도 미사일":item==RaceItem.Banana?"바나나":item==RaceItem.Barricade?"바리케이드":"아이템 없음";
             BellUI.Text(new Rect(38,y+37,220,28),title,19,item==RaceItem.None?BellUI.Paper:BellUI.Gold,true);
             if(item!=RaceItem.None)BellUI.Key(new Rect(268,y+40,48,25),ControlBindings.Hint(GameAction.UseItem));
-            string detail=effect>0?"피격 · "+effect.ToString("F1")+"초":item==RaceItem.Missile?"조준점에 가까운 상대 락온":item==RaceItem.Banana?"내 뒤에 설치 · 밟으면 미끄러짐":item==RaceItem.Barricade?"뒤에 설치 · 길 너비 약 1/3":"박스를 통과하면 아이템 획득";
+            string detail=effect>0?"피격 · "+effect.ToString("F1")+"초":item==RaceItem.Missile?"조준점에 가까운 상대 락온":item==RaceItem.Banana?"내 뒤에 설치 · 밟으면 미끄러짐":item==RaceItem.Barricade?"뒤에 설치 · 발차기 2회로 파괴":"박스를 통과하면 아이템 획득";
             BellUI.Text(new Rect(38,y+76,278,26),detail,13,BellUI.Paper);
             if(!target||!controller.playerCamera)return;
             Vector3 point=controller.playerCamera.WorldToScreenPoint(target.transform.position+Vector3.up);

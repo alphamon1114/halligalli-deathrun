@@ -1,0 +1,141 @@
+{
+  "utc": "2026-11-05T06:59:30.043Z",
+  "version": "1.0.6",
+  "protocol": 42,
+  "status": "passed-with-stated-limits",
+  "checksPassed": 753,
+  "checksFailed": 0,
+  "reports": [
+    {
+      "file": "TestResults/lasso-validation.json",
+      "utc": "2026-11-05T06:19:10.2030265Z",
+      "completedUtc": null,
+      "passed": 57,
+      "failed": 0,
+      "reportedStatus": null,
+      "limitations": []
+    },
+    {
+      "file": "TestResults/pyramid-validation.json",
+      "utc": "2026-11-05T06:21:10.2874667Z",
+      "completedUtc": null,
+      "passed": 57,
+      "failed": 0,
+      "reportedStatus": null,
+      "limitations": []
+    },
+    {
+      "file": "TestResults/surf-validation.json",
+      "utc": "2026-11-05T06:21:40.2153584Z",
+      "completedUtc": "2026-11-05T06:23:15.0706361Z",
+      "passed": 53,
+      "failed": 0,
+      "reportedStatus": "passed",
+      "limitations": []
+    },
+    {
+      "file": "TestResults/push-preview.json",
+      "utc": "2026-11-05T06:34:33.5376305Z",
+      "completedUtc": "2026-11-05T06:34:44.7453106Z",
+      "passed": 76,
+      "failed": 0,
+      "reportedStatus": null,
+      "limitations": []
+    },
+    {
+      "file": "TestResults/practice-validation.json",
+      "utc": "2026-11-05T06:32:32.3962278Z",
+      "completedUtc": "2026-11-05T06:33:23.9700096Z",
+      "passed": 157,
+      "failed": 0,
+      "reportedStatus": "passed",
+      "limitations": [
+        "Synthetic MovementCommand inputs validate consumer-visible physics and routing, not hardware keyboard/mouse delivery or human difficulty. Negative landing fixtures are explicitly marked injectedFixture and are never counted as successful traversal.",
+        "This no-audio smoke does not validate BGM DSP or subjective audio. Screenshots are evidence for visual review, not automated OCR/layout assertions."
+      ]
+    },
+    {
+      "file": "TestResults/barricade-validation.json",
+      "utc": "2026-11-05T06:33:47.9660394Z",
+      "completedUtc": "2026-11-05T06:33:57.7563471Z",
+      "passed": 24,
+      "failed": 0,
+      "reportedStatus": "passed",
+      "limitations": []
+    },
+    {
+      "file": "TestResults/map-music-playback.json",
+      "utc": "2026-11-05T06:35:13.0622095Z",
+      "completedUtc": "2026-11-05T06:37:06.6708810Z",
+      "passed": 217,
+      "failed": 0,
+      "reportedStatus": "passed",
+      "limitations": [
+        "Mixer samples measure engine output, not physical speakers. Bell balance is measured at 2m using the production received-bell event; traversal, subjective masking and hardware listening are not claimed."
+      ]
+    },
+    {
+      "file": "TestResults/lasso-network.json",
+      "utc": "2026-11-05T06:45:52.778Z",
+      "completedUtc": null,
+      "passed": 49,
+      "failed": 0,
+      "reportedStatus": null,
+      "limitations": [
+        "Not a published standalone-player admission test",
+        "No Internet Relay or artificial latency"
+      ]
+    },
+    {
+      "file": "TestResults/barricade-network.json",
+      "utc": "2026-11-05T06:46:50.775Z",
+      "completedUtc": "2026-11-05T06:47:26.693Z",
+      "passed": 27,
+      "failed": 0,
+      "reportedStatus": "limited",
+      "limitations": [
+        "Headless mode omits screenshot captures; run BarricadeValidationRunner with graphics for front/back visible-pixel assertions.",
+        "Not a published standalone-player admission test",
+        "No Internet Relay or artificial latency"
+      ]
+    },
+    {
+      "file": "TestResults/barricade-usermap-network.json",
+      "utc": "2026-11-05T06:48:02.241Z",
+      "completedUtc": "2026-11-05T06:48:11.044Z",
+      "passed": 10,
+      "failed": 0,
+      "reportedStatus": "limited",
+      "limitations": [
+        "Headless mode does not capture crack visibility; use BarricadeValidationRunner with graphics.",
+        "Not a published standalone-player admission test",
+        "No Internet Relay or artificial latency"
+      ]
+    },
+    {
+      "file": "TestResults/pyramid-network-validation.json",
+      "utc": "2026-11-05T06:48:58.894Z",
+      "completedUtc": null,
+      "passed": 26,
+      "failed": 0,
+      "reportedStatus": null,
+      "limitations": [
+        "Not a published standalone-player admission test",
+        "No Internet Relay or artificial latency"
+      ]
+    }
+  ],
+  "windowsBuild": {
+    "result": "Succeeded",
+    "editorExitCode": 0,
+    "log": "Logs/current-windows-build.log",
+    "output": "Build/ValidatedWindows-1.0.6",
+    "gateReport": "TestResults/windows-build-gate.json"
+  },
+  "limits": [
+    "Network gameplay exercised in two isolated Unity Editor processes over loopback, not Internet Relay or published standalone peers.",
+    "Headless network crack captures omitted; front/back visibility covered separately by graphical runtime assertions and reviewed images.",
+    "Audio verified through engine DSP; no subjective hardware listening or human difficulty assessment.",
+    "Unpublished standalone 1.0.6 remains rejected by the live 1.0.5 release manifest. No release was published."
+  ]
+}

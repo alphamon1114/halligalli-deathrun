@@ -28,204 +28,168 @@ namespace HalliGalli.EditorTools
         public static void Dress(CourseSession session,PyramidCourse pyramid,Material sandstone)
         {
             stone=sandstone;gold=Material("Aged Gold",new Color(.65f,.41f,.10f));lapis=Material("Lapis",new Color(.045f,.16f,.24f));
-            ink=Material("Basalt",new Color(.065f,.075f,.08f));glow=Material("Torch Gold",new Color(1,.52f,.13f),true);lights.Clear();
+            ink=Material("Basalt",new Color(.12f,.14f,.15f));glow=Material("Torch Gold",new Color(1,.52f,.13f),true);lights.Clear();
             var architecture=new GameObject("Pyramid architecture").transform;
             var decoration=new GameObject("Pyramid decoration").transform;
             var surf=pyramid.GetComponent<SurfCourse>();
-            // The shared bank builder also authors outlines; this course uses sparse
-            // jump runes instead. Keep checkpoint markings and other courses unchanged.
             foreach(Transform child in surf.transform.Cast<Transform>().ToArray())
                 if(child.name.StartsWith("Pyramid bank ")&&child.name.EndsWith(" edge"))Object.DestroyImmediate(child.gameObject);
             foreach(var t in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include)){
                 if(!t||!(t.name=="Table deck"||t.name=="Landing surface"||t.name=="Shared pad 2"||t.name=="Bell plinth"))continue;
-                foreach(Transform child in t.Cast<Transform>().ToArray())if(child.name=="VARCO visual")Object.DestroyImmediate(child.gameObject);
                 var render=t.GetComponent<Renderer>();if(render){render.enabled=true;render.sharedMaterial=stone;}
             }
             for(int i=0;i<pyramid.chambers.Length;i++){
                 var room=pyramid.chambers[i];var shell=new GameObject(room.name).transform;shell.SetParent(architecture);
                 var art=new GameObject(room.name+" decoration").transform;art.SetParent(decoration);
-                var rotation=room.Rotation;var inverse=Quaternion.Inverse(rotation);
-                Vector3 min=room.localMinimum,max=room.localMaximum,landing=inverse*(room.landing-room.origin);
-                var section=surf.sections[room.firstSection];var last=surf.sections[room.lastSection];
-                Vector3 firstPoint=inverse*(section.points[0]-room.origin),lastPoint=inverse*(last.points[last.points.Length-1]-room.origin);
-                float roof=max.y,height=roof-min.y+18,width=max.x-min.x,depth=max.z-min.z;
-                // The checkpoint courtyard stays open on both sides. Stop incoming
-                // walls before the deck and begin the next corridor beyond its entry.
-                float wallStart=i==0?min.z:Mathf.Max(min.z,1),wallEnd=i==pyramid.chambers.Length-1?max.z:lastPoint.z;
-                float wallDepth=wallEnd-wallStart,wallCenter=(wallStart+wallEnd)*.5f;
-                var pit=Box(shell,"Pyramid cursed pit "+i,new Vector3((min.x+max.x)*.5f,min.y,(min.z+max.z)*.5f),new Vector3(width,.5f,depth),ink,true);
+                var first=surf.sections[room.firstSection];
+                Vector3 min=room.localMinimum,max=room.localMaximum;
+                var pit=Box(shell,"Pyramid cursed pit "+i,new Vector3((min.x+max.x)*.5f,min.y,(min.z+max.z)*.5f),
+                    new Vector3(max.x-min.x,.5f,max.z-min.z),ink,true);
                 pit.AddComponent<SurfDivider>().session=session;
-                Wall(shell,"West stone wall",new Vector3(min.x,min.y+height*.5f,wallCenter),new Vector3(1,height,wallDepth));
-                Wall(shell,"East stone wall",new Vector3(max.x,min.y+height*.5f,wallCenter),new Vector3(1,height,wallDepth));
-                if(i==0)Wall(shell,"Entrance back wall",new Vector3((min.x+max.x)*.5f,min.y+height*.5f,min.z),new Vector3(width,height,1));
-                float center=(min.x+max.x)*.5f;
-                foreach(int side in new[]{-1,1}){
-                    var ceiling=Box(shell,"Corbelled pyramid vault",new Vector3(center+side*width*.25f,roof+width*.25f*Mathf.Tan(16*Mathf.Deg2Rad),(min.z+max.z)*.5f),new Vector3(width*.5f/Mathf.Cos(16*Mathf.Deg2Rad)+1,2,depth+1),stone,true);
-                    ceiling.transform.rotation=Quaternion.Euler(0,0,-side*16);ceiling.GetComponent<Renderer>().shadowCastingMode=ShadowCastingMode.Off;
-                    Box(art,"Lapis cornice",new Vector3(side<0?min.x+.6f:max.x-.6f,roof-1,wallCenter),new Vector3(.35f,1.1f,wallDepth),lapis);
-                    Box(art,"Gold cornice",new Vector3(side<0?min.x+.8f:max.x-.8f,roof-1.6f,wallCenter),new Vector3(.22f,.18f,wallDepth),gold);
+                // Only the remote kill floor has a collider. The full swept route and its
+                // transfers stay open; grounded ruins stand beyond the chamber's side bounds.
+                switch(i){
+                    case 0: Entrance(shell,art,room,first);break;
+                    case 1: Exterior(shell,room,first);break;
+                    case 2: BrokenHall(shell,art,room);break;
+                    case 3: Watergate(shell,art,room,first);break;
+                    case 4: Temple(shell,art,room,first);break;
                 }
-                for(float z=wallStart+10;z<wallEnd-14;z+=22)foreach(int side in new[]{-1,1}){
-                    float wallX=side<0?min.x:max.x;
-                    Column(art,new Vector3(wallX-side*2.1f,min.y+.5f,z),roof-min.y-.6f);
-                    if(PyramidVarcoImporter.Ready)WallAsset(art,"ReliefPanel",new Vector3(wallX,roof-15,z+10),8,side<0?90:-90,wallX,side);
-                    else{
-                        var glyph=new GameObject("Carved ankh frieze").transform;glyph.SetParent(art);glyph.position=new Vector3(wallX-side*.57f,roof-8,z);
-                        glyph.rotation=Quaternion.Euler(0,side<0?90:-90,0);Ankh(glyph,Vector3.zero,1.8f,lapis);
-                    }
-                }
-                // Chamber transfers stay completely open. Gates are side-wall niches,
-                // never meshes or collision apertures across a launch or landing.
-                foreach(int side in new[]{-1,1}){
-                    float wallX=side<0?min.x:max.x,yaw=side<0?90:-90;
-                    Vector3 niche=new Vector3(wallX,landing.y,wallEnd-9);
-                    if(PyramidVarcoImporter.Ready)WallAsset(art,"StoneGate",niche,9,yaw,wallX,side);
-                    else Portal(art,new Vector3(wallX-side*.65f,niche.y,niche.z),7,8,-yaw);
-                }
-                if(i==pyramid.chambers.Length-1){
-                    Wall(shell,"Burial chamber wall",new Vector3(center,min.y+height*.5f,max.z),new Vector3(width,height,1));
-                    Sun(art,new Vector3(landing.x,landing.y+7,max.z-.6f),2.2f);
-                    // The sarcophagus is a side-wall exhibit, leaving the bell deck visible.
-                    Vector3 tomb=new Vector3(max.x-2.1f,landing.y-.02f,landing.z-8);
-                    if(PyramidVarcoImporter.Ready)WallAsset(art,"Sarcophagus",tomb,4,-90,max.x,1);
-                    else{
-                        Box(art,"Sarcophagus",tomb+Vector3.up*.8f,new Vector3(2.3f,1.6f,2.2f),ink);
-                        Box(art,"Sarcophagus gold lid",tomb+Vector3.up*1.66f,new Vector3(2.5f,.22f,2.4f),gold);
-                    }
-                }
-                foreach(int side in new[]{-1,1}){
-                    float wallX=side<0?min.x:max.x;
-                    Vector3 statue=new Vector3(wallX-side*2.1f,landing.y-.3f,Mathf.Min(landing.z-17,wallEnd-5));
-                    float support=statue.y-min.y;
-                    Box(art,"Guardian stone foundation",new Vector3(statue.x,min.y+support*.5f,statue.z),new Vector3(3,support,3),stone);
-                    if(PyramidVarcoImporter.Ready){
-                        WallAsset(art,"Anubis",statue,8,side<0?90:-90,wallX,side);
-                        WallTorch(art,new Vector3(wallX-side*.6f,firstPoint.y+2,firstPoint.z+14),side<0?90:-90,wallX,side);
-                        WallTorch(art,new Vector3(wallX-side*.6f,landing.y+1,wallEnd-2),side<0?90:-90,wallX,side);
-                    }else{
-                        Torch(art,statue+Vector3.up*1.4f);
-                        Vector3 foot=new Vector3(wallX-side*1.5f,min.y,firstPoint.z+14);
-                        float h=firstPoint.y+3-min.y;Box(art,"Supported torch pillar",foot+Vector3.up*h*.5f,new Vector3(1.2f,h,1.2f),stone);
-                        Torch(art,foot+Vector3.up*(h+1.4f));
-                    }
-                }
-                // Pit decoration remains far below the riding surface and has no collision.
-                for(int j=0;j<18;j++){
-                    float x=Mathf.Lerp(min.x+5,max.x-5,(j%6)/5f),z=Mathf.Lerp(min.z+8,max.z-8,(j/6)/2f);
-                    Spike(art,new Vector3(x,min.y+.25f,z),1.6f,2.6f);
-                }
-                // Bounds fitting above happens in the room's unrotated local frame.
-                // Move each finished root once, including its solid pit and shell.
-                shell.SetPositionAndRotation(room.origin,rotation);
-                art.SetPositionAndRotation(room.origin,rotation);
+                TransferLandmarks(shell,room,surf);
+                shell.SetPositionAndRotation(room.origin,room.Rotation);
+                art.SetPositionAndRotation(room.origin,room.Rotation);
             }
             pyramid.flames=lights.ToArray();
-            var sun=new GameObject("Pyramid warm bounce").AddComponent<Light>();sun.type=LightType.Directional;sun.color=new Color(1,.94f,.82f);sun.intensity=.85f;sun.shadows=LightShadows.None;sun.transform.rotation=Quaternion.Euler(38,-28,0);
-            RenderSettings.ambientMode=AmbientMode.Flat;RenderSettings.ambientLight=new Color(.36f,.38f,.40f);RenderSettings.ambientIntensity=1;
-            RenderSettings.skybox=null;RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogColor=new Color(.18f,.19f,.20f);RenderSettings.fogStartDistance=75;RenderSettings.fogEndDistance=185;
+            var sun=new GameObject("Pyramid warm bounce").AddComponent<Light>();sun.type=LightType.Directional;sun.color=new Color(1,.94f,.82f);sun.intensity=.95f;sun.shadows=LightShadows.None;sun.transform.rotation=Quaternion.Euler(38,-28,0);
+            RenderSettings.ambientMode=AmbientMode.Flat;RenderSettings.ambientLight=new Color(.43f,.46f,.49f);RenderSettings.ambientIntensity=1;
+            RenderSettings.skybox=null;RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogColor=new Color(.43f,.49f,.53f);RenderSettings.fogStartDistance=110;RenderSettings.fogEndDistance=380;
         }
-        static void Wall(Transform root,string name,Vector3 position,Vector3 size)
+        static Vector3 At(PyramidCourse.Chamber room,SurfCourse.Section section,float t)
         {
-            if(size.x<=0||size.y<=0||size.z<=0)throw new System.InvalidOperationException("Invalid pyramid wall "+name);
-            Box(root,name,position,size,stone,true);
+            float sample=Mathf.Clamp01(t)*(section.points.Length-1);int i=Mathf.Min((int)sample,section.points.Length-2);
+            return room.ToLocal(Vector3.Lerp(section.points[i],section.points[i+1],sample-i));
         }
-        static void Column(Transform root,Vector3 foot,float height)
+        static void Span(Transform root,string name,Vector3 a,Vector3 b,float width,float height,Material material)
         {
-            if(PyramidVarcoImporter.Ready){
-                var generated=PyramidVarcoImporter.Place(root,"LotusColumn",foot,height);
-                var b=VisualBounds(generated);float squeeze=Mathf.Min(1,3/Mathf.Max(b.size.x,b.size.z));
-                var scale=generated.transform.localScale;generated.transform.localScale=new Vector3(scale.x*squeeze,scale.y,scale.z*squeeze);
-                b=VisualBounds(generated);generated.transform.position+=new Vector3(foot.x-b.center.x,0,foot.z-b.center.z);return;
+            var delta=b-a;var obj=Box(root,name,(a+b)*.5f,new Vector3(width,height,delta.magnitude),material);
+            obj.transform.rotation=Quaternion.LookRotation(delta,Vector3.up);
+        }
+        static void SideWall(Transform root,string name,PyramidCourse.Chamber room,int side,float from,float to,float top,float width=4)
+        {
+            float floor=room.localMinimum.y+.25f;
+            float x=side<0?room.localMinimum.x-5:room.localMaximum.x+5;
+            Box(root,name,new Vector3(x,(floor+top)*.5f,(from+to)*.5f),new Vector3(width,top-floor,Mathf.Abs(to-from)),stone);
+        }
+        static void SidePier(Transform root,PyramidCourse.Chamber room,int side,float z,float top,float width=5)
+        {
+            float x=side<0?room.localMinimum.x-6:room.localMaximum.x+6;
+            var foot=new Vector3(x,room.localMinimum.y+.25f,z);
+            Pylon(root,foot,top-foot.y,width);
+        }
+        internal static bool IsAirTransfer(SurfCourse.Section from,SurfCourse.Section to)
+        {
+            return from.landing==Vector3.zero&&from.points[from.points.Length-1]!=to.points[0];
+        }
+        static void TransferLandmarks(Transform root,PyramidCourse.Chamber room,SurfCourse surf)
+        {
+            for(int i=room.firstSection;i<room.lastSection;i++){
+                var from=surf.sections[i];var to=surf.sections[i+1];
+                if(!IsAirTransfer(from,to))continue;
+                var departure=room.ToLocal(from.points[from.points.Length-1]);
+                var destination=room.ToLocal(to.points[0]);
+                // One grounded, unlit pier marks the departure's level. The catch carries
+                // the turquoise beacons; nothing bridges the open space between the two.
+                int side=destination.x>=departure.x?-1:1;
+                SidePier(root,room,side,departure.z,departure.y+2,3);
             }
-            string path=PyramidSurfBuilder.Art+"/Meshes/LotusColumn.asset";var mesh=AssetDatabase.LoadAssetAtPath<Mesh>(path);
-            if(!mesh){
-                var vertices=new List<Vector3>();var triangles=new List<int>();
-                float[] ys={0,.035f,.065f,.095f,.77f,.84f,.92f,.96f,1},rs={1.35f,1.35f,1.12f,.86f,.78f,1.02f,1.35f,1.42f,1.42f};
-                for(int r=0;r<ys.Length;r++)for(int i=0;i<=48;i++){
-                    float a=i*Mathf.PI*2/48,flute=r>=3&&r<=5?1+.035f*Mathf.Cos(a*16):1;
-                    vertices.Add(new Vector3(Mathf.Cos(a)*rs[r]*flute,ys[r],Mathf.Sin(a)*rs[r]*flute));
-                    if(r>0&&i<48){int n=r*49+i;triangles.AddRange(new[]{n-49,n,n+1,n-49,n+1,n-48});}
-                }
-                mesh=new Mesh{name="Fluted lotus column"};mesh.SetVertices(vertices);mesh.SetTriangles(triangles,0);mesh.RecalculateNormals();mesh.RecalculateBounds();AssetDatabase.CreateAsset(mesh,path);
-            }
-            var obj=new GameObject("Lotus column",typeof(MeshFilter),typeof(MeshRenderer));obj.transform.SetParent(root);obj.transform.position=foot;obj.transform.localScale=new Vector3(1,height,1);
-            obj.GetComponent<MeshFilter>().sharedMesh=mesh;obj.GetComponent<Renderer>().sharedMaterial=stone;
-            foreach(float t in new[]{.105f,.76f,.90f,.965f}){
-                var band=GameObject.CreatePrimitive(PrimitiveType.Cylinder);band.name="Painted column collar";band.transform.SetParent(root);band.transform.position=foot+Vector3.up*height*t;
-                float radius=t>.85f?2.76f:1.78f;band.transform.localScale=new Vector3(radius,.14f,radius);band.GetComponent<Renderer>().sharedMaterial=t>.9f?gold:lapis;Object.DestroyImmediate(band.GetComponent<Collider>());
-            }
         }
-        static Bounds VisualBounds(GameObject obj)
+        static void Pylon(Transform root,Vector3 foot,float height,float width=5)
         {
-            var renderers=obj.GetComponentsInChildren<Renderer>();var bounds=renderers[0].bounds;
-            foreach(var renderer in renderers.Skip(1))bounds.Encapsulate(renderer.bounds);
-            return bounds;
+            Box(root,"Weathered pylon base",foot+Vector3.up*height*.21f,new Vector3(width+2,height*.42f,7),stone);
+            Box(root,"Weathered pylon crown",foot+Vector3.up*height*.7f,new Vector3(width,height*.58f,6),stone);
+            Box(root,"Single lapis inset",foot+Vector3.up*height*.67f-Vector3.forward*3.04f,new Vector3(width*.32f,height*.34f,.12f),lapis);
         }
-        static GameObject WallAsset(Transform root,string key,Vector3 foot,float height,float yaw,float wallX,int side)
+        static void Entrance(Transform shell,Transform art,PyramidCourse.Chamber room,SurfCourse.Section first)
         {
-            var obj=PyramidVarcoImporter.Place(root,key,foot,height,yaw);
-            // Fit the complete rendered asset into the wall strip, not just its pivot
-            // or first mesh. Even unusually reconstructed gates cannot hide a landing.
-            var bounds=VisualBounds(obj);
-            obj.transform.localScale*=Mathf.Min(1,3/Mathf.Max(.001f,bounds.size.x));
-            bounds=VisualBounds(obj);
-            float x=side<0?wallX+.6f-bounds.min.x:wallX-.6f-bounds.max.x;
-            obj.transform.position+=new Vector3(x,foot.y-bounds.min.y,foot.z-bounds.center.z);
-            return obj;
-        }
-        static void Portal(Transform root,Vector3 foot,float width,float height,float yaw)
-        {
-            var niche=new GameObject("Side-wall portal niche").transform;niche.SetParent(root);
+            float end=At(room,first,.38f).z;
             foreach(int side in new[]{-1,1}){
-                Box(niche,"Portal carved jamb",new Vector3(side*(width*.5f+.5f),height*.5f,0),new Vector3(1.5f,height+1,1),stone);
-                Box(niche,"Portal gold seam",new Vector3(side*(width*.5f+.45f),height*.5f,-.55f),new Vector3(.18f,height,.1f),gold);
-                var glyph=new GameObject("Ankh portal relief").transform;glyph.SetParent(niche);glyph.position=new Vector3(side*(width*.5f+.5f),height*.55f,-.6f);Ankh(glyph,Vector3.zero,1.25f,gold);
+                SidePier(shell,room,side,1,17,7);
+                SideWall(shell,"Entrance retaining wall",room,side,1,end,14);
+                float x=side<0?room.localMinimum.x-2:room.localMaximum.x+2;
+                Torch(art,new Vector3(x,2,4));
             }
-            Box(niche,"Portal lintel",new Vector3(0,height+.35f,0),new Vector3(width+3,1.2f,1),stone);
-            Box(niche,"Portal lapis lintel",new Vector3(0,height+.35f,-.55f),new Vector3(width+2.7f,.48f,.1f),lapis);
-            Sun(niche,new Vector3(0,height+.35f,-.65f),.55f);
-            niche.position=foot;niche.rotation=Quaternion.Euler(0,yaw,0);
+            // Broken gate shoulders frame the entrance without a lintel or roof over the route.
+        }
+        static void Exterior(Transform shell,PyramidCourse.Chamber room,SurfCourse.Section first)
+        {
+            // A sparse outside ruin leaves the opposite skyline and every airborne catch open.
+            float near=At(room,first,.1f).z,far=At(room,first,.8f).z;
+            SideWall(shell,"Exterior retaining ruin",room,-1,near,far,7);
+            var horizon=new Vector3(room.localMinimum.x-27,room.localMinimum.y+.25f,(near+far)*.5f);
+            Box(shell,"Distant stepped ruin foundation",horizon+Vector3.up*9,new Vector3(28,18,35),stone);
+            Box(shell,"Distant stepped ruin crown",horizon+Vector3.up*23,new Vector3(18,10,23),stone);
+            SidePier(shell,room,-1,far+10,13,6);
+        }
+        static void BrokenHall(Transform shell,Transform art,PyramidCourse.Chamber room)
+        {
+            var min=room.localMinimum;var max=room.localMaximum;
+            float z=Mathf.Lerp(min.z,max.z,.34f),top=max.y-5;
+            foreach(int side in new[]{-1,1}){
+                float x=side<0?min.x-6:max.x+6;
+                SideWall(shell,"Broken great hall side mass",room,side,z-13,z+13,top,6);
+                // Roof fragments project outward, never toward the launch/catch sight line.
+                var slab=Box(shell,"Fractured side roof remnant",new Vector3(x+side*3,top+1.3f,z),new Vector3(9,2.5f,23),stone);
+                slab.transform.rotation=Quaternion.Euler(0,0,side*8);
+                var rubble=Box(art,"Fallen hall monolith",new Vector3(x+side*3,min.y+3.75f,z+27),new Vector3(7,7,19),stone);
+                rubble.transform.rotation=Quaternion.Euler(0,side*12,0);
+            }
+        }
+        static void Watergate(Transform shell,Transform art,PyramidCourse.Chamber room,SurfCourse.Section first)
+        {
+            float near=At(room,first,.1f).z,far=At(room,first,.65f).z;
+            foreach(int side in new[]{-1,1}){
+                float x=side<0?room.localMinimum.x-5:room.localMaximum.x+5;
+                SideWall(shell,"Watergate sluice abutment",room,side,near,far,10,5);
+                // Surviving aqueducts run along the banks, not across the flight corridor.
+                Span(shell,"Watergate side aqueduct",new Vector3(x,11,near),new Vector3(x,11,far),5,2,stone);
+                Box(shell,"Ancient sluice side recess",new Vector3(x-side*2.55f,2,(near+far)*.5f),new Vector3(.12f,10,4),ink);
+                Torch(art,new Vector3(x-side*2.7f,3,far-2));
+            }
+        }
+        static void Temple(Transform shell,Transform art,PyramidCourse.Chamber room,SurfCourse.Section first)
+        {
+            float near=At(room,first,.08f).z,far=At(room,first,.8f).z;
+            foreach(int side in new[]{-1,1})SideWall(shell,"Processional terrace wall",room,side,near,far,3);
+            Vector3 landing=room.ToLocal(room.landing);
+            float rear=room.localMaximum.z+7;
+            foreach(int side in new[]{-1,1}){
+                SidePier(shell,room,side,landing.z+6,landing.y+18,7);
+                float x=side<0?room.localMinimum.x-2:room.localMaximum.x+2;
+                Torch(art,new Vector3(x,landing.y+3,landing.z+3));
+                if(PyramidVarcoImporter.Ready){
+                    float statueX=side<0?room.localMinimum.x-6:room.localMaximum.x+6;
+                    float baseY=room.localMinimum.y+.25f,statueY=landing.y-.3f;
+                    Box(shell,"Temple guardian foundation",new Vector3(statueX,(baseY+statueY)*.5f,landing.z-5),new Vector3(8,statueY-baseY,8),stone);
+                    PyramidVarcoImporter.Place(art,"Anubis",new Vector3(statueX,statueY,landing.z-5),8,side<0?65:-65);
+                }
+            }
+            // The sanctuary terminates beyond the full landing bounds; no roof crosses its approach.
+            float floor=room.localMinimum.y+.25f,top=landing.y+20;
+            float center=(room.localMinimum.x+room.localMaximum.x)*.5f;
+            float width=room.localMaximum.x-room.localMinimum.x+12;
+            Box(shell,"Royal temple rear wall",new Vector3(center,(floor+top)*.5f,rear),new Vector3(width,top-floor,3),stone);
+            Box(shell,"Royal temple crown",new Vector3(center,top+2,rear),new Vector3(width*.6f,4,3),stone);
+            // A single large sun disk replaces the repeated small friezes and gold outlines.
+            var disk=GameObject.CreatePrimitive(PrimitiveType.Cylinder);disk.name="Royal sun disk";disk.transform.SetParent(art);
+            disk.transform.position=new Vector3(landing.x,landing.y+10,rear-1.65f);disk.transform.rotation=Quaternion.Euler(90,0,0);disk.transform.localScale=new Vector3(6,.16f,6);
+            disk.GetComponent<Renderer>().sharedMaterial=gold;Object.DestroyImmediate(disk.GetComponent<Collider>());
         }
         static void Torch(Transform root,Vector3 position)
         {
-            Box(root,"Torch pedestal",position-Vector3.up*.7f,new Vector3(.55f,1.5f,.55f),ink);
-            var bowl=GameObject.CreatePrimitive(PrimitiveType.Sphere);bowl.name="Gold brazier";bowl.transform.SetParent(root);bowl.transform.position=position;bowl.transform.localScale=new Vector3(1,.35f,1);bowl.GetComponent<Renderer>().sharedMaterial=gold;Object.DestroyImmediate(bowl.GetComponent<Collider>());
-            var flame=GameObject.CreatePrimitive(PrimitiveType.Sphere);flame.name="Brazier ember";flame.transform.SetParent(root);flame.transform.position=position+Vector3.up*.35f;flame.transform.localScale=new Vector3(.36f,.75f,.36f);flame.GetComponent<Renderer>().sharedMaterial=glow;Object.DestroyImmediate(flame.GetComponent<Collider>());
-            var light=flame.AddComponent<Light>();light.type=LightType.Point;light.color=new Color(1,.58f,.20f);light.intensity=2.5f;light.range=21;light.shadows=LightShadows.None;lights.Add(light);
-        }
-        static void WallTorch(Transform root,Vector3 foot,float yaw,float wallX,int side)
-        {
-            var obj=WallAsset(root,"Brazier",foot,2.5f,yaw,wallX,side);
-            var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;
-            var ember=GameObject.CreatePrimitive(PrimitiveType.Sphere);ember.name="VARCO brazier ember";ember.transform.SetParent(root);
-            var bounds=VisualBounds(obj);ember.transform.position=new Vector3(bounds.center.x,bounds.min.y+bounds.size.y*.66f,bounds.center.z)+forward*.3f;ember.transform.localScale=new Vector3(.38f,.15f,.38f);
-            ember.GetComponent<Renderer>().sharedMaterial=glow;Object.DestroyImmediate(ember.GetComponent<Collider>());
-            var light=ember.AddComponent<Light>();light.type=LightType.Point;light.color=new Color(1,.68f,.33f);light.intensity=2.5f;light.range=21;light.shadows=LightShadows.None;lights.Add(light);
-        }
-        static void Spike(Transform root,Vector3 foot,float radius,float height,Material material=null)
-        {
-            string path=PyramidSurfBuilder.Art+"/Meshes/PyramidPoint.asset";var mesh=AssetDatabase.LoadAssetAtPath<Mesh>(path);
-            if(!mesh){
-                mesh=new Mesh{name="Four sided pyramid point"};var v=new List<Vector3>();var t=new List<int>();
-                for(int i=0;i<4;i++){float a=i*Mathf.PI*.5f+Mathf.PI*.25f,b=a+Mathf.PI*.5f;int n=v.Count;v.AddRange(new[]{new Vector3(Mathf.Cos(a),0,Mathf.Sin(a)),Vector3.up,new Vector3(Mathf.Cos(b),0,Mathf.Sin(b))});t.AddRange(new[]{n,n+1,n+2});}
-                mesh.SetVertices(v);mesh.SetTriangles(t,0);mesh.RecalculateNormals();mesh.RecalculateBounds();AssetDatabase.CreateAsset(mesh,path);
-            }
-            var obj=new GameObject("Pyramid point",typeof(MeshFilter),typeof(MeshRenderer));obj.transform.SetParent(root);obj.transform.position=foot;obj.transform.localScale=new Vector3(radius,height,radius);obj.GetComponent<MeshFilter>().sharedMesh=mesh;obj.GetComponent<Renderer>().sharedMaterial=material?material:gold;
-        }
-        static void Stroke(Transform parent,Vector3[] points,float width,Material material,bool loop=false)
-        {
-            var line=new GameObject("Inlaid symbol stroke").AddComponent<LineRenderer>();line.transform.SetParent(parent,false);line.useWorldSpace=false;line.loop=loop;line.positionCount=points.Length;line.SetPositions(points);line.widthMultiplier=width;line.numCapVertices=2;line.sharedMaterial=material;line.shadowCastingMode=ShadowCastingMode.Off;
-        }
-        static void Ankh(Transform root,Vector3 center,float scale,Material material)
-        {
-            var circle=Enumerable.Range(0,32).Select(i=>center+new Vector3(Mathf.Cos(i*Mathf.PI/16)*.36f,Mathf.Sin(i*Mathf.PI/16)*.48f+.48f,0)*scale).ToArray();
-            Stroke(root,circle,.10f*scale,material,true);Stroke(root,new[]{center,center+Vector3.down*1.1f*scale},.13f*scale,material);Stroke(root,new[]{center+Vector3.left*.58f*scale,center+Vector3.right*.58f*scale},.13f*scale,material);
-        }
-        static void Sun(Transform root,Vector3 center,float radius)
-        {
-            var glyph=new GameObject("Winged sun disk").transform;glyph.SetParent(root);glyph.position=center;
-            Stroke(glyph,Enumerable.Range(0,48).Select(i=>new Vector3(Mathf.Cos(i*Mathf.PI/24),Mathf.Sin(i*Mathf.PI/24),0)*radius).ToArray(),radius*.09f,gold,true);
-            foreach(int side in new[]{-1,1})for(int i=0;i<6;i++)Stroke(glyph,new[]{new Vector3(side*radius*.85f,.2f*radius,0),new Vector3(side*radius*(1.8f+i*.23f),radius*(.4f-i*.15f),0)},radius*.08f,gold);
+            Box(root,"Brazier stone pedestal",position-Vector3.up*1.3f,new Vector3(1,2.6f,1),ink);
+            var bowl=GameObject.CreatePrimitive(PrimitiveType.Sphere);bowl.name="Gold brazier";bowl.transform.SetParent(root);bowl.transform.position=position;bowl.transform.localScale=new Vector3(1.3f,.4f,1.3f);bowl.GetComponent<Renderer>().sharedMaterial=gold;Object.DestroyImmediate(bowl.GetComponent<Collider>());
+            var flame=GameObject.CreatePrimitive(PrimitiveType.Sphere);flame.name="Brazier ember";flame.transform.SetParent(root);flame.transform.position=position+Vector3.up*.35f;flame.transform.localScale=new Vector3(.46f,.9f,.46f);flame.GetComponent<Renderer>().sharedMaterial=glow;Object.DestroyImmediate(flame.GetComponent<Collider>());
+            var light=flame.AddComponent<Light>();light.type=LightType.Point;light.color=new Color(1,.58f,.20f);light.intensity=2.5f;light.range=24;light.shadows=LightShadows.None;lights.Add(light);
         }
     }
 }

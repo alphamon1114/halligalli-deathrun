@@ -45,17 +45,41 @@ namespace HalliGalli.EditorTools
             ConfigureModel(Art+"/Player_Bald.fbx");
             ConfigureModel(Art+"/FP_Hands.fbx");
             SkinMaterial("Body","Body_BaseColor","Body_ORM",null,Color.white);
-            // Match the existing character forearm's measured median skin tone.
-            SkinMaterial("Hands","Hands_BaseColor","Hands_ORM","Hands_Normal",new Color(.941f,.974f,.975f));
-            var nail=AssetDatabase.LoadAssetAtPath<Material>(Art+"/Materials/Nails.mat");
-            if(!nail){nail=new Material(Shader.Find("Standard"));AssetDatabase.CreateAsset(nail,Art+"/Materials/Nails.mat");}
-            nail.color=new Color(.77f,.63f,.55f);nail.SetFloat("_Glossiness",.40f);
+            ConfigureHandMaterials();
             var set=AssetDatabase.LoadAssetAtPath<CharacterMotionSet>(Art+"/CustomMotions.asset");
             if(!set){set=ScriptableObject.CreateInstance<CharacterMotionSet>();AssetDatabase.CreateAsset(set,Art+"/CustomMotions.asset");}
             var body=MakeModel(false); var hands=MakeModel(true);
             set.bodyClips=Bake(body,false);set.handClips=Bake(hands,true);
             UnityEngine.Object.DestroyImmediate(body);UnityEngine.Object.DestroyImmediate(hands);
             EditorUtility.SetDirty(set); AssetDatabase.SaveAssets();
+        }
+
+        // Shared by full asset preparation and the hand-only import/preview entry.
+        // Preserve the original realistic skin maps without baking additional tint into them.
+        public static void ConfigureHandMaterials()
+        {
+            string path=Art+"/Materials/Hands.mat";
+            var hands=AssetDatabase.LoadAssetAtPath<Material>(path);
+            if(!hands){hands=new Material(Shader.Find("Standard"));AssetDatabase.CreateAsset(hands,path);}
+            hands.color=Color.white;
+            hands.mainTexture=HandTexture("Hands_BaseColor");
+            hands.SetTexture("_MetallicGlossMap",HandTexture("Hands_MetalSmooth"));
+            hands.SetTexture("_OcclusionMap",HandTexture("Hands_AO"));
+            hands.SetTexture("_BumpMap",HandTexture("Hands_Normal"));
+            hands.EnableKeyword("_METALLICGLOSSMAP");hands.EnableKeyword("_NORMALMAP");
+            hands.SetFloat("_Metallic",0);hands.SetFloat("_GlossMapScale",.38f);
+            hands.SetFloat("_Glossiness",.22f);hands.SetFloat("_OcclusionStrength",.35f);
+            hands.SetFloat("_BumpScale",.08f);
+            EditorUtility.SetDirty(hands);
+            AssetDatabase.SaveAssetIfDirty(hands);
+        }
+
+        static Texture2D HandTexture(string name)
+        {
+            string path=Art+"/Textures/"+name+".png";
+            var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            if(!texture)throw new InvalidDataException("Missing hand texture: "+path);
+            return texture;
         }
 
         public static void PrepareAndValidate()
@@ -172,7 +196,7 @@ namespace HalliGalli.EditorTools
             foreach(var item in baked){item.skin.enabled=true;UnityEngine.Object.DestroyImmediate(item.go);UnityEngine.Object.DestroyImmediate(item.mesh);}
         }
 
-        static void SkinMaterial(string name,string albedo,string orm,string normal,Color tint)
+        static Material SkinMaterial(string name,string albedo,string orm,string normal,Color tint)
         {
             string path=Art+"/Materials/"+name+".mat";
             var mat=AssetDatabase.LoadAssetAtPath<Material>(path);
@@ -193,6 +217,7 @@ namespace HalliGalli.EditorTools
                 mat.SetTexture("_BumpMap",AssetDatabase.LoadAssetAtPath<Texture2D>(ti.assetPath));mat.SetFloat("_BumpScale",.14f);mat.EnableKeyword("_NORMALMAP");
             }
             EditorUtility.SetDirty(mat);
+            return mat;
         }
         static Texture2D Texture(string name,bool srgb)
         {
@@ -230,6 +255,7 @@ namespace HalliGalli.EditorTools
             EditorUtility.SetDirty(set);AssetDatabase.SaveAssets();Debug.Log("LASSO_MOTIONS_COMPLETE");
         }
         internal static AnimationClip[] BakeKick(GameObject model,bool hands) => Bake(model,hands,false,new[]{"Kick"});
+        internal static AnimationClip[] BakePushes(GameObject model,bool hands) => Bake(model,hands,false,new[]{"PushLeft","PushRight"});
         static AnimationClip[] Bake(GameObject model,bool hands,bool lassoOnly=false,string[] states=null)
         {
             var author=new MotionPoseAuthor(model);var list=new List<AnimationClip>();

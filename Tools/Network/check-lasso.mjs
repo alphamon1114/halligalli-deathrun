@@ -2,11 +2,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawn} from 'node:child_process';
 
-// node Tools/Network/check-lasso.mjs <project> [player.exe] [--headless]
+// node Tools/Network/check-lasso.mjs <project> [player.exe] [--headless] [--attach <probe-folder>]
 const project=path.resolve(process.argv[2]??'.');
 const executable=path.resolve(process.argv[3]&&!process.argv[3].startsWith('--')?process.argv[3]:path.join(project,'Build/Windows/HalliGalliMovement.exe'));
 const graphical=!process.argv.includes('--headless'),seed=20261105;
-const folder=path.join(project,'Tools/Network/Runs','lasso-'+Date.now());
+const attachIndex=process.argv.indexOf('--attach');
+if(attachIndex>=0&&!process.argv[attachIndex+1])throw new Error('--attach requires an existing probe folder');
+const attached=attachIndex>=0;
+const folder=attached?path.resolve(process.argv[attachIndex+1]):path.join(project,'Tools/Network/Runs','lasso-'+Date.now());
 fs.mkdirSync(folder,{recursive:true});
 const checks=[],processes=[],sequences={},cached={},travel=[];
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -32,8 +35,9 @@ async function command(role,action,extra={}){
  await wait(()=>state(role)?.commandSequence===sequence);
 }
 function launch(role){
+ if(attached)return;
  const args=graphical?['-screen-fullscreen','0','-screen-width','1440','-screen-height','900']:['-batchmode','-nographics'];
- const child=spawn(executable,[...args,'--net-probe',role,'--probe-dir',folder,'--net-port','17905','-logFile',path.join(folder,role+'.log')],{stdio:'ignore'});
+ const child=spawn(executable,[...args,'-disable-audio','--net-probe',role,'--probe-dir',folder,'--net-port','17905','-logFile',path.join(folder,role+'.log')],{stdio:'ignore'});
  processes.push(child);child.on('error',error=>child.spawnError=error);
 }
 async function capture(role,name){
@@ -55,7 +59,7 @@ async function success(caster,{turn=false,spam=false,countersteer=false,gap=8}={
  await command(role,'lasso',{yaw:0,pitch:0});
  if(turn)await command(role,'look',{yaw:125,pitch:-70,x:120,z:80});
  if(spam){await command(role,'lasso',{yaw:90,pitch:-75});await command(role,'lasso',{yaw:180,pitch:0});}
- let peak=0,locked=false,inward=false;
+ let peak=0,locked=false,inwardTravel=0;
  const until=Date.now()+1000;
  let steered=false;
  while(Date.now()<until){
@@ -63,7 +67,7 @@ async function success(caster,{turn=false,spam=false,countersteer=false,gap=8}={
   for(let i=0;i<states.length;i++){
    const actor=states[i].actors[target];peak=Math.max(peak,actor.position.y-before[i][target].position.y);
    locked||=actor.stun>0||actor.stagger>0||actor.raceLaunch>0;
-   inward||=actor.velocity.z<-.1;
+   inwardTravel=Math.max(inwardTravel,before[i][target].position.z-actor.position.z);
   }
   if(countersteer&&!steered&&states[0].actors[caster].lassoPulls>before[0][caster].lassoPulls){
    await command(victimRole,'move',{z:1,yaw:0});steered=true;
@@ -79,7 +83,9 @@ async function success(caster,{turn=false,spam=false,countersteer=false,gap=8}={
  const remoteDistance=before[1][target].position.z-states[1].actors[target].position.z;
  const name=role+' '+(countersteer?'countersteering':gap<2?'near target':turn?'camera turn':spam?'repeated Q':'single cast');
  check(name+' counts one cast, real hit and automatic pull on both peers',states.every((s,i)=>['lassoCasts','lassoHits','lassoPulls'].every(key=>delta(s,before[i],caster,key)===1)&&s.actors[caster].lassoPhase==='Idle'));
- check(name+' uses horizontal movement without lift or control lock',inward&&peak<.08&&!locked&&(countersteer||distance>.05),JSON.stringify({distance,peak,locked}));
+ // A close target can stop against the caster between snapshots. Observe actual
+ // inward displacement instead of requiring a transient velocity sample.
+ check(name+' produces a strong horizontal pull without lift or control lock',Math.max(inwardTravel,distance)>.05&&peak<.08&&!locked&&(countersteer||distance>(gap>=8?3:.05)),JSON.stringify({distance,inwardTravel,peak,locked}));
  check(name+' agrees on physical travel without a client impulse replay',Math.abs(distance-remoteDistance)<.06,JSON.stringify({distance,remoteDistance}));
  check(name+' plays each existing rope sound once per peer',states.every((s,i)=>['ropeThrowSounds','ropeLatchSounds','ropePullSounds'].every(key=>delta(s,before[i],caster,key)===1)));
  if(gap>=8)check(name+' does not forcibly deliver victim to caster feet',Math.abs(states[0].actors[target].position.z-states[0].actors[caster].position.z)>1);

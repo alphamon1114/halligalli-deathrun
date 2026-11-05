@@ -1,0 +1,29 @@
+{
+    "utc":  "2026-11-05T06:37:13.0098634Z",
+    "startedUtc":  "2026-11-05T06:35:02.7169934Z",
+    "exitedUtc":  "2026-11-05T06:37:12.9045559Z",
+    "runId":  "991ead98cdff436cb82961634c759f72",
+    "status":  "passed",
+    "error":  null,
+    "playbackReport":  "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\VerificationPeer\\TestResults\\map-music-playback.json",
+    "playbackReportAccepted":  true,
+    "wrapperExitCode":  0,
+    "forcedTermination":  false,
+    "unityProcessId":  28576,
+    "engineAudioDisabled":  false,
+    "scope":  "Only process-owned Windows render sessions; no endpoint/global volume changes",
+    "gatedStartup":  true,
+    "elapsedSeconds":  130.2976248,
+    "unityExitCode":  0,
+    "sessions":  [
+                     {
+                         "device":  "{0.0.0.00000000}.{8c9449c3-3bc4-4c19-a18e-de5cfb322fba}",
+                         "instance":  "{0.0.0.00000000}.{8c9449c3-3bc4-4c19-a18e-de5cfb322fba}|\\Device\\HarddiskVolume3\\Program Files\\Unity\\Hub\\Editor\\6000.6.0f1\\Editor\\Unity.exe%b{00000000-0000-0000-0000-000000000000}|1%b28576",
+                         "processId":  28576,
+                         "originalMute":  false,
+                         "mutedConfirmed":  true,
+                         "restoredConfirmed":  true,
+                         "restoreError":  null
+                     }
+                 ]
+}

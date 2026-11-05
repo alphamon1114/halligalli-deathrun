@@ -91,7 +91,7 @@ namespace HalliGalli.EditorTools
                 text.GetComponent<Renderer>().enabled = false;
             if (surf) SurfInterior(); else if (mountain) Mountain(); else Interior();
             Lighting(mountain);
-            if (surf) { RenderSettings.fogStartDistance = 120; RenderSettings.fogEndDistance = 240; }
+            if (surf) SurfAppearanceBuilder.ApplyLighting();
         }
 
         static bool IsArt(Transform t)
@@ -198,39 +198,9 @@ namespace HalliGalli.EditorTools
         }
         static void SurfInterior()
         {
-            var course=Object.FindAnyObjectByType<SurfCourse>();
-            var session=Object.FindAnyObjectByType<CourseSession>();
-            float bottom=session.fallHeight-2, ceiling=16;
-            var bounds=new Bounds(new Vector3(0,0,-8),Vector3.one*16);
-            foreach(var section in course.sections)foreach(var point in section.points)bounds.Encapsulate(point);
-            bounds.Encapsulate(course.finish.position);
-            int x0=Mathf.FloorToInt((bounds.min.x-12)/18),x1=Mathf.CeilToInt((bounds.max.x+12)/18);
-            int z0=Mathf.FloorToInt((bounds.min.z-12)/18),z1=Mathf.CeilToInt((bounds.max.z+12)/18);
-            // Existing VARCO kit is instanced around the whole course; decoration never has collision.
-            for(int x=x0;x<x1;x++)for(int z=z0;z<z1;z++){
-                Prop("ConcreteFloor",new Vector3((x+.5f)*18,bottom,(z+.5f)*18),new Vector3(18.02f,.2f,18.02f));
-                Place("ConcreteFloor",art,new Vector3((x+.5f)*18,ceiling,(z+.5f)*18),new Vector3(18.02f,.2f,18.02f),Quaternion.Euler(180,0,0));
-            }
-            foreach(float x in new[]{x0*18f,x1*18f})for(int z=z0;z<z1;z++)
-                Prop("ConcreteWall",new Vector3(x,(bottom+ceiling)/2,(z+.5f)*18),new Vector3(18.02f,ceiling-bottom,.28f),x<0?-90:90);
-            foreach(float z in new[]{z0*18f,z1*18f})for(int x=x0;x<x1;x++)
-                Prop("ConcreteWall",new Vector3((x+.5f)*18,(bottom+ceiling)/2,z),new Vector3(18.02f,ceiling-bottom,.28f),z<0?180:0);
-            for(int x=x0+1;x<x1;x+=2)for(int z=z0+1;z<z1;z+=2){
-                Prop("CeilingLight",new Vector3(x*18,ceiling-.5f,z*18),new Vector3(2.4f,.22f,.58f));
-                Lamp(new Vector3(x*18,ceiling-2,z*18),new Color(.75f,.82f,1),.9f,32);
-            }
-            foreach(var section in course.sections) {
-                foreach(int i in new[]{0,section.points.Length-1})foreach(int side in new[]{section.side}) {
-                    Vector3 pos=section.points[i]+Quaternion.Euler(0,section.headings[i],0)*Vector3.right*side*6.1f;
-                    float top=pos.y+3.3f;
-                    Prop("ConcreteColumn",new Vector3(pos.x,(bottom+top)*.5f,pos.z),new Vector3(.6f,top-bottom,.6f));
-                    Lamp(pos+Vector3.up*5,new Color(.64f,.5f,1),.8f,11);
-                }
-            }
-            foreach(float z in new[]{-.5f,-7.5f})Prop("ConcreteColumn",new Vector3(-21,-21.7f,z),new Vector3(.8f,16.6f,1));
-            Lamp(new Vector3(0,4.5f,-5),new Color(1,.9f,.76f),1.5f,8);
-            Lamp(new Vector3(0,-5,22),new Color(.6f,.8f,1),1.2f,12);
-            Lamp(new Vector3(-20,-5,-4),new Color(1,.83f,.55f),2,12);
+            var course = Object.FindAnyObjectByType<SurfCourse>();
+            SurfAppearanceBuilder.InstallBackdrop(art, course, Object.FindAnyObjectByType<CourseSession>());
+            SurfAppearanceBuilder.ApplyRouteMaterials(course);
         }
         static void Lamp(Vector3 position, Color color, float intensity, float range)
         {

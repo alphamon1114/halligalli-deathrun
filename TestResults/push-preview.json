@@ -1,28 +1,476 @@
 {
+    "utc": "2026-11-05T06:34:33.5376305Z",
+    "completedUtc": "2026-11-05T06:34:44.7453106Z",
+    "error": "",
+    "unityVersion": "6000.6.0f1",
+    "scope": "Live runtime animation/camera capture and deterministic binding/input-handler checks; not native OS input, network or audio verification.",
+    "complete": true,
+    "success": true,
+    "passed": 76,
+    "failed": 0,
     "frames": [
         {
+            "path": "Previews/Push_FP_None_Idle.png",
+            "detailPath": "",
+            "view": "FP",
+            "attack": "None",
+            "phase": "Idle",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.0,
+            "combatElapsed": 0.0,
+            "duration": 0.0,
+            "contactStart": 0.0,
+            "contactEnd": 0.0,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1713152527809143,
+                "y": 0.11748462915420532,
+                "z": -0.073028564453125
+            },
+            "bodyLeftFoot": {
+                "x": -0.1800251007080078,
+                "y": 0.11748462915420532,
+                "z": -0.0730295181274414
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23500001430511475,
+                "y": -0.23478691279888153,
+                "z": 0.43038731813430786
+            },
+            "rightWrist": {
+                "x": 0.23500001430511475,
+                "y": -0.23521308600902557,
+                "z": 0.4296126365661621
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_FP_None_IdleMotion.png",
+            "detailPath": "",
+            "view": "FP",
+            "attack": "None",
+            "phase": "IdleMotion",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.0,
+            "combatElapsed": 0.0,
+            "duration": 0.0,
+            "contactStart": 0.0,
+            "contactEnd": 0.0,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17130042612552643,
+                "y": 0.11768072843551636,
+                "z": -0.0729990005493164
+            },
+            "bodyLeftFoot": {
+                "x": -0.18001018464565277,
+                "y": 0.11768049001693726,
+                "z": -0.07299947738647461
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.2347317337989807,
+                "z": 0.43048766255378723
+            },
+            "rightWrist": {
+                "x": 0.23499999940395355,
+                "y": -0.2352682650089264,
+                "z": 0.42951229214668274
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_FP_PushLeft_Anticipation.png",
+            "detailPath": "",
+            "view": "FP",
+            "attack": "PushLeft",
+            "phase": "Anticipation",
+            "bodyState": "PushLeft",
+            "handState": "PushLeft",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.1534430980682373,
+            "combatElapsed": 0.059999994933605194,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17121265828609467,
+                "y": 0.11884772777557373,
+                "z": -0.07282257080078125
+            },
+            "bodyLeftFoot": {
+                "x": -0.1799219399690628,
+                "y": 0.1188475489616394,
+                "z": -0.07282352447509766
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.23440316319465637,
+                "z": 0.43108513951301575
+            },
+            "rightWrist": {
+                "x": 0.23499999940395355,
+                "y": -0.23559685051441193,
+                "z": 0.4289148151874542
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": -0.24046766757965088,
+                    "y": 1.220905065536499,
+                    "z": 0.19773149490356445
+                },
+                "palm": {
+                    "x": -0.24059602618217468,
+                    "y": 1.2307381629943848,
+                    "z": 0.25018978118896484
+                },
+                "elbow": {
+                    "x": -0.2894172966480255,
+                    "y": 1.2143052816390991,
+                    "z": -0.037227630615234375
+                },
+                "shoulder": {
+                    "x": -0.19419553875923157,
+                    "y": 1.4480481147766113,
+                    "z": -0.015587806701660156
+                },
+                "offhand": {
+                    "x": 0.28001049160957336,
+                    "y": 1.0122137069702148,
+                    "z": 0.10503673553466797
+                },
+                "palmNormal": {
+                    "x": 0.9485409259796143,
+                    "y": -0.31080561876296997,
+                    "z": 0.06057995930314064
+                },
+                "palmViewport": {
+                    "x": 0.14687076210975647,
+                    "y": -0.2843300998210907,
+                    "z": 0.27882611751556396
+                },
+                "fingerTopViewport": {
+                    "x": 0.27244454622268677,
+                    "y": 0.011677026748657227,
+                    "z": 0.38212835788726807
+                },
+                "palmAheadOfElbow": 0.2874174118041992,
+                "wristAheadOfElbow": 0.23495912551879883,
+                "forearmForward": 0.9786106944084167,
+                "elbowLateralOffset": 0.048949629068374634,
+                "extensionRatio": 0.6384568810462952,
+                "palmFacing": 0.06057995930314064,
+                "minimumFingerStraightness": 0.9839394092559814
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": -0.23499999940395355,
+                    "y": -0.23440316319465637,
+                    "z": 0.43108513951301575
+                },
+                "palm": {
+                    "x": -0.24772503972053528,
+                    "y": -0.23190999031066895,
+                    "z": 0.4694119095802307
+                },
+                "elbow": {
+                    "x": -0.12967707216739655,
+                    "y": -0.30682748556137085,
+                    "z": -0.033075906336307526
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.23499999940395355,
+                    "y": -0.23559685051441193,
+                    "z": 0.4289148151874542
+                },
+                "palmNormal": {
+                    "x": 0.4856553077697754,
+                    "y": -0.8469573855400085,
+                    "z": 0.21633799374103546
+                },
+                "palmViewport": {
+                    "x": 0.18935829401016235,
+                    "y": 0.11225301772356033,
+                    "z": 0.4694114625453949
+                },
+                "fingerTopViewport": {
+                    "x": 0.2749752402305603,
+                    "y": 0.15261366963386536,
+                    "z": 0.5533172488212585
+                },
+                "palmAheadOfElbow": 0.50248783826828,
+                "wristAheadOfElbow": 0.4641610383987427,
+                "forearmForward": 0.9641115069389343,
+                "elbowLateralOffset": 0.105322927236557,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.21633799374103546,
+                "minimumFingerStraightness": 0.9000858068466187
+            }
+        },
+        {
             "path": "Previews/Push_FP_PushLeft_Contact.png",
+            "detailPath": "",
             "view": "FP",
             "attack": "PushLeft",
             "phase": "Contact",
             "bodyState": "PushLeft",
             "handState": "PushLeft",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.15540041029453278,
-            "combatElapsed": 0.16499999165534973,
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.2941436767578125,
+            "combatElapsed": 0.1599999964237213,
             "duration": 0.550000011920929,
             "contactStart": 0.11999999731779099,
             "contactEnd": 0.20000000298023224,
             "kickVisible": false,
             "bodyRightFoot": {
-                "x": 0.1714344024658203,
-                "y": 0.11832702159881592,
-                "z": -0.07324886322021484
+                "x": 0.17116302251815796,
+                "y": 0.11951172351837158,
+                "z": -0.072723388671875
             },
             "bodyLeftFoot": {
-                "x": -0.18014492094516754,
-                "y": 0.11832821369171143,
-                "z": -0.07324743270874023
+                "x": -0.1798720359802246,
+                "y": 0.11951148509979248,
+                "z": -0.0727238655090332
             },
             "firstPersonRightFoot": {
                 "x": 0.0,
@@ -33,31 +481,288 @@
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.17000000178813934,
+                "y": -0.23999999463558197,
+                "z": 0.7099998593330383
+            },
+            "rightWrist": {
+                "x": 0.27000001072883606,
+                "y": -0.28999999165534973,
+                "z": 0.3799997866153717
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": -0.16971318423748016,
+                    "y": 1.3623921871185303,
+                    "z": 0.4649534225463867
+                },
+                "palm": {
+                    "x": -0.16878464818000793,
+                    "y": 1.4157551527023315,
+                    "z": 0.46535396575927734
+                },
+                "elbow": {
+                    "x": -0.19184134900569916,
+                    "y": 1.337519884109497,
+                    "z": 0.22717809677124023
+                },
+                "shoulder": {
+                    "x": -0.19392968714237213,
+                    "y": 1.4495716094970703,
+                    "z": -0.00000286102294921875
+                },
+                "offhand": {
+                    "x": 0.28999996185302734,
+                    "y": 1.0228495597839355,
+                    "z": 0.11999988555908203
+                },
+                "palmNormal": {
+                    "x": -0.12251854687929153,
+                    "y": -0.00531306117773056,
+                    "z": 0.9924519658088684
+                },
+                "palmViewport": {
+                    "x": 0.35626456141471863,
+                    "y": 0.2715321183204651,
+                    "z": 0.4805600345134735
+                },
+                "fingerTopViewport": {
+                    "x": 0.3598766326904297,
+                    "y": 0.4080806076526642,
+                    "z": 0.46561920642852783
+                },
+                "palmAheadOfElbow": 0.2381758689880371,
+                "wristAheadOfElbow": 0.23777532577514648,
+                "forearmForward": 0.9903404116630554,
+                "elbowLateralOffset": 0.022128164768218994,
+                "extensionRatio": 0.9600000381469727,
+                "palmFacing": 0.9924519658088684,
+                "minimumFingerStraightness": 1.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": -0.17000000178813934,
+                    "y": -0.23999999463558197,
+                    "z": 0.7099998593330383
+                },
+                "palm": {
+                    "x": -0.17744967341423035,
+                    "y": -0.20027542114257813,
+                    "z": 0.7118782997131348
+                },
+                "elbow": {
+                    "x": -0.25074565410614014,
+                    "y": -0.3845985233783722,
+                    "z": 0.25794297456741333
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.27000001072883606,
+                    "y": -0.28999999165534973,
+                    "z": 0.3799997866153717
+                },
+                "palmNormal": {
+                    "x": -0.0337366983294487,
+                    "y": -0.05352337658405304,
+                    "z": 0.9979965090751648
+                },
+                "palmViewport": {
+                    "x": 0.3532717823982239,
+                    "y": 0.2791970372200012,
+                    "z": 0.7118778228759766
+                },
+                "fingerTopViewport": {
+                    "x": 0.35347771644592285,
+                    "y": 0.40805402398109436,
+                    "z": 0.7237882614135742
+                },
+                "palmAheadOfElbow": 0.45393532514572144,
+                "wristAheadOfElbow": 0.452056884765625,
+                "forearmForward": 0.9389691948890686,
+                "elbowLateralOffset": 0.0807456523180008,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.9979965090751648,
+                "minimumFingerStraightness": 0.9961742758750916
+            }
+        },
+        {
+            "path": "Previews/Push_FP_PushLeft_Recovery.png",
+            "detailPath": "",
+            "view": "FP",
+            "attack": "PushLeft",
+            "phase": "Recovery",
+            "bodyState": "PushLeft",
+            "handState": "PushLeft",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.43717074394226074,
+            "combatElapsed": 0.43999984860420227,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17115390300750732,
+                "y": 0.11963057518005371,
+                "z": -0.07270479202270508
+            },
+            "bodyLeftFoot": {
+                "x": -0.1798628866672516,
+                "y": 0.11963033676147461,
+                "z": -0.07270574569702148
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23899129033088684,
+                "y": -0.246973916888237,
+                "z": 0.4060521721839905
+            },
+            "rightWrist": {
+                "x": 0.25619974732398987,
+                "y": -0.26831385493278503,
+                "z": 0.39971473813056946
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": -0.26997217535972595,
+                    "y": 1.0991806983947754,
+                    "z": 0.17823076248168945
+                },
+                "palm": {
+                    "x": -0.26931238174438477,
+                    "y": 1.123514175415039,
+                    "z": 0.22572898864746094
+                },
+                "elbow": {
+                    "x": -0.27871009707450867,
+                    "y": 1.2107675075531006,
+                    "z": -0.034177303314208984
+                },
+                "shoulder": {
+                    "x": -0.19419914484024048,
+                    "y": 1.4488500356674194,
+                    "z": -0.015583515167236328
+                },
+                "offhand": {
+                    "x": 0.28212970495224,
+                    "y": 1.0151004791259766,
+                    "z": 0.10819435119628906
+                },
+                "palmNormal": {
+                    "x": 0.7760806083679199,
+                    "y": -0.5655758380889893,
+                    "z": 0.2789672911167145
+                },
+                "palmViewport": {
+                    "x": 0.07918363809585571,
+                    "y": -0.5614093542098999,
+                    "z": 0.2619044780731201
+                },
+                "fingerTopViewport": {
+                    "x": 0.21501660346984863,
+                    "y": -0.16762113571166992,
+                    "z": 0.36486947536468506
+                },
+                "palmAheadOfElbow": 0.2599062919616699,
+                "wristAheadOfElbow": 0.21240806579589844,
+                "forearmForward": 0.8846869468688965,
+                "elbowLateralOffset": 0.008737921714782715,
+                "extensionRatio": 0.8246784210205078,
+                "palmFacing": 0.2789672911167145,
+                "minimumFingerStraightness": 0.9920608997344971
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": -0.23899129033088684,
+                    "y": -0.246973916888237,
+                    "z": 0.4060521721839905
+                },
+                "palm": {
+                    "x": -0.25232574343681335,
+                    "y": -0.21543703973293304,
+                    "z": 0.427608847618103
+                },
+                "elbow": {
+                    "x": -0.24315346777439117,
+                    "y": -0.5901364684104919,
+                    "z": 0.068404421210289
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.25619974732398987,
+                    "y": -0.26831385493278503,
+                    "z": 0.39971473813056946
+                },
+                "palmNormal": {
+                    "x": 0.14658936858177185,
+                    "y": -0.5152187347412109,
+                    "z": 0.8444294929504395
+                },
+                "palmViewport": {
+                    "x": 0.15265652537345886,
+                    "y": 0.10458150506019592,
+                    "z": 0.4276083707809448
+                },
+                "fingerTopViewport": {
+                    "x": 0.19296419620513916,
+                    "y": 0.2839328646659851,
+                    "z": 0.5084848999977112
+                },
+                "palmAheadOfElbow": 0.35920441150665283,
+                "wristAheadOfElbow": 0.3376477360725403,
+                "forearmForward": 0.70132976770401,
+                "elbowLateralOffset": 0.0041621774435043335,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.8444294929504395,
+                "minimumFingerStraightness": 0.9738848805427551
             }
         },
         {
             "path": "Previews/Push_FP_PushLeft_Recovered.png",
+            "detailPath": "",
             "view": "FP",
             "attack": "PushLeft",
             "phase": "Recovered",
             "bodyState": "Idle",
             "handState": "Idle",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.7053130865097046,
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.5745844841003418,
             "combatElapsed": 0.0,
             "duration": 0.550000011920929,
             "contactStart": 0.11999999731779099,
             "contactEnd": 0.20000000298023224,
             "kickVisible": false,
             "bodyRightFoot": {
-                "x": 0.1711677759885788,
-                "y": 0.11944514513015747,
-                "z": -0.07273292541503906
+                "x": 0.17118604481220245,
+                "y": 0.11920154094696045,
+                "z": -0.0727691650390625
             },
             "bodyLeftFoot": {
-                "x": -0.17987680435180664,
-                "y": 0.11944496631622314,
-                "z": -0.07273340225219727
+                "x": -0.17989517748355865,
+                "y": 0.11920136213302612,
+                "z": -0.0727701187133789
             },
             "firstPersonRightFoot": {
                 "x": 0.0,
@@ -68,31 +773,288 @@
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.23499992489814758,
+                "z": 0.4300002157688141
+            },
+            "rightWrist": {
+                "x": 0.23499999940395355,
+                "y": -0.23499992489814758,
+                "z": 0.4300002157688141
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": -0.2699999511241913,
+                    "y": 0.9999967813491821,
+                    "z": 0.09338092803955078
+                },
+                "palm": {
+                    "x": -0.2695995569229126,
+                    "y": 0.949665904045105,
+                    "z": 0.11113643646240234
+                },
+                "elbow": {
+                    "x": -0.2814319431781769,
+                    "y": 1.2106513977050781,
+                    "z": -0.021245479583740234
+                },
+                "shoulder": {
+                    "x": -0.19419914484024048,
+                    "y": 1.4484108686447144,
+                    "z": -0.015583515167236328
+                },
+                "offhand": {
+                    "x": 0.2700001299381256,
+                    "y": 0.9999966621398926,
+                    "z": 0.0900278091430664
+                },
+                "palmNormal": {
+                    "x": 0.9924511313438416,
+                    "y": -0.033703748136758804,
+                    "z": -0.11791830509901047
+                },
+                "palmViewport": {
+                    "x": -0.190784752368927,
+                    "y": -1.8602726459503174,
+                    "z": 0.1597180962562561
+                },
+                "fingerTopViewport": {
+                    "x": 0.09834524989128113,
+                    "y": -1.2969040870666504,
+                    "z": 0.23157961666584015
+                },
+                "palmAheadOfElbow": 0.13238191604614258,
+                "wristAheadOfElbow": 0.11462640762329102,
+                "forearmForward": 0.47742247581481934,
+                "elbowLateralOffset": 0.011431992053985596,
+                "extensionRatio": 0.947778046131134,
+                "palmFacing": -0.11791830509901047,
+                "minimumFingerStraightness": 0.8613380789756775
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": -0.23499999940395355,
+                    "y": -0.23499992489814758,
+                    "z": 0.4300002157688141
+                },
+                "palm": {
+                    "x": -0.24772420525550842,
+                    "y": -0.23243096470832825,
+                    "z": 0.46832215785980225
+                },
+                "elbow": {
+                    "x": -0.1297013908624649,
+                    "y": -0.3083252012729645,
+                    "z": -0.034024693071842194
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.23499999940395355,
+                    "y": -0.23499992489814758,
+                    "z": 0.4300002157688141
+                },
+                "palmNormal": {
+                    "x": 0.4853755533695221,
+                    "y": -0.8467117547988892,
+                    "z": 0.2179213911294937
+                },
+                "palmViewport": {
+                    "x": 0.18863627314567566,
+                    "y": 0.11047765612602234,
+                    "z": 0.4683217406272888
+                },
+                "fingerTopViewport": {
+                    "x": 0.274537593126297,
+                    "y": 0.1514090895652771,
+                    "z": 0.5522518157958984
+                },
+                "palmAheadOfElbow": 0.5023468732833862,
+                "wristAheadOfElbow": 0.4640249013900757,
+                "forearmForward": 0.9638291001319885,
+                "elbowLateralOffset": 0.10529860854148865,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.2179213911294937,
+                "minimumFingerStraightness": 0.9000908732414246
+            }
+        },
+        {
+            "path": "Previews/Push_FP_PushRight_Anticipation.png",
+            "detailPath": "",
+            "view": "FP",
+            "attack": "PushRight",
+            "phase": "Anticipation",
+            "bodyState": "PushRight",
+            "handState": "PushRight",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.14488935470581055,
+            "combatElapsed": 0.059999994933605194,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17125603556632996,
+                "y": 0.11827027797698975,
+                "z": -0.07290983200073242
+            },
+            "bodyLeftFoot": {
+                "x": -0.1799655556678772,
+                "y": 0.11826997995376587,
+                "z": -0.07291030883789063
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.23464013636112213,
+                "z": 0.43065428733825684
+            },
+            "rightWrist": {
+                "x": 0.23499999940395355,
+                "y": -0.23535974323749542,
+                "z": 0.42934566736221313
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": 0.2404162436723709,
+                    "y": 1.220326542854309,
+                    "z": 0.19773483276367188
+                },
+                "palm": {
+                    "x": 0.24040652811527252,
+                    "y": 1.2286821603775024,
+                    "z": 0.24695777893066406
+                },
+                "elbow": {
+                    "x": 0.28536316752433777,
+                    "y": 1.2157461643218994,
+                    "z": -0.0380706787109375
+                },
+                "shoulder": {
+                    "x": 0.18548467755317688,
+                    "y": 1.447456955909729,
+                    "z": -0.015587806701660156
+                },
+                "offhand": {
+                    "x": -0.2800118327140808,
+                    "y": 1.0116212368011475,
+                    "z": 0.10503625869750977
+                },
+                "palmNormal": {
+                    "x": -0.9587384462356567,
+                    "y": -0.28031110763549805,
+                    "z": 0.04739370942115784
+                },
+                "palmViewport": {
+                    "x": 0.8567934036254883,
+                    "y": -0.2975980043411255,
+                    "z": 0.2757453918457031
+                },
+                "fingerTopViewport": {
+                    "x": 0.7338759899139404,
+                    "y": -0.0032227635383605957,
+                    "z": 0.3755219876766205
+                },
+                "palmAheadOfElbow": 0.28502845764160156,
+                "wristAheadOfElbow": 0.23580551147460938,
+                "forearmForward": 0.9821355938911438,
+                "elbowLateralOffset": 0.04494692385196686,
+                "extensionRatio": 0.6412560343742371,
+                "palmFacing": 0.04739370942115784,
+                "minimumFingerStraightness": 0.9759541153907776
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": 0.23499999940395355,
+                    "y": -0.23535974323749542,
+                    "z": 0.42934566736221313
+                },
+                "palm": {
+                    "x": 0.24772369861602783,
+                    "y": -0.2327452450990677,
+                    "z": 0.4676644206047058
+                },
+                "elbow": {
+                    "x": 0.12971606850624084,
+                    "y": -0.30922821164131165,
+                    "z": -0.03459633141756058
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": -0.23499999940395355,
+                    "y": -0.23464013636112213,
+                    "z": 0.43065428733825684
+                },
+                "palmNormal": {
+                    "x": -0.4852057695388794,
+                    "y": -0.8465638160705566,
+                    "z": 0.21887218952178955
+                },
+                "palmViewport": {
+                    "x": 0.8118008375167847,
+                    "y": 0.10940258949995041,
+                    "z": 0.46766397356987
+                },
+                "fingerTopViewport": {
+                    "x": 0.7257274985313416,
+                    "y": 0.15067949891090393,
+                    "z": 0.5516090393066406
+                },
+                "palmAheadOfElbow": 0.5022607445716858,
+                "wristAheadOfElbow": 0.4639419913291931,
+                "forearmForward": 0.963657021522522,
+                "elbowLateralOffset": 0.10528393089771271,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.21887218952178955,
+                "minimumFingerStraightness": 0.9000890851020813
             }
         },
         {
             "path": "Previews/Push_FP_PushRight_Contact.png",
+            "detailPath": "",
             "view": "FP",
             "attack": "PushRight",
             "phase": "Contact",
             "bodyState": "PushRight",
             "handState": "PushRight",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.15838158130645752,
-            "combatElapsed": 0.16499999165534973,
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.28269457817077637,
+            "combatElapsed": 0.1599999964237213,
             "duration": 0.550000011920929,
             "contactStart": 0.11999999731779099,
             "contactEnd": 0.20000000298023224,
             "kickVisible": false,
             "bodyRightFoot": {
-                "x": 0.17115353047847748,
-                "y": 0.119637131690979,
-                "z": -0.07270431518554688
+                "x": 0.1713458001613617,
+                "y": 0.11707836389541626,
+                "z": -0.0730900764465332
             },
             "bodyLeftFoot": {
-                "x": -0.17986251413822174,
-                "y": 0.11963671445846558,
-                "z": -0.07270479202270508
+                "x": -0.18005581200122833,
+                "y": 0.11707818508148193,
+                "z": -0.07309103012084961
             },
             "firstPersonRightFoot": {
                 "x": 0.0,
@@ -103,31 +1065,288 @@
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.27000001072883606,
+                "y": -0.28999999165534973,
+                "z": 0.3799997866153717
+            },
+            "rightWrist": {
+                "x": 0.17000000178813934,
+                "y": -0.23999999463558197,
+                "z": 0.7099998593330383
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": 0.16100232303142548,
+                    "y": 1.359901785850525,
+                    "z": 0.4649529457092285
+                },
+                "palm": {
+                    "x": 0.16096413135528564,
+                    "y": 1.409824252128601,
+                    "z": 0.46562671661376953
+                },
+                "elbow": {
+                    "x": 0.18445199728012085,
+                    "y": 1.3352277278900146,
+                    "z": 0.22728443145751953
+                },
+                "shoulder": {
+                    "x": 0.18521885573863983,
+                    "y": 1.4470808506011963,
+                    "z": -0.00000286102294921875
+                },
+                "offhand": {
+                    "x": -0.28999999165534973,
+                    "y": 1.020358681678772,
+                    "z": 0.11999988555908203
+                },
+                "palmNormal": {
+                    "x": 0.08909732103347778,
+                    "y": -0.01336854137480259,
+                    "z": 0.9959331750869751
+                },
+                "palmViewport": {
+                    "x": 0.6368802785873413,
+                    "y": 0.26517075300216675,
+                    "z": 0.48124584555625916
+                },
+                "fingerTopViewport": {
+                    "x": 0.6314272284507751,
+                    "y": 0.39416825771331787,
+                    "z": 0.4690498411655426
+                },
+                "palmAheadOfElbow": 0.23834228515625,
+                "wristAheadOfElbow": 0.23766851425170898,
+                "forearmForward": 0.9898987412452698,
+                "elbowLateralOffset": 0.023449674248695374,
+                "extensionRatio": 0.9600001573562622,
+                "palmFacing": 0.9959331750869751,
+                "minimumFingerStraightness": 0.9999999403953552
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": 0.17000000178813934,
+                    "y": -0.23999999463558197,
+                    "z": 0.7099998593330383
+                },
+                "palm": {
+                    "x": 0.17744967341423035,
+                    "y": -0.20027542114257813,
+                    "z": 0.7118782997131348
+                },
+                "elbow": {
+                    "x": 0.2507459819316864,
+                    "y": -0.38459858298301697,
+                    "z": 0.25794345140457153
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": -0.27000001072883606,
+                    "y": -0.28999999165534973,
+                    "z": 0.3799997866153717
+                },
+                "palmNormal": {
+                    "x": 0.03374411165714264,
+                    "y": -0.05351880192756653,
+                    "z": 0.9979965090751648
+                },
+                "palmViewport": {
+                    "x": 0.6467282176017761,
+                    "y": 0.2791968882083893,
+                    "z": 0.7118778228759766
+                },
+                "fingerTopViewport": {
+                    "x": 0.6465222835540771,
+                    "y": 0.40805402398109436,
+                    "z": 0.7237882614135742
+                },
+                "palmAheadOfElbow": 0.45393484830856323,
+                "wristAheadOfElbow": 0.4520564079284668,
+                "forearmForward": 0.9389689564704895,
+                "elbowLateralOffset": 0.08074598014354706,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.9979965090751648,
+                "minimumFingerStraightness": 0.9961742758750916
+            }
+        },
+        {
+            "path": "Previews/Push_FP_PushRight_Recovery.png",
+            "detailPath": "",
+            "view": "FP",
+            "attack": "PushRight",
+            "phase": "Recovery",
+            "bodyState": "PushRight",
+            "handState": "PushRight",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.42928528785705566,
+            "combatElapsed": 0.43999984860420227,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17142651975154877,
+                "y": 0.11600875854492188,
+                "z": -0.07325267791748047
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013699352741241,
+                "y": 0.1160086989402771,
+                "z": -0.07325315475463867
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.25619974732398987,
+                "y": -0.26831385493278503,
+                "z": 0.39971473813056946
+            },
+            "rightWrist": {
+                "x": 0.23899129033088684,
+                "y": -0.246973916888237,
+                "z": 0.4060521721839905
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": 0.26997244358062744,
+                    "y": 1.0952059030532837,
+                    "z": 0.17823076248168945
+                },
+                "palm": {
+                    "x": 0.26954159140586853,
+                    "y": 1.1171960830688477,
+                    "z": 0.2230520248413086
+                },
+                "elbow": {
+                    "x": 0.27438071370124817,
+                    "y": 1.2083418369293213,
+                    "z": -0.033490657806396484
+                },
+                "shoulder": {
+                    "x": 0.18548831343650818,
+                    "y": 1.4448763132095337,
+                    "z": -0.015583515167236328
+                },
+                "offhand": {
+                    "x": -0.28212976455688477,
+                    "y": 1.0111268758773804,
+                    "z": 0.10819435119628906
+                },
+                "palmNormal": {
+                    "x": -0.796801745891571,
+                    "y": -0.5454637408256531,
+                    "z": 0.2599543035030365
+                },
+                "palmViewport": {
+                    "x": 0.9247902035713196,
+                    "y": -0.5841573476791382,
+                    "z": 0.2596747577190399
+                },
+                "fingerTopViewport": {
+                    "x": 0.7822946310043335,
+                    "y": -0.19573892652988434,
+                    "z": 0.34487149119377136
+                },
+                "palmAheadOfElbow": 0.2565426826477051,
+                "wristAheadOfElbow": 0.21172142028808594,
+                "forearmForward": 0.881827175617218,
+                "elbowLateralOffset": 0.0044082701206207275,
+                "extensionRatio": 0.8281497359275818,
+                "palmFacing": 0.2599543035030365,
+                "minimumFingerStraightness": 0.9874352812767029
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": 0.23899129033088684,
+                    "y": -0.246973916888237,
+                    "z": 0.4060521721839905
+                },
+                "palm": {
+                    "x": 0.25232571363449097,
+                    "y": -0.21543703973293304,
+                    "z": 0.427608847618103
+                },
+                "elbow": {
+                    "x": 0.24315373599529266,
+                    "y": -0.5901363492012024,
+                    "z": 0.0684044137597084
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": -0.25619974732398987,
+                    "y": -0.26831385493278503,
+                    "z": 0.39971473813056946
+                },
+                "palmNormal": {
+                    "x": -0.14658936858177185,
+                    "y": -0.5152187943458557,
+                    "z": 0.8444294929504395
+                },
+                "palmViewport": {
+                    "x": 0.8473434448242188,
+                    "y": 0.10458150506019592,
+                    "z": 0.4276083707809448
+                },
+                "fingerTopViewport": {
+                    "x": 0.8070356249809265,
+                    "y": 0.2839331030845642,
+                    "z": 0.5084848999977112
+                },
+                "palmAheadOfElbow": 0.3592044413089752,
+                "wristAheadOfElbow": 0.33764776587486267,
+                "forearmForward": 0.7013298869132996,
+                "elbowLateralOffset": 0.004162445664405823,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.8444294929504395,
+                "minimumFingerStraightness": 0.973884105682373
             }
         },
         {
             "path": "Previews/Push_FP_PushRight_Recovered.png",
+            "detailPath": "",
             "view": "FP",
             "attack": "PushRight",
             "phase": "Recovered",
             "bodyState": "Idle",
             "handState": "Idle",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.7068371772766113,
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.5703561305999756,
             "combatElapsed": 0.0,
             "duration": 0.550000011920929,
             "contactStart": 0.11999999731779099,
             "contactEnd": 0.20000000298023224,
             "kickVisible": false,
             "bodyRightFoot": {
-                "x": 0.17142395675182343,
-                "y": 0.11604315042495728,
-                "z": -0.07324743270874023
+                "x": 0.171425923705101,
+                "y": 0.11601865291595459,
+                "z": -0.07325124740600586
             },
             "bodyLeftFoot": {
-                "x": -0.18013440072536469,
-                "y": 0.1160430908203125,
-                "z": -0.07324790954589844
+                "x": -0.18013642728328705,
+                "y": 0.11601853370666504,
+                "z": -0.07325220108032227
             },
             "firstPersonRightFoot": {
                 "x": 0.0,
@@ -138,30 +1357,287 @@
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.23499992489814758,
+                "z": 0.4300002157688141
+            },
+            "rightWrist": {
+                "x": 0.23499999940395355,
+                "y": -0.23499992489814758,
+                "z": 0.4300002157688141
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": 0.2699998915195465,
+                    "y": 1.0000028610229492,
+                    "z": 0.0860905647277832
+                },
+                "palm": {
+                    "x": 0.2693263292312622,
+                    "y": 0.952654242515564,
+                    "z": 0.1019134521484375
+                },
+                "elbow": {
+                    "x": 0.28198808431625366,
+                    "y": 1.2099714279174805,
+                    "z": -0.029731273651123047
+                },
+                "shoulder": {
+                    "x": 0.18548831343650818,
+                    "y": 1.4437634944915771,
+                    "z": -0.015583515167236328
+                },
+                "offhand": {
+                    "x": -0.26999998092651367,
+                    "y": 1.0000028610229492,
+                    "z": 0.08717584609985352
+                },
+                "palmNormal": {
+                    "x": -0.9959334135055542,
+                    "y": -0.01549079455435276,
+                    "z": -0.0887502133846283
+                },
+                "palmViewport": {
+                    "x": 1.2332819700241089,
+                    "y": -1.999532699584961,
+                    "z": 0.15030911564826965
+                },
+                "fingerTopViewport": {
+                    "x": 0.9316846132278442,
+                    "y": -1.3906811475753784,
+                    "z": 0.21844853460788727
+                },
+                "palmAheadOfElbow": 0.13164472579956055,
+                "wristAheadOfElbow": 0.11582183837890625,
+                "forearmForward": 0.48240166902542114,
+                "elbowLateralOffset": 0.011988192796707153,
+                "extensionRatio": 0.9384345412254333,
+                "palmFacing": -0.0887502133846283,
+                "minimumFingerStraightness": 0.8236596584320068
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": 0.23499999940395355,
+                    "y": -0.23499992489814758,
+                    "z": 0.4300002157688141
+                },
+                "palm": {
+                    "x": 0.24772420525550842,
+                    "y": -0.23243096470832825,
+                    "z": 0.46832215785980225
+                },
+                "elbow": {
+                    "x": 0.1297016143798828,
+                    "y": -0.3083254098892212,
+                    "z": -0.0340241976082325
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": -0.23499999940395355,
+                    "y": -0.23499992489814758,
+                    "z": 0.4300002157688141
+                },
+                "palmNormal": {
+                    "x": -0.48537570238113403,
+                    "y": -0.8467116951942444,
+                    "z": 0.21792125701904297
+                },
+                "palmViewport": {
+                    "x": 0.811363697052002,
+                    "y": 0.11047765612602234,
+                    "z": 0.4683217406272888
+                },
+                "fingerTopViewport": {
+                    "x": 0.7254623770713806,
+                    "y": 0.1514090895652771,
+                    "z": 0.5522518157958984
+                },
+                "palmAheadOfElbow": 0.5023463368415833,
+                "wristAheadOfElbow": 0.4640244245529175,
+                "forearmForward": 0.9638290405273438,
+                "elbowLateralOffset": 0.10529838502407074,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.21792125701904297,
+                "minimumFingerStraightness": 0.9000908732414246
+            }
+        },
+        {
+            "path": "Previews/Push_FP_Kick_Anticipation.png",
+            "detailPath": "",
+            "view": "FP",
+            "attack": "Kick",
+            "phase": "Anticipation",
+            "bodyState": "Kick",
+            "handState": "Kick",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.13612937927246094,
+            "combatElapsed": 0.1599999964237213,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": true,
+            "bodyRightFoot": {
+                "x": 0.1699594408273697,
+                "y": 0.5466182231903076,
+                "z": 0.14912939071655273
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013642728328705,
+                "y": 0.11601966619491577,
+                "z": -0.07325172424316406
+            },
+            "firstPersonRightFoot": {
+                "x": 0.1699594408273697,
+                "y": 0.5494142770767212,
+                "z": 0.14912936091423035
+            },
+            "firstPersonFootViewport": {
+                "x": 0.8039644360542297,
+                "y": -1.3375420570373535,
+                "z": 0.3291289210319519
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.23466384410858154,
+                "z": 0.4306110143661499
+            },
+            "rightWrist": {
+                "x": 0.23499999940395355,
+                "y": -0.2353360503911972,
+                "z": 0.42938894033432007
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
             }
         },
         {
             "path": "Previews/Push_FP_Kick_Contact.png",
+            "detailPath": "",
             "view": "FP",
             "attack": "Kick",
             "phase": "Contact",
             "bodyState": "Kick",
             "handState": "Kick",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.3642551898956299,
-            "combatElapsed": 0.37499988079071045,
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.27555108070373535,
+            "combatElapsed": 0.3699999153614044,
             "duration": 1.100000023841858,
             "contactStart": 0.3199999928474426,
             "contactEnd": 0.41999998688697815,
             "kickVisible": true,
             "bodyRightFoot": {
                 "x": 0.1570058912038803,
-                "y": 0.9370566606521606,
+                "y": 0.9370275735855103,
                 "z": 0.794985294342041
             },
             "bodyLeftFoot": {
                 "x": -0.18013642728328705,
-                "y": 0.11601966619491577,
+                "y": 0.11601877212524414,
                 "z": -0.07325220108032227
             },
             "firstPersonRightFoot": {
@@ -173,100 +1649,287 @@
                 "x": 0.5947898626327515,
                 "y": 0.19412031769752502,
                 "z": 0.9749850630760193
+            },
+            "leftWrist": {
+                "x": -0.28999999165534973,
+                "y": -0.1599999964237213,
+                "z": 0.3700001537799835
+            },
+            "rightWrist": {
+                "x": 0.28999999165534973,
+                "y": -0.1599999964237213,
+                "z": 0.3700001537799835
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_FP_Kick_Recovery.png",
+            "detailPath": "",
+            "view": "FP",
+            "attack": "Kick",
+            "phase": "Recovery",
+            "bodyState": "Kick",
+            "handState": "Kick",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.41762733459472656,
+            "combatElapsed": 0.8799994587898254,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": true,
+            "bodyRightFoot": {
+                "x": 0.17829753458499908,
+                "y": 0.46135640144348145,
+                "z": 0.13779449462890625
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013642728328705,
+                "y": 0.11601591110229492,
+                "z": -0.07325172424316406
+            },
+            "firstPersonRightFoot": {
+                "x": 0.17829753458499908,
+                "y": 0.4639548063278198,
+                "z": 0.13779443502426147
+            },
+            "firstPersonFootViewport": {
+                "x": 0.8302502632141113,
+                "y": -1.614138126373291,
+                "z": 0.31779399514198303
+            },
+            "leftWrist": {
+                "x": -0.2683449387550354,
+                "y": -0.18952958285808563,
+                "z": 0.393623411655426
+            },
+            "rightWrist": {
+                "x": 0.2683449387550354,
+                "y": -0.18952958285808563,
+                "z": 0.393623411655426
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
             }
         },
         {
             "path": "Previews/Push_FP_Kick_Recovered.png",
+            "detailPath": "",
             "view": "FP",
             "attack": "Kick",
             "phase": "Recovered",
             "bodyState": "Idle",
             "handState": "Idle",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 1.259486198425293,
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.5503685474395752,
             "combatElapsed": 0.0,
             "duration": 1.100000023841858,
             "contactStart": 0.3199999928474426,
             "contactEnd": 0.41999998688697815,
             "kickVisible": false,
             "bodyRightFoot": {
-                "x": 0.17117753624916077,
-                "y": 0.11931502819061279,
-                "z": -0.07275247573852539
-            },
-            "bodyLeftFoot": {
-                "x": -0.17988663911819458,
-                "y": 0.11931484937667847,
-                "z": -0.0727529525756836
-            },
-            "firstPersonRightFoot": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "firstPersonFootViewport": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            }
-        },
-        {
-            "path": "Previews/Push_Body_PushLeft_Contact.png",
-            "view": "Body",
-            "attack": "PushLeft",
-            "phase": "Contact",
-            "bodyState": "PushLeft",
-            "handState": "PushLeft",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.1524345874786377,
-            "combatElapsed": 0.16499999165534973,
-            "duration": 0.550000011920929,
-            "contactStart": 0.11999999731779099,
-            "contactEnd": 0.20000000298023224,
-            "kickVisible": false,
-            "bodyRightFoot": {
-                "x": 0.17117565870285034,
-                "y": 0.11933982372283936,
-                "z": -0.07274866104125977
-            },
-            "bodyLeftFoot": {
-                "x": -0.17988473176956177,
-                "y": 0.11933976411819458,
-                "z": -0.07274913787841797
-            },
-            "firstPersonRightFoot": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "firstPersonFootViewport": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            }
-        },
-        {
-            "path": "Previews/Push_Body_PushLeft_Recovered.png",
-            "view": "Body",
-            "attack": "PushLeft",
-            "phase": "Recovered",
-            "bodyState": "Idle",
-            "handState": "Idle",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.7039780616760254,
-            "combatElapsed": 0.0,
-            "duration": 0.550000011920929,
-            "contactStart": 0.11999999731779099,
-            "contactEnd": 0.20000000298023224,
-            "kickVisible": false,
-            "bodyRightFoot": {
-                "x": 0.1714259684085846,
-                "y": 0.11601591110229492,
+                "x": 0.1714259535074234,
+                "y": 0.1160159707069397,
                 "z": -0.07325124740600586
             },
             "bodyLeftFoot": {
                 "x": -0.18013641238212585,
-                "y": 0.1160159707069397,
+                "y": 0.11601567268371582,
                 "z": -0.07325220108032227
             },
             "firstPersonRightFoot": {
@@ -278,30 +1941,1163 @@
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.2425258606672287,
+                "y": -0.22473739087581635,
+                "z": 0.42178991436958313
+            },
+            "rightWrist": {
+                "x": 0.2425258606672287,
+                "y": -0.22473739087581635,
+                "z": 0.42178991436958313
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
             }
         },
         {
-            "path": "Previews/Push_Body_PushRight_Contact.png",
+            "path": "Previews/Push_Body_None_Idle.png",
+            "detailPath": "Previews/Push_BodySide_None_Idle.png",
             "view": "Body",
-            "attack": "PushRight",
-            "phase": "Contact",
-            "bodyState": "PushRight",
-            "handState": "PushRight",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.15316557884216309,
-            "combatElapsed": 0.16499999165534973,
+            "attack": "None",
+            "phase": "Idle",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.0,
+            "combatElapsed": 0.0,
+            "duration": 0.0,
+            "contactStart": 0.0,
+            "contactEnd": 0.0,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17130276560783386,
+                "y": 0.11765003204345703,
+                "z": -0.07300376892089844
+            },
+            "bodyLeftFoot": {
+                "x": -0.1800125539302826,
+                "y": 0.11764979362487793,
+                "z": -0.07300424575805664
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.2343301922082901,
+                "z": 0.4312177002429962
+            },
+            "rightWrist": {
+                "x": 0.23499998450279236,
+                "y": -0.23566968739032745,
+                "z": 0.42878225445747375
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_None_IdleMotion.png",
+            "detailPath": "Previews/Push_BodySide_None_IdleMotion.png",
+            "view": "Body",
+            "attack": "None",
+            "phase": "IdleMotion",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.0,
+            "combatElapsed": 0.0,
+            "duration": 0.0,
+            "contactStart": 0.0,
+            "contactEnd": 0.0,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17130014300346375,
+                "y": 0.1176842451095581,
+                "z": -0.072998046875
+            },
+            "bodyLeftFoot": {
+                "x": -0.18000991642475128,
+                "y": 0.11768418550491333,
+                "z": -0.0729990005493164
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.23432457447052002,
+                "z": 0.43122804164886475
+            },
+            "rightWrist": {
+                "x": 0.23499998450279236,
+                "y": -0.23567542433738708,
+                "z": 0.4287719130516052
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushLeft_Anticipation.png",
+            "detailPath": "Previews/Push_BodySide_PushLeft_Anticipation.png",
+            "view": "Body",
+            "attack": "PushLeft",
+            "phase": "Anticipation",
+            "bodyState": "PushLeft",
+            "handState": "PushLeft",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.2042551040649414,
+            "combatElapsed": 0.059999994933605194,
             "duration": 0.550000011920929,
             "contactStart": 0.11999999731779099,
             "contactEnd": 0.20000000298023224,
             "kickVisible": false,
             "bodyRightFoot": {
-                "x": 0.1714259535074234,
-                "y": 0.11601924896240234,
+                "x": 0.17119036614894867,
+                "y": 0.11914432048797607,
+                "z": -0.07277774810791016
+            },
+            "bodyLeftFoot": {
+                "x": -0.17989952862262726,
+                "y": 0.1191442608833313,
+                "z": -0.07277870178222656
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.2341761738061905,
+                "z": 0.4314977824687958
+            },
+            "rightWrist": {
+                "x": 0.23499998450279236,
+                "y": -0.2358238250017166,
+                "z": 0.4285021722316742
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": -0.24046766757965088,
+                    "y": 1.2212085723876953,
+                    "z": 0.19773149490356445
+                },
+                "palm": {
+                    "x": -0.24059602618217468,
+                    "y": 1.2310417890548706,
+                    "z": 0.25018978118896484
+                },
+                "elbow": {
+                    "x": -0.2894172966480255,
+                    "y": 1.214608907699585,
+                    "z": -0.037227630615234375
+                },
+                "shoulder": {
+                    "x": -0.19419553875923157,
+                    "y": 1.4483517408370972,
+                    "z": -0.015587806701660156
+                },
+                "offhand": {
+                    "x": 0.28001049160957336,
+                    "y": 1.0125173330307007,
+                    "z": 0.10503673553466797
+                },
+                "palmNormal": {
+                    "x": 0.9485407471656799,
+                    "y": -0.310806006193161,
+                    "z": 0.060580380260944366
+                },
+                "palmViewport": {
+                    "x": 0.4211394786834717,
+                    "y": 0.46421968936920166,
+                    "z": 3.0648539066314697
+                },
+                "fingerTopViewport": {
+                    "x": 0.4273427128791809,
+                    "y": 0.47551509737968445,
+                    "z": 3.168156147003174
+                },
+                "palmAheadOfElbow": 0.2874174118041992,
+                "wristAheadOfElbow": 0.23495912551879883,
+                "forearmForward": 0.9786106944084167,
+                "elbowLateralOffset": 0.048949629068374634,
+                "extensionRatio": 0.6384570002555847,
+                "palmFacing": 0.060580380260944366,
+                "minimumFingerStraightness": 0.9839395880699158
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": -0.23499999940395355,
+                    "y": -0.2341761738061905,
+                    "z": 0.4314977824687958
+                },
+                "palm": {
+                    "x": -0.24772535264492035,
+                    "y": -0.23171180486679077,
+                    "z": 0.4698261022567749
+                },
+                "elbow": {
+                    "x": -0.12966832518577576,
+                    "y": -0.3062569499015808,
+                    "z": -0.032714758068323135
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.23499998450279236,
+                    "y": -0.2358238250017166,
+                    "z": 0.4285021722316742
+                },
+                "palmNormal": {
+                    "x": 0.4857606589794159,
+                    "y": -0.8470500707626343,
+                    "z": 0.21573767066001892
+                },
+                "palmViewport": {
+                    "x": 0.1896318793296814,
+                    "y": 0.11292660236358643,
+                    "z": 0.4698258638381958
+                },
+                "fingerTopViewport": {
+                    "x": 0.2751414179801941,
+                    "y": 0.15307116508483887,
+                    "z": 0.553722620010376
+                },
+                "palmAheadOfElbow": 0.5025408864021301,
+                "wristAheadOfElbow": 0.4642125368118286,
+                "forearmForward": 0.9642184376716614,
+                "elbowLateralOffset": 0.1053316742181778,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.21573767066001892,
+                "minimumFingerStraightness": 0.9000884890556335
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushLeft_Contact.png",
+            "detailPath": "Previews/Push_BodySide_PushLeft_Contact.png",
+            "view": "Body",
+            "attack": "PushLeft",
+            "phase": "Contact",
+            "bodyState": "PushLeft",
+            "handState": "PushLeft",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.3968214988708496,
+            "combatElapsed": 0.1599999964237213,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1711520552635193,
+                "y": 0.11965769529342651,
+                "z": -0.07270145416259766
+            },
+            "bodyLeftFoot": {
+                "x": -0.17986102402210236,
+                "y": 0.11965769529342651,
+                "z": -0.07270193099975586
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.17000000178813934,
+                "y": -0.23999997973442078,
+                "z": 0.7100000977516174
+            },
+            "rightWrist": {
+                "x": 0.27000001072883606,
+                "y": -0.28999999165534973,
+                "z": 0.3800000250339508
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": -0.16971318423748016,
+                    "y": 1.3625417947769165,
+                    "z": 0.4649534225463867
+                },
+                "palm": {
+                    "x": -0.16878464818000793,
+                    "y": 1.4159046411514282,
+                    "z": 0.46535396575927734
+                },
+                "elbow": {
+                    "x": -0.19184134900569916,
+                    "y": 1.3376693725585938,
+                    "z": 0.22717809677124023
+                },
+                "shoulder": {
+                    "x": -0.19392968714237213,
+                    "y": 1.449721097946167,
+                    "z": -0.00000286102294921875
+                },
+                "offhand": {
+                    "x": 0.28999996185302734,
+                    "y": 1.0229990482330322,
+                    "z": 0.11999988555908203
+                },
+                "palmNormal": {
+                    "x": -0.12251854687929153,
+                    "y": -0.00531306117773056,
+                    "z": 0.9924519658088684
+                },
+                "palmViewport": {
+                    "x": 0.4350064694881439,
+                    "y": 0.49974095821380615,
+                    "z": 3.26659893989563
+                },
+                "fingerTopViewport": {
+                    "x": 0.435885488986969,
+                    "y": 0.5203425288200378,
+                    "z": 3.2516579627990723
+                },
+                "palmAheadOfElbow": 0.2381758689880371,
+                "wristAheadOfElbow": 0.23777532577514648,
+                "forearmForward": 0.9903403520584106,
+                "elbowLateralOffset": 0.022128164768218994,
+                "extensionRatio": 0.9599999785423279,
+                "palmFacing": 0.9924519658088684,
+                "minimumFingerStraightness": 0.9999999403953552
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": -0.17000000178813934,
+                    "y": -0.23999997973442078,
+                    "z": 0.7100000977516174
+                },
+                "palm": {
+                    "x": -0.17744967341423035,
+                    "y": -0.20027540624141693,
+                    "z": 0.7118785381317139
+                },
+                "elbow": {
+                    "x": -0.25074565410614014,
+                    "y": -0.3845984935760498,
+                    "z": 0.25794345140457153
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.27000001072883606,
+                    "y": -0.28999999165534973,
+                    "z": 0.3800000250339508
+                },
+                "palmNormal": {
+                    "x": -0.03374101221561432,
+                    "y": -0.05351823568344116,
+                    "z": 0.9979966878890991
+                },
+                "palmViewport": {
+                    "x": 0.35327187180519104,
+                    "y": 0.27919721603393555,
+                    "z": 0.7118785381317139
+                },
+                "fingerTopViewport": {
+                    "x": 0.3534778356552124,
+                    "y": 0.40805429220199585,
+                    "z": 0.7237889766693115
+                },
+                "palmAheadOfElbow": 0.45393508672714233,
+                "wristAheadOfElbow": 0.4520566463470459,
+                "forearmForward": 0.9389691352844238,
+                "elbowLateralOffset": 0.0807456523180008,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.9979966878890991,
+                "minimumFingerStraightness": 0.9961752891540527
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushLeft_Recovery.png",
+            "detailPath": "Previews/Push_BodySide_PushLeft_Recovery.png",
+            "view": "Body",
+            "attack": "PushLeft",
+            "phase": "Recovery",
+            "bodyState": "PushLeft",
+            "handState": "PushLeft",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.5939826965332031,
+            "combatElapsed": 0.43999984860420227,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17119349539279938,
+                "y": 0.11910474300384521,
+                "z": -0.072784423828125
+            },
+            "bodyLeftFoot": {
+                "x": -0.17990268766880035,
+                "y": 0.11910438537597656,
+                "z": -0.0727849006652832
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23899129033088684,
+                "y": -0.246973916888237,
+                "z": 0.4060521721839905
+            },
+            "rightWrist": {
+                "x": 0.25619974732398987,
+                "y": -0.26831385493278503,
+                "z": 0.39971473813056946
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": -0.26997217535972595,
+                    "y": 1.098642349243164,
+                    "z": 0.17823076248168945
+                },
+                "palm": {
+                    "x": -0.26931238174438477,
+                    "y": 1.1229758262634277,
+                    "z": 0.22572898864746094
+                },
+                "elbow": {
+                    "x": -0.27871009707450867,
+                    "y": 1.2102291584014893,
+                    "z": -0.034177303314208984
+                },
+                "shoulder": {
+                    "x": -0.19419914484024048,
+                    "y": 1.4483118057250977,
+                    "z": -0.015583515167236328
+                },
+                "offhand": {
+                    "x": 0.28212970495224,
+                    "y": 1.0145622491836548,
+                    "z": 0.10819435119628906
+                },
+                "palmNormal": {
+                    "x": 0.7760806083679199,
+                    "y": -0.5655758380889893,
+                    "z": 0.2789672911167145
+                },
+                "palmViewport": {
+                    "x": 0.4168476164340973,
+                    "y": 0.4444173276424408,
+                    "z": 3.0479910373687744
+                },
+                "fingerTopViewport": {
+                    "x": 0.42368084192276,
+                    "y": 0.45962396264076233,
+                    "z": 3.1362438201904297
+                },
+                "palmAheadOfElbow": 0.2599062919616699,
+                "wristAheadOfElbow": 0.21240806579589844,
+                "forearmForward": 0.8846869468688965,
+                "elbowLateralOffset": 0.008737921714782715,
+                "extensionRatio": 0.824678361415863,
+                "palmFacing": 0.2789672911167145,
+                "minimumFingerStraightness": 0.9920611381530762
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": -0.23899129033088684,
+                    "y": -0.246973916888237,
+                    "z": 0.4060521721839905
+                },
+                "palm": {
+                    "x": -0.25232574343681335,
+                    "y": -0.21543702483177185,
+                    "z": 0.42760908603668213
+                },
+                "elbow": {
+                    "x": -0.24315346777439117,
+                    "y": -0.5901359915733337,
+                    "z": 0.06840439140796661
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.25619974732398987,
+                    "y": -0.26831385493278503,
+                    "z": 0.39971473813056946
+                },
+                "palmNormal": {
+                    "x": 0.1465902179479599,
+                    "y": -0.5152206420898438,
+                    "z": 0.8444282412528992
+                },
+                "palmViewport": {
+                    "x": 0.1526569128036499,
+                    "y": 0.10458248108625412,
+                    "z": 0.427608847618103
+                },
+                "fingerTopViewport": {
+                    "x": 0.19296449422836304,
+                    "y": 0.2839335501194,
+                    "z": 0.5084851384162903
+                },
+                "palmAheadOfElbow": 0.3592047095298767,
+                "wristAheadOfElbow": 0.33764779567718506,
+                "forearmForward": 0.701330304145813,
+                "elbowLateralOffset": 0.0041621774435043335,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.8444282412528992,
+                "minimumFingerStraightness": 0.9738844633102417
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushLeft_Recovered.png",
+            "detailPath": "Previews/Push_BodySide_PushLeft_Recovered.png",
+            "view": "Body",
+            "attack": "PushLeft",
+            "phase": "Recovered",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.7950525283813477,
+            "combatElapsed": 0.0,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17130400240421295,
+                "y": 0.11763375997543335,
+                "z": -0.07300615310668945
+            },
+            "bodyLeftFoot": {
+                "x": -0.18001379072666168,
+                "y": 0.11763375997543335,
+                "z": -0.07300662994384766
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.23499993979930878,
+                "z": 0.429999977350235
+            },
+            "rightWrist": {
+                "x": 0.23499998450279236,
+                "y": -0.23499993979930878,
+                "z": 0.429999977350235
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": -0.27000004053115845,
+                    "y": 1.0000001192092896,
+                    "z": 0.09123611450195313
+                },
+                "palm": {
+                    "x": -0.26959964632987976,
+                    "y": 0.9496691226959229,
+                    "z": 0.10899162292480469
+                },
+                "elbow": {
+                    "x": -0.2833830714225769,
+                    "y": 1.2098753452301025,
+                    "z": -0.02460193634033203
+                },
+                "shoulder": {
+                    "x": -0.19419914484024048,
+                    "y": 1.4468059539794922,
+                    "z": -0.015583515167236328
+                },
+                "offhand": {
+                    "x": 0.27000004053115845,
+                    "y": 0.9999998807907104,
+                    "z": 0.08746719360351563
+                },
+                "palmNormal": {
+                    "x": 0.9924512505531311,
+                    "y": -0.0337037555873394,
+                    "z": -0.11791760474443436
+                },
+                "palmViewport": {
+                    "x": 0.4138595461845398,
+                    "y": 0.4088899493217468,
+                    "z": 2.94362735748291
+                },
+                "fingerTopViewport": {
+                    "x": 0.42165470123291016,
+                    "y": 0.3980790674686432,
+                    "z": 3.015488624572754
+                },
+                "palmAheadOfElbow": 0.13359355926513672,
+                "wristAheadOfElbow": 0.11583805084228516,
+                "forearmForward": 0.4824694097042084,
+                "elbowLateralOffset": 0.013383030891418457,
+                "extensionRatio": 0.9436466693878174,
+                "palmFacing": -0.11791760474443436,
+                "minimumFingerStraightness": 0.861338198184967
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": -0.23499999940395355,
+                    "y": -0.23499993979930878,
+                    "z": 0.429999977350235
+                },
+                "palm": {
+                    "x": -0.24772420525550842,
+                    "y": -0.23243099451065063,
+                    "z": 0.46832191944122314
+                },
+                "elbow": {
+                    "x": -0.1297013908624649,
+                    "y": -0.30832499265670776,
+                    "z": -0.03402518481016159
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.23499998450279236,
+                    "y": -0.23499993979930878,
+                    "z": 0.429999977350235
+                },
+                "palmNormal": {
+                    "x": 0.48537588119506836,
+                    "y": -0.8467118144035339,
+                    "z": 0.21792051196098328
+                },
+                "palmViewport": {
+                    "x": 0.18863627314567566,
+                    "y": 0.11047789454460144,
+                    "z": 0.46832171082496643
+                },
+                "fingerTopViewport": {
+                    "x": 0.2745373845100403,
+                    "y": 0.15140900015830994,
+                    "z": 0.5522518157958984
+                },
+                "palmAheadOfElbow": 0.5023471117019653,
+                "wristAheadOfElbow": 0.4640251696109772,
+                "forearmForward": 0.9638292193412781,
+                "elbowLateralOffset": 0.10529860854148865,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.21792051196098328,
+                "minimumFingerStraightness": 0.9000861048698425
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushRight_Anticipation.png",
+            "detailPath": "Previews/Push_BodySide_PushRight_Anticipation.png",
+            "view": "Body",
+            "attack": "PushRight",
+            "phase": "Anticipation",
+            "bodyState": "PushRight",
+            "handState": "PushRight",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.1924142837524414,
+            "combatElapsed": 0.059999994933605194,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1714250147342682,
+                "y": 0.11602944135665894,
+                "z": -0.07324934005737305
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013544380664825,
+                "y": 0.11602926254272461,
+                "z": -0.07325029373168945
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.2345317006111145,
+                "z": 0.4308515191078186
+            },
+            "rightWrist": {
+                "x": 0.23499998450279236,
+                "y": -0.2354682981967926,
+                "z": 0.42914843559265137
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": 0.2404162436723709,
+                    "y": 1.2178903818130493,
+                    "z": 0.19773483276367188
+                },
+                "palm": {
+                    "x": 0.24040652811527252,
+                    "y": 1.2262459993362427,
+                    "z": 0.24695777893066406
+                },
+                "elbow": {
+                    "x": 0.28536316752433777,
+                    "y": 1.21330988407135,
+                    "z": -0.0380706787109375
+                },
+                "shoulder": {
+                    "x": 0.18548467755317688,
+                    "y": 1.4450207948684692,
+                    "z": -0.015587806701660156
+                },
+                "offhand": {
+                    "x": -0.2800118327140808,
+                    "y": 1.0091849565505981,
+                    "z": 0.10503625869750977
+                },
+                "palmNormal": {
+                    "x": -0.9587383270263672,
+                    "y": -0.2803114950656891,
+                    "z": 0.04739377647638321
+                },
+                "palmViewport": {
+                    "x": 0.4853525161743164,
+                    "y": 0.463293194770813,
+                    "z": 3.061964273452759
+                },
+                "fingerTopViewport": {
+                    "x": 0.48247528076171875,
+                    "y": 0.47424444556236267,
+                    "z": 3.161741018295288
+                },
+                "palmAheadOfElbow": 0.28502845764160156,
+                "wristAheadOfElbow": 0.23580551147460938,
+                "forearmForward": 0.9821355938911438,
+                "elbowLateralOffset": 0.04494692385196686,
+                "extensionRatio": 0.6412559151649475,
+                "palmFacing": 0.04739377647638321,
+                "minimumFingerStraightness": 0.9759539365768433
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": 0.23499998450279236,
+                    "y": -0.2354682981967926,
+                    "z": 0.42914843559265137
+                },
+                "palm": {
+                    "x": 0.24772348999977112,
+                    "y": -0.23283997178077698,
+                    "z": 0.46746671199798584
+                },
+                "elbow": {
+                    "x": 0.12972036004066467,
+                    "y": -0.3095000684261322,
+                    "z": -0.034768760204315186
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": -0.23499999940395355,
+                    "y": -0.2345317006111145,
+                    "z": 0.4308515191078186
+                },
+                "palmNormal": {
+                    "x": -0.4851571023464203,
+                    "y": -0.8465171456336975,
+                    "z": 0.21916063129901886
+                },
+                "palmViewport": {
+                    "x": 0.811932384967804,
+                    "y": 0.10907857865095139,
+                    "z": 0.46746647357940674
+                },
+                "fingerTopViewport": {
+                    "x": 0.7258074283599854,
+                    "y": 0.15045979619026184,
+                    "z": 0.5514153838157654
+                },
+                "palmAheadOfElbow": 0.502235472202301,
+                "wristAheadOfElbow": 0.46391719579696655,
+                "forearmForward": 0.9636049866676331,
+                "elbowLateralOffset": 0.10527962446212769,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.21916063129901886,
+                "minimumFingerStraightness": 0.900089681148529
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushRight_Contact.png",
+            "detailPath": "Previews/Push_BodySide_PushRight_Contact.png",
+            "view": "Body",
+            "attack": "PushRight",
+            "phase": "Contact",
+            "bodyState": "PushRight",
+            "handState": "PushRight",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.39090776443481445,
+            "combatElapsed": 0.1599999964237213,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1714259684085846,
+                "y": 0.11601829528808594,
                 "z": -0.07325124740600586
             },
             "bodyLeftFoot": {
                 "x": -0.18013642728328705,
-                "y": 0.11601918935775757,
+                "y": 0.11601835489273071,
                 "z": -0.07325172424316406
             },
             "firstPersonRightFoot": {
@@ -313,100 +3109,433 @@
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.27000001072883606,
+                "y": -0.28999999165534973,
+                "z": 0.3800000250339508
+            },
+            "rightWrist": {
+                "x": 0.16999998688697815,
+                "y": -0.23999997973442078,
+                "z": 0.7100000977516174
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": 0.16100232303142548,
+                    "y": 1.3571717739105225,
+                    "z": 0.4649529457092285
+                },
+                "palm": {
+                    "x": 0.16096413135528564,
+                    "y": 1.4070943593978882,
+                    "z": 0.46562671661376953
+                },
+                "elbow": {
+                    "x": 0.18445199728012085,
+                    "y": 1.3324975967407227,
+                    "z": 0.22728443145751953
+                },
+                "shoulder": {
+                    "x": 0.18521885573863983,
+                    "y": 1.4443509578704834,
+                    "z": -0.00000286102294921875
+                },
+                "offhand": {
+                    "x": -0.28999999165534973,
+                    "y": 1.0176286697387695,
+                    "z": 0.11999988555908203
+                },
+                "palmNormal": {
+                    "x": 0.08909734338521957,
+                    "y": -0.013368526473641396,
+                    "z": 0.9959331750869751
+                },
+                "palmViewport": {
+                    "x": 0.4763239324092865,
+                    "y": 0.4982765316963196,
+                    "z": 3.2674853801727295
+                },
+                "fingerTopViewport": {
+                    "x": 0.47493672370910645,
+                    "y": 0.5177368521690369,
+                    "z": 3.255289316177368
+                },
+                "palmAheadOfElbow": 0.23834228515625,
+                "wristAheadOfElbow": 0.23766851425170898,
+                "forearmForward": 0.989898681640625,
+                "elbowLateralOffset": 0.023449674248695374,
+                "extensionRatio": 0.9599999785423279,
+                "palmFacing": 0.9959331750869751,
+                "minimumFingerStraightness": 0.9999999403953552
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": 0.16999998688697815,
+                    "y": -0.23999997973442078,
+                    "z": 0.7100000977516174
+                },
+                "palm": {
+                    "x": 0.17744967341423035,
+                    "y": -0.20027540624141693,
+                    "z": 0.7118785381317139
+                },
+                "elbow": {
+                    "x": 0.2507459819316864,
+                    "y": -0.3845984935760498,
+                    "z": 0.25794345140457153
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": -0.27000001072883606,
+                    "y": -0.28999999165534973,
+                    "z": 0.3800000250339508
+                },
+                "palmNormal": {
+                    "x": 0.03374102711677551,
+                    "y": -0.05351824313402176,
+                    "z": 0.9979966878890991
+                },
+                "palmViewport": {
+                    "x": 0.6467280983924866,
+                    "y": 0.27919721603393555,
+                    "z": 0.7118785381317139
+                },
+                "fingerTopViewport": {
+                    "x": 0.6465221643447876,
+                    "y": 0.4080544114112854,
+                    "z": 0.7237886786460876
+                },
+                "palmAheadOfElbow": 0.45393508672714233,
+                "wristAheadOfElbow": 0.4520566463470459,
+                "forearmForward": 0.9389690160751343,
+                "elbowLateralOffset": 0.08074599504470825,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.9979966878890991,
+                "minimumFingerStraightness": 0.9961752891540527
+            }
+        },
+        {
+            "path": "Previews/Push_Body_PushRight_Recovery.png",
+            "detailPath": "Previews/Push_BodySide_PushRight_Recovery.png",
+            "view": "Body",
+            "attack": "PushRight",
+            "phase": "Recovery",
+            "bodyState": "PushRight",
+            "handState": "PushRight",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.5801262855529785,
+            "combatElapsed": 0.43999984860420227,
+            "duration": 0.550000011920929,
+            "contactStart": 0.11999999731779099,
+            "contactEnd": 0.20000000298023224,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1714259535074234,
+                "y": 0.116019606590271,
+                "z": -0.07325172424316406
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013642728328705,
+                "y": 0.1160198450088501,
+                "z": -0.07325172424316406
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.25619974732398987,
+                "y": -0.26831385493278503,
+                "z": 0.39971473813056946
+            },
+            "rightWrist": {
+                "x": 0.23899129033088684,
+                "y": -0.246973916888237,
+                "z": 0.4060521721839905
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": 0.26997244358062744,
+                    "y": 1.0932179689407349,
+                    "z": 0.17823076248168945
+                },
+                "palm": {
+                    "x": 0.26954159140586853,
+                    "y": 1.1152081489562988,
+                    "z": 0.2230520248413086
+                },
+                "elbow": {
+                    "x": 0.27438071370124817,
+                    "y": 1.2063539028167725,
+                    "z": -0.033490657806396484
+                },
+                "shoulder": {
+                    "x": 0.18548831343650818,
+                    "y": 1.4428883790969849,
+                    "z": -0.015583515167236328
+                },
+                "offhand": {
+                    "x": -0.28212976455688477,
+                    "y": 1.0091389417648315,
+                    "z": 0.10819435119628906
+                },
+                "palmNormal": {
+                    "x": -0.796801745891571,
+                    "y": -0.5454637408256531,
+                    "z": 0.2599543035030365
+                },
+                "palmViewport": {
+                    "x": 0.48918968439102173,
+                    "y": 0.4429568648338318,
+                    "z": 3.0458624362945557
+                },
+                "fingerTopViewport": {
+                    "x": 0.4853472113609314,
+                    "y": 0.4577913284301758,
+                    "z": 3.131059169769287
+                },
+                "palmAheadOfElbow": 0.2565426826477051,
+                "wristAheadOfElbow": 0.21172142028808594,
+                "forearmForward": 0.881827175617218,
+                "elbowLateralOffset": 0.0044082701206207275,
+                "extensionRatio": 0.8281497359275818,
+                "palmFacing": 0.2599543035030365,
+                "minimumFingerStraightness": 0.9874352812767029
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": 0.23899129033088684,
+                    "y": -0.246973916888237,
+                    "z": 0.4060521721839905
+                },
+                "palm": {
+                    "x": 0.25232574343681335,
+                    "y": -0.21543702483177185,
+                    "z": 0.42760908603668213
+                },
+                "elbow": {
+                    "x": 0.24315372109413147,
+                    "y": -0.5901361107826233,
+                    "z": 0.06840439140796661
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": -0.25619974732398987,
+                    "y": -0.26831385493278503,
+                    "z": 0.39971473813056946
+                },
+                "palmNormal": {
+                    "x": -0.1465902328491211,
+                    "y": -0.5152205228805542,
+                    "z": 0.8444282412528992
+                },
+                "palmViewport": {
+                    "x": 0.8473430871963501,
+                    "y": 0.10458248108625412,
+                    "z": 0.427608847618103
+                },
+                "fingerTopViewport": {
+                    "x": 0.8070353269577026,
+                    "y": 0.2839337885379791,
+                    "z": 0.5084851384162903
+                },
+                "palmAheadOfElbow": 0.3592047095298767,
+                "wristAheadOfElbow": 0.33764779567718506,
+                "forearmForward": 0.7013301849365234,
+                "elbowLateralOffset": 0.004162430763244629,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.8444282412528992,
+                "minimumFingerStraightness": 0.9738830924034119
             }
         },
         {
             "path": "Previews/Push_Body_PushRight_Recovered.png",
+            "detailPath": "Previews/Push_BodySide_PushRight_Recovered.png",
             "view": "Body",
             "attack": "PushRight",
             "phase": "Recovered",
             "bodyState": "Idle",
             "handState": "Idle",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.7042992115020752,
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.775489330291748,
             "combatElapsed": 0.0,
             "duration": 0.550000011920929,
             "contactStart": 0.11999999731779099,
             "contactEnd": 0.20000000298023224,
             "kickVisible": false,
             "bodyRightFoot": {
-                "x": 0.17142537236213684,
-                "y": 0.11602431535720825,
-                "z": -0.07325029373168945
-            },
-            "bodyLeftFoot": {
-                "x": -0.1801358163356781,
-                "y": 0.11602407693862915,
-                "z": -0.07325077056884766
-            },
-            "firstPersonRightFoot": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "firstPersonFootViewport": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            }
-        },
-        {
-            "path": "Previews/Push_Body_Kick_Contact.png",
-            "view": "Body",
-            "attack": "Kick",
-            "phase": "Contact",
-            "bodyState": "Kick",
-            "handState": "Kick",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 0.3639993667602539,
-            "combatElapsed": 0.37499988079071045,
-            "duration": 1.100000023841858,
-            "contactStart": 0.3199999928474426,
-            "contactEnd": 0.41999998688697815,
-            "kickVisible": false,
-            "bodyRightFoot": {
-                "x": 0.1570058912038803,
-                "y": 0.9422577619552612,
-                "z": 0.794985294342041
-            },
-            "bodyLeftFoot": {
-                "x": -0.17991673946380615,
-                "y": 0.11891818046569824,
-                "z": -0.07281303405761719
-            },
-            "firstPersonRightFoot": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "firstPersonFootViewport": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            }
-        },
-        {
-            "path": "Previews/Push_Body_Kick_Recovered.png",
-            "view": "Body",
-            "attack": "Kick",
-            "phase": "Recovered",
-            "bodyState": "Idle",
-            "handState": "Idle",
-            "captureMode": "RuntimeCameraRender",
-            "elapsedSinceStart": 1.258852481842041,
-            "combatElapsed": 0.0,
-            "duration": 1.100000023841858,
-            "contactStart": 0.3199999928474426,
-            "contactEnd": 0.41999998688697815,
-            "kickVisible": false,
-            "bodyRightFoot": {
-                "x": 0.1714259684085846,
-                "y": 0.11601626873016357,
+                "x": 0.1714259535074234,
+                "y": 0.11601853370666504,
                 "z": -0.07325124740600586
             },
             "bodyLeftFoot": {
                 "x": -0.18013642728328705,
-                "y": 0.11601650714874268,
+                "y": 0.11601853370666504,
+                "z": -0.07325172424316406
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.23499993979930878,
+                "z": 0.429999977350235
+            },
+            "rightWrist": {
+                "x": 0.23499998450279236,
+                "y": -0.23499993979930878,
+                "z": 0.429999977350235
+            },
+            "bodyPush": {
+                "elbowSource": "ForeArm joint",
+                "wrist": {
+                    "x": 0.27000004053115845,
+                    "y": 1.0000026226043701,
+                    "z": 0.0899209976196289
+                },
+                "palm": {
+                    "x": 0.26932647824287415,
+                    "y": 0.9526540040969849,
+                    "z": 0.1057438850402832
+                },
+                "elbow": {
+                    "x": 0.2814677953720093,
+                    "y": 1.2091879844665527,
+                    "z": -0.02736186981201172
+                },
+                "shoulder": {
+                    "x": 0.18548831343650818,
+                    "y": 1.4433252811431885,
+                    "z": -0.015583515167236328
+                },
+                "offhand": {
+                    "x": -0.26999998092651367,
+                    "y": 1.0000027418136597,
+                    "z": 0.08659219741821289
+                },
+                "palmNormal": {
+                    "x": -0.9959334135055542,
+                    "y": -0.015490672551095486,
+                    "z": -0.08875024318695068
+                },
+                "palmViewport": {
+                    "x": 0.48877114057540894,
+                    "y": 0.40929365158081055,
+                    "z": 2.9401793479919434
+                },
+                "fingerTopViewport": {
+                    "x": 0.48373404145240784,
+                    "y": 0.3989449143409729,
+                    "z": 3.0083186626434326
+                },
+                "palmAheadOfElbow": 0.13310575485229492,
+                "wristAheadOfElbow": 0.11728286743164063,
+                "forearmForward": 0.4884865880012512,
+                "elbowLateralOffset": 0.01146775484085083,
+                "extensionRatio": 0.9393205046653748,
+                "palmFacing": -0.08875024318695068,
+                "minimumFingerStraightness": 0.8236607313156128
+            },
+            "firstPersonPush": {
+                "elbowSource": "Mean actual skinned distal forearm vertices (wrist-pivot rig has no elbow bone)",
+                "wrist": {
+                    "x": 0.23499998450279236,
+                    "y": -0.23499993979930878,
+                    "z": 0.429999977350235
+                },
+                "palm": {
+                    "x": 0.24772420525550842,
+                    "y": -0.23243099451065063,
+                    "z": 0.46832191944122314
+                },
+                "elbow": {
+                    "x": 0.12970158457756042,
+                    "y": -0.30832523107528687,
+                    "z": -0.0340251661837101
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": -0.23499999940395355,
+                    "y": -0.23499993979930878,
+                    "z": 0.429999977350235
+                },
+                "palmNormal": {
+                    "x": -0.48537594079971313,
+                    "y": -0.8467118740081787,
+                    "z": 0.21792027354240417
+                },
+                "palmViewport": {
+                    "x": 0.811363697052002,
+                    "y": 0.11047789454460144,
+                    "z": 0.46832171082496643
+                },
+                "fingerTopViewport": {
+                    "x": 0.7254624366760254,
+                    "y": 0.15140914916992188,
+                    "z": 0.5522520542144775
+                },
+                "palmAheadOfElbow": 0.5023471117019653,
+                "wristAheadOfElbow": 0.4640251398086548,
+                "forearmForward": 0.9638292193412781,
+                "elbowLateralOffset": 0.10529839992523193,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.21792027354240417,
+                "minimumFingerStraightness": 0.9000880122184753
+            }
+        },
+        {
+            "path": "Previews/Push_Body_Kick_Anticipation.png",
+            "detailPath": "Previews/Push_BodySide_Kick_Anticipation.png",
+            "view": "Body",
+            "attack": "Kick",
+            "phase": "Anticipation",
+            "bodyState": "Kick",
+            "handState": "Kick",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.18879461288452148,
+            "combatElapsed": 0.1599999964237213,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1699594408273697,
+                "y": 0.5481700301170349,
+                "z": 0.14912939071655273
+            },
+            "bodyLeftFoot": {
+                "x": -0.18013641238212585,
+                "y": 0.11601614952087402,
                 "z": -0.07325220108032227
             },
             "firstPersonRightFoot": {
@@ -418,7 +3547,937 @@
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23499999940395355,
+                "y": -0.2345402091741562,
+                "z": 0.43083587288856506
+            },
+            "rightWrist": {
+                "x": 0.23499998450279236,
+                "y": -0.23545967042446136,
+                "z": 0.4291640818119049
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
             }
+        },
+        {
+            "path": "Previews/Push_Body_Kick_Contact.png",
+            "detailPath": "Previews/Push_BodySide_Kick_Contact.png",
+            "view": "Body",
+            "attack": "Kick",
+            "phase": "Contact",
+            "bodyState": "Kick",
+            "handState": "Kick",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.3768439292907715,
+            "combatElapsed": 0.3699999153614044,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.1570058912038803,
+                "y": 0.9405044317245483,
+                "z": 0.794985294342041
+            },
+            "bodyLeftFoot": {
+                "x": -0.18004615604877472,
+                "y": 0.11720526218414307,
+                "z": -0.07307147979736328
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.28999999165534973,
+                "y": -0.1600000262260437,
+                "z": 0.3699999153614044
+            },
+            "rightWrist": {
+                "x": 0.28999999165534973,
+                "y": -0.1600000262260437,
+                "z": 0.3699999153614044
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_Kick_Recovery.png",
+            "detailPath": "Previews/Push_BodySide_Kick_Recovery.png",
+            "view": "Body",
+            "attack": "Kick",
+            "phase": "Recovery",
+            "bodyState": "Kick",
+            "handState": "Kick",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.5632462501525879,
+            "combatElapsed": 0.8799994587898254,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17829753458499908,
+                "y": 0.465998113155365,
+                "z": 0.13779449462890625
+            },
+            "bodyLeftFoot": {
+                "x": -0.17993135750293732,
+                "y": 0.1187238097190857,
+                "z": -0.07284212112426758
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.2683449387550354,
+                "y": -0.18952956795692444,
+                "z": 0.3936236500740051
+            },
+            "rightWrist": {
+                "x": 0.268344908952713,
+                "y": -0.18952956795692444,
+                "z": 0.3936236500740051
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            }
+        },
+        {
+            "path": "Previews/Push_Body_Kick_Recovered.png",
+            "detailPath": "Previews/Push_BodySide_Kick_Recovered.png",
+            "view": "Body",
+            "attack": "Kick",
+            "phase": "Recovered",
+            "bodyState": "Idle",
+            "handState": "Idle",
+            "captureMode": "LiveRuntimePoseCameraRender",
+            "elapsedSinceStart": 0.754793643951416,
+            "combatElapsed": 0.0,
+            "duration": 1.100000023841858,
+            "contactStart": 0.3199999928474426,
+            "contactEnd": 0.41999998688697815,
+            "kickVisible": false,
+            "bodyRightFoot": {
+                "x": 0.17115731537342072,
+                "y": 0.11958688497543335,
+                "z": -0.07271194458007813
+            },
+            "bodyLeftFoot": {
+                "x": -0.17986629903316498,
+                "y": 0.11958664655685425,
+                "z": -0.07271242141723633
+            },
+            "firstPersonRightFoot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "firstPersonFootViewport": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "leftWrist": {
+                "x": -0.23605144023895264,
+                "y": -0.23356619477272034,
+                "z": 0.4288528859615326
+            },
+            "rightWrist": {
+                "x": 0.23605147004127502,
+                "y": -0.23356619477272034,
+                "z": 0.4288528859615326
+            },
+            "bodyPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            },
+            "firstPersonPush": {
+                "elbowSource": "",
+                "wrist": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palm": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "elbow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "shoulder": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "offhand": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmNormal": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "fingerTopViewport": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "palmAheadOfElbow": 0.0,
+                "wristAheadOfElbow": 0.0,
+                "forearmForward": 0.0,
+                "elbowLateralOffset": 0.0,
+                "extensionRatio": 0.0,
+                "palmFacing": 0.0,
+                "minimumFingerStraightness": 0.0
+            }
+        }
+    ],
+    "checks": [
+        {
+            "name": "Runtime hands retain both 34-bone skins",
+            "detail": "renderers=2",
+            "passed": true
+        },
+        {
+            "name": "FP starts in live idle",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "FP idle animation advances",
+            "detail": "maximum local wrist travel over a complete cycle=0.002062427",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft uses the live contact state",
+            "detail": "combatElapsed=0.16",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft body palm leads elbow",
+            "detail": "palmLead=0.2381759, forearmForward=0.9903404, lateral=0.02212816",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft elbow extends forward",
+            "detail": "reachRatio=0.96, extensionGain=0.3215432, wristTravel=0.2672219",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft FP palm leads skinned forearm",
+            "detail": "palmLead=0.4539353, forearmForward=0.9389692, wristTravel=0.2789147",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft open palms face target",
+            "detail": "palmFacing body/FP=0.992452/0.9979965, fingerStraightness=1/0.9961743",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft offhand stays low",
+            "detail": "body=(0.29, 1.02, 0.12), FP=(0.27, -0.29, 0.38)",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft FP palm stays below clear reticle",
+            "detail": "palmViewport=(0.35, 0.28, 0.71), topFinger=(0.35, 0.41, 0.72)",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft retracts during recovery",
+            "detail": "Live wrist depth must decrease in both models.",
+            "passed": true
+        },
+        {
+            "name": "FP PushLeft returns to idle",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight uses the live contact state",
+            "detail": "combatElapsed=0.16",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight body palm leads elbow",
+            "detail": "palmLead=0.2383423, forearmForward=0.9898987, lateral=0.02344967",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight elbow extends forward",
+            "detail": "reachRatio=0.9600002, extensionGain=0.3187441, wristTravel=0.2672181",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight FP palm leads skinned forearm",
+            "detail": "palmLead=0.4539348, forearmForward=0.938969, wristTravel=0.2806542",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight open palms face target",
+            "detail": "palmFacing body/FP=0.9959332/0.9979965, fingerStraightness=0.9999999/0.9961743",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight offhand stays low",
+            "detail": "body=(-0.29, 1.02, 0.12), FP=(-0.27, -0.29, 0.38)",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight FP palm stays below clear reticle",
+            "detail": "palmViewport=(0.65, 0.28, 0.71), topFinger=(0.65, 0.41, 0.72)",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight retracts during recovery",
+            "detail": "Live wrist depth must decrease in both models.",
+            "passed": true
+        },
+        {
+            "name": "FP PushRight returns to idle",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "FP kick uses the live contact state",
+            "detail": "combatElapsed=0.3699999",
+            "passed": true
+        },
+        {
+            "name": "FP kick extends right foot and keeps support foot grounded",
+            "detail": "right=(0.16, 0.94, 0.79), left=(-0.18, 0.12, -0.07)",
+            "passed": true
+        },
+        {
+            "name": "FP kick keeps hands braced rather than shoving",
+            "detail": "left=(-0.29, -0.16, 0.37), right=(0.29, -0.16, 0.37)",
+            "passed": true
+        },
+        {
+            "name": "FP kick preserves first-person leg visibility",
+            "detail": "visible=True, viewport=(0.59, 0.19, 0.97)",
+            "passed": true
+        },
+        {
+            "name": "FP Kick returns to idle",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "FP kick restores supporting stance",
+            "detail": "rightFoot=(0.17, 0.12, -0.07)",
+            "passed": true
+        },
+        {
+            "name": "Body starts in live idle",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "Body idle animation advances",
+            "detail": "maximum local wrist travel over a complete cycle=0.003074776",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft uses the live contact state",
+            "detail": "combatElapsed=0.16",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft body palm leads elbow",
+            "detail": "palmLead=0.2381759, forearmForward=0.9903404, lateral=0.02212816",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft elbow extends forward",
+            "detail": "reachRatio=0.96, extensionGain=0.321543, wristTravel=0.2672219",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft FP palm leads skinned forearm",
+            "detail": "palmLead=0.4539351, forearmForward=0.9389691, wristTravel=0.2785023",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft open palms face target",
+            "detail": "palmFacing body/FP=0.992452/0.9979967, fingerStraightness=0.9999999/0.9961753",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft offhand stays low",
+            "detail": "body=(0.29, 1.02, 0.12), FP=(0.27, -0.29, 0.38)",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft FP palm stays below clear reticle",
+            "detail": "palmViewport=(0.35, 0.28, 0.71), topFinger=(0.35, 0.41, 0.72)",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft retracts during recovery",
+            "detail": "Live wrist depth must decrease in both models.",
+            "passed": true
+        },
+        {
+            "name": "Body PushLeft returns to idle",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight uses the live contact state",
+            "detail": "combatElapsed=0.16",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight body palm leads elbow",
+            "detail": "palmLead=0.2383423, forearmForward=0.9898987, lateral=0.02344967",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight elbow extends forward",
+            "detail": "reachRatio=0.96, extensionGain=0.3187441, wristTravel=0.2672181",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight FP palm leads skinned forearm",
+            "detail": "palmLead=0.4539351, forearmForward=0.938969, wristTravel=0.2808517",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight open palms face target",
+            "detail": "palmFacing body/FP=0.9959332/0.9979967, fingerStraightness=0.9999999/0.9961753",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight offhand stays low",
+            "detail": "body=(-0.29, 1.02, 0.12), FP=(-0.27, -0.29, 0.38)",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight FP palm stays below clear reticle",
+            "detail": "palmViewport=(0.65, 0.28, 0.71), topFinger=(0.65, 0.41, 0.72)",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight retracts during recovery",
+            "detail": "Live wrist depth must decrease in both models.",
+            "passed": true
+        },
+        {
+            "name": "Body PushRight returns to idle",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "Body kick uses the live contact state",
+            "detail": "combatElapsed=0.3699999",
+            "passed": true
+        },
+        {
+            "name": "Body kick extends right foot and keeps support foot grounded",
+            "detail": "right=(0.16, 0.94, 0.79), left=(-0.18, 0.12, -0.07)",
+            "passed": true
+        },
+        {
+            "name": "Body kick keeps hands braced rather than shoving",
+            "detail": "left=(-0.29, -0.16, 0.37), right=(0.29, -0.16, 0.37)",
+            "passed": true
+        },
+        {
+            "name": "Body kick preserves first-person leg visibility",
+            "detail": "visible=False, viewport=(0.00, 0.00, 0.00)",
+            "passed": true
+        },
+        {
+            "name": "Body Kick returns to idle",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "Body kick restores supporting stance",
+            "detail": "rightFoot=(0.17, 0.12, -0.07)",
+            "passed": true
+        },
+        {
+            "name": "Default combat controls remain LMB and F",
+            "detail": "No PlayerPrefs writes.",
+            "passed": true
+        },
+        {
+            "name": "PushLeft starts through bound input handler",
+            "detail": "state=PushLeft",
+            "passed": true
+        },
+        {
+            "name": "PushLeft windup rejects duplicate input",
+            "detail": "sequence=7",
+            "passed": true
+        },
+        {
+            "name": "PushLeft preserves mouse look",
+            "detail": "rotation=(6.40, 4.80, 0.00)",
+            "passed": true
+        },
+        {
+            "name": "PushLeft preserves movement and jump",
+            "detail": "travel=(0.06, 0.42, 0.00), velocity=(0.80, 4.82, 0.00)",
+            "passed": true
+        },
+        {
+            "name": "PushLeft keeps live animation while moving",
+            "detail": "body=PushLeft, hands=PushLeft",
+            "passed": true
+        },
+        {
+            "name": "PushLeft preserves crouch and walking",
+            "detail": "height=1, velocity=(0.00, -2.00, 2.20)",
+            "passed": true
+        },
+        {
+            "name": "PushLeft resumes idle after moving recovery",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "PushRight starts through bound input handler",
+            "detail": "state=PushRight",
+            "passed": true
+        },
+        {
+            "name": "PushRight windup rejects duplicate input",
+            "detail": "sequence=8",
+            "passed": true
+        },
+        {
+            "name": "PushRight preserves mouse look",
+            "detail": "rotation=(6.40, 4.80, 0.00)",
+            "passed": true
+        },
+        {
+            "name": "PushRight preserves movement and jump",
+            "detail": "travel=(0.06, 0.42, 0.00), velocity=(0.80, 4.82, 0.00)",
+            "passed": true
+        },
+        {
+            "name": "PushRight keeps live animation while moving",
+            "detail": "body=PushRight, hands=PushRight",
+            "passed": true
+        },
+        {
+            "name": "PushRight preserves crouch and walking",
+            "detail": "height=1, velocity=(0.00, -2.00, 2.20)",
+            "passed": true
+        },
+        {
+            "name": "PushRight resumes idle after moving recovery",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "Kick starts through bound input handler",
+            "detail": "state=Kick",
+            "passed": true
+        },
+        {
+            "name": "Kick windup rejects duplicate input",
+            "detail": "sequence=9",
+            "passed": true
+        },
+        {
+            "name": "Kick preserves mouse look",
+            "detail": "rotation=(6.40, 4.80, 0.00)",
+            "passed": true
+        },
+        {
+            "name": "Kick preserves movement and jump",
+            "detail": "travel=(0.06, 0.42, 0.00), velocity=(0.80, 4.82, 0.00)",
+            "passed": true
+        },
+        {
+            "name": "Kick keeps live animation while moving",
+            "detail": "body=Kick, hands=Kick",
+            "passed": true
+        },
+        {
+            "name": "Kick preserves crouch and walking",
+            "detail": "height=1, velocity=(0.00, -2.00, 2.20)",
+            "passed": true
+        },
+        {
+            "name": "Kick resumes idle after moving recovery",
+            "detail": "body=Idle, hands=Idle",
+            "passed": true
+        },
+        {
+            "name": "Capture includes both views of idle and all attack phases",
+            "detail": "frames=28",
+            "passed": true
         }
     ]
 }

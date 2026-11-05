@@ -50,6 +50,22 @@ namespace HalliGalli.Movement
             // Network reads and item uses must affect controller movement and ray tests immediately.
             if(changed)Physics.SyncTransforms();
         }
+        internal bool TryKickBarricade(CourseParticipant attacker,Collider target)
+        {
+            if(!CourseNetwork.Authority||!initialized||!raceRunning||!Live||!Eligible(attacker))return false;
+            for(int i=0;i<barricadeColliders.Length;i++){
+                if(barricadeColliders[i]!=target||!target.enabled)continue;
+                ref var entity=ref entities[BananaEnd+i];
+                var owner=Participant(entity.owner);
+                if(entity.item!=RaceItem.Barricade||entity.expires<=Clock||!Eligible(owner)||owner.RespawnSequence!=entity.ownerLife)return false;
+                entity.barricadeHits++;
+                entity.barricadeHitAt=Clock;
+                if(entity.barricadeHits>=2)entity=default;
+                SyncBarricades();
+                return true;
+            }
+            return false;
+        }
         bool TryPlaceBarricade(CourseParticipant actor,Vector3 aim,out Vector3 position,out Vector3 forward,out Vector3 size)
         {
             position=size=default;forward=Vector3.ProjectOnPlane(aim,Vector3.up);

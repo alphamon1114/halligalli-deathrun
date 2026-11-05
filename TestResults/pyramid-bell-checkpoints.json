@@ -1,11 +1,11 @@
 {
-    "utc": "2026-11-03T08:02:12.0495069Z",
+    "utc": "2026-11-05T04:30:41.6000072Z",
     "passed": 30,
     "failed": 0,
     "checks": [
         {
             "name": "Visible bell remains at its interaction target",
-            "detail": "target=(271.40, -49.02, 351.90) bounds=Center: (271.40, -48.87, 351.90), Extents: (0.29, 0.15, 0.29)",
+            "detail": "target=(362.13, -98.20, 553.15) bounds=Center: (362.13, -98.05, 553.15), Extents: (0.40, 0.15, 0.40)",
             "passed": true
         },
         {
@@ -25,37 +25,37 @@
         },
         {
             "name": "Seat 0 R returns to checkpoint 0",
-            "detail": "position=(0.00, -7.38, 100.60)",
+            "detail": "position=(21.84, -14.38, 129.31)",
             "passed": true
         },
         {
             "name": "Seat 0 airborne checkpoint 1",
-            "detail": "saved=1 gates=9",
+            "detail": "saved=1 gates=8",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 1",
-            "detail": "position=(125.00, -19.30, 100.60)",
+            "detail": "position=(124.62, -43.65, 239.21)",
             "passed": true
         },
         {
             "name": "Seat 0 airborne checkpoint 2",
-            "detail": "saved=2 gates=14",
+            "detail": "saved=2 gates=12",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 2",
-            "detail": "position=(125.00, -27.88, 225.50)",
+            "detail": "position=(207.91, -58.23, 340.40)",
             "passed": true
         },
         {
             "name": "Seat 0 airborne checkpoint 3",
-            "detail": "saved=3 gates=20",
+            "detail": "saved=3 gates=16",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 3",
-            "detail": "position=(271.40, -38.55, 225.50)",
+            "detail": "position=(273.74, -84.60, 447.82)",
             "passed": true
         },
         {
@@ -65,7 +65,7 @@
         },
         {
             "name": "Seat 0 valid checkpoint route can ring without touching every bank",
-            "detail": "grounded=True gates=20 claim=True",
+            "detail": "grounded=True gates=16 claim=True",
             "passed": true
         },
         {
@@ -90,37 +90,37 @@
         },
         {
             "name": "Seat 1 R returns to checkpoint 0",
-            "detail": "position=(0.00, -7.38, 100.60)",
+            "detail": "position=(21.84, -14.38, 129.31)",
             "passed": true
         },
         {
             "name": "Seat 1 airborne checkpoint 1",
-            "detail": "saved=1 gates=9",
+            "detail": "saved=1 gates=8",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 1",
-            "detail": "position=(125.00, -19.30, 100.60)",
+            "detail": "position=(124.62, -43.65, 239.21)",
             "passed": true
         },
         {
             "name": "Seat 1 airborne checkpoint 2",
-            "detail": "saved=2 gates=14",
+            "detail": "saved=2 gates=12",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 2",
-            "detail": "position=(125.00, -27.88, 225.50)",
+            "detail": "position=(207.91, -58.23, 340.40)",
             "passed": true
         },
         {
             "name": "Seat 1 airborne checkpoint 3",
-            "detail": "saved=3 gates=20",
+            "detail": "saved=3 gates=16",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 3",
-            "detail": "position=(271.40, -38.55, 225.50)",
+            "detail": "position=(273.74, -84.60, 447.82)",
             "passed": true
         },
         {
@@ -130,7 +130,7 @@
         },
         {
             "name": "Seat 1 valid checkpoint route can ring without touching every bank",
-            "detail": "grounded=True gates=20 claim=True",
+            "detail": "grounded=True gates=16 claim=True",
             "passed": true
         },
         {

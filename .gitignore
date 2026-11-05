@@ -20,6 +20,8 @@
 /Recordings/
 /Assets/HalliGalliMovement/Demo/Backups/
 /Assets/HalliGalliMovement/Demo/Backups.meta
+/Assets/_Recovery/
+/Assets/_Recovery.meta
 /Tools/Network/Runs/
 *.log
 *.tmp

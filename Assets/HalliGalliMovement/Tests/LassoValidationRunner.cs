@@ -95,10 +95,10 @@ public sealed class LassoValidationRunner:MonoBehaviour
         Begin();Attach();position=B.transform.position;FinishPull(A);float highest=position.y;
         for(int i=0;i<25;i++){Ticks(B,1);highest=Mathf.Max(highest,B.transform.position.y);}
         float unopposed=position.z-B.transform.position.z;
-        Test("Ground pull produces real travel without forced lift",()=>Require(unopposed>.1f&&highest-position.y<.05f&&B.Motor.Grounded&&B.Falls==0,"distance="+unopposed+"m / 0.50s; rise="+(highest-position.y)));
+        Test("Strong ground pull moves a stationary target over three metres without lift",()=>Require(unopposed>3f&&highest-position.y<.05f&&B.Motor.Grounded&&B.Falls==0,"distance="+unopposed+"m / 0.50s; rise="+(highest-position.y)));
         checks[checks.Count-1].detail="distance="+unopposed.ToString("F3")+"m / 0.50s; rise="+(highest-position.y).ToString("F3")+"m";
         Begin();Attach();position=B.transform.position;FinishPull(A);Ticks(B,25,new MovementCommand{move=Vector2.up});float opposed=position.z-B.transform.position.z;
-        Test("Countersteering reduces travel without locking input",()=>Require(opposed<unopposed-.05f&&B.Motor.Velocity.z>0&&!B.Motor.Stunned&&!B.Motor.Staggered,"distance="+opposed+"; unopposed="+unopposed));
+        Test("Countersteering reduces travel but still yields an inward pull without locking input",()=>Require(opposed>0&&opposed<unopposed-.05f&&B.Motor.Velocity.z>0&&!B.Motor.Stunned&&!B.Motor.Staggered,"distance="+opposed+"; unopposed="+unopposed));
         checks[checks.Count-1].detail="distance="+opposed.ToString("F3")+"m / 0.50s; unopposed="+unopposed.ToString("F3")+"m";
         Begin();Attach();B.Motor.AddImpulse(Vector3.forward*22);FinishPull(A);
         Test("Fast outward momentum still receives an inward pull",()=>Require(B.Motor.Velocity.z<0&&A.Lasso.LastImpulse.y==0,"outward momentum defeated pull"));

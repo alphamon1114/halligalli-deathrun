@@ -1,7 +1,7 @@
 {
-  "utc": "2026-11-05T01:12:01.103Z",
+  "utc": "2026-11-05T06:45:52.778Z",
   "seed": 20261105,
-  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\lasso-1793841055228",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\editor-lasso-1793861063675",
   "executable": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\Windows\\HalliGalliMovement.exe",
   "graphical": false,
   "passed": 49,
@@ -13,8 +13,8 @@
       "spam": false,
       "countersteer": false,
       "gap": 8,
-      "distance": 1.8858642578125,
-      "remoteDistance": 1.8858642578125,
+      "distance": 3.93206787109375,
+      "remoteDistance": 3.93206787109375,
       "peak": 5.960464477539063e-8
     },
     {
@@ -23,8 +23,8 @@
       "spam": false,
       "countersteer": true,
       "gap": 8,
-      "distance": -1.9063873291015625,
-      "remoteDistance": -1.9063873291015625,
+      "distance": 0.006927490234375,
+      "remoteDistance": 0.006927490234375,
       "peak": 5.960464477539063e-8
     },
     {
@@ -33,8 +33,8 @@
       "spam": true,
       "countersteer": false,
       "gap": 8,
-      "distance": 1.8858642578125,
-      "remoteDistance": 1.8858642578125,
+      "distance": 3.93206787109375,
+      "remoteDistance": 3.93206787109375,
       "peak": 5.960464477539063e-8
     },
     {
@@ -43,8 +43,8 @@
       "spam": false,
       "countersteer": false,
       "gap": 8,
-      "distance": 1.8858642578125,
-      "remoteDistance": 1.878021240234375,
+      "distance": 3.93206787109375,
+      "remoteDistance": 3.9211273193359375,
       "peak": 5.960464477539063e-8
     },
     {
@@ -53,8 +53,8 @@
       "spam": false,
       "countersteer": true,
       "gap": 8,
-      "distance": -1.8279266357421875,
-      "remoteDistance": -1.82891845703125,
+      "distance": 0.194122314453125,
+      "remoteDistance": 0.189971923828125,
       "peak": 5.960464477539063e-8
     },
     {
@@ -63,8 +63,8 @@
       "spam": true,
       "countersteer": false,
       "gap": 8,
-      "distance": 1.8858642578125,
-      "remoteDistance": 1.9109039306640625,
+      "distance": 3.93206787109375,
+      "remoteDistance": 3.93133544921875,
       "peak": 5.960464477539063e-8
     },
     {
@@ -90,14 +90,14 @@
       "detail": ""
     },
     {
-      "name": "host camera turn uses horizontal movement without lift or control lock",
+      "name": "host camera turn produces a strong horizontal pull without lift or control lock",
       "passed": true,
-      "detail": "{\"distance\":1.8858642578125,\"peak\":5.960464477539063e-8,\"locked\":false}"
+      "detail": "{\"distance\":3.93206787109375,\"inwardTravel\":3.93206787109375,\"peak\":5.960464477539063e-8,\"locked\":false}"
     },
     {
       "name": "host camera turn agrees on physical travel without a client impulse replay",
       "passed": true,
-      "detail": "{\"distance\":1.8858642578125,\"remoteDistance\":1.8858642578125}"
+      "detail": "{\"distance\":3.93206787109375,\"remoteDistance\":3.93206787109375}"
     },
     {
       "name": "host camera turn plays each existing rope sound once per peer",
@@ -120,14 +120,14 @@
       "detail": ""
     },
     {
-      "name": "host countersteering uses horizontal movement without lift or control lock",
+      "name": "host countersteering produces a strong horizontal pull without lift or control lock",
       "passed": true,
-      "detail": "{\"distance\":-1.9063873291015625,\"peak\":5.960464477539063e-8,\"locked\":false}"
+      "detail": "{\"distance\":0.006927490234375,\"inwardTravel\":2.61968994140625,\"peak\":5.960464477539063e-8,\"locked\":false}"
     },
     {
       "name": "host countersteering agrees on physical travel without a client impulse replay",
       "passed": true,
-      "detail": "{\"distance\":-1.9063873291015625,\"remoteDistance\":-1.9063873291015625}"
+      "detail": "{\"distance\":0.006927490234375,\"remoteDistance\":0.006927490234375}"
     },
     {
       "name": "host countersteering plays each existing rope sound once per peer",
@@ -142,7 +142,7 @@
     {
       "name": "host active countersteering reduces real inward travel",
       "passed": true,
-      "detail": "{\"unopposed\":1.8858642578125,\"opposed\":-1.9063873291015625}"
+      "detail": "{\"unopposed\":3.93206787109375,\"opposed\":0.006927490234375}"
     },
     {
       "name": "host repeated Q counts one cast, real hit and automatic pull on both peers",
@@ -150,14 +150,14 @@
       "detail": ""
     },
     {
-      "name": "host repeated Q uses horizontal movement without lift or control lock",
+      "name": "host repeated Q produces a strong horizontal pull without lift or control lock",
       "passed": true,
-      "detail": "{\"distance\":1.8858642578125,\"peak\":5.960464477539063e-8,\"locked\":false}"
+      "detail": "{\"distance\":3.93206787109375,\"inwardTravel\":3.93206787109375,\"peak\":5.960464477539063e-8,\"locked\":false}"
     },
     {
       "name": "host repeated Q agrees on physical travel without a client impulse replay",
       "passed": true,
-      "detail": "{\"distance\":1.8858642578125,\"remoteDistance\":1.8858642578125}"
+      "detail": "{\"distance\":3.93206787109375,\"remoteDistance\":3.93206787109375}"
     },
     {
       "name": "host repeated Q plays each existing rope sound once per peer",
@@ -175,14 +175,14 @@
       "detail": ""
     },
     {
-      "name": "client1 camera turn uses horizontal movement without lift or control lock",
+      "name": "client1 camera turn produces a strong horizontal pull without lift or control lock",
       "passed": true,
-      "detail": "{\"distance\":1.8858642578125,\"peak\":5.960464477539063e-8,\"locked\":false}"
+      "detail": "{\"distance\":3.93206787109375,\"inwardTravel\":3.93206787109375,\"peak\":5.960464477539063e-8,\"locked\":false}"
     },
     {
       "name": "client1 camera turn agrees on physical travel without a client impulse replay",
       "passed": true,
-      "detail": "{\"distance\":1.8858642578125,\"remoteDistance\":1.878021240234375}"
+      "detail": "{\"distance\":3.93206787109375,\"remoteDistance\":3.9211273193359375}"
     },
     {
       "name": "client1 camera turn plays each existing rope sound once per peer",
@@ -205,14 +205,14 @@
       "detail": ""
     },
     {
-      "name": "client1 countersteering uses horizontal movement without lift or control lock",
+      "name": "client1 countersteering produces a strong horizontal pull without lift or control lock",
       "passed": true,
-      "detail": "{\"distance\":-1.8279266357421875,\"peak\":5.960464477539063e-8,\"locked\":false}"
+      "detail": "{\"distance\":0.194122314453125,\"inwardTravel\":2.66162109375,\"peak\":5.960464477539063e-8,\"locked\":false}"
     },
     {
       "name": "client1 countersteering agrees on physical travel without a client impulse replay",
       "passed": true,
-      "detail": "{\"distance\":-1.8279266357421875,\"remoteDistance\":-1.82891845703125}"
+      "detail": "{\"distance\":0.194122314453125,\"remoteDistance\":0.189971923828125}"
     },
     {
       "name": "client1 countersteering plays each existing rope sound once per peer",
@@ -227,7 +227,7 @@
     {
       "name": "client1 active countersteering reduces real inward travel",
       "passed": true,
-      "detail": "{\"unopposed\":1.8858642578125,\"opposed\":-1.8279266357421875}"
+      "detail": "{\"unopposed\":3.93206787109375,\"opposed\":0.194122314453125}"
     },
     {
       "name": "client1 repeated Q counts one cast, real hit and automatic pull on both peers",
@@ -235,14 +235,14 @@
       "detail": ""
     },
     {
-      "name": "client1 repeated Q uses horizontal movement without lift or control lock",
+      "name": "client1 repeated Q produces a strong horizontal pull without lift or control lock",
       "passed": true,
-      "detail": "{\"distance\":1.8858642578125,\"peak\":5.960464477539063e-8,\"locked\":false}"
+      "detail": "{\"distance\":3.93206787109375,\"inwardTravel\":3.93206787109375,\"peak\":5.960464477539063e-8,\"locked\":false}"
     },
     {
       "name": "client1 repeated Q agrees on physical travel without a client impulse replay",
       "passed": true,
-      "detail": "{\"distance\":1.8858642578125,\"remoteDistance\":1.9109039306640625}"
+      "detail": "{\"distance\":3.93206787109375,\"remoteDistance\":3.93133544921875}"
     },
     {
       "name": "client1 repeated Q plays each existing rope sound once per peer",
@@ -260,9 +260,9 @@
       "detail": ""
     },
     {
-      "name": "host near target uses horizontal movement without lift or control lock",
+      "name": "host near target produces a strong horizontal pull without lift or control lock",
       "passed": true,
-      "detail": "{\"distance\":0.5749969482421875,\"peak\":0,\"locked\":false}"
+      "detail": "{\"distance\":0.5749969482421875,\"inwardTravel\":0.5749969482421875,\"peak\":0,\"locked\":false}"
     },
     {
       "name": "host near target agrees on physical travel without a client impulse replay",
@@ -324,5 +324,10 @@
       "passed": true,
       "detail": ""
     }
+  ],
+  "backend": "Two isolated Unity Editor processes over loopback; production release gate unchanged",
+  "limits": [
+    "Not a published standalone-player admission test",
+    "No Internet Relay or artificial latency"
   ]
 }

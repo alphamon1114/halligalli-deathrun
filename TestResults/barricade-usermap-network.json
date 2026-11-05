@@ -1,0 +1,3137 @@
+{
+  "utc": "2026-11-05T06:48:02.241Z",
+  "completedUtc": "2026-11-05T06:48:11.044Z",
+  "status": "limited",
+  "protocol": 42,
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\editor-usermap-1793861257313",
+  "attached": true,
+  "graphical": false,
+  "shared": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\usermap-items-1793608208543\\shared.bellmap",
+  "maximumFile": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\Runs\\editor-usermap-1793861257313\\maximum.bellmap",
+  "ownedMaps": [],
+  "passed": 10,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Both shared-map peers publish fresh matching protocol state",
+      "passed": true
+    },
+    {
+      "name": "Barricade drops immediately to the rotated floor during a real jump",
+      "passed": true,
+      "detail": {
+        "airborne": {
+          "x": 15,
+          "y": 0.8394196033477783,
+          "z": 12
+        },
+        "expected": {
+          "x": 12,
+          "y": 0,
+          "z": 12
+        },
+        "entity": {
+          "id": 1,
+          "owner": 1,
+          "target": -1,
+          "barricadeHits": 0,
+          "item": 3,
+          "position": {
+            "x": 12,
+            "y": 5.960464477539063e-8,
+            "z": 12
+          },
+          "direction": {
+            "x": 1,
+            "y": 0,
+            "z": 5.960465188081798e-8
+          },
+          "size": {
+            "x": 9.979999542236328,
+            "y": 2.200000047683716,
+            "z": 0.6000000238418579
+          },
+          "remaining": 7.816518306732178
+        }
+      }
+    },
+    {
+      "name": "Both peers agree on airborne barricade placement",
+      "passed": true
+    },
+    {
+      "name": "Fresh rotated shared-map barricade has no retained damage",
+      "passed": true
+    },
+    {
+      "name": "Shared-map left-click attack cannot damage a rotated barricade",
+      "passed": true
+    },
+    {
+      "name": "Shared-map first kick and cooldown retry count once on both peers",
+      "passed": true
+    },
+    {
+      "name": "Damaged rotated shared-map barricade still blocks real movement",
+      "passed": true
+    },
+    {
+      "name": "Host and guest kicks combine through the shared-map authoritative runtime",
+      "passed": true
+    },
+    {
+      "name": "Broken rotated shared-map barricade permits real controller passage on both peers",
+      "passed": true
+    },
+    {
+      "name": "No runtime probe errors",
+      "passed": true
+    }
+  ],
+  "pickups": [
+    {
+      "seat": 1,
+      "leader": false,
+      "item": 2,
+      "box": 0,
+      "seed": 125
+    },
+    {
+      "seat": 1,
+      "leader": false,
+      "item": 3,
+      "box": 1,
+      "seed": 126
+    }
+  ],
+  "observations": [
+    {
+      "name": "Airborne use request, seat 1",
+      "host": {
+        "role": "host",
+        "status": "",
+        "code": "",
+        "map": "user:511ac97976fd4917b92ac7067569af88",
+        "cardState": "{\"seats\":[{\"drawCount\":16,\"penalty\":0,\"open\":[8,11,12,12,2,16,0,15,10,6,1,4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":16,\"penalty\":0,\"open\":[8,13,1,0,11,6,17,5,2,3,0,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":0,\"revision\":26,\"reveals\":24,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "error": "",
+        "winnerNickname": "",
+        "victoryAction": "대기방으로 돌아가는 중",
+        "victoryVisible": false,
+        "canContinueAfterVictory": false,
+        "victoryReturnPending": false,
+        "victoryReturnRemaining": 0,
+        "victorySoundsPlayed": 0,
+        "victoryAudioReady": false,
+        "victorySoundPlaying": false,
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "host": true,
+        "canStart": false,
+        "busy": false,
+        "localSeat": 0,
+        "bells": 0,
+        "revision": 26,
+        "turn": 0,
+        "bots": 0,
+        "capacity": 6,
+        "surfSections": 0,
+        "twoSidedSurfSections": 0,
+        "canAddBot": false,
+        "botCards": false,
+        "protocol": 42,
+        "selectedShirtColor": 0,
+        "savedShirtColor": 0,
+        "raceAimTarget": -1,
+        "shirtSelectionAccepted": false,
+        "shirtSelectionLoading": false,
+        "shirtPreferenceKey": "HalliGalli.PlayerShirtColor",
+        "selectableShirtColors": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "members": [
+          {
+            "id": 0,
+            "name": "host",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 0
+          },
+          {
+            "id": 1,
+            "name": "client1",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 1
+          }
+        ],
+        "actors": [
+          {
+            "position": {
+              "x": 8,
+              "y": 0.024999940767884254,
+              "z": 12
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": true,
+            "falls": 0,
+            "respawns": 2,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 0,
+            "viewYaw": 0,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 0,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          },
+          {
+            "position": {
+              "x": 15,
+              "y": 0.8394196033477783,
+              "z": 12
+            },
+            "velocity": {
+              "x": 0,
+              "y": 2.724553108215332,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": false,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": false,
+            "falls": 1,
+            "respawns": 3,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 90,
+            "viewYaw": 90,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 1,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          }
+        ],
+        "checkpoints": [],
+        "bellLanding": {
+          "x": 0,
+          "y": 0.02500000037252903,
+          "z": 7.150000095367432
+        },
+        "hasFerry": false,
+        "ferryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "ferryPositions": [],
+        "worldTime": 17.85236126590287,
+        "factoryPlatforms": [],
+        "factoryPresses": [],
+        "selectedMap": "user:511ac97976fd4917b92ac7067569af88",
+        "userMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "userMapTransfer": "맵 검증 완료 · 모두 같은 맵을 받았어요",
+        "loadedUserMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "studioDraftHash": "",
+        "studioDraftId": "",
+        "userMapReady": true,
+        "studioOpen": false,
+        "studioTesting": false,
+        "userMapRevision": 1,
+        "studioObjects": 0,
+        "studioSelected": "",
+        "studioStatus": "",
+        "studioBusy": false,
+        "studioDirty": false,
+        "studioConfirmation": false,
+        "studioCleared": false,
+        "studioClearStatus": "",
+        "commandSequence": 15,
+        "userMapCacheHit": false,
+        "studioCameraOrthographic": false,
+        "studioCameraAdvanced": false,
+        "studioCameraSize": 0,
+        "studioCameraView": "",
+        "studioCameraPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraForward": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraFocus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPartsMenu": false,
+        "studioViewportWidth": 0,
+        "studioEasyBuild": false,
+        "studioEraseMode": false,
+        "studioOrbit": false,
+        "studioBuildValid": false,
+        "studioBuildSize": 0,
+        "studioBuildPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildRotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildScale": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioFirstPerson": false,
+        "studioCaptured": false,
+        "studioNoclip": false,
+        "studioAir": false,
+        "studioAirGround": false,
+        "studioAirGuide": false,
+        "studioFlySpeed": 0,
+        "studioAirDistance": 0,
+        "studioAirHeight": 0,
+        "studioAirBottom": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioAirReference": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnActive": false,
+        "studioPawnGrounded": false,
+        "studioPawnPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "race": {
+          "round": 1,
+          "leader": 0,
+          "acquisitions": 2,
+          "missileHits": 0,
+          "bananaHits": 0,
+          "running": true,
+          "actors": [
+            {
+              "seat": 0,
+              "life": 2,
+              "itemSequence": 3,
+              "lockTarget": -1,
+              "acquisitions": 0,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            },
+            {
+              "seat": 1,
+              "life": 3,
+              "itemSequence": 7,
+              "lockTarget": -1,
+              "acquisitions": 2,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 3,
+              "effect": 0,
+              "effectRemaining": 0
+            }
+          ],
+          "boxes": [
+            {
+              "index": 0,
+              "position": {
+                "x": 0,
+                "y": 1.0499999523162842,
+                "z": 3
+              },
+              "cooldown": 5.517825603485107
+            },
+            {
+              "index": 1,
+              "position": {
+                "x": 10,
+                "y": 1.0499999523162842,
+                "z": 20
+              },
+              "cooldown": 6.916790962219238
+            }
+          ],
+          "projectiles": []
+        },
+        "clockwork": {
+          "traps": [],
+          "presses": [],
+          "ferries": []
+        }
+      },
+      "guest": {
+        "role": "client1",
+        "status": "",
+        "code": "",
+        "map": "user:511ac97976fd4917b92ac7067569af88",
+        "cardState": "{\"seats\":[{\"drawCount\":16,\"penalty\":0,\"open\":[8,11,12,12,2,16,0,15,10,6,1,4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":16,\"penalty\":0,\"open\":[8,13,1,0,11,6,17,5,2,3,0,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":0,\"revision\":26,\"reveals\":24,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "error": "",
+        "winnerNickname": "",
+        "victoryAction": "대기방으로 돌아가는 중",
+        "victoryVisible": false,
+        "canContinueAfterVictory": false,
+        "victoryReturnPending": false,
+        "victoryReturnRemaining": 0,
+        "victorySoundsPlayed": 0,
+        "victoryAudioReady": false,
+        "victorySoundPlaying": false,
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "host": false,
+        "canStart": false,
+        "busy": false,
+        "localSeat": 1,
+        "bells": 0,
+        "revision": 26,
+        "turn": 0,
+        "bots": 0,
+        "capacity": 6,
+        "surfSections": 0,
+        "twoSidedSurfSections": 0,
+        "canAddBot": false,
+        "botCards": false,
+        "protocol": 42,
+        "selectedShirtColor": 1,
+        "savedShirtColor": 0,
+        "raceAimTarget": -1,
+        "shirtSelectionAccepted": false,
+        "shirtSelectionLoading": false,
+        "shirtPreferenceKey": "HalliGalli.PlayerShirtColor",
+        "selectableShirtColors": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "members": [
+          {
+            "id": 0,
+            "name": "host",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 0
+          },
+          {
+            "id": 1,
+            "name": "client1",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 1
+          }
+        ],
+        "actors": [
+          {
+            "position": {
+              "x": 7.999999523162842,
+              "y": 0.024999938905239105,
+              "z": 11.999999046325684
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": false,
+            "falls": 0,
+            "respawns": 2,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 0,
+            "viewYaw": 0,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 0,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          },
+          {
+            "position": {
+              "x": 15,
+              "y": 0.9121562242507935,
+              "z": 12
+            },
+            "velocity": {
+              "x": 0,
+              "y": 2.1245527267456055,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": false,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": true,
+            "falls": 1,
+            "respawns": 3,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 90,
+            "viewYaw": 90,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 1,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          }
+        ],
+        "checkpoints": [],
+        "bellLanding": {
+          "x": 0,
+          "y": 0.02500000037252903,
+          "z": 7.150000095367432
+        },
+        "hasFerry": false,
+        "ferryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "ferryPositions": [],
+        "worldTime": 17.80014396873458,
+        "factoryPlatforms": [],
+        "factoryPresses": [],
+        "selectedMap": "user:511ac97976fd4917b92ac7067569af88",
+        "userMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "userMapTransfer": "보관된 같은 맵 사용 · 다운로드 생략",
+        "loadedUserMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "studioDraftHash": "",
+        "studioDraftId": "",
+        "userMapReady": true,
+        "studioOpen": false,
+        "studioTesting": false,
+        "userMapRevision": 1,
+        "studioObjects": 0,
+        "studioSelected": "",
+        "studioStatus": "",
+        "studioBusy": false,
+        "studioDirty": false,
+        "studioConfirmation": false,
+        "studioCleared": false,
+        "studioClearStatus": "",
+        "commandSequence": 7,
+        "userMapCacheHit": true,
+        "studioCameraOrthographic": false,
+        "studioCameraAdvanced": false,
+        "studioCameraSize": 0,
+        "studioCameraView": "",
+        "studioCameraPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraForward": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraFocus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPartsMenu": false,
+        "studioViewportWidth": 0,
+        "studioEasyBuild": false,
+        "studioEraseMode": false,
+        "studioOrbit": false,
+        "studioBuildValid": false,
+        "studioBuildSize": 0,
+        "studioBuildPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildRotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildScale": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioFirstPerson": false,
+        "studioCaptured": false,
+        "studioNoclip": false,
+        "studioAir": false,
+        "studioAirGround": false,
+        "studioAirGuide": false,
+        "studioFlySpeed": 0,
+        "studioAirDistance": 0,
+        "studioAirHeight": 0,
+        "studioAirBottom": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioAirReference": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnActive": false,
+        "studioPawnGrounded": false,
+        "studioPawnPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "race": {
+          "round": 1,
+          "leader": 0,
+          "acquisitions": 2,
+          "missileHits": 0,
+          "bananaHits": 0,
+          "running": true,
+          "actors": [
+            {
+              "seat": 0,
+              "life": 2,
+              "itemSequence": 3,
+              "lockTarget": -1,
+              "acquisitions": 0,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            },
+            {
+              "seat": 1,
+              "life": 3,
+              "itemSequence": 7,
+              "lockTarget": -1,
+              "acquisitions": 2,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 3,
+              "effect": 0,
+              "effectRemaining": 0
+            }
+          ],
+          "boxes": [
+            {
+              "index": 0,
+              "position": {
+                "x": 0,
+                "y": 1.0499999523162842,
+                "z": 3
+              },
+              "cooldown": 5.570042610168457
+            },
+            {
+              "index": 1,
+              "position": {
+                "x": 10,
+                "y": 1.0499999523162842,
+                "z": 20
+              },
+              "cooldown": 6.969007968902588
+            }
+          ],
+          "projectiles": []
+        },
+        "clockwork": {
+          "traps": [],
+          "presses": [],
+          "ferries": []
+        }
+      }
+    },
+    {
+      "name": "Placed barricade while airborne",
+      "host": {
+        "role": "host",
+        "status": "",
+        "code": "",
+        "map": "user:511ac97976fd4917b92ac7067569af88",
+        "cardState": "{\"seats\":[{\"drawCount\":16,\"penalty\":0,\"open\":[8,11,12,12,2,16,0,15,10,6,1,4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":16,\"penalty\":0,\"open\":[8,13,1,0,11,6,17,5,2,3,0,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":0,\"revision\":26,\"reveals\":24,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "error": "",
+        "winnerNickname": "",
+        "victoryAction": "대기방으로 돌아가는 중",
+        "victoryVisible": false,
+        "canContinueAfterVictory": false,
+        "victoryReturnPending": false,
+        "victoryReturnRemaining": 0,
+        "victorySoundsPlayed": 0,
+        "victoryAudioReady": false,
+        "victorySoundPlaying": false,
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "host": true,
+        "canStart": false,
+        "busy": false,
+        "localSeat": 0,
+        "bells": 0,
+        "revision": 26,
+        "turn": 0,
+        "bots": 0,
+        "capacity": 6,
+        "surfSections": 0,
+        "twoSidedSurfSections": 0,
+        "canAddBot": false,
+        "botCards": false,
+        "protocol": 42,
+        "selectedShirtColor": 0,
+        "savedShirtColor": 0,
+        "raceAimTarget": -1,
+        "shirtSelectionAccepted": false,
+        "shirtSelectionLoading": false,
+        "shirtPreferenceKey": "HalliGalli.PlayerShirtColor",
+        "selectableShirtColors": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "members": [
+          {
+            "id": 0,
+            "name": "host",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 0
+          },
+          {
+            "id": 1,
+            "name": "client1",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 1
+          }
+        ],
+        "actors": [
+          {
+            "position": {
+              "x": 8,
+              "y": 0.024999940767884254,
+              "z": 12
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": true,
+            "falls": 0,
+            "respawns": 2,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 0,
+            "viewYaw": 0,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 0,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          },
+          {
+            "position": {
+              "x": 15,
+              "y": 0.946194052696228,
+              "z": 12
+            },
+            "velocity": {
+              "x": 0,
+              "y": -1.775446891784668,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": false,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": false,
+            "falls": 1,
+            "respawns": 3,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 90,
+            "viewYaw": 90,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 1,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          }
+        ],
+        "checkpoints": [],
+        "bellLanding": {
+          "x": 0,
+          "y": 0.02500000037252903,
+          "z": 7.150000095367432
+        },
+        "hasFerry": false,
+        "ferryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "ferryPositions": [],
+        "worldTime": 18.069141805151013,
+        "factoryPlatforms": [],
+        "factoryPresses": [],
+        "selectedMap": "user:511ac97976fd4917b92ac7067569af88",
+        "userMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "userMapTransfer": "맵 검증 완료 · 모두 같은 맵을 받았어요",
+        "loadedUserMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "studioDraftHash": "",
+        "studioDraftId": "",
+        "userMapReady": true,
+        "studioOpen": false,
+        "studioTesting": false,
+        "userMapRevision": 1,
+        "studioObjects": 0,
+        "studioSelected": "",
+        "studioStatus": "",
+        "studioBusy": false,
+        "studioDirty": false,
+        "studioConfirmation": false,
+        "studioCleared": false,
+        "studioClearStatus": "",
+        "commandSequence": 15,
+        "userMapCacheHit": false,
+        "studioCameraOrthographic": false,
+        "studioCameraAdvanced": false,
+        "studioCameraSize": 0,
+        "studioCameraView": "",
+        "studioCameraPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraForward": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraFocus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPartsMenu": false,
+        "studioViewportWidth": 0,
+        "studioEasyBuild": false,
+        "studioEraseMode": false,
+        "studioOrbit": false,
+        "studioBuildValid": false,
+        "studioBuildSize": 0,
+        "studioBuildPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildRotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildScale": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioFirstPerson": false,
+        "studioCaptured": false,
+        "studioNoclip": false,
+        "studioAir": false,
+        "studioAirGround": false,
+        "studioAirGuide": false,
+        "studioFlySpeed": 0,
+        "studioAirDistance": 0,
+        "studioAirHeight": 0,
+        "studioAirBottom": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioAirReference": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnActive": false,
+        "studioPawnGrounded": false,
+        "studioPawnPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "race": {
+          "round": 1,
+          "leader": 0,
+          "acquisitions": 2,
+          "missileHits": 0,
+          "bananaHits": 0,
+          "running": true,
+          "actors": [
+            {
+              "seat": 0,
+              "life": 2,
+              "itemSequence": 3,
+              "lockTarget": -1,
+              "acquisitions": 0,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            },
+            {
+              "seat": 1,
+              "life": 3,
+              "itemSequence": 8,
+              "lockTarget": -1,
+              "acquisitions": 2,
+              "uses": 1,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            }
+          ],
+          "boxes": [
+            {
+              "index": 0,
+              "position": {
+                "x": 0,
+                "y": 1.0499999523162842,
+                "z": 3
+              },
+              "cooldown": 5.301044940948486
+            },
+            {
+              "index": 1,
+              "position": {
+                "x": 10,
+                "y": 1.0499999523162842,
+                "z": 20
+              },
+              "cooldown": 6.700010299682617
+            }
+          ],
+          "projectiles": [
+            {
+              "id": 1,
+              "owner": 1,
+              "target": -1,
+              "barricadeHits": 0,
+              "item": 3,
+              "position": {
+                "x": 12,
+                "y": 5.960464477539063e-8,
+                "z": 12
+              },
+              "direction": {
+                "x": 1,
+                "y": 0,
+                "z": 5.960465188081798e-8
+              },
+              "size": {
+                "x": 9.979999542236328,
+                "y": 2.200000047683716,
+                "z": 0.6000000238418579
+              },
+              "remaining": 7.816518306732178
+            }
+          ]
+        },
+        "clockwork": {
+          "traps": [],
+          "presses": [],
+          "ferries": []
+        }
+      },
+      "guest": {
+        "role": "client1",
+        "status": "",
+        "code": "",
+        "map": "user:511ac97976fd4917b92ac7067569af88",
+        "cardState": "{\"seats\":[{\"drawCount\":16,\"penalty\":0,\"open\":[8,11,12,12,2,16,0,15,10,6,1,4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":16,\"penalty\":0,\"open\":[8,13,1,0,11,6,17,5,2,3,0,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":0,\"revision\":26,\"reveals\":24,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "error": "",
+        "winnerNickname": "",
+        "victoryAction": "대기방으로 돌아가는 중",
+        "victoryVisible": false,
+        "canContinueAfterVictory": false,
+        "victoryReturnPending": false,
+        "victoryReturnRemaining": 0,
+        "victorySoundsPlayed": 0,
+        "victoryAudioReady": false,
+        "victorySoundPlaying": false,
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "host": false,
+        "canStart": false,
+        "busy": false,
+        "localSeat": 1,
+        "bells": 0,
+        "revision": 26,
+        "turn": 0,
+        "bots": 0,
+        "capacity": 6,
+        "surfSections": 0,
+        "twoSidedSurfSections": 0,
+        "canAddBot": false,
+        "botCards": false,
+        "protocol": 42,
+        "selectedShirtColor": 1,
+        "savedShirtColor": 0,
+        "raceAimTarget": -1,
+        "shirtSelectionAccepted": false,
+        "shirtSelectionLoading": false,
+        "shirtPreferenceKey": "HalliGalli.PlayerShirtColor",
+        "selectableShirtColors": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "members": [
+          {
+            "id": 0,
+            "name": "host",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 0
+          },
+          {
+            "id": 1,
+            "name": "client1",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 1
+          }
+        ],
+        "actors": [
+          {
+            "position": {
+              "x": 7.999999523162842,
+              "y": 0.024999938905239105,
+              "z": 11.999999046325684
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": false,
+            "falls": 0,
+            "respawns": 2,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 0,
+            "viewYaw": 0,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 0,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          },
+          {
+            "position": {
+              "x": 15,
+              "y": 0.8839306831359863,
+              "z": 12
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2.3754470348358154,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": false,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": true,
+            "falls": 1,
+            "respawns": 3,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 90,
+            "viewYaw": 90,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 1,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          }
+        ],
+        "checkpoints": [],
+        "bellLanding": {
+          "x": 0,
+          "y": 0.02500000037252903,
+          "z": 7.150000095367432
+        },
+        "hasFerry": false,
+        "ferryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "ferryPositions": [],
+        "worldTime": 18.01664350184767,
+        "factoryPlatforms": [],
+        "factoryPresses": [],
+        "selectedMap": "user:511ac97976fd4917b92ac7067569af88",
+        "userMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "userMapTransfer": "보관된 같은 맵 사용 · 다운로드 생략",
+        "loadedUserMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "studioDraftHash": "",
+        "studioDraftId": "",
+        "userMapReady": true,
+        "studioOpen": false,
+        "studioTesting": false,
+        "userMapRevision": 1,
+        "studioObjects": 0,
+        "studioSelected": "",
+        "studioStatus": "",
+        "studioBusy": false,
+        "studioDirty": false,
+        "studioConfirmation": false,
+        "studioCleared": false,
+        "studioClearStatus": "",
+        "commandSequence": 9,
+        "userMapCacheHit": true,
+        "studioCameraOrthographic": false,
+        "studioCameraAdvanced": false,
+        "studioCameraSize": 0,
+        "studioCameraView": "",
+        "studioCameraPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraForward": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraFocus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPartsMenu": false,
+        "studioViewportWidth": 0,
+        "studioEasyBuild": false,
+        "studioEraseMode": false,
+        "studioOrbit": false,
+        "studioBuildValid": false,
+        "studioBuildSize": 0,
+        "studioBuildPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildRotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildScale": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioFirstPerson": false,
+        "studioCaptured": false,
+        "studioNoclip": false,
+        "studioAir": false,
+        "studioAirGround": false,
+        "studioAirGuide": false,
+        "studioFlySpeed": 0,
+        "studioAirDistance": 0,
+        "studioAirHeight": 0,
+        "studioAirBottom": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioAirReference": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnActive": false,
+        "studioPawnGrounded": false,
+        "studioPawnPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "race": {
+          "round": 1,
+          "leader": 0,
+          "acquisitions": 2,
+          "missileHits": 0,
+          "bananaHits": 0,
+          "running": true,
+          "actors": [
+            {
+              "seat": 0,
+              "life": 2,
+              "itemSequence": 3,
+              "lockTarget": -1,
+              "acquisitions": 0,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            },
+            {
+              "seat": 1,
+              "life": 3,
+              "itemSequence": 8,
+              "lockTarget": -1,
+              "acquisitions": 2,
+              "uses": 1,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            }
+          ],
+          "boxes": [
+            {
+              "index": 0,
+              "position": {
+                "x": 0,
+                "y": 1.0499999523162842,
+                "z": 3
+              },
+              "cooldown": 5.353543281555176
+            },
+            {
+              "index": 1,
+              "position": {
+                "x": 10,
+                "y": 1.0499999523162842,
+                "z": 20
+              },
+              "cooldown": 6.752508640289307
+            }
+          ],
+          "projectiles": [
+            {
+              "id": 1,
+              "owner": 1,
+              "target": -1,
+              "barricadeHits": 0,
+              "item": 3,
+              "position": {
+                "x": 12,
+                "y": 5.960464477539063e-8,
+                "z": 12
+              },
+              "direction": {
+                "x": 1,
+                "y": 0,
+                "z": 5.960465188081798e-8
+              },
+              "size": {
+                "x": 9.979999542236328,
+                "y": 2.200000047683716,
+                "z": 0.6000000238418579
+              },
+              "remaining": 7.869016647338867
+            }
+          ]
+        },
+        "clockwork": {
+          "traps": [],
+          "presses": [],
+          "ferries": []
+        }
+      }
+    },
+    {
+      "name": "Shared-map damaged wall collision",
+      "host": {
+        "role": "host",
+        "status": "",
+        "code": "",
+        "map": "user:511ac97976fd4917b92ac7067569af88",
+        "cardState": "{\"seats\":[{\"drawCount\":16,\"penalty\":0,\"open\":[8,11,12,12,2,16,0,15,10,6,1,4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":16,\"penalty\":0,\"open\":[8,13,1,0,11,6,17,5,2,3,0,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":0,\"revision\":26,\"reveals\":24,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "error": "",
+        "winnerNickname": "",
+        "victoryAction": "대기방으로 돌아가는 중",
+        "victoryVisible": false,
+        "canContinueAfterVictory": false,
+        "victoryReturnPending": false,
+        "victoryReturnRemaining": 0,
+        "victorySoundsPlayed": 0,
+        "victoryAudioReady": false,
+        "victorySoundPlaying": false,
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "host": true,
+        "canStart": false,
+        "busy": false,
+        "localSeat": 0,
+        "bells": 0,
+        "revision": 26,
+        "turn": 0,
+        "bots": 0,
+        "capacity": 6,
+        "surfSections": 0,
+        "twoSidedSurfSections": 0,
+        "canAddBot": false,
+        "botCards": false,
+        "protocol": 42,
+        "selectedShirtColor": 0,
+        "savedShirtColor": 0,
+        "raceAimTarget": -1,
+        "shirtSelectionAccepted": false,
+        "shirtSelectionLoading": false,
+        "shirtPreferenceKey": "HalliGalli.PlayerShirtColor",
+        "selectableShirtColors": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "members": [
+          {
+            "id": 0,
+            "name": "host",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 0
+          },
+          {
+            "id": 1,
+            "name": "client1",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 1
+          }
+        ],
+        "actors": [
+          {
+            "position": {
+              "x": 11.375,
+              "y": 0.024999940767884254,
+              "z": 12.000001907348633
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": true,
+            "falls": 0,
+            "respawns": 2,
+            "hits": 0,
+            "attacks": 2,
+            "attackHits": 1,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 90,
+            "viewYaw": 90,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0.5750013589859009,
+            "attack": "None",
+            "shirtColor": 0,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          },
+          {
+            "position": {
+              "x": 13.100000381469727,
+              "y": 0.024999940767884254,
+              "z": 12
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": false,
+            "falls": 1,
+            "respawns": 3,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 270,
+            "viewYaw": 270,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 1,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          }
+        ],
+        "checkpoints": [],
+        "bellLanding": {
+          "x": 0,
+          "y": 0.02500000037252903,
+          "z": 7.150000095367432
+        },
+        "hasFerry": false,
+        "ferryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "ferryPositions": [],
+        "worldTime": 21.069163017251995,
+        "factoryPlatforms": [],
+        "factoryPresses": [],
+        "selectedMap": "user:511ac97976fd4917b92ac7067569af88",
+        "userMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "userMapTransfer": "맵 검증 완료 · 모두 같은 맵을 받았어요",
+        "loadedUserMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "studioDraftHash": "",
+        "studioDraftId": "",
+        "userMapReady": true,
+        "studioOpen": false,
+        "studioTesting": false,
+        "userMapRevision": 1,
+        "studioObjects": 0,
+        "studioSelected": "",
+        "studioStatus": "",
+        "studioBusy": false,
+        "studioDirty": false,
+        "studioConfirmation": false,
+        "studioCleared": false,
+        "studioClearStatus": "",
+        "commandSequence": 23,
+        "userMapCacheHit": false,
+        "studioCameraOrthographic": false,
+        "studioCameraAdvanced": false,
+        "studioCameraSize": 0,
+        "studioCameraView": "",
+        "studioCameraPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraForward": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraFocus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPartsMenu": false,
+        "studioViewportWidth": 0,
+        "studioEasyBuild": false,
+        "studioEraseMode": false,
+        "studioOrbit": false,
+        "studioBuildValid": false,
+        "studioBuildSize": 0,
+        "studioBuildPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildRotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildScale": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioFirstPerson": false,
+        "studioCaptured": false,
+        "studioNoclip": false,
+        "studioAir": false,
+        "studioAirGround": false,
+        "studioAirGuide": false,
+        "studioFlySpeed": 0,
+        "studioAirDistance": 0,
+        "studioAirHeight": 0,
+        "studioAirBottom": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioAirReference": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnActive": false,
+        "studioPawnGrounded": false,
+        "studioPawnPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "race": {
+          "round": 1,
+          "leader": 0,
+          "acquisitions": 2,
+          "missileHits": 0,
+          "bananaHits": 0,
+          "running": true,
+          "actors": [
+            {
+              "seat": 0,
+              "life": 2,
+              "itemSequence": 3,
+              "lockTarget": -1,
+              "acquisitions": 0,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            },
+            {
+              "seat": 1,
+              "life": 3,
+              "itemSequence": 8,
+              "lockTarget": -1,
+              "acquisitions": 2,
+              "uses": 1,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            }
+          ],
+          "boxes": [
+            {
+              "index": 0,
+              "position": {
+                "x": 0,
+                "y": 1.0499999523162842,
+                "z": 3
+              },
+              "cooldown": 2.3010237216949463
+            },
+            {
+              "index": 1,
+              "position": {
+                "x": 10,
+                "y": 1.0499999523162842,
+                "z": 20
+              },
+              "cooldown": 3.699989080429077
+            }
+          ],
+          "projectiles": [
+            {
+              "id": 1,
+              "owner": 1,
+              "target": -1,
+              "barricadeHits": 1,
+              "item": 3,
+              "position": {
+                "x": 12,
+                "y": 5.960464477539063e-8,
+                "z": 12
+              },
+              "direction": {
+                "x": 1,
+                "y": 0,
+                "z": 5.960465188081798e-8
+              },
+              "size": {
+                "x": 9.979999542236328,
+                "y": 2.200000047683716,
+                "z": 0.6000000238418579
+              },
+              "remaining": 4.816497325897217
+            }
+          ]
+        },
+        "clockwork": {
+          "traps": [],
+          "presses": [],
+          "ferries": []
+        }
+      },
+      "guest": {
+        "role": "client1",
+        "status": "",
+        "code": "",
+        "map": "user:511ac97976fd4917b92ac7067569af88",
+        "cardState": "{\"seats\":[{\"drawCount\":16,\"penalty\":0,\"open\":[8,11,12,12,2,16,0,15,10,6,1,4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":16,\"penalty\":0,\"open\":[8,13,1,0,11,6,17,5,2,3,0,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":0,\"revision\":26,\"reveals\":24,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "error": "",
+        "winnerNickname": "",
+        "victoryAction": "대기방으로 돌아가는 중",
+        "victoryVisible": false,
+        "canContinueAfterVictory": false,
+        "victoryReturnPending": false,
+        "victoryReturnRemaining": 0,
+        "victorySoundsPlayed": 0,
+        "victoryAudioReady": false,
+        "victorySoundPlaying": false,
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "host": false,
+        "canStart": false,
+        "busy": false,
+        "localSeat": 1,
+        "bells": 0,
+        "revision": 26,
+        "turn": 0,
+        "bots": 0,
+        "capacity": 6,
+        "surfSections": 0,
+        "twoSidedSurfSections": 0,
+        "canAddBot": false,
+        "botCards": false,
+        "protocol": 42,
+        "selectedShirtColor": 1,
+        "savedShirtColor": 0,
+        "raceAimTarget": -1,
+        "shirtSelectionAccepted": false,
+        "shirtSelectionLoading": false,
+        "shirtPreferenceKey": "HalliGalli.PlayerShirtColor",
+        "selectableShirtColors": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "members": [
+          {
+            "id": 0,
+            "name": "host",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 0
+          },
+          {
+            "id": 1,
+            "name": "client1",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 1
+          }
+        ],
+        "actors": [
+          {
+            "position": {
+              "x": 11.374957084655762,
+              "y": 0.02499999850988388,
+              "z": 12.000000953674316
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": false,
+            "falls": 0,
+            "respawns": 2,
+            "hits": 0,
+            "attacks": 2,
+            "attackHits": 1,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 89.99999237060547,
+            "viewYaw": 89.99999237060547,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0.5750013589859009,
+            "attack": "None",
+            "shirtColor": 0,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          },
+          {
+            "position": {
+              "x": 13.100000381469727,
+              "y": 0.024999940767884254,
+              "z": 12
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": true,
+            "falls": 1,
+            "respawns": 3,
+            "hits": 0,
+            "attacks": 0,
+            "attackHits": 0,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 270,
+            "viewYaw": 270,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 1,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          }
+        ],
+        "checkpoints": [],
+        "bellLanding": {
+          "x": 0,
+          "y": 0.02500000037252903,
+          "z": 7.150000095367432
+        },
+        "hasFerry": false,
+        "ferryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "ferryPositions": [],
+        "worldTime": 21.01664290172203,
+        "factoryPlatforms": [],
+        "factoryPresses": [],
+        "selectedMap": "user:511ac97976fd4917b92ac7067569af88",
+        "userMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "userMapTransfer": "보관된 같은 맵 사용 · 다운로드 생략",
+        "loadedUserMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "studioDraftHash": "",
+        "studioDraftId": "",
+        "userMapReady": true,
+        "studioOpen": false,
+        "studioTesting": false,
+        "userMapRevision": 1,
+        "studioObjects": 0,
+        "studioSelected": "",
+        "studioStatus": "",
+        "studioBusy": false,
+        "studioDirty": false,
+        "studioConfirmation": false,
+        "studioCleared": false,
+        "studioClearStatus": "",
+        "commandSequence": 10,
+        "userMapCacheHit": true,
+        "studioCameraOrthographic": false,
+        "studioCameraAdvanced": false,
+        "studioCameraSize": 0,
+        "studioCameraView": "",
+        "studioCameraPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraForward": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraFocus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPartsMenu": false,
+        "studioViewportWidth": 0,
+        "studioEasyBuild": false,
+        "studioEraseMode": false,
+        "studioOrbit": false,
+        "studioBuildValid": false,
+        "studioBuildSize": 0,
+        "studioBuildPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildRotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildScale": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioFirstPerson": false,
+        "studioCaptured": false,
+        "studioNoclip": false,
+        "studioAir": false,
+        "studioAirGround": false,
+        "studioAirGuide": false,
+        "studioFlySpeed": 0,
+        "studioAirDistance": 0,
+        "studioAirHeight": 0,
+        "studioAirBottom": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioAirReference": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnActive": false,
+        "studioPawnGrounded": false,
+        "studioPawnPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "race": {
+          "round": 1,
+          "leader": 0,
+          "acquisitions": 2,
+          "missileHits": 0,
+          "bananaHits": 0,
+          "running": true,
+          "actors": [
+            {
+              "seat": 0,
+              "life": 2,
+              "itemSequence": 3,
+              "lockTarget": -1,
+              "acquisitions": 0,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            },
+            {
+              "seat": 1,
+              "life": 3,
+              "itemSequence": 8,
+              "lockTarget": -1,
+              "acquisitions": 2,
+              "uses": 1,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            }
+          ],
+          "boxes": [
+            {
+              "index": 0,
+              "position": {
+                "x": 0,
+                "y": 1.0499999523162842,
+                "z": 3
+              },
+              "cooldown": 2.353543758392334
+            },
+            {
+              "index": 1,
+              "position": {
+                "x": 10,
+                "y": 1.0499999523162842,
+                "z": 20
+              },
+              "cooldown": 3.752509117126465
+            }
+          ],
+          "projectiles": [
+            {
+              "id": 1,
+              "owner": 1,
+              "target": -1,
+              "barricadeHits": 1,
+              "item": 3,
+              "position": {
+                "x": 12,
+                "y": 5.960464477539063e-8,
+                "z": 12
+              },
+              "direction": {
+                "x": 1,
+                "y": 0,
+                "z": 5.960465188081798e-8
+              },
+              "size": {
+                "x": 9.979999542236328,
+                "y": 2.200000047683716,
+                "z": 0.6000000238418579
+              },
+              "remaining": 4.869017124176025
+            }
+          ]
+        },
+        "clockwork": {
+          "traps": [],
+          "presses": [],
+          "ferries": []
+        }
+      }
+    },
+    {
+      "name": "Shared-map broken wall passage",
+      "host": {
+        "role": "host",
+        "status": "",
+        "code": "",
+        "map": "user:511ac97976fd4917b92ac7067569af88",
+        "cardState": "{\"seats\":[{\"drawCount\":16,\"penalty\":0,\"open\":[8,11,12,12,2,16,0,15,10,6,1,4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":16,\"penalty\":0,\"open\":[8,13,1,0,11,6,17,5,2,3,0,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":0,\"revision\":26,\"reveals\":24,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "error": "",
+        "winnerNickname": "",
+        "victoryAction": "대기방으로 돌아가는 중",
+        "victoryVisible": false,
+        "canContinueAfterVictory": false,
+        "victoryReturnPending": false,
+        "victoryReturnRemaining": 0,
+        "victorySoundsPlayed": 0,
+        "victoryAudioReady": false,
+        "victorySoundPlaying": false,
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "host": true,
+        "canStart": false,
+        "busy": false,
+        "localSeat": 0,
+        "bells": 0,
+        "revision": 26,
+        "turn": 0,
+        "bots": 0,
+        "capacity": 6,
+        "surfSections": 0,
+        "twoSidedSurfSections": 0,
+        "canAddBot": false,
+        "botCards": false,
+        "protocol": 42,
+        "selectedShirtColor": 0,
+        "savedShirtColor": 0,
+        "raceAimTarget": -1,
+        "shirtSelectionAccepted": false,
+        "shirtSelectionLoading": false,
+        "shirtPreferenceKey": "HalliGalli.PlayerShirtColor",
+        "selectableShirtColors": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "members": [
+          {
+            "id": 0,
+            "name": "host",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 0
+          },
+          {
+            "id": 1,
+            "name": "client1",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 1
+          }
+        ],
+        "actors": [
+          {
+            "position": {
+              "x": 14.810665130615234,
+              "y": 0.02500000037252903,
+              "z": 12.000001907348633
+            },
+            "velocity": {
+              "x": 3.226128339767456,
+              "y": -2,
+              "z": 1.922922905350788e-7
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": true,
+            "falls": 0,
+            "respawns": 2,
+            "hits": 0,
+            "attacks": 2,
+            "attackHits": 1,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 90,
+            "viewYaw": 90,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 0,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          },
+          {
+            "position": {
+              "x": 15,
+              "y": 0.02499988116323948,
+              "z": 20
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": false,
+            "falls": 1,
+            "respawns": 3,
+            "hits": 0,
+            "attacks": 1,
+            "attackHits": 1,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 270,
+            "viewYaw": 270,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0.6200013160705566,
+            "attack": "None",
+            "shirtColor": 1,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          }
+        ],
+        "checkpoints": [],
+        "bellLanding": {
+          "x": 0,
+          "y": 0.02500000037252903,
+          "z": 7.150000095367432
+        },
+        "hasFerry": false,
+        "ferryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "ferryPositions": [],
+        "worldTime": 22.469176335425583,
+        "factoryPlatforms": [],
+        "factoryPresses": [],
+        "selectedMap": "user:511ac97976fd4917b92ac7067569af88",
+        "userMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "userMapTransfer": "맵 검증 완료 · 모두 같은 맵을 받았어요",
+        "loadedUserMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "studioDraftHash": "",
+        "studioDraftId": "",
+        "userMapReady": true,
+        "studioOpen": false,
+        "studioTesting": false,
+        "userMapRevision": 1,
+        "studioObjects": 0,
+        "studioSelected": "",
+        "studioStatus": "",
+        "studioBusy": false,
+        "studioDirty": false,
+        "studioConfirmation": false,
+        "studioCleared": false,
+        "studioClearStatus": "",
+        "commandSequence": 26,
+        "userMapCacheHit": false,
+        "studioCameraOrthographic": false,
+        "studioCameraAdvanced": false,
+        "studioCameraSize": 0,
+        "studioCameraView": "",
+        "studioCameraPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraForward": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraFocus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPartsMenu": false,
+        "studioViewportWidth": 0,
+        "studioEasyBuild": false,
+        "studioEraseMode": false,
+        "studioOrbit": false,
+        "studioBuildValid": false,
+        "studioBuildSize": 0,
+        "studioBuildPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildRotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildScale": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioFirstPerson": false,
+        "studioCaptured": false,
+        "studioNoclip": false,
+        "studioAir": false,
+        "studioAirGround": false,
+        "studioAirGuide": false,
+        "studioFlySpeed": 0,
+        "studioAirDistance": 0,
+        "studioAirHeight": 0,
+        "studioAirBottom": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioAirReference": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnActive": false,
+        "studioPawnGrounded": false,
+        "studioPawnPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "race": {
+          "round": 1,
+          "leader": 0,
+          "acquisitions": 2,
+          "missileHits": 0,
+          "bananaHits": 0,
+          "running": true,
+          "actors": [
+            {
+              "seat": 0,
+              "life": 2,
+              "itemSequence": 3,
+              "lockTarget": -1,
+              "acquisitions": 0,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            },
+            {
+              "seat": 1,
+              "life": 3,
+              "itemSequence": 8,
+              "lockTarget": -1,
+              "acquisitions": 2,
+              "uses": 1,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            }
+          ],
+          "boxes": [
+            {
+              "index": 0,
+              "position": {
+                "x": 0,
+                "y": 1.0499999523162842,
+                "z": 3
+              },
+              "cooldown": 0.9010103344917297
+            },
+            {
+              "index": 1,
+              "position": {
+                "x": 10,
+                "y": 1.0499999523162842,
+                "z": 20
+              },
+              "cooldown": 2.299975872039795
+            }
+          ],
+          "projectiles": []
+        },
+        "clockwork": {
+          "traps": [],
+          "presses": [],
+          "ferries": []
+        }
+      },
+      "guest": {
+        "role": "client1",
+        "status": "",
+        "code": "",
+        "map": "user:511ac97976fd4917b92ac7067569af88",
+        "cardState": "{\"seats\":[{\"drawCount\":16,\"penalty\":0,\"open\":[8,11,12,12,2,16,0,15,10,6,1,4],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true},{\"drawCount\":16,\"penalty\":0,\"open\":[8,13,1,0,11,6,17,5,2,3,0,17],\"seated\":false,\"mustSit\":false,\"eliminated\":false,\"eligible\":true}],\"turn\":0,\"revision\":26,\"reveals\":24,\"winner\":-1,\"collector\":-1,\"collected\":0,\"paused\":true,\"claimed\":false,\"five\":true}",
+        "error": "",
+        "winnerNickname": "",
+        "victoryAction": "대기방으로 돌아가는 중",
+        "victoryVisible": false,
+        "canContinueAfterVictory": false,
+        "victoryReturnPending": false,
+        "victoryReturnRemaining": 0,
+        "victorySoundsPlayed": 0,
+        "victoryAudioReady": false,
+        "victorySoundPlaying": false,
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "host": false,
+        "canStart": false,
+        "busy": false,
+        "localSeat": 1,
+        "bells": 0,
+        "revision": 26,
+        "turn": 0,
+        "bots": 0,
+        "capacity": 6,
+        "surfSections": 0,
+        "twoSidedSurfSections": 0,
+        "canAddBot": false,
+        "botCards": false,
+        "protocol": 42,
+        "selectedShirtColor": 1,
+        "savedShirtColor": 0,
+        "raceAimTarget": -1,
+        "shirtSelectionAccepted": false,
+        "shirtSelectionLoading": false,
+        "shirtPreferenceKey": "HalliGalli.PlayerShirtColor",
+        "selectableShirtColors": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "members": [
+          {
+            "id": 0,
+            "name": "host",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 0
+          },
+          {
+            "id": 1,
+            "name": "client1",
+            "ready": true,
+            "bot": false,
+            "shirtColor": 1
+          }
+        ],
+        "actors": [
+          {
+            "position": {
+              "x": 14.106040954589844,
+              "y": 0.025000037625432014,
+              "z": 12.000000953674316
+            },
+            "velocity": {
+              "x": 4.5,
+              "y": -2,
+              "z": 2.6822095833267667e-7
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": false,
+            "falls": 0,
+            "respawns": 2,
+            "hits": 0,
+            "attacks": 2,
+            "attackHits": 1,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 89.99999237060547,
+            "viewYaw": 89.99999237060547,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0,
+            "attack": "None",
+            "shirtColor": 0,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          },
+          {
+            "position": {
+              "x": 15,
+              "y": 0.02499988116323948,
+              "z": 20
+            },
+            "velocity": {
+              "x": 0,
+              "y": -2,
+              "z": 0
+            },
+            "seated": false,
+            "respawning": false,
+            "grounded": true,
+            "crouched": false,
+            "aiming": false,
+            "aiEnabled": false,
+            "localPlayer": true,
+            "falls": 1,
+            "respawns": 3,
+            "hits": 0,
+            "attacks": 1,
+            "attackHits": 1,
+            "checkpoint": -1,
+            "gates": 0,
+            "ammo": 0,
+            "shots": 0,
+            "stunHits": 0,
+            "yaw": 270,
+            "viewYaw": 270,
+            "viewRoll": 0,
+            "checkpointSide": 0,
+            "stun": 0,
+            "immunity": 0,
+            "stagger": 0,
+            "raceLaunch": 0,
+            "pushProtection": 0,
+            "attackElapsed": 0,
+            "kickCooldown": 0.7100012302398682,
+            "attack": "None",
+            "shirtColor": 1,
+            "shirtRenderers": 1,
+            "shirtTint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "lastPush": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "lassoCasts": 0,
+            "lassoHits": 0,
+            "lassoPulls": 0,
+            "lassoTarget": -1,
+            "lassoPhase": "Idle",
+            "lassoCooldown": 0,
+            "ropeThrowSounds": 0,
+            "ropeLatchSounds": 0,
+            "ropePullSounds": 0
+          }
+        ],
+        "checkpoints": [],
+        "bellLanding": {
+          "x": 0,
+          "y": 0.02500000037252903,
+          "z": 7.150000095367432
+        },
+        "hasFerry": false,
+        "ferryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "ferryPositions": [],
+        "worldTime": 22.333484903584853,
+        "factoryPlatforms": [],
+        "factoryPresses": [],
+        "selectedMap": "user:511ac97976fd4917b92ac7067569af88",
+        "userMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "userMapTransfer": "보관된 같은 맵 사용 · 다운로드 생략",
+        "loadedUserMapHash": "a91ca849661dbe8f80fd4090c31f5474ce02e12d86ed25b21f704e0da8c6875c",
+        "studioDraftHash": "",
+        "studioDraftId": "",
+        "userMapReady": true,
+        "studioOpen": false,
+        "studioTesting": false,
+        "userMapRevision": 1,
+        "studioObjects": 0,
+        "studioSelected": "",
+        "studioStatus": "",
+        "studioBusy": false,
+        "studioDirty": false,
+        "studioConfirmation": false,
+        "studioCleared": false,
+        "studioClearStatus": "",
+        "commandSequence": 11,
+        "userMapCacheHit": true,
+        "studioCameraOrthographic": false,
+        "studioCameraAdvanced": false,
+        "studioCameraSize": 0,
+        "studioCameraView": "",
+        "studioCameraPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraForward": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioCameraFocus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPartsMenu": false,
+        "studioViewportWidth": 0,
+        "studioEasyBuild": false,
+        "studioEraseMode": false,
+        "studioOrbit": false,
+        "studioBuildValid": false,
+        "studioBuildSize": 0,
+        "studioBuildPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildRotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioBuildScale": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioFirstPerson": false,
+        "studioCaptured": false,
+        "studioNoclip": false,
+        "studioAir": false,
+        "studioAirGround": false,
+        "studioAirGuide": false,
+        "studioFlySpeed": 0,
+        "studioAirDistance": 0,
+        "studioAirHeight": 0,
+        "studioAirBottom": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioAirReference": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnActive": false,
+        "studioPawnGrounded": false,
+        "studioPawnPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "studioPawnVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "race": {
+          "round": 1,
+          "leader": 0,
+          "acquisitions": 2,
+          "missileHits": 0,
+          "bananaHits": 0,
+          "running": true,
+          "actors": [
+            {
+              "seat": 0,
+              "life": 2,
+              "itemSequence": 3,
+              "lockTarget": -1,
+              "acquisitions": 0,
+              "uses": 0,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            },
+            {
+              "seat": 1,
+              "life": 3,
+              "itemSequence": 8,
+              "lockTarget": -1,
+              "acquisitions": 2,
+              "uses": 1,
+              "flips": 0,
+              "slips": 0,
+              "item": 0,
+              "effect": 0,
+              "effectRemaining": 0
+            }
+          ],
+          "boxes": [
+            {
+              "index": 0,
+              "position": {
+                "x": 0,
+                "y": 1.0499999523162842,
+                "z": 3
+              },
+              "cooldown": 1.0367017984390259
+            },
+            {
+              "index": 1,
+              "position": {
+                "x": 10,
+                "y": 1.0499999523162842,
+                "z": 20
+              },
+              "cooldown": 2.4356672763824463
+            }
+          ],
+          "projectiles": []
+        },
+        "clockwork": {
+          "traps": [],
+          "presses": [],
+          "ferries": []
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Headless mode does not capture crack visibility; use BarricadeValidationRunner with graphics."
+  ],
+  "backend": "Two isolated Unity Editor processes over loopback; production release gate unchanged",
+  "limits": [
+    "Not a published standalone-player admission test",
+    "No Internet Relay or artificial latency"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-05",
+  "measurement": "0.5 second physics traversal trace samples; maximum rise following a preceding low within each space, including flight",
+  "runs": [
+    {
+      "name": "Start 0 traverses all spaces and ordered passages without unintended falls",
+      "result": "seconds=48.21 falls=0 requested=0",
+      "spaces": [
+        {
+          "name": "유적 진입",
+          "observedClimbMetres": 19.36
+        },
+        {
+          "name": "외벽 회랑",
+          "observedClimbMetres": 17.03
+        },
+        {
+          "name": "무너진 중앙 홀",
+          "observedClimbMetres": 21.59
+        },
+        {
+          "name": "수문 통로",
+          "observedClimbMetres": 15.42
+        },
+        {
+          "name": "왕의 제단",
+          "observedClimbMetres": 23.08
+        }
+      ]
+    },
+    {
+      "name": "Start 5 traverses all spaces and ordered passages without unintended falls",
+      "result": "seconds=48.015 falls=0 requested=0",
+      "spaces": [
+        {
+          "name": "유적 진입",
+          "observedClimbMetres": 18.75
+        },
+        {
+          "name": "외벽 회랑",
+          "observedClimbMetres": 16.43
+        },
+        {
+          "name": "무너진 중앙 홀",
+          "observedClimbMetres": 21.94
+        },
+        {
+          "name": "수문 통로",
+          "observedClimbMetres": 15.97
+        },
+        {
+          "name": "왕의 제단",
+          "observedClimbMetres": 22.55
+        }
+      ]
+    }
+  ],
+  "protectedAssets": [
+    {
+      "path": "Assets/HalliGalliMovement/Demo/ClockworkCourse.unity",
+      "before": "4704e796935dbdfe4b160c19d273fb71318d17dc7ddf46ab95bfe2807251fa85",
+      "after": "4704e796935dbdfe4b160c19d273fb71318d17dc7ddf46ab95bfe2807251fa85",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/MovementLab.unity",
+      "before": "06739ed8e720cdf9b02611e07fb779dedcc25349dedc144f6a3531f564e1cc8c",
+      "after": "06739ed8e720cdf9b02611e07fb779dedcc25349dedc144f6a3531f564e1cc8c",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/UserMapCourse.unity",
+      "before": "a6b80952dd389aed38355f007bf07992e87a489f16717017fa83124fdaad5e84",
+      "after": "a6b80952dd389aed38355f007bf07992e87a489f16717017fa83124fdaad5e84",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/RaceCourse.unity",
+      "before": "f9551ade8cc6a64a185ea6ec7963a7da769fc0a7a6a4d44520509278fd219365",
+      "after": "f9551ade8cc6a64a185ea6ec7963a7da769fc0a7a6a4d44520509278fd219365",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+      "before": "c7c2288302b9bdabe8ab9a216672bc5206b174e7e322705e5b744b2a2a8b055b",
+      "after": "c7c2288302b9bdabe8ab9a216672bc5206b174e7e322705e5b744b2a2a8b055b",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/CombatPractice.unity",
+      "before": "24d3690871b618f9e8772448c4b3d7471f271c97319b823fadfda34a09ccce6e",
+      "after": "24d3690871b618f9e8772448c4b3d7471f271c97319b823fadfda34a09ccce6e",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+      "before": "a45a165a269c8ddd6172581624488cced578d41f3add8b3eb52b431cfb54b5f0",
+      "after": "a45a165a269c8ddd6172581624488cced578d41f3add8b3eb52b431cfb54b5f0",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+      "before": "73a282aba74fa9e25b29e33d7256427a4487bdaa68401659c61b4defc016af7b",
+      "after": "73a282aba74fa9e25b29e33d7256427a4487bdaa68401659c61b4defc016af7b",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/SurfMovement.asset",
+      "before": "73734179bda0a06f9113b25d081f0b9937a070a9d6cdfb8a2ffcd449492af40f",
+      "after": "73734179bda0a06f9113b25d081f0b9937a070a9d6cdfb8a2ffcd449492af40f",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/DefaultMovement.asset",
+      "before": "f88fefeadb8570df409d5307cc3f18206fefd705ddb7239448f4aa8588091628",
+      "after": "f88fefeadb8570df409d5307cc3f18206fefd705ddb7239448f4aa8588091628",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+      "before": "a45ec15b0be8a3953074070eadb5f0f820c856245fcc6917df05701f7a66a9cc",
+      "after": "a45ec15b0be8a3953074070eadb5f0f820c856245fcc6917df05701f7a66a9cc",
+      "unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+﻿{
+    "utc":  "2026-11-05T06:57:16.1909023Z",
+    "completedUtc":  "2026-11-05T06:57:20.5601988Z",
+    "status":  "passed",
+    "version":  "1.0.6",
+    "protocol":  42,
+    "reason":  "VersionMismatch",
+    "http":  200,
+    "gateWeakened":  false,
+    "gameplayAdmitted":  false,
+    "screenshot":  null,
+    "log":  "Logs/current-player-gate.log",
+    "exeSha256":  "a4c71b1bfc3e42d02f2f129fe04adef3ebf2343a662884e4b99598e9dfc90e7d",
+    "limitation":  "Live player log confirms rejection of unpublished build; gameplay was exercised in Unity Editors. Desktop capture did not foreground the player and was discarded; no standalone UI capture is claimed."
+}

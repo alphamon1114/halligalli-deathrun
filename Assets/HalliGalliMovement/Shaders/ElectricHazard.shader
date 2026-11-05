@@ -25,20 +25,15 @@ Shader "HalliGalli/ElectricHazard"
             fixed4 frag(v2f i):SV_Target
             {
                 float2 p=i.uv*_Size.xy;
-                // Dark electrode plates, with narrow channels that remain visible between sparks.
-                float2 plate=abs(frac(p/2.1)-.5)*2.1;
-                float channel=1-smoothstep(.018,.045,min(plate.x,plate.y));
-                float2 grate=abs(frac(p/.22)-.5)*.22;
-                float metal=smoothstep(.012,.026,min(grate.x,grate.y));
-                float3 color=lerp(float3(.035,.048,.055),float3(.085,.112,.126),metal);
-                color=lerp(color,float3(.025,.36,.46),channel*.7);
+                // One uninterrupted dark electrode surface: no floor grid competing with the bank.
+                float3 color=float3(.045,.075,.085);
                 // Constant hazard tape, independent of animation or frame rate.
                 float edge=min(min(p.x,_Size.x-p.x),min(p.y,_Size.y-p.y));
                 float border=1-step(.48,edge);
                 float hatch=step(.5,frac((p.x+p.y)/1.2));
                 color=lerp(color,lerp(float3(.018,.022,.023),float3(.87,.56,.085),hatch),border);
-                // Repeating electrical-warning triangles and a black lightning bolt.
-                float2 q=(frac(p/5.25)-.5)*5.25;
+                // Sparse warning signs retain the hazard identity without carpeting the room.
+                float2 q=(frac(p/12)-.5)*12;
                 float sign=insideTriangle(q,float2(-.72,-.51),float2(.72,-.51),float2(0,.81));
                 float inner=insideTriangle(q,float2(-.58,-.43),float2(.58,-.43),float2(0,.64));
                 color=lerp(color,float3(.012,.018,.02),sign);

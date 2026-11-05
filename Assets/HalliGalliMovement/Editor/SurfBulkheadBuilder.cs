@@ -1,6 +1,5 @@
 using HalliGalli.Movement;
 using UnityEngine;
-using UnityEditor;
 using Object=UnityEngine.Object;
 
 namespace HalliGalli.EditorTools
@@ -31,22 +30,8 @@ namespace HalliGalli.EditorTools
         static void Wall(Transform parent,string name,Vector3 center,Vector3 size)
         {
             var wall=new GameObject(name).AddComponent<BoxCollider>();wall.transform.SetParent(parent);wall.transform.position=center;wall.size=size;
-            bool side=size.x<size.z;float width=side?size.z:size.x,depth=side?size.x:size.z;
-            int columns=Mathf.CeilToInt(width/12),rows=Mathf.CeilToInt(size.y/12);
-            var rotate=Quaternion.Euler(0,side?90:0,0);
-            for(int c=0;c<columns;c++)for(int r=0;r<rows;r++){
-                var local=rotate*new Vector3(-width/2+width*(c+.5f)/columns,-size.y/2+size.y*(r+.5f)/rows,0);
-                var visual=EnvironmentArtBuilder.Place("ConcreteWall",wall.transform,local,new Vector3(width/columns+.015f,size.y/rows+.015f,depth),rotate,"Bulkhead panel");
-                foreach(var collider in visual.GetComponentsInChildren<Collider>())Object.DestroyImmediate(collider);
-            }
-            // Amber vertical joints make the blocking plane readable at speed.
-            var material=AssetDatabase.LoadAssetAtPath<Material>(MovementProjectBuilder.Root+"/Materials/FactoryAmber.mat");
-            for(int i=0;i<=columns;i++){
-                var strip=GameObject.CreatePrimitive(PrimitiveType.Cube);strip.name="Bulkhead seam";strip.transform.SetParent(wall.transform,false);
-                strip.transform.localPosition=rotate*new Vector3(-width/2+width*i/columns,0,0);
-                strip.transform.localRotation=rotate;strip.transform.localScale=new Vector3(.10f,size.y,depth+.035f);
-                strip.GetComponent<Renderer>().sharedMaterial=material;Object.DestroyImmediate(strip.GetComponent<Collider>());
-            }
+            // A single quiet visual keeps the entire blocking plane readable without a wall grid.
+            SurfAppearanceBuilder.InstallBulkheadVisual(wall);
         }
     }
 }

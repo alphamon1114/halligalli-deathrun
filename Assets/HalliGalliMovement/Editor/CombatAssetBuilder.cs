@@ -46,6 +46,65 @@ namespace HalliGalli.EditorTools
             public string text;
         }
 
+        [Serializable] sealed class PushMotionReport
+        {
+            public bool success;
+            public string error;
+            public List<ClipMigration> clips=new();
+            public List<ProtectedAsset> protectedAssets=new();
+        }
+
+        [MenuItem("HalliGalli/Refresh Palm Pushes (Four Clips Only)")]
+        public static void InstallPushMotions()
+        {
+            if(EditorApplication.isPlayingOrWillChangePlaymode)
+                throw new InvalidOperationException("Refresh push motions outside Play mode.");
+            var report=new PushMotionReport();
+            var preview=EditorSceneManager.NewPreviewScene();
+            try {
+                string art=CharacterAssetBuilder.Art;
+                var bank=AssetDatabase.LoadAssetAtPath<CharacterMotionSet>(art+"/CustomMotions.asset");
+                if(!bank)throw new InvalidDataException("Custom motion bank is missing.");
+                foreach(bool hands in new[]{false,true})foreach(string state in new[]{"PushLeft","PushRight"}) {
+                    string path=art+"/Motions/"+(hands?"FP_":"Body_")+state+".anim";
+                    var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
+                    if(!clip||!(hands?bank.handClips:bank.bodyClips).Contains(clip))
+                        throw new InvalidDataException("Motion bank is missing "+path);
+                    report.clips.Add(new ClipMigration{path=path,guidBefore=AssetDatabase.AssetPathToGUID(path)});
+                }
+                var changed=new HashSet<string>(report.clips.Select(c=>c.path),StringComparer.Ordinal);
+                var protectedPaths=Directory.GetFiles(art+"/Motions").Select(p=>p.Replace('\\','/')).Where(p=>!changed.Contains(p))
+                    .Concat(new[]{art+"/CustomMotions.asset",art+"/CustomMotions.asset.meta"})
+                    .Concat(Directory.GetFiles(MovementProjectBuilder.Root+"/Demo","*.unity"))
+                    .Concat(Directory.GetFiles(MovementProjectBuilder.Root+"/Prefabs","*.prefab",SearchOption.AllDirectories));
+                foreach(string path in protectedPaths)
+                    report.protectedAssets.Add(new ProtectedAsset{path=path.Replace('\\','/'),beforeSha256=Hash(File.ReadAllBytes(path))});
+                foreach(bool hands in new[]{false,true}) {
+                    var model=CharacterAssetBuilder.MakeModel(hands);
+                    UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(model,preview);
+                    try {
+                        foreach(var clip in CharacterAssetBuilder.BakePushes(model,hands))AssetDatabase.SaveAssetIfDirty(clip);
+                    } finally {UnityEngine.Object.DestroyImmediate(model);}
+                }
+                foreach(var clip in report.clips) {
+                    clip.guidAfter=AssetDatabase.AssetPathToGUID(clip.path);
+                    if(clip.guidBefore!=clip.guidAfter)throw new InvalidOperationException("Push clip GUID changed: "+clip.path);
+                }
+                foreach(var item in report.protectedAssets) {
+                    item.afterSha256=Hash(File.ReadAllBytes(item.path));
+                    if(item.beforeSha256!=item.afterSha256)throw new InvalidOperationException("Protected asset changed: "+item.path);
+                }
+                report.success=true;
+                Debug.Log("PALM_PUSH_MOTIONS_COMPLETE four clips; kick, locomotion, rope, motion bank and scenes preserved.");
+            } catch(Exception exception) {
+                report.error=exception.ToString();throw;
+            } finally {
+                EditorSceneManager.ClosePreviewScene(preview);
+                Directory.CreateDirectory("TestResults");
+                File.WriteAllText("TestResults/palm-push-regeneration.json",JsonUtility.ToJson(report,true));
+            }
+        }
+
         [MenuItem("HalliGalli/Restore Kick (Kick Assets Only)")]
         public static void InstallKickMotions()
         {

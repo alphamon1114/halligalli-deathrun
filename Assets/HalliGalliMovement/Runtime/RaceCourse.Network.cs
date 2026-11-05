@@ -69,7 +69,7 @@ namespace HalliGalli.Movement
             public float effectRemaining;
         }
         [Serializable] public struct BoxSnapshot {public int index;public Vector3 position;public float cooldown;}
-        [Serializable] public struct ProjectileSnapshot {public int id,owner,target;public RaceItem item;public Vector3 position,direction,size;public float remaining;}
+        [Serializable] public struct ProjectileSnapshot {public int id,owner,target,barricadeHits;public RaceItem item;public Vector3 position,direction,size;public float remaining;}
         // Allocating DTOs are reserved for explicit diagnostics, never the game or packet tick.
         public Snapshot CaptureSnapshot()
         {
@@ -86,7 +86,7 @@ namespace HalliGalli.Movement
             for(int i=0;i<boxReady.Length;i++)result.boxes[i]=new BoxSnapshot{index=i,position=boxRest[i],cooldown=Mathf.Max(0,(float)(boxReady[i]-now))};
             int index=0;for(int i=0;i<entities.Length;i++){
                 var e=entities[i];if(e.item==RaceItem.None)continue;
-                result.projectiles[index++]=new ProjectileSnapshot{id=e.id,item=e.item,owner=e.owner,target=e.target,position=e.position,direction=e.direction,size=e.size,remaining=Mathf.Max(0,(float)(e.expires-now))};
+                result.projectiles[index++]=new ProjectileSnapshot{id=e.id,item=e.item,owner=e.owner,target=e.target,position=e.position,direction=e.direction,size=e.size,barricadeHits=e.barricadeHits,remaining=Mathf.Max(0,(float)(e.expires-now))};
             }
             return result;
         }

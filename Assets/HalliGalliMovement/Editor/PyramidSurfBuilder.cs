@@ -16,55 +16,63 @@ namespace HalliGalli.EditorTools
         public const string Art=Root+"/Art/Pyramid";
         public const string ScenePath=Root+"/Demo/PyramidSurfCourse.unity";
         public const string Id="pyramid";
-        [MenuItem("HalliGalli/Maps/Build Pyramid Surf")]
+        [MenuItem("HalliGalli/Maps/Rebuild Pyramid Flow In Place")]
         public static void Build()
         {
-            if(File.Exists(ScenePath)){
-                var prior=EditorSceneManager.OpenScene(ScenePath);Directory.CreateDirectory(Root+"/Demo/Backups");
-                EditorSceneManager.SaveScene(prior,Root+"/Demo/Backups/Pyramid_"+DateTime.Now.ToString("yyyyMMdd_HHmmss")+".unity",true);
-            }
-            var scene=EditorSceneManager.OpenScene(CourseBuilder.ScenePath);EditorSceneManager.SaveScene(scene,ScenePath);
-            var session=Object.FindAnyObjectByType<CourseSession>();var roster=session.roster;
-            TutorialFerryBuilder.RemoveFromTemplate(session);
-            foreach(var t in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include)){
-                if(!t)continue;
-                if((t.name.StartsWith("Shared pad ")||t.name=="Edge stripe"||t.name=="Platform support")&&t.position.z>7
-                    ||t.name=="Wall buttress"||new[]{"03","04","05","06","07"}.Contains(t.name))Object.DestroyImmediate(t.gameObject);
-            }
-            var environment=GameObject.Find("VARCO environment");
-            foreach(Transform child in environment.transform.Cast<Transform>().ToArray())if(child.name!="CardTable")Object.DestroyImmediate(child.gameObject);
-            foreach(var light in Object.FindObjectsByType<Light>())Object.DestroyImmediate(light);
-            foreach(string name in new[]{"Pit floor","Left arena wall","Right arena wall","Far arena wall"}){
-                var obj=GameObject.Find(name);if(obj)obj.SetActive(false);
+            if(!File.Exists(ScenePath))throw new InvalidOperationException("The saved pyramid scene is required; this entry never rebuilds a template scene.");
+            var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+            if(scene.path!=ScenePath)scene=EditorSceneManager.OpenScene(ScenePath);
+            Directory.CreateDirectory("Build/SurfRevision/Backups");
+            if(scene.isDirty)EditorSceneManager.SaveScene(scene);
+            File.Copy(ScenePath,"Build/SurfRevision/Backups/Pyramid_"+DateTime.Now.ToString("yyyyMMdd_HHmmss")+".unity",true);
+            var session=Object.FindAnyObjectByType<CourseSession>();
+            if(!session||!session.roster||!session.roster.surf||!session.roster.surf.GetComponent<PyramidCourse>())
+                throw new InvalidOperationException("The existing pyramid session and route must be present.");
+            var roster=session.roster;var surf=roster.surf;var pyramid=surf.GetComponent<PyramidCourse>();
+            var root=surf.transform;
+            // Retain the session, participants, runtime components, BGM, hands and route-root identities.
+            foreach(Transform child in root.Cast<Transform>().ToArray())
+                if(child.name.StartsWith("Pyramid bank ")||child.name.StartsWith("Pyramid landing ")||child.name=="Bell landing")
+                    Object.DestroyImmediate(child.gameObject);
+            foreach(string name in new[]{"Pyramid architecture","Pyramid decoration","Pyramid course cues","Pyramid warm bounce"}){
+                var previous=GameObject.Find(name);if(previous)Object.DestroyImmediate(previous);
             }
             Directory.CreateDirectory(Art+"/Meshes");AssetDatabase.Refresh();
             var stone=PyramidArtBuilder.Material("Sandstone",new Color(.66f,.60f,.48f),false,true);
             var ramp=PyramidArtBuilder.Material("Polished limestone",new Color(.77f,.72f,.59f),false,true);
             var edge=PyramidArtBuilder.Material("Turquoise inlay",new Color(.17f,.75f,.72f),true);
-            var root=new GameObject("Pyramid surf course").transform;
-            var surf=root.gameObject.AddComponent<SurfCourse>();roster.surf=surf;roster.branches=null;
-            var pyramid=root.gameObject.AddComponent<PyramidCourse>();
             var sections=new List<SurfCourse.Section>();var rooms=new List<PyramidCourse.Chamber>();
             Vector3 start=new Vector3(0,-.6f,8.5f);
             for(int room=0;room<5;room++){
                 int first=sections.Count;var roomSections=PyramidRouteLayout.Room(room,start);sections.AddRange(roomSections);
                 var d=sections.Last();var end=d.points.Last();var frame=d.Sample(end);
                 const float deckSize=20,deckGap=3;
-                var landing=end+frame.forward*(deckGap+deckSize*.5f)+Vector3.up*(room==4?.75f:.525f);
+                bool rising=d.points.Last().y>d.points[0].y;
+                var landing=end+frame.forward*(deckGap+deckSize*.5f)+Vector3.up*(rising?.525f:-1.1f);
                 string deckName="Pyramid landing "+room;
-                PyramidArtBuilder.Box(root,deckName,landing+Vector3.down*.225f,new Vector3(deckSize,.4f,deckSize),stone,true);
+                var deck=PyramidArtBuilder.Box(root,deckName,landing+Vector3.down*.225f,new Vector3(deckSize,.4f,deckSize),stone,true);
+                deck.transform.rotation=Quaternion.LookRotation(frame.forward);
                 if(room<4){d.landing=landing;d.landingName=deckName;}
                 else surf.finish=Node(root,"Bell landing",landing);
                 var rotation=Quaternion.Euler(0,PyramidRouteLayout.Headings[room],0);
                 var inverse=Quaternion.Inverse(rotation);
-                var points=roomSections.SelectMany(s=>s.points).Select(p=>inverse*(p-start)).ToArray();
-                float halfSpan=Mathf.Max(14,roomSections.Max(s=>surf.laneX+s.halfWidth)+7.2f);
-                float lowest=roomSections.Min(s=>s.points.Min(p=>p.y)-start.y-s.halfWidth*Mathf.Tan(55*Mathf.Deg2Rad));
-                var localLanding=inverse*(landing-start);
+                var bounds=new Bounds(Vector3.zero,Vector3.zero);
+                foreach(var section in roomSections)for(int j=0;j<section.points.Length;j++){
+                    var right=Quaternion.Euler(0,section.headings[j],0)*Vector3.right;
+                    foreach(int side in new[]{-1,1}){
+                        var edgePoint=section.points[j]+right*(side*(surf.laneX+section.halfWidth));
+                        edgePoint.y-=section.halfWidth*Mathf.Tan(55*Mathf.Deg2Rad);
+                        bounds.Encapsulate(inverse*(edgePoint-start));
+                    }
+                    bounds.Encapsulate(inverse*(section.points[j]+Vector3.up*surf.laneX*Mathf.Tan(55*Mathf.Deg2Rad)-start));
+                }
+                foreach(int x in new[]{-1,1})foreach(int z in new[]{-1,1})
+                    bounds.Encapsulate(inverse*(landing+frame.right*x*deckSize*.5f+frame.forward*z*deckSize*.5f-start));
+                var minimum=bounds.min-new Vector3(8,13,2);
+                var maximum=bounds.max+new Vector3(8,14,6);
+                if(room==0)minimum.z=-24.5f;
                 var chamber=new PyramidCourse.Chamber{name=PyramidRouteLayout.Names[room],firstSection=first,lastSection=sections.Count-1,landing=landing,
-                    origin=start,heading=PyramidRouteLayout.Headings[room],
-                    localMinimum=new Vector3(-halfSpan,lowest-13,room==0?-24.5f:-1.2f),
-                    localMaximum=new Vector3(halfSpan,points.Max(p=>p.y)+18,localLanding.z+deckSize*.5f+6)};
+                    origin=start,heading=PyramidRouteLayout.Headings[room],localMinimum=minimum,localMaximum=maximum};
                 SetWorldBounds(chamber);rooms.Add(chamber);
                 if(room<4){
                     var nextForward=Quaternion.Euler(0,PyramidRouteLayout.Headings[room+1],0)*Vector3.forward;
@@ -72,9 +80,21 @@ namespace HalliGalli.EditorTools
                 }
             }
             surf.sections=sections.ToArray();pyramid.chambers=rooms.ToArray();
-            for(int i=0;i<sections.Count;i++)SurfCourseBuilder.BuildRamp(root,"Pyramid bank "+i,sections[i].side,sections[i],ramp,edge,Art+"/Meshes");
-            foreach(var route in roster.routeRoots){foreach(Transform old in route.Cast<Transform>().ToArray())Object.DestroyImmediate(old.gameObject);for(int i=0;i<5;i++)Node(route,"Landing "+i,Vector3.zero);}
-            roster.ApplyLayout(6);
+            var bankMeshes=new HashSet<string>();
+            for(int i=0;i<sections.Count;i++){
+                int first=i;var run=sections[i];
+                // Joined descent/launch pieces share one collider: no internal end-cap wall.
+                while(i+1<sections.Count&&run.landing==Vector3.zero&&run.points.Last()==sections[i+1].points[0]
+                    &&Mathf.Approximately(run.halfWidth,sections[i+1].halfWidth)){
+                    var next=sections[++i];
+                    run=new SurfCourse.Section{points=run.points.Concat(next.points.Skip(1)).ToArray(),headings=run.headings.Concat(next.headings.Skip(1)).ToArray(),
+                        side=run.side,twoSided=run.twoSided,halfWidth=run.halfWidth,landing=next.landing};
+                }
+                string name="Pyramid bank "+first;
+                SurfCourseBuilder.BuildRamp(root,name,run.side,run,ramp,edge,Art+"/Meshes");
+                bankMeshes.Add(Art+"/Meshes/"+name.Replace(" ","_")+".asset");
+            }
+            roster.ApplyLayout(roster.PlayerCount);
             var finalSection=sections.Last();var finalFrame=finalSection.Sample(finalSection.points.Last());
             var finalRotation=Quaternion.LookRotation(finalFrame.forward,Vector3.up);
             surf.finish.rotation=finalRotation;
@@ -84,18 +104,31 @@ namespace HalliGalli.EditorTools
             GameObject.Find("RING").transform.position=surf.finish.position+finalFrame.forward*.67f+Vector3.up*.375f;
             GameObject.Find("RING").transform.rotation=finalRotation*Quaternion.Euler(0,180,0);
             session.fallHeight=rooms.Min(r=>r.minimum.y)-4;
-            var profile=AssetDatabase.LoadAssetAtPath<SourceMovementProfile>(SurfCourseBuilder.ProfilePath);
-            Register(profile);CourseMapsBuilder.InstallInCurrentScene(Id);
-            session.checkpoints.orderedPassage=true;
-            foreach(var p in roster.allParticipants)p.GetComponent<SourceMotor>().profile=profile;
+            // Neither the movement profile nor map catalog installation needs to be regenerated.
+            Register(AssetDatabase.LoadAssetAtPath<SourceMovementProfile>(SurfCourseBuilder.ProfilePath));
+            CheckpointBuilder.InstallCurrent();session.checkpoints.orderedPassage=true;
             PyramidArtBuilder.Dress(session,pyramid,stone);
-            PyramidCourseObstacles.Install(pyramid,stone);
-            PyramidVarcoImporter.WritePlacementReport();
+            PyramidCourseObstacles.Install(pyramid);
             EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
-            EditorBuildSettings.scenes=CourseMapsBuilder.BuildScenePaths().Select(p=>new EditorBuildSettingsScene(p,true)).ToArray();
+            RemoveUnreferencedMeshes(bankMeshes);
             Directory.CreateDirectory("TestResults");
-            File.WriteAllText("TestResults/pyramid-layout.json",JsonUtility.ToJson(new Layout{banks=sections.Count,length=sections.Sum(s=>s.Length),rooms=rooms.ToArray(),sections=sections.ToArray()},true));
-            Capture();Debug.Log("PYRAMID_BUILD_COMPLETE");
+            File.WriteAllText("TestResults/pyramid-layout.json",JsonUtility.ToJson(new Layout{banks=bankMeshes.Count,length=sections.Sum(s=>s.Length),rooms=rooms.ToArray(),sections=sections.ToArray()},true));
+            Debug.Log("PYRAMID_BUILD_COMPLETE");
+        }
+        static void RemoveUnreferencedMeshes(HashSet<string> used)
+        {
+            var candidates=AssetDatabase.FindAssets("t:Mesh",new[]{Art+"/Meshes"}).Select(AssetDatabase.GUIDToAssetPath)
+                .Where(path=>{
+                    string name=Path.GetFileNameWithoutExtension(path);
+                    if(name=="LotusColumn"||name=="PyramidPoint")return true;
+                    if(!name.StartsWith("Pyramid_bank_"))return false;
+                    return !used.Contains(path);
+                }).ToArray();
+            if(candidates.Length==0)return;
+            var candidateSet=new HashSet<string>(candidates);
+            var roots=AssetDatabase.GetAllAssetPaths().Where(path=>path.StartsWith("Assets/")&&!AssetDatabase.IsValidFolder(path)&&!candidateSet.Contains(path)).ToArray();
+            var referenced=new HashSet<string>(AssetDatabase.GetDependencies(roots,true));
+            foreach(string path in candidates)if(!referenced.Contains(path))AssetDatabase.DeleteAsset(path);
         }
         [Serializable]class Layout{public int banks;public float length;public PyramidCourse.Chamber[] rooms;public SurfCourse.Section[] sections;}
         static void Register(SourceMovementProfile profile)
@@ -103,7 +136,7 @@ namespace HalliGalli.EditorTools
             string path=Root+"/Maps/pyramid.asset";var map=AssetDatabase.LoadAssetAtPath<CourseMapDefinition>(path);
             if(!map){map=ScriptableObject.CreateInstance<CourseMapDefinition>();AssetDatabase.CreateAsset(map,path);}
             map.id=Id;map.displayName="왕의 회랑";map.style=CourseMapStyle.Surf;map.difficulty=3;
-            map.description="내리막 가속과 오르막 도약, 높낮이가 다른 착지. 넓은 체크포인트에서 직각으로 꺾이는 다섯 회랑을 넘어 왕의 종으로.";
+            map.description="유적 사이를 날아 위층과 아래층의 독립된 서프에 착지하는 다섯 공중 연결 구간. 네 공중 통과 지점을 순서대로 지나 왕의 종으로.";
             map.scenePath=ScenePath;map.movementProfile=profile;map.playable=true;map.thumbnail="Pyramid";EditorUtility.SetDirty(map);
             var catalog=CourseMapsBuilder.Catalog;if(!catalog.maps.Contains(map)){catalog.maps=catalog.maps.Append(map).ToArray();EditorUtility.SetDirty(catalog);}
         }
@@ -116,6 +149,7 @@ namespace HalliGalli.EditorTools
                 Mathf.Abs(right.z)*half.x+Mathf.Abs(forward.z)*half.z);
             room.minimum=center-extent;room.maximum=center+extent;
         }
+        public static void Probe()=>Validate(true);
         public static void Validate(bool probe=false)
         {
             EditorSceneManager.OpenScene(ScenePath);new GameObject("Pyramid validation").AddComponent<PyramidValidationRunner>().probeOnly=probe;

@@ -40,12 +40,8 @@ namespace HalliGalli.EditorTools
             collider.size = new Vector3(Right-Left,.28f,EndZ-StartZ);
             root.gameObject.AddComponent<SurfDivider>().session = Object.FindAnyObjectByType<CourseSession>();
 
-            // A horizontal separator covers the entire right-hand drop area, including the start.
-            const int columns = 6, rows = 10;
-            float width = (Right-Left)/columns, depth = (EndZ-StartZ)/rows;
-            for (int column = 0; column < columns; column++)
-                for (int row = 0; row < rows; row++)
-                    Panel(root,new Vector3(Left+width*(column+.5f),Height,StartZ+depth*(row+.5f)),new Vector3(width+.015f,.28f,depth+.015f));
+            // Keep the continuous hazard collider; its opaque underside needs only one visual.
+            SurfAppearanceBuilder.InstallDividerVisual(collider);
             var accent = AssetDatabase.LoadAssetAtPath<Material>(MovementProjectBuilder.Root + "/Materials/FactoryAmber.mat");
             foreach (float z in new[] { StartZ, EndZ })
                 Stripe(root,new Vector3((Left+Right)/2,Height+.15f,z),new Vector3(Right-Left,.035f,.15f),accent);
@@ -128,23 +124,6 @@ namespace HalliGalli.EditorTools
             } finally { Object.DestroyImmediate(camera.gameObject); EditorSceneManager.OpenScene(SurfCourseBuilder.ScenePath); }
         }
 
-        static void Panel(Transform parent, Vector3 center, Vector3 size)
-        {
-            var visual = (GameObject)PrefabUtility.InstantiatePrefab(EnvironmentAssetImporter.Prefab("ConcreteFloor"));
-            visual.transform.SetParent(parent, false);
-            bool first = true; Bounds bounds = default;
-            foreach (var filter in visual.GetComponentsInChildren<MeshFilter>()) {
-                var b = filter.sharedMesh.bounds;
-                for (int x = -1; x <= 1; x += 2) for (int y = -1; y <= 1; y += 2) for (int z = -1; z <= 1; z += 2) {
-                    var point = visual.transform.InverseTransformPoint(filter.transform.TransformPoint(b.center + Vector3.Scale(b.extents, new Vector3(x, y, z))));
-                    if (first) { bounds = new Bounds(point, Vector3.zero); first = false; } else bounds.Encapsulate(point);
-                }
-            }
-            visual.transform.localRotation = Quaternion.identity;
-            visual.transform.localScale = new Vector3(size.x / bounds.size.x, size.y / bounds.size.y, size.z / bounds.size.z);
-            visual.transform.localPosition = center - visual.transform.localRotation * Vector3.Scale(bounds.center, visual.transform.localScale);
-            foreach (var c in visual.GetComponentsInChildren<Collider>()) Object.DestroyImmediate(c);
-        }
 
         static void Stripe(Transform parent, Vector3 center, Vector3 size, Material material)
         {
