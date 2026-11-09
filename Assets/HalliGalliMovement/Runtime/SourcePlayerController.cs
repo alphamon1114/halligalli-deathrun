@@ -88,8 +88,9 @@ namespace HalliGalli.Movement
         public void ApplyLook(Vector2 mouseDelta)
         {
             // Mouse deltas already describe this frame's movement; do not multiply by deltaTime.
-            yaw = Mathf.Repeat(yaw + mouseDelta.x * Motor.profile.mouseSensitivity, 360);
-            pitch = Mathf.Clamp(pitch - mouseDelta.y * Motor.profile.mouseSensitivity,
+            float sensitivity=Motor.profile.mouseSensitivity*ControlSettings.MouseSensitivityMultiplier;
+            yaw = Mathf.Repeat(yaw + mouseDelta.x * sensitivity, 360);
+            pitch = Mathf.Clamp(pitch - mouseDelta.y * sensitivity,
                 -Motor.profile.pitchLimit, Motor.profile.pitchLimit);
             transform.rotation = Quaternion.Euler(0, yaw, 0);
         }

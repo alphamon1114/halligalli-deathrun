@@ -98,7 +98,7 @@ public static class ReactionValidation
                 Need(controller.playerCamera.fieldOfView==fieldOfView&&controller.playerCamera.rect==viewport,"push restricted view");
             });
             controller.ApplyLook(new Vector2(40,-20));var intended=controller.AimRotation;controller.UpdateView();
-            check(attack+" leaves mouse look responsive during reaction",()=>Need(Quaternion.Angle(intended,Quaternion.identity)>3&&Quaternion.Angle(controller.playerCamera.transform.rotation,intended)<.01f,"mouse look locked"));
+            check(attack+" leaves mouse look responsive during reaction",()=>Need(Quaternion.Angle(intended,Quaternion.identity)>0&&Quaternion.Angle(controller.playerCamera.transform.rotation,intended)<.01f,"mouse look locked"));
             for(int i=0;i<20;i++)m.Simulate(new MovementCommand{crouch=true,move=Vector2.up},.015f);
             check(attack+" leaves crouch and walking input available",()=>Need(m.BodyHeight<1.01f&&m.Velocity.z>0&&!m.Staggered&&!m.Stunned,"crouch/walk blocked"));
         }

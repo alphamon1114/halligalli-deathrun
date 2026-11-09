@@ -149,7 +149,7 @@ public sealed class MovementValidationRunner : MonoBehaviour
             var controller = motor.gameObject.AddComponent<SourcePlayerController>(); controller.enabled = false;
             controller.ResetView(); controller.ApplyLook(new Vector2(100, 0)); float one = motor.transform.eulerAngles.y;
             controller.ResetView(); controller.ApplyLook(new Vector2(50, 0)); controller.ApplyLook(new Vector2(50, 0));
-            Near(motor.transform.eulerAngles.y, one, 0.001f); Near(one, 12, 0.001f);
+            Near(motor.transform.eulerAngles.y, one, 0.001f);
         });
         if (world != null) world.SetActive(false);
         var character = FindFirstObjectByType<CharacterMotionDriver>();

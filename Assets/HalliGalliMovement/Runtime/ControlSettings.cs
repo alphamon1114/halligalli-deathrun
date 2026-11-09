@@ -13,20 +13,47 @@ namespace HalliGalli.Movement
         int row=-1,slot=-1,armedFrame,candidate;
         string message="";
         bool focused=true;
+        const string SensitivityKey="HalliGalli.MouseSensitivityMultiplier";
+        static float sensitivity=1,saveSensitivityAt;
+        static bool sensitivityLoaded,sensitivityDirty;
+        static int shownSensitivity=-1;
+        static string sensitivityCaption;
+        public static float MouseSensitivityMultiplier
+        {
+            get{
+                if(!sensitivityLoaded){
+                    float saved=PlayerPrefs.GetFloat(SensitivityKey,1);
+                    sensitivity=float.IsFinite(saved)?Mathf.Clamp(saved,.1f,3):1;
+                    sensitivityLoaded=true;
+                }
+                return sensitivity;
+            }
+            set{
+                if(!float.IsFinite(value))return;
+                float next=Mathf.Round(Mathf.Clamp(value,.1f,3)*20)/20;
+                if(Mathf.Approximately(MouseSensitivityMultiplier,next))return;
+                sensitivity=next;PlayerPrefs.SetFloat(SensitivityKey,next);
+                sensitivityDirty=true;saveSensitivityAt=Time.realtimeSinceStartup+.5f;
+            }
+        }
+        static void SaveSensitivity(){if(!sensitivityDirty)return;PlayerPrefs.Save();sensitivityDirty=false;}
+        void OnApplicationQuit()=>SaveSensitivity();
+        void OnApplicationPause(bool paused){if(paused)SaveSensitivity();}
         public bool Listening=>row>=0;
         public static void Open()
         {
             Ensure();IsOpen=true;instance.row=-1;instance.message="";GUIUtility.keyboardControl=0;
             foreach(var controller in FindObjectsByType<SourcePlayerController>())if(controller.enabled)controller.SetCursorCaptured(false);
         }
-        public static void Close(){IsOpen=false;blockedThrough=Time.frameCount+2;waitRelease=true;if(instance){instance.row=-1;instance.candidate=0;}}
+        public static void Close(){SaveSensitivity();IsOpen=false;blockedThrough=Time.frameCount+2;waitRelease=true;if(instance){instance.row=-1;instance.candidate=0;}}
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]static void Boot(){GameReleaseGate.RunWhenAllowed(BootAfterReleaseCheck);}
-        static void BootAfterReleaseCheck(){IsOpen=false;blockedThrough=-1;waitRelease=false;Ensure();ControlBindings.Reload();}
+        static void BootAfterReleaseCheck(){IsOpen=false;blockedThrough=-1;waitRelease=false;sensitivityLoaded=false;Ensure();ControlBindings.Reload();}
         static void Ensure(){if(instance)return;instance=new GameObject("Control settings").AddComponent<ControlSettings>();DontDestroyOnLoad(instance.gameObject);}
         public void BeginCapture(GameAction action,int bindingSlot){row=(int)action;slot=bindingSlot;candidate=0;armedFrame=Time.frameCount+1;message="원하는 키·마우스 버튼·휠을 입력하세요.  ESC 취소";}
-        void OnApplicationFocus(bool focus){focused=focus;if(!focus){row=-1;candidate=0;blockedThrough=Time.frameCount+2;waitRelease=true;}}
+        void OnApplicationFocus(bool focus){focused=focus;if(!focus){SaveSensitivity();row=-1;candidate=0;blockedThrough=Time.frameCount+2;waitRelease=true;}}
         void Update()
         {
+            if(sensitivityDirty&&Time.realtimeSinceStartup>=saveSensitivityAt)SaveSensitivity();
             if(waitRelease&&!Input.anyKey&&Mathf.Approximately(Input.mouseScrollDelta.y,0))waitRelease=false;
             if(!IsOpen||!focused)return;
             if(Input.GetKeyDown(KeyCode.Escape)){
@@ -58,8 +85,9 @@ namespace HalliGalli.Movement
             float x=(BellUI.W-980)/2,y=(BellUI.H-650)/2;
             BellUI.Round(new Rect(0,0,BellUI.W,BellUI.H),new Color(.03f,.035f,.03f,.94f),0);
             BellUI.Round(new Rect(x,y,980,650),BellUI.Surface,30);
-            BellUI.Text(new Rect(x+28,y+22,550,42),"조작키",30,BellUI.Paper,true);
-            BellUI.Text(new Rect(x+28,y+66,920,28),"키를 눌러 변경 · ×로 해제 · 변경 즉시 저장",15,BellUI.Muted);
+            BellUI.Text(new Rect(x+28,y+22,550,42),"조작키 · 마우스",30,BellUI.Paper,true);
+            GUI.enabled=row<0;
+            DrawSensitivity(x,y+66);
             for(int s=0;s<3;s++)BellUI.Text(new Rect(x+275+s*212,y+100,184,25),s==0?"기본":"추가 "+s,13,BellUI.Muted);
             GUI.enabled=row<0;
             for(int a=0;a<ControlBindings.Actions.Length;a++){
@@ -90,6 +118,18 @@ namespace HalliGalli.Movement
             }
             if(BellUI.Button(new Rect(x+790,y+591,160,42),"닫기",true,size:16))Close();
             GUI.enabled=enabled;GUI.matrix=matrix;GUI.color=color;GUI.depth=depth;
+        }
+        void DrawSensitivity(float x,float y)
+        {
+            float value=MouseSensitivityMultiplier;
+            int percent=Mathf.RoundToInt(value*100);
+            if(shownSensitivity!=percent){shownSensitivity=percent;sensitivityCaption="마우스 감도 · "+percent+"%";}
+            BellUI.Text(new Rect(x+28,y,215,28),sensitivityCaption,16,BellUI.Paper);
+            if(BellUI.Button(new Rect(x+250,y,34,28),"−",size:20))value-=.05f;
+            value=GUI.HorizontalSlider(new Rect(x+298,y+7,370,20),value,.1f,3);
+            if(BellUI.Button(new Rect(x+680,y,34,28),"+",size:20))value+=.05f;
+            if(BellUI.Button(new Rect(x+790,y,160,28),"감도 초기화",size:14))value=1;
+            MouseSensitivityMultiplier=value;
         }
     }
 }

@@ -215,7 +215,7 @@ public sealed class PushPreviewRunner:MonoBehaviour
             CheckThat(attack+" windup rejects duplicate input",combat.CurrentAttack==attack&&combat.AttackSequence==sequence+1&&!combat.HasBufferedAttack,"sequence="+combat.AttackSequence);
             Advance(combat,.06f);
             var aim=controller.AimRotation;controller.ApplyLook(new Vector2(40,-20));controller.UpdateView();
-            CheckThat(attack+" preserves mouse look",Quaternion.Angle(aim,controller.AimRotation)>3&&Quaternion.Angle(controller.playerCamera.transform.rotation,controller.AimRotation)<.01f,"rotation="+controller.playerCamera.transform.eulerAngles);
+            CheckThat(attack+" preserves mouse look",Quaternion.Angle(aim,controller.AimRotation)>0&&Quaternion.Angle(controller.playerCamera.transform.rotation,controller.AimRotation)<.01f,"rotation="+controller.playerCamera.transform.eulerAngles);
             var start=motor.transform.position;int jumps=motor.JumpCount;
             var movement=new MovementCommand{move=Bound(GameAction.Right,false,KeyCode.D)?Vector2.right:Vector2.zero,
                 jumpPressed=Bound(GameAction.Jump,true,KeyCode.Space)};

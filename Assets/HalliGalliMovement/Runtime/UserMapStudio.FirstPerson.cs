@@ -224,7 +224,7 @@ namespace HalliGalli.Movement
                 || !float.IsFinite(dt) || dt <= 0 || !FiniteBuildVector(move)
                 || !float.IsFinite(lookDelta.x) || !float.IsFinite(lookDelta.y)) return;
             var angles = buildRotation.eulerAngles;
-            float sensitivity = buildProfile ? buildProfile.mouseSensitivity : .12f;
+            float sensitivity = (buildProfile ? buildProfile.mouseSensitivity : .12f) * ControlSettings.MouseSensitivityMultiplier;
             float limit = buildProfile ? buildProfile.pitchLimit : 88;
             buildRotation = Quaternion.Euler(Mathf.Clamp(Mathf.DeltaAngle(0, angles.x) - lookDelta.y * sensitivity, -limit, limit),
                 Mathf.Repeat(angles.y + lookDelta.x * sensitivity, 360), 0);

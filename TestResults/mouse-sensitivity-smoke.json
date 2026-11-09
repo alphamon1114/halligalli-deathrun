@@ -1,0 +1,29 @@
+{
+    "startedUtc": "2026-11-05T08:14:24.7650078Z",
+    "completedUtc": "2026-11-05T08:14:55.1929652Z",
+    "status": "passed",
+    "hadPreference": false,
+    "oldPreference": 1.0,
+    "checks": [
+        "Gameplay yaw/pitch at 0.1",
+        "Gameplay yaw/pitch at 0.5",
+        "Gameplay yaw/pitch at 1",
+        "Gameplay yaw/pitch at 2",
+        "Gameplay yaw/pitch at 3",
+        "Profile switch keeps personal sensitivity",
+        "Pitch limit remains enforced",
+        "Minimum is nonzero",
+        "Maximum bounded",
+        "Invalid value cannot poison aim",
+        "Dialog blocks gameplay input",
+        "Plus button changes sensitivity; actual=1.05",
+        "Minus button changes sensitivity",
+        "Slider drag changes sensitivity",
+        "Sensitivity reset button restores original feel",
+        "Real map studio opens",
+        "Studio yaw/pitch at 0.5",
+        "Studio yaw/pitch at 2",
+        "Close flushes preference",
+        "Sensitivity persists across a fresh Unity process"
+    ]
+}
