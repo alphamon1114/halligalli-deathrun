@@ -1,0 +1,17 @@
+{
+  "startedUtc": "2026-11-09T00:15:31.8789007Z",
+  "completedUtc": "2026-11-09T00:19:56.6224646Z",
+  "status": "passed",
+  "previousVersion": "1.0.5",
+  "error": null,
+  "checks": [
+    "Public latest is 1.0.7 / protocol 42",
+    "Real GitHub update passes download and installation integrity",
+    "Previous installation remains intact",
+    "Launcher starts the downloaded game",
+    "Downloaded player remains running",
+    "Production game version gate authorizes 1.0.7",
+    "Standalone player window exists",
+    "Mouse targets the owned player window"
+  ]
+}
