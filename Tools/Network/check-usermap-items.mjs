@@ -121,7 +121,7 @@ async function focusedSharedMap(){
  if(!host().active){await cmd('host-loopback',{value:'17894'});await wait(()=>host().active&&host().host&&!host().busy);}
  launch('client1');await wait(()=>guest()?.protocol>0&&host().members.length===2&&!host().busy&&!guest().busy,60000);
  const times=[host(),guest()].map(s=>s.worldTime);await wait(()=>[host(),guest()].every((s,i)=>s.worldTime>times[i]+.1),5000);
- check('Both shared-map peers publish fresh matching protocol state',host().protocol===42&&guest().protocol===42);
+ check('Both shared-map peers publish fresh matching protocol state',host().protocol===43&&guest().protocol===43);
  if(host().playing){await cmd('room');await wait(()=>!host().playing&&!guest().playing);}
  await cmd('user-map',{value:shared});await wait(()=>guest().userMapReady&&guest().userMapHash===host().userMapHash);
  await start();await wait(()=>host().race?.boxes?.length===2&&guest().race?.boxes?.length===2);await stand();

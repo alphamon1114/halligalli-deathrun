@@ -1,0 +1,76 @@
+{
+  "startedUtc": "2026-11-11T08:04:18.868Z",
+  "finishedUtc": "2026-11-11T08:16:18.081Z",
+  "complete": false,
+  "success": false,
+  "evidence": "Actual Unity Editor Play mode; production APIs and synthetic IMGUI input are separately labeled. Direct localhost Netcode transport; not Internet Relay or published players.",
+  "limitations": [
+    "No OS mouse/keyboard clicks.",
+    "No Internet Relay, packet-loss or latency simulation.",
+    "No subjective fitting changes or movement/physics certification."
+  ],
+  "project": "C:\\Users\\mbc\\Documents\\ao\\halligalli",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-04-18-868Z",
+  "work": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\CosmeticValidation-2026-11-11T08-04-18-868Z",
+  "checks": [
+    {
+      "utc": "2026-11-11T08:15:17.997Z",
+      "name": "Scenario completed without infrastructure exception",
+      "passed": false,
+      "mode": "infrastructure",
+      "detail": "Error: Bounded wait expired: Host editor imports and enters Play mode"
+    },
+    {
+      "utc": "2026-11-11T08:16:18.081Z",
+      "name": "host isolated preferences restored and editor exited normally",
+      "passed": false,
+      "mode": "restoration",
+      "detail": {
+        "exited": false,
+        "pid": 24396
+      }
+    }
+  ],
+  "screenshots": [],
+  "commands": [
+    {
+      "utc": "2026-11-11T08:15:17.998Z",
+      "role": "host",
+      "sequence": 1,
+      "action": "stop"
+    }
+  ],
+  "snapshots": [],
+  "processes": [
+    {
+      "role": "host",
+      "pid": 24396,
+      "project": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\CosmeticValidation-2026-11-11T08-04-18-868Z\\host",
+      "isolatedProduct": "CosmeticValidation_20261111T080418868Z_host",
+      "log": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-04-18-868Z\\host.log",
+      "args": [
+        "-projectPath",
+        "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\CosmeticValidation-2026-11-11T08-04-18-868Z\\host",
+        "-executeMethod",
+        "HalliGalli.Movement.CosmeticValidationTemp.Begin",
+        "--cosmetic-dir",
+        "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-04-18-868Z",
+        "--cosmetic-role",
+        "host",
+        "--cosmetic-exit",
+        "true",
+        "-disable-audio",
+        "-logFile",
+        "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-04-18-868Z\\host.log"
+      ]
+    }
+  ],
+  "failures": [
+    "Error: Bounded wait expired: Host editor imports and enters Play mode\n    at wait (C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\validate-cosmetics-temp.mjs:58:15)\n    at async run (C:\\Users\\mbc\\Documents\\ao\\halligalli\\Tools\\Network\\validate-cosmetics-temp.mjs:146:11)\n    at async <anonymous> (js-cell-b2354f12-c0f1-4536-a6cf-95d32da70bd8.js:2:61)\n    at async Xce (B:/~BUN/root/chunks/cli-a0hvcm0c.js:14:17)\n    at async <anonymous> (B:/~BUN/root/chunks/cli-h17nct5r.js:419:30)\n    at async run (B:/~BUN/root/chunks/cli-h17nct5r.js:406:31)\n    at async #d (B:/~BUN/root/chunks/cli-gzmq5r6c.js:274:28)",
+    "Stop acknowledgement host: Error: Bounded wait expired: host stop",
+    "Error: Bounded wait expired: Owned editor exits host; owned PID 24396 may still need orderly editor shutdown."
+  ],
+  "passed": 0,
+  "failed": 2,
+  "status": "failed"
+}

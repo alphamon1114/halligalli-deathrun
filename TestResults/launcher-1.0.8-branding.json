@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-11T08:33:26.0116171Z",
+  "passed": true,
+  "failure": null,
+  "evidence": "Actual production LauncherForm shown, live release check, rendered control capture; no install or OS clicks"
+}

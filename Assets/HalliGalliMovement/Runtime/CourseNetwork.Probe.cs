@@ -24,7 +24,8 @@ namespace HalliGalli.Movement
             public int falls,respawns,hits,attacks,attackHits,checkpoint,gates,ammo,shots,stunHits;
             public float yaw,viewYaw,viewRoll,checkpointSide,stun,immunity,stagger,raceLaunch,pushProtection,attackElapsed,kickCooldown;
             public string attack;
-            public int shirtColor,shirtRenderers;
+            public int shirtColor,shirtRenderers,accessory;
+            public bool accessoryWorn;
             public Color shirtTint;
             public Vector3 lastPush;
             public int lassoCasts,lassoHits,lassoPulls,lassoTarget;
@@ -88,7 +89,7 @@ namespace HalliGalli.Movement
             public bool active,playing,loading,host,canStart,busy;
             public int localSeat,bells,revision,turn,bots,capacity,surfSections,twoSidedSurfSections;
             public bool canAddBot,botCards;
-            public int protocol,selectedShirtColor,savedShirtColor;
+            public int protocol,selectedShirtColor,savedShirtColor,selectedAccessory;
             public int raceAimTarget=-1;
             public bool shirtSelectionAccepted,shirtSelectionLoading;
             public string shirtPreferenceKey;
@@ -181,7 +182,7 @@ namespace HalliGalli.Movement
             var report=new Report{hasFerry=game&&game.ferry,ferryPosition=game&&game.ferry?game.ferry.carrier.transform.position:Vector3.zero,ferryPositions=game&&game.ferry?new[]{game.ferry.carrier,game.ferry.secondCarrier}.Where(s=>s).Select(s=>s.transform.position).ToArray():Array.Empty<Vector3>(),worldTime=CourseNetwork.WorldTime,factoryPlatforms=game&&game.factory?game.factory.movingPlatforms.Select(s=>s.transform.position).ToArray():Array.Empty<Vector3>(),factoryPresses=game&&game.factory?game.factory.presses.Select(p=>p.head.position).ToArray():Array.Empty<Vector3>(),role=role,status=network.Status,code=network.InviteCode,map=game&&game.maps.current?game.maps.current.id:"",
                 active=CourseNetwork.Active,playing=network.Playing,loading=network.IsLoading,host=network.IsHost,canStart=network.CanStart,busy=network.Busy,
                 localSeat=network.LocalSeat,bells=game?game.BellCount:0,revision=match?.Revision??-1,turn=match?.Turn??-1,bots=network.BotCount,capacity=network.Capacity,canAddBot=network.CanAddBot,botCards=game&&game.cardGame.botEnabled,
-                protocol=CourseNetwork.Protocol,selectedShirtColor=network.SelectedShirtColor,savedShirtColor=PlayerShirtColors.SavedIndex,
+                protocol=CourseNetwork.Protocol,selectedShirtColor=network.SelectedShirtColor,savedShirtColor=PlayerShirtColors.SavedIndex,selectedAccessory=network.SelectedAccessory,
                 shirtSelectionAccepted=shirtSelectionAccepted,shirtSelectionLoading=shirtSelectionLoading,shirtPreferenceKey=PlayerShirtColors.PreferenceKey,
                 selectableShirtColors=Enumerable.Range(0,PlayerShirtColors.Count).Select(network.CanSelectShirtColor).ToArray(),
                 selectedMap=network.MapId,userMapHash=network.SelectedUserMapHash,userMapReady=network.UserMapReady,
@@ -233,8 +234,9 @@ namespace HalliGalli.Movement
                 studioPawnPosition=UserMapStudio.Current?UserMapStudio.Current.BuildPawnPosition:Vector3.zero,
                 studioPawnVelocity=UserMapStudio.Current?UserMapStudio.Current.BuildPawnVelocity:Vector3.zero,
                 cardState=match==null?"":JsonUtility.ToJson(match.ExportPublicState(game.cardGame.deck)),members=network.Members.ToArray(),
-                actors=game?game.participants.Select(p=>{var shirt=p.GetComponent<PlayerShirtAppearance>();return new Actor{position=p.transform.position,velocity=p.Motor.Velocity,seated=p.IsSeated,
+                actors=game?game.participants.Select(p=>{var shirt=p.GetComponent<PlayerShirtAppearance>();var accessory=p.GetComponent<PlayerAccessoryAppearance>();return new Actor{position=p.transform.position,velocity=p.Motor.Velocity,seated=p.IsSeated,
                     shirtColor=shirt?shirt.ColorIndex:-1,shirtRenderers=shirt?shirt.RendererCount:0,shirtTint=shirt?shirt.AppliedColor:Color.clear,
+                    accessory=accessory?accessory.Index:0,accessoryWorn=accessory&&accessory.Worn,
                     respawning=p.IsRespawning,grounded=p.Motor.Grounded,crouched=p.Motor.IsCrouched,falls=p.Falls,respawns=p.RespawnSequence,aiEnabled=p.GetComponent<CourseRival>()&&p.GetComponent<CourseRival>().enabled,localPlayer=p.localPlayer,
                     hits=p.Receiver.ReceivedHits,attacks=p.Combat.AttackSequence,attackHits=p.Combat.HitCount,pushProtection=p.Receiver.PushProtectionRemaining,
                     attack=p.Combat.CurrentAttack.ToString(),attackElapsed=p.Combat.Elapsed,kickCooldown=p.Combat.KickCooldownRemaining,lastPush=p.Receiver.LastImpulse,
@@ -294,6 +296,7 @@ namespace HalliGalli.Movement
                 case "show-home":network.ShowStartScreen();break;
                 case "training":network.StartTraining();break;
                 case "shirt-color":shirtSelectionLoading=network.IsLoading;shirtSelectionAccepted=network.SelectShirtColor(int.Parse(c.value));break;
+                case "accessory":network.SelectAccessory(int.Parse(c.value));break;
                 case "start-shirt-color":
                     network.StartMatch();shirtSelectionLoading=network.IsLoading;shirtSelectionAccepted=network.SelectShirtColor(int.Parse(c.value));break;
                 case "join":_=network.Connect(false,c.value);break;

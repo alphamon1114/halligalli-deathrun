@@ -1,0 +1,84 @@
+{
+    "method": "Actual Unity play mode, selection APIs and rendered screen captures; injected mouse verification incomplete",
+    "startedUtc": "2026-11-11T02:17:56.0606770Z",
+    "completedUtc": "2026-11-11T02:17:58.0436201Z",
+    "checks": [
+        {
+            "name": "Home customization opens through API",
+            "passed": true
+        },
+        {
+            "name": "Opening customization keeps player input blocked",
+            "passed": true
+        },
+        {
+            "name": "Sunglasses selection API succeeds",
+            "passed": true
+        },
+        {
+            "name": "Selection saves and wears sunglasses",
+            "passed": true
+        },
+        {
+            "name": "Select accessory 0",
+            "passed": true
+        },
+        {
+            "name": "Actual worn state 0",
+            "passed": true
+        },
+        {
+            "name": "Select accessory 1",
+            "passed": true
+        },
+        {
+            "name": "Actual worn state 1",
+            "passed": true
+        },
+        {
+            "name": "Select accessory 2",
+            "passed": true
+        },
+        {
+            "name": "Actual worn state 2",
+            "passed": true
+        },
+        {
+            "name": "Invalid accessory remains rejected",
+            "passed": true
+        },
+        {
+            "name": "Change shirt independently",
+            "passed": true
+        },
+        {
+            "name": "Shirt selection retained",
+            "passed": true
+        },
+        {
+            "name": "Closing returns to paused home",
+            "passed": true
+        },
+        {
+            "name": "Closing releases portrait render texture",
+            "passed": true
+        },
+        {
+            "name": "Create form preserved on return",
+            "passed": true
+        },
+        {
+            "name": "Join form preserved on return",
+            "passed": true
+        },
+        {
+            "name": "All headband children use first person hidden body layer",
+            "passed": true
+        },
+        {
+            "name": "Match keeps headband and rejects changes",
+            "passed": true
+        }
+    ],
+    "failed": 0
+}

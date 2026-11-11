@@ -1,0 +1,55 @@
+{
+    "utc": "2026-11-11T02:55:40.8624367Z",
+    "method": "Unity play mode selection APIs and actual rendered customization screen; no OS mouse manipulation",
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Birthday hat choice accepted",
+            "passed": true
+        },
+        {
+            "name": "Birthday hat saved and worn",
+            "passed": true
+        },
+        {
+            "name": "Attached to head bone",
+            "passed": true
+        },
+        {
+            "name": "All hat parts follow hidden local body layer",
+            "passed": true
+        },
+        {
+            "name": "Repaired red pompom has visible volume",
+            "passed": true
+        },
+        {
+            "name": "Remove birthday hat",
+            "passed": true
+        },
+        {
+            "name": "Removal clears actual accessory",
+            "passed": true
+        },
+        {
+            "name": "Existing headband still selectable",
+            "passed": true
+        },
+        {
+            "name": "Existing headband worn",
+            "passed": true
+        },
+        {
+            "name": "Reopened customization retains birthday hat",
+            "passed": true
+        },
+        {
+            "name": "Playing preserves hat and locks changes",
+            "passed": true
+        },
+        {
+            "name": "Invalid catalog choice rejected",
+            "passed": true
+        }
+    ]
+}

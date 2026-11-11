@@ -44,3 +44,8 @@ Thumbs.db
 !/Launcher/**/*.csproj
 /Launcher/**/bin/
 /Launcher/**/obj/
+
+# Local preference backups and command channels; reports/screenshots remain reviewable.
+/TestResults/cosmetics-*/preferences-*.json
+/TestResults/cosmetics-*/cosmetic-command-*.json
+/TestResults/cosmetics-*/cosmetic-state-*.json

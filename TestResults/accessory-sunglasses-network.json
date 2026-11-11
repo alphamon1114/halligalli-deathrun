@@ -1,0 +1,62 @@
+{
+  "utc": "2026-11-11T01:11:36.478Z",
+  "status": "passed",
+  "method": "two Unity editor processes, direct loopback (no Relay)",
+  "error": "",
+  "passed": 13,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Both editors run protocol 43",
+      "passed": true
+    },
+    {
+      "name": "Host picks sunglasses on the home screen",
+      "passed": true
+    },
+    {
+      "name": "Host seat carries the saved sunglasses into the room",
+      "passed": true
+    },
+    {
+      "name": "Client picks nothing on the home screen",
+      "passed": true
+    },
+    {
+      "name": "Joining player arrives with its own saved choice; both peers agree",
+      "passed": true
+    },
+    {
+      "name": "Client request is applied by the host and replicated",
+      "passed": true
+    },
+    {
+      "name": "Invalid index from a client changes nothing",
+      "passed": true
+    },
+    {
+      "name": "Host change replicates to the client",
+      "passed": true
+    },
+    {
+      "name": "In the match the host sees seat 0 wearing and seat 1 bare",
+      "passed": true
+    },
+    {
+      "name": "The client sees the same seats",
+      "passed": true
+    },
+    {
+      "name": "Changes are refused while a match is running",
+      "passed": true
+    },
+    {
+      "name": "Second match shows the swapped choice on both peers",
+      "passed": true
+    },
+    {
+      "name": "Original accessory preference restored",
+      "passed": true
+    }
+  ]
+}

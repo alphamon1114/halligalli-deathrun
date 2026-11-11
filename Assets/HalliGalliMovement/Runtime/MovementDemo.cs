@@ -50,7 +50,7 @@ namespace HalliGalli.Movement
             GUI.color = new Color(0.04f, 0.07f, 0.1f, 0.9f);
             GUI.DrawTexture(new Rect(20, 20, 650, 192), Texture2D.whiteTexture);
             GUI.color = Color.white;
-            GUI.Label(new Rect(38, 30, 610, 38), korean ? "할리갈리 데스런 · 이동 / 타격 테스트" : "HALLI GALLI / MOVEMENT & COMBAT", title);
+            GUI.Label(new Rect(38, 30, 610, 38), BellUI.GameTitle + (korean ? " · 이동 / 타격 테스트" : " / MOVEMENT & COMBAT"), title);
             GUI.Label(new Rect(38, 75, 540, 25), korean ? "WASD 이동   Space 점프   Ctrl 웅크리기" : "WASD move   Space jump   Ctrl crouch", text);
             GUI.Label(new Rect(38, 107, 540, 25), korean ? "마우스 시점   V 전신 확인   R 처음으로   Esc 커서 해제" : "Mouse look   V body view   R restart   Esc cursor", text);
             GUI.Label(new Rect(38, 139, 610, 25), korean ? "좌클릭 한 손 밀치기   F 발차기   연습 상대는 3초 뒤 복귀" : "LMB one-hand push   F kick   Target returns after 3 s", text);

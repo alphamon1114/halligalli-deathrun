@@ -17,7 +17,7 @@ internal static class Program
         catch (Exception ex)
         {
             MessageBox.Show("런처를 시작하지 못했습니다.\r\n\r\n" + ex.Message,
-                "BellRun 런처", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                "할리갈리런 런처", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

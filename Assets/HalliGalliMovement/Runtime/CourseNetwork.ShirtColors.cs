@@ -12,17 +12,17 @@ namespace HalliGalli.Movement
         public int SelectedShirtColor {
             get {int seat=LocalSeat;return online&&seat>=0?members[seat].shirtColor:PlayerShirtColors.SavedIndex;}
         }
-        bool CanEditShirt=>!Busy&&!leaving&&!Playing&&!loading&&!UserMapStudio.IsOpen&&
+        bool CanEditAppearance=>!Busy&&!leaving&&!Playing&&!loading&&!UserMapStudio.IsOpen&&
             (online?manager&&manager.IsListening&&LocalSeat>=0:menu);
         public bool CanSelectShirtColor(int index)
         {
-            if(!PlayerShirtColors.IsValid(index)||!CanEditShirt||pendingShirtRequest!=0)return false;
+            if(!PlayerShirtColors.IsValid(index)||!CanEditAppearance||pendingShirtRequest!=0)return false;
             return !online||!ShirtOccupied(index,manager.LocalClientId);
         }
         public bool SelectShirtColor(int index)
         {
             if(!CanSelectShirtColor(index))return false;
-            if(!online){PlayerShirtColors.Save(index);if(game&&game.roster)game.roster.ApplyOfflineShirtColors();return true;}
+            if(!online){PlayerShirtColors.Save(index);if(game&&game.roster)game.roster.ApplyOfflineAppearance();return true;}
             if(IsHost){
                 if(!AssignShirtColor(manager.LocalClientId,index,epoch,mapRevision))return false;
                 PlayerShirtColors.Save(index);BroadcastRoom();return true;
@@ -80,16 +80,22 @@ namespace HalliGalli.Movement
             }
             return true;
         }
-        void ApplyRoomShirtColors()
+        void ApplyRoomAppearance()
         {
             if(!game||!game.roster||LocalSeat<0)return;
             int local=LocalSeat,remote=0;
             // Lobby scenes have not yet undergone BindAfterStart's local-seat swap.
             foreach(var participant in game.roster.allParticipants){
                 if(!participant)continue;
-                if(participant.localPlayer){PlayerShirtAppearance.Apply(participant,members[local].shirtColor);continue;}
+                if(participant.localPlayer){
+                    PlayerShirtAppearance.Apply(participant,members[local].shirtColor);
+                    PlayerAccessoryAppearance.Apply(participant,members[local].accessory);continue;
+                }
                 if(remote==local)remote++;
-                if(remote<members.Count)PlayerShirtAppearance.Apply(participant,members[remote++].shirtColor);
+                if(remote>=members.Count){PlayerAccessoryAppearance.Apply(participant,PlayerAccessories.None);continue;}
+                var member=members[remote++];
+                PlayerShirtAppearance.Apply(participant,member.shirtColor);
+                PlayerAccessoryAppearance.Apply(participant,member.accessory);
             }
         }
     }

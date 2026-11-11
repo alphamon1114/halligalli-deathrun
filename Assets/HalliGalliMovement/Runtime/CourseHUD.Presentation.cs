@@ -18,7 +18,7 @@ namespace HalliGalli.Movement
             var p=session.Local;float w=BellUI.W,h=BellUI.H;
             bool table=session.HasCardRules&&session.cardGame.tableView&&session.cardGame.tableView.Focused;
             BellUI.Icon("bell",new Rect(24,24,22,22),BellUI.Gold);
-            BellUI.Text(new Rect(55,21,300,28),session.practiceRoom?"연습실":session.maps&&session.maps.current?session.maps.current.displayName:"BELL RUN",17,BellUI.Paper,true,shadow:true);
+            BellUI.Text(new Rect(55,21,300,28),session.practiceRoom?"연습실":session.maps&&session.maps.current?session.maps.current.displayName:BellUI.GameTitle,17,BellUI.Paper,true,shadow:true);
             if(p.HasCheckpoint){BellUI.Icon("check",new Rect(24,56,17,17),BellUI.Cool);BellUI.Text(new Rect(47,51,130,26),"체크포인트",12,BellUI.Muted,shadow:true);}
             BellUI.Key(new Rect(w-58,25,34,25),"ESC");
             if(!MapMenuOpen){
@@ -144,7 +144,7 @@ namespace HalliGalli.Movement
         void DrawPauseMenu()
         {
             var r=RoomPanel;BellUI.Round(r,BellUI.Surface,26);float x=r.x+24,y=r.y+22,width=r.width-48;
-            BellUI.Text(new Rect(x,y,width,32),"BELL RUN",23,BellUI.Paper,true);y+=51;
+            BellUI.Text(new Rect(x,y,width,32),BellUI.GameTitle,23,BellUI.Paper,true);y+=51;
             if(BellUI.Button(new Rect(x,y,width,43),"계속하기",true)&&ReadInput)Resume();y+=59;
             if(BellUI.Button(new Rect(x,y,128,34),"게임",selected:!HelpOpen,size:14)&&ReadInput)HelpOpen=false;
             if(BellUI.Button(new Rect(x+140,y,128,34),"조작키 설정",selected:HelpOpen,size:14)&&ReadInput)OpenHelp();y+=54;

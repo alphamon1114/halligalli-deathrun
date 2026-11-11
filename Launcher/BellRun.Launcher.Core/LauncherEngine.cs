@@ -39,7 +39,7 @@ public sealed class LauncherEngine : IDisposable
         catch (IOException ex)
         {
             client.Dispose();
-            throw new LauncherException("이미 실행 중인 BellRun 런처가 있습니다. 기존 창을 사용해 주세요.", ex);
+            throw new LauncherException("이미 실행 중인 할리갈리런 런처가 있습니다. 기존 창을 사용해 주세요.", ex);
         }
     }
 

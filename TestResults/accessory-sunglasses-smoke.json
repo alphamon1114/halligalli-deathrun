@@ -1,0 +1,21 @@
+{
+    "startedUtc": "2026-11-11T01:07:00.0733453Z",
+    "completedUtc": "2026-11-11T01:07:05.7088420Z",
+    "status": "passed",
+    "checks": [
+        "Home screen starts without an accessory and allows choosing",
+        "Unknown accessory index is refused",
+        "Choosing sunglasses on the home screen wears them and saves the choice",
+        "Sunglasses hang from the local Head bone on the body layer",
+        "Sunglasses keep real-world size on the scaled rig; width=0.169 scale=1.000",
+        "Other seats stay bare offline",
+        "Taking them off removes the object and saves that",
+        "Wearing again works",
+        "Starting play keeps the saved accessory on the local player",
+        "Choice is locked outside the menu",
+        "First-person camera hides the wearer's own sunglasses with the body",
+        "Another character's rig takes the same prefab and stays visible to the first-person camera",
+        "Sunglasses follow the animated head",
+        "Removing leaves no object behind"
+    ]
+}

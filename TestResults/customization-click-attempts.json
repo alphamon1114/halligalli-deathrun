@@ -1,0 +1,79 @@
+{
+    "startedUtc": "2026-11-11T02:16:37.4106667Z",
+    "completedUtc": "2026-11-11T02:16:39.7576613Z",
+    "checks": [
+        {
+            "name": "Home button opens customization",
+            "passed": true
+        },
+        {
+            "name": "Opening customization keeps player input blocked",
+            "passed": true
+        },
+        {
+            "name": "Sunglasses button selects accessory",
+            "passed": false
+        },
+        {
+            "name": "Selection saves and wears sunglasses",
+            "passed": false
+        },
+        {
+            "name": "Accessory button 0",
+            "passed": true
+        },
+        {
+            "name": "Actual worn state 0",
+            "passed": true
+        },
+        {
+            "name": "Accessory button 1",
+            "passed": false
+        },
+        {
+            "name": "Actual worn state 1",
+            "passed": false
+        },
+        {
+            "name": "Accessory button 2",
+            "passed": false
+        },
+        {
+            "name": "Actual worn state 2",
+            "passed": false
+        },
+        {
+            "name": "Invalid accessory remains rejected",
+            "passed": true
+        },
+        {
+            "name": "Shirt selection retained",
+            "passed": true
+        },
+        {
+            "name": "Closing returns to paused home",
+            "passed": true
+        },
+        {
+            "name": "Closing releases portrait render texture",
+            "passed": true
+        },
+        {
+            "name": "Create form preserved on return",
+            "passed": true
+        },
+        {
+            "name": "Join form preserved on return",
+            "passed": true
+        },
+        {
+            "name": "All headband children use first person hidden body layer",
+            "passed": false
+        },
+        {
+            "name": "Match keeps headband and rejects changes",
+            "passed": false
+        }
+    ],
+    "failed": 8
+}

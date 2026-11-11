@@ -211,9 +211,9 @@ namespace HalliGalli.Movement
             switch (blockedReason) {
                 case ReleaseCheckResult.VersionMismatch:
                 case ReleaseCheckResult.ProtocolMismatch:
-                    return "최신 배포 버전과 이 게임의 버전이 달라 실행할 수 없어요. 게임을 종료하고 BellRun 런처로 업데이트해 주세요.";
+                    return "최신 배포 버전과 이 게임의 버전이 달라 실행할 수 없어요. 게임을 종료하고 "+BellUI.GameTitle+" 런처로 업데이트해 주세요.";
                 case ReleaseCheckResult.UnsupportedSchema:
-                    return "업데이트 정보 형식이 변경되었어요. 배포 페이지에서 최신 BellRun 런처를 받아 주세요.";
+                    return "업데이트 정보 형식이 변경되었어요. 배포 페이지에서 최신 "+BellUI.GameTitle+" 런처를 받아 주세요.";
                 case ReleaseCheckResult.InvalidManifest:
                     return "배포 정보를 안전하게 확인하지 못했어요. 잠시 후 다시 확인하거나 배포 페이지를 확인해 주세요.";
                 default:

@@ -29,8 +29,8 @@ internal sealed class LauncherForm : Form
     {
         this.engine = engine;
         Name = "BellRunLauncherWindow";
-        AccessibleName = "BellRun 할리갈리 데스런 런처";
-        Text = "BellRun · 할리갈리 데스런 런처";
+        AccessibleName = "할리갈리런 런처";
+        Text = "할리갈리런 런처";
         Font = new Font("맑은 고딕", 10F);
         AutoScaleMode = AutoScaleMode.Dpi;
         StartPosition = FormStartPosition.CenterScreen;
@@ -39,7 +39,7 @@ internal sealed class LauncherForm : Form
         var layout = new TableLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(24), ColumnCount = 1, RowCount = 10 };
         layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
         for (int row = 0; row < 10; row++) layout.RowStyles.Add(new RowStyle(row == 4 ? SizeType.Percent : SizeType.AutoSize, row == 4 ? 100 : 0));
-        layout.Controls.Add(new Label { Text = "BELLRUN  |  할리갈리 데스런", Font = new Font(Font.FontFamily, 21F, FontStyle.Bold), AutoSize = true, Margin = new Padding(0, 0, 0, 8) }, 0, 0);
+        layout.Controls.Add(new Label { Text = "할리갈리런", Font = new Font(Font.FontFamily, 21F, FontStyle.Bold), AutoSize = true, Margin = new Padding(0, 0, 0, 8) }, 0, 0);
         layout.Controls.Add(new Label { Text = "공식 GitHub 배포 · 매 실행 시 최신 버전 및 전체 파일 검증", AutoSize = true, Margin = new Padding(0, 0, 0, 16) }, 0, 1);
         layout.Controls.Add(latest, 0, 2);
         layout.Controls.Add(installed, 0, 3);

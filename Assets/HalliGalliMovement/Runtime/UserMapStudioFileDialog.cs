@@ -31,12 +31,12 @@ namespace HalliGalli.Movement
             {
                 size = Marshal.SizeOf(typeof(OpenFileName)),
                 owner = GetActiveWindow(),
-                filter = "Bell Run 맵 (*.bellmap)\0*.bellmap\0\0",
+                filter = BellUI.GameTitle + " 맵 (*.bellmap)\0*.bellmap\0\0",
                 filterIndex = 1,
                 file = file,
                 maxFile = capacity,
                 initialDirectory = directory,
-                title = save ? "맵 내보내기 · .bellmap 파일 하나로 전달하세요" : "맵 가져오기 · .bellmap 파일 선택",
+                title = BellUI.GameTitle + (save ? " · 맵 내보내기 · .bellmap 파일 하나로 전달하세요" : " · 맵 가져오기 · .bellmap 파일 선택"),
                 defaultExtension = "bellmap",
                 flags = Explorer | NoChangeDirectory | PathMustExist | (save ? OverwritePrompt | NoReadOnlyReturn : FileMustExist)
             };

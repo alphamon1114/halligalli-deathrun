@@ -1,0 +1,5198 @@
+{
+  "startedUtc": "2026-11-11T08:54:37.124Z",
+  "finishedUtc": "2026-11-11T08:55:20.565Z",
+  "complete": true,
+  "success": false,
+  "evidence": "Actual Unity Editor Play mode. UI checks use real EditorWindow.SendEvent through unchanged production CourseNetwork.OnGUI; screenshots use actual GameView. These are not GameView input queue or OS clicks. APIs, IMGUI, source DSP and localhost Netcode are separately labeled.",
+  "limitations": [
+    "No OS mouse/keyboard clicks.",
+    "No Internet Relay, packet-loss or latency simulation.",
+    "No subjective fitting changes or movement/physics certification.",
+    "Single-peer mode requested: two-peer network acceptance is NOT satisfied.",
+    "Audio explicitly skipped: real clip/playback/DSP acceptance remains incomplete."
+  ],
+  "project": "C:\\Users\\mbc\\Documents\\ao\\halligalli",
+  "folder": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z",
+  "work": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\CosmeticValidation-2026-11-11T08-39-21-192Z",
+  "checks": [
+    {
+      "utc": "2026-11-11T08:55:02.286Z",
+      "name": "Actual graphical Play mode renders 1280x720",
+      "passed": true,
+      "mode": "runtime",
+      "detail": {
+        "utc": "2026-11-11T08:55:02.2494479Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "",
+        "pid": 26244,
+        "commandSequence": 0,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 0,
+        "saved": 0,
+        "shirt": 0,
+        "savedShirt": 0,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": false,
+        "preview": false,
+        "previewTexture": false,
+        "previousPreviewDisposed": true,
+        "accepted": false,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1541332006454468,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1541332006454468,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1541332006454468,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1541332006454468,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1541332006454468,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1541332006454468,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [],
+        "guiEvents": [],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": false,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 23.509333333333334
+        }
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:03.842Z",
+      "name": "Home customization button opens live preview",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:04.265Z",
+      "name": "Color row 1 clicks and saves independently",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:04.481Z",
+      "name": "Color row 2 clicks and saves independently",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:04.626Z",
+      "name": "Accessory row 1 click selects 0",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:04.847Z",
+      "name": "Accessory row 1 click selects 1",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:05.067Z",
+      "name": "Accessory row 1 click selects 2",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:05.284Z",
+      "name": "Accessory row 2 click selects 3",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:05.501Z",
+      "name": "Accessory row 2 click selects 4",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:05.645Z",
+      "name": "Accessory row 2 click selects 5",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:05.646Z",
+      "name": "Rabbit begins clipped below viewport",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:06.000Z",
+      "name": "Real scroll event moves accessory viewport",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": {
+        "scroll": 57
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:06.144Z",
+      "name": "Third-row rabbit click changes actual worn item and saves",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:06.588Z",
+      "name": "Back click closes and destroys preview texture",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:06.797Z",
+      "name": "Reopen retains rabbit and resets scroll",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:06.939Z",
+      "name": "Escape event closes actual surface",
+      "passed": true,
+      "mode": "synthetic-IMGUI",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:07.226Z",
+      "name": "host accepts accessory 0",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:07.227Z",
+      "name": "API 0 has one correct Head-attached renderer tree (zero for none)",
+      "passed": true,
+      "mode": "API",
+      "detail": {
+        "instance": 1647311016,
+        "seat": -1,
+        "expectedAccessory": 0,
+        "index": 0,
+        "roots": 0,
+        "renderers": 0,
+        "validMeshes": 0,
+        "enabledRenderers": 0,
+        "shirt": 3,
+        "shirtRenderers": 1,
+        "local": true,
+        "head": true,
+        "directHeadParent": true,
+        "layersMatch": true,
+        "correctPrefab": true,
+        "tint": {
+          "r": 0.949999988079071,
+          "g": 0.8199999928474426,
+          "b": 0.09999997168779373,
+          "a": 1
+        },
+        "rootNames": [],
+        "headPosition": {
+          "x": -3.7456445693969727,
+          "y": 1.155035376548767,
+          "z": -1.9033879041671753
+        },
+        "accessoryPosition": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:07.228Z",
+      "name": "API 0 selection keeps shirt unchanged",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:07.369Z",
+      "name": "API 0 opens actual customization preview",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:07.870Z",
+      "name": "API 0 survives customization reopen",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:08.015Z",
+      "name": "API 0 closes and releases render texture",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:08.158Z",
+      "name": "host accepts accessory 1",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:08.159Z",
+      "name": "API 1 has one correct Head-attached renderer tree (zero for none)",
+      "passed": true,
+      "mode": "API",
+      "detail": {
+        "instance": 1647311016,
+        "seat": -1,
+        "expectedAccessory": 1,
+        "index": 1,
+        "roots": 1,
+        "renderers": 1,
+        "validMeshes": 1,
+        "enabledRenderers": 1,
+        "shirt": 3,
+        "shirtRenderers": 1,
+        "local": true,
+        "head": true,
+        "directHeadParent": true,
+        "layersMatch": true,
+        "correctPrefab": true,
+        "tint": {
+          "r": 0.949999988079071,
+          "g": 0.8199999928474426,
+          "b": 0.09999997168779373,
+          "a": 1
+        },
+        "rootNames": [
+          "Sunglasses(Clone)"
+        ],
+        "headPosition": {
+          "x": -3.7456445693969727,
+          "y": 1.1539568901062012,
+          "z": -1.9033879041671753
+        },
+        "accessoryPosition": {
+          "x": -3.75,
+          "y": 1.2665780782699585,
+          "z": -2.068803310394287
+        }
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:08.160Z",
+      "name": "API 1 selection keeps shirt unchanged",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:08.300Z",
+      "name": "API 1 opens actual customization preview",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:08.729Z",
+      "name": "API 1 survives customization reopen",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:08.869Z",
+      "name": "API 1 closes and releases render texture",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:09.006Z",
+      "name": "host accepts accessory 2",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:09.007Z",
+      "name": "API 2 has one correct Head-attached renderer tree (zero for none)",
+      "passed": true,
+      "mode": "API",
+      "detail": {
+        "instance": 1647311016,
+        "seat": -1,
+        "expectedAccessory": 2,
+        "index": 2,
+        "roots": 1,
+        "renderers": 1,
+        "validMeshes": 1,
+        "enabledRenderers": 1,
+        "shirt": 3,
+        "shirtRenderers": 1,
+        "local": true,
+        "head": true,
+        "directHeadParent": true,
+        "layersMatch": true,
+        "correctPrefab": true,
+        "tint": {
+          "r": 0.949999988079071,
+          "g": 0.8199999928474426,
+          "b": 0.09999997168779373,
+          "a": 1
+        },
+        "rootNames": [
+          "CatEars(Clone)"
+        ],
+        "headPosition": {
+          "x": -3.7456445693969727,
+          "y": 1.153496265411377,
+          "z": -1.9033879041671753
+        },
+        "accessoryPosition": {
+          "x": -3.75,
+          "y": 1.3257008790969849,
+          "z": -1.9385005235671997
+        }
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:09.008Z",
+      "name": "API 2 selection keeps shirt unchanged",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:09.147Z",
+      "name": "API 2 opens actual customization preview",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:09.644Z",
+      "name": "API 2 survives customization reopen",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:09.715Z",
+      "name": "API 2 closes and releases render texture",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:09.858Z",
+      "name": "host accepts accessory 3",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:09.859Z",
+      "name": "API 3 has one correct Head-attached renderer tree (zero for none)",
+      "passed": true,
+      "mode": "API",
+      "detail": {
+        "instance": 1647311016,
+        "seat": -1,
+        "expectedAccessory": 3,
+        "index": 3,
+        "roots": 1,
+        "renderers": 2,
+        "validMeshes": 2,
+        "enabledRenderers": 2,
+        "shirt": 3,
+        "shirtRenderers": 1,
+        "local": true,
+        "head": true,
+        "directHeadParent": true,
+        "layersMatch": true,
+        "correctPrefab": true,
+        "tint": {
+          "r": 0.949999988079071,
+          "g": 0.8199999928474426,
+          "b": 0.09999997168779373,
+          "a": 1
+        },
+        "rootNames": [
+          "BirthdayHat(Clone)"
+        ],
+        "headPosition": {
+          "x": -3.7456445693969727,
+          "y": 1.155646562576294,
+          "z": -1.9033879041671753
+        },
+        "accessoryPosition": {
+          "x": -3.75,
+          "y": 1.3709367513656616,
+          "z": -1.9623464345932007
+        }
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:09.860Z",
+      "name": "API 3 selection keeps shirt unchanged",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:10.002Z",
+      "name": "API 3 opens actual customization preview",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:10.500Z",
+      "name": "API 3 survives customization reopen",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:10.571Z",
+      "name": "API 3 closes and releases render texture",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:10.711Z",
+      "name": "host accepts accessory 4",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:10.712Z",
+      "name": "API 4 has one correct Head-attached renderer tree (zero for none)",
+      "passed": true,
+      "mode": "API",
+      "detail": {
+        "instance": 1647311016,
+        "seat": -1,
+        "expectedAccessory": 4,
+        "index": 4,
+        "roots": 1,
+        "renderers": 1,
+        "validMeshes": 1,
+        "enabledRenderers": 1,
+        "shirt": 3,
+        "shirtRenderers": 1,
+        "local": true,
+        "head": true,
+        "directHeadParent": true,
+        "layersMatch": true,
+        "correctPrefab": true,
+        "tint": {
+          "r": 0.949999988079071,
+          "g": 0.8199999928474426,
+          "b": 0.09999997168779373,
+          "a": 1
+        },
+        "rootNames": [
+          "MaidHeaddress(Clone)"
+        ],
+        "headPosition": {
+          "x": -3.7456445693969727,
+          "y": 1.1522409915924072,
+          "z": -1.9033879041671753
+        },
+        "accessoryPosition": {
+          "x": -3.75,
+          "y": 1.3324772119522095,
+          "z": -1.9040695428848267
+        }
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:10.713Z",
+      "name": "API 4 selection keeps shirt unchanged",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:10.851Z",
+      "name": "API 4 opens actual customization preview",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:11.426Z",
+      "name": "API 4 survives customization reopen",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:11.578Z",
+      "name": "API 4 closes and releases render texture",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:11.652Z",
+      "name": "host accepts accessory 5",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:11.653Z",
+      "name": "API 5 has one correct Head-attached renderer tree (zero for none)",
+      "passed": true,
+      "mode": "API",
+      "detail": {
+        "instance": 1647311016,
+        "seat": -1,
+        "expectedAccessory": 5,
+        "index": 5,
+        "roots": 1,
+        "renderers": 1,
+        "validMeshes": 1,
+        "enabledRenderers": 1,
+        "shirt": 3,
+        "shirtRenderers": 1,
+        "local": true,
+        "head": true,
+        "directHeadParent": true,
+        "layersMatch": true,
+        "correctPrefab": true,
+        "tint": {
+          "r": 0.949999988079071,
+          "g": 0.8199999928474426,
+          "b": 0.09999997168779373,
+          "a": 1
+        },
+        "rootNames": [
+          "PirateHat(Clone)"
+        ],
+        "headPosition": {
+          "x": -3.7456445693969727,
+          "y": 1.156083583831787,
+          "z": -1.9033879041671753
+        },
+        "accessoryPosition": {
+          "x": -3.75,
+          "y": 1.2929856777191162,
+          "z": -1.9404311180114746
+        }
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:11.654Z",
+      "name": "API 5 selection keeps shirt unchanged",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:11.795Z",
+      "name": "API 5 opens actual customization preview",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:12.297Z",
+      "name": "API 5 survives customization reopen",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:12.435Z",
+      "name": "API 5 closes and releases render texture",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:12.576Z",
+      "name": "host accepts accessory 6",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:12.578Z",
+      "name": "API 6 has one correct Head-attached renderer tree (zero for none)",
+      "passed": true,
+      "mode": "API",
+      "detail": {
+        "instance": 1647311016,
+        "seat": -1,
+        "expectedAccessory": 6,
+        "index": 6,
+        "roots": 1,
+        "renderers": 1,
+        "validMeshes": 1,
+        "enabledRenderers": 1,
+        "shirt": 7,
+        "shirtRenderers": 1,
+        "local": true,
+        "head": true,
+        "directHeadParent": true,
+        "layersMatch": true,
+        "correctPrefab": true,
+        "tint": {
+          "r": 1,
+          "g": 0.31999996304512024,
+          "b": 0.6299999952316284,
+          "a": 1
+        },
+        "rootNames": [
+          "RabbitEars(Clone)"
+        ],
+        "headPosition": {
+          "x": -3.7456445693969727,
+          "y": 1.1521673202514648,
+          "z": -1.9033879041671753
+        },
+        "accessoryPosition": {
+          "x": -3.75,
+          "y": 1.2674022912979126,
+          "z": -1.9586118459701538
+        }
+      }
+    },
+    {
+      "utc": "2026-11-11T08:55:12.579Z",
+      "name": "API 6 selection keeps shirt unchanged",
+      "passed": false,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:12.720Z",
+      "name": "API 6 opens actual customization preview",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:13.277Z",
+      "name": "API 6 survives customization reopen",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:13.420Z",
+      "name": "API 6 closes and releases render texture",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:13.500Z",
+      "name": "Offline rejects invalid accessory -1",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:13.654Z",
+      "name": "Offline rejects invalid accessory 7",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:13.803Z",
+      "name": "Offline rejects invalid accessory 2147483647",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:13.951Z",
+      "name": "Changing shirt does not replace rabbit",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:14.523Z",
+      "name": "Join screen reappears after customization closes",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:14.877Z",
+      "name": "Scene unload closes preview and new actual avatar restores saved rabbit",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:15.171Z",
+      "name": "Active offline practice locks accessory changes",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:15.321Z",
+      "name": "Active offline practice cannot open customization",
+      "passed": true,
+      "mode": "API",
+      "detail": null
+    },
+    {
+      "utc": "2026-11-11T08:55:15.533Z",
+      "name": "host runtime reported no errors or exceptions",
+      "passed": true,
+      "mode": "runtime-log",
+      "detail": []
+    },
+    {
+      "utc": "2026-11-11T08:55:15.535Z",
+      "name": "host owned editor infrastructure remains error-free after Search cache rebuild",
+      "passed": false,
+      "mode": "editor-infrastructure",
+      "detail": [
+        "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+      ]
+    },
+    {
+      "utc": "2026-11-11T08:55:20.564Z",
+      "name": "host isolated preferences restored and editor exited normally",
+      "passed": true,
+      "mode": "restoration",
+      "detail": {
+        "restored": {
+          "restored": true,
+          "utc": "2026-11-11T08:55:15.7254981Z"
+        },
+        "exited": true,
+        "code": 0,
+        "pid": 26244
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\actual-home-branding.png",
+      "role": "host",
+      "mode": "Actual runtime home screen; visual branding evidence",
+      "utc": "2026-11-11T08:55:03.553Z",
+      "state": {
+        "utc": "2026-11-11T08:55:03.4792041Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 2,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 0,
+        "saved": 0,
+        "shirt": 0,
+        "savedShirt": 0,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": false,
+        "preview": false,
+        "previewTexture": false,
+        "previousPreviewDisposed": true,
+        "accepted": false,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1560118198394775,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1560118198394775,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1560118198394775,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1560118198394775,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1560118198394775,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1560118198394775,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 24.72533333333333
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\ui-home-open.png",
+      "role": "host",
+      "mode": "synthetic-IMGUI",
+      "utc": "2026-11-11T08:55:04.053Z",
+      "state": {
+        "utc": "2026-11-11T08:55:03.9908626Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 4,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 0,
+        "saved": 0,
+        "shirt": 0,
+        "savedShirt": 0,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": false,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1546401977539062,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1546401977539062,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1546401977539062,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1546401977539062,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1546401977539062,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1546401977539062,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 25.237333333333332
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\ui-before-rabbit-scroll.png",
+      "role": "host",
+      "mode": "synthetic-IMGUI",
+      "utc": "2026-11-11T08:55:05.859Z",
+      "state": {
+        "utc": "2026-11-11T08:55:05.8218066Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 13,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 5,
+        "saved": 5,
+        "shirt": 6,
+        "savedShirt": 6,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": false,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 5,
+            "index": 5,
+            "roots": 1,
+            "renderers": 1,
+            "validMeshes": 1,
+            "enabledRenderers": 1,
+            "shirt": 6,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.5699999332427979,
+              "g": 0.25999996066093445,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [
+              "PirateHat(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1555625200271606,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.2924647331237793,
+              "z": -1.9404311180114746
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1555625200271606,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1555625200271606,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1555625200271606,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1555625200271606,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1555625200271606,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 27.072
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\ui-rabbit-selected.png",
+      "role": "host",
+      "mode": "synthetic-IMGUI",
+      "utc": "2026-11-11T08:55:06.373Z",
+      "state": {
+        "utc": "2026-11-11T08:55:06.3284519Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 16,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 6,
+        "saved": 6,
+        "shirt": 6,
+        "savedShirt": 6,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": false,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 57,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 6,
+            "index": 6,
+            "roots": 1,
+            "renderers": 1,
+            "validMeshes": 1,
+            "enabledRenderers": 1,
+            "shirt": 6,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.5699999332427979,
+              "g": 0.25999996066093445,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [
+              "RabbitEars(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1527091264724731,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.267944097518921,
+              "z": -1.9586118459701538
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1527091264724731,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1527091264724731,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1527091264724731,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1527091264724731,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1527091264724731,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 27.562666666666665
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\api-item-0.png",
+      "role": "host",
+      "mode": "API-opened actual runtime customization surface",
+      "utc": "2026-11-11T08:55:07.583Z",
+      "state": {
+        "utc": "2026-11-11T08:55:07.5266883Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 24,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 0,
+        "saved": 0,
+        "shirt": 3,
+        "savedShirt": 3,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": true,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.156110405921936,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.156110405921936,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.156110405921936,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.156110405921936,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.156110405921936,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.156110405921936,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "KeyDown position=(0.00, 0.00) delta=(0.00, 0.00)",
+          "keyUp position=(0.00, 0.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 28.778666666666666
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\api-item-1.png",
+      "role": "host",
+      "mode": "API-opened actual runtime customization surface",
+      "utc": "2026-11-11T08:55:08.442Z",
+      "state": {
+        "utc": "2026-11-11T08:55:08.4374979Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 30,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 1,
+        "saved": 1,
+        "shirt": 3,
+        "savedShirt": 3,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": true,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 1,
+            "index": 1,
+            "roots": 1,
+            "renderers": 1,
+            "validMeshes": 1,
+            "enabledRenderers": 1,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [
+              "Sunglasses(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1523137092590332,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.2649348974227905,
+              "z": -2.068803310394287
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1523137092590332,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1523137092590332,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1523137092590332,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1523137092590332,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1523137092590332,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "KeyDown position=(0.00, 0.00) delta=(0.00, 0.00)",
+          "keyUp position=(0.00, 0.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 29.674666666666667
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\api-item-2.png",
+      "role": "host",
+      "mode": "API-opened actual runtime customization surface",
+      "utc": "2026-11-11T08:55:09.358Z",
+      "state": {
+        "utc": "2026-11-11T08:55:09.3126252Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 36,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 2,
+        "saved": 2,
+        "shirt": 3,
+        "savedShirt": 3,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": true,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 2,
+            "index": 2,
+            "roots": 1,
+            "renderers": 1,
+            "validMeshes": 1,
+            "enabledRenderers": 1,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [
+              "CatEars(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1554930210113525,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.32769775390625,
+              "z": -1.9385005235671997
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1554930210113525,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1554930210113525,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1554930210113525,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1554930210113525,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1554930210113525,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "KeyDown position=(0.00, 0.00) delta=(0.00, 0.00)",
+          "keyUp position=(0.00, 0.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 30.549333333333333
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\api-item-3.png",
+      "role": "host",
+      "mode": "API-opened actual runtime customization surface",
+      "utc": "2026-11-11T08:55:10.214Z",
+      "state": {
+        "utc": "2026-11-11T08:55:10.1690334Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 42,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 3,
+        "saved": 3,
+        "shirt": 3,
+        "savedShirt": 3,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": true,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 3,
+            "index": 3,
+            "roots": 1,
+            "renderers": 2,
+            "validMeshes": 2,
+            "enabledRenderers": 2,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [
+              "BirthdayHat(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1535561084747314,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.3688462972640991,
+              "z": -1.9623464345932007
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1535561084747314,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1535561084747314,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1535561084747314,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1535561084747314,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1535561084747314,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "KeyDown position=(0.00, 0.00) delta=(0.00, 0.00)",
+          "keyUp position=(0.00, 0.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 31.424
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\api-item-4.png",
+      "role": "host",
+      "mode": "API-opened actual runtime customization surface",
+      "utc": "2026-11-11T08:55:11.069Z",
+      "state": {
+        "utc": "2026-11-11T08:55:11.0206099Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 48,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 4,
+        "saved": 4,
+        "shirt": 3,
+        "savedShirt": 3,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": true,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 4,
+            "index": 4,
+            "roots": 1,
+            "renderers": 1,
+            "validMeshes": 1,
+            "enabledRenderers": 1,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [
+              "MaidHeaddress(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1537914276123047,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.3340275287628174,
+              "z": -1.9040695428848267
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1537914276123047,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1537914276123047,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1537914276123047,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1537914276123047,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1537914276123047,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "KeyDown position=(0.00, 0.00) delta=(0.00, 0.00)",
+          "keyUp position=(0.00, 0.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 32.27733333333333
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\api-item-5.png",
+      "role": "host",
+      "mode": "API-opened actual runtime customization surface",
+      "utc": "2026-11-11T08:55:12.012Z",
+      "state": {
+        "utc": "2026-11-11T08:55:11.9422052Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 54,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 5,
+        "saved": 5,
+        "shirt": 3,
+        "savedShirt": 3,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": true,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 5,
+            "index": 5,
+            "roots": 1,
+            "renderers": 1,
+            "validMeshes": 1,
+            "enabledRenderers": 1,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [
+              "PirateHat(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1549348831176758,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.2918370962142944,
+              "z": -1.9404311180114746
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1549348831176758,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1549348831176758,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1549348831176758,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1549348831176758,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1549348831176758,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "KeyDown position=(0.00, 0.00) delta=(0.00, 0.00)",
+          "keyUp position=(0.00, 0.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 33.19466666666667
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\api-item-6.png",
+      "role": "host",
+      "mode": "API-opened actual runtime customization surface",
+      "utc": "2026-11-11T08:55:12.928Z",
+      "state": {
+        "utc": "2026-11-11T08:55:12.8799544Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Home",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 60,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 6,
+        "saved": 6,
+        "shirt": 7,
+        "savedShirt": 7,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": true,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 6,
+            "index": 6,
+            "roots": 1,
+            "renderers": 1,
+            "validMeshes": 1,
+            "enabledRenderers": 1,
+            "shirt": 7,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.31999996304512024,
+              "b": 0.6299999952316284,
+              "a": 1
+            },
+            "rootNames": [
+              "RabbitEars(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1529241800308228,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.26815927028656,
+              "z": -1.9586118459701538
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1529241800308228,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1529241800308228,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1529241800308228,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1529241800308228,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1529241800308228,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "KeyDown position=(0.00, 0.00) delta=(0.00, 0.00)",
+          "keyUp position=(0.00, 0.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 34.112
+        }
+      }
+    },
+    {
+      "file": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\api-join-customization.png",
+      "role": "host",
+      "mode": "API-opened actual join customization",
+      "utc": "2026-11-11T08:55:14.444Z",
+      "state": {
+        "utc": "2026-11-11T08:55:14.3850347Z",
+        "role": "host",
+        "error": "",
+        "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+        "entry": "Join",
+        "lastAction": "capture",
+        "pid": 26244,
+        "commandSequence": 70,
+        "sceneHandle": 1225,
+        "gameInstance": 1906253305,
+        "selected": 6,
+        "saved": 6,
+        "shirt": 5,
+        "savedShirt": 5,
+        "localSeat": -1,
+        "protocol": 43,
+        "width": 1280,
+        "height": 720,
+        "ready": true,
+        "active": false,
+        "host": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "canStart": false,
+        "open": true,
+        "preview": true,
+        "previewTexture": true,
+        "previousPreviewDisposed": false,
+        "accepted": true,
+        "loadingObserved": false,
+        "loadingAccepted": false,
+        "stopped": false,
+        "restored": false,
+        "scroll": 0,
+        "members": [],
+        "actors": [
+          {
+            "instance": 1647311016,
+            "seat": -1,
+            "expectedAccessory": 6,
+            "index": 6,
+            "roots": 1,
+            "renderers": 1,
+            "validMeshes": 1,
+            "enabledRenderers": 1,
+            "shirt": 5,
+            "shirtRenderers": 1,
+            "local": true,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.04999998211860657,
+              "g": 0.7799999713897705,
+              "b": 0.9200000166893005,
+              "a": 1
+            },
+            "rootNames": [
+              "RabbitEars(Clone)"
+            ],
+            "headPosition": {
+              "x": -3.7456445693969727,
+              "y": 1.1524734497070312,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": -3.75,
+              "y": 1.267708420753479,
+              "z": -1.9586118459701538
+            }
+          },
+          {
+            "instance": -679502410,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 0,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.41999995708465576,
+              "b": 0.8500000238418579,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -2.2456445693969727,
+              "y": 1.1524734497070312,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 706367355,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 1,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.8799999952316284,
+              "g": 0.15999996662139893,
+              "b": 0.17999997735023499,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": -0.7456445693969727,
+              "y": 1.1524734497070312,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": -2119550906,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 2,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 1,
+              "g": 0.44999998807907104,
+              "b": 0.07999997586011887,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 0.7543554306030273,
+              "y": 1.1524734497070312,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 2016136576,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 3,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.949999988079071,
+              "g": 0.8199999928474426,
+              "b": 0.09999997168779373,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 2.2543554306030273,
+              "y": 1.1524734497070312,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "instance": 1693592945,
+            "seat": -1,
+            "expectedAccessory": 0,
+            "index": 0,
+            "roots": 0,
+            "renderers": 0,
+            "validMeshes": 0,
+            "enabledRenderers": 0,
+            "shirt": 4,
+            "shirtRenderers": 1,
+            "local": false,
+            "head": true,
+            "directHeadParent": true,
+            "layersMatch": true,
+            "correctPrefab": true,
+            "tint": {
+              "r": 0.17999997735023499,
+              "g": 0.6499999761581421,
+              "b": 0.2499999701976776,
+              "a": 1
+            },
+            "rootNames": [],
+            "headPosition": {
+              "x": 3.7543554306030273,
+              "y": 1.1524734497070312,
+              "z": -1.9033879041671753
+            },
+            "accessoryPosition": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "exceptions": [],
+        "editorExceptions": [
+          "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+        ],
+        "guiEvents": [
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 278.00) delta=(0.00, 0.00)",
+          "mouseDown position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseUp position=(936.00, 356.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 519.00) delta=(0.00, 0.00)",
+          "mouseDown position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(850.00, 584.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1047.33, 584.00) delta=(0.00, 0.00)",
+          "scrollWheel position=(820.00, 556.00) delta=(0.00, 12.00)",
+          "mouseDown position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseUp position=(652.67, 592.00) delta=(0.00, 0.00)",
+          "mouseDown position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseUp position=(1082.00, 78.00) delta=(0.00, 0.00)",
+          "mouseDown position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "mouseUp position=(361.00, 542.00) delta=(0.00, 0.00)",
+          "KeyDown position=(0.00, 0.00) delta=(0.00, 0.00)",
+          "keyUp position=(0.00, 0.00) delta=(0.00, 0.00)"
+        ],
+        "audio": {
+          "ready": false,
+          "sourcePlaying": false,
+          "loop": false,
+          "canReveal": true,
+          "clip": "",
+          "sequence": 0,
+          "sounds": 0,
+          "revision": 0,
+          "turn": 0,
+          "samples": 0,
+          "channels": 0,
+          "frequency": 0,
+          "visualInstance": -2040019069,
+          "volume": 0,
+          "spatialBlend": 0,
+          "duration": 0,
+          "peak": 0,
+          "rms": 0,
+          "measuredSamples": 0,
+          "dspStart": 0,
+          "dspEnd": 35.648
+        }
+      }
+    }
+  ],
+  "commands": [
+    {
+      "utc": "2026-11-11T08:55:02.286Z",
+      "role": "host",
+      "sequence": 1,
+      "action": "home"
+    },
+    {
+      "utc": "2026-11-11T08:55:03.197Z",
+      "role": "host",
+      "sequence": 2,
+      "action": "capture",
+      "value": "actual-home-branding"
+    },
+    {
+      "utc": "2026-11-11T08:55:03.553Z",
+      "role": "host",
+      "sequence": 3,
+      "action": "ui-home-open"
+    },
+    {
+      "utc": "2026-11-11T08:55:03.842Z",
+      "role": "host",
+      "sequence": 4,
+      "action": "capture",
+      "value": "ui-home-open"
+    },
+    {
+      "utc": "2026-11-11T08:55:04.054Z",
+      "role": "host",
+      "sequence": 5,
+      "action": "ui-color",
+      "index": 2
+    },
+    {
+      "utc": "2026-11-11T08:55:04.267Z",
+      "role": "host",
+      "sequence": 6,
+      "action": "ui-color",
+      "index": 6
+    },
+    {
+      "utc": "2026-11-11T08:55:04.481Z",
+      "role": "host",
+      "sequence": 7,
+      "action": "ui-accessory",
+      "index": 0
+    },
+    {
+      "utc": "2026-11-11T08:55:04.628Z",
+      "role": "host",
+      "sequence": 8,
+      "action": "ui-accessory",
+      "index": 1
+    },
+    {
+      "utc": "2026-11-11T08:55:04.849Z",
+      "role": "host",
+      "sequence": 9,
+      "action": "ui-accessory",
+      "index": 2
+    },
+    {
+      "utc": "2026-11-11T08:55:05.068Z",
+      "role": "host",
+      "sequence": 10,
+      "action": "ui-accessory",
+      "index": 3
+    },
+    {
+      "utc": "2026-11-11T08:55:05.285Z",
+      "role": "host",
+      "sequence": 11,
+      "action": "ui-accessory",
+      "index": 4
+    },
+    {
+      "utc": "2026-11-11T08:55:05.501Z",
+      "role": "host",
+      "sequence": 12,
+      "action": "ui-accessory",
+      "index": 5
+    },
+    {
+      "utc": "2026-11-11T08:55:05.647Z",
+      "role": "host",
+      "sequence": 13,
+      "action": "capture",
+      "value": "ui-before-rabbit-scroll"
+    },
+    {
+      "utc": "2026-11-11T08:55:05.860Z",
+      "role": "host",
+      "sequence": 14,
+      "action": "ui-scroll"
+    },
+    {
+      "utc": "2026-11-11T08:55:06.001Z",
+      "role": "host",
+      "sequence": 15,
+      "action": "ui-accessory",
+      "index": 6
+    },
+    {
+      "utc": "2026-11-11T08:55:06.145Z",
+      "role": "host",
+      "sequence": 16,
+      "action": "capture",
+      "value": "ui-rabbit-selected"
+    },
+    {
+      "utc": "2026-11-11T08:55:06.374Z",
+      "role": "host",
+      "sequence": 17,
+      "action": "ui-back"
+    },
+    {
+      "utc": "2026-11-11T08:55:06.589Z",
+      "role": "host",
+      "sequence": 18,
+      "action": "ui-home-open"
+    },
+    {
+      "utc": "2026-11-11T08:55:06.797Z",
+      "role": "host",
+      "sequence": 19,
+      "action": "ui-escape"
+    },
+    {
+      "utc": "2026-11-11T08:55:06.940Z",
+      "role": "host",
+      "sequence": 20,
+      "action": "home"
+    },
+    {
+      "utc": "2026-11-11T08:55:07.082Z",
+      "role": "host",
+      "sequence": 21,
+      "action": "shirt",
+      "index": 3
+    },
+    {
+      "utc": "2026-11-11T08:55:07.152Z",
+      "role": "host",
+      "sequence": 22,
+      "action": "select",
+      "index": 0
+    },
+    {
+      "utc": "2026-11-11T08:55:07.228Z",
+      "role": "host",
+      "sequence": 23,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:07.369Z",
+      "role": "host",
+      "sequence": 24,
+      "action": "capture",
+      "value": "api-item-0"
+    },
+    {
+      "utc": "2026-11-11T08:55:07.584Z",
+      "role": "host",
+      "sequence": 25,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:07.727Z",
+      "role": "host",
+      "sequence": 26,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:07.871Z",
+      "role": "host",
+      "sequence": 27,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:08.017Z",
+      "role": "host",
+      "sequence": 28,
+      "action": "select",
+      "index": 1
+    },
+    {
+      "utc": "2026-11-11T08:55:08.160Z",
+      "role": "host",
+      "sequence": 29,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:08.300Z",
+      "role": "host",
+      "sequence": 30,
+      "action": "capture",
+      "value": "api-item-1"
+    },
+    {
+      "utc": "2026-11-11T08:55:08.443Z",
+      "role": "host",
+      "sequence": 31,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:08.584Z",
+      "role": "host",
+      "sequence": 32,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:08.729Z",
+      "role": "host",
+      "sequence": 33,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:08.869Z",
+      "role": "host",
+      "sequence": 34,
+      "action": "select",
+      "index": 2
+    },
+    {
+      "utc": "2026-11-11T08:55:09.008Z",
+      "role": "host",
+      "sequence": 35,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:09.148Z",
+      "role": "host",
+      "sequence": 36,
+      "action": "capture",
+      "value": "api-item-2"
+    },
+    {
+      "utc": "2026-11-11T08:55:09.359Z",
+      "role": "host",
+      "sequence": 37,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:09.501Z",
+      "role": "host",
+      "sequence": 38,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:09.645Z",
+      "role": "host",
+      "sequence": 39,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:09.715Z",
+      "role": "host",
+      "sequence": 40,
+      "action": "select",
+      "index": 3
+    },
+    {
+      "utc": "2026-11-11T08:55:09.860Z",
+      "role": "host",
+      "sequence": 41,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:10.003Z",
+      "role": "host",
+      "sequence": 42,
+      "action": "capture",
+      "value": "api-item-3"
+    },
+    {
+      "utc": "2026-11-11T08:55:10.215Z",
+      "role": "host",
+      "sequence": 43,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:10.358Z",
+      "role": "host",
+      "sequence": 44,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:10.500Z",
+      "role": "host",
+      "sequence": 45,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:10.572Z",
+      "role": "host",
+      "sequence": 46,
+      "action": "select",
+      "index": 4
+    },
+    {
+      "utc": "2026-11-11T08:55:10.713Z",
+      "role": "host",
+      "sequence": 47,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:10.852Z",
+      "role": "host",
+      "sequence": 48,
+      "action": "capture",
+      "value": "api-item-4"
+    },
+    {
+      "utc": "2026-11-11T08:55:11.070Z",
+      "role": "host",
+      "sequence": 49,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:11.282Z",
+      "role": "host",
+      "sequence": 50,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:11.427Z",
+      "role": "host",
+      "sequence": 51,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:11.578Z",
+      "role": "host",
+      "sequence": 52,
+      "action": "select",
+      "index": 5
+    },
+    {
+      "utc": "2026-11-11T08:55:11.654Z",
+      "role": "host",
+      "sequence": 53,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:11.796Z",
+      "role": "host",
+      "sequence": 54,
+      "action": "capture",
+      "value": "api-item-5"
+    },
+    {
+      "utc": "2026-11-11T08:55:12.013Z",
+      "role": "host",
+      "sequence": 55,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:12.157Z",
+      "role": "host",
+      "sequence": 56,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:12.297Z",
+      "role": "host",
+      "sequence": 57,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:12.435Z",
+      "role": "host",
+      "sequence": 58,
+      "action": "select",
+      "index": 6
+    },
+    {
+      "utc": "2026-11-11T08:55:12.580Z",
+      "role": "host",
+      "sequence": 59,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:12.721Z",
+      "role": "host",
+      "sequence": 60,
+      "action": "capture",
+      "value": "api-item-6"
+    },
+    {
+      "utc": "2026-11-11T08:55:12.929Z",
+      "role": "host",
+      "sequence": 61,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:13.071Z",
+      "role": "host",
+      "sequence": 62,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:13.278Z",
+      "role": "host",
+      "sequence": 63,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:13.421Z",
+      "role": "host",
+      "sequence": 64,
+      "action": "select",
+      "index": -1
+    },
+    {
+      "utc": "2026-11-11T08:55:13.502Z",
+      "role": "host",
+      "sequence": 65,
+      "action": "select",
+      "index": 7
+    },
+    {
+      "utc": "2026-11-11T08:55:13.657Z",
+      "role": "host",
+      "sequence": 66,
+      "action": "select",
+      "index": 2147483647
+    },
+    {
+      "utc": "2026-11-11T08:55:13.803Z",
+      "role": "host",
+      "sequence": 67,
+      "action": "shirt",
+      "index": 5
+    },
+    {
+      "utc": "2026-11-11T08:55:13.952Z",
+      "role": "host",
+      "sequence": 68,
+      "action": "join-form"
+    },
+    {
+      "utc": "2026-11-11T08:55:14.092Z",
+      "role": "host",
+      "sequence": 69,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:14.234Z",
+      "role": "host",
+      "sequence": 70,
+      "action": "capture",
+      "value": "api-join-customization"
+    },
+    {
+      "utc": "2026-11-11T08:55:14.446Z",
+      "role": "host",
+      "sequence": 71,
+      "action": "close"
+    },
+    {
+      "utc": "2026-11-11T08:55:14.524Z",
+      "role": "host",
+      "sequence": 72,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:14.668Z",
+      "role": "host",
+      "sequence": 73,
+      "action": "reload"
+    },
+    {
+      "utc": "2026-11-11T08:55:14.877Z",
+      "role": "host",
+      "sequence": 74,
+      "action": "practice"
+    },
+    {
+      "utc": "2026-11-11T08:55:15.024Z",
+      "role": "host",
+      "sequence": 75,
+      "action": "select",
+      "index": 1
+    },
+    {
+      "utc": "2026-11-11T08:55:15.172Z",
+      "role": "host",
+      "sequence": 76,
+      "action": "open"
+    },
+    {
+      "utc": "2026-11-11T08:55:15.322Z",
+      "role": "host",
+      "sequence": 77,
+      "action": "home"
+    },
+    {
+      "utc": "2026-11-11T08:55:15.537Z",
+      "role": "host",
+      "sequence": 78,
+      "action": "stop"
+    }
+  ],
+  "snapshots": [],
+  "processes": [
+    {
+      "role": "host",
+      "pid": 26244,
+      "project": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\CosmeticValidation-2026-11-11T08-39-21-192Z\\host",
+      "isolatedProduct": "CosmeticValidation_20261111T083921192Z_host",
+      "log": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\host.log",
+      "args": [
+        "-projectPath",
+        "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\CosmeticValidation-2026-11-11T08-39-21-192Z\\host",
+        "-executeMethod",
+        "HalliGalli.Movement.CosmeticValidationTemp.Begin",
+        "--cosmetic-dir",
+        "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z",
+        "--cosmetic-role",
+        "host",
+        "--cosmetic-exit",
+        "true",
+        "-disable-audio",
+        "-logFile",
+        "C:\\Users\\mbc\\Documents\\ao\\halligalli\\TestResults\\cosmetics-2026-11-11T08-54-37-124Z\\host.log"
+      ]
+    }
+  ],
+  "failures": [],
+  "editorDiagnostics": [
+    {
+      "role": "host",
+      "exceptions": [
+        "Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <c5ae8a4eeb824526b5df2932bc2395e0>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__78.MoveNext () (at <f03e16b4b58248838607cefa048bd30a>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <f1b392d8fe224ca2b1f9fab1000b77eb>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <f03e16b4b58248838607cefa048bd30a>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <2194b77af8ea43e69caba13ba778a69a>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n"
+      ]
+    }
+  ],
+  "cacheRepairs": [
+    {
+      "role": "host",
+      "removed": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\CosmeticValidation-2026-11-11T08-39-21-192Z\\host\\Library\\Search",
+      "reason": "Rebuild stale owned-copy Search indexes"
+    }
+  ],
+  "passed": 67,
+  "failed": 2,
+  "status": "failed"
+}

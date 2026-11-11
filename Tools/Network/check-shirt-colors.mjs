@@ -183,7 +183,9 @@ try{
   check('Offline '+index+' updates actual body renderer',actor.shirtColor===index&&actor.shirtRenderers>0&&actor.shirtTint.a>.99,actor);
  }
  check('All eight body tints are distinct',new Set(tints.map(t=>JSON.stringify(t))).size===8,tints);
- if(nativeUI)await click('host',139+46*2,559);else await choose('host',2);
+ if(nativeUI){
+  await click('host',361,542);await click('host',937,278);await click('host',1082,78);
+ }else await choose('host',2);
  await wait('Home orange selected',()=>host().selectedShirtColor===2&&host().savedShirtColor===2);
  check((nativeUI?'Native home swatch':'Home selection')+' persists orange',host().actors.find(a=>a.localPlayer).shirtColor===2);await capture('host','shirt-home-orange');
  await command('host','training');await wait('Training has no selection controls',()=>!host().busy&&host().selectableShirtColors.every(v=>!v)&&host().actors.every(a=>!a.seated),60000);
@@ -212,7 +214,9 @@ try{
  await synchronized('Host, guest and four AI have unique consistent colors');
  check('Full room reserves six colors and disables occupied swatches',peers().every(s=>s.members.length===6&&s.selectableShirtColors.every((can,index)=>can===(!s.members.some(m=>m.shirtColor===index)||s.selectedShirtColor===index))));
  const stableBots=roomColors(host()).filter(m=>m.bot),hostColor=host().selectedShirtColor;
- if(nativeUI)await click('client1',261+37*6,590);else await choose('client1',6);
+ if(nativeUI){
+  await click('client1',336,596);await click('client1',937,356);await click('client1',1082,78);
+ }else await choose('client1',6);
  await wait('Guest selection acknowledged',()=>guest().selectedShirtColor===6&&guest().savedShirtColor===6&&sameRoom());
  check((nativeUI?'Native lobby swatch':'Lobby selection')+' changes only its owner',host().selectedShirtColor===hostColor&&JSON.stringify(roomColors(host()).filter(m=>m.bot))===JSON.stringify(stableBots));
  await command('client1','shirt-color',{value:'7',seat:0});await wait('Guest own color selected',()=>guest().selectedShirtColor===7&&guest().savedShirtColor===7&&sameRoom());

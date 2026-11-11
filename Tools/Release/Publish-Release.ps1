@@ -1,4 +1,4 @@
-param(
+﻿param(
     [Parameter(Mandatory=$true)]
     [string]$Version,
     [string]$NotesFile
@@ -25,9 +25,9 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Cannot resolve source commit.' }
     $remoteCommit = & gh api "repos/$repo/commits/main" --jq '.sha'
     if ($LASTEXITCODE -ne 0 -or $remoteCommit -ne $commit) { throw 'Push the release source to origin/main before publishing.' }
-    $arguments = @('release','create',$tag,'--repo',$repo,'--target',$commit,'--title',"Bell Run $Version",'--draft',$archive,$manifestPath,$launcher)
+    $arguments = @('release','create',$tag,'--repo',$repo,'--target',$commit,'--title',"할리갈리런 $Version",'--draft',$archive,$manifestPath,$launcher)
     if ($NotesFile) { $arguments += @('--notes-file', (Resolve-Path -LiteralPath $NotesFile).Path) }
-    else { $arguments += @('--notes',"Download BellRunLauncher.exe to install, update and play. Internet access and the latest game version are required. User maps and settings are preserved. Version $Version; network protocol $($manifest.protocol). Windows x64.") }
+    else { $arguments += @('--notes',"할리갈리런 설치·업데이트는 BellRunLauncher.exe를 실행하세요. 인터넷 연결과 최신 버전이 필요하며 사용자 맵과 설정은 보존됩니다. 버전 $Version / 네트워크 프로토콜 $($manifest.protocol). Windows x64.") }
     & gh @arguments
     if ($LASTEXITCODE -ne 0) { throw 'Draft creation/upload failed. Inspect the draft; do not replace an existing published version.' }
     $assetNames = & gh release view $tag --repo $repo --json assets --jq '.assets[].name'

@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-11T02:38:04.7777967Z",
+  "method": "Unity isolated preview scene: actual body rig and installed CatEars prefab, front/side/three-quarter renders visually reviewed",
+  "attachmentCenterBeforeMeters": [0, 1.755, 0.01],
+  "attachmentCenterAfterMeters": [0, 1.725, 0.01],
+  "verticalAdjustmentMeters": -0.03,
+  "visualResult": "Band seated against scalp in all three views",
+  "screenshots": ["Previews/CatEars_Fit_0.png", "Previews/CatEars_Fit_90.png", "Previews/CatEars_Fit_35.png"],
+  "limits": "Rest-pose visual fit only. Body preview uses the FBX default material, not changed gameplay textures. Attempted vertex-filter gap measurement returned no scalp samples; no numerical contact-distance claim. Multiplayer and live motion not rerun."
+}

@@ -179,7 +179,7 @@ async function focusedBarricades(){
 try{
  launch('host');await wait(()=>host()?.active&&!host().busy,60000);launch('client1');await wait(()=>host().members.length===2&&guest()?.members.length===2&&!guest().busy,60000);
  const oldTimes=peers().map(s=>s.worldTime);await wait(()=>peers().every((s,i)=>s.worldTime>oldTimes[i]+.1),5000);
- check('Attached or launched peers publish fresh matching protocol state',host().protocol===guest().protocol&&host().protocol===42);
+ check('Attached or launched peers publish fresh matching protocol state',host().protocol===guest().protocol&&host().protocol===43);
  if(host().playing){await command('host','room');await wait(()=>peers().every(s=>!s.playing));}
  await startRace();check('Final official race loads on both peers with identical box placement',JSON.stringify(host().race.boxes.map(b=>b.position))===JSON.stringify(guest().race.boxes.map(b=>b.position))&&host().bellLanding.z>=210);
  await command('host','race-item');check('Seated player cannot create an item attack',host().race.projectiles.length===0);

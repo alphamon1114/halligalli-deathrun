@@ -7,6 +7,7 @@ namespace HalliGalli.Movement
     // map thumbnails come from the game's own scenes.
     public static class BellUI
     {
+        public const string GameTitle="할리갈리런";
         public static readonly Color Ink=new Color(.07f,.075f,.072f),Surface=new Color(.115f,.12f,.112f,.96f);
         public static readonly Color Paper=new Color(.94f,.92f,.85f),Muted=new Color(.64f,.66f,.61f),Gold=new Color(.91f,.69f,.34f);
         public static readonly Color Danger=new Color(1,.31f,.23f),Cool=new Color(.43f,.8f,.76f);
@@ -99,5 +100,20 @@ namespace HalliGalli.Movement
         {
             var image=MapImage(map);if(image)GUI.DrawTexture(rect,image,ScaleMode.ScaleAndCrop,true,0,Color.white,0,radius);
         }
+#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
+        // Keep Unity's company/product identity unchanged: it owns PlayerPrefs and LocalLow.
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        static void SetGameWindowTitle()
+        {
+            if(Application.isBatchMode)return;
+            using(var process=System.Diagnostics.Process.GetCurrentProcess()){
+                var window=process.MainWindowHandle;
+                if(window!=System.IntPtr.Zero)SetWindowText(window,GameTitle);
+            }
+        }
+        [System.Runtime.InteropServices.DllImport("user32.dll",EntryPoint="SetWindowTextW",CharSet=System.Runtime.InteropServices.CharSet.Unicode)]
+        [return:System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
+        static extern bool SetWindowText(System.IntPtr window,string title);
+#endif
     }
 }
