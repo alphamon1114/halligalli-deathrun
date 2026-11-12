@@ -1,0 +1,42 @@
+{
+  "utc": "2026-11-12T01:50:33.1769604Z",
+  "version": "1.0.9",
+  "checks": [
+    {
+      "name": "No existing player will be interrupted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Public latest manifest is 1.0.9",
+      "passed": true,
+      "detail": "1.0.9"
+    },
+    {
+      "name": "Real launcher downloads and validates installation",
+      "passed": true,
+      "detail": "1.0.9"
+    },
+    {
+      "name": "Downloaded player accepts latest release gate",
+      "passed": true,
+      "detail": "C:\\Users\\mbc\\AppData\\LocalLow\\HalliGalli Prototype\\HalliGalli Deathrun - Bell Run\\Player.log"
+    },
+    {
+      "name": "Actual game window is running",
+      "passed": true,
+      "detail": "\uD560\uB9AC\uAC08\uB9AC\uB7F0"
+    },
+    {
+      "name": "Korean game title remains intact",
+      "passed": true,
+      "detail": "\uD560\uB9AC\uAC08\uB9AC\uB7F0"
+    },
+    {
+      "name": "Rechecking installed release stays ready",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "limits": "Launcher engine exercised, not OS button clicks or multiplayer Relay."
+}
