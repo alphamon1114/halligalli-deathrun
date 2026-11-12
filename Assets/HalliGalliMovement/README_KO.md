@@ -164,9 +164,13 @@ Esc → 맵 선택에서 현재 인원을 유지하며 새 대결을 시작합�
 
 1.0.8부터 **내 캐릭터 꾸미기 → 치장 아이템**에서 없음 / 선글라스 / 고양이 귀 머리띠 / 생일 꼬깔 / 메이드 헤드드레스 / 해적 선장 모자 / 토끼 머리띠 중 하나를 고릅니다. 목록을 아래로 스크롤하면 세 번째 줄의 토끼 머리띠가 나옵니다. 캐릭터 미리보기에 선택한 색과 치장이 표시되며, 선택은 이 PC에 자동 저장됩니다. 뒤로/Esc로 원래 화면에 돌아갑니다. 방에서는 방장이 각 참가자의 선택을 확정해 모두에게 보내고, 게임/로딩 중에는 바꾸지 못합니다. AI는 착용하지 않습니다.
 
-`PlayerAccessories`가 번호(0=없음, 1=선글라스, 2=고양이 귀 머리띠, 3=생일 꼬깔, 4=메이드 헤드드레스, 5=해적 선장 모자, 6=토끼 머리띠)와 프리팹을 관리하고 `PlayerAccessoryAppearance`가 몸 모델의 `Head` 본에 붙입니다. 모든 하위 부품이 몸과 같은 레이어를 사용하므로 1인칭에서는 자신의 치장이 보이지 않고 V 전신 보기와 다른 사람 화면에서 보입니다. 미리보기는 별도의 몸 모델·카메라·렌더 텍스처를 사용하고 닫을 때 해제합니다.
+1.0.10부터 **왕관**을 추가했습니다. 치장 목록의 세 번째 줄에서 선택하며 기존 색상과 치장은 유지됩니다. 새 치장 번호를 모르는 구버전과의 접속을 막기 위해 프로토콜은 **44**입니다.
+
+`PlayerAccessories`가 번호(0=없음, 1=선글라스, 2=고양이 귀 머리띠, 3=생일 꼬깔, 4=메이드 헤드드레스, 5=해적 선장 모자, 6=토끼 머리띠, 7=왕관)와 프리팹을 관리하고 `PlayerAccessoryAppearance`가 몸 모델의 `Head` 본에 붙입니다. 모든 하위 부품이 몸과 같은 레이어를 사용하므로 1인칭에서는 자신의 치장이 보이지 않고 V 전신 보기와 다른 사람 화면에서 보입니다. 미리보기는 별도의 몸 모델·카메라·렌더 텍스처를 사용하고 닫을 때 해제합니다.
 
 선글라스는 `PlayerAccessoryAssets.Install()`로 직접 제작합니다. 나머지 치장은 VARCO 3D 생성 모델입니다. `Tools/Art/import-accessory.py -- source.glb AssetName`을 Blender에서 실행해 FBX/Unity용 PBR 텍스처로 변환하며 AssetName은 `CatEars`, `BirthdayHat`, `MaidHeaddress`, `PirateHat`, `RabbitEars`입니다. 생일 꼬깔은 먼저 `repair-birthday-hat.py -- source.glb repaired.glb`로 깨진 꼭대기를 닫힌 빨간 구형 메시로 보수합니다. Unity 메뉴 `HalliGalli/Install Cat Ear Accessory`, `Install Birthday Hat Accessory`, `Install Maid Headdress Accessory`, `Install Pirate Hat Accessory`, `Install Rabbit Ear Accessory`로 각각 프리팹을 만듭니다. 공식 씬·플레이어 프리팹·몸 모델 임포트 설정은 변경하지 않습니다.
+
+왕관은 AssetName `Crown`으로 변환하고 `HalliGalli/Install Crown Accessory` 또는 `CrownAccessoryAssets.Install()`로 해당 프리팹만 생성합니다.
 
 ## 빠른 밀치기와 발차기
 

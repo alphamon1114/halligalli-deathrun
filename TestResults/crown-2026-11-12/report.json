@@ -1,0 +1,133 @@
+{
+    "utc": "2026-11-12T03:43:01.9730049Z",
+    "passed": 25,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Offline selection accepts crown",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Crown persists without changing shirt",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Real crown attaches to player Head",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Accessory never affects physics",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Crown remains head-sized after FBX axis conversion",
+            "detail": "(0.1870, 0.1244, 0.2304)",
+            "passed": true
+        },
+        {
+            "name": "Crown follows turned head",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Invalid selection preserves worn crown",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Customization opens without moving live player",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Separate preview wears crown",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Existing rabbit item can replace crown",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Switching does not leave stacked accessories",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "None removes head accessory",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nothing remains worn",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Crown can be reselected",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Loopback host initializes with saved crown",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Host selection changes confirmed room item",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Stale accessory request rejected",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Wrong map revision rejected",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Unknown player request rejected",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Out-of-range request rejected",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Current owner request accepts crown",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Room state accepts crown",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Room state rejects unknown item",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Old build rejected before unknown crown enters room",
+            "detail": "게임 버전이 달라. 같은 빌드를 사용해줘.",
+            "passed": true
+        },
+        {
+            "name": "Matching build can join wearing crown",
+            "detail": "",
+            "passed": true
+        }
+    ],
+    "limit": "Actual Unity scene, customization rendering, loopback host and production request/approval handlers; no second peer or Internet Relay."
+}
