@@ -1,0 +1,88 @@
+{
+    "utc": "2026-11-12T01:18:10.1617848Z",
+    "passed": 16,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Initial table is silent",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Imported clip retains short quiet waveform",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Wrong-turn reveal is rejected without sound",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Local reveal advances one card",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Actual source outputs quiet card audio",
+            "passed": true,
+            "detail": "peak=0.05659141"
+        },
+        {
+            "name": "Short card sound ends without looping",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Real bot turn produces next reveal",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Bot reveal reaches audio output",
+            "passed": true,
+            "detail": "peak=0.05659141"
+        },
+        {
+            "name": "First received snapshot does not replay historical cards",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Duplicate in-flight snapshot does not restart sound",
+            "passed": true,
+            "detail": "before=3072, after=3072"
+        },
+        {
+            "name": "Repeated snapshot stays silent after playback",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Non-reveal state change remains silent",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "Later network reveal produces real audio",
+            "passed": true,
+            "detail": "peak=0.05659141"
+        },
+        {
+            "name": "Rebind reset suppresses reconnect history",
+            "passed": true,
+            "detail": ""
+        },
+        {
+            "name": "New reveal after rebind is audible",
+            "passed": true,
+            "detail": "peak=0.0278911"
+        },
+        {
+            "name": "Reset stops active card sound",
+            "passed": true,
+            "detail": ""
+        }
+    ],
+    "limit": "Actual graphical Unity scene and production snapshot receiver; not two network peers, Internet Relay, or physical speaker listening."
+}

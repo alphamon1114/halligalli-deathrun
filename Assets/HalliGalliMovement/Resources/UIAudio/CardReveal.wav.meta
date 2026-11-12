@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d157ed520a904a0d87c0b48e5889d8fa
+AudioImporter:
+  externalObjects: {}
+  serializedVersion: 8
+  defaultSettings:
+    serializedVersion: 2
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 48000
+    compressionFormat: 0
+    quality: 1
+    conversionMode: 0
+    preloadAudioData: 1
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 0
+  loadInBackground: 0
+  ambisonic: 0
+  3D: 0
+  userData: VARCO Sound studio 8b24c242-ef2d-404f-abd4-2e38f6a4c9e4 take 2; trimmed 0.84-1.02s; treble -5dB at 3500Hz.
+  assetBundleName: 
+  assetBundleVariant: 

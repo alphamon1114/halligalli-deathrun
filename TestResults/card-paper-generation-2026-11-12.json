@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-12",
+  "status": "applied-runtime-smoke-passed",
+  "provider": "VARCO Sound",
+  "endpoint": "/api/studio/generate",
+  "resultId": "studio:8b24c242-ef2d-404f-abd4-2e38f6a4c9e4",
+  "pluginLocalFix": "Text creation and Studio result/assets routing updated; existing login reused",
+  "verified": ["Real authenticated sound generation", "Result lookup", "Three original WAV downloads", "New result and existing BGM in list", "PCM WAV metadata and levels"],
+  "files": [
+    {"take":1,"fileId":"a3268eb7-da09-458c-8385-78e740c4972d","path":"Exports/CardRevealSound/card_slide(GEN_1).wav","seconds":3.27,"sampleRate":48000,"channels":1,"bits":16,"peakDbfs":-32.8659,"rmsDbfs":-58.2106},
+    {"take":2,"fileId":"c088538f-7f86-496c-b09e-a2464b780c8f","path":"Exports/CardRevealSound/card_slide(GEN_2).wav","seconds":1.02,"sampleRate":48000,"channels":1,"bits":16,"peakDbfs":-24.6520,"rmsDbfs":-47.4541},
+    {"take":3,"fileId":"53fb6eb7-7ef1-4563-a7a0-cc42178cbfc8","path":"Exports/CardRevealSound/card_slide(GEN_3).wav","seconds":0.92,"sampleRate":48000,"channels":1,"bits":16,"peakDbfs":-27.0219,"rmsDbfs":-45.6250}
+  ],
+  "appliedToGame": true,
+  "appliedAsset": "Assets/HalliGalliMovement/Resources/UIAudio/CardReveal.wav",
+  "appliedDurationSeconds": 0.18,
+  "sourceVolume": 0.5,
+  "runtimeReport": "card-reveal-runtime-2026-11-12.json",
+  "publishedVersionUnchanged": "1.0.8",
+  "limitations": ["Two actual network peers and physical speaker listening not verified", "No new player build or release published", "New music endpoint not tested with a paid generation", "Panel still showed stale renderer after reload; issue reported"],
+  "selectionQuestion": null
+}
