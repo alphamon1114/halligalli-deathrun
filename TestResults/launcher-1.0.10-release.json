@@ -1,0 +1,87 @@
+{
+  "utc": "2026-11-12T03:51:59.0779257Z",
+  "version": "1.0.10",
+  "checks": [
+    {
+      "name": "Existing game is not interrupted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Public latest release and protocol",
+      "passed": true,
+      "detail": "1.0.10"
+    },
+    {
+      "name": "Real GitHub download and installation validation",
+      "passed": true,
+      "detail": "1.0.10"
+    },
+    {
+      "name": "Downloaded player admits current release",
+      "passed": true,
+      "detail": "\uD560\uB9AC\uAC08\uB9AC\uB7F0"
+    },
+    {
+      "name": "Korean title retained",
+      "passed": true,
+      "detail": "\uD560\uB9AC\uAC08\uB9AC\uB7F0"
+    },
+    {
+      "name": "Installed release remains ready",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Two downloaded peers use protocol 44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Host crown synchronizes to actual guest",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Guest crown request synchronizes to both peers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Selecting crown preserves both shirt preferences",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid item does not replace crown",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Packaged crown prefab is worn by both actual players",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "In-game cosmetic change remains blocked",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Existing rabbit replaces crown without changing host",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Crown survives real disconnect and reconnect",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Original accessory and shirt preferences restored",
+      "passed": true,
+      "detail": "Restored after all owned players stopped"
+    }
+  ],
+  "limits": "Production launcher engine and two real graphical players over loopback. Wearing asserted from runtime accessoryWorn state. No Internet Relay or OS button-click verification. Audio disabled only for peer verification."
+}
