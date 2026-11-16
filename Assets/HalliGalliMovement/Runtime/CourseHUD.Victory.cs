@@ -27,6 +27,11 @@ namespace HalliGalli.Movement
             while(size>18&&BellUI.Style(size,true).CalcSize(new GUIContent(name)).x>550)size--;
             BellUI.Text(new Rect(x-280,y+3,560,52),name,size,Fade(BellUI.Paper),true,TextAnchor.MiddleCenter);
             if(intro<.99f)return;
+            if(GameEdition.IsOfflineDemo&&CourseNetwork.Instance){
+                if(BellUI.Button(new Rect(x-260,y+69,250,40),"다시 대결  ["+ControlBindings.Hint(GameAction.Respawn)+"]",true,size:17)&&ReadInput)CourseNetwork.Instance.ReplayOfflineDemoMatch();
+                if(BellUI.Button(new Rect(x+10,y+69,250,40),"오프라인 데모 홈으로",size:17)&&ReadInput)CourseNetwork.Instance.ShowStartScreen();
+                return;
+            }
             if(CanContinueAfterVictory){
                 float width=CourseNetwork.Active?174:150;
                 Prompt(x-width*.5f,y+69,"R",VictoryAction,width);

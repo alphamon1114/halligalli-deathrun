@@ -1,0 +1,92 @@
+{
+    "utc":  "2026-11-13T01:00:06.1394758Z",
+    "version":  "1.0.10",
+    "checks":  [
+                   {
+                       "name":  "No existing player interrupted",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "exe.txt UTF-8 and nonempty",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "title.txt UTF-8 and nonempty",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "genre.txt UTF-8 and nonempty",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "playtime.txt UTF-8 and nonempty",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "description.txt UTF-8 and nonempty",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "exe.txt points directly to bundled game",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "Published build version and protocol retained",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "thumbnail.png dimensions",
+                       "passed":  true,
+                       "detail":  "840x300"
+                   },
+                   {
+                       "name":  "image1.png dimensions",
+                       "passed":  true,
+                       "detail":  "1920x1200"
+                   },
+                   {
+                       "name":  "image2.png dimensions",
+                       "passed":  true,
+                       "detail":  "1920x1200"
+                   },
+                   {
+                       "name":  "image3.png dimensions",
+                       "passed":  true,
+                       "detail":  "1920x1200"
+                   },
+                   {
+                       "name":  "Direct launch passes production release gate",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "Actual game window displays Korean title",
+                       "passed":  true,
+                       "detail":  "할리갈리런"
+                   },
+                   {
+                       "name":  "Game launches full screen at native resolution",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "Owned Unity frame captured at native resolution",
+                       "passed":  true,
+                       "detail":  ""
+                   },
+                   {
+                       "name":  "No runtime exception or error in fresh launch log",
+                       "passed":  true,
+                       "detail":  ""
+                   }
+               ],
+    "limits":  "Direct game executable started from the parent working directory at full screen. Existing manual runtime probe captured only the Unity frame; no network room started. Audio disabled for this check. Actual GstarLauncher executable was not provided. Internet/latest-version requirements remain unchanged. team.txt is checked when packaging after the exhibitor name is supplied."
+}

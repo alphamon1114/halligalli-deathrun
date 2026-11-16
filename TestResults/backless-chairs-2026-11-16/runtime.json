@@ -1,0 +1,217 @@
+{
+    "utc": "2026-11-16T01:07:05.0955047Z",
+    "passed": true,
+    "error": "",
+    "scenarios": [
+        {
+            "map": "first-steps",
+            "players": 2,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "first-steps",
+            "players": 3,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "first-steps",
+            "players": 4,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "first-steps",
+            "players": 5,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "first-steps",
+            "players": 6,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "summit",
+            "players": 2,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "summit",
+            "players": 3,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "summit",
+            "players": 4,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "summit",
+            "players": 5,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "summit",
+            "players": 6,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "surf",
+            "players": 2,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "surf",
+            "players": 3,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "surf",
+            "players": 4,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "surf",
+            "players": 5,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "surf",
+            "players": 6,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "factory",
+            "players": 2,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "factory",
+            "players": 3,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "factory",
+            "players": 4,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "factory",
+            "players": 5,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "factory",
+            "players": 6,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "pyramid",
+            "players": 2,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "pyramid",
+            "players": 3,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "pyramid",
+            "players": 4,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "pyramid",
+            "players": 5,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "pyramid",
+            "players": 6,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "item-race",
+            "players": 2,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "item-race",
+            "players": 3,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "item-race",
+            "players": 4,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "item-race",
+            "players": 5,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "item-race",
+            "players": 6,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "clockwork",
+            "players": 2,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "clockwork",
+            "players": 3,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "clockwork",
+            "players": 4,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "clockwork",
+            "players": 5,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        },
+        {
+            "map": "clockwork",
+            "players": 6,
+            "departureDistance": 0.6402919292449951,
+            "reseated": true
+        }
+    ]
+}

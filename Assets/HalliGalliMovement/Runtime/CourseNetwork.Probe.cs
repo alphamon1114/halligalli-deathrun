@@ -87,6 +87,9 @@ namespace HalliGalli.Movement
             public int victorySoundsPlayed;
             public bool victoryAudioReady,victorySoundPlaying;
             public bool active,playing,loading,host,canStart,busy;
+            public bool offlineDemo,offlineMatch,overlay,offlineCommandAccepted,releaseGatePresent,networkManagerPresent,training;
+            public string servicesState,offlineMap;
+            public int offlinePlayers,trainingStage;
             public int localSeat,bells,revision,turn,bots,capacity,surfSections,twoSidedSurfSections;
             public bool canAddBot,botCards;
             public int protocol,selectedShirtColor,savedShirtColor,selectedAccessory;
@@ -133,6 +136,7 @@ namespace HalliGalli.Movement
         MovementCommand movement;float pitch;bool pendingJump;
         bool studioUI;
         bool shirtSelectionAccepted,shirtSelectionLoading;
+        bool offlineCommandAccepted;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot(){GameReleaseGate.RunWhenAllowed(BootAfterReleaseCheck);}
         static void BootAfterReleaseCheck()
@@ -181,6 +185,10 @@ namespace HalliGalli.Movement
             var match=game?game.cardGame.Match:null;
             var report=new Report{hasFerry=game&&game.ferry,ferryPosition=game&&game.ferry?game.ferry.carrier.transform.position:Vector3.zero,ferryPositions=game&&game.ferry?new[]{game.ferry.carrier,game.ferry.secondCarrier}.Where(s=>s).Select(s=>s.transform.position).ToArray():Array.Empty<Vector3>(),worldTime=CourseNetwork.WorldTime,factoryPlatforms=game&&game.factory?game.factory.movingPlatforms.Select(s=>s.transform.position).ToArray():Array.Empty<Vector3>(),factoryPresses=game&&game.factory?game.factory.presses.Select(p=>p.head.position).ToArray():Array.Empty<Vector3>(),role=role,status=network.Status,code=network.InviteCode,map=game&&game.maps.current?game.maps.current.id:"",
                 active=CourseNetwork.Active,playing=network.Playing,loading=network.IsLoading,host=network.IsHost,canStart=network.CanStart,busy=network.Busy,
+                offlineDemo=GameEdition.IsOfflineDemo,offlineMatch=network.OfflineDemoMatchActive,overlay=network.OverlayVisible,offlineCommandAccepted=offlineCommandAccepted,
+                releaseGatePresent=FindAnyObjectByType<GameReleaseGate>()!=null,networkManagerPresent=Unity.Netcode.NetworkManager.Singleton!=null,
+                servicesState=Unity.Services.Core.UnityServices.State.ToString(),offlineMap=network.OfflineDemoMap?network.OfflineDemoMap.id:"",offlinePlayers=network.OfflineDemoPlayers,
+                training=game&&game.practiceRoom&&game.practiceRoom.Active,trainingStage=game&&game.practiceRoom&&game.practiceRoom.Surf?game.practiceRoom.Surf.SelectedStage:-1,
                 localSeat=network.LocalSeat,bells=game?game.BellCount:0,revision=match?.Revision??-1,turn=match?.Turn??-1,bots=network.BotCount,capacity=network.Capacity,canAddBot=network.CanAddBot,botCards=game&&game.cardGame.botEnabled,
                 protocol=CourseNetwork.Protocol,selectedShirtColor=network.SelectedShirtColor,savedShirtColor=PlayerShirtColors.SavedIndex,selectedAccessory=network.SelectedAccessory,
                 shirtSelectionAccepted=shirtSelectionAccepted,shirtSelectionLoading=shirtSelectionLoading,shirtPreferenceKey=PlayerShirtColors.PreferenceKey,
@@ -294,6 +302,14 @@ namespace HalliGalli.Movement
                 case "host-loopback":network.StartLoopback(true,ushort.Parse(c.value),"shared-map-host");break;
                 case "join-loopback":network.StartLoopback(false,ushort.Parse(c.value),role);break;
                 case "show-home":network.ShowStartScreen();break;
+                case "offline-players":offlineCommandAccepted=network.SelectOfflineDemoParticipants(c.seat);break;
+                case "offline-map":offlineCommandAccepted=network.SelectOfflineDemoMap(game.maps.catalog.maps.FirstOrDefault(m=>m&&m.id==c.value));break;
+                case "offline-start":offlineCommandAccepted=network.StartOfflineDemoMatch();break;
+                case "offline-replay":offlineCommandAccepted=network.ReplayOfflineDemoMatch();break;
+                case "offline-maps":network.ShowOfflineDemoMaps();break;
+                case "host-cloud":_=network.Connect(true);break;
+                case "local-actions":FindAnyObjectByType<CourseHUD>().ProcessActions(c.aim,c.primary,c.jump);break;
+                case "training-stage":if(game.practiceRoom&&game.practiceRoom.Surf)game.practiceRoom.Surf.SelectStage(c.seat);break;
                 case "training":network.StartTraining();break;
                 case "shirt-color":shirtSelectionLoading=network.IsLoading;shirtSelectionAccepted=network.SelectShirtColor(int.Parse(c.value));break;
                 case "accessory":network.SelectAccessory(int.Parse(c.value));break;
@@ -395,7 +411,7 @@ namespace HalliGalli.Movement
                 case "factory-shuttle":
                     if(network.IsHost&&game.factory)game.participants[c.seat].Motor.Teleport(game.factory.movingPlatforms[0].transform.position+Vector3.up*.225f);break;
                 case "five":
-                    if(!network.IsHost)return;
+                    if(!network.IsHost&&!network.OfflineDemoMatchActive)return;
                     // Create a legal exposed-five fixture using actual deck operations on the authoritative host.
                     for(int n=0;n<55&&!game.cardGame.Match.HasExactFive();n++)game.cardGame.Match.Reveal(game.cardGame.Match.Turn);
                     break;
@@ -403,7 +419,7 @@ namespace HalliGalli.Movement
                     if(network.IsHost&&game.roster.surf&&int.TryParse(c.value,out int gates))game.roster.surf.RestoreCheckpointProgress(game.participants[c.seat],gates);
                     break;
                 case "finish-match":
-                    if(!network.IsHost||!network.Playing||c.seat<0||c.seat>=game.participants.Length)return;
+                    if((!network.IsHost||!network.Playing)&&!network.OfflineDemoMatchActive||c.seat<0||c.seat>=game.participants.Length)return;
                     game.cardGame.botEnabled=false;
                     for(int n=0;n<1000&&!game.cardGame.Match.Finished;n++)for(int seat=0;seat<game.participants.Length;seat++)if(seat!=c.seat){game.cardGame.Match.Stand(seat);game.cardGame.Match.Sit(seat);}
                     if(!game.cardGame.Match.Finished||game.cardGame.Match.Winner!=c.seat)throw new InvalidOperationException("Victory fixture failed");

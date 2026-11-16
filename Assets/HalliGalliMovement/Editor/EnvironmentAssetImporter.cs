@@ -12,7 +12,7 @@ namespace HalliGalli.EditorTools
     {
         public const string Root = MovementProjectBuilder.Root + "/Art/Environment";
         public static readonly string[] Keys = {
-            "WorkshopChair", "CardTable", "ServiceBell", "LandingPlatform",
+            "CardTable", "ServiceBell", "LandingPlatform",
             "ConcreteWall", "ConcreteFloor", "ConcreteColumn", "CeilingLight",
             "UtilityPipes", "RockLedge", "MountainRock", "MountainPine"
         };

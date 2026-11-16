@@ -1,0 +1,13 @@
+{
+    "utc":  "2026-11-13T02:21:23.6844226Z",
+    "passed":  true,
+    "gameFiles":  216,
+    "configFiles":  10,
+    "guideFiles":  1,
+    "verifiedFiles":  227,
+    "team":  "조건희",
+    "entryPoint":  "HalliGalliRunDemo.exe",
+    "bytes":  567043302,
+    "sha256":  "872a7d8319d70a26b8588a2f085bd0292c557d19cb999e0f475661fe70057876",
+    "originalOnlineSubmissionUnchanged":  true
+}

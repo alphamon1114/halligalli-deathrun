@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-16",
+  "stage": "pre-publication-build",
+  "version": "1.0.11",
+  "protocol": 44,
+  "unity": "6000.6.0f1",
+  "launcherSafety": {
+    "command": "dotnet run --project Launcher/BellRun.Launcher.Tests/BellRun.Launcher.Tests.csproj -c Release",
+    "passed": 31,
+    "failed": 0
+  },
+  "publicReleaseGate": {
+    "executeMethod": "HalliGalli.EditorTools.GameReleaseVerification.Run",
+    "observedMarker": "RELEASE_GATE_CONTRACT_VERIFIED version=1.0.11 protocol=44",
+    "log": "Logs/release-1.0.11-contract.log"
+  },
+  "windowsBuild": {
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File Tools/Release/Build-Release.ps1",
+    "executeMethod": "HalliGalli.EditorTools.RaceCourseBuilder.BuildPlayer",
+    "observedMarker": "Build Finished, Result: Success.",
+    "entryPoint": "HalliGalliMovement.exe",
+    "buildMetadata": "BellRun-build.json",
+    "savedScenesOnly": true,
+    "log": "Logs/release-player.log",
+    "warnings": "Existing deprecated Unity object-search API warnings remain."
+  },
+  "package": {
+    "archiveName": "BellRun-Windows-1.0.11.zip",
+    "files": 216,
+    "size": 547653607,
+    "sha256": "e07006b9d00a00109ff4f79dbc160aaa22b1abb5f4057a6cb8fd8b29cd234e2a",
+    "manifest": "BellRun-release.json",
+    "launcher": "BellRunLauncher.exe"
+  },
+  "scope": [
+    "Round diner stools across nine saved scenes, 54 chairs; existing GUIDs and gameplay anchors preserved",
+    "Bounded latest-input and prediction-history recovery without ejecting a healthy multiplayer client",
+    "Previously approved compile-time-isolated offline-demo source retained; no offline demo rebuild or publication"
+  ],
+  "priorRuntimeEvidence": [
+    "TestResults/diner-stools-2026-11-16/runtime.json",
+    "TestResults/diner-stools-2026-11-16/scenes.json",
+    "TestResults/network-recovery-2026-11-13.json"
+  ],
+  "limitations": [
+    "This receipt covers local build and packaging, not public download or game admission.",
+    "Actual live-release verification is recorded separately after publication."
+  ]
+}

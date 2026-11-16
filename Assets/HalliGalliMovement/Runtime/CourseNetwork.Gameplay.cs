@@ -29,10 +29,22 @@ namespace HalliGalli.Movement
         }
         sealed class InputStream
         {
-            public readonly Queue<InputPacket> queue=new Queue<InputPacket>();
             public InputPacket last;
             public int received,ack;
             public float at;
+            public void Receive(InputPacket packet,float now)
+            {
+                // Reliable catch-up may contain many valid ticks. Keep current movement and one unconsumed jump.
+                if(received>ack&&last.respawn==packet.respawn)packet.jumpPressed|=last.jumpPressed;
+                last=packet;received=packet.sequence;at=now;
+            }
+            public InputPacket Consume()
+            {
+                var packet=last;
+                if(received<=ack)packet.jumpPressed=false;
+                ack=received;
+                return packet;
+            }
         }
         [Serializable] sealed class CardsMessage
         {
@@ -55,7 +67,7 @@ namespace HalliGalli.Movement
         readonly Dictionary<ulong,InputStream> inputs=new Dictionary<ulong,InputStream>();
         readonly List<InputPacket> predicted=new List<InputPacket>();
         Pose[] remote;
-        int inputSequence,poseSequence,lastPose,sentRevision=-1,receivedRevision=-1;
+        int inputSequence,poseSequence,lastPose,predictionBarrier,sentRevision=-1,receivedRevision=-1;
         float nextPose;
         public const float VictoryDisplaySeconds=5;
         double returnToRoomAt=-1;
@@ -72,9 +84,10 @@ namespace HalliGalli.Movement
             if(WorldTime>=returnToRoomAt)ReturnToRoom();
         }
 
+        void ResetPrediction(){predicted.Clear();predictionBarrier=0;}
         void ResetSimulation()
         {
-            inputs.Clear();predicted.Clear();remote=null;
+            inputs.Clear();ResetPrediction();remote=null;
             inputSequence=poseSequence=lastPose=0;sentRevision=receivedRevision=-1;nextPose=0;
             returnToRoomAt=-1;
             ResetRaceNetwork();
@@ -89,10 +102,13 @@ namespace HalliGalli.Movement
             var packet=new InputPacket{epoch=epoch,sequence=++inputSequence,respawn=p.RespawnSequence,
                 move=command.move,yaw=command.yaw,pitch=pitch,crouch=command.crouch,
                 jumpPressed=command.jumpPressed,jumpHeld=command.jumpHeld};
+            if(predicted.Count>=128){
+                // Missing acknowledgments must not end a healthy session. Keep bounded history and wait for authority.
+                predictionBarrier=predicted[predicted.Count-1].sequence;predicted.Clear();
+            }
             predicted.Add(packet);
-            if(predicted.Count>128){_=Leave("입력 응답이 너무 늦어졌어. 다시 접속해줘.");return;}
-            p.Motor.Simulate(command,Time.fixedDeltaTime);
-            // Ordered reliable inputs preserve a single-frame jump press. Simulation is still tick-limited on the host.
+            if(predictionBarrier==0)p.Motor.Simulate(command,Time.fixedDeltaTime);
+            // Keep sending during reconciliation; reliable delivery preserves a single-frame jump press.
             using(var writer=new FastBufferWriter(128,Allocator.Temp)){
                 writer.WriteValueSafe(packet);
                 manager.CustomMessagingManager.SendNamedMessage("HG.input",0,writer,NetworkDelivery.ReliableSequenced);
@@ -108,9 +124,8 @@ namespace HalliGalli.Movement
                 if(packet.epoch!=epoch||!Finite(packet.move.x)||!Finite(packet.move.y)||!Finite(packet.yaw)||!Finite(packet.pitch))return;
                 if(!inputs.TryGetValue(sender,out var stream))inputs[sender]=stream=new InputStream();
                 if(packet.sequence<=stream.received||packet.sequence>stream.received+256)return;
-                if(stream.queue.Count>=32){manager.DisconnectClient(sender,"입력이 너무 많이 밀렸어. 다시 접속해줘.");return;}
                 packet.move=Vector2.ClampMagnitude(packet.move,1);packet.yaw=Mathf.Repeat(packet.yaw,360);packet.pitch=Mathf.Clamp(packet.pitch,-85,85);
-                stream.queue.Enqueue(packet);stream.received=packet.sequence;stream.at=Time.realtimeSinceStartup;
+                stream.Receive(packet,Time.realtimeSinceStartup);
             }catch(OverflowException){ }
         }
         void FixedUpdate()
@@ -124,11 +139,8 @@ namespace HalliGalli.Movement
                         if(!p.IsSeated&&!p.IsRespawning)p.Motor.Simulate(new MovementCommand{yaw=p.transform.eulerAngles.y},Time.fixedDeltaTime);
                         continue;
                     }
-                    bool fresh=stream.queue.Count>0;
-                    InputPacket input=fresh?stream.queue.Dequeue():stream.last;
-                    if(fresh){stream.last=input;stream.ack=input.sequence;}
+                    var input=stream.Consume();
                     var command=input.Command;
-                    if(!fresh)command.jumpPressed=false;
                     if(Time.realtimeSinceStartup-stream.at>.25f||input.respawn!=p.RespawnSequence)
                         command=new MovementCommand{yaw=p.transform.eulerAngles.y};
                     p.Combat.networkAim=Quaternion.Euler(input.pitch,command.yaw,0)*Vector3.forward;
@@ -180,9 +192,10 @@ namespace HalliGalli.Movement
                     if(game.roster.surf)game.roster.surf.ApplyNetworkProgress(p,pose.gates);
                     if(!p.localPlayer){if(teleport)p.Motor.RestoreNetworkState(pose.motor);continue;}
                     predicted.RemoveAll(c=>c.sequence<=pose.ack||c.respawn!=pose.respawns);
-                    if(teleport||pose.seated||pose.respawning)predicted.Clear();
+                    if(teleport||pose.seated||pose.respawning)ResetPrediction();
+                    if(predictionBarrier>0&&pose.ack>=predictionBarrier)predictionBarrier=0;
                     p.Motor.RestoreNetworkState(pose.motor);
-                    if(!pose.seated&&!pose.respawning)
+                    if(predictionBarrier==0&&!pose.seated&&!pose.respawning)
                         foreach(var command in predicted)p.Motor.Simulate(command.Command,Time.fixedDeltaTime);
                     p.GetComponent<SourcePlayerController>().SmoothNetworkCorrection(before,teleport);
                 }
@@ -207,7 +220,7 @@ namespace HalliGalli.Movement
                     p.ApplyNetworkStatus(seated,false,p.Falls,p.RespawnSequence);
                     var state=p.Motor.CaptureNetworkState();state.position=(seated?p.seatAnchor:p.standAnchor).position;
                     state.yaw=(seated?p.seatAnchor:p.standAnchor).eulerAngles.y;state.velocity=Vector3.zero;state.stun=state.stunImmunity=state.raceSlip=state.raceLaunch=0;
-                    p.Motor.RestoreNetworkState(state);if(p.localPlayer){predicted.Clear();p.GetComponent<SourcePlayerController>().SmoothNetworkCorrection(p.transform.position,true);}
+                    p.Motor.RestoreNetworkState(state);if(p.localPlayer){ResetPrediction();p.GetComponent<SourcePlayerController>().SmoothNetworkCorrection(p.transform.position,true);}
                 }
             }
             game.cardGame.ApplyNetworkState(message.cards);game.ApplyNetworkState(message.running,message.bells);

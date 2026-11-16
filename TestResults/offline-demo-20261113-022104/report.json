@@ -1,0 +1,161 @@
+{
+  "utc": "2026-11-13T02:21:42.6118063Z",
+  "checks": [
+    {
+      "name": "No running player is interrupted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Offline home works with HTTP and HTTPS denied",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Offline boot does not request current release",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Demo window is clearly distinguished",
+      "passed": true,
+      "detail": "\uD560\uB9AC\uAC08\uB9AC\uB7F0 - \uC624\uD504\uB77C\uC778 \uB370\uBAA8"
+    },
+    {
+      "name": "Demo rejects host-cloud before services or transport",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Demo rejects join before services or transport",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Demo rejects host-loopback before services or transport",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Demo rejects join-loopback before services or transport",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "One-participant game rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Over-capacity game rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Unknown map rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Two-player match uses one local human and one AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "AI responds to human reveal with its turn or valid-five race",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "AI stands and moves on actual course after legal-five fixture",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Replay during a race resets local participants and cards",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Offline victory is visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Victory replay restores card AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Returning home freezes local AI and clears race",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Cross-map start uses five real AI and item boxes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "All five AI take card turns or depart for a valid-five race",
+      "passed": true,
+      "detail": "reveals=6"
+    },
+    {
+      "name": "Surf training enters offline",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Training exits to home",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Training to official surf match restores match controls and AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Local map studio opens without services",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Local studio returns to offline home",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Demo does not modify public save preferences",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "New public build still blocks offline and ignores demo CLI flag",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Public edition remains online-release gated",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Public build rejects demo participant API",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Public build rejects demo start API",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Demo log contains no runtime errors",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "limits": "Process-scoped HTTP/HTTPS denial uses unreachable proxy 127.0.0.1:9; public control confirms transport failure. System network adapters were not disabled. Demo had no UGS initialization or NetworkManager. Runtime commands call production APIs; no OS button clicks. Audio disabled. Legal card-state fixtures used for race departure and victory; not a full human match walkthrough."
+}

@@ -1,0 +1,255 @@
+{
+  "utc": "2026-11-13T04:12:06.9574694Z",
+  "executable": "C:\\Users\\mbc\\AppData\\Local\\BellRunLauncher\\versions\\v1.0.10-e0ebeb6ffde74689a11dba39743c2011\\HalliGalliMovement.exe",
+  "mode": "burst",
+  "scenarioCompleted": false,
+  "events": [
+    {
+      "seconds": 2.6132493,
+      "detail": {
+        "role": "host",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 0,
+        "status": "\uBC29 \uB9CC\uB4DC\uB294 \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 3.0607632,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 0,
+        "status": "\uBC29 \uB9CC\uB4DC\uB294 \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 6.4127201,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 1,
+        "status": "\uBC29 \uB9CC\uB4DC\uB294 \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 7.6021681,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 1,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 9.3358512,
+      "detail": {
+        "role": "client1",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 0,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 9.663103,
+      "detail": {
+        "role": "client1",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 0,
+        "status": "\uCD08\uB300 \uCF54\uB4DC\uB85C \uC811\uC18D \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 10.0959724,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 0,
+        "status": "\uCD08\uB300 \uCF54\uB4DC\uB85C \uC811\uC18D \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 14.6477527,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 14.756275,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 2,
+        "status": "\uCD08\uB300 \uCF54\uB4DC\uB85C \uC811\uC18D \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 15.8406868,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 16.1648231,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 2,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 16.1655275,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 2,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 16.2732743,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 16.3818492,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 18.9945717,
+      "hostStallMs": 1000
+    },
+    {
+      "seconds": 20.2621464,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 1,
+        "status": "\uCC38\uAC00\uC790\uAC00 \uB098\uAC14\uC5B4. \uB300\uAE30\uBC29\uC5D0\uC11C \uB2E4\uC2DC \uC2DC\uC791\uD574\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 20.2626761,
+      "detail": {
+        "role": "client1",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 20.2642449,
+      "failure": "System.Exception: client1 disconnected: \r\n   at Program.\u003C\u003Ec__DisplayClass0_0.\u003C\u003CMain\u003E$\u003Eg__Connected|7() in C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\RelayDisconnectInvestigation\\Program.cs:line 17\r\n   at Program.\u003C\u003Ec__DisplayClass0_0.\u003C\u003C\u003CMain\u003E$\u003Eg__Hold|9\u003Ed.MoveNext() in C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\RelayDisconnectInvestigation\\Program.cs:line 19\r\n--- End of stack trace from previous location ---\r\n   at Program.\u003CMain\u003E$(String[] args) in C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\RelayDisconnectInvestigation\\Program.cs:line 31"
+    },
+    {
+      "seconds": 20.3994367,
+      "detail": {
+        "role": "host",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 1,
+        "status": "\uCC38\uAC00\uC790\uAC00 \uB098\uAC14\uC5B4. \uB300\uAE30\uBC29\uC5D0\uC11C \uB2E4\uC2DC \uC2DC\uC791\uD574\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    }
+  ],
+  "limits": "Real private internet Relay, two headless players on one PC with separate authentication profiles; cannot model the user\u0027s remote network. Controlled stalls affect only the owned diagnostic host. Only own processes and private session are closed."
+}

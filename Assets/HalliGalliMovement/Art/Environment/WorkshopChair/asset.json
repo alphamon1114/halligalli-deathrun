@@ -1,22 +1,16 @@
 {
   "key": "WorkshopChair",
-  "sourceSha256": "34cda73f3a944c322ec011630eef4d2f9fae12f34e0712917cba68180754c3d3",
-  "flowId": "f3bda240-6222-43a4-a214-a85fdffa8af1",
-  "meshNodeId": "afe33e81-18be-4575-a00c-4ab134ebb6d9",
-  "sourceDimensionsBlenderXYZ": [
-    0.6409682035446167,
-    0.6525416970252991,
-    1.0023406744003296
-  ],
+  "provenance": "Locally authored round diner stool, 2026-11-16. Red vinyl cushion, satin steel pedestal/base/footrest, rubber underside.",
+  "generator": "Tools/Art/build-diner-stool.py",
   "normalizedDimensionsBlenderXYZ": [
-    0.6394714117050171,
-    0.6510179042816162,
-    1.0
+    0.522,
+    0.522,
+    0.588
   ],
   "pivot": "bottom-center",
   "colliders": "none; retain original Unity gameplay colliders",
-  "vertices": 9216,
-  "triangles": 12000,
+  "vertices": 3912,
+  "triangles": 7792,
   "meshes": [
     {
       "name": "WorkshopChair_Mesh_0",
@@ -44,7 +38,7 @@
       ],
       "alphaMode": "OPAQUE",
       "alphaCutoff": 0.5,
-      "doubleSided": true,
+      "doubleSided": false,
       "baseColor": {
         "file": "WorkshopChair_Texture_0.png",
         "usage": "sRGB",

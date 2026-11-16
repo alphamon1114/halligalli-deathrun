@@ -1,0 +1,545 @@
+{
+  "utc": "2026-11-13T04:26:42.1307252Z",
+  "executable": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\NetworkRecovery\\HalliGalliMovement.exe",
+  "mode": "respawn",
+  "scenarioCompleted": true,
+  "events": [
+    {
+      "seconds": 2.1299361,
+      "detail": {
+        "role": "host",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 0,
+        "status": "\uBC29 \uB9CC\uB4DC\uB294 \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 2.5592207,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 0,
+        "status": "\uBC29 \uB9CC\uB4DC\uB294 \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 5.5908759,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 1,
+        "status": "\uBC29 \uB9CC\uB4DC\uB294 \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 6.783259,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 1,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 8.4116175,
+      "detail": {
+        "role": "client1",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 0,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 8.6414025,
+      "detail": {
+        "role": "client1",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 0,
+        "status": "\uCD08\uB300 \uCF54\uB4DC\uB85C \uC811\uC18D \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 9.0735263,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 0,
+        "status": "\uCD08\uB300 \uCF54\uB4DC\uB85C \uC811\uC18D \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 12.4319816,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 12.5401134,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": true,
+        "members": 2,
+        "status": "\uCD08\uB300 \uCF54\uB4DC\uB85C \uC811\uC18D \uC911\u2026",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 13.195277,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 13.5195628,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 2,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 13.6281599,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 2,
+        "status": "\uCE5C\uAD6C\uC5D0\uAC8C \uCD08\uB300 \uCF54\uB4DC\uB97C \uBCF4\uB0B4\uC918.",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 13.7364126,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 13.7366609,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 16.2318413,
+      "hostStallMs": 3200
+    },
+    {
+      "seconds": 29.0057371,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 29.0058707,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 2,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.1862751,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 3,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.2959464,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 4,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.2963377,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 3,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.403325,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 5,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.4035113,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 4,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.5126438,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.5128052,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 5,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.6220905,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.7279339,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.8366007,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.9446299,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 74.9450061,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 150.3911211,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 150.5009357,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 150.9346137,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 150.9348326,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "first-steps"
+      }
+    },
+    {
+      "seconds": 151.0454949,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "item-race"
+      }
+    },
+    {
+      "seconds": 151.1527888,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": false,
+        "loading": true,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "item-race"
+      }
+    },
+    {
+      "seconds": 151.2625184,
+      "detail": {
+        "role": "host",
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "item-race"
+      }
+    },
+    {
+      "seconds": 151.2628049,
+      "detail": {
+        "role": "client1",
+        "active": true,
+        "playing": true,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "item-race"
+      }
+    },
+    {
+      "seconds": 226.7432282,
+      "detail": {
+        "role": "client1",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 6,
+        "status": "",
+        "error": "",
+        "map": "item-race"
+      }
+    },
+    {
+      "seconds": 226.8520015,
+      "detail": {
+        "role": "host",
+        "active": false,
+        "playing": false,
+        "loading": false,
+        "busy": false,
+        "members": 5,
+        "status": "\uCC38\uAC00\uC790\uAC00 \uB098\uAC14\uC5B4. \uB300\uAE30\uBC29\uC5D0\uC11C \uB2E4\uC2DC \uC2DC\uC791\uD574\uC918.",
+        "error": "",
+        "map": "item-race"
+      }
+    }
+  ],
+  "limits": "Real private internet Relay, two headless players on one PC with separate authentication profiles; cannot model the user\u0027s remote network. Controlled stalls affect only the owned diagnostic host. Only own processes and private session are closed."
+}

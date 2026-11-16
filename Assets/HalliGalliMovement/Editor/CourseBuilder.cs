@@ -82,6 +82,7 @@ namespace HalliGalli.EditorTools
         static Transform Anchor(string name,Vector3 position){var t=new GameObject(name).transform;t.position=position;return t;}
         static Material Mat(string name,Color color,float metal=0,float smooth=.25f){string path=Root+"/Materials/"+name+".mat";var m=AssetDatabase.LoadAssetAtPath<Material>(path);if(!m){m=new Material(Shader.Find("Standard"));AssetDatabase.CreateAsset(m,path);}m.color=color;m.SetFloat("_Metallic",metal);m.SetFloat("_Glossiness",smooth);EditorUtility.SetDirty(m);return m;}
         static GameObject Box(string name,Vector3 pos,Vector3 size,Material mat,bool solid=true){var go=GameObject.CreatePrimitive(PrimitiveType.Cube);go.name=name;go.transform.position=pos;go.transform.localScale=size;go.GetComponent<Renderer>().sharedMaterial=mat;if(!solid)UnityEngine.Object.DestroyImmediate(go.GetComponent<Collider>());return go;}
+        static void StoolPart(string name,Vector3 position,float diameter,float height,Material material){var go=GameObject.CreatePrimitive(PrimitiveType.Cylinder);go.name=name;go.transform.position=position;go.transform.localScale=new Vector3(diameter,height*.5f,diameter);go.GetComponent<Renderer>().sharedMaterial=material;UnityEngine.Object.DestroyImmediate(go.GetComponent<Collider>());}
         static void Platform(string name,Vector3 top,Vector2 size,Material mat)
         {
             Box(name,top-Vector3.up*.22f,new Vector3(size.x,.44f,size.y),mat);
@@ -89,8 +90,9 @@ namespace HalliGalli.EditorTools
         }
         static void Chair(float x,float z,Material mat)
         {
-            Box("Chair seat",new Vector3(x,.48f,z),new Vector3(.62f,.1f,.62f),mat,false);Box("Chair back",new Vector3(x,.88f,z-.28f),new Vector3(.62f,.75f,.08f),mat,false);
-            foreach(float dx in new[]{-.24f,.24f})foreach(float dz in new[]{-.24f,.24f})Box("Chair leg",new Vector3(x+dx,.23f,z+dz),new Vector3(.055f,.46f,.055f),dark,false);
+            StoolPart("Chair seat",new Vector3(x,.544f,z),.522f,.088f,mat);
+            StoolPart("Chair leg",new Vector3(x,.272f,z),.076f,.456f,dark);
+            StoolPart("Chair leg",new Vector3(x,.022f,z),.44f,.044f,dark);
         }
         static void Card(float x,int count)
         {

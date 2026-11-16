@@ -100,9 +100,10 @@ namespace HalliGalli.Movement
             else if(!online&&menu)StartCoroutine(FreezeOfflineAfterStart());
         }
         IEnumerator FreezeOfflineAfterStart(){yield return null;if(!online&&menu&&!UserMapStudio.IsOpen)FreezeWorld();}
-        void EnsureManager()
+        bool EnsureManager()
         {
-            if(manager)return;
+            if(RejectOfflineConnection())return false;
+            if(manager)return true;
             var root=new GameObject("HalliGalli transport");DontDestroyOnLoad(root);
             transport=root.AddComponent<UnityTransport>();
             manager=root.AddComponent<NetworkManager>();
@@ -113,6 +114,7 @@ namespace HalliGalli.Movement
             manager.OnClientConnectedCallback+=Connected;
             manager.OnClientDisconnectCallback+=Disconnected;
             manager.OnTransportFailure+=()=>{if(online&&!leaving)_=Leave("연결이 끊어졌어. 다시 접속해줘.");};
+            return true;
         }
         void Approve(NetworkManager.ConnectionApprovalRequest request,NetworkManager.ConnectionApprovalResponse response)
         {
@@ -154,8 +156,15 @@ namespace HalliGalli.Movement
             int index=members.FindIndex(m=>m.bot&&m.id==id);if(index<0)return false;
             members.RemoveAt(index);Status="";BroadcastRoom();return true;
         }
-        async Task Authenticate()
+        bool RejectOfflineConnection()
         {
+            if(!GameEdition.IsOfflineDemo)return false;
+            Status="오프라인 전시판에서는 온라인 방과 로컬 네트워크 연결을 사용할 수 없어. AI 대전이나 연습실을 이용해줘.";
+            return true;
+        }
+        async Task<bool> Authenticate()
+        {
+            if(RejectOfflineConnection())return false;
             if(!Guid.TryParse(Application.cloudProjectId,out _))throw new InvalidOperationException("먼저 Project Settings → Services에서 Unity Cloud 프로젝트를 연결해줘.");
             if(UnityServices.State!=ServicesInitializationState.Initialized){
                 var options=new InitializationOptions();
@@ -163,16 +172,18 @@ namespace HalliGalli.Movement
                 await UnityServices.InitializeAsync(options);
             }
             if(!AuthenticationService.Instance.IsSignedIn)await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            return true;
         }
         public async Task Connect(bool host,string code=null)
         {
+            if(RejectOfflineConnection())return;
             if(Busy||online||leaving||UserMapStudio.IsOpen)return;
             Busy=true;menu=true;Status=host?"방 만드는 중…":"초대 코드로 접속 중…";
             int token=++operation;
             try{
-                await Authenticate();
+                if(!await Authenticate())return;
                 if(token!=operation)return;
-                PrepareConnection();
+                if(!PrepareConnection())return;
                 var result=host
                     ?await MultiplayerService.Instance.CreateSessionAsync(new SessionOptions{Name=CleanName(nickname)+"의 방",MaxPlayers=capacity,IsPrivate=true}.WithRelayNetwork())
                     :await MultiplayerService.Instance.JoinSessionByCodeAsync((code??"").Trim().ToUpperInvariant());
@@ -198,21 +209,24 @@ namespace HalliGalli.Movement
             if(message.Contains("locked"))return "지금 게임 중인 방이야.";
             return "접속하지 못했어. 인터넷 연결과 Unity Dashboard의 Authentication·Lobby·Relay 설정을 확인해줘.";
         }
-        void PrepareConnection()
+        bool PrepareConnection()
         {
-            EnsureManager();members.Clear();approved.Clear();loaded.Clear();actionTimes.Clear();botSequence=0;pendingShirtRequest=0;ResetSimulation();
+            if(!EnsureManager())return false;
+            members.Clear();approved.Clear();loaded.Clear();actionTimes.Clear();botSequence=0;pendingShirtRequest=0;ResetSimulation();
             ResetUserMapState();mapRevision=epoch=0;mapId="first-steps";
             manager.NetworkConfig.ConnectionData=Encoding.UTF8.GetBytes(JsonUtility.ToJson(new Hello{protocol=Protocol,name=CleanName(nickname),shirtColor=PlayerShirtColors.SavedIndex,accessory=PlayerAccessories.SavedIndex}));
             online=true;Playing=false;loading=false;bound=false;menu=true;connectDeadline=Time.realtimeSinceStartup+35;
             FreezeWorld();
             // Diagnostic clients use temporary names; keep the player's saved nickname intact.
             if(Argument("--net-probe")==null){PlayerPrefs.SetString("HalliGalli.Nickname",CleanName(nickname));PlayerPrefs.Save();}
+            return true;
         }
         // A separate, explicit diagnostic entry point. Production invite codes always use Unity Relay.
         public void StartLoopback(bool host,ushort port=7777,string name="Test")
         {
+            if(RejectOfflineConnection())return;
             if(online||Busy||UserMapStudio.IsOpen)return;
-            nickname=name;PrepareConnection();
+            nickname=name;if(!PrepareConnection())return;
             transport.SetConnectionData("127.0.0.1",port,"127.0.0.1");
             bool ok=host?manager.StartHost():manager.StartClient();
             if(!ok)_=Leave("로컬 연결 시작 실패");
@@ -355,7 +369,11 @@ namespace HalliGalli.Movement
         {
             if(!game)return;
             game.cardGame.botEnabled=false;
-            foreach(var p in game.roster.allParticipants){var ai=p.GetComponent<CourseRival>();if(ai)ai.enabled=false;p.Combat.simulateAutomatically=false;if(p.Lasso)p.Lasso.CancelConnection();}
+            foreach(var p in game.roster.allParticipants){
+                // Inactive seats in a newly loaded scene may not have received Awake yet.
+                p.Initialize();var ai=p.GetComponent<CourseRival>();if(ai)ai.enabled=false;
+                p.Combat.simulateAutomatically=false;if(p.Lasso)p.Lasso.CancelConnection();
+            }
             var controller=game.Local.GetComponent<SourcePlayerController>();
             controller.controlsEnabled=false;controller.suppressCursorCapture=true;controller.SetCursorCaptured(false);
             var hud=game.GetComponent<CourseHUD>();if(hud)hud.CloseMapMenu();

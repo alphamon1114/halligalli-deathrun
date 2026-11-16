@@ -43,14 +43,21 @@ namespace HalliGalli.Movement
             int winner=MatchFinished?session.cardGame.Match.Winner:-1;
             if(winner!=shownWinner){
                 shownWinner=winner;victoryShownAt=Time.unscaledTime;
-                if(winner>=0){HelpOpen=false;MapMenuOpen=false;}
+                if(winner>=0){
+                    HelpOpen=false;MapMenuOpen=false;
+                    if(GameEdition.IsOfflineDemo){var controller=session.Local.GetComponent<SourcePlayerController>();controller.SetCursorCaptured(false);controller.suppressCursorCapture=true;}
+                }
             }
             UpdateVictoryAudio();
             bool caught=LassoCaught;
             if(caught&&!wasLassoCaught)lassoCaughtAt=Time.unscaledTime;
             wasLassoCaught=caught;
         }
-        public void OpenMapMenu(){MapMenuOpen=true;session.Local.GetComponent<SourcePlayerController>().SetCursorCaptured(false);}
+        public void OpenMapMenu()
+        {
+            if(GameEdition.IsOfflineDemo&&CourseNetwork.Instance){CourseNetwork.Instance.ShowOfflineDemoMaps();return;}
+            MapMenuOpen=true;session.Local.GetComponent<SourcePlayerController>().SetCursorCaptured(false);
+        }
         public void CloseMapMenu(){MapMenuOpen=false;}
         void Update()
         {
@@ -62,7 +69,7 @@ namespace HalliGalli.Movement
                 Vector2 mouse=Input.mousePosition;
 #endif
                 var point=new Vector2(mouse.x,Screen.height-mouse.y)/BellUI.Scale;
-                session.Local.GetComponent<SourcePlayerController>().suppressCursorCapture=MapMenuOpen||(Cursor.lockState!=CursorLockMode.Locked&&(RoomPanel.Contains(point)||PracticeSurfActive&&PracticeInfoPanel.Contains(point)));
+                session.Local.GetComponent<SourcePlayerController>().suppressCursorCapture=MapMenuOpen||GameEdition.IsOfflineDemo&&VictoryVisible||(Cursor.lockState!=CursorLockMode.Locked&&(RoomPanel.Contains(point)||PracticeSurfActive&&PracticeInfoPanel.Contains(point)));
             }
             if(!ReadInput)return;
             if(MapMenuOpen){
@@ -71,6 +78,10 @@ namespace HalliGalli.Movement
 #else
                 if(Input.GetKeyDown(KeyCode.Escape))CloseMapMenu();
 #endif
+                return;
+            }
+            if(GameEdition.IsOfflineDemo&&MatchFinished){
+                if(ControlBindings.Pressed(GameAction.Respawn)&&CourseNetwork.Instance)CourseNetwork.Instance.ReplayOfflineDemoMatch();
                 return;
             }
             if(!session.Local.GetComponent<SourcePlayerController>().PointerActionsAllowed || Time.timeScale<=0)return;
@@ -83,11 +94,18 @@ namespace HalliGalli.Movement
         }
         public void ProcessActions(bool interact,bool reveal,bool reset)
         {
+            if(GameEdition.IsOfflineDemo&&CourseNetwork.CapturesPointer)return;
             if(CourseNetwork.Active&&MatchFinished)return;
             reveal=reveal&&session.Local.IsSeated;
             if(CourseNetwork.Active){CourseNetwork.Instance.LocalAction(interact?NetworkAction.Interact:reset?(session.HasCardRules&&session.cardGame.Match.Finished?NetworkAction.Restart:NetworkAction.Respawn):NetworkAction.Reveal,interact||reset||reveal);return;}
             if(MapMenuOpen||session.maps&&session.maps.Loading)return;
-            if(reset){if(session.HasCardRules&&session.cardGame.Match.Finished)session.ResetPractice();else session.Local.RequestRespawn();return;}
+            if(reset){
+                if(session.HasCardRules&&session.cardGame.Match.Finished){
+                    if(GameEdition.IsOfflineDemo&&CourseNetwork.Instance)CourseNetwork.Instance.ReplayOfflineDemoMatch();
+                    else session.ResetPractice();
+                }else session.Local.RequestRespawn();
+                return;
+            }
             // Stand/sit always wins over a simultaneous reveal press.
             if(interact){Interact();return;}
             if(reveal&&session.HasCardRules)session.cardGame.Reveal(session.Local);

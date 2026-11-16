@@ -1,0 +1,46 @@
+{
+  "utc": "2026-11-13T02:22:18.6953404Z",
+  "checks": [
+    {
+      "name": "No running player is interrupted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Packaged EXE launches normally without diagnostic mode",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Normal demo startup has no runtime errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Packaged home has no release gate or network services",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Packaged studio returns to offline home",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Packaged match starts with actual AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Packaged player has no runtime errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Packaged demo leaves public preferences untouched",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "limits": "Process-scoped HTTP/HTTPS denial uses unreachable proxy 127.0.0.1:9; public control confirms transport failure. System network adapters were not disabled. Demo had no UGS initialization or NetworkManager. Runtime commands call production APIs; no OS button clicks. Audio disabled. Legal card-state fixtures used for race departure and victory; not a full human match walkthrough."
+}

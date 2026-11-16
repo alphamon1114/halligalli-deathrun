@@ -1,0 +1,61 @@
+{
+    "utc": "2026-11-16T01:20:36.4959456Z",
+    "scenes": [
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        },
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        },
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        },
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        },
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        },
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/RaceCourse.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        },
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/ClockworkCourse.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        },
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/CombatPractice.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        },
+        {
+            "scene": "Assets/HalliGalliMovement/Demo/UserMapCourse.unity",
+            "chairs": 6,
+            "removedPrimitives": 30,
+            "gameplayUnchanged": true
+        }
+    ],
+    "meshGuid": "12723ed1765188842af577cd23fe3d8e",
+    "meshFileId": -7524927538896463071
+}

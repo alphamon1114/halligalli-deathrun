@@ -26,6 +26,7 @@ namespace HalliGalli.EditorTools
         {
             foreach (var key in EnvironmentAssetImporter.Keys)
                 if (!EnvironmentAssetImporter.Prefab(key)) throw new FileNotFoundException("Import VARCO prefab first: " + key);
+            if (!EnvironmentAssetImporter.Prefab("WorkshopChair")) throw new FileNotFoundException("Missing authored diner stool prefab");
             Directory.CreateDirectory("TestResults");
             var report = new List<string>();
             foreach (var path in scenes) {
@@ -67,7 +68,7 @@ namespace HalliGalli.EditorTools
             var roster = session.roster;
             foreach (var chair in roster.chairs) {
                 Hide(chair);
-                Place("WorkshopChair", chair, new Vector3(0, .5f, 0), new Vector3(.66f, 1, .64f), Quaternion.identity, VisualName);
+                Place("WorkshopChair", chair, new Vector3(0, .294f, 0), new Vector3(.522f, .588f, .522f), Quaternion.identity, VisualName);
             }
             foreach (var t in All<Transform>().Where(t => t.name == "Table top" || t.name == "Table felt" || t.name == "Table leg")) Hide(t, false);
             Place("CardTable", art, new Vector3(0, .441f, -5.1f), new Vector3(5.5f, .882f, 5.2f), Quaternion.identity);

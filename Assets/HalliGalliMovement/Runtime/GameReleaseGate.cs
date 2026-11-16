@@ -27,7 +27,7 @@ namespace HalliGalli.Movement
 
         public static bool IsAllowed {
             get {
-#if UNITY_EDITOR
+#if UNITY_EDITOR || BELL_RUN_OFFLINE_DEMO
                 return true;
 #else
                 return allowed;
@@ -35,7 +35,7 @@ namespace HalliGalli.Movement
             }
         }
 
-        // Startup callbacks are retained only until this process's first live admission.
+        // Public players retain startup callbacks until live admission; the compiled demo starts immediately.
         internal static void RunWhenAllowed(Action startup)
         {
             if (IsAllowed) { startup(); return; }
@@ -55,7 +55,10 @@ namespace HalliGalli.Movement
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void Boot()
         {
-#if !UNITY_EDITOR
+#if BELL_RUN_OFFLINE_DEMO
+            Debug.Log("OFFLINE_DEMO_READY version=" + GameRelease.Version + " protocol=" + CourseNetwork.Protocol +
+                " networking=disabled releaseGate=disabled");
+#elif !UNITY_EDITOR
             var root = new GameObject("Release admission gate");
             instance = root.AddComponent<GameReleaseGate>();
             DontDestroyOnLoad(root);
@@ -144,6 +147,7 @@ namespace HalliGalli.Movement
 
         bool BeginRequest()
         {
+            if (GameEdition.IsOfflineDemo) return false;
             try {
                 // A fresh request is required even after a successful launcher check or a retry.
                 // Unique queries prevent a cached latest-release redirect from authorizing an old build.

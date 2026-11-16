@@ -12,7 +12,7 @@ namespace HalliGalli.Movement
             if(VictoryVisible){
                 DrawVictoryBanner();
                 BellUI.Key(new Rect(BellUI.W-58,25,34,25),"ESC");
-                if(Cursor.lockState!=CursorLockMode.Locked)DrawPauseMenu();
+                if(!GameEdition.IsOfflineDemo&&Cursor.lockState!=CursorLockMode.Locked)DrawPauseMenu();
                 GUI.matrix=matrix;GUI.color=color;GUI.depth=depth;return;
             }
             var p=session.Local;float w=BellUI.W,h=BellUI.H;
@@ -155,6 +155,7 @@ namespace HalliGalli.Movement
                 string[] actions={"이동","점프","웅크리기","밀치기 / 카드 공개","발차기","밧줄 · 맞으면 자동 당김","체크포인트 복귀","일어나기 · 앉기 · 종"};
                 for(int i=0;i<keys.Length;i++){BellUI.Key(new Rect(x,y+i*37,54,25),keys[i]);BellUI.Text(new Rect(x+66,y-2+i*37,205,29),actions[i],14);}
             }else{
+                if(GameEdition.IsOfflineDemo){DrawOfflineDemoPauseActions(x,y,width);return;}
                 if(session.practiceRoom)y=DrawPracticeNavigation(x,y,width);
                 if(!CourseNetwork.Active&&session.roster&&!session.practiceRoom){
                     BellUI.Text(new Rect(x,y,width,25),"연습 인원",14,BellUI.Muted);y+=32;
@@ -165,6 +166,18 @@ namespace HalliGalli.Movement
                 if(CourseNetwork.Instance&&BellUI.Button(new Rect(x,y,width,43),CourseNetwork.Active?"대기방":"시작 화면")&&ReadInput)CourseNetwork.Instance.ShowMenu();y+=55;
                 if(!CourseNetwork.Active&&!session.practiceRoom&&BellUI.Button(new Rect(x,y,width,43),"새 게임")&&ReadInput){session.ResetPractice();Resume();}
             }
+        }
+        void DrawOfflineDemoPauseActions(float x,float y,float width)
+        {
+            var network=CourseNetwork.Instance;
+            if(session.practiceRoom)y=DrawPracticeNavigation(x,y,width);
+            else{
+                BellUI.Text(new Rect(x,y,width,26),"나 1명 + AI "+(session.roster.PlayerCount-1)+"명",15,BellUI.Muted);y+=34;
+                if(BellUI.Button(new Rect(x,y,width,43),"맵 / 인원 선택")&&ReadInput&&network)network.ShowOfflineDemoMaps();y+=55;
+                if(BellUI.Button(new Rect(x,y,width,43),"같은 조건으로 다시하기")&&ReadInput&&network)network.ReplayOfflineDemoMatch();y+=55;
+            }
+            if(BellUI.Button(new Rect(x,y,width,43),"오프라인 데모 홈으로")&&ReadInput&&network)network.ShowStartScreen();y+=55;
+            if(!session.practiceRoom)BellUI.Text(new Rect(x,y,width,38),"메뉴를 보는 동안에도 AI 대결은 진행돼요.",12,BellUI.Muted);
         }
         void DrawMapMenu()
         {

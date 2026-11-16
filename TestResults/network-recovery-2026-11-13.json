@@ -1,0 +1,22 @@
+{
+  "dateUtc": "2026-11-13",
+  "status": "fixed-and-verified-not-published",
+  "publicVersion": "1.0.10",
+  "protocol": 44,
+  "source": "Assets/HalliGalliMovement/Runtime/CourseNetwork.Gameplay.cs",
+  "reproductionsBefore": [
+    {"report": "relay-disconnect-20261113-041137/report.json", "hostStallMs": 1000, "clientDisconnected": true, "reason": "입력이 너무 많이 밀렸어. 다시 접속해줘."},
+    {"report": "relay-disconnect-20261113-041322/report.json", "hostStallMs": 3200, "clientDisconnected": true, "reason": "입력 응답이 너무 늦어졌어. 다시 접속해줘."}
+  ],
+  "verificationAfter": [
+    {"report": "relay-disconnect-20261113-041958/report.json", "passed": true, "behavior": "1-second host stall does not disconnect client"},
+    {"report": "relay-disconnect-20261113-042116/report.json", "passed": true, "behavior": "3.2-second host stall, short jump sent after prediction history limit, landing, continued match, guest movement and host convergence"},
+    {"report": "relay-disconnect-20261113-042246/report.json", "passed": true, "behavior": "3.2-second host stall with jump and respawn, control recovery, room return, two humans plus four AI, first-steps and item-race loads, 75-second holds in each map"}
+  ],
+  "inputInvariantChecks": {"passed": 9, "log": "../Logs/network-recovery-build.log"},
+  "releaseGateContract": "passed in build log",
+  "runtimeErrorsInPostFixHostAndClientLogs": false,
+  "candidateExecutable": "../Build/NetworkRecovery/HalliGalliMovement.exe",
+  "limits": ["Two headless players on the same PC, separate authentication profiles, real internet Relay", "Controlled stalls affect only diagnostic-owned host; user remote network was not captured", "Not a multi-PC, long-duration, visual or audio verification"],
+  "releaseApprovalPending": "decision-mwegup98-lzm45"
+}

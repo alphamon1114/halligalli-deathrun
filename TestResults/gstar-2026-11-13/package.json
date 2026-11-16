@@ -1,0 +1,14 @@
+{
+    "utc":  "2026-11-13T01:08:50.5729430Z",
+    "version":  "1.0.10",
+    "protocol":  44,
+    "archive":  "GSTAR2026_GstarLauncher_1.0.10.zip",
+    "bytes":  567052171,
+    "sha256":  "1fb18d61af9a28709fe5ab529ce623ab70829516352fe310ca95b67a8e9bc881",
+    "gameFilesComparedToPublicRelease":  216,
+    "configFilesVerified":  10,
+    "archiveFileCount":  226,
+    "topFolder":  "01_HALLIGALLI_RUN",
+    "team":  "조건희",
+    "checksPassed":  true
+}

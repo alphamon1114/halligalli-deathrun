@@ -101,14 +101,14 @@ namespace HalliGalli.Movement
             var image=MapImage(map);if(image)GUI.DrawTexture(rect,image,ScaleMode.ScaleAndCrop,true,0,Color.white,0,radius);
         }
 #if UNITY_STANDALONE_WIN && !UNITY_EDITOR
-        // Keep Unity's company/product identity unchanged: it owns PlayerPrefs and LocalLow.
+        // Public saves retain their identity; the dedicated demo builder isolates its own saves.
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void SetGameWindowTitle()
         {
             if(Application.isBatchMode)return;
             using(var process=System.Diagnostics.Process.GetCurrentProcess()){
                 var window=process.MainWindowHandle;
-                if(window!=System.IntPtr.Zero)SetWindowText(window,GameTitle);
+                if(window!=System.IntPtr.Zero)SetWindowText(window,GameEdition.IsOfflineDemo?GameTitle+" - 오프라인 데모":GameTitle);
             }
         }
         [System.Runtime.InteropServices.DllImport("user32.dll",EntryPoint="SetWindowTextW",CharSet=System.Runtime.InteropServices.CharSet.Unicode)]
