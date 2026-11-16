@@ -1,0 +1,120 @@
+{
+  "startedUtc": "2026-11-16T02:06:08.6565048Z",
+  "completedUtc": "2026-11-16T02:07:02.4514689Z",
+  "passed": true,
+  "failure": null,
+  "release": {
+    "SchemaVersion": 1,
+    "Version": "1.0.11",
+    "Protocol": 44,
+    "ArchiveName": "BellRun-Windows-1.0.11.zip",
+    "DownloadUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/download/v1.0.11/BellRun-Windows-1.0.11.zip",
+    "Sha256": "e07006b9d00a00109ff4f79dbc160aaa22b1abb5f4057a6cb8fd8b29cd234e2a",
+    "Size": 547653607,
+    "EntryPoint": "HalliGalliMovement.exe"
+  },
+  "updateStageEvidence": "TestResults/release-1.0.11-public/update-stage.json",
+  "offlineZip": "Exports/HalliGalliRunDemo.zip",
+  "baseline": "Read-only isolated copy of installed public 1.0.10, verified against live 1.0.10 before publication",
+  "update": "Production LauncherEngine.CheckAsync / InstallLatestAsync / PlayAsync; live GitHub download with archive and installed-file verification",
+  "network": "Two owned players with separate authentication profiles on the same PC, connected over actual Internet Relay; graphical host and headless client",
+  "stallSeconds": [
+    1,
+    3.2
+  ],
+  "offlineZipSha256": "79062ab6162fee4a0113e21fbd234f79f2d0dcc8d4eda8259c32be76f9086af3",
+  "checks": [
+    {
+      "name": "Downloaded 1.0.11 installation remains verified against live latest",
+      "passed": true
+    },
+    {
+      "name": "Live manifest matches packaged archive and protocol",
+      "passed": true
+    },
+    {
+      "name": "Promoted installation retains isolated 1.0.10 baseline",
+      "passed": true
+    },
+    {
+      "name": "Fresh downloaded public game admitted",
+      "passed": true
+    },
+    {
+      "name": "Public home opens without offline-demo mode",
+      "passed": true
+    },
+    {
+      "name": "Two distinct profiles join actual Internet Relay",
+      "passed": true
+    },
+    {
+      "name": "Two-person first-steps match starts on both peers",
+      "passed": true
+    },
+    {
+      "name": "One-second host stall does not eject client",
+      "passed": true
+    },
+    {
+      "name": "Buffered short jump survives 3.2-second host stall",
+      "passed": true
+    },
+    {
+      "name": "Client remains in match after prediction history overflow and landing",
+      "passed": true
+    },
+    {
+      "name": "Client movement resumes on authoritative host",
+      "passed": true
+    },
+    {
+      "name": "Two humans and four AI transition into item race and stay connected",
+      "passed": true
+    },
+    {
+      "name": "Installed 1.0.11 remains verified after actual launch",
+      "passed": true
+    },
+    {
+      "name": "Both new player logs have no runtime exceptions",
+      "passed": true
+    },
+    {
+      "name": "Production installation pointer unchanged",
+      "passed": true
+    },
+    {
+      "name": "Screen preferences restored after owned players exit",
+      "passed": true
+    },
+    {
+      "name": "Existing offline exhibition ZIP unchanged",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "TestResults/release-1.0.11-public/home.png",
+    "TestResults/release-1.0.11-public/first-steps-seated.png",
+    "TestResults/release-1.0.11-public/diner-stools-standing.png",
+    "TestResults/release-1.0.11-public/item-race-six-players.png"
+  ],
+  "visualReview": {
+    "date": "2026-11-16",
+    "publicHomeVisible": true,
+    "redRoundCushionsAndSilverPedestalStoolsVisible": true,
+    "itemRaceTableVisible": true,
+    "reviewed": [
+      "TestResults/release-1.0.11-public/home.png",
+      "TestResults/release-1.0.11-public/diner-stools-standing.png",
+      "TestResults/release-1.0.11-public/item-race-six-players.png"
+    ]
+  },
+  "limitations": [
+    "No OS launcher button clicks",
+    "No second-PC or long-duration network soak",
+    "Audio disabled for owned players",
+    "Relay uses isolated profile names; profile-specific authentication data may persist",
+    "Production installation pointer intentionally not updated"
+  ]
+}

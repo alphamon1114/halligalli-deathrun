@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-16",
+  "source": "Actual production LauncherEngine execution in isolated installation; terminal result bg_10",
+  "baseline": "Read-only copy of production 1.0.10, verified against live 1.0.10 before publication",
+  "checks": [
+    { "name": "Installed 1.0.10 requires live 1.0.11", "passed": true },
+    { "name": "Live manifest matches packaged archive and protocol44", "passed": true },
+    { "name": "Actual old public player blocks VersionMismatch before probe startup", "passed": true },
+    { "name": "InstallLatestAsync downloads and verifies 1.0.11, promotes new directory and retains old directory", "passed": true }
+  ],
+  "newPlayer": {
+    "launcherAction": "Production PlayAsync started the downloaded graphical executable",
+    "observedLog": "RELEASE_GATE_ALLOWED version=1.0.11 protocol=44 attempt=1 restoredRoots=93",
+    "protocol": 44,
+    "offlineDemo": false,
+    "releaseGatePresent": false,
+    "error": ""
+  },
+  "harnessCorrection": "The initial compound admission assertion compared equivalent mixed-slash and normalized Windows paths as raw strings. The game was admitted correctly. Cleanup referenced a previous offline ZIP filename. The runner now normalizes paths and uses Exports/HalliGalliRunDemo.zip, whose SHA-256 matches the original ReadMe-free submission. No game source or published files were changed.",
+  "continuation": "Reuse the already downloaded, hash-verified installation; do not repeat successful setup, old-version test, or download."
+}

@@ -1,0 +1,32 @@
+{
+  "checkedDate": "2026-11-16",
+  "api": "https://api.github.com/repos/alphamon1114/halligalli-deathrun/releases/latest",
+  "releaseUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.11",
+  "tag": "v1.0.11",
+  "releaseId": 446526483,
+  "sourceCommit": "46606f9395a024a20d9b1b34f2f315472af237d5",
+  "publishedAt": "2026-11-16T02:01:05Z",
+  "latest": true,
+  "draft": false,
+  "prerelease": false,
+  "allAssetsUploaded": true,
+  "localAssetHashesMatchGitHubDigests": true,
+  "assets": [
+    {
+      "name": "BellRun-release.json",
+      "bytes": 413,
+      "sha256": "1db950f67e0c726ff9754b906df15e1479fcff3a72139b17c8401136a84c51d2"
+    },
+    {
+      "name": "BellRun-Windows-1.0.11.zip",
+      "bytes": 547653607,
+      "sha256": "e07006b9d00a00109ff4f79dbc160aaa22b1abb5f4057a6cb8fd8b29cd234e2a"
+    },
+    {
+      "name": "BellRunLauncher.exe",
+      "bytes": 116137790,
+      "sha256": "a95ad78a0726d4b4e0b1c3079ae47bf56ecc433739666005a857502cd97bbf41"
+    }
+  ],
+  "offlineDemoUploaded": false
+}
