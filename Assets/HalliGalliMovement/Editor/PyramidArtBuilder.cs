@@ -136,9 +136,11 @@ namespace HalliGalli.EditorTools
             float z=Mathf.Lerp(min.z,max.z,.34f),top=max.y-5;
             foreach(int side in new[]{-1,1}){
                 float x=side<0?min.x-6:max.x+6;
-                SideWall(shell,"Broken great hall side mass",room,side,z-13,z+13,top,6);
-                // Roof fragments project outward, never toward the launch/catch sight line.
-                var slab=Box(shell,"Fractured side roof remnant",new Vector3(x+side*3,top+1.3f,z),new Vector3(9,2.5f,23),stone);
+                // A large open gallery window frames the two levels without crossing the flight.
+                SideWall(shell,"Broken hall window pier",room,side,z-20,z-12,top,6);
+                SideWall(shell,"Broken hall window pier",room,side,z+12,z+20,top,6);
+                SideWall(shell,"Broken hall low window sill",room,side,z-12,z+12,min.y+4,6);
+                var slab=Box(shell,"Fractured side roof remnant",new Vector3(x+side*4,top+1.3f,z),new Vector3(9,2.5f,40),stone);
                 slab.transform.rotation=Quaternion.Euler(0,0,side*8);
                 var rubble=Box(art,"Fallen hall monolith",new Vector3(x+side*3,min.y+3.75f,z+27),new Vector3(7,7,19),stone);
                 rubble.transform.rotation=Quaternion.Euler(0,side*12,0);

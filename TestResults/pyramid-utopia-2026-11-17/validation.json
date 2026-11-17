@@ -1,0 +1,1186 @@
+{
+    "utc": "2026-11-17T09:18:44.0869831Z",
+    "passed": 59,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Five ordered spaces cover the complete route",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Banks retain broad rideable lane clearance",
+            "detail": "sections=21 metres=548.0002",
+            "passed": true
+        },
+        {
+            "name": "Every space has independent takeoff and catch colliders",
+            "detail": "0:1->2; 1:5->6; 2:9->10; 2:10->11; 3:14->15; 4:18->19",
+            "passed": true
+        },
+        {
+            "name": "Riding faces retain real surf collision throughout curves",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Transfers preserve tangent and lane without forced side swaps",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Curves and checkpoint transitions remain gentle",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Ascending runs never recess into a middle trough",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Four ordered AIR-PASSAGE checkpoints track chamber exits",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Pyramid retains its authored surf profile reference",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Decoration cannot collide with racers",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "2 seats retain equal first jump distance",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "3 seats retain equal first jump distance",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "6 seats retain equal first jump distance",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 0 departs under real card rules",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 0 flies across room 0 gap and physically surfs its catch",
+            "detail": "room=0 1->2 gap=20.00 authoredDY=3.00 source=True catch=True free=1.575s ticks=104 gapTicks=74 dY=1.69 surfaceDY=1.65 min/maxY=-16.04/-9.02 interrupted=False takeoff=(4.31, -16.04, 62.21) v=(3.76, 16.75, 16.99) catch=(10.00, -14.35, 89.02) v=(-1.48, -11.56, 18.78) touch=(4.56, -15.90, 62.31) -> (10.23, -14.24, 88.93)",
+            "passed": true
+        },
+        {
+            "name": "Start 0 flies across room 1 gap and physically surfs its catch",
+            "detail": "room=1 5->6 gap=24.00 authoredDY=-12.00 source=True catch=True free=1.680s ticks=111 gapTicks=58 dY=-14.64 surfaceDY=-14.65 min/maxY=-49.81/-33.60 interrupted=False takeoff=(90.72, -35.17, 209.71) v=(25.23, 7.93, 9.05) catch=(133.73, -49.81, 222.92) v=(24.29, -18.56, 16.93) touch=(90.76, -35.06, 209.45) -> (133.77, -49.70, 222.68)",
+            "passed": true
+        },
+        {
+            "name": "Start 0 flies across room 2 gap and physically surfs its catch",
+            "detail": "room=2 9->10 gap=20.00 authoredDY=4.00 source=True catch=True free=1.425s ticks=94 gapTicks=80 dY=3.50 surfaceDY=3.45 min/maxY=-64.04/-57.09 interrupted=False takeoff=(219.04, -64.04, 251.70) v=(14.10, 16.67, 7.91) catch=(238.98, -60.54, 263.23) v=(12.27, -9.50, 11.99) touch=(219.29, -63.89, 251.58) -> (239.07, -60.44, 263.00)",
+            "passed": true
+        },
+        {
+            "name": "Start 0 flies across room 2 gap and physically surfs its catch",
+            "detail": "room=2 10->11 gap=16.00 authoredDY=-8.00 source=True catch=True free=0.870s ticks=57 gapTicks=48 dY=-8.44 surfaceDY=-8.45 min/maxY=-72.18/-63.73 interrupted=False takeoff=(255.49, -63.73, 275.40) v=(16.46, -1.25, 13.74) catch=(269.34, -72.18, 287.87) v=(12.05, -13.43, 19.92) touch=(255.60, -63.62, 275.17) -> (269.48, -72.07, 287.67)",
+            "passed": true
+        },
+        {
+            "name": "Start 0 flies across room 3 gap and physically surfs its catch",
+            "detail": "room=3 14->15 gap=26.00 authoredDY=-14.00 source=True catch=True free=1.665s ticks=110 gapTicks=71 dY=-16.00 surfaceDY=-16.02 min/maxY=-104.27/-87.08 interrupted=False takeoff=(382.50, -88.27, 356.88) v=(23.60, 6.90, 0.24) catch=(421.79, -104.27, 356.87) v=(24.81, -18.66, 10.25) touch=(382.49, -88.15, 356.63) -> (421.76, -104.17, 356.63)",
+            "passed": true
+        },
+        {
+            "name": "Start 0 flies across room 4 gap and physically surfs its catch",
+            "detail": "room=4 18->19 gap=20.00 authoredDY=4.00 source=True catch=True free=1.470s ticks=97 gapTicks=79 dY=3.37 surfaceDY=3.33 min/maxY=-119.19/-112.03 interrupted=False takeoff=(520.73, -119.19, 356.94) v=(16.51, 16.92, -0.13) catch=(545.00, -115.82, 356.94) v=(17.25, -9.41, 3.58) touch=(520.88, -119.05, 356.72) -> (544.96, -115.71, 356.70)",
+            "passed": true
+        },
+        {
+            "name": "Start 0 traverses all spaces and ordered passages without unintended falls",
+            "detail": "seconds=54.57 falls=0 requested=0\n0.00 s=0/0 cp=-1 p=(-3.75, 0.03, -0.70) v=(0.00, 0.00, 0.00) surfing=False grounded=False contacts=\n0.51 s=0/0 cp=-1 p=(-3.75, 0.99, 1.43) v=(0.00, -1.18, 4.50) surfing=False grounded=False contacts=\n1.02 s=0/0 cp=-1 p=(-3.75, 0.36, 2.74) v=(0.00, 5.72, 4.50) surfing=False grounded=False contacts=\n1.53 s=0/0 cp=-1 p=(-3.75, 0.67, 4.90) v=(0.00, -4.48, 0.80) surfing=False grounded=False contacts=\n2.04 s=0/0 cp=-1 p=(-3.19, 1.05, 6.74) v=(0.85, 3.62, 4.49) surfing=False grounded=False contacts=\n2.55 s=0/1 cp=-1 p=(-3.18, 0.29, 9.03) v=(0.80, -6.58, 4.50) surfing=False grounded=False contacts=\n3.06 s=0/1 cp=-1 p=(-3.15, -3.19, 12.78) v=(-0.72, -7.58, 10.86) surfing=False grounded=False contacts=\n3.57 s=0/1 cp=-1 p=(-2.98, -7.79, 19.51) v=(-0.12, -10.96, 15.52) surfing=False grounded=False contacts=\n4.08 s=0/1 cp=-1 p=(-2.22, -13.96, 28.62) v=(1.60, -13.87, 20.37) surfing=False grounded=False contacts=\n4.59 s=0/1 cp=-1 p=(-0.08, -19.82, 40.52) v=(4.70, -5.58, 27.69) surfing=True grounded=False contacts=0\nTAKEOFF room=0 1->2 p=(2.06, -20.00, 50.52) v=(5.53, 0.23, 27.86)\n5.10 s=1/1 cp=-1 p=(2.84, -19.74, 54.67) v=(4.60, 3.27, 27.44) surfing=True grounded=False contacts=1\nTAKEOFF room=0 1->2 p=(4.31, -16.04, 62.21) v=(3.76, 16.75, 16.99)\n5.61 s=2/1 cp=-1 p=(4.96, -13.35, 65.27) v=(4.40, 13.15, 16.85) surfing=False grounded=False contacts=\n6.12 s=2/1 cp=-1 p=(6.81, -9.24, 73.95) v=(4.40, 2.95, 16.85) surfing=False grounded=False contacts=\n6.63 s=2/1 cp=-1 p=(8.65, -10.34, 82.63) v=(4.40, -7.25, 16.85) surfing=False grounded=False contacts=\nCATCH room=0 1->2 gap=20.00 authoredDY=3.00 source=True catch=True free=1.575s ticks=104 gapTicks=74 dY=1.69 surfaceDY=1.65 min/maxY=-16.04/-9.02 interrupted=False takeoff=(4.31, -16.04, 62.21) v=(3.76, 16.75, 16.99) catch=(10.00, -14.35, 89.02) v=(-1.48, -11.56, 18.78) touch=(4.56, -15.90, 62.31) -> (10.23, -14.24, 88.93) accepted=True\n7.14 s=2/1 cp=-1 p=(10.61, -14.79, 91.56) v=(4.19, -4.35, 19.71) surfing=True grounded=False contacts=2\n7.65 s=2/1 cp=-1 p=(12.90, -16.62, 102.09) v=(4.10, -2.11, 21.76) surfing=True grounded=False contacts=2\n8.16 s=3/1 cp=-1 p=(15.19, -16.40, 113.14) v=(4.02, 3.45, 21.07) surfing=True grounded=False contacts=3\ncheckpoint=0 airborne=True p=(16.06, -14.48, 117.57)\n8.67 s=3/2 cp=0 p=(17.18, -12.47, 121.83) v=(4.17, 4.77, 15.79) surfing=False grounded=False contacts=\n9.18 s=3/2 cp=0 p=(19.32, -12.64, 128.28) v=(4.21, -5.43, 1.00) surfing=False grounded=False contacts=\n9.69 s=4/0 cp=0 p=(20.74, -14.38, 129.78) v=(0.50, -2.00, 4.51) surfing=False grounded=True contacts=\n10.20 s=4/0 cp=0 p=(20.76, -14.38, 132.07) v=(-0.09, -2.00, 4.50) surfing=False grounded=True contacts=\n10.71 s=4/0 cp=0 p=(20.71, -14.38, 134.37) v=(-0.11, -2.00, 4.50) surfing=False grounded=True contacts=\n11.22 s=4/0 cp=0 p=(20.66, -14.38, 136.66) v=(-0.11, -2.00, 4.50) surfing=False grounded=True contacts=\n11.73 s=4/0 cp=0 p=(20.62, -14.38, 138.96) v=(0.27, -2.00, 4.54) surfing=False grounded=True contacts=\n12.24 s=4/1 cp=0 p=(21.09, -13.64, 141.21) v=(1.72, -3.28, 4.23) surfing=False grounded=False contacts=\n12.75 s=4/1 cp=0 p=(21.72, -15.95, 143.90) v=(0.84, -2.66, 7.72) surfing=False grounded=False contacts=\n13.26 s=4/1 cp=0 p=(22.75, -17.26, 148.41) v=(2.41, -3.14, 10.18) surfing=True grounded=False contacts=4\n13.77 s=4/1 cp=0 p=(24.21, -18.96, 154.21) v=(2.70, -4.16, 12.83) surfing=False grounded=False contacts=\n14.28 s=4/1 cp=0 p=(26.43, -21.01, 161.21) v=(4.53, -5.02, 15.11) surfing=False grounded=False contacts=\n14.79 s=4/1 cp=0 p=(29.83, -23.45, 169.21) v=(8.56, -5.04, 16.41) surfing=True grounded=False contacts=4\n15.30 s=4/1 cp=0 p=(34.97, -26.20, 177.82) v=(12.40, -5.94, 17.07) surfing=True grounded=False contacts=4\n15.81 s=4/1 cp=0 p=(42.34, -29.34, 186.44) v=(16.24, -7.03, 17.02) surfing=False grounded=False contacts=\n16.32 s=4/1 cp=0 p=(52.26, -32.77, 194.25) v=(21.40, -7.34, 14.86) surfing=False grounded=False contacts=\n16.83 s=4/1 cp=0 p=(64.66, -35.31, 200.61) v=(26.10, -3.76, 11.39) surfing=True grounded=False contacts=4\n17.34 s=4/1 cp=0 p=(78.50, -36.00, 205.61) v=(27.35, -0.80, 9.76) surfing=True grounded=False contacts=4\nTAKEOFF room=1 5->6 p=(84.71, -35.99, 207.63) v=(27.46, 0.26, 9.28)\nTAKEOFF room=1 5->6 p=(85.94, -35.96, 208.05) v=(27.35, 1.14, 9.32)\nTAKEOFF room=1 5->6 p=(90.72, -35.17, 209.71) v=(25.23, 7.93, 9.05)\n17.85 s=6/1 cp=0 p=(92.25, -34.73, 210.21) v=(25.23, 6.73, 9.04) surfing=False grounded=False contacts=\n18.36 s=6/1 cp=0 p=(105.24, -33.90, 214.43) v=(25.23, -3.47, 9.04) surfing=False grounded=False contacts=\n18.87 s=6/1 cp=0 p=(118.24, -38.28, 218.64) v=(25.29, -13.67, 8.87) surfing=False grounded=False contacts=\n19.38 s=6/1 cp=0 p=(131.39, -47.85, 222.36) v=(25.82, -23.87, 7.18) surfing=False grounded=False contacts=\nCATCH room=1 5->6 gap=24.00 authoredDY=-12.00 source=True catch=True free=1.680s ticks=111 gapTicks=58 dY=-14.64 surfaceDY=-14.65 min/maxY=-49.81/-33.60 interrupted=False takeoff=(90.72, -35.17, 209.71) v=(25.23, 7.93, 9.05) catch=(133.73, -49.81, 222.92) v=(24.29, -18.56, 16.93) touch=(90.76, -35.06, 209.45) -> (133.77, -49.70, 222.68) accepted=True\n19.89 s=7/1 cp=0 p=(145.47, -50.15, 225.54) v=(28.11, 1.49, 6.07) surfing=True grounded=False contacts=7\ncheckpoint=1 airborne=True p=(152.46, -47.49, 227.17)\n20.40 s=7/2 cp=1 p=(157.40, -45.21, 228.04) v=(21.94, 7.88, 3.85) surfing=False grounded=False contacts=\n20.91 s=7/2 cp=1 p=(163.09, -43.79, 227.85) v=(2.65, -2.32, -3.64) surfing=False grounded=False contacts=\n21.42 s=7/2 cp=1 p=(163.82, -47.57, 226.63) v=(0.49, -12.52, -0.67) surfing=False grounded=False contacts=\n21.93 s=8/0 cp=1 p=(165.62, -47.85, 227.50) v=(3.96, -2.00, 2.13) surfing=False grounded=True contacts=\n22.44 s=8/0 cp=1 p=(167.64, -47.85, 228.59) v=(3.96, -2.00, 2.15) surfing=False grounded=True contacts=\n22.95 s=8/0 cp=1 p=(169.66, -47.85, 229.68) v=(3.96, -2.00, 2.15) surfing=False grounded=True contacts=\n23.46 s=8/0 cp=1 p=(171.68, -47.85, 230.78) v=(3.96, -2.00, 2.15) surfing=False grounded=True contacts=\n23.97 s=8/0 cp=1 p=(173.83, -46.89, 231.54) v=(4.24, 1.22, 1.69) surfing=False grounded=False contacts=\n24.48 s=8/1 cp=1 p=(176.07, -48.86, 232.01) v=(4.23, -8.98, 1.72) surfing=False grounded=False contacts=\n24.99 s=8/1 cp=1 p=(180.37, -53.08, 232.93) v=(11.70, -9.81, 1.97) surfing=False grounded=False contacts=\n25.50 s=8/1 cp=1 p=(187.38, -58.98, 234.92) v=(16.22, -13.40, 5.41) surfing=True grounded=False contacts=8\n26.01 s=8/1 cp=1 p=(196.48, -66.63, 238.70) v=(20.84, -14.28, 11.38) surfing=True grounded=False contacts=8\n26.52 s=9/1 cp=1 p=(208.57, -68.35, 245.37) v=(23.78, -0.21, 14.66) surfing=True grounded=False contacts=9\nTAKEOFF room=2 9->10 p=(208.94, -68.34, 245.58) v=(23.98, 0.30, 14.26)\n27.03 s=9/1 cp=1 p=(219.04, -64.04, 251.70) v=(14.10, 16.67, 7.91) surfing=True grounded=False contacts=9\nTAKEOFF room=2 9->10 p=(219.04, -64.04, 251.70) v=(14.10, 16.67, 7.91)\n27.54 s=10/1 cp=1 p=(226.18, -58.14, 255.82) v=(14.40, 6.47, 7.39) surfing=False grounded=False contacts=\n28.05 s=10/1 cp=1 p=(233.32, -57.44, 259.94) v=(14.40, -3.73, 7.39) surfing=False grounded=False contacts=\nCATCH room=2 9->10 gap=20.00 authoredDY=4.00 source=True catch=True free=1.425s ticks=94 gapTicks=80 dY=3.50 surfaceDY=3.45 min/maxY=-64.04/-57.09 interrupted=False takeoff=(219.04, -64.04, 251.70) v=(14.10, 16.67, 7.91) catch=(238.98, -60.54, 263.23) v=(12.27, -9.50, 11.99) touch=(219.29, -63.89, 251.58) -> (239.07, -60.44, 263.00) accepted=True\nTAKEOFF room=2 10->11 p=(240.37, -60.77, 263.98) v=(15.69, -4.13, 9.33)\n28.56 s=10/1 cp=1 p=(240.60, -60.84, 264.13) v=(15.22, -4.43, 10.11) surfing=False grounded=False contacts=\nTAKEOFF room=2 10->11 p=(240.84, -60.89, 264.26) v=(15.65, -4.07, 9.65)\nTAKEOFF room=2 10->11 p=(241.31, -61.01, 264.55) v=(15.74, -4.04, 9.76)\nTAKEOFF room=2 10->11 p=(241.78, -61.13, 264.84) v=(15.81, -4.04, 9.89)\nTAKEOFF room=2 10->11 p=(242.26, -61.24, 265.14) v=(15.87, -4.05, 10.03)\nTAKEOFF room=2 10->11 p=(242.73, -61.36, 265.44) v=(15.92, -4.07, 10.17)\nTAKEOFF room=2 10->11 p=(243.21, -61.49, 265.74) v=(16.06, -4.25, 10.14)\nTAKEOFF room=2 10->11 p=(243.69, -61.61, 266.06) v=(15.87, -4.14, 10.68)\nTAKEOFF room=2 10->11 p=(244.16, -61.73, 266.37) v=(15.98, -4.12, 10.74)\nTAKEOFF room=2 10->11 p=(244.64, -61.85, 266.70) v=(16.02, -4.13, 10.90)\nTAKEOFF room=2 10->11 p=(245.12, -61.98, 267.03) v=(16.05, -4.16, 11.07)\nTAKEOFF room=2 10->11 p=(245.60, -62.10, 267.36) v=(16.19, -4.38, 11.02)\nTAKEOFF room=2 10->11 p=(246.08, -62.23, 267.70) v=(15.98, -4.31, 11.57)\nTAKEOFF room=2 10->11 p=(246.56, -62.36, 268.05) v=(16.03, -4.28, 11.72)\nTAKEOFF room=2 10->11 p=(247.04, -62.48, 268.40) v=(16.06, -4.28, 11.89)\nTAKEOFF room=2 10->11 p=(247.52, -62.61, 268.76) v=(16.21, -4.50, 11.84)\nTAKEOFF room=2 10->11 p=(248.00, -62.74, 269.12) v=(15.97, -4.42, 12.38)\nTAKEOFF room=2 10->11 p=(248.48, -62.87, 269.49) v=(16.02, -4.38, 12.54)\n29.07 s=10/1 cp=1 p=(248.72, -62.94, 269.69) v=(15.54, -4.68, 13.15) surfing=False grounded=False contacts=\nTAKEOFF room=2 10->11 p=(248.96, -63.00, 269.87) v=(16.03, -4.36, 12.73)\nTAKEOFF room=2 10->11 p=(249.44, -63.13, 270.25) v=(16.15, -4.49, 12.75)\nTAKEOFF room=2 10->11 p=(250.17, -63.28, 270.83) v=(16.18, -4.05, 13.10)\nTAKEOFF room=2 10->11 p=(250.90, -63.42, 271.42) v=(16.32, -3.73, 13.23)\nTAKEOFF room=2 10->11 p=(251.63, -63.53, 272.02) v=(16.00, -2.94, 13.92)\nTAKEOFF room=2 10->11 p=(252.36, -63.61, 272.63) v=(16.01, -2.21, 14.12)\nTAKEOFF room=2 10->11 p=(253.10, -63.66, 273.26) v=(16.06, -1.27, 14.10)\nTAKEOFF room=2 10->11 p=(253.58, -63.69, 273.68) v=(15.94, -1.23, 14.27)\nTAKEOFF room=2 10->11 p=(254.06, -63.71, 274.11) v=(15.74, -1.01, 14.52)\nTAKEOFF room=2 10->11 p=(255.49, -63.73, 275.40) v=(16.46, -1.25, 13.74)\n29.58 s=11/1 cp=1 p=(256.92, -63.93, 276.69) v=(16.46, -3.05, 13.74) surfing=False grounded=False contacts=\n30.09 s=11/1 cp=1 p=(265.04, -68.08, 284.00) v=(16.46, -13.25, 13.74) surfing=False grounded=False contacts=\nCATCH room=2 10->11 gap=16.00 authoredDY=-8.00 source=True catch=True free=0.870s ticks=57 gapTicks=48 dY=-8.44 surfaceDY=-8.45 min/maxY=-72.18/-63.73 interrupted=False takeoff=(255.49, -63.73, 275.40) v=(16.46, -1.25, 13.74) catch=(269.34, -72.18, 287.87) v=(12.05, -13.43, 19.92) touch=(255.60, -63.62, 275.17) -> (269.48, -72.07, 287.67) accepted=True\n30.60 s=11/1 cp=1 p=(273.57, -73.11, 291.76) v=(17.73, -4.37, 17.19) surfing=True grounded=False contacts=11\n31.11 s=11/1 cp=1 p=(282.55, -74.62, 301.15) v=(17.13, -0.75, 19.64) surfing=True grounded=False contacts=11\ncheckpoint=2 airborne=True p=(290.76, -72.53, 310.59)\n31.62 s=12/1 cp=2 p=(290.76, -72.53, 310.59) v=(12.70, 11.92, 15.30) surfing=False grounded=False contacts=\n32.13 s=12/2 cp=2 p=(297.85, -69.06, 317.85) v=(13.89, 1.72, 14.23) surfing=False grounded=False contacts=\n32.64 s=12/2 cp=2 p=(300.46, -70.78, 318.02) v=(4.44, -8.48, -0.55) surfing=False grounded=False contacts=\n33.15 s=13/0 cp=2 p=(301.73, -72.43, 319.02) v=(2.03, -2.00, 4.02) surfing=False grounded=True contacts=\n33.66 s=13/0 cp=2 p=(302.71, -72.43, 321.09) v=(1.90, -2.00, 4.08) surfing=False grounded=True contacts=\n34.17 s=13/0 cp=2 p=(303.68, -72.43, 323.17) v=(1.90, -2.00, 4.08) surfing=False grounded=True contacts=\n34.68 s=13/0 cp=2 p=(304.65, -72.43, 325.26) v=(1.90, -2.00, 4.08) surfing=False grounded=True contacts=\n35.19 s=13/0 cp=2 p=(305.75, -71.94, 327.26) v=(3.62, 4.52, 2.79) surfing=False grounded=False contacts=\n35.70 s=13/1 cp=2 p=(307.29, -72.23, 328.96) v=(3.60, -5.68, 2.80) surfing=False grounded=False contacts=\n36.21 s=13/1 cp=2 p=(309.44, -74.24, 331.27) v=(4.94, -2.75, 6.61) surfing=False grounded=False contacts=\n36.72 s=13/1 cp=2 p=(312.77, -75.61, 334.82) v=(6.95, -3.50, 8.39) surfing=False grounded=False contacts=\n37.23 s=13/1 cp=2 p=(317.21, -77.32, 339.17) v=(9.87, -3.84, 9.33) surfing=True grounded=False contacts=13\n37.74 s=13/1 cp=2 p=(323.01, -79.34, 343.98) v=(12.97, -4.47, 9.52) surfing=True grounded=False contacts=13\n38.25 s=13/1 cp=2 p=(330.36, -81.75, 348.81) v=(15.81, -5.87, 9.80) surfing=False grounded=False contacts=\n38.76 s=13/1 cp=2 p=(339.65, -84.44, 352.92) v=(20.25, -5.87, 6.75) surfing=True grounded=False contacts=13\n39.27 s=13/1 cp=2 p=(350.78, -87.37, 355.70) v=(23.36, -6.09, 4.63) surfing=False grounded=False contacts=\n39.78 s=13/1 cp=2 p=(363.43, -88.94, 356.70) v=(25.62, -1.87, 1.04) surfing=True grounded=False contacts=13\nTAKEOFF room=3 14->15 p=(376.14, -89.06, 356.78) v=(25.61, 0.27, 0.36)\n40.29 s=14/1 cp=2 p=(376.52, -89.05, 356.79) v=(25.61, -0.03, 0.80) surfing=False grounded=False contacts=\nTAKEOFF room=3 14->15 p=(376.90, -89.04, 356.79) v=(25.57, 0.52, 0.41)\nTAKEOFF room=3 14->15 p=(378.05, -89.00, 356.81) v=(25.46, 1.26, 0.33)\nTAKEOFF room=3 14->15 p=(382.50, -88.27, 356.88) v=(23.60, 6.90, 0.24)\n40.80 s=15/1 cp=2 p=(388.87, -87.14, 356.88) v=(23.60, 1.50, 0.80) surfing=False grounded=False contacts=\n41.31 s=15/1 cp=2 p=(400.91, -88.97, 356.88) v=(23.60, -8.70, 0.80) surfing=False grounded=False contacts=\n41.82 s=15/1 cp=2 p=(412.94, -96.01, 356.88) v=(23.60, -18.90, 0.80) surfing=False grounded=False contacts=\nCATCH room=3 14->15 gap=26.00 authoredDY=-14.00 source=True catch=True free=1.665s ticks=110 gapTicks=71 dY=-16.00 surfaceDY=-16.02 min/maxY=-104.27/-87.08 interrupted=False takeoff=(382.50, -88.27, 356.88) v=(23.60, 6.90, 0.24) catch=(421.79, -104.27, 356.87) v=(24.81, -18.66, 10.25) touch=(382.49, -88.15, 356.63) -> (421.76, -104.17, 356.63) accepted=True\n42.33 s=15/1 cp=2 p=(425.34, -104.92, 356.95) v=(27.42, -4.27, 0.34) surfing=True grounded=False contacts=15\n42.84 s=16/1 cp=2 p=(439.52, -105.01, 356.89) v=(27.56, 2.59, 0.60) surfing=True grounded=False contacts=16\ncheckpoint=3 airborne=True p=(447.92, -101.33, 356.90)\n43.35 s=16/2 cp=3 p=(451.12, -99.98, 356.78) v=(21.31, 7.53, -0.80) surfing=False grounded=False contacts=\n43.86 s=16/2 cp=3 p=(456.78, -98.74, 355.49) v=(1.91, -2.67, -4.08) surfing=False grounded=False contacts=\n44.37 s=16/2 cp=3 p=(457.26, -102.70, 354.22) v=(0.44, -12.87, -0.67) surfing=False grounded=False contacts=\n44.88 s=17/0 cp=3 p=(459.28, -102.80, 354.73) v=(4.32, -2.00, 1.26) surfing=False grounded=True contacts=\n45.39 s=17/0 cp=3 p=(461.48, -102.80, 355.38) v=(4.32, -2.00, 1.27) surfing=False grounded=True contacts=\n45.90 s=17/0 cp=3 p=(463.68, -102.80, 356.02) v=(4.32, -2.00, 1.27) surfing=False grounded=True contacts=\n46.41 s=17/0 cp=3 p=(465.88, -102.80, 356.67) v=(4.32, -2.00, 1.27) surfing=False grounded=True contacts=\n46.92 s=17/0 cp=3 p=(468.15, -101.82, 356.94) v=(4.49, 0.92, -0.83) surfing=False grounded=False contacts=\n47.43 s=17/1 cp=3 p=(470.44, -103.95, 356.93) v=(4.49, -9.28, -0.80) surfing=False grounded=False contacts=\n47.94 s=17/1 cp=3 p=(474.98, -107.89, 356.90) v=(12.16, -9.04, 0.80) surfing=False grounded=False contacts=\n48.45 s=17/1 cp=3 p=(482.37, -113.29, 356.88) v=(16.87, -12.58, 0.80) surfing=False grounded=False contacts=\n48.96 s=17/1 cp=3 p=(492.21, -120.47, 356.88) v=(22.07, -15.59, 0.80) surfing=False grounded=False contacts=\n49.47 s=18/1 cp=3 p=(505.72, -123.34, 356.69) v=(28.18, -0.36, 0.22) surfing=True grounded=False contacts=18\nTAKEOFF room=4 18->19 p=(509.10, -123.33, 356.71) v=(28.12, 0.31, 0.37)\n49.98 s=18/1 cp=3 p=(519.09, -120.65, 356.94) v=(20.12, 14.78, 0.60) surfing=True grounded=False contacts=18\nTAKEOFF room=4 18->19 p=(520.73, -119.19, 356.94) v=(16.51, 16.92, -0.13)\n50.49 s=19/1 cp=3 p=(527.66, -113.85, 356.94) v=(16.51, 8.52, -0.80) surfing=False grounded=False contacts=\n51.00 s=19/1 cp=3 p=(536.08, -112.10, 356.94) v=(16.51, -1.68, -0.80) surfing=False grounded=False contacts=\n51.51 s=19/1 cp=3 p=(544.50, -115.56, 356.94) v=(16.51, -11.88, -0.80) surfing=False grounded=False contacts=\nCATCH room=4 18->19 gap=20.00 authoredDY=4.00 source=True catch=True free=1.470s ticks=97 gapTicks=79 dY=3.37 surfaceDY=3.33 min/maxY=-119.19/-112.03 interrupted=False takeoff=(520.73, -119.19, 356.94) v=(16.51, 16.92, -0.13) catch=(545.00, -115.82, 356.94) v=(17.25, -9.41, 3.58) touch=(520.88, -119.05, 356.72) -> (544.96, -115.71, 356.70) accepted=True\n52.02 s=19/1 cp=3 p=(554.29, -117.97, 356.89) v=(20.52, -5.40, 0.80) surfing=False grounded=False contacts=\n52.53 s=19/1 cp=3 p=(565.37, -119.68, 356.80) v=(22.65, -1.01, 0.31) surfing=True grounded=False contacts=19\n53.04 s=20/1 cp=3 p=(576.83, -119.25, 356.90) v=(21.49, 4.38, 0.46) surfing=True grounded=False contacts=20\n53.55 s=20/2 cp=3 p=(585.72, -115.11, 356.73) v=(16.27, 5.11, -0.80) surfing=False grounded=False contacts=\n54.06 s=20/2 cp=3 p=(592.68, -115.11, 356.03) v=(1.84, -5.09, -3.97) surfing=False grounded=False contacts=",
+            "passed": true
+        },
+        {
+            "name": "Start 0 launches using unmodified movement physics",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 0 bell collects cards and reseats the table",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 5 departs under real card rules",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 5 flies across room 0 gap and physically surfs its catch",
+            "detail": "room=0 1->2 gap=20.00 authoredDY=3.00 source=True catch=True free=1.485s ticks=98 gapTicks=73 dY=2.04 surfaceDY=2.01 min/maxY=-16.09/-9.54 interrupted=False takeoff=(10.57, -16.09, 60.85) v=(3.99, 16.19, 17.10) catch=(15.98, -14.05, 86.35) v=(7.94, -9.99, 17.01) touch=(10.38, -15.95, 61.03) -> (15.73, -13.94, 86.36)",
+            "passed": true
+        },
+        {
+            "name": "Start 5 flies across room 1 gap and physically surfs its catch",
+            "detail": "room=1 5->6 gap=24.00 authoredDY=-12.00 source=True catch=True free=1.680s ticks=111 gapTicks=58 dY=-14.67 surfaceDY=-14.68 min/maxY=-49.77/-33.49 interrupted=False takeoff=(92.72, -35.10, 203.73) v=(25.76, 8.02, 7.58) catch=(135.83, -49.77, 216.94) v=(29.25, -18.35, -4.66) touch=(92.60, -34.99, 203.97) -> (135.76, -49.67, 217.17)",
+            "passed": true
+        },
+        {
+            "name": "Start 5 flies across room 2 gap and physically surfs its catch",
+            "detail": "room=2 9->10 gap=20.00 authoredDY=4.00 source=True catch=True free=1.440s ticks=95 gapTicks=79 dY=3.59 surfaceDY=3.55 min/maxY=-64.18/-57.08 interrupted=False takeoff=(222.13, -64.18, 246.05) v=(14.11, 16.85, 8.34) catch=(242.56, -60.60, 257.85) v=(16.50, -8.87, 5.55) touch=(222.15, -64.04, 246.32) -> (242.40, -60.49, 258.05)",
+            "passed": true
+        },
+        {
+            "name": "Start 5 flies across room 2 gap and physically surfs its catch",
+            "detail": "room=2 10->11 gap=16.00 authoredDY=-8.00 source=True catch=True free=0.900s ticks=59 gapTicks=47 dY=-8.55 surfaceDY=-8.57 min/maxY=-72.28/-63.73 interrupted=False takeoff=(259.47, -63.73, 270.72) v=(16.27, -0.57, 14.25) catch=(273.93, -72.28, 283.75) v=(21.08, -13.41, 10.29) touch=(259.31, -63.61, 270.91) -> (273.74, -72.18, 283.91)",
+            "passed": true
+        },
+        {
+            "name": "Start 5 flies across room 3 gap and physically surfs its catch",
+            "detail": "room=3 14->15 gap=26.00 authoredDY=-14.00 source=True catch=True free=1.635s ticks=108 gapTicks=72 dY=-15.84 surfaceDY=-15.85 min/maxY=-104.11/-87.22 interrupted=False takeoff=(382.45, -88.27, 350.56) v=(23.51, 6.48, -0.51) catch=(420.88, -104.11, 350.58) v=(24.71, -18.54, -10.17) touch=(382.41, -88.15, 350.82) -> (420.85, -104.01, 350.82)",
+            "passed": true
+        },
+        {
+            "name": "Start 5 flies across room 4 gap and physically surfs its catch",
+            "detail": "room=4 18->19 gap=20.00 authoredDY=4.00 source=True catch=True free=1.470s ticks=97 gapTicks=77 dY=2.98 surfaceDY=2.95 min/maxY=-118.94/-112.01 interrupted=False takeoff=(520.96, -118.94, 350.50) v=(16.78, 16.65, 0.80) catch=(545.63, -115.96, 350.50) v=(17.53, -9.61, -3.67) touch=(521.11, -118.80, 350.73) -> (545.59, -115.85, 350.74)",
+            "passed": true
+        },
+        {
+            "name": "Start 5 traverses all spaces and ordered passages without unintended falls",
+            "detail": "seconds=54.015 falls=0 requested=0\n0.00 s=20/2 cp=-1 p=(3.75, 0.03, -0.70) v=(0.00, 0.00, 0.00) surfing=False grounded=False contacts=\n0.51 s=0/0 cp=-1 p=(3.75, 0.99, 1.43) v=(0.00, -1.18, 4.50) surfing=False grounded=False contacts=\n1.02 s=0/0 cp=-1 p=(3.75, 0.36, 2.74) v=(0.00, 5.72, 4.50) surfing=False grounded=False contacts=\n1.53 s=0/0 cp=-1 p=(3.75, 0.67, 4.90) v=(0.00, -4.48, 0.80) surfing=False grounded=False contacts=\n2.04 s=0/0 cp=-1 p=(3.19, 1.05, 6.74) v=(-0.85, 3.62, 4.49) surfing=False grounded=False contacts=\n2.55 s=0/1 cp=-1 p=(3.18, 0.29, 9.03) v=(-0.80, -6.58, 4.50) surfing=False grounded=False contacts=\n3.06 s=0/1 cp=-1 p=(3.17, -3.23, 12.79) v=(0.88, -7.74, 10.80) surfing=False grounded=False contacts=\n3.57 s=0/1 cp=-1 p=(3.34, -7.97, 19.49) v=(1.51, -11.27, 15.43) surfing=False grounded=False contacts=\n4.08 s=0/1 cp=-1 p=(4.11, -14.46, 28.56) v=(3.27, -14.92, 19.83) surfing=False grounded=False contacts=\n4.59 s=0/1 cp=-1 p=(6.04, -19.93, 40.68) v=(6.49, -3.69, 27.39) surfing=False grounded=False contacts=\nTAKEOFF room=0 1->2 p=(6.81, -20.01, 44.41) v=(6.64, -0.42, 27.39)\nTAKEOFF room=0 1->2 p=(7.89, -20.00, 49.36) v=(6.17, 0.29, 27.43)\n5.10 s=1/1 cp=-1 p=(9.13, -19.52, 54.62) v=(6.28, 5.40, 26.12) surfing=True grounded=False contacts=1\nTAKEOFF room=0 1->2 p=(10.44, -16.57, 60.32) v=(3.81, 15.98, 17.93)\nTAKEOFF room=0 1->2 p=(10.57, -16.09, 60.85) v=(3.99, 16.19, 17.10)\n5.61 s=2/1 cp=-1 p=(11.38, -12.95, 64.71) v=(2.87, 11.69, 17.34) surfing=False grounded=False contacts=\n6.12 s=2/1 cp=-1 p=(13.24, -9.59, 73.47) v=(2.87, 1.49, 17.34) surfing=False grounded=False contacts=\n6.63 s=2/1 cp=-1 p=(15.10, -11.43, 82.23) v=(2.87, -8.71, 17.34) surfing=False grounded=False contacts=\nCATCH room=0 1->2 gap=20.00 authoredDY=3.00 source=True catch=True free=1.485s ticks=98 gapTicks=73 dY=2.04 surfaceDY=2.01 min/maxY=-16.09/-9.54 interrupted=False takeoff=(10.57, -16.09, 60.85) v=(3.99, 16.19, 17.10) catch=(15.98, -14.05, 86.35) v=(7.94, -9.99, 17.01) touch=(10.38, -15.95, 61.03) -> (15.73, -13.94, 86.36) accepted=True\n7.14 s=2/1 cp=-1 p=(17.02, -15.04, 91.59) v=(5.02, -4.59, 19.77) surfing=False grounded=False contacts=\n7.65 s=2/1 cp=-1 p=(19.23, -16.66, 102.24) v=(5.37, -1.71, 21.43) surfing=False grounded=False contacts=\n8.16 s=3/1 cp=-1 p=(21.65, -16.10, 113.10) v=(4.83, 5.78, 19.73) surfing=True grounded=False contacts=3\ncheckpoint=0 airborne=True p=(22.56, -13.60, 117.66)\n8.67 s=3/2 cp=0 p=(23.18, -12.15, 121.48) v=(2.56, 3.67, 15.89) surfing=False grounded=False contacts=\n9.18 s=3/2 cp=0 p=(23.56, -12.87, 127.55) v=(-3.41, -6.53, 2.74) surfing=False grounded=False contacts=\n9.69 s=4/0 cp=0 p=(23.09, -14.38, 129.57) v=(1.55, -2.00, 4.25) surfing=False grounded=True contacts=\n10.20 s=4/0 cp=0 p=(24.03, -14.38, 131.66) v=(1.94, -2.00, 4.06) surfing=False grounded=True contacts=\n10.71 s=4/0 cp=0 p=(25.03, -14.38, 133.73) v=(1.95, -2.00, 4.05) surfing=False grounded=True contacts=\n11.22 s=4/0 cp=0 p=(26.02, -14.38, 135.80) v=(1.95, -2.00, 4.05) surfing=False grounded=True contacts=\n11.73 s=4/0 cp=0 p=(26.96, -14.19, 137.90) v=(0.13, 5.72, 4.57) surfing=False grounded=False contacts=\n12.24 s=4/1 cp=0 p=(27.42, -13.88, 140.14) v=(0.15, -4.48, 4.56) surfing=False grounded=False contacts=\n12.75 s=4/1 cp=0 p=(27.99, -16.10, 143.04) v=(1.71, -2.50, 7.87) surfing=True grounded=False contacts=4\n13.26 s=4/1 cp=0 p=(29.04, -17.51, 147.69) v=(2.30, -3.43, 10.55) surfing=True grounded=False contacts=4\n13.77 s=4/1 cp=0 p=(30.60, -19.34, 153.68) v=(4.50, -4.54, 12.79) surfing=False grounded=False contacts=\n14.28 s=4/1 cp=0 p=(32.99, -21.61, 160.92) v=(5.93, -4.91, 15.40) surfing=True grounded=False contacts=4\n14.79 s=4/1 cp=0 p=(36.82, -24.36, 169.14) v=(9.40, -5.79, 16.83) surfing=True grounded=False contacts=4\n15.30 s=4/1 cp=0 p=(42.72, -27.54, 177.79) v=(14.21, -6.78, 16.87) surfing=True grounded=False contacts=4\n15.81 s=4/1 cp=0 p=(51.26, -31.15, 186.06) v=(19.74, -7.67, 15.12) surfing=True grounded=False contacts=4\n16.32 s=4/1 cp=0 p=(62.65, -34.54, 193.10) v=(25.17, -5.73, 11.86) surfing=True grounded=False contacts=4\n16.83 s=4/1 cp=0 p=(76.22, -35.89, 198.50) v=(27.84, -1.49, 8.61) surfing=False grounded=False contacts=\nTAKEOFF room=1 5->6 p=(86.61, -35.91, 201.89) v=(27.79, 0.26, 8.68)\n17.34 s=5/1 cp=0 p=(90.34, -35.67, 203.01) v=(27.27, 3.74, 8.20) surfing=True grounded=False contacts=5\nTAKEOFF room=1 5->6 p=(92.72, -35.10, 203.73) v=(25.76, 8.02, 7.58)\n17.85 s=6/1 cp=0 p=(103.45, -33.50, 207.21) v=(25.78, -0.38, 7.53) surfing=False grounded=False contacts=\n18.36 s=6/1 cp=0 p=(116.47, -36.29, 211.45) v=(25.78, -10.58, 7.53) surfing=False grounded=False contacts=\n18.87 s=6/1 cp=0 p=(129.57, -44.29, 215.39) v=(26.14, -20.78, 6.14) surfing=False grounded=False contacts=\nCATCH room=1 5->6 gap=24.00 authoredDY=-12.00 source=True catch=True free=1.680s ticks=111 gapTicks=58 dY=-14.67 surfaceDY=-14.68 min/maxY=-49.77/-33.49 interrupted=False takeoff=(92.72, -35.10, 203.73) v=(25.76, 8.02, 7.58) catch=(135.83, -49.77, 216.94) v=(29.25, -18.35, -4.66) touch=(92.60, -34.99, 203.97) -> (135.76, -49.67, 217.17) accepted=True\n19.38 s=7/1 cp=0 p=(143.35, -50.17, 218.46) v=(28.21, -0.25, 5.18) surfing=True grounded=False contacts=7\ncheckpoint=1 airborne=True p=(153.05, -47.88, 220.36)\n19.89 s=7/2 cp=1 p=(155.85, -46.20, 221.07) v=(20.76, 11.09, 5.23) surfing=False grounded=False contacts=\n20.40 s=7/2 cp=1 p=(163.53, -43.14, 223.60) v=(0.83, 0.89, 4.33) surfing=False grounded=False contacts=\n20.91 s=7/2 cp=1 p=(164.00, -45.29, 225.73) v=(1.64, -9.31, 2.89) surfing=False grounded=False contacts=\n21.42 s=8/0 cp=1 p=(165.26, -47.85, 225.80) v=(4.49, -2.00, -0.37) surfing=False grounded=True contacts=\n21.93 s=8/0 cp=1 p=(167.54, -47.85, 225.59) v=(4.48, -2.00, -0.44) surfing=False grounded=True contacts=\n22.44 s=8/0 cp=1 p=(169.82, -47.85, 225.36) v=(4.48, -2.00, -0.44) surfing=False grounded=True contacts=\n22.95 s=8/0 cp=1 p=(172.11, -47.85, 225.14) v=(4.48, -2.00, -0.44) surfing=False grounded=True contacts=\n23.46 s=8/0 cp=1 p=(174.40, -47.43, 225.05) v=(4.57, 4.82, 0.18) surfing=False grounded=False contacts=\n23.97 s=8/1 cp=1 p=(176.64, -47.57, 225.54) v=(4.56, -5.38, 0.15) surfing=False grounded=False contacts=\n24.48 s=8/1 cp=1 p=(179.74, -51.42, 226.26) v=(10.25, -8.06, 1.47) surfing=False grounded=False contacts=\n24.99 s=8/1 cp=1 p=(186.04, -56.32, 227.87) v=(14.71, -11.91, 3.37) surfing=False grounded=False contacts=\n25.50 s=8/1 cp=1 p=(194.47, -63.00, 230.90) v=(18.44, -15.28, 8.29) surfing=True grounded=False contacts=8\n26.01 s=8/1 cp=1 p=(205.36, -68.37, 236.64) v=(24.89, -2.46, 13.32) surfing=True grounded=False contacts=8\nTAKEOFF room=2 9->10 p=(211.60, -68.38, 240.23) v=(24.62, 0.22, 13.72)\nTAKEOFF room=2 9->10 p=(212.34, -68.36, 240.64) v=(24.59, 0.49, 13.70)\n26.52 s=9/1 cp=1 p=(217.73, -67.47, 243.59) v=(22.69, 8.21, 12.00) surfing=True grounded=False contacts=9\nTAKEOFF room=2 9->10 p=(220.97, -65.40, 245.39) v=(16.39, 15.50, 9.95)\nTAKEOFF room=2 9->10 p=(222.13, -64.18, 246.05) v=(14.11, 16.85, 8.34)\n27.03 s=10/1 cp=1 p=(225.96, -60.36, 248.26) v=(13.79, 11.45, 8.89) surfing=False grounded=False contacts=\n27.54 s=10/1 cp=1 p=(233.20, -57.12, 252.44) v=(13.79, 1.25, 8.89) surfing=False grounded=False contacts=\n28.05 s=10/1 cp=1 p=(240.43, -59.09, 256.62) v=(13.79, -8.95, 8.89) surfing=False grounded=False contacts=\nCATCH room=2 9->10 gap=20.00 authoredDY=4.00 source=True catch=True free=1.440s ticks=95 gapTicks=79 dY=3.59 surfaceDY=3.55 min/maxY=-64.18/-57.08 interrupted=False takeoff=(222.13, -64.18, 246.05) v=(14.11, 16.85, 8.34) catch=(242.56, -60.60, 257.85) v=(16.50, -8.87, 5.55) touch=(222.15, -64.04, 246.32) -> (242.40, -60.49, 258.05) accepted=True\nTAKEOFF room=2 10->11 p=(243.90, -60.82, 258.74) v=(15.66, -3.74, 9.70)\nTAKEOFF room=2 10->11 p=(244.37, -60.93, 259.02) v=(15.75, -3.87, 9.75)\nTAKEOFF room=2 10->11 p=(244.84, -61.05, 259.31) v=(15.82, -3.96, 9.84)\nTAKEOFF room=2 10->11 p=(245.32, -61.16, 259.61) v=(15.88, -4.03, 9.95)\nTAKEOFF room=2 10->11 p=(245.79, -61.28, 259.91) v=(15.93, -4.08, 10.08)\nTAKEOFF room=2 10->11 p=(246.27, -61.39, 260.21) v=(15.98, -4.11, 10.22)\nTAKEOFF room=2 10->11 p=(246.98, -61.55, 260.69) v=(15.95, -3.94, 10.65)\nTAKEOFF room=2 10->11 p=(247.46, -61.67, 261.01) v=(16.01, -4.06, 10.74)\nTAKEOFF room=2 10->11 p=(247.94, -61.78, 261.33) v=(16.06, -4.14, 10.86)\n28.56 s=10/1 cp=1 p=(248.19, -61.85, 261.48) v=(16.50, -4.44, 10.21) surfing=False grounded=False contacts=\nTAKEOFF room=2 10->11 p=(248.42, -61.90, 261.65) v=(16.09, -4.19, 11.01)\nTAKEOFF room=2 10->11 p=(249.14, -62.06, 262.17) v=(16.04, -4.03, 11.45)\nTAKEOFF room=2 10->11 p=(249.62, -62.18, 262.51) v=(16.09, -4.15, 11.55)\nTAKEOFF room=2 10->11 p=(250.10, -62.30, 262.85) v=(16.12, -4.23, 11.69)\nTAKEOFF room=2 10->11 p=(250.58, -62.42, 263.20) v=(16.22, -4.20, 11.75)\nTAKEOFF room=2 10->11 p=(251.07, -62.54, 263.56) v=(16.22, -4.18, 11.95)\nTAKEOFF room=2 10->11 p=(251.55, -62.67, 263.93) v=(15.64, -4.74, 12.74)\nTAKEOFF room=2 10->11 p=(252.26, -62.84, 264.49) v=(16.24, -4.32, 12.38)\nTAKEOFF room=2 10->11 p=(252.75, -62.96, 264.87) v=(16.25, -4.25, 12.57)\nTAKEOFF room=2 10->11 p=(253.23, -63.08, 265.25) v=(16.15, -4.30, 12.87)\nTAKEOFF room=2 10->11 p=(253.71, -63.20, 265.64) v=(16.22, -4.27, 12.97)\nTAKEOFF room=2 10->11 p=(254.43, -63.34, 266.24) v=(16.26, -3.83, 13.28)\nTAKEOFF room=2 10->11 p=(255.15, -63.46, 266.86) v=(16.07, -3.60, 13.80)\nTAKEOFF room=2 10->11 p=(256.10, -63.58, 267.70) v=(16.30, -2.50, 13.91)\n29.07 s=10/1 cp=1 p=(256.35, -63.62, 267.90) v=(16.73, -2.80, 13.41) surfing=False grounded=False contacts=\nTAKEOFF room=2 10->11 p=(256.82, -63.64, 268.34) v=(16.31, -1.90, 14.06)\nTAKEOFF room=2 10->11 p=(257.54, -63.68, 268.99) v=(16.27, -1.30, 14.19)\nTAKEOFF room=2 10->11 p=(258.02, -63.70, 269.42) v=(16.32, -1.16, 14.18)\nTAKEOFF room=2 10->11 p=(259.47, -63.73, 270.72) v=(16.27, -0.57, 14.25)\n29.58 s=11/1 cp=1 p=(264.54, -64.90, 275.27) v=(16.60, -6.87, 13.87) surfing=False grounded=False contacts=\n30.09 s=11/1 cp=1 p=(272.74, -71.01, 282.65) v=(16.59, -17.07, 13.90) surfing=False grounded=False contacts=\nCATCH room=2 10->11 gap=16.00 authoredDY=-8.00 source=True catch=True free=0.900s ticks=59 gapTicks=47 dY=-8.55 surfaceDY=-8.57 min/maxY=-72.28/-63.73 interrupted=False takeoff=(259.47, -63.73, 270.72) v=(16.27, -0.57, 14.25) catch=(273.93, -72.28, 283.75) v=(21.08, -13.41, 10.29) touch=(259.31, -63.61, 270.91) -> (273.74, -72.18, 283.91) accepted=True\n30.60 s=11/1 cp=1 p=(281.52, -74.02, 291.12) v=(18.07, -4.78, 17.53) surfing=False grounded=False contacts=\n31.11 s=12/1 cp=1 p=(290.37, -74.64, 300.82) v=(17.65, 0.35, 18.88) surfing=True grounded=False contacts=12\ncheckpoint=2 airborne=True p=(295.43, -72.58, 306.21)\n31.62 s=12/2 cp=2 p=(297.83, -70.48, 309.11) v=(12.27, 8.80, 14.82) surfing=False grounded=False contacts=\n32.13 s=12/2 cp=2 p=(302.41, -68.60, 315.37) v=(-1.79, -1.40, 3.97) surfing=False grounded=False contacts=\n32.64 s=12/2 cp=2 p=(301.72, -71.91, 317.37) v=(1.89, -11.60, 2.11) surfing=False grounded=False contacts=\n33.15 s=13/0 cp=2 p=(303.40, -72.43, 318.66) v=(3.88, -2.00, 2.29) surfing=False grounded=True contacts=\n33.66 s=13/0 cp=2 p=(305.39, -72.43, 319.81) v=(3.90, -2.00, 2.24) surfing=False grounded=True contacts=\n34.17 s=13/0 cp=2 p=(307.38, -72.43, 320.95) v=(3.91, -2.00, 2.24) surfing=False grounded=True contacts=\n34.68 s=13/0 cp=2 p=(309.37, -72.43, 322.09) v=(3.91, -2.00, 2.24) surfing=False grounded=True contacts=\n35.19 s=13/0 cp=2 p=(311.10, -71.45, 323.58) v=(2.39, 0.92, 3.90) surfing=False grounded=False contacts=\n35.70 s=13/1 cp=2 p=(312.63, -73.58, 325.28) v=(2.41, -9.28, 3.87) surfing=False grounded=False contacts=\n36.21 s=13/1 cp=2 p=(315.25, -74.71, 328.26) v=(6.36, -2.87, 6.82) surfing=True grounded=False contacts=13\n36.72 s=13/1 cp=2 p=(318.99, -76.29, 332.17) v=(8.56, -3.63, 8.52) surfing=True grounded=False contacts=13\n37.23 s=13/1 cp=2 p=(324.00, -78.30, 336.79) v=(11.34, -4.44, 9.56) surfing=True grounded=False contacts=13\n37.74 s=13/1 cp=2 p=(330.61, -80.75, 341.69) v=(14.55, -5.38, 9.77) surfing=True grounded=False contacts=13\n38.25 s=13/1 cp=2 p=(339.12, -83.62, 346.13) v=(18.83, -6.09, 7.58) surfing=True grounded=False contacts=13\n38.76 s=13/1 cp=2 p=(349.66, -86.81, 349.26) v=(22.75, -6.28, 4.17) surfing=True grounded=False contacts=13\n39.27 s=13/1 cp=2 p=(362.00, -88.81, 350.59) v=(25.33, -2.28, 0.18) surfing=False grounded=False contacts=\n39.78 s=14/1 cp=2 p=(374.98, -89.00, 350.72) v=(25.46, -0.04, -0.19) surfing=True grounded=False contacts=14\nTAKEOFF room=3 14->15 p=(376.50, -88.98, 350.70) v=(25.42, 0.32, -0.33)\nTAKEOFF room=3 14->15 p=(377.27, -88.97, 350.68) v=(25.37, 0.63, -0.51)\nTAKEOFF room=3 14->15 p=(378.40, -88.92, 350.65) v=(25.23, 1.52, -0.42)\nTAKEOFF room=3 14->15 p=(382.45, -88.27, 350.56) v=(23.51, 6.48, -0.51)\n40.29 s=15/1 cp=2 p=(387.39, -87.35, 350.56) v=(23.51, 2.28, -0.80) surfing=False grounded=False contacts=\n40.80 s=15/1 cp=2 p=(399.37, -88.79, 350.56) v=(23.51, -7.92, -0.80) surfing=False grounded=False contacts=\n41.31 s=15/1 cp=2 p=(411.36, -95.43, 350.56) v=(23.51, -18.12, -0.80) surfing=False grounded=False contacts=\nCATCH room=3 14->15 gap=26.00 authoredDY=-14.00 source=True catch=True free=1.635s ticks=108 gapTicks=72 dY=-15.84 surfaceDY=-15.85 min/maxY=-104.11/-87.22 interrupted=False takeoff=(382.45, -88.27, 350.56) v=(23.51, 6.48, -0.51) catch=(420.88, -104.11, 350.58) v=(24.71, -18.54, -10.17) touch=(382.41, -88.15, 350.82) -> (420.85, -104.01, 350.82) accepted=True\n41.82 s=15/1 cp=2 p=(423.60, -104.68, 350.47) v=(27.07, -5.46, -0.77) surfing=True grounded=False contacts=15\n42.33 s=16/1 cp=2 p=(437.76, -105.13, 350.58) v=(27.87, 0.59, -0.80) surfing=False grounded=False contacts=\ncheckpoint=3 airborne=True p=(447.90, -101.43, 350.54)\n42.84 s=16/2 cp=3 p=(449.85, -100.59, 350.62) v=(21.62, 8.39, 0.80) surfing=False grounded=False contacts=\n43.35 s=16/2 cp=3 p=(456.49, -98.91, 351.74) v=(1.86, -1.81, 4.01) surfing=False grounded=False contacts=\n43.86 s=16/2 cp=3 p=(457.50, -102.43, 353.34) v=(1.06, -12.01, 1.57) surfing=False grounded=False contacts=\n44.37 s=17/0 cp=3 p=(459.43, -102.80, 353.00) v=(4.28, -2.00, -1.39) surfing=False grounded=True contacts=\n44.88 s=17/0 cp=3 p=(461.61, -102.80, 352.27) v=(4.26, -2.00, -1.46) surfing=False grounded=True contacts=\n45.39 s=17/0 cp=3 p=(463.78, -102.80, 351.52) v=(4.26, -2.00, -1.46) surfing=False grounded=True contacts=\n45.90 s=17/0 cp=3 p=(465.95, -102.80, 350.78) v=(4.26, -2.00, -1.46) surfing=False grounded=True contacts=\n46.41 s=17/0 cp=3 p=(468.21, -101.81, 350.48) v=(4.51, 0.62, -0.76) surfing=False grounded=False contacts=\n46.92 s=17/1 cp=3 p=(470.50, -104.09, 350.49) v=(4.49, -9.58, -0.80) surfing=False grounded=False contacts=\n47.43 s=17/1 cp=3 p=(475.16, -108.02, 350.54) v=(12.45, -8.95, 0.24) surfing=True grounded=False contacts=17\n47.94 s=17/1 cp=3 p=(482.67, -113.55, 350.54) v=(17.32, -12.53, 0.24) surfing=True grounded=False contacts=17\n48.45 s=17/1 cp=3 p=(492.70, -120.81, 350.54) v=(22.64, -15.33, -0.80) surfing=False grounded=False contacts=\n48.96 s=18/1 cp=3 p=(506.41, -123.35, 350.73) v=(28.41, -0.65, -0.80) surfing=True grounded=False contacts=18\nTAKEOFF room=4 18->19 p=(508.53, -123.33, 350.73) v=(28.34, 0.33, -0.58)\nTAKEOFF room=4 18->19 p=(509.38, -123.32, 350.71) v=(28.31, 0.56, -0.39)\n49.47 s=18/1 cp=3 p=(519.64, -120.19, 350.51) v=(19.12, 15.78, -0.37) surfing=True grounded=False contacts=18\nTAKEOFF room=4 18->19 p=(520.96, -118.94, 350.50) v=(16.78, 16.65, 0.80)\n49.98 s=19/1 cp=3 p=(528.26, -113.59, 350.49) v=(16.78, 7.95, -0.80) surfing=False grounded=False contacts=\n50.49 s=19/1 cp=3 p=(536.82, -112.14, 350.49) v=(16.78, -2.25, -0.80) surfing=False grounded=False contacts=\n51.00 s=19/1 cp=3 p=(545.38, -115.88, 350.49) v=(16.78, -12.45, -0.80) surfing=False grounded=False contacts=\nCATCH room=4 18->19 gap=20.00 authoredDY=4.00 source=True catch=True free=1.470s ticks=97 gapTicks=77 dY=2.98 surfaceDY=2.95 min/maxY=-118.94/-112.01 interrupted=False takeoff=(520.96, -118.94, 350.50) v=(16.78, 16.65, 0.80) catch=(545.63, -115.96, 350.50) v=(17.53, -9.61, -3.67) touch=(521.11, -118.80, 350.73) -> (545.59, -115.85, 350.74) accepted=True\n51.51 s=19/1 cp=3 p=(555.41, -118.21, 350.56) v=(20.99, -5.51, -0.80) surfing=False grounded=False contacts=\n52.02 s=19/1 cp=3 p=(566.70, -119.68, 350.65) v=(22.80, -0.53, -0.26) surfing=True grounded=False contacts=19\n52.53 s=20/1 cp=3 p=(578.13, -118.86, 350.54) v=(20.54, 6.71, -0.53) surfing=True grounded=False contacts=20\n53.04 s=20/2 cp=3 p=(586.79, -114.67, 350.78) v=(16.33, 4.15, 0.80) surfing=False grounded=False contacts=\n53.55 s=20/2 cp=3 p=(592.68, -115.15, 351.71) v=(1.98, -6.05, 3.86) surfing=False grounded=False contacts=",
+            "passed": true
+        },
+        {
+            "name": "Start 5 launches using unmodified movement physics",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 5 bell collects cards and reseats the table",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 2 departs under real card rules",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Earned checkpoint 0 accepts R",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Earned checkpoint 0 restores position and route",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Earned checkpoint 1 accepts R",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Earned checkpoint 1 restores position and route",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Earned checkpoint 2 accepts R",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Earned checkpoint 2 restores position and route",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Earned checkpoint 3 accepts R",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Earned checkpoint 3 restores position and route",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 2 flies across room 0 gap and physically surfs its catch",
+            "detail": "room=0 1->2 gap=20.00 authoredDY=3.00 source=True catch=True free=1.545s ticks=102 gapTicks=76 dY=1.81 surfaceDY=1.77 min/maxY=-16.05/-9.20 interrupted=False takeoff=(4.27, -16.05, 62.28) v=(3.74, 16.56, 16.75) catch=(9.77, -14.25, 88.21) v=(-1.37, -11.27, 18.49) touch=(4.52, -15.91, 62.38) -> (10.00, -14.14, 88.13)",
+            "passed": true
+        },
+        {
+            "name": "Start 2 flies across room 1 gap and physically surfs its catch",
+            "detail": "room=1 5->6 gap=24.00 authoredDY=-12.00 source=True catch=True free=1.680s ticks=111 gapTicks=58 dY=-14.70 surfaceDY=-14.71 min/maxY=-49.84/-33.60 interrupted=False takeoff=(90.83, -35.14, 209.75) v=(25.47, 7.86, 8.51) catch=(133.95, -49.84, 222.98) v=(24.34, -18.59, 16.98) touch=(90.87, -35.02, 209.49) -> (133.99, -49.73, 222.74)",
+            "passed": true
+        },
+        {
+            "name": "Start 2 flies across room 2 gap and physically surfs its catch",
+            "detail": "room=2 9->10 gap=20.00 authoredDY=4.00 source=True catch=True free=1.380s ticks=91 gapTicks=79 dY=3.54 surfaceDY=3.50 min/maxY=-64.01/-57.39 interrupted=False takeoff=(219.07, -64.01, 251.72) v=(14.65, 16.28, 7.53) catch=(238.72, -60.47, 263.07) v=(13.03, -8.42, 11.49) touch=(219.31, -63.87, 251.60) -> (238.81, -60.37, 262.85)",
+            "passed": true
+        },
+        {
+            "name": "Start 2 flies across room 2 gap and physically surfs its catch",
+            "detail": "room=2 10->11 gap=16.00 authoredDY=-8.00 source=True catch=True free=0.915s ticks=60 gapTicks=47 dY=-8.63 surfaceDY=-8.64 min/maxY=-72.35/-63.73 interrupted=False takeoff=(255.35, -63.73, 275.27) v=(15.92, -0.50, 14.64) catch=(270.05, -72.35, 288.52) v=(11.65, -14.27, 20.45) touch=(255.52, -63.61, 275.08) -> (270.19, -72.25, 288.32)",
+            "passed": true
+        },
+        {
+            "name": "Start 2 flies across room 3 gap and physically surfs its catch",
+            "detail": "room=3 14->15 gap=26.00 authoredDY=-14.00 source=True catch=True free=1.635s ticks=108 gapTicks=72 dY=-15.82 surfaceDY=-15.83 min/maxY=-104.14/-87.27 interrupted=False takeoff=(382.34, -88.32, 356.89) v=(23.61, 6.50, 0.52) catch=(420.95, -104.14, 356.87) v=(24.81, -18.53, 10.15) touch=(382.30, -88.21, 356.63) -> (420.92, -104.04, 356.63)",
+            "passed": true
+        },
+        {
+            "name": "Start 2 flies across room 4 gap and physically surfs its catch",
+            "detail": "room=4 18->19 gap=20.00 authoredDY=4.00 source=True catch=True free=1.470s ticks=97 gapTicks=77 dY=2.95 surfaceDY=2.91 min/maxY=-118.96/-112.01 interrupted=False takeoff=(520.97, -118.96, 356.95) v=(16.87, 16.67, -0.80) catch=(545.77, -116.01, 356.95) v=(17.62, -9.61, 3.66) touch=(521.11, -118.82, 356.72) -> (545.73, -115.91, 356.70)",
+            "passed": true
+        },
+        {
+            "name": "Start 2 traverses all spaces and ordered passages without unintended falls",
+            "detail": "seconds=53.265 falls=4 requested=4\n0.00 s=20/2 cp=-1 p=(-0.75, 0.03, -0.70) v=(0.00, 0.00, 0.00) surfing=False grounded=False contacts=\n0.51 s=0/0 cp=-1 p=(-0.75, 0.99, 1.43) v=(0.00, -1.18, 4.50) surfing=False grounded=False contacts=\n1.02 s=0/0 cp=-1 p=(-0.75, 0.36, 2.74) v=(0.00, 5.72, 4.50) surfing=False grounded=False contacts=\n1.53 s=0/0 cp=-1 p=(-0.75, 0.67, 4.90) v=(0.00, -4.48, 0.80) surfing=False grounded=False contacts=\n2.04 s=0/0 cp=-1 p=(-2.43, 0.37, 5.77) v=(-4.12, -2.00, 1.82) surfing=False grounded=True contacts=\n2.55 s=0/0 cp=-1 p=(-3.12, 1.34, 7.79) v=(-1.12, -1.18, 4.43) surfing=False grounded=False contacts=\n3.06 s=0/1 cp=-1 p=(-3.13, -1.40, 10.21) v=(-0.79, -6.25, 7.99) surfing=False grounded=False contacts=\n3.57 s=0/1 cp=-1 p=(-3.08, -5.11, 15.63) v=(-0.54, -9.10, 13.05) surfing=False grounded=False contacts=\n4.08 s=0/1 cp=-1 p=(-2.72, -10.45, 23.46) v=(0.53, -12.06, 17.86) surfing=False grounded=False contacts=\n4.59 s=0/1 cp=-1 p=(-1.47, -17.25, 33.61) v=(2.79, -14.66, 22.61) surfing=False grounded=False contacts=\n5.10 s=1/1 cp=-1 p=(1.30, -20.03, 46.95) v=(5.10, -1.06, 27.83) surfing=True grounded=False contacts=1\nTAKEOFF room=0 1->2 p=(2.08, -20.01, 50.69) v=(5.50, 0.23, 27.68)\n5.61 s=1/1 cp=-1 p=(3.87, -17.70, 60.34) v=(4.10, 13.68, 20.98) surfing=True grounded=False contacts=1\nTAKEOFF room=0 1->2 p=(4.27, -16.05, 62.28) v=(3.74, 16.56, 16.75)\n6.12 s=2/1 cp=-1 p=(5.71, -10.99, 69.08) v=(2.78, 8.46, 16.95) surfing=False grounded=False contacts=\n6.63 s=2/1 cp=-1 p=(7.53, -9.27, 77.64) v=(2.78, -1.74, 16.95) surfing=False grounded=False contacts=\n7.14 s=2/1 cp=-1 p=(9.35, -12.76, 86.20) v=(2.78, -11.94, 16.95) surfing=False grounded=False contacts=\nCATCH room=0 1->2 gap=20.00 authoredDY=3.00 source=True catch=True free=1.545s ticks=102 gapTicks=76 dY=1.81 surfaceDY=1.77 min/maxY=-16.05/-9.20 interrupted=False takeoff=(4.27, -16.05, 62.28) v=(3.74, 16.56, 16.75) catch=(9.77, -14.25, 88.21) v=(-1.37, -11.27, 18.49) touch=(4.52, -15.91, 62.38) -> (10.00, -14.14, 88.13) accepted=True\n7.65 s=2/1 cp=-1 p=(11.47, -15.73, 95.77) v=(4.32, -4.51, 20.39) surfing=True grounded=False contacts=2\n8.16 s=3/1 cp=-1 p=(13.84, -16.71, 106.59) v=(3.82, -0.67, 21.83) surfing=True grounded=False contacts=3\n8.67 s=3/1 cp=-1 p=(15.91, -14.87, 117.00) v=(3.13, 11.00, 15.81) surfing=True grounded=False contacts=3\ncheckpoint=0 airborne=True p=(16.07, -14.40, 117.71)\n9.58 s=3/2 cp=0 p=(21.84, -14.38, 129.31) v=(0.00, 0.00, 0.00) surfing=False grounded=False contacts=\n10.10 s=4/0 cp=0 p=(21.57, -14.38, 131.48) v=(-0.58, -2.00, 4.46) surfing=False grounded=True contacts=\n10.61 s=4/0 cp=0 p=(21.27, -14.38, 133.76) v=(-0.58, -2.00, 4.46) surfing=False grounded=True contacts=\n11.12 s=4/0 cp=0 p=(20.97, -14.38, 136.03) v=(-0.58, -2.00, 4.46) surfing=False grounded=True contacts=\n11.63 s=4/0 cp=0 p=(20.68, -14.38, 138.31) v=(-0.58, -2.00, 4.46) surfing=False grounded=True contacts=\n12.14 s=4/0 cp=0 p=(20.93, -13.38, 140.58) v=(0.19, -0.58, 4.57) surfing=False grounded=False contacts=\n12.65 s=4/1 cp=0 p=(21.48, -15.69, 142.89) v=(1.05, -2.70, 6.77) surfing=True grounded=False contacts=4\n13.16 s=4/1 cp=0 p=(22.40, -16.88, 147.01) v=(2.07, -2.99, 9.50) surfing=True grounded=False contacts=4\n13.67 s=4/1 cp=0 p=(23.72, -18.49, 152.46) v=(3.08, -3.63, 12.05) surfing=True grounded=False contacts=4\n14.18 s=4/1 cp=0 p=(25.71, -20.44, 159.16) v=(4.87, -4.39, 14.30) surfing=True grounded=False contacts=4\n14.69 s=4/1 cp=0 p=(28.73, -22.76, 166.92) v=(7.27, -5.42, 16.21) surfing=True grounded=False contacts=4\n15.20 s=4/1 cp=0 p=(33.35, -25.44, 175.47) v=(10.26, -6.10, 17.71) surfing=False grounded=False contacts=\n15.71 s=4/1 cp=0 p=(40.16, -28.47, 184.19) v=(15.35, -6.48, 17.14) surfing=True grounded=False contacts=4\n16.22 s=4/1 cp=0 p=(49.43, -31.85, 192.31) v=(20.16, -7.32, 15.61) surfing=False grounded=False contacts=\n16.73 s=4/1 cp=0 p=(61.24, -34.82, 199.11) v=(25.34, -4.84, 11.99) surfing=True grounded=False contacts=4\n17.24 s=4/1 cp=0 p=(74.87, -35.98, 204.40) v=(27.45, -1.10, 9.58) surfing=True grounded=False contacts=4\nTAKEOFF room=1 5->6 p=(85.23, -35.99, 207.81) v=(27.53, 0.75, 9.14)\n17.75 s=5/1 cp=0 p=(88.89, -35.65, 209.08) v=(26.64, 4.47, 9.34) surfing=True grounded=False contacts=5\nTAKEOFF room=1 5->6 p=(90.83, -35.14, 209.75) v=(25.47, 7.86, 8.51)\n18.26 s=6/1 cp=0 p=(101.95, -33.61, 213.35) v=(25.79, -0.84, 7.54) surfing=False grounded=False contacts=\n18.77 s=6/1 cp=0 p=(114.97, -36.64, 217.58) v=(25.79, -11.04, 7.53) surfing=False grounded=False contacts=\n19.27 s=6/1 cp=0 p=(128.09, -44.87, 221.52) v=(26.16, -21.24, 6.12) surfing=False grounded=False contacts=\nCATCH room=1 5->6 gap=24.00 authoredDY=-12.00 source=True catch=True free=1.680s ticks=111 gapTicks=58 dY=-14.70 surfaceDY=-14.71 min/maxY=-49.84/-33.60 interrupted=False takeoff=(90.83, -35.14, 209.75) v=(25.47, 7.86, 8.51) catch=(133.95, -49.84, 222.98) v=(24.34, -18.59, 16.98) touch=(90.87, -35.02, 209.49) -> (133.99, -49.73, 222.74) accepted=True\n19.79 s=7/1 cp=0 p=(141.86, -50.26, 224.80) v=(28.24, -0.10, 5.18) surfing=False grounded=False contacts=\ncheckpoint=1 airborne=True p=(152.55, -47.41, 227.17)\n21.06 s=7/2 cp=1 p=(164.28, -47.85, 226.21) v=(0.00, 0.00, 0.00) surfing=False grounded=False contacts=\n21.57 s=8/0 cp=1 p=(166.15, -47.85, 227.34) v=(3.84, -2.00, 2.35) surfing=False grounded=True contacts=\n22.08 s=8/0 cp=1 p=(168.11, -47.85, 228.54) v=(3.84, -2.00, 2.35) surfing=False grounded=True contacts=\n22.59 s=8/0 cp=1 p=(170.07, -47.85, 229.74) v=(3.84, -2.00, 2.35) surfing=False grounded=True contacts=\n23.10 s=8/0 cp=1 p=(172.03, -47.85, 230.93) v=(3.84, -2.00, 2.35) surfing=False grounded=True contacts=\n23.61 s=8/0 cp=1 p=(174.20, -46.86, 231.62) v=(4.25, -0.58, 1.68) surfing=False grounded=False contacts=\n24.12 s=8/1 cp=1 p=(176.44, -49.75, 232.10) v=(4.22, -10.78, 1.73) surfing=False grounded=False contacts=\n24.63 s=8/1 cp=1 p=(181.44, -53.97, 233.19) v=(12.72, -10.23, 3.08) surfing=True grounded=False contacts=8\n25.14 s=8/1 cp=1 p=(188.88, -60.28, 235.45) v=(16.87, -14.63, 5.26) surfing=False grounded=False contacts=\n25.65 s=8/1 cp=1 p=(198.53, -67.67, 239.72) v=(22.86, -10.96, 12.39) surfing=True grounded=False contacts=8\nTAKEOFF room=2 9->10 p=(209.00, -68.35, 245.63) v=(23.87, 0.40, 14.34)\n26.16 s=9/1 cp=1 p=(210.78, -68.28, 246.71) v=(23.64, 1.88, 14.30) surfing=True grounded=False contacts=9\nTAKEOFF room=2 9->10 p=(219.07, -64.01, 251.72) v=(14.65, 16.28, 7.53)\n26.67 s=10/1 cp=1 p=(220.35, -62.63, 252.46) v=(14.65, 14.48, 7.53) surfing=False grounded=False contacts=\n27.18 s=10/1 cp=1 p=(227.61, -57.85, 256.66) v=(14.65, 4.28, 7.53) surfing=False grounded=False contacts=\n27.69 s=10/1 cp=1 p=(234.88, -58.27, 260.85) v=(14.65, -5.92, 7.53) surfing=False grounded=False contacts=\nCATCH room=2 9->10 gap=20.00 authoredDY=4.00 source=True catch=True free=1.380s ticks=91 gapTicks=79 dY=3.54 surfaceDY=3.50 min/maxY=-64.01/-57.39 interrupted=False takeoff=(219.07, -64.01, 251.72) v=(14.65, 16.28, 7.53) catch=(238.72, -60.47, 263.07) v=(13.03, -8.42, 11.49) touch=(219.31, -63.87, 251.60) -> (238.81, -60.37, 262.85) accepted=True\nTAKEOFF room=2 10->11 p=(239.89, -60.67, 263.70) v=(15.72, -4.12, 9.29)\nTAKEOFF room=2 10->11 p=(240.36, -60.78, 263.98) v=(15.78, -4.19, 9.42)\nTAKEOFF room=2 10->11 p=(240.84, -60.90, 264.26) v=(15.75, -4.12, 9.74)\nTAKEOFF room=2 10->11 p=(241.31, -61.02, 264.55) v=(15.84, -4.09, 9.84)\nTAKEOFF room=2 10->11 p=(241.79, -61.14, 264.85) v=(15.91, -4.07, 9.96)\nTAKEOFF room=2 10->11 p=(242.26, -61.26, 265.15) v=(15.97, -4.08, 10.10)\n28.20 s=10/1 cp=1 p=(242.50, -61.32, 265.31) v=(15.54, -4.38, 10.78) surfing=False grounded=False contacts=\nTAKEOFF room=2 10->11 p=(242.74, -61.38, 265.45) v=(16.02, -4.10, 10.25)\nTAKEOFF room=2 10->11 p=(243.22, -61.50, 265.76) v=(16.16, -4.28, 10.21)\nTAKEOFF room=2 10->11 p=(243.70, -61.62, 266.07) v=(16.01, -4.22, 10.69)\nTAKEOFF room=2 10->11 p=(244.18, -61.75, 266.39) v=(16.07, -4.19, 10.83)\nTAKEOFF room=2 10->11 p=(244.66, -61.87, 266.72) v=(16.12, -4.19, 10.99)\nTAKEOFF room=2 10->11 p=(245.15, -61.99, 267.05) v=(16.15, -4.21, 11.16)\nTAKEOFF room=2 10->11 p=(245.63, -62.12, 267.39) v=(16.30, -4.43, 11.11)\nTAKEOFF room=2 10->11 p=(246.11, -62.25, 267.73) v=(16.08, -4.36, 11.66)\nTAKEOFF room=2 10->11 p=(246.60, -62.38, 268.08) v=(16.13, -4.33, 11.81)\nTAKEOFF room=2 10->11 p=(247.08, -62.50, 268.43) v=(16.16, -4.33, 11.98)\nTAKEOFF room=2 10->11 p=(247.56, -62.63, 268.80) v=(16.31, -4.55, 11.93)\nTAKEOFF room=2 10->11 p=(248.05, -62.76, 269.16) v=(16.07, -4.47, 12.48)\nTAKEOFF room=2 10->11 p=(248.53, -62.89, 269.54) v=(16.12, -4.43, 12.63)\nTAKEOFF room=2 10->11 p=(249.01, -63.02, 269.91) v=(16.13, -4.41, 12.83)\nTAKEOFF room=2 10->11 p=(249.75, -63.19, 270.49) v=(16.23, -3.97, 13.08)\nTAKEOFF room=2 10->11 p=(250.23, -63.31, 270.88) v=(16.27, -4.09, 13.19)\n28.71 s=10/1 cp=1 p=(250.71, -63.41, 271.28) v=(15.92, -3.82, 13.81) surfing=True grounded=False contacts=10\nTAKEOFF room=2 10->11 p=(250.96, -63.44, 271.48) v=(16.25, -3.58, 13.56)\nTAKEOFF room=2 10->11 p=(251.70, -63.55, 272.08) v=(16.20, -2.97, 13.90)\nTAKEOFF room=2 10->11 p=(252.44, -63.63, 272.70) v=(16.15, -2.29, 14.17)\nTAKEOFF room=2 10->11 p=(253.17, -63.67, 273.33) v=(16.09, -1.61, 14.37)\nTAKEOFF room=2 10->11 p=(255.35, -63.73, 275.27) v=(15.92, -0.50, 14.64)\n29.22 s=11/1 cp=1 p=(258.96, -64.34, 278.53) v=(15.54, -5.00, 15.07) surfing=False grounded=False contacts=\n29.73 s=11/1 cp=1 p=(267.16, -69.49, 285.91) v=(15.54, -15.20, 15.07) surfing=False grounded=False contacts=\nCATCH room=2 10->11 gap=16.00 authoredDY=-8.00 source=True catch=True free=0.915s ticks=60 gapTicks=47 dY=-8.63 surfaceDY=-8.64 min/maxY=-72.35/-63.73 interrupted=False takeoff=(255.35, -63.73, 275.27) v=(15.92, -0.50, 14.64) catch=(270.05, -72.35, 288.52) v=(11.65, -14.27, 20.45) touch=(255.52, -63.61, 275.08) -> (270.19, -72.25, 288.32) accepted=True\n30.24 s=11/1 cp=1 p=(275.88, -73.71, 294.07) v=(18.29, -5.02, 17.29) surfing=True grounded=False contacts=11\n30.75 s=12/1 cp=1 p=(284.86, -74.65, 303.75) v=(17.30, -0.16, 19.62) surfing=True grounded=False contacts=12\ncheckpoint=2 airborne=True p=(290.75, -72.56, 310.62)\n32.01 s=12/1 cp=2 p=(301.66, -72.43, 317.90) v=(0.00, 0.00, 0.00) surfing=False grounded=False contacts=\n32.52 s=13/0 cp=2 p=(302.48, -72.43, 319.86) v=(1.73, -2.00, 4.15) surfing=False grounded=True contacts=\n33.03 s=13/0 cp=2 p=(303.36, -72.43, 321.98) v=(1.73, -2.00, 4.16) surfing=False grounded=True contacts=\n33.54 s=13/0 cp=2 p=(304.24, -72.43, 324.10) v=(1.73, -2.00, 4.16) surfing=False grounded=True contacts=\n34.05 s=13/0 cp=2 p=(305.13, -72.43, 326.22) v=(1.73, -2.00, 4.16) surfing=False grounded=True contacts=\n34.56 s=13/0 cp=2 p=(306.47, -71.43, 328.06) v=(3.63, -0.28, 2.78) surfing=False grounded=False contacts=\n35.07 s=13/1 cp=2 p=(308.06, -73.72, 329.78) v=(3.78, -3.20, 5.42) surfing=True grounded=False contacts=13\n35.58 s=13/1 cp=2 p=(310.88, -74.84, 332.83) v=(5.87, -3.14, 7.50) surfing=False grounded=False contacts=\n36.09 s=13/1 cp=2 p=(314.72, -76.37, 336.78) v=(8.69, -3.62, 8.58) surfing=True grounded=False contacts=13\n36.60 s=13/1 cp=2 p=(319.77, -78.24, 341.42) v=(11.47, -4.12, 9.47) surfing=True grounded=False contacts=13\n37.11 s=13/1 cp=2 p=(326.30, -80.44, 346.33) v=(13.99, -5.36, 10.31) surfing=False grounded=False contacts=\n37.62 s=13/1 cp=2 p=(334.63, -83.02, 350.95) v=(17.82, -6.12, 9.10) surfing=False grounded=False contacts=\n38.13 s=13/1 cp=2 p=(344.89, -85.91, 354.48) v=(21.91, -6.04, 5.85) surfing=True grounded=False contacts=13\n38.64 s=13/1 cp=2 p=(356.90, -88.40, 356.39) v=(24.99, -4.23, 1.85) surfing=True grounded=False contacts=13\n39.15 s=13/1 cp=2 p=(369.87, -89.06, 356.77) v=(25.51, -0.45, 0.82) surfing=True grounded=False contacts=13\nTAKEOFF room=3 14->15 p=(376.38, -89.05, 356.78) v=(25.45, 0.28, 0.36)\nTAKEOFF room=3 14->15 p=(377.52, -89.02, 356.80) v=(25.36, 1.03, 0.23)\nTAKEOFF room=3 14->15 p=(378.66, -88.96, 356.82) v=(25.23, 1.78, 0.23)\nTAKEOFF room=3 14->15 p=(382.34, -88.32, 356.89) v=(23.61, 6.50, 0.52)\n39.66 s=14/1 cp=2 p=(382.69, -88.23, 356.87) v=(23.61, 6.20, -0.80) surfing=False grounded=False contacts=\n40.17 s=15/1 cp=2 p=(394.73, -87.67, 356.87) v=(23.61, -4.00, -0.80) surfing=False grounded=False contacts=\n40.68 s=15/1 cp=2 p=(406.78, -92.31, 356.87) v=(23.61, -14.20, -0.80) surfing=False grounded=False contacts=\n41.19 s=15/1 cp=2 p=(418.82, -102.15, 356.87) v=(23.61, -24.40, -0.80) surfing=False grounded=False contacts=\nCATCH room=3 14->15 gap=26.00 authoredDY=-14.00 source=True catch=True free=1.635s ticks=108 gapTicks=72 dY=-15.82 surfaceDY=-15.83 min/maxY=-104.14/-87.27 interrupted=False takeoff=(382.34, -88.32, 356.89) v=(23.61, 6.50, 0.52) catch=(420.95, -104.14, 356.87) v=(24.81, -18.53, 10.15) touch=(382.30, -88.21, 356.63) -> (420.92, -104.04, 356.63) accepted=True\n41.70 s=15/1 cp=2 p=(432.43, -105.17, 356.84) v=(28.04, -0.77, 0.80) surfing=True grounded=False contacts=15\n42.21 s=16/2 cp=2 p=(445.72, -102.51, 356.98) v=(21.29, 12.69, -0.80) surfing=False grounded=False contacts=\ncheckpoint=3 airborne=True p=(447.64, -101.45, 356.90)\n43.17 s=16/2 cp=3 p=(457.61, -102.80, 353.72) v=(0.00, 0.00, 0.00) surfing=False grounded=False contacts=\n43.68 s=17/0 cp=3 p=(459.68, -102.80, 354.44) v=(4.24, -2.00, 1.50) surfing=False grounded=True contacts=\n44.19 s=17/0 cp=3 p=(461.84, -102.80, 355.20) v=(4.24, -2.00, 1.50) surfing=False grounded=True contacts=\n44.70 s=17/0 cp=3 p=(464.01, -102.80, 355.96) v=(4.24, -2.00, 1.50) surfing=False grounded=True contacts=\n45.21 s=17/0 cp=3 p=(466.17, -102.80, 356.73) v=(4.24, -2.00, 1.50) surfing=False grounded=True contacts=\n45.72 s=17/0 cp=3 p=(468.44, -101.81, 356.95) v=(4.51, -0.58, 0.76) surfing=False grounded=False contacts=\n46.23 s=17/1 cp=3 p=(470.73, -104.70, 356.94) v=(4.49, -10.78, 0.80) surfing=False grounded=False contacts=\n46.74 s=17/1 cp=3 p=(475.87, -108.55, 356.90) v=(13.02, -9.38, -0.24) surfing=True grounded=False contacts=17\n47.25 s=17/1 cp=3 p=(483.68, -114.29, 356.90) v=(17.89, -12.95, -0.24) surfing=True grounded=False contacts=17\n47.76 s=17/1 cp=3 p=(494.05, -121.56, 356.85) v=(24.33, -13.59, -0.09) surfing=True grounded=False contacts=17\n48.27 s=18/1 cp=3 p=(508.08, -123.34, 356.71) v=(28.40, -0.34, 0.80) surfing=True grounded=False contacts=18\nTAKEOFF room=4 18->19 p=(509.36, -123.33, 356.72) v=(28.31, 0.73, 0.27)\n48.78 s=18/1 cp=3 p=(520.72, -119.21, 356.95) v=(16.87, 16.97, 0.09) surfing=True grounded=False contacts=18\nTAKEOFF room=4 18->19 p=(520.97, -118.96, 356.95) v=(16.87, 16.67, -0.80)\n49.29 s=19/1 cp=3 p=(529.32, -113.15, 356.96) v=(16.87, 6.77, 0.80) surfing=False grounded=False contacts=\n49.80 s=19/1 cp=3 p=(537.92, -112.30, 356.96) v=(16.87, -3.43, 0.80) surfing=False grounded=False contacts=\nCATCH room=4 18->19 gap=20.00 authoredDY=4.00 source=True catch=True free=1.470s ticks=97 gapTicks=77 dY=2.95 surfaceDY=2.91 min/maxY=-118.96/-112.01 interrupted=False takeoff=(520.97, -118.96, 356.95) v=(16.87, 16.67, -0.80) catch=(545.77, -116.01, 356.95) v=(17.62, -9.61, 3.66) touch=(521.11, -118.82, 356.72) -> (545.73, -115.91, 356.70) accepted=True\n50.31 s=19/1 cp=3 p=(546.58, -116.15, 356.91) v=(18.77, -5.75, 0.76) surfing=True grounded=False contacts=19\n50.82 s=19/1 cp=3 p=(556.83, -118.57, 356.89) v=(21.26, -5.57, 0.80) surfing=False grounded=False contacts=\n51.33 s=20/1 cp=3 p=(568.21, -119.71, 356.81) v=(22.71, -0.70, 0.80) surfing=True grounded=False contacts=20\n51.84 s=20/1 cp=3 p=(579.40, -118.37, 356.93) v=(19.04, 8.69, 0.19) surfing=True grounded=False contacts=20\n52.35 s=20/2 cp=3 p=(587.91, -114.56, 356.61) v=(16.51, 2.67, -0.80) surfing=False grounded=False contacts=\n52.86 s=20/2 cp=3 p=(592.79, -115.79, 355.46) v=(2.14, -7.53, -3.79) surfing=False grounded=False contacts=",
+            "passed": true
+        },
+        {
+            "name": "Start 2 launches using unmodified movement physics",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Start 2 bell collects cards and reseats the table",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Chamber 0 pit recovers rather than reaching another route",
+            "detail": "y=-41.03699",
+            "passed": true
+        },
+        {
+            "name": "Chamber 1 pit recovers rather than reaching another route",
+            "detail": "y=-71.66888",
+            "passed": true
+        },
+        {
+            "name": "Chamber 2 pit recovers rather than reaching another route",
+            "detail": "y=-96.44388",
+            "passed": true
+        },
+        {
+            "name": "Chamber 3 pit recovers rather than reaching another route",
+            "detail": "y=-126.8189",
+            "passed": true
+        },
+        {
+            "name": "Chamber 4 pit recovers rather than reaching another route",
+            "detail": "y=-144.6226",
+            "passed": true
+        },
+        {
+            "name": "Skipping directly to the royal bell cannot win",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Skipping earlier AIR-PASSAGE checkpoints cannot grant progress",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Sandstone shader supported",
+            "detail": "",
+            "passed": true
+        }
+    ],
+    "flights": [
+        {
+            "seat": 0,
+            "room": 0,
+            "source": 1,
+            "destination": 2,
+            "airborneTicks": 104,
+            "gapTicks": 74,
+            "authoredGap": 19.999998092651367,
+            "authoredDeltaY": 3.0,
+            "airSeconds": 1.5749998092651367,
+            "deltaY": 1.6914520263671875,
+            "surfaceDeltaY": 1.653132438659668,
+            "minimumY": -16.040063858032227,
+            "maximumY": -9.02353572845459,
+            "takeoff": {
+                "x": 4.309465408325195,
+                "y": -16.040063858032227,
+                "z": 62.209190368652344
+            },
+            "takeoffVelocity": {
+                "x": 3.7643494606018066,
+                "y": 16.752994537353516,
+                "z": 16.98937225341797
+            },
+            "catchPosition": {
+                "x": 9.995798110961914,
+                "y": -14.348611831665039,
+                "z": 89.01900482177734
+            },
+            "catchVelocity": {
+                "x": -1.481816291809082,
+                "y": -11.555648803710938,
+                "z": 18.7840518951416
+            },
+            "sourceTouch": {
+                "x": 4.560684680938721,
+                "y": -15.897673606872559,
+                "z": 62.30878829956055
+            },
+            "catchTouch": {
+                "x": 10.227025032043457,
+                "y": -14.24454116821289,
+                "z": 88.93345642089844
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 0,
+            "room": 1,
+            "source": 5,
+            "destination": 6,
+            "airborneTicks": 111,
+            "gapTicks": 58,
+            "authoredGap": 24.0,
+            "authoredDeltaY": -12.0,
+            "airSeconds": 1.6800003051757813,
+            "deltaY": -14.636966705322266,
+            "surfaceDeltaY": -14.64889144897461,
+            "minimumY": -49.80769348144531,
+            "maximumY": -33.60092544555664,
+            "takeoff": {
+                "x": 90.71926879882813,
+                "y": -35.17072677612305,
+                "z": 209.70957946777344
+            },
+            "takeoffVelocity": {
+                "x": 25.231185913085938,
+                "y": 7.925129413604736,
+                "z": 9.045758247375488
+            },
+            "catchPosition": {
+                "x": 133.73036193847656,
+                "y": -49.80769348144531,
+                "z": 222.92396545410156
+            },
+            "catchVelocity": {
+                "x": 24.286251068115234,
+                "y": -18.560869216918945,
+                "z": 16.934406280517578
+            },
+            "sourceTouch": {
+                "x": 90.75933074951172,
+                "y": -35.05560302734375,
+                "z": 209.44827270507813
+            },
+            "catchTouch": {
+                "x": 133.76942443847656,
+                "y": -49.70449447631836,
+                "z": 222.68115234375
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 0,
+            "room": 2,
+            "source": 9,
+            "destination": 10,
+            "airborneTicks": 94,
+            "gapTicks": 80,
+            "authoredGap": 20.000001907348633,
+            "authoredDeltaY": 4.0,
+            "airSeconds": 1.4249992370605469,
+            "deltaY": 3.4951515197753906,
+            "surfaceDeltaY": 3.454120635986328,
+            "minimumY": -64.03767395019531,
+            "maximumY": -57.093570709228516,
+            "takeoff": {
+                "x": 219.03636169433594,
+                "y": -64.03767395019531,
+                "z": 251.69577026367188
+            },
+            "takeoffVelocity": {
+                "x": 14.097784996032715,
+                "y": 16.66677474975586,
+                "z": 7.914717197418213
+            },
+            "catchPosition": {
+                "x": 238.9774169921875,
+                "y": -60.54252243041992,
+                "z": 263.23089599609375
+            },
+            "catchVelocity": {
+                "x": 12.270089149475098,
+                "y": -9.503616333007813,
+                "z": 11.986676216125488
+            },
+            "sourceTouch": {
+                "x": 219.28500366210938,
+                "y": -63.892459869384766,
+                "z": 251.58401489257813
+            },
+            "catchTouch": {
+                "x": 239.0703582763672,
+                "y": -60.43833923339844,
+                "z": 263.00244140625
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 0,
+            "room": 2,
+            "source": 10,
+            "destination": 11,
+            "airborneTicks": 57,
+            "gapTicks": 48,
+            "authoredGap": 15.999999046325684,
+            "authoredDeltaY": -8.0,
+            "airSeconds": 0.8700008392333984,
+            "deltaY": -8.442913055419922,
+            "surfaceDeltaY": -8.450080871582031,
+            "minimumY": -72.1768798828125,
+            "maximumY": -63.73396682739258,
+            "takeoff": {
+                "x": 255.48965454101563,
+                "y": -63.73396682739258,
+                "z": 275.395751953125
+            },
+            "takeoffVelocity": {
+                "x": 16.45905303955078,
+                "y": -1.2482993602752686,
+                "z": 13.73935317993164
+            },
+            "catchPosition": {
+                "x": 269.3393249511719,
+                "y": -72.1768798828125,
+                "z": 287.87066650390625
+            },
+            "catchVelocity": {
+                "x": 12.053070068359375,
+                "y": -13.426393508911133,
+                "z": 19.9162540435791
+            },
+            "sourceTouch": {
+                "x": 255.59951782226563,
+                "y": -63.62306213378906,
+                "z": 275.1725158691406
+            },
+            "catchTouch": {
+                "x": 269.4822082519531,
+                "y": -72.0731430053711,
+                "z": 287.6700439453125
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 0,
+            "room": 3,
+            "source": 14,
+            "destination": 15,
+            "airborneTicks": 110,
+            "gapTicks": 71,
+            "authoredGap": 26.0,
+            "authoredDeltaY": -14.0,
+            "airSeconds": 1.6650009155273438,
+            "deltaY": -15.999755859375,
+            "surfaceDeltaY": -16.01587677001953,
+            "minimumY": -104.2687759399414,
+            "maximumY": -87.08036804199219,
+            "takeoff": {
+                "x": 382.499755859375,
+                "y": -88.2690200805664,
+                "z": 356.8829345703125
+            },
+            "takeoffVelocity": {
+                "x": 23.597946166992188,
+                "y": 6.895376682281494,
+                "z": 0.23991382122039795
+            },
+            "catchPosition": {
+                "x": 421.79034423828125,
+                "y": -104.2687759399414,
+                "z": 356.87091064453125
+            },
+            "catchVelocity": {
+                "x": 24.80702018737793,
+                "y": -18.664949417114258,
+                "z": 10.252016067504883
+            },
+            "sourceTouch": {
+                "x": 382.4862976074219,
+                "y": -88.14929962158203,
+                "z": 356.6278076171875
+            },
+            "catchTouch": {
+                "x": 421.7635498046875,
+                "y": -104.16517639160156,
+                "z": 356.62615966796875
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 0,
+            "room": 4,
+            "source": 18,
+            "destination": 19,
+            "airborneTicks": 97,
+            "gapTicks": 79,
+            "authoredGap": 20.0,
+            "authoredDeltaY": 4.0,
+            "airSeconds": 1.470001220703125,
+            "deltaY": 3.3733367919921875,
+            "surfaceDeltaY": 3.3333892822265625,
+            "minimumY": -119.19098663330078,
+            "maximumY": -112.03073120117188,
+            "takeoff": {
+                "x": 520.7255249023438,
+                "y": -119.19098663330078,
+                "z": 356.9417724609375
+            },
+            "takeoffVelocity": {
+                "x": 16.51202392578125,
+                "y": 16.924100875854492,
+                "z": -0.12562035024166107
+            },
+            "catchPosition": {
+                "x": 544.9982299804688,
+                "y": -115.8176498413086,
+                "z": 356.9417724609375
+            },
+            "catchVelocity": {
+                "x": 17.249244689941406,
+                "y": -9.409067153930664,
+                "z": 3.579857110977173
+            },
+            "sourceTouch": {
+                "x": 520.8829956054688,
+                "y": -119.04649353027344,
+                "z": 356.7197570800781
+            },
+            "catchTouch": {
+                "x": 544.9572143554688,
+                "y": -115.71310424804688,
+                "z": 356.6983337402344
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 5,
+            "room": 0,
+            "source": 1,
+            "destination": 2,
+            "airborneTicks": 98,
+            "gapTicks": 73,
+            "authoredGap": 19.999998092651367,
+            "authoredDeltaY": 3.0,
+            "airSeconds": 1.4850006103515625,
+            "deltaY": 2.041049003601074,
+            "surfaceDeltaY": 2.0067129135131836,
+            "minimumY": -16.08660125732422,
+            "maximumY": -9.53630256652832,
+            "takeoff": {
+                "x": 10.571258544921875,
+                "y": -16.08660125732422,
+                "z": 60.846092224121094
+            },
+            "takeoffVelocity": {
+                "x": 3.992370843887329,
+                "y": 16.1867733001709,
+                "z": 17.09839630126953
+            },
+            "catchPosition": {
+                "x": 15.9795503616333,
+                "y": -14.045552253723145,
+                "z": 86.34781646728516
+            },
+            "catchVelocity": {
+                "x": 7.935292720794678,
+                "y": -9.99442195892334,
+                "z": 17.00975227355957
+            },
+            "sourceTouch": {
+                "x": 10.375070571899414,
+                "y": -15.948122024536133,
+                "z": 61.02907943725586
+            },
+            "catchTouch": {
+                "x": 15.733471870422363,
+                "y": -13.94140911102295,
+                "z": 86.36373901367188
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 5,
+            "room": 1,
+            "source": 5,
+            "destination": 6,
+            "airborneTicks": 111,
+            "gapTicks": 58,
+            "authoredGap": 24.0,
+            "authoredDeltaY": -12.0,
+            "airSeconds": 1.6800003051757813,
+            "deltaY": -14.672229766845703,
+            "surfaceDeltaY": -14.684017181396484,
+            "minimumY": -49.77458572387695,
+            "maximumY": -33.49342727661133,
+            "takeoff": {
+                "x": 92.72319793701172,
+                "y": -35.10235595703125,
+                "z": 203.73068237304688
+            },
+            "takeoffVelocity": {
+                "x": 25.761552810668945,
+                "y": 8.022664070129395,
+                "z": 7.581606864929199
+            },
+            "catchPosition": {
+                "x": 135.8256072998047,
+                "y": -49.77458572387695,
+                "z": 216.93666076660156
+            },
+            "catchVelocity": {
+                "x": 29.248071670532227,
+                "y": -18.353012084960938,
+                "z": -4.664113521575928
+            },
+            "sourceTouch": {
+                "x": 92.60053253173828,
+                "y": -34.9874153137207,
+                "z": 203.96539306640625
+            },
+            "catchTouch": {
+                "x": 135.7562713623047,
+                "y": -49.67143249511719,
+                "z": 217.17257690429688
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 5,
+            "room": 2,
+            "source": 9,
+            "destination": 10,
+            "airborneTicks": 95,
+            "gapTicks": 79,
+            "authoredGap": 20.000001907348633,
+            "authoredDeltaY": 4.0,
+            "airSeconds": 1.44000244140625,
+            "deltaY": 3.587615966796875,
+            "surfaceDeltaY": 3.5468177795410156,
+            "minimumY": -64.18321228027344,
+            "maximumY": -57.08477020263672,
+            "takeoff": {
+                "x": 222.1266326904297,
+                "y": -64.18321228027344,
+                "z": 246.04586791992188
+            },
+            "takeoffVelocity": {
+                "x": 14.108137130737305,
+                "y": 16.85050392150879,
+                "z": 8.336710929870605
+            },
+            "catchPosition": {
+                "x": 242.55641174316406,
+                "y": -60.59559631347656,
+                "z": 257.8530578613281
+            },
+            "catchVelocity": {
+                "x": 16.501270294189453,
+                "y": -8.870218276977539,
+                "z": 5.551290512084961
+            },
+            "sourceTouch": {
+                "x": 222.1532745361328,
+                "y": -64.03829193115234,
+                "z": 246.31698608398438
+            },
+            "catchTouch": {
+                "x": 242.4015655517578,
+                "y": -60.49147415161133,
+                "z": 258.0449523925781
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 5,
+            "room": 2,
+            "source": 10,
+            "destination": 11,
+            "airborneTicks": 59,
+            "gapTicks": 47,
+            "authoredGap": 15.999999046325684,
+            "authoredDeltaY": -8.0,
+            "airSeconds": 0.9000015258789063,
+            "deltaY": -8.551673889160156,
+            "surfaceDeltaY": -8.567771911621094,
+            "minimumY": -72.28166961669922,
+            "maximumY": -63.72999572753906,
+            "takeoff": {
+                "x": 259.4731140136719,
+                "y": -63.72999572753906,
+                "z": 270.72265625
+            },
+            "takeoffVelocity": {
+                "x": 16.265117645263672,
+                "y": -0.574737548828125,
+                "z": 14.251911163330078
+            },
+            "catchPosition": {
+                "x": 273.9312744140625,
+                "y": -72.28166961669922,
+                "z": 283.7496643066406
+            },
+            "catchVelocity": {
+                "x": 21.075321197509766,
+                "y": -13.407061576843262,
+                "z": 10.286920547485352
+            },
+            "sourceTouch": {
+                "x": 259.3086242675781,
+                "y": -63.61016082763672,
+                "z": 270.9052429199219
+            },
+            "catchTouch": {
+                "x": 273.74493408203125,
+                "y": -72.17793273925781,
+                "z": 283.9107360839844
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 5,
+            "room": 3,
+            "source": 14,
+            "destination": 15,
+            "airborneTicks": 108,
+            "gapTicks": 72,
+            "authoredGap": 26.0,
+            "authoredDeltaY": -14.0,
+            "airSeconds": 1.6350021362304688,
+            "deltaY": -15.842353820800781,
+            "surfaceDeltaY": -15.854804992675781,
+            "minimumY": -104.11026000976563,
+            "maximumY": -87.2183609008789,
+            "takeoff": {
+                "x": 382.4505310058594,
+                "y": -88.26790618896484,
+                "z": 350.5630187988281
+            },
+            "takeoffVelocity": {
+                "x": 23.505216598510742,
+                "y": 6.480440616607666,
+                "z": -0.5101422667503357
+            },
+            "catchPosition": {
+                "x": 420.8815612792969,
+                "y": -104.11026000976563,
+                "z": 350.57501220703125
+            },
+            "catchVelocity": {
+                "x": 24.705610275268555,
+                "y": -18.53696632385254,
+                "z": -10.171773910522461
+            },
+            "sourceTouch": {
+                "x": 382.4065246582031,
+                "y": -88.15184020996094,
+                "z": 350.8222961425781
+            },
+            "catchTouch": {
+                "x": 420.85479736328125,
+                "y": -104.00664520263672,
+                "z": 350.8197937011719
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 5,
+            "room": 4,
+            "source": 18,
+            "destination": 19,
+            "airborneTicks": 97,
+            "gapTicks": 77,
+            "authoredGap": 20.0,
+            "authoredDeltaY": 4.0,
+            "airSeconds": 1.470001220703125,
+            "deltaY": 2.984771728515625,
+            "surfaceDeltaY": 2.9475631713867188,
+            "minimumY": -118.94406127929688,
+            "maximumY": -112.0108413696289,
+            "takeoff": {
+                "x": 520.9605712890625,
+                "y": -118.94406127929688,
+                "z": 350.4993896484375
+            },
+            "takeoffVelocity": {
+                "x": 16.780254364013672,
+                "y": 16.653818130493164,
+                "z": 0.8000010251998901
+            },
+            "catchPosition": {
+                "x": 545.6275634765625,
+                "y": -115.95928955078125,
+                "z": 350.4993896484375
+            },
+            "catchVelocity": {
+                "x": 17.533449172973633,
+                "y": -9.612898826599121,
+                "z": -3.6747493743896484
+            },
+            "sourceTouch": {
+                "x": 521.1063232421875,
+                "y": -118.80231475830078,
+                "z": 350.72564697265625
+            },
+            "catchTouch": {
+                "x": 545.5865478515625,
+                "y": -115.85475158691406,
+                "z": 350.7428283691406
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 2,
+            "room": 0,
+            "source": 1,
+            "destination": 2,
+            "airborneTicks": 102,
+            "gapTicks": 76,
+            "authoredGap": 19.999998092651367,
+            "authoredDeltaY": 3.0,
+            "airSeconds": 1.5450057983398438,
+            "deltaY": 1.8063697814941406,
+            "surfaceDeltaY": 1.7679023742675781,
+            "minimumY": -16.05233383178711,
+            "maximumY": -9.196621894836426,
+            "takeoff": {
+                "x": 4.273416042327881,
+                "y": -16.05233383178711,
+                "z": 62.27976608276367
+            },
+            "takeoffVelocity": {
+                "x": 3.7407257556915283,
+                "y": 16.559940338134766,
+                "z": 16.746551513671875
+            },
+            "catchPosition": {
+                "x": 9.773341178894043,
+                "y": -14.245964050292969,
+                "z": 88.21260070800781
+            },
+            "catchVelocity": {
+                "x": -1.3718053102493286,
+                "y": -11.271075248718262,
+                "z": 18.487407684326172
+            },
+            "sourceTouch": {
+                "x": 4.524460792541504,
+                "y": -15.90965461730957,
+                "z": 62.380287170410156
+            },
+            "catchTouch": {
+                "x": 10.00466251373291,
+                "y": -14.141752243041992,
+                "z": 88.12702178955078
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 2,
+            "room": 1,
+            "source": 5,
+            "destination": 6,
+            "airborneTicks": 111,
+            "gapTicks": 58,
+            "authoredGap": 24.0,
+            "authoredDeltaY": -12.0,
+            "airSeconds": 1.6800079345703125,
+            "deltaY": -14.695976257324219,
+            "surfaceDeltaY": -14.709007263183594,
+            "minimumY": -49.836669921875,
+            "maximumY": -33.59634017944336,
+            "takeoff": {
+                "x": 90.83145904541016,
+                "y": -35.14069366455078,
+                "z": 209.7509765625
+            },
+            "takeoffVelocity": {
+                "x": 25.47258186340332,
+                "y": 7.859888553619385,
+                "z": 8.510697364807129
+            },
+            "catchPosition": {
+                "x": 133.95037841796875,
+                "y": -49.836669921875,
+                "z": 222.97994995117188
+            },
+            "catchVelocity": {
+                "x": 24.342056274414063,
+                "y": -18.586837768554688,
+                "z": 16.976295471191406
+            },
+            "sourceTouch": {
+                "x": 90.86659240722656,
+                "y": -35.02447509765625,
+                "z": 209.48927307128906
+            },
+            "catchTouch": {
+                "x": 133.98956298828125,
+                "y": -49.733482360839844,
+                "z": 222.73716735839844
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 2,
+            "room": 2,
+            "source": 9,
+            "destination": 10,
+            "airborneTicks": 91,
+            "gapTicks": 79,
+            "authoredGap": 20.000001907348633,
+            "authoredDeltaY": 4.0,
+            "airSeconds": 1.3799896240234375,
+            "deltaY": 3.537891387939453,
+            "surfaceDeltaY": 3.4995765686035156,
+            "minimumY": -64.01063537597656,
+            "maximumY": -57.38859176635742,
+            "takeoff": {
+                "x": 219.06588745117188,
+                "y": -64.01063537597656,
+                "z": 251.72039794921875
+            },
+            "takeoffVelocity": {
+                "x": 14.64533805847168,
+                "y": 16.275348663330078,
+                "z": 7.531729221343994
+            },
+            "catchPosition": {
+                "x": 238.72193908691406,
+                "y": -60.47274398803711,
+                "z": 263.07470703125
+            },
+            "catchVelocity": {
+                "x": 13.025734901428223,
+                "y": -8.423169136047363,
+                "z": 11.490943908691406
+            },
+            "sourceTouch": {
+                "x": 219.30726623535156,
+                "y": -63.868202209472656,
+                "z": 251.59967041015625
+            },
+            "catchTouch": {
+                "x": 238.81488037109375,
+                "y": -60.36862564086914,
+                "z": 262.8463134765625
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 2,
+            "room": 2,
+            "source": 10,
+            "destination": 11,
+            "airborneTicks": 60,
+            "gapTicks": 47,
+            "authoredGap": 15.999999046325684,
+            "authoredDeltaY": -8.0,
+            "airSeconds": 0.915008544921875,
+            "deltaY": -8.625167846679688,
+            "surfaceDeltaY": -8.641460418701172,
+            "minimumY": -72.35079956054688,
+            "maximumY": -63.72563171386719,
+            "takeoff": {
+                "x": 255.3548583984375,
+                "y": -63.72563171386719,
+                "z": 275.2666015625
+            },
+            "takeoffVelocity": {
+                "x": 15.916741371154785,
+                "y": -0.497834712266922,
+                "z": 14.644308090209961
+            },
+            "catchPosition": {
+                "x": 270.047119140625,
+                "y": -72.35079956054688,
+                "z": 288.5234680175781
+            },
+            "catchVelocity": {
+                "x": 11.646736145019531,
+                "y": -14.274141311645508,
+                "z": 20.45075225830078
+            },
+            "sourceTouch": {
+                "x": 255.51919555664063,
+                "y": -63.60568618774414,
+                "z": 275.08392333984375
+            },
+            "catchTouch": {
+                "x": 270.1906433105469,
+                "y": -72.24714660644531,
+                "z": 288.3233642578125
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 2,
+            "room": 3,
+            "source": 14,
+            "destination": 15,
+            "airborneTicks": 108,
+            "gapTicks": 72,
+            "authoredGap": 26.0,
+            "authoredDeltaY": -14.0,
+            "airSeconds": 1.6349945068359375,
+            "deltaY": -15.81695556640625,
+            "surfaceDeltaY": -15.830650329589844,
+            "minimumY": -104.14163208007813,
+            "maximumY": -87.2681655883789,
+            "takeoff": {
+                "x": 382.3375244140625,
+                "y": -88.32467651367188,
+                "z": 356.8863525390625
+            },
+            "takeoffVelocity": {
+                "x": 23.613384246826172,
+                "y": 6.501558303833008,
+                "z": 0.5198073983192444
+            },
+            "catchPosition": {
+                "x": 420.9454040527344,
+                "y": -104.14163208007813,
+                "z": 356.87432861328125
+            },
+            "catchVelocity": {
+                "x": 24.81175422668457,
+                "y": -18.533660888671875,
+                "z": 10.151415824890137
+            },
+            "sourceTouch": {
+                "x": 382.3043212890625,
+                "y": -88.20731353759766,
+                "z": 356.6285400390625
+            },
+            "catchTouch": {
+                "x": 420.9186096191406,
+                "y": -104.0379638671875,
+                "z": 356.6295471191406
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        },
+        {
+            "seat": 2,
+            "room": 4,
+            "source": 18,
+            "destination": 19,
+            "airborneTicks": 97,
+            "gapTicks": 77,
+            "authoredGap": 20.0,
+            "authoredDeltaY": 4.0,
+            "airSeconds": 1.470001220703125,
+            "deltaY": 2.9470367431640625,
+            "surfaceDeltaY": 2.9110107421875,
+            "minimumY": -118.9574203491211,
+            "maximumY": -112.00879669189453,
+            "takeoff": {
+                "x": 520.9653930664063,
+                "y": -118.9574203491211,
+                "z": 356.94696044921875
+            },
+            "takeoffVelocity": {
+                "x": 16.87335968017578,
+                "y": 16.672157287597656,
+                "z": -0.7999989986419678
+            },
+            "catchPosition": {
+                "x": 545.7692260742188,
+                "y": -116.01038360595703,
+                "z": 356.94696044921875
+            },
+            "catchVelocity": {
+                "x": 17.6236629486084,
+                "y": -9.605941772460938,
+                "z": 3.656742811203003
+            },
+            "sourceTouch": {
+                "x": 521.1063232421875,
+                "y": -118.81689453125,
+                "z": 356.7189636230469
+            },
+            "catchTouch": {
+                "x": 545.728271484375,
+                "y": -115.9058837890625,
+                "z": 356.7035217285156
+            },
+            "sourceContact": true,
+            "destinationContact": true,
+            "interrupted": false,
+            "complete": true
+        }
+    ]
+}

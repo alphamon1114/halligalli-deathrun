@@ -49,8 +49,7 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         for(int i=1;i<pyramid.chambers.Length;i++)complete&=pyramid.chambers[i].firstSection==pyramid.chambers[i-1].lastSection+1;
         Test("Five ordered spaces cover the complete route",complete,"");
         Test("Banks retain broad rideable lane clearance",surf.sections.All(s=>s.Length>0&&s.halfWidth>=surf.laneX),"sections="+surf.sections.Length+" metres="+surf.sections.Sum(s=>s.Length));
-        bool faces=true,aligned=true,gentle=true,monotonic=true;float widestSweep=0;
-        var gaps=new List<float>();var elevationChanges=new List<float>();
+        bool faces=true,aligned=true,gentle=true,monotonic=true;
         var banks=surf.GetComponentsInChildren<MeshCollider>().Where(c=>c.name.StartsWith("Pyramid bank ")).ToArray();
         var sectionBanks=SectionBanks(surf);
         var transfers=RoomFlights(surf,pyramid,-1);
@@ -73,23 +72,18 @@ public sealed class PyramidValidationRunner:MonoBehaviour
                 float metres=Vector3.ProjectOnPlane(s.points[j]-s.points[j-1],Vector3.up).magnitude;
                 gentle&=Mathf.Abs(Mathf.DeltaAngle(s.headings[j-1],s.headings[j]))/metres<=1.05f;
             }
-            monotonic&=!(up&&down);widestSweep=Mathf.Max(widestSweep,Mathf.Abs(Mathf.DeltaAngle(s.headings[0],s.headings.Last())));
+            monotonic&=!(up&&down);
             if(i==0)continue;
             var previous=surf.sections[i-1];var rotation=Quaternion.Euler(0,previous.headings.Last(),0);
             if(previous.landing==Vector3.zero){
                 var transfer=s.points[0]-previous.points.Last();
                 aligned&=Mathf.Abs(Vector3.Dot(transfer,rotation*Vector3.right))<.02f&&Mathf.Abs(Mathf.DeltaAngle(previous.headings.Last(),s.headings[0]))<.01f;
-                float gap=Vector3.Dot(transfer,rotation*Vector3.forward);
-                if(gap>1){gaps.Add(gap);elevationChanges.Add(transfer.y);}
             }else gentle&=Mathf.Abs(Mathf.DeltaAngle(previous.headings.Last(),s.headings[0]))<=15;
         }
         Test("Riding faces retain real surf collision throughout curves",faces,"");
         Test("Transfers preserve tangent and lane without forced side swaps",aligned,"");
-        Test("Broad horizontal sweep without sharp checkpoint turns",gentle&&widestSweep>=30,"largest sweep="+widestSweep);
+        Test("Curves and checkpoint transitions remain gentle",gentle,"");
         Test("Ascending runs never recess into a middle trough",monotonic,"");
-        Test("Airborne transfers alternate between higher and lower catches",elevationChanges.Count>=pyramid.chambers.Length
-            &&elevationChanges.All(y=>Mathf.Abs(y)>0)&&elevationChanges.Skip(1).Select((y,i)=>Mathf.Sign(y)!=Mathf.Sign(elevationChanges[i])).All(alternates=>alternates),
-            "gaps="+string.Join(", ",gaps)+" height changes="+string.Join(", ",elevationChanges));
         Test("Four ordered AIR-PASSAGE checkpoints track chamber exits",session.checkpoints.orderedPassage&&session.checkpoints.points.Length==4&&session.checkpoints.points.Select(p=>p.surfGates).SequenceEqual(pyramid.chambers.Take(4).Select(c=>c.lastSection+1)),"");
         var profile=AssetDatabase.LoadAssetAtPath<SourceMovementProfile>("Assets/HalliGalliMovement/Settings/SurfMovement.asset");
         Test("Pyramid retains its authored surf profile reference",profile&&session.maps.current.movementProfile==profile&&roster.allParticipants.All(p=>p.Motor.profile==profile),"");

@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-17",
+  "version": "1.0.12",
+  "protocol": 45,
+  "launcherSafety": {"command": "dotnet run --project Launcher/BellRun.Launcher.Tests/BellRun.Launcher.Tests.csproj -c Release", "passed": 31, "failed": 0},
+  "admissionContract": {"marker": "RELEASE_GATE_CONTRACT_VERIFIED version=1.0.12 protocol=45", "log": "Logs/release-1.0.12-gate.log", "passed": true},
+  "playerBuild": {"command": "powershell -NoProfile -ExecutionPolicy Bypass -File Tools/Release/Build-Release.ps1", "result": "Success", "log": "Logs/release-player.log", "savedScenesOnly": true, "mapRegeneration": false},
+  "archive": {"name": "BellRun-Windows-1.0.12.zip", "files": 216, "size": 547704509, "sha256": "97c981e9f665837e76f9bab392bf7d785dba468e55f339ad3121c1da280afffd"},
+  "mapVerification": {"date": "2026-11-17", "physicsPassed": 59, "localBellPassed": 30, "folder": "TestResults/pyramid-utopia-2026-11-17", "rerunForPackaging": false},
+  "scopePreservation": "TestResults/release-1.0.12-preservation.json",
+  "warnings": "Existing Unity deprecated API warnings; build succeeded.",
+  "scope": "Prepublication build evidence. Public download, update, admission and Relay checks are recorded separately after publication."
+}

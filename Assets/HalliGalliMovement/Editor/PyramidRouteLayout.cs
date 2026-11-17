@@ -8,7 +8,7 @@ namespace HalliGalli.EditorTools
     public static class PyramidRouteLayout
     {
         public static readonly string[] Names={"유적 진입","외벽 회랑","무너진 중앙 홀","수문 통로","왕의 제단"};
-        public static readonly float[] Headings={0,12,54,28,40};
+        public static readonly float[] Headings={0,12,78,42,90};
         public static SurfCourse.Section[] Room(int index,Vector3 start)
         {
             var p=new Pen(start,Headings[index]);
@@ -21,28 +21,30 @@ namespace HalliGalli.EditorTools
                     p.Up(12,2.2f,5.8f);
                     break;
                 case 1:
-                    // The outside sweep launches across a broken wall to a lower terrace.
-                    p.Down(60,17,5.6f,42);
+                    // One long outside sweep, then a falling transfer onto the lower gallery.
+                    p.Down(90,21,5.6f,60);
                     p.Up(12,1.1f,5.6f);
                     p.Transfer(24,-12);
-                    p.Down(24,3,5.8f);
-                    p.Up(12,2.2f,5.8f);
+                    p.Down(28,3,6,6);
+                    p.Up(10,2,6);
                     break;
                 case 2:
-                    // A modest lip reaches the suspended bank, rather than climbing a U.
-                    p.Down(32,20,5.4f,-14);
+                    // Reach the upper gallery, then leave it for a separate lower bank.
+                    p.Down(32,20,5.4f,-18);
                     p.Up(18,4.8f,5.4f);
                     p.Transfer(20,4);
-                    p.Down(26,5,6,-12);
+                    p.Down(24,4,6,-12);
+                    p.Transfer(16,-8);
+                    p.Down(22,3,6,-6);
                     p.Up(12,2.2f,6);
                     break;
                 case 3:
-                    // Open watergate: a long falling flight, then a broad lower catch.
-                    p.Down(28,12,5.4f);
-                    p.Up(12,1,5.4f);
+                    // Carry speed around the open watergate before dropping to its lower exit.
+                    p.Down(70,16,5.8f,48);
+                    p.Up(12,1,5.8f);
                     p.Transfer(26,-14);
-                    p.Down(24,3,5.8f,12);
-                    p.Up(12,2.2f,5.8f);
+                    p.Down(24,3,6);
+                    p.Up(12,2.2f,6);
                     break;
                 default:
                     p.Down(34,20,5.6f);
@@ -76,7 +78,7 @@ namespace HalliGalli.EditorTools
                 Vector3 center=point;
                 for(int i=0;i<=steps;i++){
                     float distance=length*i/steps,t=i/(float)steps;
-                    // Smooth heading rate at both ends; even the outside sweep has radius >60m.
+                    // Ease into a broad bank turn instead of snapping direction on a checkpoint.
                     float eased=t*t*(3-2*t);
                     headings[i]=heading+turn*eased;
                     if(i>0){

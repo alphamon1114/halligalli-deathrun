@@ -1,11 +1,11 @@
 {
-    "utc": "2026-11-05T04:30:41.6000072Z",
+    "utc": "2026-11-17T09:22:16.9092460Z",
     "passed": 30,
     "failed": 0,
     "checks": [
         {
             "name": "Visible bell remains at its interaction target",
-            "detail": "target=(362.13, -98.20, 553.15) bounds=Center: (362.13, -98.05, 553.15), Extents: (0.40, 0.15, 0.40)",
+            "detail": "target=(595.11, -116.40, 353.72) bounds=Center: (595.11, -116.25, 353.72), Extents: (0.29, 0.15, 0.29)",
             "passed": true
         },
         {
@@ -35,27 +35,27 @@
         },
         {
             "name": "Seat 0 R returns to checkpoint 1",
-            "detail": "position=(124.62, -43.65, 239.21)",
+            "detail": "position=(164.28, -47.85, 226.21)",
             "passed": true
         },
         {
             "name": "Seat 0 airborne checkpoint 2",
-            "detail": "saved=2 gates=12",
+            "detail": "saved=2 gates=13",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 2",
-            "detail": "position=(207.91, -58.23, 340.40)",
+            "detail": "position=(301.66, -72.43, 317.90)",
             "passed": true
         },
         {
             "name": "Seat 0 airborne checkpoint 3",
-            "detail": "saved=3 gates=16",
+            "detail": "saved=3 gates=17",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 3",
-            "detail": "position=(273.74, -84.60, 447.82)",
+            "detail": "position=(457.61, -102.80, 353.72)",
             "passed": true
         },
         {
@@ -65,7 +65,7 @@
         },
         {
             "name": "Seat 0 valid checkpoint route can ring without touching every bank",
-            "detail": "grounded=True gates=16 claim=True",
+            "detail": "grounded=True gates=17 claim=True",
             "passed": true
         },
         {
@@ -100,27 +100,27 @@
         },
         {
             "name": "Seat 1 R returns to checkpoint 1",
-            "detail": "position=(124.62, -43.65, 239.21)",
+            "detail": "position=(164.28, -47.85, 226.21)",
             "passed": true
         },
         {
             "name": "Seat 1 airborne checkpoint 2",
-            "detail": "saved=2 gates=12",
+            "detail": "saved=2 gates=13",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 2",
-            "detail": "position=(207.91, -58.23, 340.40)",
+            "detail": "position=(301.66, -72.43, 317.90)",
             "passed": true
         },
         {
             "name": "Seat 1 airborne checkpoint 3",
-            "detail": "saved=3 gates=16",
+            "detail": "saved=3 gates=17",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 3",
-            "detail": "position=(273.74, -84.60, 447.82)",
+            "detail": "position=(457.61, -102.80, 353.72)",
             "passed": true
         },
         {
@@ -130,7 +130,7 @@
         },
         {
             "name": "Seat 1 valid checkpoint route can ring without touching every bank",
-            "detail": "grounded=True gates=16 claim=True",
+            "detail": "grounded=True gates=17 claim=True",
             "passed": true
         },
         {

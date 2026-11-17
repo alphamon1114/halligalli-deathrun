@@ -94,7 +94,9 @@ namespace HalliGalli.EditorTools
                 SurfCourseBuilder.BuildRamp(root,name,run.side,run,ramp,edge,Art+"/Meshes");
                 bankMeshes.Add(Art+"/Meshes/"+name.Replace(" ","_")+".asset");
             }
-            roster.ApplyLayout(roster.PlayerCount);
+            // Only route endpoints change; do not reapply saved seats, shirts or accessories.
+            for(int seat=0;seat<roster.PlayerCount;seat++)
+                surf.Apply(roster.RouteForSeat(seat),seat,roster.PlayerCount);
             var finalSection=sections.Last();var finalFrame=finalSection.Sample(finalSection.points.Last());
             var finalRotation=Quaternion.LookRotation(finalFrame.forward,Vector3.up);
             surf.finish.rotation=finalRotation;
@@ -136,7 +138,7 @@ namespace HalliGalli.EditorTools
             string path=Root+"/Maps/pyramid.asset";var map=AssetDatabase.LoadAssetAtPath<CourseMapDefinition>(path);
             if(!map){map=ScriptableObject.CreateInstance<CourseMapDefinition>();AssetDatabase.CreateAsset(map,path);}
             map.id=Id;map.displayName="왕의 회랑";map.style=CourseMapStyle.Surf;map.difficulty=3;
-            map.description="유적 사이를 날아 위층과 아래층의 독립된 서프에 착지하는 다섯 공중 연결 구간. 네 공중 통과 지점을 순서대로 지나 왕의 종으로.";
+            map.description="긴 곡면 선회와 복층 유적 사이의 공중 연결. 중앙 홀의 위층 서프에서 아래층 서프로 이어 타고, 네 공중 통과 지점을 지나 왕의 종으로.";
             map.scenePath=ScenePath;map.movementProfile=profile;map.playable=true;map.thumbnail="Pyramid";EditorUtility.SetDirty(map);
             var catalog=CourseMapsBuilder.Catalog;if(!catalog.maps.Contains(map)){catalog.maps=catalog.maps.Append(map).ToArray();EditorUtility.SetDirty(catalog);}
         }
