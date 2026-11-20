@@ -1,0 +1,42 @@
+{
+    "utc": "2026-11-20T04:06:37.2616173Z",
+    "passed": 1,
+    "failed": 6,
+    "checks": [
+        {
+            "name": "Round 0: fresh room starts a real match",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Round 0: concurrent Leave waits for existing teardown",
+            "detail": "",
+            "passed": false
+        },
+        {
+            "name": "Round 0: authoring stays blocked during teardown",
+            "detail": "",
+            "passed": false
+        },
+        {
+            "name": "Round 0: new room cannot start during teardown",
+            "detail": "",
+            "passed": false
+        },
+        {
+            "name": "Round 0: awaited Leave includes replacement home scene",
+            "detail": "",
+            "passed": false
+        },
+        {
+            "name": "Round 0: awaited Leave releases network and roster",
+            "detail": "",
+            "passed": false
+        },
+        {
+            "name": "Lifecycle runner completes",
+            "detail": "System.InvalidOperationException: Loopback host did not start\r\n  at NetworkLifecycleValidationRunner+<Validate>d__11.MoveNext () [0x003e4] in C:\\Users\\mbc\\Documents\\ao\\halligalli\\Assets\\HalliGalliMovement\\Tests\\NetworkLifecycleValidationRunner.cs:82 \r\n  at NetworkLifecycleValidationRunner+<Start>d__10.MoveNext () [0x00047] in C:\\Users\\mbc\\Documents\\ao\\halligalli\\Assets\\HalliGalliMovement\\Tests\\NetworkLifecycleValidationRunner.cs:42 ",
+            "passed": false
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+  "utc": "2026-11-20T03:57:41.220Z",
+  "executable": "C:/Users/mbc/AppData/Local/BellRunLauncher/versions/v1.0.12-d96ba4c181b34d6293d56879656ef18e/HalliGalliMovement.exe",
+  "cycles": 3,
+  "scope": "Same PC; actual Relay; two headless public players; normal session APIs and probe input; no audio.",
+  "passed": 18,
+  "failed": 0,
+  "failure": null,
+  "checks": [
+    {
+      "name": "Both remain connected in pyramid",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T03:56:00.435Z"
+    },
+    {
+      "name": "Both remain connected in first-steps",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T03:56:03.904Z"
+    },
+    {
+      "name": "Guest leave preserves host room",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T03:56:05.525Z"
+    },
+    {
+      "name": "Same process rejoins same room",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T03:56:09.597Z"
+    },
+    {
+      "name": "Host close returns both peers home",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T03:56:11.051Z"
+    },
+    {
+      "name": "Both remain connected in item-race",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T03:56:21.606Z"
+    },
+    {
+      "name": "Both remain connected in first-steps",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T03:56:24.907Z"
+    },
+    {
+      "name": "Guest leave preserves host room",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T03:56:26.528Z"
+    },
+    {
+      "name": "Same process rejoins same room",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T03:56:30.680Z"
+    },
+    {
+      "name": "Host close returns both peers home",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T03:56:32.136Z"
+    },
+    {
+      "name": "Both remain connected in pyramid",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T03:56:42.696Z"
+    },
+    {
+      "name": "Both remain connected in first-steps",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T03:56:46.246Z"
+    },
+    {
+      "name": "Guest leave preserves host room",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T03:56:47.865Z"
+    },
+    {
+      "name": "Same process rejoins same room",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T03:56:51.937Z"
+    },
+    {
+      "name": "Host close returns both peers home",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T03:56:53.475Z"
+    },
+    {
+      "name": "Both remain connected in pyramid",
+      "passed": true,
+      "stage": "abrupt-host-exit",
+      "utc": "2026-11-20T03:57:04.031Z"
+    },
+    {
+      "name": "Guest recovers after host process loss",
+      "passed": true,
+      "stage": "abrupt-host-exit",
+      "utc": "2026-11-20T03:57:35.150Z"
+    },
+    {
+      "name": "Former guest can host after disconnect",
+      "passed": true,
+      "stage": "guest-becomes-host",
+      "utc": "2026-11-20T03:57:38.900Z"
+    }
+  ],
+  "logs": {
+    "host": {
+      "allowed": true,
+      "errors": []
+    },
+    "client1": {
+      "allowed": true,
+      "errors": [
+        "[Online] Room cleanup: SessionException",
+        "[Online] Room cleanup: SessionException",
+        "[Online] Room cleanup: SessionException"
+      ]
+    }
+  }
+}

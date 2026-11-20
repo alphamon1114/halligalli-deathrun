@@ -1,0 +1,196 @@
+{
+  "utc": "2026-11-20T04:21:21.325Z",
+  "publishedVersion": "1.0.12",
+  "protocol": 45,
+  "buildStatus": "unpublished workbuild",
+  "scope": "Same PC; actual Relay; two headless public players; normal session APIs and probe input; no audio.",
+  "passed": 26,
+  "checks": [
+    {
+      "name": "Cancelled creation cannot terminate the replacement room",
+      "passed": true,
+      "stage": "cancel-pending-create",
+      "utc": "2026-11-20T04:12:42.977Z"
+    },
+    {
+      "name": "Both remain connected in first-steps with 2 seats",
+      "passed": true,
+      "stage": "cancel-pending-create",
+      "utc": "2026-11-20T04:12:45.666Z"
+    },
+    {
+      "name": "Cancelled join allows clean same-process rejoin",
+      "passed": true,
+      "stage": "cancel-pending-join",
+      "utc": "2026-11-20T04:14:26.042Z"
+    },
+    {
+      "name": "Both remain connected in item-race with 2 seats",
+      "passed": true,
+      "stage": "departure-during-play",
+      "utc": "2026-11-20T04:14:29.141Z"
+    },
+    {
+      "name": "Participant departure returns surviving host to room",
+      "passed": true,
+      "stage": "departure-during-play",
+      "utc": "2026-11-20T04:14:30.289Z"
+    },
+    {
+      "name": "Both remain connected in item-race with 6 seats",
+      "passed": true,
+      "stage": "six-seats-and-simultaneous-leave",
+      "utc": "2026-11-20T04:14:37.805Z"
+    },
+    {
+      "name": "Simultaneous departure releases both six-seat rooms",
+      "passed": true,
+      "stage": "six-seats-and-simultaneous-leave",
+      "utc": "2026-11-20T04:14:39.049Z"
+    },
+    {
+      "name": "Both remain connected in pyramid with 2 seats",
+      "passed": true,
+      "stage": "restart-after-simultaneous-leave",
+      "utc": "2026-11-20T04:14:49.840Z"
+    },
+    {
+      "name": "Both remain connected in pyramid with 2 seats",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T04:15:01.987Z"
+    },
+    {
+      "name": "Both remain connected in first-steps with 2 seats",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T04:15:06.166Z"
+    },
+    {
+      "name": "Guest leave preserves host room",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T04:15:07.980Z"
+    },
+    {
+      "name": "Same process rejoins same room",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T04:15:12.111Z"
+    },
+    {
+      "name": "Host close returns both peers home",
+      "passed": true,
+      "stage": "cycle-0",
+      "utc": "2026-11-20T04:15:13.740Z"
+    },
+    {
+      "name": "Both remain connected in item-race with 2 seats",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T04:15:24.281Z"
+    },
+    {
+      "name": "Both remain connected in first-steps with 2 seats",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T04:15:27.727Z"
+    },
+    {
+      "name": "Guest leave preserves host room",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T04:15:29.498Z"
+    },
+    {
+      "name": "Same process rejoins same room",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T04:15:33.717Z"
+    },
+    {
+      "name": "Host close returns both peers home",
+      "passed": true,
+      "stage": "cycle-1",
+      "utc": "2026-11-20T04:15:35.240Z"
+    },
+    {
+      "name": "Both remain connected in pyramid with 2 seats",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T04:15:46.093Z"
+    },
+    {
+      "name": "Both remain connected in first-steps with 2 seats",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T04:15:49.573Z"
+    },
+    {
+      "name": "Guest leave preserves host room",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T04:15:51.313Z"
+    },
+    {
+      "name": "Same process rejoins same room",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T04:15:55.436Z"
+    },
+    {
+      "name": "Host close returns both peers home",
+      "passed": true,
+      "stage": "cycle-2",
+      "utc": "2026-11-20T04:15:56.991Z"
+    },
+    {
+      "name": "Both remain connected in pyramid with 2 seats",
+      "passed": true,
+      "stage": "abrupt-host-exit",
+      "utc": "2026-11-20T04:16:07.561Z"
+    },
+    {
+      "name": "Guest recovers after host process loss",
+      "passed": true,
+      "stage": "abrupt-host-exit",
+      "utc": "2026-11-20T04:16:38.747Z"
+    },
+    {
+      "name": "Former guest can host after disconnect",
+      "passed": true,
+      "stage": "guest-becomes-host",
+      "utc": "2026-11-20T04:16:43.541Z"
+    }
+  ],
+  "harnessInterruption": {
+    "run": "relay-create-after.json",
+    "reason": "Error: EPERM: operation not permitted, rename 'C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\NetworkStability\\After\\command-client1.json.tmp' -> 'C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\NetworkStability\\After\\command-client1.json'",
+    "gameChecksCompletedBeforeInterruption": 2,
+    "remainingCasesCompletedIn": "relay-transitions-after.json"
+  },
+  "remainingSdkLogs": {
+    "host": {
+      "allowed": true,
+      "errors": [
+        "[Multiplayer]: System.ArgumentException: An item with the same key has already been added. Key: 8",
+        "[Multiplayer]: Unity.Services.Lobbies.LobbyServiceException: lobby not found ---> Unity.Services.Lobbies.Http.HttpException`1[Unity.Services.Lobbies.Models.ErrorStatus]: (404) HTTP/1.1 404 Not Found"
+      ]
+    },
+    "client1": {
+      "allowed": true,
+      "errors": [
+        "[Online] Room cleanup: SessionException: session not found",
+        "[Online] Room cleanup: SessionException: session not found",
+        "[Online] Room cleanup: SessionException: session not found",
+        "[Online] Room cleanup: SessionException: session not found"
+      ]
+    }
+  },
+  "limitations": [
+    "Two processes on one PC, not two remote PCs",
+    "Headless with audio disabled; no visual or listening check",
+    "No long-duration soak or injected packet loss",
+    "Lobby SDK duplicate-version and deleted-session warnings remain; transitions completed despite these logs"
+  ]
+}

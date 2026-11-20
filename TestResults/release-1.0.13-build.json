@@ -1,0 +1,54 @@
+{
+  "utc": "2026-11-20T05:34:53.478Z",
+  "version": "1.0.13",
+  "protocol": 45,
+  "launcherSafety": {
+    "passed": 31,
+    "complete": true
+  },
+  "admissionContract": {
+    "passed": 32,
+    "complete": true
+  },
+  "buildSucceeded": true,
+  "savedScenesOnly": true,
+  "package": {
+    "schemaVersion": 1,
+    "version": "1.0.13",
+    "protocol": 45,
+    "archiveName": "BellRun-Windows-1.0.13.zip",
+    "downloadUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/download/v1.0.13/BellRun-Windows-1.0.13.zip",
+    "sha256": "2a69a31ba794df802c4ebd50cb9af6d85cdab4242029e3edccddc0ae4dff8c64",
+    "size": 547705666,
+    "entryPoint": "HalliGalliMovement.exe"
+  },
+  "assets": [
+    {
+      "name": "BellRun-Windows-1.0.13.zip",
+      "size": 547705666,
+      "sha256": "2a69a31ba794df802c4ebd50cb9af6d85cdab4242029e3edccddc0ae4dff8c64"
+    },
+    {
+      "name": "BellRun-release.json",
+      "size": 413,
+      "sha256": "f439bae5fcffd6219f81b5bb37f86552746be1c21a63eeddb9b73243a7c6e782"
+    },
+    {
+      "name": "BellRunLauncher.exe",
+      "size": 116137790,
+      "sha256": "6bea9b79b1b893d28cd3abb1fb0a34db3d6d4092e65088f0957e322fe0ceb416"
+    }
+  ],
+  "offlineDemo": {
+    "path": "Exports/HalliGalliRunDemo.zip",
+    "sha256": "79062ab6162fee4a0113e21fbd234f79f2d0dcc8d4eda8259c32be76f9086af3",
+    "unchanged": true
+  },
+  "priorBehaviorEvidence": {
+    "path": "TestResults/network-stability-2026-11-20/summary.json",
+    "relayChecks": 26,
+    "lifecycleChecks": 18,
+    "note": "Previously exercised on November 20; not re-run as release checks"
+  },
+  "resume": "Original Unity contract process completed after OMP disconnect; its log was recovered. Lost launcher stdout was recovered by one logged re-run."
+}

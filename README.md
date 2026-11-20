@@ -120,6 +120,8 @@ Shift 달리기와 마비총은 제거된 상태입니다. 기본 이동은 4.5m
 
 ## 개발과 검증
 
+- **2026-11-20, 멀티플레이 연결·퇴장 경합 수정 / 미배포**: 이전 접속 요청이 끝나기 전에 매니저를 지우거나 새 방을 시작하지 않으며, 겹친 퇴장 요청은 전송 정리와 홈 씬 초기화까지 함께 기다립니다. 실제 Unity 경계 회귀 **18/18**, 실제 Relay 생성/참가 취소·재입장·맵 반복·2명+AI4·동시 퇴장·방장 강제 종료 후 복귀를 **합계 26개 확인**, 저장 씬 Windows 빌드 성공. [전후 결과와 제한](TestResults/network-stability-2026-11-20/summary.json) · [경계 회귀](TestResults/network-lifecycle.json). 동일 PC의 헤드리스 두 플레이어 검사이며, Unity Lobby SDK의 중복 이벤트/방 삭제 경고는 남습니다. **아직 런처에 배포하지 않았고 공개판은 1.0.12/프로토콜45 그대로입니다.** 재현: Unity의 `-executeMethod NetworkLifecycleValidationRunner.Run`으로 경기/로딩 중 퇴장·즉시 재생성 경계를 검사합니다.
+
 - **2026-11-17, [1.0.12 / 프로토콜45 배포](https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.12)**: 왕의 회랑 유토피아 참고 개편. 런처 안전 **31/31**, 최신 버전 계약·저장 씬 Windows 빌드 통과. 운영 런처 엔진으로 공개 GitHub **1.0.11→1.0.12 다운로드·검증·설치·실행**, 구버전 실행 차단을 확인했습니다. 다운로드된 플레이어의 실제 인터넷 Relay에서 새 코스·공중 체크포인트·R·종·카드·방 복귀·기존 서프 전환 **26/26 통과**. [빌드](TestResults/release-1.0.12-build.json) · [Relay](TestResults/release-1.0.12-public/relay.json). **2026-11-20 보충 검사**에서 두 피어의 21개 서프 구간과 체크포인트 진행값 `[4,8,13,17]`도 일치했습니다. 본 26개 검사에는 예외가 없었지만 보충 검사에서 [Unity Lobby SDK 중복 이벤트·방 조회 예외](TestResults/release-1.0.12-public/sdk-warnings.json)가 기록됐으며 사용자 영향은 미확인입니다. 동일 PC의 서로 다른 인증 프로필이며 원격 PC·장시간 안정성 검증은 별도입니다. **함께 플레이할 사람 모두 업데이트하세요.** 기존 지스타 오프라인 데모 ZIP은 그대로입니다.
 
 - **2026-11-17, 왕의 회랑 에디터 검증 / 1.0.12 포함**: Unity 그래픽 Play Mode에서 실제 양면 완주·6개 공중 연결·체크포인트/R 복귀 **59/59**, 로컬 2인 공중 체크포인트/종 입력 회귀 **30/30** 통과. 양쪽 출발 무낙하 완주 **54.0~54.6초**, 실제 Game View와 주행 위치 관찰 카메라 확인, 다른 씬·물리·스툴 등 **57개 파일 보존**. [주행 결과](TestResults/pyramid-utopia-2026-11-17/validation.json) · [종/복귀 결과](TestResults/pyramid-utopia-2026-11-17/bell-checkpoints.json). 사람의 직접 조작 체감 난이도는 아직 별도 확인이 필요합니다.

@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-20T04:11:03.392Z",
+  "unityVersion": "6000.6.0f1",
+  "method": "HalliGalli.EditorTools.RaceCourseBuilder.BuildPlayer",
+  "savedScenesOnly": true,
+  "successful": true,
+  "executable": "Build/Windows/HalliGalliMovement.exe",
+  "identity": "1.0.12 / protocol45, unpublished workbuild",
+  "packageUpgrade": false
+}

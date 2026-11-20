@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-20T04:07:47.077Z",
+  "executable": "C:/Users/mbc/AppData/Local/BellRunLauncher/versions/v1.0.12-d96ba4c181b34d6293d56879656ef18e/HalliGalliMovement.exe",
+  "cycles": 0,
+  "cancelConnect": true,
+  "scope": "Same PC; actual Relay; two headless public players; normal session APIs and probe input; no audio.",
+  "passed": 0,
+  "failed": 1,
+  "failure": "Error: Timeout: host created room",
+  "checks": [
+    {
+      "name": "Error: Timeout: host created room",
+      "stage": "cancel-pending-create",
+      "passed": false,
+      "utc": "2026-11-20T04:07:44.484Z"
+    }
+  ],
+  "logs": {
+    "host": {
+      "allowed": true,
+      "errors": [
+        "[Online] SessionException: request_rate_limited",
+        "[Online] SessionException: Cannot start the session: no active NetworkManager was found. Add an active NetworkManager to the Scene before starting a session."
+      ]
+    },
+    "client1": {
+      "allowed": true,
+      "errors": []
+    }
+  }
+}

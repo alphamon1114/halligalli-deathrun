@@ -1,0 +1,44 @@
+{
+  "utc": "2026-11-20T04:12:54.429Z",
+  "executable": "C:/Users/mbc/Documents/ao/halligalli/Build/Windows/HalliGalliMovement.exe",
+  "cycles": 3,
+  "cancelConnect": true,
+  "stressTransitions": true,
+  "scope": "Same PC; actual Relay; two headless public players; normal session APIs and probe input; no audio.",
+  "passed": 2,
+  "failed": 1,
+  "failure": "Error: EPERM: operation not permitted, rename 'C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\NetworkStability\\After\\command-client1.json.tmp' -> 'C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\NetworkStability\\After\\command-client1.json'",
+  "checks": [
+    {
+      "name": "Cancelled creation cannot terminate the replacement room",
+      "passed": true,
+      "stage": "cancel-pending-create",
+      "utc": "2026-11-20T04:12:42.977Z"
+    },
+    {
+      "name": "Both remain connected in first-steps with 2 seats",
+      "passed": true,
+      "stage": "cancel-pending-create",
+      "utc": "2026-11-20T04:12:45.666Z"
+    },
+    {
+      "name": "Error: EPERM: operation not permitted, rename 'C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\NetworkStability\\After\\command-client1.json.tmp' -> 'C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\NetworkStability\\After\\command-client1.json'",
+      "stage": "cancel-pending-join",
+      "passed": false,
+      "utc": "2026-11-20T04:12:51.786Z"
+    }
+  ],
+  "logs": {
+    "host": {
+      "allowed": true,
+      "errors": []
+    },
+    "client1": {
+      "allowed": true,
+      "errors": [
+        "[Online] Room cleanup: SessionException: session not found",
+        "[Online] Pending connection cleanup: SessionException: session not found"
+      ]
+    }
+  }
+}

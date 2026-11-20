@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-20T04:22:05.283Z",
+  "scope": "Release identity, project settings and offline submission ZIP compared with published release evidence",
+  "files": [
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/GameRelease.cs",
+      "expected": "3667bdd90a0f130eed332bcb2c7cdf25f5da4a5c96aa3d8acc3693f87c4c64e0",
+      "actual": "3667bdd90a0f130eed332bcb2c7cdf25f5da4a5c96aa3d8acc3693f87c4c64e0",
+      "unchanged": true
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "expected": "c4b9c637f8c9e59b417076bc12361d4c81cce584cd60d6602cd5e344dc45e7cc",
+      "actual": "c4b9c637f8c9e59b417076bc12361d4c81cce584cd60d6602cd5e344dc45e7cc",
+      "unchanged": true
+    },
+    {
+      "path": "Exports/HalliGalliRunDemo.zip",
+      "expected": "79062ab6162fee4a0113e21fbd234f79f2d0dcc8d4eda8259c32be76f9086af3",
+      "actual": "79062ab6162fee4a0113e21fbd234f79f2d0dcc8d4eda8259c32be76f9086af3",
+      "unchanged": true
+    }
+  ]
+}

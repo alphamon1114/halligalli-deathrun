@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Unity.Collections;
 using Unity.Netcode;
@@ -53,6 +54,9 @@ namespace HalliGalli.Movement
         NetworkManager manager;
         UnityTransport transport;
         ISession cloud;
+        CancellationTokenSource connectionCancellation;
+        Task<ISession> pendingConnection;
+        Task leaveTask;
         CourseSession game;
         readonly List<Member> members=new List<Member>();
         readonly HashSet<ulong> loaded=new HashSet<ulong>();
@@ -180,23 +184,39 @@ namespace HalliGalli.Movement
             if(Busy||online||leaving||UserMapStudio.IsOpen)return;
             Busy=true;menu=true;Status=host?"방 만드는 중…":"초대 코드로 접속 중…";
             int token=++operation;
+            var cancellation=new CancellationTokenSource();
+            connectionCancellation=cancellation;
+            var request=OpenCloudSession(host,code,cancellation.Token);
+            pendingConnection=request;
             try{
-                if(!await Authenticate())return;
-                if(token!=operation)return;
-                if(!PrepareConnection())return;
-                var result=host
-                    ?await MultiplayerService.Instance.CreateSessionAsync(new SessionOptions{Name=CleanName(nickname)+"의 방",MaxPlayers=capacity,IsPrivate=true}.WithRelayNetwork())
-                    :await MultiplayerService.Instance.JoinSessionByCodeAsync((code??"").Trim().ToUpperInvariant());
-                if(token!=operation){await result.LeaveAsync();return;}
+                var result=await request;
+                // Leave owns disposal of a request invalidated while the SDK was starting its transport.
+                if(token!=operation||result==null)return;
                 cloud=result;InviteCode=result.Code;
                 cloud.Deleted+=CloudEnded;cloud.RemovedFromSession+=CloudEnded;
                 cloud.SessionHostChanged+=HostChanged;
                 Status="친구에게 초대 코드를 보내줘.";
                 if(IsHost)BroadcastRoom();
+            }catch(OperationCanceledException) when(cancellation.IsCancellationRequested){
             }catch(Exception e){
+                if(token!=operation)return;
                 Debug.LogWarning("[Online] "+e.GetType().Name+": "+e.Message);
                 await Leave(FriendlyError(e));
-            }finally{if(token==operation)Busy=false;}
+            }finally{
+                if(pendingConnection==request)pendingConnection=null;
+                if(connectionCancellation==cancellation)connectionCancellation=null;
+                cancellation.Dispose();
+                if(token==operation)Busy=false;
+            }
+        }
+        async Task<ISession> OpenCloudSession(bool host,string code,CancellationToken cancellation)
+        {
+            if(!await Authenticate())return null;
+            cancellation.ThrowIfCancellationRequested();
+            if(!PrepareConnection())return null;
+            return host
+                ?await MultiplayerService.Instance.CreateSessionAsync(new SessionOptions{Name=CleanName(nickname)+"의 방",MaxPlayers=capacity,IsPrivate=true}.WithRelayNetwork(),cancellation)
+                :await MultiplayerService.Instance.JoinSessionByCodeAsync((code??"").Trim().ToUpperInvariant(),null,cancellation);
         }
         void CloudEnded(){if(online&&!leaving)_=Leave("방이 종료됐어.");}
         void HostChanged(string id){if(online&&!leaving)_=Leave("방장이 나가서 방이 종료됐어.");}
@@ -225,7 +245,7 @@ namespace HalliGalli.Movement
         public void StartLoopback(bool host,ushort port=7777,string name="Test")
         {
             if(RejectOfflineConnection())return;
-            if(online||Busy||UserMapStudio.IsOpen)return;
+            if(online||Busy||leaving||UserMapStudio.IsOpen)return;
             nickname=name;if(!PrepareConnection())return;
             transport.SetConnectionData("127.0.0.1",port,"127.0.0.1");
             bool ok=host?manager.StartHost():manager.StartClient();
@@ -392,29 +412,53 @@ namespace HalliGalli.Movement
                 p.Combat.simulateAutomatically=IsHost;p.Combat.networkAim=null;
             }
         }
-        public async Task Leave(string reason="방에서 나왔어.")
+        public Task Leave(string reason="방에서 나왔어.")
         {
-            if(leaving)return;
-            leaving=true;++operation;online=false;Playing=loading=bound=false;Busy=false;menu=true;entryScreen=EntryScreen.Home;
-            string returnScene=game?game.gameObject.scene.path:null;
-            if(IsUserMapSelected||returnScene==UserMapRuntime.ScenePath) returnScene=OfficialHomeScene();
-            ResetUserMapState();mapRevision=0;mapId="first-steps";
-            var old=cloud;cloud=null;
-            if(old!=null){old.Deleted-=CloudEnded;old.RemovedFromSession-=CloudEnded;old.SessionHostChanged-=HostChanged;}
-            try{if(old!=null){if(old.IsHost)await old.AsHost().DeleteAsync();else await old.LeaveAsync();}}
-            catch(Exception e){Debug.LogWarning("[Online] Room cleanup: "+e.GetType().Name);}
-            if(manager){
-                if(manager.IsListening)manager.Shutdown();
-                // Transport jobs finish at the end of an engine frame. Never destroy their owner in a disconnect callback.
-                while(manager&&manager.ShutdownInProgress)await Task.Yield();
-                await Task.Yield();
-                if(manager)Destroy(manager.gameObject);
-                manager=null;transport=null;
-                await Task.Yield();
-            }
-            members.Clear();approved.Clear();pendingShirtRequest=0;InviteCode="";Status=reason;ResetSimulation();
-            if(!string.IsNullOrEmpty(returnScene))_=SceneManager.LoadSceneAsync(returnScene);
-            leaving=false;
+            if(leaving)return leaveTask;
+            leaving=true;++operation;online=false;Playing=loading=bound=false;Busy=true;menu=true;entryScreen=EntryScreen.Home;
+            leaveTask=LeaveCore(reason,cloud,pendingConnection);
+            connectionCancellation?.Cancel();
+            return leaveTask;
+        }
+        async Task LeaveCore(string reason,ISession old,Task<ISession> request)
+        {
+            // Publish the shared task before cancellation/shutdown callbacks can re-enter Leave.
+            await Task.Yield();
+            try{
+                string returnScene=game?game.gameObject.scene.path:null;
+                if(IsUserMapSelected||returnScene==UserMapRuntime.ScenePath)returnScene=OfficialHomeScene();
+                ResetUserMapState();mapRevision=0;mapId="first-steps";
+                cloud=null;
+                if(old!=null){old.Deleted-=CloudEnded;old.RemovedFromSession-=CloudEnded;old.SessionHostChanged-=HostChanged;}
+                if(old==null&&request!=null){
+                    try{old=await request;}
+                    catch(OperationCanceledException){ }
+                    catch(Exception e){Debug.LogWarning("[Online] Pending connection cleanup: "+e.GetType().Name+": "+e.Message);}
+                }
+                try{
+                    if(old!=null){
+                        if(old.IsHost)await old.AsHost().DeleteAsync();
+                        else if(old.IsMember)await old.LeaveAsync();
+                    }
+                }catch(Exception e){Debug.LogWarning("[Online] Room cleanup: "+e.GetType().Name+": "+e.Message);}
+                if(manager){
+                    if(manager.IsListening)manager.Shutdown();
+                    // Transport jobs finish at the end of an engine frame, not inside disconnect callbacks.
+                    while(manager&&manager.ShutdownInProgress)await Task.Yield();
+                    await Task.Yield();
+                    if(manager)Destroy(manager.gameObject);
+                    manager=null;transport=null;
+                    await Task.Yield();
+                }
+                members.Clear();approved.Clear();pendingShirtRequest=0;InviteCode="";ResetSimulation();
+                if(!string.IsNullOrEmpty(returnScene)){
+                    var load=SceneManager.LoadSceneAsync(returnScene);
+                    while(!load.isDone)await Task.Yield();
+                    // Let the new scene's Start and home-freeze coroutine finish before accepting input.
+                    await Task.Yield();
+                }
+                Status=reason;
+            }finally{Busy=false;leaving=false;}
         }
         void Update()
         {
