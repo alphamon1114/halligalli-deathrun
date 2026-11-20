@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-20T03:45:01.149Z",
+  "run": "Build/Release112/LayoutProofSettled",
+  "source": "Unity.Services.Lobbies SDK",
+  "observedLines": [
+    "[Multiplayer]: System.ArgumentException: An item with the same key has already been added. Key: 4",
+    "[Multiplayer]: Unity.Services.Lobbies.LobbyServiceException: lobby not found ---> Unity.Services.Lobbies.Http.HttpException`1[Unity.Services.Lobbies.Models.ErrorStatus]: (404) HTTP/1.1 404 Not Found"
+  ],
+  "scope": "The metadata supplement loaded both new pyramid scenes and captured the game view. Its host log contains these SDK errors. The earlier 26-check Relay run had no exception lines; timing and player-visible impact of these supplementary errors have not been established."
+}

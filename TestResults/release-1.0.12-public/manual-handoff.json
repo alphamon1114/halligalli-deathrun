@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-20",
+  "launchUtc": "2026-11-20T03:45:20.2998018Z",
+  "processId": 35484,
+  "installationPath": "C:/Users/mbc/AppData/Local/BellRunLauncher/versions/v1.0.12-d96ba4c181b34d6293d56879656ef18e",
+  "version": "1.0.12",
+  "protocol": 45,
+  "productionInstallVerified": true,
+  "releaseGateAllowed": true,
+  "probeArguments": false,
+  "audioDisabled": false,
+  "foregroundActivated": true,
+  "observedScreen": "Normal HALLIGALLI RUN home with Create Room, Join, Practice, Map Studio and customization controls",
+  "scope": "OS screen capture and process command line inspected. Manual game intentionally left running. No automated gameplay input sent to this user session; choose royal surf in the normal room UI."
+}

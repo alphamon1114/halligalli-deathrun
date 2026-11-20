@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-17T09:53:15.497Z",
+  "pid": 8156,
+  "passed": true,
+  "gate": "RELEASE_GATE_BLOCKED version=1.0.11 protocol=44 reason=VersionMismatch http=200 attempt=1 heldRoots=93",
+  "probeStarted": false
+}

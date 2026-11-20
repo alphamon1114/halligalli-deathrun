@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-20T03:45:20.2998018Z",
+  "installationPath": "C:\\Users\\mbc\\AppData\\Local\\BellRunLauncher\\versions\\v1.0.12-d96ba4c181b34d6293d56879656ef18e",
+  "probe": false,
+  "state": {
+    "Latest": {
+      "SchemaVersion": 1,
+      "Version": "1.0.12",
+      "Protocol": 45,
+      "ArchiveName": "BellRun-Windows-1.0.12.zip",
+      "DownloadUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/download/v1.0.12/BellRun-Windows-1.0.12.zip",
+      "Sha256": "97c981e9f665837e76f9bab392bf7d785dba468e55f339ad3121c1da280afffd",
+      "Size": 547704509,
+      "EntryPoint": "HalliGalliMovement.exe"
+    },
+    "InstalledVersion": "1.0.12",
+    "IsReady": true,
+    "GameRunning": false
+  }
+}

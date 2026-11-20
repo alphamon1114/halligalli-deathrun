@@ -1,0 +1,152 @@
+{
+  "utc": "2026-11-17T09:55:16.033Z",
+  "scope": "Same-PC graphical host and headless guest, actual internet Relay, diagnostic API actions and authoritative placement; not manual full traversal.",
+  "report": {
+    "utc": "2026-11-17T09:55:16.033Z",
+    "passed": 26,
+    "failed": 0,
+    "checks": [
+      {
+        "name": "Two peers joined",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Pyramid room ready",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Pyramid loaded on both peers",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Legal five synchronized",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Both racers standing",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Unfinished racer cannot ring the royal bell",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Airborne checkpoint 1 saves on both peers",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "R restores checkpoint 1 and earned gates",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Airborne checkpoint 2 saves on both peers",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "R restores checkpoint 2 and earned gates",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Airborne checkpoint 3 saves on both peers",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "R restores checkpoint 3 and earned gates",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Airborne checkpoint 4 saves on both peers",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "R restores checkpoint 4 and earned gates",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Cursed pit contact recovers guest on both peers",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Pit restores fourth checkpoint without changing cards",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Backtracking cannot replace the fourth checkpoint",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Final bank contacts are not fabricated",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Completed pyramid awards bell and reseats everyone",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Awarded cards remain synchronized",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Both peers return to room",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Room ready for a second match",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Original surf still loads",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Original surf retains single-sided ramps",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Guest leaves cleanly",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Host closes room",
+        "passed": true,
+        "detail": ""
+      }
+    ]
+  },
+  "logs": {
+    "host": {
+      "allowed": true,
+      "exceptions": []
+    },
+    "client1": {
+      "allowed": true,
+      "exceptions": []
+    }
+  },
+  "supplement": "The additional metadata assertion compared sections against an array instead of its length. The existing 26 gameplay checks passed; only corrected metadata/visual capture is run separately."
+}

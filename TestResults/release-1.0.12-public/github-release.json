@@ -1,0 +1,14 @@
+{
+  "publishedAt": "2026-11-17T09:52:24Z",
+  "tagName": "v1.0.12",
+  "sourceCommit": "7f5e3369610daa0145c66b8b08b86f48c2b0b93a",
+  "url": "https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.12",
+  "draft": false,
+  "prerelease": false,
+  "assetsMatchLocal": true,
+  "assets": [
+    {"name": "BellRun-release.json", "size": 413, "sha256": "5fee4b2702bd1969a6b4f4d260bc2f33b6caf84c1693c9ca7cea59ebcfaa7110"},
+    {"name": "BellRun-Windows-1.0.12.zip", "size": 547704509, "sha256": "97c981e9f665837e76f9bab392bf7d785dba468e55f339ad3121c1da280afffd"},
+    {"name": "BellRunLauncher.exe", "size": 116137790, "sha256": "8c45e2bf0b668366b96384e5c92458c1451247b0b2391b7777552eb343449284"}
+  ]
+}
