@@ -1,0 +1,87 @@
+{
+  "utc": "2026-11-20T05:40:58.568Z",
+  "executable": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\Release113\\Sandbox\\versions\\v1.0.13-51a668767a394f4d8fe912822ca1d781/HalliGalliMovement.exe",
+  "hostPid": 7916,
+  "guestPid": 19676,
+  "scope": "Downloaded public 1.0.13; production launcher start; two same-PC headless processes; real Relay; audio disabled",
+  "passed": 13,
+  "failed": 0,
+  "failure": null,
+  "checks": [
+    {
+      "utc": "2026-11-20T05:40:18.152Z",
+      "name": "Public players both retain protocol45 and online edition",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:21.380Z",
+      "name": "Cancelled creation releases manager before a new room",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:25.513Z",
+      "name": "Same process creates replacement cloud room",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:37.257Z",
+      "name": "Cancelled join cannot terminate the replacement connection",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:39.846Z",
+      "name": "pyramid starts with 2 synchronized seats",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:40.167Z",
+      "name": "Return preserves room and both participants",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:43.268Z",
+      "name": "item-race starts with 6 synchronized seats",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:43.270Z",
+      "name": "Only four AI are retained alongside two humans",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:44.192Z",
+      "name": "Simultaneous departure fully releases both managers",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:54.240Z",
+      "name": "first-steps starts with 2 synchronized seats",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:54.245Z",
+      "name": "Fresh room after simultaneous leave has no stale AI seats",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:54.996Z",
+      "name": "In-match guest exit preserves a usable host room",
+      "passed": true
+    },
+    {
+      "utc": "2026-11-20T05:40:55.737Z",
+      "name": "Final exit leaves both players offline and settled",
+      "passed": true
+    }
+  ],
+  "logs": {
+    "host": {
+      "allowed": true,
+      "errors": []
+    },
+    "client1": {
+      "allowed": true,
+      "errors": []
+    }
+  }
+}

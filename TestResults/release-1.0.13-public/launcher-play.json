@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-20T05:40:01.9820014Z",
+  "mode": "play",
+  "root": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\Release113\\Sandbox",
+  "before": {
+    "Latest": {
+      "SchemaVersion": 1,
+      "Version": "1.0.13",
+      "Protocol": 45,
+      "ArchiveName": "BellRun-Windows-1.0.13.zip",
+      "DownloadUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/download/v1.0.13/BellRun-Windows-1.0.13.zip",
+      "Sha256": "2a69a31ba794df802c4ebd50cb9af6d85cdab4242029e3edccddc0ae4dff8c64",
+      "Size": 547705666,
+      "EntryPoint": "HalliGalliMovement.exe"
+    },
+    "InstalledVersion": "1.0.13",
+    "IsReady": true,
+    "GameRunning": false
+  },
+  "after": {
+    "Latest": {
+      "SchemaVersion": 1,
+      "Version": "1.0.13",
+      "Protocol": 45,
+      "ArchiveName": "BellRun-Windows-1.0.13.zip",
+      "DownloadUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/download/v1.0.13/BellRun-Windows-1.0.13.zip",
+      "Sha256": "2a69a31ba794df802c4ebd50cb9af6d85cdab4242029e3edccddc0ae4dff8c64",
+      "Size": 547705666,
+      "EntryPoint": "HalliGalliMovement.exe"
+    },
+    "InstalledVersion": "1.0.13",
+    "IsReady": true,
+    "GameRunning": true
+  },
+  "active": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\Release113\\Sandbox\\versions\\v1.0.13-51a668767a394f4d8fe912822ca1d781",
+  "launchedPid": 7916
+}

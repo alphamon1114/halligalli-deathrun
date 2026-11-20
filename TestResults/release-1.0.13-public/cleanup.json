@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-20T05:41:52.010Z",
+  "ownedGameProcessesStopped": true,
+  "removedOwnedDirectories": [
+    "Build/Release113/Integration",
+    "Build/Release113/Sandbox"
+  ],
+  "productionInstallModified": false,
+  "offlineDemoModified": false,
+  "rawLogsRetained": "Build/Release113"
+}

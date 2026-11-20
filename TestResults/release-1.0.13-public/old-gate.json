@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-20T05:39:22.471Z",
+  "executable": "C:\\Users\\mbc\\Documents\\ao\\halligalli\\Build\\Release113\\Sandbox\\versions\\v1.0.12-9003bcaa62384208a645c18d82de50f1/HalliGalliMovement.exe",
+  "pid": 7992,
+  "blocked": true,
+  "failure": null,
+  "markers": [
+    "RELEASE_GATE_CHECKING version=1.0.12 protocol=45 attempt=1",
+    "RELEASE_GATE_BLOCKED version=1.0.12 protocol=45 reason=VersionMismatch http=200 attempt=1 heldRoots=93"
+  ]
+}
