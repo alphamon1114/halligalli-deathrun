@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-27T05:50:42.693Z",
+  "version": "1.0.14",
+  "protocol": 46,
+  "unity": "6000.6.0f1",
+  "launcherSafety": {
+    "passed": 31,
+    "failed": 0
+  },
+  "admissionContract": {
+    "passed": 32,
+    "verified": true
+  },
+  "windowsBuild": {
+    "success": true,
+    "savedScenesOnly": true,
+    "files": 216,
+    "archive": "BellRun-Windows-1.0.14.zip",
+    "size": 547933272,
+    "sha256": "4bd3f400d2f25788e6b55db74c1e8d85ecbd429c83d53c8122a2d686fb567a1d",
+    "launcherSha256": "93218c526b5e19a99f2e58634dff06529e214dd3e6765e647c1cfbfe47674cb0"
+  },
+  "preservation": {
+    "utc": "2026-11-27T05:50:41.932Z",
+    "checked": 15,
+    "changed": []
+  },
+  "priorDatedEvidence": {
+    "ui": "TestResults/home-ui-2026-11-27.json",
+    "pyramid": "TestResults/pyramid-difficulty-2026-11-27/summary.json"
+  },
+  "publication": "not-yet-published",
+  "logs": [
+    "Build/Release114/admission.log",
+    "Logs/release-player.log"
+  ]
+}

@@ -30,14 +30,15 @@ namespace HalliGalli.Movement
             foreach (var participant in session.participants) {
                 if (participant.IsSeated || participant.IsRespawning || session.MustReturn(participant)) continue;
                 if (orderedPassage) {
-                    // The host records passage over the next plaza, not contact with every surf bank.
+                    // The next plaza is a vertical passage column, including routes below its deck.
                     int next = participant.CheckpointIndex + 1;
                     if (next >= points.Length) continue;
                     var point = points[next];
                     if (!point.spawn || !point.landing || !point.landing.enabled) continue;
                     var bounds = point.landing.bounds;
+                    bounds.Expand(new Vector3(2, 0, 2)); // One metre of horizontal edge clearance.
                     var position = participant.transform.position;
-                    if (position.x < bounds.min.x || position.x > bounds.max.x || position.z < bounds.min.z || position.z > bounds.max.z || position.y < bounds.max.y - .15f) continue;
+                    if (position.x < bounds.min.x || position.x > bounds.max.x || position.z < bounds.min.z || position.z > bounds.max.z || position.y <= session.fallHeight) continue;
                     participant.SetCheckpoint(next, 0);
                     RestoreSurfProgress(participant);
                     continue;

@@ -1,11 +1,11 @@
 {
-    "utc": "2026-11-17T09:22:16.9092460Z",
-    "passed": 30,
+    "utc": "2026-11-27T02:21:32.7200432Z",
+    "passed": 33,
     "failed": 0,
     "checks": [
         {
             "name": "Visible bell remains at its interaction target",
-            "detail": "target=(595.11, -116.40, 353.72) bounds=Center: (595.11, -116.25, 353.72), Extents: (0.29, 0.15, 0.29)",
+            "detail": "target=(-65.22, -115.70, 259.79) bounds=Center: (-65.22, -115.55, 259.79), Extents: (0.33, 0.15, 0.33)",
             "passed": true
         },
         {
@@ -19,43 +19,43 @@
             "passed": true
         },
         {
-            "name": "Seat 0 airborne checkpoint 0",
-            "detail": "saved=0 gates=4",
+            "name": "Seat 0 above deck checkpoint 0",
+            "detail": "saved=0 speed=0 gates=4",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 0",
-            "detail": "position=(21.84, -14.38, 129.31)",
+            "detail": "position=(35.97, -14.38, 125.49)",
             "passed": true
         },
         {
-            "name": "Seat 0 airborne checkpoint 1",
-            "detail": "saved=1 gates=8",
+            "name": "Seat 0 above deck checkpoint 1",
+            "detail": "saved=1 speed=0 gates=8",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 1",
-            "detail": "position=(164.28, -47.85, 226.21)",
+            "detail": "position=(171.58, -45.85, 28.79)",
             "passed": true
         },
         {
-            "name": "Seat 0 airborne checkpoint 2",
-            "detail": "saved=2 gates=13",
+            "name": "Seat 0 above deck checkpoint 2",
+            "detail": "saved=2 speed=0 gates=13",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 2",
-            "detail": "position=(301.66, -72.43, 317.90)",
+            "detail": "position=(34.82, -74.43, -82.67)",
             "passed": true
         },
         {
-            "name": "Seat 0 airborne checkpoint 3",
-            "detail": "saved=3 gates=17",
+            "name": "Seat 0 above deck checkpoint 3",
+            "detail": "saved=3 speed=0 gates=19",
             "passed": true
         },
         {
             "name": "Seat 0 R returns to checkpoint 3",
-            "detail": "position=(457.61, -102.80, 353.72)",
+            "detail": "position=(-73.65, -100.30, 121.47)",
             "passed": true
         },
         {
@@ -65,7 +65,7 @@
         },
         {
             "name": "Seat 0 valid checkpoint route can ring without touching every bank",
-            "detail": "grounded=True gates=17 claim=True",
+            "detail": "grounded=True gates=19 claim=True",
             "passed": true
         },
         {
@@ -84,43 +84,43 @@
             "passed": true
         },
         {
-            "name": "Seat 1 airborne checkpoint 0",
-            "detail": "saved=0 gates=4",
+            "name": "Seat 1 55m/s below deck checkpoint 0",
+            "detail": "saved=0 speed=55 gates=4",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 0",
-            "detail": "position=(21.84, -14.38, 129.31)",
+            "detail": "position=(35.97, -14.38, 125.49)",
             "passed": true
         },
         {
-            "name": "Seat 1 airborne checkpoint 1",
-            "detail": "saved=1 gates=8",
+            "name": "Seat 1 55m/s below deck checkpoint 1",
+            "detail": "saved=1 speed=55 gates=8",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 1",
-            "detail": "position=(164.28, -47.85, 226.21)",
+            "detail": "position=(171.58, -45.85, 28.79)",
             "passed": true
         },
         {
-            "name": "Seat 1 airborne checkpoint 2",
-            "detail": "saved=2 gates=13",
+            "name": "Seat 1 55m/s below deck checkpoint 2",
+            "detail": "saved=2 speed=55 gates=13",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 2",
-            "detail": "position=(301.66, -72.43, 317.90)",
+            "detail": "position=(34.82, -74.43, -82.67)",
             "passed": true
         },
         {
-            "name": "Seat 1 airborne checkpoint 3",
-            "detail": "saved=3 gates=17",
+            "name": "Seat 1 55m/s below deck checkpoint 3",
+            "detail": "saved=3 speed=55 gates=19",
             "passed": true
         },
         {
             "name": "Seat 1 R returns to checkpoint 3",
-            "detail": "position=(457.61, -102.80, 353.72)",
+            "detail": "position=(-73.65, -100.30, 121.47)",
             "passed": true
         },
         {
@@ -130,7 +130,7 @@
         },
         {
             "name": "Seat 1 valid checkpoint route can ring without touching every bank",
-            "detail": "grounded=True gates=17 claim=True",
+            "detail": "grounded=True gates=19 claim=True",
             "passed": true
         },
         {
@@ -149,8 +149,23 @@
             "passed": true
         },
         {
-            "name": "Passing underneath a checkpoint does not save it",
-            "detail": "",
+            "name": "Outside the column cannot save progress",
+            "detail": "saved=-1 position=(50.29, -22.38, 125.49)",
+            "passed": true
+        },
+        {
+            "name": "Column edge clearance saves an under-deck pass",
+            "detail": "saved=0 position=(49.29, -22.38, 125.49)",
+            "passed": true
+        },
+        {
+            "name": "High aerial passage saves progress",
+            "detail": "saved=0 position=(35.97, 35.62, 125.49)",
+            "passed": true
+        },
+        {
+            "name": "Below the lethal height cannot save progress",
+            "detail": "saved=-1 position=(35.97, -150.83, 125.49)",
             "passed": true
         }
     ]

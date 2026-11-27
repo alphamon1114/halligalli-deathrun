@@ -1,4 +1,4 @@
-Bell Run UI
+HALLIGALLI RUN UI
 
 Original line icons: created for this project from geometric paths.
 Editable source: outputs/ui-polish/build_icons.py in the working project workspace.
@@ -11,3 +11,11 @@ The underlying VARCO environment assets retain their existing provenance.
 Runtime skin: BellUI.cs; charcoal, warm ivory and brass, with red for danger
 and muted teal for stun / checkpoint states. HUD uses uniform scaling and
 edge anchoring rather than stretching to the display's aspect ratio.
+
+Home and entry forms: CourseNetwork.UI.cs; ivory, sage, yellow and dark green.
+HomeStillLife.png combines the project's existing fruit-card artwork and bell
+render. Editable composition: Previews/MenuConcepts/home-still-life.html.
+The cut-corner icon is an original antialiased geometric triangle.
+No new paid generation or third-party UI assets were used for this revision.
+MusicVolumeControl uses the light skin only on entry; room and HUD retain
+their existing dark skin.

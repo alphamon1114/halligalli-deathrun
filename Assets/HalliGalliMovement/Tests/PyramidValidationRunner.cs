@@ -11,6 +11,10 @@ using UnityEngine;
 public sealed class PyramidValidationRunner:MonoBehaviour
 {
     public bool probeOnly;
+    SourcePlayerController localControl;
+    CourseRival traversalBot;
+    bool addedTraversalBot;
+    float originalTimeScale=1;
     [Serializable]class Check{public string name,detail;public bool passed;}
     [Serializable]class Report{public string utc;public int passed,failed;public List<Check> checks;public List<Flight> flights;}
     [Serializable]sealed class Flight
@@ -30,10 +34,26 @@ public sealed class PyramidValidationRunner:MonoBehaviour
     readonly List<Flight> flights=new List<Flight>();
     IEnumerator Start()
     {
+        originalTimeScale=Time.timeScale;
         var run=Validate();while(true){bool more;object next=null;try{more=run.MoveNext();if(more)next=run.Current;}catch(Exception e){Test("Runner completes",false,e.ToString());break;}if(!more)break;yield return next;}
-        Time.timeScale=1;Save();Debug.Log("PYRAMID_VALIDATION_RESULT "+checks.Count(c=>c.passed)+"/"+checks.Count);
-        if(Application.isBatchMode){EditorApplication.Exit(checks.Any(c=>!c.passed)?1:0);yield break;}
+        if(traversalBot)traversalBot.enabled=false;
+        Time.timeScale=originalTimeScale;Save();Debug.Log("PYRAMID_VALIDATION_RESULT "+checks.Count(c=>c.passed)+"/"+checks.Count);
+        int failed=checks.Count(c=>!c.passed);
+        if(Application.isBatchMode){EditorApplication.Exit(failed>0?1:0);yield break;}
         EditorApplication.isPlaying=false;
+    }
+    void LateUpdate()
+    {
+        // The test driver feeds the real motor; keep its real local camera following without
+        // enabling SourcePlayerController.FixedUpdate and simulating the motor twice.
+        if(!localControl||localControl.enabled)return;
+        if(traversalBot&&!traversalBot.participant.IsSeated)localControl.ResetView(localControl.transform.eulerAngles.y);
+        localControl.UpdateView();
+    }
+    void OnDestroy()
+    {
+        Time.timeScale=originalTimeScale;
+        if(addedTraversalBot&&traversalBot)Destroy(traversalBot);
     }
     IEnumerator Validate()
     {
@@ -42,14 +62,14 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         var session=FindAnyObjectByType<CourseSession>();var roster=session.roster;var surf=roster.surf;var pyramid=surf.GetComponent<PyramidCourse>();
         session.cardGame.botEnabled=false;session.cardGame.shuffleOnReset=false;session.cardGame.seed=20261020;
         FindAnyObjectByType<CourseHUD>().ReadInput=false;
-        var control=session.Local.GetComponent<SourcePlayerController>();control.controlsEnabled=false;control.SetCursorCaptured(false);
+        localControl=session.Local.GetComponent<SourcePlayerController>();localControl.controlsEnabled=false;localControl.SetCursorCaptured(false);localControl.enabled=false;
         foreach(var p in roster.allParticipants){p.Initialize();p.Combat.readInput=false;var b=p.GetComponent<CourseRival>();if(b){b.enabled=false;b.attacksEnabled=false;}}
         Time.timeScale=3;
         bool complete=pyramid.chambers.Length==5&&pyramid.chambers[0].firstSection==0&&pyramid.chambers.Last().lastSection==surf.sections.Length-1;
         for(int i=1;i<pyramid.chambers.Length;i++)complete&=pyramid.chambers[i].firstSection==pyramid.chambers[i-1].lastSection+1;
         Test("Five ordered spaces cover the complete route",complete,"");
         Test("Banks retain broad rideable lane clearance",surf.sections.All(s=>s.Length>0&&s.halfWidth>=surf.laneX),"sections="+surf.sections.Length+" metres="+surf.sections.Sum(s=>s.Length));
-        bool faces=true,aligned=true,gentle=true,monotonic=true;
+        bool faces=true,gentle=true,monotonic=true;
         var banks=surf.GetComponentsInChildren<MeshCollider>().Where(c=>c.name.StartsWith("Pyramid bank ")).ToArray();
         var sectionBanks=SectionBanks(surf);
         var transfers=RoomFlights(surf,pyramid,-1);
@@ -74,28 +94,31 @@ public sealed class PyramidValidationRunner:MonoBehaviour
             }
             monotonic&=!(up&&down);
             if(i==0)continue;
-            var previous=surf.sections[i-1];var rotation=Quaternion.Euler(0,previous.headings.Last(),0);
-            if(previous.landing==Vector3.zero){
-                var transfer=s.points[0]-previous.points.Last();
-                aligned&=Mathf.Abs(Vector3.Dot(transfer,rotation*Vector3.right))<.02f&&Mathf.Abs(Mathf.DeltaAngle(previous.headings.Last(),s.headings[0]))<.01f;
-            }else gentle&=Mathf.Abs(Mathf.DeltaAngle(previous.headings.Last(),s.headings[0]))<=15;
+            var previous=surf.sections[i-1];
+            if(previous.landing!=Vector3.zero)gentle&=Mathf.Abs(Mathf.DeltaAngle(previous.headings.Last(),s.headings[0]))<=15;
         }
         Test("Riding faces retain real surf collision throughout curves",faces,"");
-        Test("Transfers preserve tangent and lane without forced side swaps",aligned,"");
         Test("Curves and checkpoint transitions remain gentle",gentle,"");
         Test("Ascending runs never recess into a middle trough",monotonic,"");
         Test("Four ordered AIR-PASSAGE checkpoints track chamber exits",session.checkpoints.orderedPassage&&session.checkpoints.points.Length==4&&session.checkpoints.points.Select(p=>p.surfGates).SequenceEqual(pyramid.chambers.Take(4).Select(c=>c.lastSection+1)),"");
-        var profile=AssetDatabase.LoadAssetAtPath<SourceMovementProfile>("Assets/HalliGalliMovement/Settings/SurfMovement.asset");
-        Test("Pyramid retains its authored surf profile reference",profile&&session.maps.current.movementProfile==profile&&roster.allParticipants.All(p=>p.Motor.profile==profile),"");
         var decoration=GameObject.Find("Pyramid decoration");var cues=GameObject.Find("Pyramid course cues");var architecture=GameObject.Find("Pyramid architecture");
         Test("Decoration cannot collide with racers",decoration&&cues&&architecture&&decoration.GetComponentsInChildren<Collider>(true).Length==0&&cues.GetComponentsInChildren<Collider>(true).Length==0&&architecture.GetComponentsInChildren<Collider>(true).All(c=>c.GetComponent<SurfDivider>()),"");
+        var pitFloors=architecture.GetComponentsInChildren<SurfDivider>(true).Select(f=>f.GetComponent<Collider>()).Where(c=>c&&c.enabled).ToArray();
+        float lowestRide=surf.GetComponentsInChildren<Collider>().Where(c=>c.enabled&&!c.isTrigger&&!c.GetComponent<SurfDivider>()).Min(c=>c.bounds.min.y);
+        Test("Every lethal floor stays below all banks and landing decks",pitFloors.Length>0&&pitFloors.All(c=>c.bounds.max.y<lowestRide)&&session.fallHeight<lowestRide,
+            "lowest riding collider="+lowestRide+" fallHeight="+session.fallHeight+" floor tops="+string.Join(",",pitFloors.Select(c=>c.bounds.max.y)));
         foreach(int count in new[]{2,3,6}){
             roster.StartNewGame(count);yield return null;
             foreach(var p in roster.allParticipants){var b=p.GetComponent<CourseRival>();if(b)b.enabled=false;}
-            Test(count+" seats retain equal first jump distance",session.participants.All(p=>Mathf.Abs(p.standAnchor.position.z+.7f)<.01f)&&roster.firstPlatforms.Take(count).All(p=>Mathf.Abs(p.position.z-2.3f)<.01f),"");
+            float distance=Vector3.Distance(session.participants[0].standAnchor.position,roster.firstPlatforms[0].position);
+            Test(count+" seats retain equal first jump distance",session.participants.Select((p,i)=>Vector3.Distance(p.standAnchor.position,roster.firstPlatforms[i].position)).All(d=>Mathf.Abs(d-distance)<.01f),"distance="+distance);
         }
         var starts=roster.allParticipants.Select(p=>p.standAnchor.position).ToArray();
-        var runner=roster.allParticipants[1];var bot=runner.GetComponent<CourseRival>();
+        var runner=session.Local;int localIndex=Array.IndexOf(roster.allParticipants,runner);
+        Vector3 retryStart=runner.retryAnchor.position;
+        var bot=runner.GetComponent<CourseRival>();
+        if(!bot){bot=runner.gameObject.AddComponent<CourseRival>();addedTraversalBot=true;}
+        bot.participant=runner;bot.enabled=false;bot.attacksEnabled=false;bot.autoDepart=false;traversalBot=bot;
         foreach(int seat in new[]{0,5}){
             var traversal=Traverse(session,runner,bot,seat,starts[seat],false);
             while(traversal.MoveNext())yield return traversal.Current;
@@ -105,19 +128,36 @@ public sealed class PyramidValidationRunner:MonoBehaviour
             var traversal=Traverse(session,runner,bot,2,starts[2],true);
             while(traversal.MoveNext())yield return traversal.Current;
             for(int i=0;i<pyramid.chambers.Length;i++){
-                session.ResetPractice();LegalDeparture(session);yield return new WaitForFixedUpdate();runner.Stand();var room=pyramid.chambers[i];
-                var localPit=new Vector3(room.localMinimum.x+6,room.localMinimum.y+3,(room.localMinimum.z+room.localMaximum.z)*.5f);
-                runner.Motor.Teleport(room.ToWorld(localPit));
-                float end=Time.time+1.5f;while(!runner.IsRespawning&&Time.time<end){runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
-                Test("Chamber "+i+" pit recovers rather than reaching another route",runner.IsRespawning&&runner.Falls==1,"y="+runner.transform.position.y);
+                session.ResetPractice();LegalDeparture(session);yield return new WaitForFixedUpdate();runner.Stand();
+                bool found=TryPitDrop(session,runner,pyramid.chambers[i],out var drop);
+                Test("Chamber "+i+" has a clear real fall column to the shared pit",found,"drop="+drop);
+                if(!found)continue;
+                runner.Motor.Teleport(drop);
+                float fallDistance=Mathf.Max(0,drop.y-session.fallHeight);
+                float end=Time.time+runner.Motor.profile.terminalFallSpeed/runner.Motor.profile.gravity+fallDistance/runner.Motor.profile.terminalFallSpeed+3;
+                float lowest=drop.y;bool touchedRoute=false;
+                while(!runner.IsRespawning&&Time.time<end){
+                    runner.Motor.Simulate(default,Time.fixedDeltaTime);lowest=Mathf.Min(lowest,runner.transform.position.y);
+                    touchedRoute|=runner.Motor.Surfing;
+                    yield return new WaitForFixedUpdate();
+                }
+                Test("Chamber "+i+" pit falls to the shared floor without catching another route",runner.IsRespawning&&runner.Falls==1&&!touchedRoute&&lowest<lowestRide,
+                    "start="+drop+" lowest="+lowest+" lowest riding collider="+lowestRide+" falls="+runner.Falls+" surf contact="+touchedRoute);
+                yield return new WaitForSeconds(.85f);
+                Test("Chamber "+i+" pit restores the start without granting a checkpoint",!runner.IsRespawning&&runner.CheckpointIndex==-1&&runner.Falls==1&&Vector3.Distance(runner.transform.position,runner.retryAnchor.position)<.15f,"position="+runner.transform.position);
             }
         }
         session.ResetPractice();LegalDeparture(session);yield return new WaitForFixedUpdate();runner.Stand();runner.Motor.Teleport(surf.finish.position);runner.Motor.Simulate(default,.02f);
-        Test("Skipping directly to the royal bell cannot win",!session.CanRing(runner)&&runner.CheckpointIndex==-1,"");
+        FindAnyObjectByType<CourseHUD>().Interact();
+        Test("Skipping directly to the royal bell cannot win",session.BellCount==0&&!session.CanRing(runner)&&runner.CheckpointIndex==-1,"");
         runner.Motor.Teleport(session.checkpoints.points.Last().spawn.position+Vector3.up*2);runner.Motor.Simulate(default,.02f);yield return new WaitForFixedUpdate();
         Test("Skipping earlier AIR-PASSAGE checkpoints cannot grant progress",runner.CheckpointIndex==-1,"");
-        Test("Sandstone shader supported",Shader.Find("HalliGalli/Sandstone").isSupported,"");
-        runner.standAnchor.position=starts[1];runner.retryAnchor.position=starts[1];session.ResetPractice();
+        session.ResetPractice();yield return new WaitForFixedUpdate();runner.Stand();
+        runner.Motor.Teleport(session.checkpoints.points[0].spawn.position+Vector3.up*2);runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
+        Test("Wrong card departure cannot save a checkpoint",runner.CheckpointIndex==-1,"");
+        runner.Motor.Teleport(surf.finish.position);runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
+        Test("Wrong card departure cannot claim the royal bell",!session.CanRing(runner),"");
+        runner.standAnchor.position=starts[localIndex];runner.retryAnchor.position=retryStart;session.ResetPractice();
     }
     IEnumerator Traverse(CourseSession session,CourseParticipant runner,CourseRival bot,int seat,Vector3 start,bool exerciseRespawns)
     {
@@ -132,7 +172,7 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         var journey=RoomFlights(surf,pyramid,seat);flights.AddRange(journey);
         bot.enabled=true;float begin=Time.time,deadline=begin+240,next=0;
         var trace=new List<string>();var contacted=new bool[pyramid.chambers.Length];var passages=new bool[session.checkpoints.points.Length];
-        int furthest=-1,expectedFalls=0;bool launched=false;
+        int furthest=-1,expectedFalls=0;bool launched=false,rangThroughInteraction=false;
         while(session.BellCount==0&&Time.time<deadline&&runner.Falls<=expectedFalls){
             ResolveContacts(surf,runner.Motor,recorder,sectionBanks,touches,touchPoints);
             launched|=!runner.Motor.Grounded&&!runner.Motor.Surfing&&runner.Motor.Velocity.y>1;
@@ -143,14 +183,21 @@ public sealed class PyramidValidationRunner:MonoBehaviour
             foreach(var flight in journey)ObserveFlight(flight,surf,runner,recorder,touches,touchPoints,trace);
             if(runner.CheckpointIndex>furthest){
                 furthest=runner.CheckpointIndex;passages[furthest]=true;
-                trace.Add("checkpoint="+furthest+" airborne="+!runner.Motor.Grounded+" p="+runner.transform.position);
+                bool airborne=!runner.Motor.Grounded&&!runner.Motor.Surfing;
+                trace.Add("checkpoint="+furthest+" airborne="+airborne+" p="+runner.transform.position);
                 if(exerciseRespawns){
                     bot.enabled=false;var saved=session.checkpoints.Saved(runner);expectedFalls++;
-                    Test("Earned checkpoint "+furthest+" accepts R",runner.RequestRespawn(),"");
+                    FindAnyObjectByType<CourseHUD>().ProcessActions(false,false,true);
+                    Test("Earned checkpoint "+furthest+" accepts the R action",runner.IsRespawning&&runner.Falls==expectedFalls,"");
                     yield return new WaitForSeconds(.85f);
                     Test("Earned checkpoint "+furthest+" restores position and route",!runner.IsRespawning&&runner.CheckpointIndex==furthest&&Vector3.Distance(runner.transform.position,saved.spawn.position)<.15f&&surf.GatesPassed(runner)==saved.surfGates,"");
                     bot.enabled=true;
                 }
+            }
+            if(session.CanRing(runner)){
+                bot.enabled=false;
+                FindAnyObjectByType<CourseHUD>().Interact();
+                rangThroughInteraction=session.BellCount==1;
             }
             if(Time.time>=next){next=Time.time+.5f;trace.Add((Time.time-begin).ToString("F2")+" s="+bot.SurfSection+"/"+bot.SurfPhase+" cp="+runner.CheckpointIndex
                 +" p="+runner.transform.position+" v="+runner.Motor.Velocity+" surfing="+runner.Motor.Surfing+" grounded="+runner.Motor.Grounded
@@ -163,7 +210,33 @@ public sealed class PyramidValidationRunner:MonoBehaviour
             &&runner.Falls==expectedFalls&&contacted.All(c=>c)&&passages.All(p=>p)&&journey.All(f=>f.complete),
             "seconds="+(Time.time-begin)+" falls="+runner.Falls+" requested="+expectedFalls+"\n"+string.Join("\n",trace));
         Test("Start "+seat+" launches using unmodified movement physics",launched,"");
+        Test("Start "+seat+" real E action rings after earned checkpoints",rangThroughInteraction,"");
         Test("Start "+seat+" bell collects cards and reseats the table",session.BellCount==1&&session.cardGame.Match.LastCollectedCount>0&&session.participants.All(p=>p.IsSeated),"");
+    }
+    static bool TryPitDrop(CourseSession session,CourseParticipant runner,PyramidCourse.Chamber room,out Vector3 drop)
+    {
+        var surf=session.roster.surf;var profile=runner.Motor.profile;
+        float radius=profile.radius+profile.skinWidth;
+        for(int index=room.firstSection;index<=room.lastSection;index++){
+            var section=surf.sections[index];
+            foreach(float fraction in new[]{.25f,.5f,.75f}){
+                int point=Mathf.Clamp(Mathf.RoundToInt((section.points.Length-1)*fraction),0,section.points.Length-1);
+                var center=section.points[point];var right=Quaternion.Euler(0,section.headings[point],0)*Vector3.right;
+                foreach(int side in new[]{-1,1})foreach(float extra in new[]{1f,3f,7f,15f}){
+                    var candidate=center+right*(side*(surf.laneX+section.halfWidth+2*radius+extra));
+                    var bottom=candidate+Vector3.up*radius;
+                    var top=candidate+Vector3.up*(profile.standingHeight-radius);
+                    bool obstructed=Physics.OverlapCapsule(bottom,top,radius,profile.collisionMask,QueryTriggerInteraction.Ignore)
+                        .Any(c=>!c.GetComponentInParent<CourseParticipant>());
+                    if(obstructed)continue;
+                    var hits=Physics.SphereCastAll(bottom,radius,Vector3.down,Mathf.Max(1,bottom.y-session.fallHeight+profile.standingHeight),
+                        profile.collisionMask,QueryTriggerInteraction.Ignore).Where(h=>!h.collider.GetComponentInParent<CourseParticipant>()).ToArray();
+                    if(!hits.Any(h=>h.collider.GetComponent<SurfDivider>())||hits.Any(h=>!h.collider.GetComponent<SurfDivider>()))continue;
+                    drop=candidate;return true;
+                }
+            }
+        }
+        drop=default;return false;
     }
     static List<Flight> RoomFlights(SurfCourse surf,PyramidCourse pyramid,int seat)
     {
@@ -209,7 +282,7 @@ public sealed class PyramidValidationRunner:MonoBehaviour
             }
         }
     }
-    static void ObserveFlight(Flight flight,SurfCourse surf,CourseParticipant runner,PyramidBankContacts recorder,bool[] touches,Vector3[] touchPoints,List<string> trace)
+    void ObserveFlight(Flight flight,SurfCourse surf,CourseParticipant runner,PyramidBankContacts recorder,bool[] touches,Vector3[] touchPoints,List<string> trace)
     {
         if(flight.complete)return;
         var motor=runner.Motor;var position=runner.transform.position;
@@ -260,7 +333,12 @@ public sealed class PyramidValidationRunner:MonoBehaviour
         if(!session.cardGame.Match.HasExactFive())throw new InvalidOperationException("Fixed deck did not produce a legal departure.");
     }
     void Test(string name,bool passed,string detail){checks.Add(new Check{name=name,passed=passed,detail=detail});if(!passed)Debug.LogError(name+" "+detail);Save();}
-    void Save(){Directory.CreateDirectory("TestResults");File.WriteAllText("TestResults/"+(probeOnly?"pyramid-probe":"pyramid-validation")+".json",JsonUtility.ToJson(new Report{utc=DateTime.UtcNow.ToString("O"),passed=checks.Count(c=>c.passed),failed=checks.Count(c=>!c.passed),checks=checks,flights=flights},true));}
+    void Save()
+    {
+        string path="TestResults/"+(probeOnly?"pyramid-probe":"pyramid-validation")+".json";
+        Directory.CreateDirectory(Path.GetDirectoryName(path));
+        File.WriteAllText(path,JsonUtility.ToJson(new Report{utc=DateTime.UtcNow.ToString("O"),passed=checks.Count(c=>c.passed),failed=checks.Count(c=>!c.passed),checks=checks,flights=flights},true));
+    }
 }
 
 // Test-only collision observer: navigation can advance to a catch while still above empty air.

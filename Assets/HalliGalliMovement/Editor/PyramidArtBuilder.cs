@@ -38,153 +38,220 @@ namespace HalliGalli.EditorTools
                 if(!t||!(t.name=="Table deck"||t.name=="Landing surface"||t.name=="Shared pad 2"||t.name=="Bell plinth"))continue;
                 var render=t.GetComponent<Renderer>();if(render){render.enabled=true;render.sharedMaterial=stone;}
             }
+            var space=new RouteSpace(pyramid,surf);
+            var bounds=space.RidingBounds;
+            // A single low plane cannot cut through a lower return beneath an upper room.
+            var pit=Box(architecture,"Pyramid shared cursed pit",new Vector3(bounds.center.x,bounds.min.y-12.25f,bounds.center.z),
+                new Vector3(bounds.size.x+200,.5f,bounds.size.z+200),ink,true);
+            pit.AddComponent<SurfDivider>().session=session;
             for(int i=0;i<pyramid.chambers.Length;i++){
-                var room=pyramid.chambers[i];var shell=new GameObject(room.name).transform;shell.SetParent(architecture);
-                var art=new GameObject(room.name+" decoration").transform;art.SetParent(decoration);
-                var first=surf.sections[room.firstSection];
-                Vector3 min=room.localMinimum,max=room.localMaximum;
-                var pit=Box(shell,"Pyramid cursed pit "+i,new Vector3((min.x+max.x)*.5f,min.y,(min.z+max.z)*.5f),
-                    new Vector3(max.x-min.x,.5f,max.z-min.z),ink,true);
-                pit.AddComponent<SurfDivider>().session=session;
-                // Only the remote kill floor has a collider. The full swept route and its
-                // transfers stay open; grounded ruins stand beyond the chamber's side bounds.
+                var room=pyramid.chambers[i];var art=new GameObject(room.name).transform;art.SetParent(decoration);
                 switch(i){
-                    case 0: Entrance(shell,art,room,first);break;
-                    case 1: Exterior(shell,room,first);break;
-                    case 2: BrokenHall(shell,art,room);break;
-                    case 3: Watergate(shell,art,room,first);break;
-                    case 4: Temple(shell,art,room,first);break;
+                    case 0: Entrance(art,room,surf,space);break;
+                    case 1: Exterior(art,room,surf,space);break;
+                    case 2: BrokenHall(art,room,surf,space);break;
+                    case 3: Watergate(art,room,surf,space);break;
+                    case 4: Temple(art,room,surf,space);break;
                 }
-                TransferLandmarks(shell,room,surf);
-                shell.SetPositionAndRotation(room.origin,room.Rotation);
-                art.SetPositionAndRotation(room.origin,room.Rotation);
             }
             pyramid.flames=lights.ToArray();
             var sun=new GameObject("Pyramid warm bounce").AddComponent<Light>();sun.type=LightType.Directional;sun.color=new Color(1,.94f,.82f);sun.intensity=.95f;sun.shadows=LightShadows.None;sun.transform.rotation=Quaternion.Euler(38,-28,0);
             RenderSettings.ambientMode=AmbientMode.Flat;RenderSettings.ambientLight=new Color(.43f,.46f,.49f);RenderSettings.ambientIntensity=1;
             RenderSettings.skybox=null;RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogColor=new Color(.43f,.49f,.53f);RenderSettings.fogStartDistance=110;RenderSettings.fogEndDistance=380;
         }
-        static Vector3 At(PyramidCourse.Chamber room,SurfCourse.Section section,float t)
+        internal static SurfCourse.Frame FrameAt(SurfCourse.Section section,float t)
         {
             float sample=Mathf.Clamp01(t)*(section.points.Length-1);int i=Mathf.Min((int)sample,section.points.Length-2);
-            return room.ToLocal(Vector3.Lerp(section.points[i],section.points[i+1],sample-i));
+            var forward=Quaternion.Euler(0,Mathf.LerpAngle(section.headings[i],section.headings[i+1],sample-i),0)*Vector3.forward;
+            return new SurfCourse.Frame{center=Vector3.Lerp(section.points[i],section.points[i+1],sample-i),
+                forward=forward,right=Vector3.Cross(Vector3.up,forward)};
         }
-        static void Span(Transform root,string name,Vector3 a,Vector3 b,float width,float height,Material material)
+        static SurfCourse.Frame RoomFrame(PyramidCourse.Chamber room,SurfCourse surf,float t,out float width)
         {
-            var delta=b-a;var obj=Box(root,name,(a+b)*.5f,new Vector3(width,height,delta.magnitude),material);
-            obj.transform.rotation=Quaternion.LookRotation(delta,Vector3.up);
-        }
-        static void SideWall(Transform root,string name,PyramidCourse.Chamber room,int side,float from,float to,float top,float width=4)
-        {
-            float floor=room.localMinimum.y+.25f;
-            float x=side<0?room.localMinimum.x-5:room.localMaximum.x+5;
-            Box(root,name,new Vector3(x,(floor+top)*.5f,(from+to)*.5f),new Vector3(width,top-floor,Mathf.Abs(to-from)),stone);
-        }
-        static void SidePier(Transform root,PyramidCourse.Chamber room,int side,float z,float top,float width=5)
-        {
-            float x=side<0?room.localMinimum.x-6:room.localMaximum.x+6;
-            var foot=new Vector3(x,room.localMinimum.y+.25f,z);
-            Pylon(root,foot,top-foot.y,width);
+            float length=0;
+            for(int i=room.firstSection;i<=room.lastSection;i++)length+=surf.sections[i].Length;
+            float distance=length*t;
+            for(int i=room.firstSection;i<=room.lastSection;i++){
+                var section=surf.sections[i];float sectionLength=section.Length;
+                if(distance<=sectionLength||i==room.lastSection){
+                    width=surf.laneX+section.halfWidth;
+                    return FrameAt(section,distance/sectionLength);
+                }
+                distance-=sectionLength;
+            }
+            width=surf.laneX+surf.sections[room.lastSection].halfWidth;
+            return FrameAt(surf.sections[room.lastSection],1);
         }
         internal static bool IsAirTransfer(SurfCourse.Section from,SurfCourse.Section to)
         {
             return from.landing==Vector3.zero&&from.points[from.points.Length-1]!=to.points[0];
         }
-        static void TransferLandmarks(Transform root,PyramidCourse.Chamber room,SurfCourse surf)
+        // World-space volumes include every section, not just the room being decorated.
+        // Conservative segment bounds keep ruins clear of both banks and crossing flights.
+        internal sealed class RouteSpace
         {
-            for(int i=room.firstSection;i<room.lastSection;i++){
-                var from=surf.sections[i];var to=surf.sections[i+1];
-                if(!IsAirTransfer(from,to))continue;
-                var departure=room.ToLocal(from.points[from.points.Length-1]);
-                var destination=room.ToLocal(to.points[0]);
-                // One grounded, unlit pier marks the departure's level. The catch carries
-                // the turquoise beacons; nothing bridges the open space between the two.
-                int side=destination.x>=departure.x?-1:1;
-                SidePier(root,room,side,departure.z,departure.y+2,3);
+            readonly List<Bounds> reserved=new List<Bounds>();
+            public Bounds RidingBounds{get;private set;}
+            public RouteSpace(PyramidCourse course,SurfCourse surf)
+            {
+                var riding=new Bounds(surf.sections[0].points[0],Vector3.zero);
+                float slope=Mathf.Tan(55*Mathf.Deg2Rad);
+                for(int s=0;s<surf.sections.Length;s++){
+                    var section=surf.sections[s];
+                    var previous=BankBounds(section,0,surf.laneX,slope);
+                    for(int i=1;i<section.points.Length;i++){
+                        var next=BankBounds(section,i,surf.laneX,slope);var segment=previous;segment.Encapsulate(next);
+                        riding.Encapsulate(segment);
+                        ReservePassage(segment,6);
+                        previous=next;
+                    }
+                    if(s+1<surf.sections.Length&&IsAirTransfer(section,surf.sections[s+1])){
+                        var next=surf.sections[s+1];
+                        ReserveFlight(section.points[section.points.Length-1],next.points[0],
+                            surf.laneX+Mathf.Max(section.halfWidth,next.halfWidth),slope);
+                    }
+                }
+                foreach(var room in course.chambers){
+                    var first=surf.sections[room.firstSection];var last=surf.sections[room.lastSection];
+                    var frame=FrameAt(last,1);
+                    var deck=new Bounds(room.landing-Vector3.up*.225f,new Vector3(0,.4f,0));
+                    for(int x=-1;x<=1;x+=2)for(int z=-1;z<=1;z+=2)
+                        deck.Encapsulate(room.landing+frame.right*x*10+frame.forward*z*10);
+                    riding.Encapsulate(deck);ReservePassage(deck,8);
+                    ReserveFlight(last.points[last.points.Length-1],room.landing,surf.laneX+last.halfWidth,slope);
+                    ReserveFlight(first.entry,first.points[0],surf.laneX+first.halfWidth,slope);
+                }
+                // Include actual generated mesh thickness as well as the analytical bank profile.
+                foreach(var renderer in surf.GetComponentsInChildren<MeshRenderer>())riding.Encapsulate(renderer.bounds);
+                RidingBounds=riding;
+            }
+            static Bounds BankBounds(SurfCourse.Section section,int i,float lane,float slope)
+            {
+                var center=section.points[i];var right=Quaternion.Euler(0,section.headings[i],0)*Vector3.right;
+                float width=lane+section.halfWidth;
+                var bounds=new Bounds(center+Vector3.up*lane*slope,Vector3.zero);
+                bounds.Encapsulate(center-right*width-Vector3.up*section.halfWidth*slope);
+                bounds.Encapsulate(center+right*width-Vector3.up*section.halfWidth*slope);
+                return bounds;
+            }
+            void ReservePassage(Bounds bounds,float above)
+            {
+                bounds.SetMinMax(bounds.min-new Vector3(2.5f,1,2.5f),bounds.max+new Vector3(2.5f,above,2.5f));
+                reserved.Add(bounds);
+            }
+            void ReserveFlight(Vector3 from,Vector3 to,float width,float slope)
+            {
+                var bounds=new Bounds(from,Vector3.zero);bounds.Encapsulate(to);
+                float length=Vector3.ProjectOnPlane(to-from,Vector3.up).magnitude;
+                // Leave headroom for the launch apex, not merely the line joining the endpoints.
+                bounds.SetMinMax(bounds.min-new Vector3(width+2.5f,width*slope+2,width+2.5f),
+                    bounds.max+new Vector3(width+2.5f,Mathf.Max(12,length*.65f),width+2.5f));
+                reserved.Add(bounds);
+            }
+            public void ReserveDecoration(Transform root)
+            {
+                if(!root)return;
+                foreach(var renderer in root.GetComponentsInChildren<Renderer>())reserved.Add(renderer.bounds);
+            }
+            public void Place(Transform root,SurfCourse.Frame frame,Vector3 direction,float offset,float height)
+            {
+                root.SetPositionAndRotation(frame.center+direction*offset+Vector3.up*height,Quaternion.LookRotation(frame.forward,Vector3.up));
+                var renderers=root.GetComponentsInChildren<Renderer>();
+                var bounds=renderers[0].bounds;
+                for(int i=1;i<renderers.Length;i++)bounds.Encapsulate(renderers[i].bounds);
+                // Moving monotonically outward leaves each intersected volume permanently.
+                // Use actual renderer bounds, including imported meshes and rotated roof fragments.
+                while(true){
+                    float shift=0;
+                    foreach(var occupied in reserved){
+                        if(!bounds.Intersects(occupied))continue;
+                        float x=float.PositiveInfinity,z=float.PositiveInfinity;
+                        if(direction.x>.001f)x=(occupied.max.x-bounds.min.x+.5f)/direction.x;
+                        else if(direction.x<-.001f)x=(occupied.min.x-bounds.max.x-.5f)/direction.x;
+                        if(direction.z>.001f)z=(occupied.max.z-bounds.min.z+.5f)/direction.z;
+                        else if(direction.z<-.001f)z=(occupied.min.z-bounds.max.z-.5f)/direction.z;
+                        shift=Mathf.Max(shift,Mathf.Min(x,z));
+                    }
+                    if(shift==0)break;
+                    var delta=direction*shift;root.position+=delta;bounds.center+=delta;
+                }
+                reserved.Add(bounds);
             }
         }
+        static Transform Landmark(Transform parent,string name)
+        {
+            var root=new GameObject(name).transform;root.SetParent(parent);return root;
+        }
+        static int Outside(SurfCourse.Section section)=>Mathf.DeltaAngle(section.headings[0],section.headings[section.headings.Length-1])>=0?-1:1;
         static void Pylon(Transform root,Vector3 foot,float height,float width=5)
         {
             Box(root,"Weathered pylon base",foot+Vector3.up*height*.21f,new Vector3(width+2,height*.42f,7),stone);
             Box(root,"Weathered pylon crown",foot+Vector3.up*height*.7f,new Vector3(width,height*.58f,6),stone);
             Box(root,"Single lapis inset",foot+Vector3.up*height*.67f-Vector3.forward*3.04f,new Vector3(width*.32f,height*.34f,.12f),lapis);
         }
-        static void Entrance(Transform shell,Transform art,PyramidCourse.Chamber room,SurfCourse.Section first)
+        static void Entrance(Transform art,PyramidCourse.Chamber room,SurfCourse surf,RouteSpace space)
         {
-            float end=At(room,first,.38f).z;
-            foreach(int side in new[]{-1,1}){
-                SidePier(shell,room,side,1,17,7);
-                SideWall(shell,"Entrance retaining wall",room,side,1,end,14);
-                float x=side<0?room.localMinimum.x-2:room.localMaximum.x+2;
-                Torch(art,new Vector3(x,2,4));
+            var first=surf.sections[room.firstSection];var frame=FrameAt(first,.08f);
+            for(int side=-1;side<=1;side+=2){
+                var gate=Landmark(art,"Open entrance gate shoulder");
+                Pylon(gate,Vector3.zero,22,7);
+                Torch(gate,new Vector3(-side*4,13,0));
+                space.Place(gate,frame,frame.right*side,surf.laneX+first.halfWidth+10,-12);
             }
-            // Broken gate shoulders frame the entrance without a lintel or roof over the route.
         }
-        static void Exterior(Transform shell,PyramidCourse.Chamber room,SurfCourse.Section first)
+        static void Exterior(Transform art,PyramidCourse.Chamber room,SurfCourse surf,RouteSpace space)
         {
-            // A sparse outside ruin leaves the opposite skyline and every airborne catch open.
-            float near=At(room,first,.1f).z,far=At(room,first,.8f).z;
-            SideWall(shell,"Exterior retaining ruin",room,-1,near,far,7);
-            var horizon=new Vector3(room.localMinimum.x-27,room.localMinimum.y+.25f,(near+far)*.5f);
-            Box(shell,"Distant stepped ruin foundation",horizon+Vector3.up*9,new Vector3(28,18,35),stone);
-            Box(shell,"Distant stepped ruin crown",horizon+Vector3.up*23,new Vector3(18,10,23),stone);
-            SidePier(shell,room,-1,far+10,13,6);
+            var frame=RoomFrame(room,surf,.42f,out float width);
+            int side=Outside(surf.sections[room.firstSection]);
+            var ruin=Landmark(art,"Outer bend stepped sanctuary");
+            Box(ruin,"Stepped ruin foundation",Vector3.up*5,new Vector3(26,10,30),stone);
+            Box(ruin,"Stepped ruin terrace",Vector3.up*12,new Vector3(19,4,23),stone);
+            Pylon(ruin,Vector3.up*14,14,8);
+            space.Place(ruin,frame,frame.right*side,width+20,-14);
         }
-        static void BrokenHall(Transform shell,Transform art,PyramidCourse.Chamber room)
+        static void BrokenHall(Transform art,PyramidCourse.Chamber room,SurfCourse surf,RouteSpace space)
         {
-            var min=room.localMinimum;var max=room.localMaximum;
-            float z=Mathf.Lerp(min.z,max.z,.34f),top=max.y-5;
-            foreach(int side in new[]{-1,1}){
-                float x=side<0?min.x-6:max.x+6;
-                // A large open gallery window frames the two levels without crossing the flight.
-                SideWall(shell,"Broken hall window pier",room,side,z-20,z-12,top,6);
-                SideWall(shell,"Broken hall window pier",room,side,z+12,z+20,top,6);
-                SideWall(shell,"Broken hall low window sill",room,side,z-12,z+12,min.y+4,6);
-                var slab=Box(shell,"Fractured side roof remnant",new Vector3(x+side*4,top+1.3f,z),new Vector3(9,2.5f,40),stone);
+            for(int side=-1;side<=1;side+=2){
+                var frame=RoomFrame(room,surf,side<0?.32f:.76f,out float width);
+                var gallery=Landmark(art,"Isolated broken gallery window");
+                Pylon(gallery,new Vector3(0,0,-11),24,6);
+                Pylon(gallery,new Vector3(0,0,11),20,6);
+                Box(gallery,"Broken gallery low sill",new Vector3(0,2,0),new Vector3(7,4,23),stone);
+                var slab=Box(gallery,"Fractured side roof remnant",new Vector3(side*2,22,7),new Vector3(9,2.5f,14),stone);
                 slab.transform.rotation=Quaternion.Euler(0,0,side*8);
-                var rubble=Box(art,"Fallen hall monolith",new Vector3(x+side*3,min.y+3.75f,z+27),new Vector3(7,7,19),stone);
-                rubble.transform.rotation=Quaternion.Euler(0,side*12,0);
+                space.Place(gallery,frame,frame.right*side,width+11,-14);
             }
         }
-        static void Watergate(Transform shell,Transform art,PyramidCourse.Chamber room,SurfCourse.Section first)
+        static void Watergate(Transform art,PyramidCourse.Chamber room,SurfCourse surf,RouteSpace space)
         {
-            float near=At(room,first,.1f).z,far=At(room,first,.65f).z;
-            foreach(int side in new[]{-1,1}){
-                float x=side<0?room.localMinimum.x-5:room.localMaximum.x+5;
-                SideWall(shell,"Watergate sluice abutment",room,side,near,far,10,5);
-                // Surviving aqueducts run along the banks, not across the flight corridor.
-                Span(shell,"Watergate side aqueduct",new Vector3(x,11,near),new Vector3(x,11,far),5,2,stone);
-                Box(shell,"Ancient sluice side recess",new Vector3(x-side*2.55f,2,(near+far)*.5f),new Vector3(.12f,10,4),ink);
-                Torch(art,new Vector3(x-side*2.7f,3,far-2));
-            }
+            var frame=RoomFrame(room,surf,.4f,out float width);
+            int side=Outside(surf.sections[room.firstSection]);
+            var sluice=Landmark(art,"Open watergate aqueduct remnant");
+            Pylon(sluice,new Vector3(0,0,-10),17,5);
+            Pylon(sluice,new Vector3(0,0,10),17,5);
+            Box(sluice,"Side aqueduct lintel",new Vector3(0,18,0),new Vector3(6,2,27),stone);
+            Box(sluice,"Ancient sluice recess",new Vector3(-side*3.04f,8,-10),new Vector3(.12f,9,4),ink);
+            Torch(sluice,new Vector3(-side*4,12,10));
+            space.Place(sluice,frame,frame.right*side,width+12,-14);
         }
-        static void Temple(Transform shell,Transform art,PyramidCourse.Chamber room,SurfCourse.Section first)
+        static void Temple(Transform art,PyramidCourse.Chamber room,SurfCourse surf,RouteSpace space)
         {
-            float near=At(room,first,.08f).z,far=At(room,first,.8f).z;
-            foreach(int side in new[]{-1,1})SideWall(shell,"Processional terrace wall",room,side,near,far,3);
-            Vector3 landing=room.ToLocal(room.landing);
-            float rear=room.localMaximum.z+7;
-            foreach(int side in new[]{-1,1}){
-                SidePier(shell,room,side,landing.z+6,landing.y+18,7);
-                float x=side<0?room.localMinimum.x-2:room.localMaximum.x+2;
-                Torch(art,new Vector3(x,landing.y+3,landing.z+3));
-                if(PyramidVarcoImporter.Ready){
-                    float statueX=side<0?room.localMinimum.x-6:room.localMaximum.x+6;
-                    float baseY=room.localMinimum.y+.25f,statueY=landing.y-.3f;
-                    Box(shell,"Temple guardian foundation",new Vector3(statueX,(baseY+statueY)*.5f,landing.z-5),new Vector3(8,statueY-baseY,8),stone);
-                    PyramidVarcoImporter.Place(art,"Anubis",new Vector3(statueX,statueY,landing.z-5),8,side<0?65:-65);
-                }
+            var frame=FrameAt(surf.sections[room.lastSection],1);frame.center=room.landing;
+            for(int side=-1;side<=1;side+=2){
+                var guardian=Landmark(art,"Royal guardian terrace");
+                Box(guardian,"Temple guardian foundation",Vector3.up*6,new Vector3(10,12,11),stone);
+                if(PyramidVarcoImporter.Ready)PyramidVarcoImporter.Place(guardian,"Anubis",Vector3.up*12,8,side<0?65:-65);
+                else Pylon(guardian,Vector3.up*12,9,5);
+                Torch(guardian,new Vector3(-side*4,14,-3));
+                space.Place(guardian,frame,frame.right*side,22,-12);
             }
-            // The sanctuary terminates beyond the full landing bounds; no roof crosses its approach.
-            float floor=room.localMinimum.y+.25f,top=landing.y+20;
-            float center=(room.localMinimum.x+room.localMaximum.x)*.5f;
-            float width=room.localMaximum.x-room.localMinimum.x+12;
-            Box(shell,"Royal temple rear wall",new Vector3(center,(floor+top)*.5f,rear),new Vector3(width,top-floor,3),stone);
-            Box(shell,"Royal temple crown",new Vector3(center,top+2,rear),new Vector3(width*.6f,4,3),stone);
-            // A single large sun disk replaces the repeated small friezes and gold outlines.
-            var disk=GameObject.CreatePrimitive(PrimitiveType.Cylinder);disk.name="Royal sun disk";disk.transform.SetParent(art);
-            disk.transform.position=new Vector3(landing.x,landing.y+10,rear-1.65f);disk.transform.rotation=Quaternion.Euler(90,0,0);disk.transform.localScale=new Vector3(6,.16f,6);
+            var shrine=Landmark(art,"Open royal sun shrine");
+            Box(shrine,"Royal shrine backing",Vector3.up*12,new Vector3(16,24,4),stone);
+            Box(shrine,"Royal shrine crown",Vector3.up*26,new Vector3(10,4,4),stone);
+            var disk=GameObject.CreatePrimitive(PrimitiveType.Cylinder);disk.name="Royal sun disk";disk.transform.SetParent(shrine);
+            disk.transform.position=new Vector3(0,21,-2.2f);disk.transform.rotation=Quaternion.Euler(90,0,0);disk.transform.localScale=new Vector3(6,.16f,6);
             disk.GetComponent<Renderer>().sharedMaterial=gold;Object.DestroyImmediate(disk.GetComponent<Collider>());
+            space.Place(shrine,frame,frame.forward,24,-12);
         }
         static void Torch(Transform root,Vector3 position)
         {

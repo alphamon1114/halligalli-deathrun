@@ -4,54 +4,57 @@ using UnityEngine;
 
 namespace HalliGalli.EditorTools
 {
-    // Independent banks share a takeoff tangent, never a collider across the flight.
+    // Separate catch banks require speed and air steering; no collider spans a flight.
     public static class PyramidRouteLayout
     {
         public static readonly string[] Names={"유적 진입","외벽 회랑","무너진 중앙 홀","수문 통로","왕의 제단"};
-        public static readonly float[] Headings={0,12,78,42,90};
+        public static readonly float[] Headings={0,20,170,260,350};
         public static SurfCourse.Section[] Room(int index,Vector3 start)
         {
             var p=new Pen(start,Headings[index]);
             switch(index){
                 case 0:
-                    p.Down(36,20,5.4f,12);
+                    p.Down(36,20,5.4f,20);
                     p.Up(18,4.5f,5.4f);
                     p.Transfer(20,3);
                     p.Down(24,4,5.8f);
                     p.Up(12,2.2f,5.8f);
                     break;
                 case 1:
-                    // One long outside sweep, then a falling transfer onto the lower gallery.
-                    p.Down(90,21,5.6f,60);
+                    // Fold back around the courtyard; the exit faces the entrance, not farther east.
+                    p.Down(166,21,5.6f,150);
                     p.Up(12,1.1f,5.6f);
-                    p.Transfer(24,-12);
-                    p.Down(28,3,6,6);
-                    p.Up(10,2,6);
+                    p.Transfer(36,-10);
+                    p.Down(28,3,4.2f);
+                    p.Up(10,2,4.2f);
                     break;
                 case 2:
-                    // Reach the upper gallery, then leave it for a separate lower bank.
-                    p.Down(32,20,5.4f,-18);
+                    // Aim off the launch tangent, then turn again into the lower gallery.
+                    p.Down(62,20,5.4f,55);
                     p.Up(18,4.8f,5.4f);
-                    p.Transfer(20,4);
-                    p.Down(24,4,6,-12);
-                    p.Transfer(16,-8);
-                    p.Down(22,3,6,-6);
-                    p.Up(12,2.2f,6);
+                    p.Transfer(18,4,6,20);
+                    p.Down(24,4,4.2f);
+                    p.Transfer(17,-12,4.5f,15);
+                    p.Down(28,3,4.6f);
+                    p.Up(12,2.2f,4.6f);
                     break;
                 case 3:
-                    // Carry speed around the open watergate before dropping to its lower exit.
-                    p.Down(70,16,5.8f,48);
+                    // A full quarter-turn returns along the opposite side of the ruins.
+                    p.Down(96,16,5.8f,90);
                     p.Up(12,1,5.8f);
-                    p.Transfer(26,-14);
-                    p.Down(24,3,6);
-                    p.Up(12,2.2f,6);
+                    p.Transfer(32,-14);
+                    p.Down(26,7,4.6f);
+                    p.Up(18,5.5f,4.6f);
+                    p.Transfer(25,6);
+                    p.Down(22,3,4.2f);
+                    p.Up(12,2.2f,4.2f);
                     break;
                 default:
-                    p.Down(34,20,5.6f);
-                    p.Up(18,4.8f,5.6f);
-                    p.Transfer(20,4);
-                    p.Down(26,5,6);
-                    p.Up(14,2.5f,6);
+                    p.Down(34,24,5.2f,10);
+                    p.Up(18,5.5f,5.2f);
+                    p.Transfer(22,5.5f,4,10);
+                    p.Down(26,5,3.8f);
+                    p.Up(14,2.5f,3.8f);
                     break;
             }
             p.sections[0].entry=index==0?new Vector3(0,.375f,6.1f):start-p.InitialForward*2.4f+Vector3.up;
@@ -78,8 +81,10 @@ namespace HalliGalli.EditorTools
                 Vector3 center=point;
                 for(int i=0;i<=steps;i++){
                     float distance=length*i/steps,t=i/(float)steps;
-                    // Ease into a broad bank turn instead of snapping direction on a checkpoint.
-                    float eased=t*t*(3-2*t);
+                    // Ease only the ends: a broad U-turn must not tighten halfway around.
+                    const float turnEase=.1f;
+                    float eased=t<turnEase?t*t/(2*turnEase*(1-turnEase)):
+                        t>1-turnEase?1-(1-t)*(1-t)/(2*turnEase*(1-turnEase)):(t-turnEase*.5f)/(1-turnEase);
                     headings[i]=heading+turn*eased;
                     if(i>0){
                         float yaw=(headings[i-1]+headings[i])*.5f;
@@ -100,9 +105,10 @@ namespace HalliGalli.EditorTools
                 sections.Add(new SurfCourse.Section{points=points,headings=headings,side=-1,twoSided=true,halfWidth=width});
                 point=points[steps];heading=headings[steps];
             }
-            public void Transfer(float gap,float height)
+            public void Transfer(float gap,float height,float lateral=0,float turn=0)
             {
-                point+=Quaternion.Euler(0,heading,0)*Vector3.forward*gap+Vector3.up*height;
+                point+=Quaternion.Euler(0,heading,0)*new Vector3(lateral,0,gap)+Vector3.up*height;
+                heading+=turn;
             }
         }
     }

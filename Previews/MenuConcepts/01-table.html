@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>할리갈리런 — 카드 테이블 시안</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; }
+  body { font-family: "Malgun Gothic", Arial, sans-serif; color: #f5f0df; background: #122d26; }
+  button { font: inherit; }
+  .canvas { position: relative; width: 1280px; height: 720px; overflow: hidden; background: #173a30; }
+  .canvas::before { content: ""; position: absolute; inset: 15px; border: 1px solid rgba(224, 205, 158, .2); pointer-events: none; }
+  .canvas::after { content: ""; position: absolute; left: 30px; top: 30px; bottom: 30px; width: 1px; background: rgba(236, 223, 189, .1); }
+  .table { position: absolute; inset: 0 480px 0 0; overflow: hidden; background: repeating-linear-gradient(125deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 5px); }
+  .brand { position: absolute; left: 61px; top: 47px; }
+  .brand-en { color: #ddc999; font-size: 12px; font-weight: 700; letter-spacing: .28em; }
+  .brand h1 { margin: 8px 0 0; font-size: 76px; line-height: 1.15; letter-spacing: -.065em; font-weight: 800; }
+  .scene { position: absolute; inset: 228px 0 63px 0; }
+  .card { position: absolute; width: 190px; height: 295px; object-fit: contain; filter: drop-shadow(0 14px 14px rgba(0,0,0,.35)); }
+  .card-three { left: 91px; top: 50px; transform: rotate(-9deg); }
+  .card-two { left: 280px; top: 44px; transform: rotate(7deg); }
+  .bell { position: absolute; left: 417px; top: 76px; width: 410px; height: 296px; object-fit: contain; filter: drop-shadow(0 18px 12px rgba(0,0,0,.36)); }
+  .side { position: absolute; top: 0; right: 0; width: 480px; height: 720px; padding: 142px 55px 38px 45px; background: #17251f; border-left: 1px solid rgba(225, 204, 155, .24); }
+  .primary { width: 100%; height: 96px; border: 0; padding: 0 23px; display: flex; align-items: center; justify-content: space-between; text-align: left; color: #1a2b22; background: #e5ca8c; cursor: default; }
+  .primary-title { display: block; font-size: 27px; font-weight: 800; letter-spacing: -.05em; }
+  .primary-hint { display: block; margin-top: 7px; font-size: 15px; font-weight: 600; color: #435039; letter-spacing: -.025em; }
+  .primary-arrow { font-family: Arial, sans-serif; font-size: 27px; font-weight: 400; }
+  .menu-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 25px; margin-top: 18px; }
+  .menu-item { min-width: 0; height: 61px; padding: 0; border: 0; border-bottom: 1px solid rgba(220, 224, 201, .18); display: flex; align-items: center; justify-content: space-between; text-align: left; color: #f0eee0; background: transparent; font-size: 18px; font-weight: 700; letter-spacing: -.04em; cursor: default; }
+  .menu-item:first-child { grid-column: 1 / -1; height: 72px; font-size: 23px; }
+  .menu-item .arrow { color: #bba978; font-family: Arial, sans-serif; font-size: 16px; font-weight: 400; }
+  .music { display: flex; align-items: center; justify-content: space-between; height: 63px; border-bottom: 1px solid rgba(220, 224, 201, .18); font-size: 14px; font-weight: 700; letter-spacing: -.04em; }
+  .volume { display: flex; align-items: center; gap: 10px; color: #c7c7b3; font-size: 12px; font-weight: 400; }
+  .track { width: 99px; height: 3px; background: #65736a; }
+  .track span { display: block; width: 30%; height: 100%; background: #dfc385; }
+  .side-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 31px; }
+  .exit { padding: 0; border: 0; color: #bdc6b9; background: none; font-size: 15px; font-weight: 700; cursor: default; }
+  .concept { color: #adbaab; font-size: 12px; letter-spacing: -.02em; }
+</style>
+</head>
+<body>
+<main class="canvas" aria-label="할리갈리런 메인 메뉴 시안 01">
+  <section class="table" aria-label="카드 테이블">
+    <header class="brand">
+      <div class="brand-en">HALLIGALLI RUN</div>
+      <h1>할리갈리런</h1>
+    </header>
+    <div class="scene">
+      <img class="card card-three" src="assets/strawberry-3.png" alt="딸기 세 개가 그려진 카드">
+      <img class="card card-two" src="assets/strawberry-2.png" alt="딸기 두 개가 그려진 카드">
+      <img class="bell" src="assets/bell.png" alt="할리갈리 종">
+    </div>
+  </section>
+  <nav class="side" aria-label="메인 메뉴">
+    <button class="primary" type="button"><span><span class="primary-title">방 만들기</span><span class="primary-hint">친구 또는 AI와 · 2–6인</span></span><span class="primary-arrow" aria-hidden="true">→</span></button>
+    <div class="menu-grid">
+      <button class="menu-item" type="button">초대코드로 참가 <span class="arrow" aria-hidden="true">↗</span></button>
+      <button class="menu-item" type="button">연습실 <span class="arrow" aria-hidden="true">↗</span></button>
+      <button class="menu-item" type="button">맵 만들기 <span class="arrow" aria-hidden="true">↗</span></button>
+      <button class="menu-item" type="button">내 캐릭터 꾸미기 <span class="arrow" aria-hidden="true">↗</span></button>
+      <button class="menu-item" type="button">조작키 설정 <span class="arrow" aria-hidden="true">↗</span></button>
+    </div>
+    <div class="music"><span>배경 음악</span><span class="volume"><span class="track" aria-hidden="true"><span></span></span>30%</span></div>
+    <div class="side-foot"><button class="exit" type="button">종료</button><span class="concept">01 · 시안</span></div>
+  </nav>
+</main>
+</body>
+</html>

@@ -130,85 +130,97 @@ namespace HalliGalli.Movement
             if(Time.frameCount<=customizationBlockedThrough&&(Event.current.isMouse||Event.current.isKey||Event.current.type==EventType.ScrollWheel))Event.current.Use();
             float w=BellUI.W,h=BellUI.H,x=(w-1040)*.5f,y=(h-640)*.5f;
             if(IsCustomizationOpen){DrawCustomizationScreen(x,y);GUI.enabled=enabled;GUI.matrix=matrix;GUI.color=color;GUI.depth=depth;return;}
-            if(!online){DrawEntryScreen(x,y);GUI.enabled=enabled;GUI.matrix=matrix;GUI.color=color;GUI.depth=depth;return;}
+            if(!online){DrawEntryScreen();GUI.enabled=enabled;GUI.matrix=matrix;GUI.color=color;GUI.depth=depth;return;}
             BellUI.Round(new Rect(0,0,w,h),new Color(.045f,.05f,.04f,.97f),0);
             BellUI.Icon("bell",new Rect(x,y+8,54,54),BellUI.Gold);
             BellUI.Text(new Rect(x+74,y,620,55),BellUI.GameTitle,39,BellUI.Paper,true);
             BellUI.Text(new Rect(x+76,y+57,600,28),"함께할 준비됐어?",18,BellUI.Muted);
-            MusicVolumeControl.Draw(new Rect(x+600,y+12,440,59));
+            MusicVolumeControl.Draw(new Rect(x+600,y+12,440,59),false);
             BellUI.Line(new Vector2(x,y+105),new Vector2(x+1040,y+105),new Color(.4f,.38f,.29f,.3f),1);
             DrawRoom(x,y);
             if(!string.IsNullOrWhiteSpace(Status))BellUI.Text(new Rect(x+445,y+570,595,63),Status,15,BellUI.Gold);
             GUI.enabled=enabled;GUI.matrix=matrix;GUI.color=color;GUI.depth=depth;
         }
-        void DrawEntryScreen(float x,float y)
+        enum EntryTone { Outline, Primary, Dark }
+        static readonly Color EntryPaper=new Color(.961f,.949f,.914f),EntrySage=new Color(.863f,.898f,.847f);
+        static readonly Color EntryInk=new Color(.125f,.173f,.153f),EntryMuted=new Color(.325f,.392f,.325f);
+        static readonly Color EntryGold=new Color(.953f,.812f,.294f),EntryBorder=new Color(.63f,.69f,.61f);
+        static readonly string[] EntryPlayerLabels={"2명","3명","4명","5명","6명"};
+        Texture2D entryArtwork;
+        GUIStyle entryButtonStyle,entryFieldStyle;
+
+        void DrawEntryScreen()
         {
-            float w=BellUI.W,h=BellUI.H;
             if(GameEdition.IsOfflineDemo&&entryScreen==EntryScreen.OfflineMaps){DrawOfflineDemoMaps();return;}
-            var backdrop=BellUI.MapImage(game.maps.current);
-            if(backdrop){GUI.color=new Color(.5f,.53f,.47f);GUI.DrawTexture(new Rect(0,0,w,h),backdrop,ScaleMode.ScaleAndCrop);GUI.color=Color.white;}
-            BellUI.Round(new Rect(0,0,w,h),new Color(.04f,.05f,.04f,.88f),0);
-            // A quiet tonal wash keeps the title readable without a large enclosing panel.
-            for(int i=0;i<32;i++)BellUI.Round(new Rect(w*i/32,0,w/32+1,h),new Color(.025f,.03f,.024f,.4f*(1-i/31f)),0);
-            BellUI.Round(new Rect(x,y+99,88,88),new Color(.2f,.18f,.12f,.55f),44);
-            BellUI.Icon("bell",new Rect(x+17,y+116,54,54),BellUI.Gold);
-            if(GameEdition.IsOfflineDemo)BellUI.Text(new Rect(x+2,y+199,478,28),"OFFLINE EXHIBITION DEMO",18,BellUI.Gold,true);
-            BellUI.Text(new Rect(x-5,y+244,480,116),BellUI.GameTitle,80,BellUI.Paper,true);
-            BellUI.Text(new Rect(x+2,y+350,460,28),"HALLIGALLI RUN",21,BellUI.Gold,true);
-            BellUI.Round(new Rect(x+2,y+394,128,5),BellUI.Gold,2);
-            BellUI.Text(new Rect(x+2,y+420,460,31),GameEdition.IsOfflineDemo?"인터넷 없이 · 나 1명 + AI 최대 5명":"카드를 읽고, 종까지 달려!",21,BellUI.Muted);
-            GUI.enabled=CanEditAppearance;
-            if(BellUI.Button(new Rect(x+2,y+477,478,50),"내 캐릭터 꾸미기",size:19))ShowCustomization();
+            float x=(BellUI.W-1280)*.5f,y=(BellUI.H-720)*.5f;
+            BellUI.Round(new Rect(0,0,BellUI.W,BellUI.H),EntryPaper,0);
+            BellUI.Round(new Rect(0,0,BellUI.W,6),EntryGold,0);
+            BellUI.Text(new Rect(x+46,y+24,600,24),GameEdition.IsOfflineDemo?"HALLIGALLI RUN / OFFLINE DEMO":"HALLIGALLI RUN",15,EntryInk,true);
+            BellUI.Round(new Rect(x+46,y+66,1188,1),EntryBorder,0);
+            BellUI.Text(new Rect(x+42,y+87,480,104),BellUI.GameTitle,76,EntryInk,true);
+            if(!entryArtwork)entryArtwork=Resources.Load<Texture2D>("UI/HomeStillLife");
+            var artworkRect=new Rect(x+563,y+91,671,485);
+            BellUI.Round(artworkRect,EntrySage,0);
+            if(entryArtwork)GUI.DrawTexture(artworkRect,entryArtwork,ScaleMode.ScaleToFit);
+            CutEntryCorner(artworkRect,40);
+            BellUI.Round(new Rect(x+46,y+619,1188,1),EntryBorder,0);
             GUI.enabled=!Busy&&!leaving;
-            if(!Busy&&!leaving&&BellUI.Button(new Rect(x+2,y+560,180,40),"조작키 설정",size:16))ControlSettings.Open();
-            MusicVolumeControl.Draw(new Rect(x+202,y+548,278,59));
-            float right=x+584;
-            GUI.enabled=!Busy&&!leaving;
-            if(GameEdition.IsOfflineDemo){DrawOfflineDemoHome(right,y);GUI.enabled=true;return;}
+            if(EntryButton(new Rect(x+46,y+640,150,44),"조작키 설정",size:16,arrow:false))ControlSettings.Open();
+            MusicVolumeControl.Draw(new Rect(x+228,y+625,300,59),true);
+            if(entryScreen==EntryScreen.Home&&EntryButton(new Rect(x+1120,y+640,114,44),"종료",size:16,arrow:false))QuitFromHome();
+            if(GameEdition.IsOfflineDemo){DrawOfflineDemoHome(x,y);GUI.enabled=true;return;}
             if(entryScreen==EntryScreen.Home){
-                BellUI.Text(new Rect(right,y+160,456,30),"어떻게 시작할까?",18,BellUI.Muted);
-                if(EntryChoice(new Rect(right,y+216,456,92),"person","방 만들기","친구 또는 AI와 · 2–6인",true))ShowCreateRoom();
-                if(EntryChoice(new Rect(right,y+342,456,92),"arrow","초대코드로 참가","친구의 방으로"))ShowJoinRoom();
-                if(BellUI.Button(new Rect(right,y+457,221,48),"연습실",size:18))StartTraining();
-                if(BellUI.Button(new Rect(right+235,y+457,221,48),"맵 만들기",size:18))UserMapStudio.Open();
-                if(BellUI.Button(new Rect(right+342,y+574,114,40),"종료",size:15))QuitFromHome();
+                if(EntryButton(new Rect(x+46,y+222,466,86),"방 만들기",EntryTone.Primary,27,hint:"친구 또는 AI와 · 2–6인"))ShowCreateRoom();
+                if(EntryButton(new Rect(x+46,y+318,466,58),"초대코드로 참가",EntryTone.Dark,21))ShowJoinRoom();
+                if(EntryButton(new Rect(x+46,y+386,228,54),"연습실"))StartTraining();
+                if(EntryButton(new Rect(x+284,y+386,228,54),"맵 만들기"))UserMapStudio.Open();
+                GUI.enabled=CanEditAppearance;
+                if(EntryButton(new Rect(x+46,y+450,466,54),"내 캐릭터 꾸미기"))ShowCustomization();
+                if(!string.IsNullOrWhiteSpace(Status))BellUI.Text(new Rect(x+46,y+520,466,76),Status,14,EntryMuted);
             }else{
                 bool create=entryScreen==EntryScreen.Create;
-                if(BellUI.Button(new Rect(right,y+62,90,34),"뒤로",size:14))ShowStartScreen();
-                BellUI.Text(new Rect(right,y+128,456,45),create?"방 만들기":"초대코드로 참가",30,BellUI.Paper,true);
-                BellUI.Text(new Rect(right,y+198,456,26),"닉네임",14,BellUI.Muted);
-                nickname=BellUI.Field(new Rect(right,y+233,456,52),nickname,16,"Nickname");
-                BellUI.Text(new Rect(right,y+310,456,26),create?"최대 6명 · 들어온 인원으로 시작":"초대 코드",14,BellUI.Muted);
-                if(!create)joinCode=BellUI.Field(new Rect(right,y+347,456,52),joinCode,16,"JoinCode");
+                if(EntryButton(new Rect(x+46,y+222,90,38),"뒤로",size:16,arrow:false))ShowStartScreen();
+                BellUI.Text(new Rect(x+46,y+270,466,42),create?"방 만들기":"초대코드로 참가",28,EntryInk,true);
+                BellUI.Text(new Rect(x+46,y+316,466,22),"닉네임",15,EntryMuted);
+                nickname=EntryField(new Rect(x+46,y+342,466,48),nickname,16,"Nickname");
+                if(!create){
+                    BellUI.Text(new Rect(x+46,y+400,466,22),"초대 코드",15,EntryMuted);
+                    joinCode=EntryField(new Rect(x+46,y+426,466,48),joinCode,16,"JoinCode");
+                }
                 GUI.enabled=!Busy&&!leaving&&(create||joinCode.Trim().Length>=4);
-                if(BellUI.Button(new Rect(right,y+(create?366:437),456,54),Busy?"연결 중…":create?"방 만들기":"참가하기",true))_=Connect(create,joinCode);
+                if(EntryButton(new Rect(x+46,y+(create?412:490),466,54),Busy?"연결 중…":create?"방 만들기":"참가하기",EntryTone.Primary,21))_=Connect(create,joinCode);
+                GUI.enabled=CanEditAppearance;
+                if(EntryButton(new Rect(x+968,y+640,266,44),"내 캐릭터 꾸미기",size:17))ShowCustomization();
+                if(!string.IsNullOrWhiteSpace(Status))BellUI.Text(new Rect(x+46,y+554,466,61),Status,14,new Color(.48f,.22f,.12f));
             }
-            GUI.enabled=!Busy&&!leaving;
-            if(!string.IsNullOrWhiteSpace(Status))BellUI.Text(new Rect(right,y+509,456,61),Status,14,BellUI.Gold);
             GUI.enabled=true;
         }
         void DrawOfflineDemoHome(float x,float y)
         {
-            BellUI.Text(new Rect(x,y+94,456,38),"오프라인 전시 데모",27,BellUI.Paper,true);
-            BellUI.Text(new Rect(x,y+136,456,28),"온라인 접속 없이 실제 AI와 겨뤄요.",15,BellUI.Muted);
-            BellUI.Text(new Rect(x,y+181,456,26),"참가 인원 · 나 1명 + AI "+(offlineDemoPlayers-1)+"명",16,BellUI.Muted);
-            DrawOfflineDemoParticipants(x,y+215,456);
+            BellUI.Text(new Rect(x+46,y+214,466,26),"참가 인원",16,EntryInk,true);
+            DrawOfflineDemoParticipants(x+46,y+254,466,true);
             var map=OfflineDemoMap;
-            BellUI.Text(new Rect(x,y+272,456,35),"선택 맵 · "+(map?map.displayName:"선택 가능한 맵 없음"),19,BellUI.Gold,true);
+            BellUI.Text(new Rect(x+46,y+308,466,32),map?map.displayName:"선택 가능한 맵 없음",20,EntryInk,true);
             GUI.enabled=!Busy&&!leaving&&map&&game.maps.CanSelect(map);
-            if(EntryChoice(new Rect(x,y+317,456,86),"person",Busy?"불러오는 중…":"AI 대결 시작","같은 과일이 정확히 5개면 종까지 달리기",true))StartOfflineDemoMatch();
+            if(EntryButton(new Rect(x+46,y+350,466,64),Busy?"불러오는 중…":"AI 대결 시작",EntryTone.Primary,24))StartOfflineDemoMatch();
             GUI.enabled=!Busy&&!leaving;
-            if(BellUI.Button(new Rect(x,y+416,456,43),"공식 맵 선택",size:18))ShowOfflineDemoMaps();
-            if(BellUI.Button(new Rect(x,y+473,221,43),"전투 / 서프 연습",size:17))StartTraining();
-            if(BellUI.Button(new Rect(x+235,y+473,221,43),"맵 만들기",size:17))UserMapStudio.Open();
-            if(!string.IsNullOrWhiteSpace(Status))BellUI.Text(new Rect(x,y+521,456,42),Status,14,BellUI.Gold);
-            if(BellUI.Button(new Rect(x+342,y+574,114,40),"종료",size:15))QuitFromHome();
+            if(EntryButton(new Rect(x+46,y+424,466,44),"공식 맵 선택"))ShowOfflineDemoMaps();
+            if(EntryButton(new Rect(x+46,y+478,228,44),"연습실",size:17))StartTraining();
+            if(EntryButton(new Rect(x+284,y+478,228,44),"맵 만들기",size:17))UserMapStudio.Open();
+            GUI.enabled=CanEditAppearance;
+            if(EntryButton(new Rect(x+46,y+532,466,44),"내 캐릭터 꾸미기"))ShowCustomization();
+            if(!string.IsNullOrWhiteSpace(Status))BellUI.Text(new Rect(x+46,y+582,466,34),Status,14,EntryMuted);
         }
-        void DrawOfflineDemoParticipants(float x,float y,float width)
+        void DrawOfflineDemoParticipants(float x,float y,float width,bool light)
         {
             float step=(width+10)/5;
-            for(int count=2;count<=6;count++)
-                if(BellUI.Button(new Rect(x+(count-2)*step,y,step-10,40),count+"명",selected:offlineDemoPlayers==count,size:17))SelectOfflineDemoParticipants(count);
+            for(int count=2;count<=6;count++){
+                var rect=new Rect(x+(count-2)*step,y,step-10,40);
+                bool selected=offlineDemoPlayers==count;
+                bool clicked=light?EntryButton(rect,EntryPlayerLabels[count-2],selected?EntryTone.Primary:EntryTone.Outline,17,false):
+                    BellUI.Button(rect,EntryPlayerLabels[count-2],selected:selected,size:17);
+                if(clicked)SelectOfflineDemoParticipants(count);
+            }
         }
         void DrawOfflineDemoMaps()
         {
@@ -218,7 +230,7 @@ namespace HalliGalli.Movement
             GUI.enabled=!Busy&&!leaving;
             if(BellUI.Button(new Rect(x+990,y+4,110,38),"홈으로",size:16))ShowStartScreen();
             BellUI.Text(new Rect(x,y+53,370,28),"참가 인원 · 나 1명 + AI "+(offlineDemoPlayers-1)+"명",15,BellUI.Muted);
-            DrawOfflineDemoParticipants(x+390,y+49,410);
+            DrawOfflineDemoParticipants(x+390,y+49,410,false);
             var selected=OfflineDemoMap;var maps=game.maps.catalog.maps;int count=0,index=0;
             foreach(var map in maps)if(IsOfflineDemoMap(map))count++;
             int pages=Mathf.Max(1,(count+5)/6);offlineDemoMapPage=Mathf.Clamp(offlineDemoMapPage,0,pages-1);
@@ -244,14 +256,40 @@ namespace HalliGalli.Movement
             GUI.enabled=true;
             BellUI.Text(new Rect(x,y+579,650,48),!string.IsNullOrWhiteSpace(Status)?Status:selected?"선택 맵 · "+selected.displayName:"선택 가능한 공식 맵이 없어요.",17,BellUI.Gold);
         }
-        bool EntryChoice(Rect rect,string icon,string title,string hint,bool primary=false)
+        bool EntryButton(Rect rect,string label,EntryTone tone=EntryTone.Outline,int size=18,bool arrow=true,string hint=null)
         {
-            bool clicked=BellUI.Button(rect,"",primary:primary);Color text=primary?BellUI.Ink:BellUI.Paper;
-            BellUI.Icon(icon,new Rect(rect.x+25,rect.y+28,35,35),primary?BellUI.Ink:BellUI.Gold);
-            BellUI.Text(new Rect(rect.x+82,rect.y+15,325,35),title,24,text,true);
-            BellUI.Text(new Rect(rect.x+83,rect.y+52,325,25),hint,14,primary?new Color(.25f,.21f,.14f):BellUI.Muted);
-            BellUI.Icon("arrow",new Rect(rect.xMax-43,rect.y+36,20,20),text);
+            if(entryButtonStyle==null)entryButtonStyle=new GUIStyle(GUIStyle.none);
+            bool hover=GUI.enabled&&rect.Contains(Event.current.mousePosition);
+            bool primary=tone==EntryTone.Primary,dark=tone==EntryTone.Dark;
+            Color fill=!GUI.enabled?new Color(.88f,.89f,.85f):primary?(hover?new Color(1,.87f,.37f):EntryGold):
+                dark?(hover?new Color(.20f,.28f,.23f):EntryInk):hover?EntrySage:EntryPaper;
+            BellUI.Round(rect,fill,0);
+            if(tone==EntryTone.Outline)BellUI.Round(rect,EntryBorder,0,1);
+            if(primary)CutEntryCorner(rect,rect.height>54?20:12);
+            GUI.SetNextControlName(label);
+            bool clicked=GUI.Button(rect,GUIContent.none,entryButtonStyle);
+            Color text=!GUI.enabled?EntryMuted:dark?EntryPaper:EntryInk;
+            if(GUI.GetNameOfFocusedControl()==label)BellUI.Round(new Rect(rect.x+3,rect.y+3,rect.width-6,rect.height-6),text,0,2);
+            var titleRect=new Rect(rect.x+20,rect.y,rect.width-(arrow?66:40),rect.height);
+            if(hint!=null){titleRect.y+=10;titleRect.height=36;BellUI.Text(new Rect(rect.x+20,rect.y+48,rect.width-68,24),hint,15,text);}
+            BellUI.Text(titleRect,label,size,text,true);
+            if(arrow)BellUI.Icon("arrow",new Rect(rect.xMax-40,rect.center.y-11,22,22),text);
             return clicked;
+        }
+        string EntryField(Rect rect,string value,int maxLength,string controlName)
+        {
+            if(entryFieldStyle==null){
+                entryFieldStyle=new GUIStyle(BellUI.Style(23)){padding=new RectOffset(16,16,8,8)};
+                entryFieldStyle.normal.background=null;entryFieldStyle.focused.background=null;
+                entryFieldStyle.normal.textColor=EntryInk;entryFieldStyle.focused.textColor=EntryInk;
+            }
+            BellUI.Round(rect,Color.white,0);
+            BellUI.Round(rect,GUI.GetNameOfFocusedControl()==controlName?EntryInk:EntryBorder,0,1);
+            GUI.SetNextControlName(controlName);return GUI.TextField(rect,value,maxLength,entryFieldStyle);
+        }
+        static void CutEntryCorner(Rect rect,float cut)
+        {
+            BellUI.Icon("cut-corner",new Rect(rect.xMax-cut,rect.yMax-cut,cut,cut),EntryPaper);
         }
         void QuitFromHome()
         {

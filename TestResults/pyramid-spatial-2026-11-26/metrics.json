@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-26T08:03:37.852Z",
+  "before": {
+    "bankMetres": 548.0002308426892,
+    "netDisplacement": 675.9138034332047,
+    "backwardMetres": 0,
+    "footprint": {
+      "width": 581.1063232421875,
+      "depth": 345.2171936035156
+    },
+    "headingRange": [
+      0,
+      90
+    ],
+    "heightRange": [
+      -123.89999389648438,
+      -0.6000000238418579
+    ]
+  },
+  "after": {
+    "bankMetres": 685.9998481206454,
+    "netDisplacement": 166.65943470623355,
+    "backwardMetres": 296.4997240923794,
+    "footprint": {
+      "width": 230.42125701904297,
+      "depth": 275.64810943603516
+    },
+    "headingRange": [
+      0,
+      360
+    ],
+    "heightRange": [
+      -123.89999389648438,
+      -0.6000000238418579
+    ]
+  }
+}

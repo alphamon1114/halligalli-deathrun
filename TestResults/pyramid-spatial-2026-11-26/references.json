@@ -1,0 +1,101 @@
+{
+  "utc": "2026-11-26T07:47:24.895Z",
+  "references": [
+    {
+      "url": "https://www.youtube.com/watch?v=4fwSVo_bOo8",
+      "title": "surf utopia world record cs2",
+      "sampledSeconds": [
+        6,
+        12,
+        18,
+        25,
+        31,
+        36,
+        41,
+        46,
+        52
+      ],
+      "observations": [
+        "Broad independent ramp catches across open chambers",
+        "High and low routes framed by large openings; no dense obstacle clutter"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ECKEo6kM95c",
+      "title": "surf_mesa WR. Surfed by levi.",
+      "sampledSeconds": [
+        6,
+        11,
+        17,
+        23,
+        29,
+        35
+      ],
+      "observations": [
+        "Distinct takeoff and catch banks across open air",
+        "Strong readable catch-edge landmarks inside enclosing rock"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=3E9TOZrSYIA",
+      "title": "CS2 Surf Boreas",
+      "sampledSeconds": [
+        5,
+        12,
+        20,
+        28,
+        36,
+        44
+      ],
+      "observations": [
+        "Wide convex banks frame the next jump",
+        "Upper and lower catches inside one readable landscape"
+      ]
+    }
+  ],
+  "oldLayout": {
+    "entryHeadings": [
+      0,
+      12,
+      78,
+      42,
+      90
+    ],
+    "directionRange": [
+      0,
+      90
+    ],
+    "bankMetres": 548
+  },
+  "design": {
+    "entryHeadings": [
+      0,
+      20,
+      170,
+      260,
+      350
+    ],
+    "exitHeadings": [
+      20,
+      170,
+      260,
+      350,
+      360
+    ],
+    "bankMetres": 686,
+    "changes": [
+      "150-degree outside return",
+      "90-degree layered hall transition across two flights",
+      "90-degree returning watergate",
+      "No checkpoint yaw snap"
+    ],
+    "preserve": [
+      "SourceMotor and profiles",
+      "AI steering",
+      "Four ordered air passage checkpoints",
+      "Six independent flights",
+      "Both riding sides",
+      "Other saved maps"
+    ]
+  }
+}

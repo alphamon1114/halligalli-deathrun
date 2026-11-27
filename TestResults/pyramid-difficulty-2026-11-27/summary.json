@@ -1,0 +1,96 @@
+{
+  "utc": "2026-11-27T02:28:48.561Z",
+  "status": "passed",
+  "scope": "Pyramid only; unpublished protocol46; published1.0.13/protocol45 unchanged",
+  "traversal": {
+    "utc": "2026-11-27T02:21:00.2723476Z",
+    "passed": 75,
+    "failed": 0
+  },
+  "checkpoints": {
+    "utc": "2026-11-27T02:21:32.7200432Z",
+    "passed": 33,
+    "failed": 0,
+    "underDeckDepthMetres": 8,
+    "underDeckSpeedMetresPerSecond": 55
+  },
+  "preservation": {
+    "utc": "2026-11-27T02:22:55.486Z",
+    "checked": 58,
+    "changed": []
+  },
+  "airControlTrials": {
+    "utc": "2026-11-27T02:27:16.2052774Z",
+    "note": "Single-flight replay from recorded left-side takeoffs using the real SourceMotor; not a human difficulty rating.",
+    "cases": [
+      {
+        "room": 0,
+        "input": "No air steering",
+        "caught": true
+      },
+      {
+        "room": 1,
+        "input": "No air steering",
+        "caught": true
+      },
+      {
+        "room": 1,
+        "input": "65% horizontal takeoff speed, no air steering",
+        "caught": false
+      },
+      {
+        "room": 2,
+        "input": "No air steering",
+        "caught": false
+      },
+      {
+        "room": 2,
+        "input": "No air steering",
+        "caught": false
+      },
+      {
+        "room": 3,
+        "input": "No air steering",
+        "caught": true
+      },
+      {
+        "room": 3,
+        "input": "No air steering",
+        "caught": true
+      },
+      {
+        "room": 4,
+        "input": "No air steering",
+        "caught": false
+      }
+    ]
+  },
+  "visualEvidence": {
+    "liveGameView": "bell-prompt.png",
+    "localCameraWithoutIMGUI": [
+      "runtime-camera-6.png",
+      "runtime-camera-10.png",
+      "runtime-camera-11.png",
+      "runtime-camera-15.png",
+      "runtime-camera-17.png",
+      "runtime-camera-21.png"
+    ],
+    "observerOverviews": [
+      "overview.png",
+      "central-hall-overview.png",
+      "watergate-overview.png"
+    ]
+  },
+  "limits": [
+    "Human difficulty feedback remains pending",
+    "No new two-PC or Relay exercise",
+    "Audio disabled",
+    "No new public/offline executable or deployment"
+  ],
+  "finalCompile": {
+    "utc": "2026-11-27T02:30:34.018Z",
+    "exitCode": 0,
+    "temporaryScriptsRemoved": true,
+    "log": "Build/PyramidDifficulty/final-compile.log"
+  }
+}

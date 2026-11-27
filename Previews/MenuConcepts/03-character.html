@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>할리갈리런 — 캐릭터 중심 시안</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; }
+  body { font-family: "Malgun Gothic", Arial, sans-serif; color: #202c27; background: #f5f2e9; }
+  button { font: inherit; color: inherit; cursor: default; }
+  .canvas { position: relative; width: 1280px; height: 720px; overflow: hidden; background: #f5f2e9; }
+  .topbar { position: absolute; top: 0; left: 40px; right: 40px; height: 89px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #d9ddd3; }
+  .brand { display: flex; align-items: center; gap: 13px; }
+  .brand-mark { width: 39px; height: 39px; border-radius: 50%; background: #253e33; display: grid; place-items: center; overflow: hidden; }
+  .brand-mark img { width: 37px; height: 29px; object-fit: contain; }
+  .brand-name { font-size: 34px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+  .brand-en { margin-top: 5px; font-family: Arial, sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 2px; }
+  .edition { color: #526453; font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; }
+  .studio { position: absolute; left: 0; top: 109px; width: 720px; height: 611px; overflow: hidden; background: #dce5d8; }
+  .studio:after { content: ""; position: absolute; left: 240px; right: 240px; bottom: 80px; height: 24px; background: rgba(67, 89, 70, .18); border-radius: 50%; filter: blur(12px); }
+  .avatar { position: absolute; z-index: 1; left: 110px; top: -35px; width: 500px; height: 650px; object-fit: contain; object-position: center bottom; }
+  .studio-foot { position: absolute; z-index: 3; bottom: 22px; left: 25px; right: 25px; display: flex; justify-content: center; align-items: center; }
+  .customize { height: 49px; padding: 0 20px; border: 1px solid #849987; border-radius: 3px; background: #f7f8ef; font-size: 14px; font-weight: 800; }
+  .customize span { margin-left: 16px; font-size: 17px; }
+  .navigation { position: absolute; left: 780px; top: 184px; width: 460px; }
+  .primary { width: 100%; height: 96px; display: flex; align-items: center; justify-content: space-between; padding: 0 27px; text-align: left; border: 0; border-radius: 4px; background: #f3cf4b; box-shadow: 0 4px 0 #d5b73f; }
+  .primary strong { display: block; font-size: 27px; font-weight: 900; letter-spacing: -1.1px; }
+  .primary small { display: block; margin-top: 5px; color: #53491c; font-size: 14px; font-weight: 700; }
+  .primary-arrow { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgba(47, 50, 29, .45); border-radius: 50%; font-family: Arial, sans-serif; font-size: 22px; }
+  .quick { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 17px; }
+  .quick button { height: 58px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border: 1px solid #a4b2a1; border-radius: 3px; background: #fbfaf5; font-size: 18px; font-weight: 800; text-align: left; }
+  .quick button span { color: #526453; font-size: 19px; font-weight: 400; }
+  .menu-row { width: 100%; height: 51px; display: flex; align-items: center; justify-content: space-between; padding: 0 2px; border: 0; border-bottom: 1px solid #d9dfd6; background: transparent; text-align: left; font-size: 18px; font-weight: 800; }
+  .menu-row .arrow { padding-right: 4px; color: #526453; font-size: 18px; font-weight: 400; }
+  .bottom-row { display: flex; align-items: center; justify-content: space-between; height: 59px; }
+  .volume { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 800; }
+  .track { position: relative; width: 90px; height: 4px; border-radius: 4px; background: #d5ddd2; }
+  .track:before { content: ""; position: absolute; left: 0; top: 0; width: 30%; height: 4px; border-radius: 4px; background: #718b70; }
+  .track:after { content: ""; position: absolute; left: 27px; top: -3px; width: 10px; height: 10px; border-radius: 50%; background: #526e55; }
+  .volume-value { color: #526453; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; }
+  .exit { padding: 9px 0 9px 18px; border: 0; background: transparent; color: #526453; font-size: 15px; font-weight: 700; }
+</style>
+</head>
+<body>
+<main class="canvas">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark"><img src="assets/bell.png" alt=""></div>
+      <div><div class="brand-name">할리갈리런</div><div class="brand-en">HALLIGALLI RUN</div></div>
+    </div>
+    <div class="edition">03 · 시안</div>
+  </header>
+
+  <section class="studio" aria-label="캐릭터 예시">
+    <img class="avatar" src="assets/avatar.png" alt="파란 티셔츠와 선글라스를 착용한 게임 캐릭터 예시">
+    <div class="studio-foot">
+      <button class="customize" type="button">내 캐릭터 꾸미기 <span>↗</span></button>
+    </div>
+  </section>
+
+  <nav class="navigation" aria-label="메인 메뉴">
+    <button class="primary" type="button"><span><strong>방 만들기</strong><small>친구 또는 AI와 · 2–6인</small></span><span class="primary-arrow">→</span></button>
+    <div class="quick">
+      <button type="button">초대코드로 참가 <span>↗</span></button>
+      <button type="button">연습실 <span>↗</span></button>
+    </div>
+    <button class="menu-row" type="button">맵 만들기 <span class="arrow">→</span></button>
+    <button class="menu-row" type="button">조작키 설정 <span class="arrow">→</span></button>
+    <div class="bottom-row">
+      <div class="volume" aria-label="배경 음악, 예시 음량 30퍼센트"><span>배경 음악</span><span class="track"></span><span class="volume-value">30%</span></div>
+      <button class="exit" type="button">종료 ↗</button>
+    </div>
+  </nav>
+</main>
+</body>
+</html>

@@ -149,7 +149,7 @@ namespace HalliGalli.Movement
             if(BellUI.Button(new Rect(x,y,128,34),"게임",selected:!HelpOpen,size:14)&&ReadInput)HelpOpen=false;
             if(BellUI.Button(new Rect(x+140,y,128,34),"조작키 설정",selected:HelpOpen,size:14)&&ReadInput)OpenHelp();y+=54;
             bool enabled=GUI.enabled;GUI.enabled=enabled&&ReadInput;
-            MusicVolumeControl.Draw(new Rect(x,y,width,59));y+=78;GUI.enabled=enabled;
+            MusicVolumeControl.Draw(new Rect(x,y,width,59),false);y+=78;GUI.enabled=enabled;
             if(HelpOpen){
                 string[] keys={"WASD","SPACE","CTRL","LMB","F","Q","R","E"};
                 string[] actions={"이동","점프","웅크리기","밀치기 / 카드 공개","발차기","밧줄 · 맞으면 자동 당김","체크포인트 복귀","일어나기 · 앉기 · 종"};

@@ -1,0 +1,157 @@
+{
+    "utc": "2026-11-26T08:04:08.0681707Z",
+    "passed": 30,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Visible bell remains at its interaction target",
+            "detail": "target=(-57.53, -116.40, 178.91) bounds=Center: (-57.53, -116.25, 178.91), Extents: (0.29, 0.15, 0.29)",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 cannot skip directly to bell",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 cannot skip preceding checkpoints",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 airborne checkpoint 0",
+            "detail": "saved=0 gates=4",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 R returns to checkpoint 0",
+            "detail": "position=(35.97, -14.38, 125.49)",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 airborne checkpoint 1",
+            "detail": "saved=1 gates=8",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 R returns to checkpoint 1",
+            "detail": "position=(169.50, -47.85, 40.60)",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 airborne checkpoint 2",
+            "detail": "saved=2 gates=13",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 R returns to checkpoint 2",
+            "detail": "position=(43.22, -72.43, -90.48)",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 airborne checkpoint 3",
+            "detail": "saved=3 gates=17",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 R returns to checkpoint 3",
+            "detail": "position=(-52.58, -102.80, 41.77)",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 backtracking preserves furthest checkpoint",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 valid checkpoint route can ring without touching every bank",
+            "detail": "grounded=True gates=17 claim=True",
+            "passed": true
+        },
+        {
+            "name": "Seat 0 interaction awards cards and reseats both players",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 cannot skip directly to bell",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 cannot skip preceding checkpoints",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 airborne checkpoint 0",
+            "detail": "saved=0 gates=4",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 R returns to checkpoint 0",
+            "detail": "position=(35.97, -14.38, 125.49)",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 airborne checkpoint 1",
+            "detail": "saved=1 gates=8",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 R returns to checkpoint 1",
+            "detail": "position=(169.50, -47.85, 40.60)",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 airborne checkpoint 2",
+            "detail": "saved=2 gates=13",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 R returns to checkpoint 2",
+            "detail": "position=(43.22, -72.43, -90.48)",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 airborne checkpoint 3",
+            "detail": "saved=3 gates=17",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 R returns to checkpoint 3",
+            "detail": "position=(-52.58, -102.80, 41.77)",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 backtracking preserves furthest checkpoint",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 valid checkpoint route can ring without touching every bank",
+            "detail": "grounded=True gates=17 claim=True",
+            "passed": true
+        },
+        {
+            "name": "Seat 1 interaction awards cards and reseats both players",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Wrong card departure cannot save a checkpoint",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Wrong card departure still cannot claim the bell",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Passing underneath a checkpoint does not save it",
+            "detail": "",
+            "passed": true
+        }
+    ]
+}

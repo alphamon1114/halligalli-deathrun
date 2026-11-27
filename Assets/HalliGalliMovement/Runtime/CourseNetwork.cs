@@ -22,7 +22,7 @@ namespace HalliGalli.Movement
     [DefaultExecutionOrder(150)]
     public sealed partial class CourseNetwork : MonoBehaviour
     {
-        public const int Protocol=45;
+        public const int Protocol=46;
         public static double WorldTime=>Active&&Instance.manager&&Instance.manager.IsListening?Instance.manager.ServerTime.Time:Time.fixedTimeAsDouble;
         public const int MaxParticipants=6;
         const int capacity=MaxParticipants;

@@ -1,0 +1,83 @@
+{
+  "utc": "2026-11-26T08:12:34.569Z",
+  "status": "passed",
+  "scope": "Saved pyramid course only; unpublished local revision",
+  "publishedVersion": "1.0.13",
+  "publishedProtocol": 45,
+  "sourceProtocol": 46,
+  "sourceVersionUnchanged": "1.0.13",
+  "referenceAnalysis": "references.json",
+  "layoutMetrics": "metrics.json",
+  "runtime": {
+    "utc": "2026-11-26T08:00:45.7652798Z",
+    "passed": 86,
+    "failed": 0,
+    "proof": "Unity graphical Play Mode, real SourceMotor, existing AI input and physical collisions; actual HUD R and E actions",
+    "trips": [
+      {
+        "name": "Start 0 traverses all spaces and ordered passages without unintended falls",
+        "passed": true,
+        "measurement": "seconds=62.46 falls=0 requested=0"
+      },
+      {
+        "name": "Start 5 traverses all spaces and ordered passages without unintended falls",
+        "passed": true,
+        "measurement": "seconds=60.78 falls=0 requested=0"
+      },
+      {
+        "name": "Start 2 traverses all spaces and ordered passages without unintended falls",
+        "passed": true,
+        "measurement": "seconds=61.395 falls=4 requested=4"
+      }
+    ],
+    "report": "validation.json"
+  },
+  "twoSeatBell": {
+    "utc": "2026-11-26T08:04:08.0681707Z",
+    "passed": 30,
+    "failed": 0,
+    "mode": "Two participants within one editor process, not network peers",
+    "report": "bell-checkpoints.json"
+  },
+  "admission": {
+    "passed": 32,
+    "verified": true
+  },
+  "preservation": {
+    "unchangedFiles": 59,
+    "unexpectedFiles": 0,
+    "sceneRecords": 1879,
+    "scenePassed": true,
+    "report": "scene-preservation.json",
+    "offlineZipUnchanged": true,
+    "offlineZipSha256": "79062ab6162fee4a0113e21fbd234f79f2d0dcc8d4eda8259c32be76f9086af3"
+  },
+  "finalCompilation": {
+    "exitCode": 0,
+    "compilerErrors": 0,
+    "temporaryHelpersRemoved": true,
+    "temporaryCaptureHooksRemoved": true,
+    "log": "Build/SpatialRevision/unity-final-compile.log"
+  },
+  "visuals": {
+    "overview": "overview-comparison.png",
+    "cameraManifest": "runtime-cameras.json",
+    "bellGameView": "bell-prompt.png",
+    "notes": [
+      "Overview arrows exist only in previews; images fit their own bounds.",
+      "Observer and gameplay-camera renders are labelled separately.",
+      "Original traversal GameView frames contain the test cursor-release pause menu; selected gameplay-camera renders omit IMGUI. The bell prompt is a real unobstructed GameView."
+    ]
+  },
+  "recoveryNotes": [
+    "Initial snapshot preflight compared process-local native reference handles; fixed to use stable GlobalObjectIds without changing the saved scene.",
+    "First real traversal passed86/86. Wrapper flagged relocated Service bell AudioSource transform twice; subsequent preservation check excluded only intended position/rotation and passed1879 records. Original reports kept under Build/SpatialRevision.",
+    "No movement physics or AI adjustment was made to obtain the traversal passes."
+  ],
+  "limitations": [
+    "No human OS keyboard/mouse playthrough or subjective beginner difficulty evaluation.",
+    "No new Relay/separate-PC run or audio balance evaluation.",
+    "No new EXE, launcher release, commit or push; existing offline submission untouched."
+  ],
+  "rawEvidence": "Build/SpatialRevision/"
+}

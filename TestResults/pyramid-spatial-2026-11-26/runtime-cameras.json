@@ -1,0 +1,150 @@
+{
+  "utc": "2026-11-26T08:06:27.944Z",
+  "limitation": "Production SourceMotor/AI input traversal, not OS keyboard input. Observer images are separate cameras. GameplayCamera images use the real local camera with no IMGUI; GameView images include the actual rendered UI. Cameras do not move the player, hide geometry, or alter colliders.",
+  "shots": [
+    {
+      "utc": "2026-11-26T07:59:43.5669278Z",
+      "file": "TestResults/pyramid-spatial-2026-11-26/uturn-observer.png",
+      "method": "Observer.Camera.Render (separate observation camera)",
+      "milestone": "large-turn",
+      "seat": 0,
+      "room": 1,
+      "section": 4,
+      "eventFrame": 864,
+      "captureFrame": 864,
+      "eventFixedTime": 19.334999084472656,
+      "captureFixedTime": 19.334999084472656,
+      "playerPosition": {
+        "x": 93.41507720947266,
+        "y": -26.945146560668945,
+        "z": 184.58819580078125
+      },
+      "playerVelocity": {
+        "x": 21.925382614135742,
+        "y": -4.08602237701416,
+        "z": 0.46471428871154785
+      },
+      "cameraPosition": {
+        "x": 77.49298858642578,
+        "y": -12.295146942138672,
+        "z": 201.77792358398438
+      },
+      "cameraRotation": {
+        "x": 0.09552464634180069,
+        "y": 0.8640269041061401,
+        "z": -0.179157093167305,
+        "w": 0.4606899619102478
+      },
+      "grounded": false,
+      "surfing": true
+    },
+    {
+      "utc": "2026-11-26T08:00:08.9441688Z",
+      "file": "TestResults/pyramid-spatial-2026-11-26/upper-catch-gameplay.png",
+      "method": "GameplayCamera.Render (real local camera; no IMGUI)",
+      "milestone": "open-flight",
+      "seat": 5,
+      "room": 2,
+      "section": 9,
+      "eventFrame": 3760,
+      "captureFrame": 3760,
+      "eventFixedTime": 95.63999938964844,
+      "captureFixedTime": 95.63999938964844,
+      "playerPosition": {
+        "x": 138.42327880859375,
+        "y": -63.61591339111328,
+        "z": -37.8227424621582
+      },
+      "playerVelocity": {
+        "x": -12.247833251953125,
+        "y": 16.10892677307129,
+        "z": -11.11646556854248
+      },
+      "cameraPosition": {
+        "x": 138.60699462890625,
+        "y": -62.20979690551758,
+        "z": -37.6559944152832
+      },
+      "cameraRotation": {
+        "x": 0,
+        "y": 0.9238795638084412,
+        "z": 0,
+        "w": -0.38268327713012695
+      },
+      "grounded": false,
+      "surfing": false
+    },
+    {
+      "utc": "2026-11-26T07:59:49.4359219Z",
+      "file": "TestResults/pyramid-spatial-2026-11-26/lower-flight-observer.png",
+      "method": "Observer.Camera.Render (separate observation camera)",
+      "milestone": "open-flight",
+      "seat": 0,
+      "room": 2,
+      "section": 10,
+      "eventFrame": 1310,
+      "captureFrame": 1310,
+      "eventFixedTime": 36.689998626708984,
+      "captureFixedTime": 36.689998626708984,
+      "playerPosition": {
+        "x": 109.03987121582031,
+        "y": -63.76818084716797,
+        "z": -71.49767303466797
+      },
+      "playerVelocity": {
+        "x": -18.56242561340332,
+        "y": -1.618372917175293,
+        "z": -11.640780448913574
+      },
+      "cameraPosition": {
+        "x": 131.03025817871094,
+        "y": -49.11817932128906,
+        "z": -79.58613586425781
+      },
+      "cameraRotation": {
+        "x": 0.1519095003604889,
+        "y": -0.6496511697769165,
+        "z": 0.13470591604709625,
+        "w": 0.7326194643974304
+      },
+      "grounded": false,
+      "surfing": false
+    },
+    {
+      "utc": "2026-11-26T08:00:12.9105725Z",
+      "file": "TestResults/pyramid-spatial-2026-11-26/watergate-gameplay.png",
+      "method": "GameplayCamera.Render (real local camera; no IMGUI)",
+      "milestone": "large-turn",
+      "seat": 5,
+      "room": 3,
+      "section": 13,
+      "eventFrame": 4241,
+      "captureFrame": 4241,
+      "eventFixedTime": 107.80500030517578,
+      "captureFixedTime": 107.80500030517578,
+      "playerPosition": {
+        "x": -8.495701789855957,
+        "y": -82.09938049316406,
+        "z": -83.98773193359375
+      },
+      "playerVelocity": {
+        "x": -16.564565658569336,
+        "y": -4.3053975105285645,
+        "z": 9.709454536437988
+      },
+      "cameraPosition": {
+        "x": -8.241756439208984,
+        "y": -80.3945541381836,
+        "z": -84.1196517944336
+      },
+      "cameraRotation": {
+        "x": 0,
+        "y": 0.5010993480682373,
+        "z": 0,
+        "w": -0.8653897643089294
+      },
+      "grounded": false,
+      "surfing": true
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-27",
+  "unity": "6000.6.0f1",
+  "status": "passed",
+  "publicEditor": {
+    "completedUtc": "2026-11-27T04:34:57.2031529Z",
+    "passed": 37,
+    "failed": 0,
+    "method": "Actual Windows mouse and keyboard against graphical Unity GameView",
+    "resolutions": [
+      [
+        1280,
+        720
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        2560,
+        1080
+      ]
+    ],
+    "preferencesRestored": true,
+    "resolutionRestored": true,
+    "report": "Build/HomeUiPolish/20261127T043432910Z-f9b59001/report.json"
+  },
+  "offlinePlayer": {
+    "completedUtc": "2026-11-27T04:42:14.092Z",
+    "passed": 4,
+    "failed": 0,
+    "method": "Official offline build; actual Windows client-area mouse clicks; existing local probe observes state and captures ScreenCapture PNGs",
+    "report": "Build/HomeUiPolish/offline-ui/report.json",
+    "buildMethod": "HalliGalli.EditorTools.OfflineDemoBuild.Build",
+    "exitCode": 0
+  },
+  "preservation": {
+    "projectSettingsUnchanged": true,
+    "submittedOfflineZipUnchanged": true,
+    "originalOfflineExeUnchanged": true,
+    "originalOfflineAssemblyUnchanged": true
+  },
+  "preview": "Previews/MenuConcepts/04-final-in-game.png",
+  "limitations": [
+    "No actual public Create/Join submission or Relay multiplayer check",
+    "No audio listening or map save check",
+    "No same-frame synthetic click-through check",
+    "Public launcher/release not rebuilt or published"
+  ],
+  "temporaryUnityScriptsRemoved": true
+}

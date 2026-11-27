@@ -1,0 +1,301 @@
+{
+  "utc": "2026-11-26T08:03:37.853Z",
+  "checked": [
+    {
+      "path": "Assets/HalliGalliMovement/Demo/UserMapCourse.unity",
+      "before": "dd33b9f8152e11521db57aff064b08d3f9c9c9d525b5cbcb690d244e3037c8d5",
+      "after": "dd33b9f8152e11521db57aff064b08d3f9c9c9d525b5cbcb690d244e3037c8d5"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/UserMapCourse.unity.meta",
+      "before": "b1028c23b201a5aac8c04be25b601c241d309a1b38bb8bf0629241b9c690f024",
+      "after": "b1028c23b201a5aac8c04be25b601c241d309a1b38bb8bf0629241b9c690f024"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/CombatPractice.unity",
+      "before": "160296e50df64b6f93992d419b3f88c1ac12162246d1048713310262a4968020",
+      "after": "160296e50df64b6f93992d419b3f88c1ac12162246d1048713310262a4968020"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/CombatPractice.unity.meta",
+      "before": "82e116253726ee6373cee50adc4de5a3c0d8b636a50f1a3e8769d6e69e323065",
+      "after": "82e116253726ee6373cee50adc4de5a3c0d8b636a50f1a3e8769d6e69e323065"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/ClockworkCourse.unity",
+      "before": "cf7e9ffc71aec5dc48051d2a8815b18fb9d0f769c2a077df3b43dfcbcfecc3ed",
+      "after": "cf7e9ffc71aec5dc48051d2a8815b18fb9d0f769c2a077df3b43dfcbcfecc3ed"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/ClockworkCourse.unity.meta",
+      "before": "d0c328105650a25340c2d092b9bf46698cf67d52e89138ddb12e8c305a10e454",
+      "after": "d0c328105650a25340c2d092b9bf46698cf67d52e89138ddb12e8c305a10e454"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/RaceCourse.unity",
+      "before": "ce6995fd9e683be4320fd19c6092769d9b641c9bb9f6b2a65957fc8a591635ae",
+      "after": "ce6995fd9e683be4320fd19c6092769d9b641c9bb9f6b2a65957fc8a591635ae"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/RaceCourse.unity.meta",
+      "before": "c515c45ed0bb7ae40a1c4f0b1d116259d89db0bc37e6dab6f6c780626341cf96",
+      "after": "c515c45ed0bb7ae40a1c4f0b1d116259d89db0bc37e6dab6f6c780626341cf96"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity",
+      "before": "4d8d2392f32445458d46d1e217a49057a98969797531a6fba9552db9869fc9f3",
+      "after": "4d8d2392f32445458d46d1e217a49057a98969797531a6fba9552db9869fc9f3"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/FactoryCourse.unity.meta",
+      "before": "9f1f9f3170cab76a426d9e8d4960b91132da2c16f6db83bb4027608c0efa9220",
+      "after": "9f1f9f3170cab76a426d9e8d4960b91132da2c16f6db83bb4027608c0efa9220"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/SurfCourse.unity",
+      "before": "c097688db2acd3086daf8f5d52d50e451d2278f963c1804b251149855e31d2ca",
+      "after": "c097688db2acd3086daf8f5d52d50e451d2278f963c1804b251149855e31d2ca"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/SurfCourse.unity.meta",
+      "before": "fbfea66a08175806e8c75b64f5c81f383fe658bd5f7b5a00bc5364f65bb1e4aa",
+      "after": "fbfea66a08175806e8c75b64f5c81f383fe658bd5f7b5a00bc5364f65bb1e4aa"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity",
+      "before": "01fabd04de33c2ffde60073fca40344fe20eae88f3d41768040550d21e08757d",
+      "after": "01fabd04de33c2ffde60073fca40344fe20eae88f3d41768040550d21e08757d"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/ClimbCourse.unity.meta",
+      "before": "2af3207ad6be74a4bb1f46ff044e69e6c8cf7253ff3136436b6ef2979cef08f1",
+      "after": "2af3207ad6be74a4bb1f46ff044e69e6c8cf7253ff3136436b6ef2979cef08f1"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity",
+      "before": "5e9fe83b1ccf4996925a4c3d527799ef001b151d4bf9501c5079fc44047d246b",
+      "after": "5e9fe83b1ccf4996925a4c3d527799ef001b151d4bf9501c5079fc44047d246b"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/BellRunCourse.unity.meta",
+      "before": "a714677d4ab15c25d358851199f836ca0782abb0d9cdb65565383708ced8ec61",
+      "after": "a714677d4ab15c25d358851199f836ca0782abb0d9cdb65565383708ced8ec61"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/MovementLab.unity",
+      "before": "06739ed8e720cdf9b02611e07fb779dedcc25349dedc144f6a3531f564e1cc8c",
+      "after": "06739ed8e720cdf9b02611e07fb779dedcc25349dedc144f6a3531f564e1cc8c"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/MovementLab.unity.meta",
+      "before": "a309f4420ca9f7a20283c5d5cc558e937132a0fd3098ab7d697fe54e219c8c7f",
+      "after": "a309f4420ca9f7a20283c5d5cc558e937132a0fd3098ab7d697fe54e219c8c7f"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/SurfMovement.asset",
+      "before": "73734179bda0a06f9113b25d081f0b9937a070a9d6cdfb8a2ffcd449492af40f",
+      "after": "73734179bda0a06f9113b25d081f0b9937a070a9d6cdfb8a2ffcd449492af40f"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/SurfMovement.asset.meta",
+      "before": "77d2df2b3992d6ee4e45a0d62f37fe535250b6b45f9b2472e26baae1404d266c",
+      "after": "77d2df2b3992d6ee4e45a0d62f37fe535250b6b45f9b2472e26baae1404d266c"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/DefaultMovement.asset",
+      "before": "f88fefeadb8570df409d5307cc3f18206fefd705ddb7239448f4aa8588091628",
+      "after": "f88fefeadb8570df409d5307cc3f18206fefd705ddb7239448f4aa8588091628"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Settings/DefaultMovement.asset.meta",
+      "before": "7d6ab08ad70c6c86f9db191d47e2bae2935b13c6dc6b9d171564d73674278aa0",
+      "after": "7d6ab08ad70c6c86f9db191d47e2bae2935b13c6dc6b9d171564d73674278aa0"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/SourceMotor.cs",
+      "before": "5d6b3049f41143ff3b136de1fef144ad80be0582895d00932d91cd6871d7fef9",
+      "after": "5d6b3049f41143ff3b136de1fef144ad80be0582895d00932d91cd6871d7fef9"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/SurfCourse.cs",
+      "before": "16a750cd50ce578fe822bc713fa181292d74b55d3e1fafe72f39ed972cafcfc8",
+      "after": "16a750cd50ce578fe822bc713fa181292d74b55d3e1fafe72f39ed972cafcfc8"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/CourseRival.cs",
+      "before": "eb8bbc5794a4b7e0736598b1d68c424a5601ee1880951e6af4c32e16f4017af0",
+      "after": "eb8bbc5794a4b7e0736598b1d68c424a5601ee1880951e6af4c32e16f4017af0"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/CourseCheckpoints.cs",
+      "before": "db86e769248907d26bcada4c15779a3532a3a33599c44b045a01839079501fe9",
+      "after": "db86e769248907d26bcada4c15779a3532a3a33599c44b045a01839079501fe9"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/CourseSession.cs",
+      "before": "e66a08216093417f8b84a4f92fed180d71d1683252152ecd20c5ae9c9814dbe6",
+      "after": "e66a08216093417f8b84a4f92fed180d71d1683252152ecd20c5ae9c9814dbe6"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/GameRelease.cs",
+      "before": "a93cea1384cd9729193bf89a4445d28eaa76500405c8e302a28230905078017d",
+      "after": "a93cea1384cd9729193bf89a4445d28eaa76500405c8e302a28230905078017d"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/GameEdition.cs",
+      "before": "9fb207ef6284734f2861b946969c7ebb8c623bca844f00a3b33da6bc979f6717",
+      "after": "9fb207ef6284734f2861b946969c7ebb8c623bca844f00a3b33da6bc979f6717"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Runtime/CourseNetwork.Gameplay.cs",
+      "before": "b33ca0893794b2b27df59ab364c5c83458621a2dde6c27c148cc2c606847727f",
+      "after": "b33ca0893794b2b27df59ab364c5c83458621a2dde6c27c148cc2c606847727f"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/clockwork.asset",
+      "before": "7c6c495029bf948386fd8b809698f8d8320e21e010b4cda44ba6116c1849c681",
+      "after": "7c6c495029bf948386fd8b809698f8d8320e21e010b4cda44ba6116c1849c681"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/CourseMaps.asset",
+      "before": "65fec63a07921b317124bb8f53092829b8d3e32d53b35c708d6b55849e43177d",
+      "after": "65fec63a07921b317124bb8f53092829b8d3e32d53b35c708d6b55849e43177d"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/item-race.asset",
+      "before": "978c6b320645a1b2458a68c4e0e8e893c11c11cb3d318c770f1748dae14a8624",
+      "after": "978c6b320645a1b2458a68c4e0e8e893c11c11cb3d318c770f1748dae14a8624"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/summit.asset",
+      "before": "5afb18eb35e5d8fe33480b2a3e21ade09a6d7c756386a94ed685d07b081c506c",
+      "after": "5afb18eb35e5d8fe33480b2a3e21ade09a6d7c756386a94ed685d07b081c506c"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/surf.asset",
+      "before": "b0fdc08f84a9b57598e870f5ee106ead0d581fe6cd89b2e17f6b3403fc6fa61e",
+      "after": "b0fdc08f84a9b57598e870f5ee106ead0d581fe6cd89b2e17f6b3403fc6fa61e"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/precision.asset",
+      "before": "411fc46358c942dc2ac1e04908ebfa02625ff9ff78441b9c204d702a23d3e407",
+      "after": "411fc46358c942dc2ac1e04908ebfa02625ff9ff78441b9c204d702a23d3e407"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/first-steps.asset",
+      "before": "17cc74f45e70abf9783d470ea74b522ac62b31ee839cfae8dc8edddbba0f61d0",
+      "after": "17cc74f45e70abf9783d470ea74b522ac62b31ee839cfae8dc8edddbba0f61d0"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/factory.asset",
+      "before": "4d0d18d2d803e163494116b6f47c821244ea7e1d919cf1540c7dd74091ef8a40",
+      "after": "4d0d18d2d803e163494116b6f47c821244ea7e1d919cf1540c7dd74091ef8a40"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair.fbx",
+      "before": "38449619863c99e29760abc33c08c2c98d883a724583733ead4d5f1cd6322674",
+      "after": "38449619863c99e29760abc33c08c2c98d883a724583733ead4d5f1cd6322674"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair.fbx.meta",
+      "before": "9aaafc390b48e2702504b123012eb41d6b62cb32eb31550962094a6c281d7d0c",
+      "after": "9aaafc390b48e2702504b123012eb41d6b62cb32eb31550962094a6c281d7d0c"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Material_0.mat",
+      "before": "fbf2715ec51628426a51c8ef2193f70c5d1da70cc9767194346773e0cbbc14af",
+      "after": "fbf2715ec51628426a51c8ef2193f70c5d1da70cc9767194346773e0cbbc14af"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Material_0.mat.meta",
+      "before": "ab9171a9731d5180a1c37e2ec607110e44fd3d95976903a79eaff38a2a04d71e",
+      "after": "ab9171a9731d5180a1c37e2ec607110e44fd3d95976903a79eaff38a2a04d71e"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_MetalSmooth_0.png",
+      "before": "45aa027ffe1a957e48e5148f2b7cd0efdf2ce930d50303669389090a76b338ef",
+      "after": "45aa027ffe1a957e48e5148f2b7cd0efdf2ce930d50303669389090a76b338ef"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_MetalSmooth_0.png.meta",
+      "before": "571bfca5f45ea63b6eaac8ff169127d099debdd2fa5393158331be2cea149229",
+      "after": "571bfca5f45ea63b6eaac8ff169127d099debdd2fa5393158331be2cea149229"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Occlusion_0.png",
+      "before": "49c8c56d509296669f01cf18365984d4b4a3920b9da04b137eb0443d6eefe29f",
+      "after": "49c8c56d509296669f01cf18365984d4b4a3920b9da04b137eb0443d6eefe29f"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Occlusion_0.png.meta",
+      "before": "428e94f822cce3931846774f40373303a165cdf4737ee435ac1b6dc84574d4c3",
+      "after": "428e94f822cce3931846774f40373303a165cdf4737ee435ac1b6dc84574d4c3"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Texture_0.png",
+      "before": "79e77b620099071aa9f74cc9f0eefea80f9450b6b0933e1220d6011edc6565e2",
+      "after": "79e77b620099071aa9f74cc9f0eefea80f9450b6b0933e1220d6011edc6565e2"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Texture_0.png.meta",
+      "before": "7251d6d9c0011ed9c210e2cc71f2f68c261b984bf6bd688d70be5066e8d524fa",
+      "after": "7251d6d9c0011ed9c210e2cc71f2f68c261b984bf6bd688d70be5066e8d524fa"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Texture_1.png",
+      "before": "cd6bb2e7f345972838deabb4d4f8a0a61311a19d7146cbf701681b9fe5fd0fb5",
+      "after": "cd6bb2e7f345972838deabb4d4f8a0a61311a19d7146cbf701681b9fe5fd0fb5"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Texture_1.png.meta",
+      "before": "b96a094fbdc44f5f0f2b5aab10ca4574962c962042d6a6c96e1e0b43de348419",
+      "after": "b96a094fbdc44f5f0f2b5aab10ca4574962c962042d6a6c96e1e0b43de348419"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Texture_2.png",
+      "before": "e4dcab9e08b8fc8690c7aafa805bc39655a1130028027d05a7cb3b08d8b8f475",
+      "after": "e4dcab9e08b8fc8690c7aafa805bc39655a1130028027d05a7cb3b08d8b8f475"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/WorkshopChair_Texture_2.png.meta",
+      "before": "2ecb83c33dd352be063b7938b92c5aaa3a35f2ef7b0e177d5e20f6a554c6d465",
+      "after": "2ecb83c33dd352be063b7938b92c5aaa3a35f2ef7b0e177d5e20f6a554c6d465"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/asset.json",
+      "before": "2c63fda783de64b0c44ea98c7acc5303aefac7c9d07f87c7f95fa027cce1e2f3",
+      "after": "2c63fda783de64b0c44ea98c7acc5303aefac7c9d07f87c7f95fa027cce1e2f3"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Art/Environment/WorkshopChair/asset.json.meta",
+      "before": "e83f627cd5483db5c175428cd5f85d8a9c7f5ae052a5db3c35f6a50c8ac4e5eb",
+      "after": "e83f627cd5483db5c175428cd5f85d8a9c7f5ae052a5db3c35f6a50c8ac4e5eb"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Demo/PyramidSurfCourse.unity.meta",
+      "before": "1fc5cf366cbc03363d60da209b05bfcdc0714321b9f6778a7627e16758e884ae",
+      "after": "1fc5cf366cbc03363d60da209b05bfcdc0714321b9f6778a7627e16758e884ae"
+    },
+    {
+      "path": "Assets/HalliGalliMovement/Maps/pyramid.asset.meta",
+      "before": "bf33797ab52d86a549fdd409e834d4f8867fcb6a6a849da15ac253f26cc6d011",
+      "after": "bf33797ab52d86a549fdd409e834d4f8867fcb6a6a849da15ac253f26cc6d011"
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "before": "49d8b4b0e12e4cb2997986b4f73ec4c01fa3c3ad41548f9b53d7116888e11f15",
+      "after": "49d8b4b0e12e4cb2997986b4f73ec4c01fa3c3ad41548f9b53d7116888e11f15"
+    },
+    {
+      "path": "Packages/manifest.json",
+      "before": "c81a87b9507e2d3cb8c882afd860207d8bae8f338d0d833d6a3d6e4eb7b6d728",
+      "after": "c81a87b9507e2d3cb8c882afd860207d8bae8f338d0d833d6a3d6e4eb7b6d728"
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "before": "3e09f66e8e54c07b7a468a7564ffce9d375e9894e4026d5ccecf40d7d1c7881b",
+      "after": "3e09f66e8e54c07b7a468a7564ffce9d375e9894e4026d5ccecf40d7d1c7881b"
+    }
+  ],
+  "changed": []
+}

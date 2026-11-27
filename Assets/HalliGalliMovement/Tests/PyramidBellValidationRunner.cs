@@ -23,7 +23,7 @@ public sealed class PyramidBellValidationRunner:MonoBehaviour
         CourseNetwork.Instance.StartPractice();yield return null;
         var session=FindAnyObjectByType<CourseSession>();var surf=session.roster.surf;var hud=FindAnyObjectByType<CourseHUD>();
         session.cardGame.botEnabled=false;session.cardGame.shuffleOnReset=false;session.cardGame.seed=20261020;hud.ReadInput=false;session.roster.StartNewGame(2);
-        session.Local.GetComponent<SourcePlayerController>().controlsEnabled=false;
+        session.Local.GetComponent<SourcePlayerController>().enabled=false;
         foreach(var p in session.roster.allParticipants){p.Initialize();p.Combat.readInput=false;var bot=p.GetComponent<CourseRival>();if(bot)bot.enabled=false;}
         foreach(var r in session.bellTarget.GetComponentsInChildren<Renderer>())if(r.enabled)
             CheckResult("Visible bell remains at its interaction target",Vector3.Distance(r.bounds.center,session.bellTarget.position)<.4f,"target="+session.bellTarget.position+" bounds="+r.bounds);
@@ -34,22 +34,30 @@ public sealed class PyramidBellValidationRunner:MonoBehaviour
             var runner=session.participants[seat];runner.Stand();
             runner.Motor.Teleport(surf.finish.position);runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
             CheckResult("Seat "+seat+" cannot skip directly to bell",!session.CanRing(runner));
-            runner.Motor.Teleport(session.checkpoints.points[3].spawn.position+Vector3.up*2);runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
+            runner.Motor.Teleport(session.checkpoints.points[3].spawn.position+Vector3.up*(seat==0?2:-8));runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
             CheckResult("Seat "+seat+" cannot skip preceding checkpoints",runner.CheckpointIndex==-1);
             for(int index=0;index<session.checkpoints.points.Length;index++){
                 var point=session.checkpoints.points[index];
-                runner.Motor.Teleport(point.spawn.position+Vector3.up*2);
-                runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();yield return new WaitForFixedUpdate();
-                CheckResult("Seat "+seat+" airborne checkpoint "+index,!runner.Motor.Grounded&&runner.CheckpointIndex==index,"saved="+runner.CheckpointIndex+" gates="+surf.GatesPassed(runner));
+                if(seat==0){
+                    runner.Motor.Teleport(point.spawn.position+Vector3.up*2);
+                    runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();yield return new WaitForFixedUpdate();
+                }else{
+                    var area=point.landing.bounds;
+                    runner.Motor.Teleport(new Vector3(area.min.x-3,point.spawn.position.y-8,area.center.z));
+                    var state=runner.Motor.CaptureNetworkState();state.velocity=Vector3.right*55;runner.Motor.RestoreNetworkState(state);
+                    for(int tick=0;tick<60&&runner.CheckpointIndex<index&&!runner.IsRespawning;tick++){
+                        runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
+                    }
+                }
+                CheckResult("Seat "+seat+" "+(seat==0?"above":"55m/s below")+" deck checkpoint "+index,
+                    !runner.Motor.Grounded&&runner.CheckpointIndex==index&&(seat==0||runner.Motor.HorizontalSpeed>50),
+                    "saved="+runner.CheckpointIndex+" speed="+runner.Motor.HorizontalSpeed+" gates="+surf.GatesPassed(runner));
                 if(seat==0)hud.ProcessActions(false,false,true);else runner.RequestRespawn();
                 yield return new WaitForSeconds(.85f);
                 CheckResult("Seat "+seat+" R returns to checkpoint "+index,!runner.IsRespawning&&runner.CheckpointIndex==index&&Vector3.Distance(runner.transform.position,point.spawn.position)<.15f,"position="+runner.transform.position);
-                // Set the arrival fixture for the next independent checkpoint even in the failing-before run.
-                runner.SetCheckpoint(index,0);surf.RestoreCheckpointProgress(runner,point.surfGates);
             }
             runner.Motor.Teleport(session.checkpoints.points[0].spawn.position);runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
             CheckResult("Seat "+seat+" backtracking preserves furthest checkpoint",runner.CheckpointIndex==3);
-            runner.SetCheckpoint(session.checkpoints.points.Length-1,0);surf.RestoreCheckpointProgress(runner,session.checkpoints.points.Last().surfGates);
             runner.Motor.Teleport(surf.finish.position);
             for(int i=0;i<5;i++){runner.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
             CheckResult("Seat "+seat+" valid checkpoint route can ring without touching every bank",session.CanRing(runner),"grounded="+runner.Motor.Grounded+" gates="+surf.GatesPassed(runner)+" claim="+session.cardGame.Match.CanClaim(seat));
@@ -68,15 +76,27 @@ public sealed class PyramidBellValidationRunner:MonoBehaviour
             CheckResult("Seat "+seat+" interaction awards cards and reseats both players",session.BellCount==1&&session.cardGame.Match.LastCollector==seat&&session.cardGame.Match.LastCollectedCount>0&&session.participants.All(p=>p.IsSeated));
         }
         session.ResetPractice();yield return new WaitForFixedUpdate();
-        var local=session.Local;local.Stand();local.Motor.Teleport(session.checkpoints.points[0].spawn.position+Vector3.up*2);local.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
+        var local=session.Local;local.Stand();local.Motor.Teleport(session.checkpoints.points[0].spawn.position-Vector3.up*8);local.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
         CheckResult("Wrong card departure cannot save a checkpoint",local.CheckpointIndex==-1);
         local.SetCheckpoint(session.checkpoints.points.Length-1,0);surf.RestoreCheckpointProgress(local,surf.sections.Length);local.Motor.Teleport(surf.finish.position);local.Motor.Simulate(default,Time.fixedDeltaTime);
         CheckResult("Wrong card departure still cannot claim the bell",!session.CanRing(local));
-        session.ResetPractice();yield return new WaitForFixedUpdate();
-        for(int attempts=0;!session.cardGame.Match.HasExactFive()&&attempts<1000;attempts++)session.cardGame.Match.Reveal(session.cardGame.Match.Turn);
-        if(!session.cardGame.Match.HasExactFive())throw new InvalidOperationException("Fixed deck failed to produce a legal departure.");
-        local.Stand();var first=session.checkpoints.points[0];local.Motor.Teleport(first.spawn.position-Vector3.up*2);local.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
-        CheckResult("Passing underneath a checkpoint does not save it",local.CheckpointIndex==-1);
+        var first=session.checkpoints.points[0];var bounds=first.landing.bounds;
+        var positions=new[]{
+            new Vector3(bounds.max.x+1.5f,first.spawn.position.y-8,bounds.center.z),
+            new Vector3(bounds.max.x+.5f,first.spawn.position.y-8,bounds.center.z),
+            first.spawn.position+Vector3.up*50,
+            new Vector3(bounds.center.x,session.fallHeight-1,bounds.center.z)
+        };
+        var names=new[]{"Outside the column cannot save progress","Column edge clearance saves an under-deck pass",
+            "High aerial passage saves progress","Below the lethal height cannot save progress"};
+        var expected=new[]{-1,0,0,-1};
+        for(int test=0;test<positions.Length;test++){
+            session.ResetPractice();yield return new WaitForFixedUpdate();
+            for(int attempts=0;!session.cardGame.Match.HasExactFive()&&attempts<1000;attempts++)session.cardGame.Match.Reveal(session.cardGame.Match.Turn);
+            if(!session.cardGame.Match.HasExactFive())throw new InvalidOperationException("Fixed deck failed to produce a legal departure.");
+            local.Stand();local.Motor.Teleport(positions[test]);local.Motor.Simulate(default,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
+            CheckResult(names[test],local.CheckpointIndex==expected[test],"saved="+local.CheckpointIndex+" position="+local.transform.position);
+        }
     }
     void CheckResult(string name,bool passed,string detail=""){checks.Add(new Check{name=name,passed=passed,detail=detail});Save();}
     void Save(){Directory.CreateDirectory("TestResults");File.WriteAllText("TestResults/pyramid-bell-checkpoints.json",JsonUtility.ToJson(new Report{utc=DateTime.UtcNow.ToString("O"),passed=checks.Count(c=>c.passed),failed=checks.Count(c=>!c.passed),checks=checks},true));}

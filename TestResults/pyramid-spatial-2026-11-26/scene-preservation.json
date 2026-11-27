@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-26T08:03:58.8699703Z",
+  "baseline": "Build/SpatialRevision/scene-before.json",
+  "after": "Build/SpatialRevision/scene-final.json",
+  "passed": true,
+  "beforeRecords": 1879,
+  "afterRecords": 1879,
+  "differences": [],
+  "normalization": [
+    "Native .m_FileID/.m_PathID handles excluded; persistent GlobalObjectIds retained.",
+    "Only regenerated bank child list excluded on Pyramid surf course root.",
+    "Only Service bell root position/rotation excluded because it follows the new finish; scale, identity, audio and other properties retained."
+  ],
+  "baselineSha256": "08ee13079ae24fb110e29ae70367ef909d1f100628e11d82921dd530f8c1995e",
+  "afterSha256": "dd6c7b222abb6492f7717e3bd496f348205eecbd89cc7273a0dd3f186c4fa458"
+}
