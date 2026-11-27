@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-27T06:13:12.673Z",
+  "version": "1.0.14",
+  "protocol": 46,
+  "release": {
+    "url": "https://github.com/alphamon1114/halligalli-deathrun/releases/tag/v1.0.14",
+    "publishedUtc": "2026-11-27T05:54:18Z",
+    "draft": false,
+    "prerelease": false,
+    "sourceCommit": "e2b5158ee990f8c7e35f84d86f31c32d76699461"
+  },
+  "manifest": {
+    "schemaVersion": 1,
+    "version": "1.0.14",
+    "protocol": 46,
+    "archiveName": "BellRun-Windows-1.0.14.zip",
+    "downloadUrl": "https://github.com/alphamon1114/halligalli-deathrun/releases/download/v1.0.14/BellRun-Windows-1.0.14.zip",
+    "sha256": "4bd3f400d2f25788e6b55db74c1e8d85ecbd429c83d53c8122a2d686fb567a1d",
+    "size": 547933272,
+    "entryPoint": "HalliGalliMovement.exe"
+  },
+  "launcherSha256": "93218c526b5e19a99f2e58634dff06529e214dd3e6765e647c1cfbfe47674cb0",
+  "buildEvidence": "../release-1.0.14-build.json",
+  "launcher": {
+    "from": "1.0.13",
+    "to": "1.0.14",
+    "updatePassed": true,
+    "playPassed": true,
+    "oldVersionBlocked": true,
+    "evidence": "launcher.json"
+  },
+  "relay": {
+    "passed": 30,
+    "failed": 0,
+    "evidence": "relay.json"
+  },
+  "home": {
+    "utc": "2026-11-27T06:06:12.5294840Z",
+    "width": 1280,
+    "height": 720,
+    "gateAllowed": true,
+    "diagnosticProbe": false,
+    "audioDisabled": true,
+    "capture": "Win32 PrintWindow of owned downloaded public game window, inspected visually",
+    "image": "normal-home.png"
+  },
+  "preferences": {
+    "utc": "2026-11-27T06:11:43.3323361Z",
+    "originalValues": 95,
+    "restoredValues": 95,
+    "testAddedValuesRemoved": 8,
+    "mismatches": 0,
+    "publicGamesRemaining": 0
+  },
+  "knownSdkWarnings": {
+    "observed": true,
+    "evidence": "sdk-warnings.json",
+    "note": "Lobby duplicate-event ArgumentException and deleted-lobby 404 reappeared; tested gameplay and cleanup passed. Do not claim all SDK errors resolved."
+  },
+  "verificationHarnessCorrections": [
+    "The initial temporary verifier wrongly required exported race-five while everyone was seated. As in the existing verifier, exposed-card synchronization is checked before standing, and race-five plus legal standing after Interact. The game was unchanged.",
+    "Windows active-log shared access and window-only screenshot capture corrected; no external application image retained."
+  ],
+  "limitations": [
+    "Real internet Relay on one PC with distinct authentication profiles; not separate-PC, long-session or packet-loss testing.",
+    "Below-deck checkpoint and bell fixtures use authoritative teleports and real guest network actions, not human surf traversal. Same-day physical traversal evidence is separately dated.",
+    "Launcher WPF clicks and sound balance were not retested.",
+    "Existing G-STAR offline ZIP and demo binaries were preserved; the new public release was not published as an offline demo."
+  ],
+  "rawEvidenceRoot": "Build/Release114/"
+}

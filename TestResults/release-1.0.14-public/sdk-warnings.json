@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-27T06:13:12.673Z",
+  "observations": [
+    {
+      "source": "completed-host",
+      "lines": [
+        {
+          "line": 43,
+          "text": "[Multiplayer]: System.ArgumentException: An item with the same key has already been added. Key: 4"
+        },
+        {
+          "line": 50,
+          "text": "[Multiplayer]: Unity.Services.Lobbies.LobbyServiceException: lobby not found ---> Unity.Services.Lobbies.Http.HttpException`1[Unity.Services.Lobbies.Models.ErrorStatus]: (404) HTTP/1.1 404 Not Found"
+        }
+      ]
+    },
+    {
+      "source": "completed-guest",
+      "lines": []
+    },
+    {
+      "source": "fixture-failure-guest",
+      "lines": [
+        {
+          "line": 33,
+          "text": "[Online] Room cleanup: SessionException: session not found"
+        }
+      ]
+    }
+  ]
+}
